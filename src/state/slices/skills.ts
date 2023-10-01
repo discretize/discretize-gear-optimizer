@@ -1,8 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { allClassModifiersById } from '../../assets/modifierdata';
 import { changeAll, changeProfession, setBuildTemplate } from './controlsSlice';
-import { RootState } from '../store';
-import { AppliedModifier } from '../optimizer/optimizerSetup';
+import type { RootState } from '../store';
+import type { AppliedModifier } from '../optimizer/optimizerSetup';
 
 interface SkillValue {
   amount?: string;

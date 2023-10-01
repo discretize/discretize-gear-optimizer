@@ -6,8 +6,8 @@ import {
 } from '../../assets/modifierdata';
 import { SPECIALIZATIONS } from '../../utils/gw2-data';
 import { changeAll, changeProfession, getProfession, setBuildTemplate } from './controlsSlice';
-import { AppliedModifier } from '../optimizer/optimizerSetup';
-import { RootState } from '../store';
+import type { AppliedModifier } from '../optimizer/optimizerSetup';
+import type { RootState } from '../store';
 import { enumArrayIncludes } from '../../utils/usefulFunctions';
 
 interface TraitValue {

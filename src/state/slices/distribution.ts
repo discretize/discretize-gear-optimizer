@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { changeAll, setBuildTemplate } from './controlsSlice';
-import { RootState } from '../store';
+import type { RootState } from '../store';
 
 const clone =
   typeof structuredClone === 'function'

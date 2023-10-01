@@ -8,7 +8,7 @@ import { getExtraModifiersModifiers } from '../slices/extraModifiers';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getSkillsModifiers } from '../slices/skills';
 import { getTraitsModifiers } from '../slices/traits';
-import { RootState } from '../store';
+import type { RootState } from '../store';
 import { AppliedModifier, Combination, ResultData, Settings } from './optimizerSetup';
 import { getAffixName, getAttributeName } from './utils';
 

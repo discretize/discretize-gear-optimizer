@@ -1,4 +1,4 @@
-import { RootState } from '../store';
+import type { RootState } from '../store';
 import {
   CalculateGenerator,
   Character,

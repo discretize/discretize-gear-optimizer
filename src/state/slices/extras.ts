@@ -2,7 +2,7 @@
 import { PayloadAction, createSlice, original } from '@reduxjs/toolkit';
 import { allExtrasModifiersById } from '../../assets/modifierdata';
 import { mapValues, objectEntries } from '../../utils/usefulFunctions';
-import { RootState } from '../store';
+import type { RootState } from '../store';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
 export const extrasTypes = ['Sigil1', 'Sigil2', 'Runes', 'Relics', 'Nourishment', 'Enhancement'];

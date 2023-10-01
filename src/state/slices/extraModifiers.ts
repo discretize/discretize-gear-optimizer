@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { changeAll } from './controlsSlice';
-import { RootState } from '../store';
-import { AppliedModifier } from '../optimizer/optimizerSetup';
+import type { RootState } from '../store';
+import type { AppliedModifier } from '../optimizer/optimizerSetup';
 
 const initialState: {
   error: string;

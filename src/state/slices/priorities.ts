@@ -7,7 +7,7 @@ import {
   WeaponTypes,
 } from '../../utils/gw2-data';
 import { changeAll, setBuildTemplate } from './controlsSlice';
-import { RootState } from '../store';
+import type { RootState } from '../store';
 
 type Data = Partial<Record<AffixNameOrCustom, boolean[]>>;
 

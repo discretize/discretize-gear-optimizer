@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { changeAll } from './controlsSlice';
-import { RootState } from '../store';
+import type { RootState } from '../store';
 
 const initialState = {
   attackRate: '0.4',

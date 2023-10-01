@@ -17,7 +17,7 @@ import {
   damagingConditions,
 } from '../../utils/gw2-data';
 import { getExtrasIds } from '../slices/extras';
-import { RootState } from '../store';
+import type { RootState } from '../store';
 import { Combination, Settings } from './optimizerSetup';
 
 const attributes = [

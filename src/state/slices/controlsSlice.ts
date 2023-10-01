@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { PayloadAction, createSelector, createSlice, original } from '@reduxjs/toolkit';
 import { OptimizerStatus, RUNNING, WAITING } from '../optimizer/status';
-import { RootState } from '../store';
+import type { RootState } from '../store';
 import { Character } from '../optimizer/optimizerCore';
 import {
   IndicatorName,
