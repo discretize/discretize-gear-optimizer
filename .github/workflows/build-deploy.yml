@@ -19,6 +19,8 @@ concurrency:
 jobs:
   deploy:
     runs-on: [self-hosted]
+    container: 
+      image: node:18
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
