@@ -133,6 +133,7 @@ async function start_heuristics(
       Sigil2: leaf[2],
       Enhancement: leaf[3],
       Nourishment: leaf[4],
+      Relics: leaf[5],
     };
 
     const extrasCombinationEntry: ExtrasCombinationEntry = {
