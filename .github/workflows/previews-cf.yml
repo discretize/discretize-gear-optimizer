@@ -6,7 +6,6 @@ on:
 env:
   PAGES_PROJECT_NAME: discretize-optimizer
   NODE_VERSION: 18
-  APIKEY: ${{ secrets.CF_GLOBAL_APIKEY }}
   
 jobs:
   deployment:
@@ -14,6 +13,8 @@ jobs:
     permissions:
       contents: read
       deployments: write
+    env:
+      APIKEY: ${{ secrets.CF_GLOBAL_APIKEY }}
     if: >
       env.APIKEY != null &&
       !contains(github.event.head_commit.message, 'skip ci') &&
