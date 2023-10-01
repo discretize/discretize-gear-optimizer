@@ -15,13 +15,13 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Setup Node
+      - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
       - name: Cache dependencies
         id: node-modules-cache
         uses: actions/cache@v3
@@ -31,6 +31,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
+      - name: Cache Rust
+        uses: Swatinem/rust-cache@v2
 
       - name: Check Rust with cargo
         run: yarn wasmCheck
