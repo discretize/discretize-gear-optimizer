@@ -1,5 +1,7 @@
 name: 'Deploy: Cloudflare and Github Pages'
 
+runs-on: self-hosted
+
 on:
   push:
     branches:
