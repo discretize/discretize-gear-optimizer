@@ -14,8 +14,9 @@ import {
   changeExotic,
   changeAllExotic,
   getUsedExoticsData,
-  getPriority,
   getExclusionData,
+  getAffixes,
+  getWeaponType,
 } from '../../../state/slices/priorities';
 import { getForcedSlots } from '../../../state/slices/forcedSlots';
 import { GEAR_SLOTS, WeaponTypes } from '../../../utils/gw2-data';
@@ -36,8 +37,8 @@ const ExoticSlots = () => {
   const dispatch = useDispatch();
   const forcedSlots = useSelector(getForcedSlots);
   const excludedSlots = useSelector(getExclusionData);
-  const dualWielded = useSelector(getPriority('weaponType'));
-  const affixes = useSelector(getPriority('affixes'));
+  const dualWielded = useSelector(getWeaponType);
+  const affixes = useSelector(getAffixes);
   const exotics = useSelector(getUsedExoticsData);
 
   let SLOTS = GEAR_SLOTS;

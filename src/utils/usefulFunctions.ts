@@ -1,7 +1,4 @@
-import type { ProfessionName } from './gw2-data';
-import { Classes, Defense } from './gw2-data';
-
-function firstUppercase(text: string | undefined | null): string {
+export function firstUppercase(text: string | undefined | null): string {
   if (typeof text === 'undefined' || text === null || text === '') return '';
 
   const toUpper = (str: string) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
@@ -45,28 +42,24 @@ export const parsePriority = (text: number | string | null | undefined) =>
 export const parseBoss = (text: number | string | null | undefined) =>
   parseNumber(text, null, false);
 
-export const getWeight = (profession: ProfessionName) => {
-  // Calculate weight class
-  const { defense } = Classes[firstUppercase(profession) as ProfessionName];
-  if (defense === Defense.HEAVY) {
-    return 'Heavy';
-  }
-  if (defense === Defense.MEDIUM) {
-    return 'Medium';
-  }
-  return 'Light';
-};
+export const objectEntries = Object.entries as <Type extends object>(
+  value: Type,
+) => Array<[keyof Type, Type[keyof Type]]>;
+
+export const objectKeys = Object.keys as <Type extends object>(value: Type) => Array<keyof Type>;
 
 /*
  * Like Array.prototype.map(), but for key-value objects.
  * Creates a new key-value object containing the key-value pairs of the input object, except the
  * values are transformed by the input function.
  */
-export function mapValues<In, Out>(
-  obj: Record<string, In>,
+export function mapValues<Key extends string, In, Out>(
+  obj: Record<Key, In>,
   callbackFn: (v: In) => Out,
-): Record<string, Out> {
-  return Object.fromEntries(Object.entries(obj).map(([key, value]) => [key, callbackFn(value)]));
+) {
+  return Object.fromEntries(
+    objectEntries(obj).map(([key, value]) => [key, callbackFn(value)]),
+  ) as Record<Key, Out>;
 }
 
 /*

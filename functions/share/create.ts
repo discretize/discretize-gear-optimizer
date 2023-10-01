@@ -4,6 +4,10 @@ import isEqual from 'arraybuffer-equal';
 import { Buffer } from 'buffer';
 import base64 from 'urlsafe-base64';
 
+interface Env {
+  SHORT_LINKS: KVNamespace;
+}
+
 async function generate_hash(data: ArrayBuffer) {
   const hashBuffer = await crypto.subtle.digest('SHA-256', data);
   const hash = base64.encode(Buffer.from(hashBuffer));
@@ -11,7 +15,7 @@ async function generate_hash(data: ArrayBuffer) {
 }
 
 // stolen from https://gist.github.com/obezuk/4394d1b2a1b057af997bab4363e631bc
-async function generate_rand(KV_NAMESPACE, i: number) {
+async function generate_rand(KV_NAMESPACE: KVNamespace, i: number) {
   // recursively fetch randon values incase there is a collision
   if (i >= 5) {
     throw new Error('Limiting random key checks to 5');
@@ -34,7 +38,7 @@ async function generate_rand(KV_NAMESPACE, i: number) {
   }
 }
 
-export async function onRequestPost(context) {
+export const onRequestPost: PagesFunction<Env> = async (context) => {
   // Contents of context object
   const {
     request,
@@ -94,4 +98,4 @@ export async function onRequestPost(context) {
       },
     );
   }
-}
+};

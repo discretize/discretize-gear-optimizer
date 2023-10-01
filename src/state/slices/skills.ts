@@ -1,14 +1,27 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { allClassModifiersById } from '../../assets/modifierdata';
 import { changeAll, changeProfession, setBuildTemplate } from './controlsSlice';
+import type { RootState } from '../store';
+import type { AppliedModifier } from '../optimizer/optimizerSetup';
+
+interface SkillValue {
+  amount?: string;
+}
+
+// todo: specify skills keys
+type SkillsValues = Record<string, SkillValue>;
+
+const initialState: {
+  skills: SkillsValues;
+} = {
+  skills: {},
+};
 
 export const skillsSlice = createSlice({
   name: 'skills',
-  initialState: {
-    skills: {},
-  },
+  initialState,
   reducers: {
-    toggleSkill: (state, action) => {
+    toggleSkill: (state, action: PayloadAction<{ id: string; enabled: boolean }>) => {
       const { id, enabled } = action.payload;
 
       if (enabled) {
@@ -20,7 +33,7 @@ export const skillsSlice = createSlice({
         delete state.skills[id];
       }
     },
-    setSkillAmount: (state, action) => {
+    setSkillAmount: (state, action: PayloadAction<{ id: string; amount: string }>) => {
       const { id, amount } = action.payload;
 
       state.skills[id] = { ...state.skills[id], amount };
@@ -29,31 +42,34 @@ export const skillsSlice = createSlice({
       return { ...state, ...action.payload };
     },
   },
-  extraReducers: {
-    [changeAll]: (state, action) => {
+
+  extraReducers: (builder) => {
+    builder.addCase(changeAll, (state, action) => {
       return { ...state, ...action.payload?.form?.skills };
-    },
-    [changeProfession]: (state, action) => {
+    });
+
+    builder.addCase(changeProfession, (state, action) => {
       if (state.profession !== action.payload) {
         return {
           ...state,
           skills: {},
         };
       }
-    },
-    [setBuildTemplate]: (state, action) => {
+    });
+
+    builder.addCase(setBuildTemplate, (state, action) => {
       const { skillsPreset = {} } = action.payload;
       return { ...state, ...skillsPreset };
-    },
+    });
   },
 });
 
-export const getSkills = (state) => state.optimizer.form.skills.skills;
+export const getSkills = (state: RootState) => state.optimizer.form.skills.skills;
 
-export const getSkillsModifiers = (state) => {
+export const getSkillsModifiers = (state: RootState): AppliedModifier[] => {
   const { skills } = state.optimizer.form;
 
-  const result = [];
+  const result: any[] = [];
   Object.entries(skills.skills).forEach(([id, value]) => {
     const itemData = allClassModifiersById[id];
     if (!itemData) return;

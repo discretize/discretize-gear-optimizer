@@ -4,6 +4,8 @@
  * ------------------------------------------------------------------------
  */
 
+import { firstUppercase, objectKeys } from './usefulFunctions';
+
 export type AffixName =
   | 'Berserker'
   | 'Assassin'
@@ -894,7 +896,7 @@ export type ItemSlot = keyof typeof AscendedItem;
 export const WeaponTypes = {
   dualWield: 'Dual wield',
   twoHanded: 'Two-handed',
-};
+} as const;
 
 export const Slots = {
   'Dual wield': [
@@ -1091,9 +1093,9 @@ export type ForcedSlotName = (typeof ForcedSlots)[number];
 export const omnipotionModifiers = {
   // Condi dmg from omnipot has been removed
   'damage': {
-    'Outgoing Strike Damage': ['15%', 'add'],
-    'Outgoing Condition Damage': ['15%', 'add'],
-    'Damage Reduction': ['25%', 'add'],
+    'Outgoing Strike Damage': ['15%', 'add'] as [string, 'add'],
+    'Outgoing Condition Damage': ['15%', 'add'] as [string, 'add'],
+    'Damage Reduction': ['25%', 'add'] as [string, 'add'],
   },
   'conversion': {
     'Vitality': { 'Agony Resistance': '150%' },
@@ -1277,6 +1279,18 @@ export const Classes = {
   },
 };
 export type ProfessionName = keyof typeof Classes;
+
+export const getWeight = (profession: ProfessionName) => {
+  // Calculate weight class
+  const { defense } = Classes[firstUppercase(profession) as ProfessionName];
+  if (defense === Defense.HEAVY) {
+    return 'Heavy';
+  }
+  if (defense === Defense.MEDIUM) {
+    return 'Medium';
+  }
+  return 'Light';
+};
 
 export const conditionData = {
   Burning: {
@@ -1465,17 +1479,23 @@ export const Attributes = {
 export const MAX_INFUSIONS = 18;
 export const INFUSION_BONUS = 5;
 
-export const PROFESSIONS = [
-  { profession: 'Warrior', eliteSpecializations: ['Spellbreaker', 'Berserker', 'Bladesworn'] },
-  { profession: 'Revenant', eliteSpecializations: ['Herald', 'Renegade', 'Vindicator'] },
-  { profession: 'Guardian', eliteSpecializations: ['Dragonhunter', 'Firebrand', 'Willbender'] },
-  { profession: 'Ranger', eliteSpecializations: ['Druid', 'Soulbeast', 'Untamed'] },
-  { profession: 'Engineer', eliteSpecializations: ['Scrapper', 'Holosmith', 'Mechanist'] },
-  { profession: 'Elementalist', eliteSpecializations: ['Tempest', 'Weaver', 'Catalyst'] },
-  { profession: 'Mesmer', eliteSpecializations: ['Chronomancer', 'Mirage', 'Virtuoso'] },
-  { profession: 'Necromancer', eliteSpecializations: ['Scourge', 'Reaper', 'Harbinger'] },
-  { profession: 'Thief', eliteSpecializations: ['Daredevil', 'Deadeye', 'Specter'] },
-];
+export const SPECIALIZATIONS = {
+  Warrior: ['Spellbreaker', 'Berserker', 'Bladesworn'],
+  Revenant: ['Herald', 'Renegade', 'Vindicator'],
+  Guardian: ['Dragonhunter', 'Firebrand', 'Willbender'],
+  Ranger: ['Druid', 'Soulbeast', 'Untamed'],
+  Engineer: ['Scrapper', 'Holosmith', 'Mechanist'],
+  Elementalist: ['Tempest', 'Weaver', 'Catalyst'],
+  Mesmer: ['Chronomancer', 'Mirage', 'Virtuoso'],
+  Necromancer: ['Scourge', 'Reaper', 'Harbinger'],
+  Thief: ['Daredevil', 'Deadeye', 'Specter'],
+} as const;
+
+export const PROFESSIONS = objectKeys(SPECIALIZATIONS);
+
+export type ProfessionOrSpecializationName =
+  | keyof typeof SPECIALIZATIONS
+  | (typeof SPECIALIZATIONS)[keyof typeof SPECIALIZATIONS][number];
 
 export const GEAR_SLOTS = [
   {
@@ -1549,7 +1569,7 @@ export const INFUSION_IDS = {
 
 export type InfusionName = keyof typeof INFUSION_IDS;
 
-export const infusionIds = {
+export const agonyInfusionIds: Record<string, { id: number; cost?: number }> = {
   '+1 Agony Infusion': { id: 49424, cost: 7 },
   '+2 Agony Infusion': { id: 49425, cost: 164 },
   '+3 Agony Infusion': { id: 49426, cost: 478 },
@@ -1574,7 +1594,9 @@ export const infusionIds = {
   '+22 Agony Infusion': { id: 49445 },
   '+23 Agony Infusion': { id: 49446 },
   '+24 Agony Infusion': { id: 49447 },
+};
 
+export const statInfusionIds = {
   '+9 Stat Infusion': {
     'Power': { id: 37131 },
     'Precision': { id: 37132 },

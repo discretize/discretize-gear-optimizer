@@ -5,10 +5,10 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  changePriority,
+  changeAffixes,
+  getAffixes,
   getExclusionsEnabled,
   getExoticsEnabled,
-  getPriority,
 } from '../../../state/slices/priorities';
 import AffixesSelect from '../../baseComponents/AffixesSelect';
 import Info from '../../baseComponents/Info';
@@ -20,7 +20,7 @@ export default function Affixes() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
-  const affixes = useSelector(getPriority('affixes'));
+  const affixes = useSelector(getAffixes);
   const exclusionsEnabled = useSelector(getExclusionsEnabled);
   const exoticsEnabled = useSelector(getExoticsEnabled);
 
@@ -41,9 +41,7 @@ export default function Affixes() {
         <AffixesSelect
           multiple
           onChange={(event, value) => {
-            dispatch(
-              changePriority({ key: 'affixes', value: value.map((option) => option.label) }),
-            );
+            dispatch(changeAffixes(value.map((option) => option.label)));
           }}
           value={affixes}
         />

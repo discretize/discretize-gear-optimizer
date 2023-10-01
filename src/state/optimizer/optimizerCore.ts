@@ -182,6 +182,8 @@ export interface Character {
 }
 type AttributeName = string; // TODO: replace with AttributeName from gw2-data
 
+export type CalculateGenerator = ReturnType<OptimizerCore['calculate']>;
+
 export class OptimizerCore {
   settings: OptimizerCoreSettings;
   minimalSettings: OptimizerCoreMinimalSettings;

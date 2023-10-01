@@ -55,6 +55,10 @@ const Navbar = () => {
   const selectedSpecialization = useSelector(getSelectedSpecialization);
   const selectedTemplateName = useSelector(getSelectedTemplate);
 
+  const selectedTemplate = data.templates.list
+    .find((elem) => elem.class === profession)
+    ?.builds?.find((elem) => elem.name === selectedTemplateName);
+
   const isFractals = gamemode === 'fractals';
 
   const selectedGameModeTexts = {
@@ -217,19 +221,19 @@ const Navbar = () => {
     <Toolbar>
       <Box flexGrow={1}>
         {PROFESSIONS.map((prof, index) => (
-          <React.Fragment key={prof.profession}>
+          <React.Fragment key={prof}>
             <Button
               onClick={() => {
                 dispatch({ type: SagaTypes.Stop });
                 if (expertMode) {
-                  dispatch(changeProfession(prof.profession));
+                  dispatch(changeProfession(prof));
                 }
               }}
-              variant={prof.profession === profession ? 'contained' : 'text'}
+              variant={prof === profession ? 'contained' : 'text'}
               color="inherit"
               {...bindHover(popupState[index])}
             >
-              <Profession name={prof.profession} disableLink disableText className={classes.icon} />
+              <Profession name={prof} disableLink disableText className={classes.icon} />
             </Button>
 
             <Menu
@@ -243,19 +247,20 @@ const Navbar = () => {
               }}
             >
               {data.templates.list
-                .find((elem) => elem.class === prof.profession)
+                .find((elem) => elem.class === prof)
                 ?.builds?.map((elem) => (
                   <MenuItem
                     key={elem.name}
-                    onClick={(e) =>
-                      handleTemplateSelect(popupState[index], elem.name, prof.profession)
-                    }
+                    onClick={(e) => handleTemplateSelect(popupState[index], elem.name, prof)}
                   >
                     <Profession
                       name={elem.specialization}
                       disableLink
-                      // i18next-extract-mark-context-next-line {{buildTemplateName}}
-                      text={t('buildTemplateName', { context: elem.name })}
+                      text={
+                        // i18next-extract-mark-context-next-line {{buildTemplateName}}
+                        t('buildTemplateName', { context: elem.name }) +
+                        (elem.outdated ? t(' (Outdated)') : '')
+                      }
                     />
                   </MenuItem>
                 ))}
@@ -274,7 +279,8 @@ const Navbar = () => {
               name={selectedSpecialization}
               text={
                 // i18next-extract-mark-context-next-line {{buildTemplateName}}
-                t('buildTemplateName', { context: selectedTemplateName })
+                t('buildTemplateName', { context: selectedTemplateName }) +
+                (selectedTemplate?.outdated ? t(' (Outdated)') : '')
               }
               disableLink
             />

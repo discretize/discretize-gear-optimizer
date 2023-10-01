@@ -11,7 +11,12 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { getForcedSlots } from '../../../state/slices/forcedSlots';
-import { changeExclusion, getExclusionData, getPriority } from '../../../state/slices/priorities';
+import {
+  changeExclusion,
+  getAffixes,
+  getExclusionData,
+  getWeaponType,
+} from '../../../state/slices/priorities';
 import { GEAR_SLOTS, WeaponTypes } from '../../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({
@@ -29,8 +34,8 @@ const ExcludedSlots = () => {
 
   const dispatch = useDispatch();
   const forcedSlots = useSelector(getForcedSlots);
-  const dualWielded = useSelector(getPriority('weaponType'));
-  const affixes = useSelector(getPriority('affixes'));
+  const dualWielded = useSelector(getWeaponType);
+  const affixes = useSelector(getAffixes);
   const exclusions = useSelector(getExclusionData);
 
   let SLOTS = GEAR_SLOTS;

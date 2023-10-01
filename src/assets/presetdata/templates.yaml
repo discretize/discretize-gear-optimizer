@@ -13,6 +13,7 @@ list:
         traits: Condi Virtuoso Dueling
         extras: Condi Virtuoso Dueling
         weaponType: Dual wield
+        outdated: true
 
       # - name: Condi Virtuoso (sharpening sorrow)
       #   id: cvirt-sorrow
@@ -33,6 +34,7 @@ list:
         traits: Condi Virtuoso Chaos
         extras: Condi Virtuoso Chaos
         weaponType: Dual wield
+        outdated: true
 
       - name: Power Virtuoso GS
         id: pvirt-gs
@@ -46,6 +48,7 @@ list:
         raid:
           extras: Power (Raid, furious)
         weaponType: Two-handed
+        outdated: true
 
       - name: Quickness Power Chrono GS
         id: pchrono-stm-gs
@@ -59,8 +62,9 @@ list:
         raid:
           extras: Power Boon (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Quickness Condi Chrono (Outdated)
+      - name: Quickness Condi Chrono
         id: condi-chrono-stm
         specialization: Chronomancer
         boonType: Condi
@@ -69,6 +73,7 @@ list:
         traits: Quickness Condi Chrono
         extras: Quickness Condi Chrono
         weaponType: Dual wield
+        outdated: true
 
       - name: Alacrity Power Chrono GS
         id: pchrono-alac-gs
@@ -82,8 +87,9 @@ list:
         raid:
           extras: Power Boon (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Power Chrono IA GS (Approx.)
+      - name: Power Chrono IA GS
         id: pchrono-ia-gs
         specialization: Chronomancer
         boonType: Power
@@ -95,8 +101,9 @@ list:
         raid:
           extras: Power (Raid, furious)
         weaponType: Two-handed
+        outdated: true
 
-      # - name: Power Chrono DT Focus (outdated)
+      # - name: Power Chrono DT Focus
       #   id: pchrono-dt-focus
       #   specialization: Chronomancer
       #   boonType: Power
@@ -108,8 +115,9 @@ list:
       #   raid:
       #     extras: Power (Raid, furious)
       #   weaponType: Two-handed
+      #   outdated: true
 
-      # - name: Power Chrono IA Focus (outdated)
+      # - name: Power Chrono IA Focus
       #   id: pchrono-ia-focus
       #   specialization: Chronomancer
       #   boonType: Power
@@ -121,8 +129,9 @@ list:
       #   raid:
       #     extras: Power (Raid, furious)
       #   weaponType: Two-handed
+      #   outdated: true
 
-      - name: Alacrity Staff Mirage (Outdated)
+      - name: Alacrity Staff Mirage
         id: alacmirage
         specialization: Mirage
         boonType: Condi
@@ -131,8 +140,9 @@ list:
         traits: Alacrity Staff Mirage
         extras: Alacrity Staff Mirage
         weaponType: Two-handed
+        outdated: true
 
-      - name: Alacrity Staff / Axe Mirage (Outdated)
+      - name: Alacrity Staff / Axe Mirage
         id: alac-staxe-mirage
         specialization: Mirage
         boonType: Condi
@@ -141,8 +151,9 @@ list:
         traits: Alacrity Staff / Axe Mirage
         extras: Alacrity Staff Mirage
         weaponType: Two-handed
+        outdated: true
 
-      - name: Condi Axe Mirage (Outdated)
+      - name: Condi Axe Mirage
         id: axe-mirage-deception-torch
         specialization: Mirage
         boonType: Condi
@@ -151,11 +162,12 @@ list:
         traits: Axe Mirage
         extras: DPS Mirage (Raid)
         weaponType: Dual wield
+        outdated: true
 
   - class: Guardian
     builds:
 
-      # - name: Quickness Condi Firebrand 40% (Outdated)
+      # - name: Quickness Condi Firebrand 40%
       #   id: cqfb-firebrand-40
       #   specialization: Firebrand
       #   boonType: Condi
@@ -164,8 +176,9 @@ list:
       #   traits: Condi Quickbrand LL
       #   extras: Condi Quickbrand
       #   weaponType: Dual wield
+      #   outdated: true
 
-      # - name: Quickness Condi Firebrand 49% (Outdated)
+      # - name: Quickness Condi Firebrand 49%
       #   id: cqfb-firebrand-49
       #   specialization: Firebrand
       #   boonType: Condi
@@ -174,6 +187,7 @@ list:
       #   traits: Condi Quickbrand WT
       #   extras: Condi Quickbrand
       #   weaponType: Dual wield
+      #   outdated: true
 
       - name: Quickness Condi Firebrand 77%
         id: cqfb-firebrand-77
@@ -184,8 +198,9 @@ list:
         traits: Condi Quickbrand WT
         extras: Condi Quickbrand
         weaponType: Dual wield
+        outdated: true
 
-      - name: Quickness Power Firebrand (Outdated)
+      - name: Quickness Power Firebrand
         id: pqfb
         specialization: Firebrand
         boonType: Power
@@ -197,6 +212,7 @@ list:
         raid:
           extras: Power Quickbrand (Raid)
         weaponType: Two-handed
+        outdated: true
 
       # - name: CFB w/ Quickness (balthazar)
       #   id: cqfb-balth
@@ -225,8 +241,9 @@ list:
         traits: CFB DPS 5 Page
         extras: Condi Firebrand
         weaponType: Dual wield
+        outdated: true
 
-      # - name: Condi Firebrand 8 Page (Outdated)
+      # - name: Condi Firebrand 8 Page
       #   id: cfb-8-balth
       #   specialization: Firebrand
       #   boonType: Condi
@@ -235,6 +252,7 @@ list:
       #   traits: CFB DPS 8 Page
       #   extras: CFB DPS (8 Page, Balthazar)
       #   weaponType: Dual wield
+      #   outdated: true
 
       - name: Power DH Radiance (Approx.)
         id: dh-radiance
@@ -248,8 +266,9 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Power DH Virtues (Outdated)
+      - name: Power DH Virtues
         id: dh-virtues
         specialization: Dragonhunter
         boonType: Power
@@ -261,8 +280,9 @@ list:
         raid:
           extras: Power (Raid, furious)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Alacrity Power Willbender (Outdated)
+      - name: Alacrity Power Willbender
         id: pwb-alac
         specialization: Willbender
         boonType: Power
@@ -274,8 +294,9 @@ list:
         raid:
           extras: Power Alacrity Willbender (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Alacrity Condi Willbender (Outdated)
+      - name: Alacrity Condi Willbender
         id: cwb-alac
         specialization: Willbender
         boonType: Condi
@@ -284,8 +305,9 @@ list:
         traits: Condi Alacrity Willbender
         extras: Condi Alacrity Willbender
         weaponType: Dual wield
+        outdated: true
 
-      - name: Condi Willbender Sword (Outdated)
+      - name: Condi Willbender Sword
         id: cwb-sw
         specialization: Willbender
         boonType: Condi
@@ -294,8 +316,9 @@ list:
         traits: Condi Willbender
         extras: Condi Willbender
         weaponType: Dual wield
+        outdated: true
 
-      - name: Condi Willbender GS (Outdated)
+      - name: Condi Willbender GS
         id: cwb-gs
         specialization: Willbender
         boonType: Condi
@@ -304,8 +327,9 @@ list:
         traits: Condi Willbender
         extras: Condi Willbender
         weaponType: Two-handed
+        outdated: true
 
-      - name: Power Willbender Virtues (Outdated)
+      - name: Power Willbender Virtues
         id: pwb-virtues
         specialization: Willbender
         boonType: Power
@@ -317,8 +341,9 @@ list:
         raid:
           extras: Power (Raid, furious)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Power Willbender Radiance (Outdated)
+      - name: Power Willbender Radiance
         id: pwb-radiance
         specialization: Willbender
         boonType: Power
@@ -330,8 +355,9 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Power Core Guardian (Outdated)
+      - name: Power Core Guardian
         id: core-guard
         specialization: Guardian
         boonType: Power
@@ -343,6 +369,7 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
+        outdated: true
 
       # - name: Condi Quickbrand Celestial 35%
       #   id: cqfb-cele-35
@@ -353,7 +380,7 @@ list:
       #   traits: Condi Quickbrand
       #   extras: Condi Quickbrand 35%
 
-      - name: Hybrid FB Virtues (Outdated)
+      - name: Hybrid FB Virtues
         id: hycfb-virtues-leadership
         specialization: Firebrand
         boonType: Condi
@@ -362,6 +389,7 @@ list:
         traits: Hybrid FB Virtues
         extras: Hybrid FB Traveler
         weaponType: Two-handed
+        outdated: true
 
       - name: Hybrid FB Honor
         id: hycfb-honor
@@ -372,6 +400,7 @@ list:
         traits: Hybrid FB Honor
         extras: Hybrid FB Traveler
         weaponType: Two-handed
+        outdated: true
 
       - name: Heal Quickness Firebrand
         id: hb
@@ -385,6 +414,7 @@ list:
         traits: Healbrand
         extras: Heal
         weaponType: Two-handed
+        outdated: true
 
   - class: Warrior
     builds:
@@ -401,8 +431,9 @@ list:
         raid:
           extras: Bladesworn
         weaponType: Dual wield
+        outdated: true
 
-      - name: Power Bladesworn (Outdated)
+      - name: Power Bladesworn
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
@@ -414,8 +445,9 @@ list:
         raid:
           extras: Bladesworn
         weaponType: Dual wield
+        outdated: true
 
-      - name: Quickness Condi Bers (Outdated)
+      - name: Quickness Condi Bers
         id: cbers
         specialization: Berserker
         boonType: Condi
@@ -424,8 +456,9 @@ list:
         traits: Condi (Quickness) Berserker
         extras: Condi Quickness Bers
         weaponType: Two-handed
+        outdated: true
 
-      - name: Condi Berserker (Outdated)
+      - name: Condi Berserker
         id: cbers-dps
         specialization: Berserker
         boonType: Condi
@@ -434,8 +467,9 @@ list:
         traits: Condi (Quickness) Berserker
         extras: Condi Berserker
         weaponType: Two-handed
+        outdated: true
 
-      - name: Quickness Power Bers (Outdated)
+      - name: Quickness Power Bers
         id: pbers-quick
         specialization: Berserker
         boonType: Power
@@ -447,6 +481,7 @@ list:
         raid:
           extras: Power Boon (Raid)
         weaponType: Two-handed
+        outdated: true
 
       - name: Power Berserker
         id: pbers
@@ -460,6 +495,7 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
+        outdated: true
 
       - name: Power Spellbreaker GS
         id: spb-power-gs
@@ -473,6 +509,7 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
+        outdated: true
 
       - name: Power Spellbreaker Hammer
         id: spb-power-hammer
@@ -486,8 +523,9 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Quickness Power Spellbreaker (Outdated)
+      - name: Quickness Power Spellbreaker
         id: spb-quick
         specialization: Spellbreaker
         boonType: Power
@@ -499,11 +537,12 @@ list:
         raid:
           extras: Power Boon (Raid)
         weaponType: Two-handed
+        outdated: true
 
   - class: Elementalist
     builds:
 
-      - name: Alacrity Hybrid Tempest (Outdated)
+      - name: Alacrity Hybrid Tempest
         id: ctemp-alac
         specialization: Tempest
         boonType: Condi
@@ -512,8 +551,9 @@ list:
         traits: Alacrity Hybrid Tempest
         extras: Alacrity Hybrid Tempest
         weaponType: Dual wield
+        outdated: true
 
-      - name: Condi Tempest (Outdated)
+      - name: Condi Tempest
         id: ctemp
         specialization: Tempest
         boonType: Condi
@@ -522,8 +562,9 @@ list:
         traits: Condi Tempest
         extras: Condi Tempest
         weaponType: Dual wield
+        outdated: true
 
-      - name: Power Tempest (Outdated)
+      - name: Power Tempest
         id: ptemp
         specialization: Tempest
         boonType: Power
@@ -535,6 +576,7 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Dual wield
+        outdated: true
 
       - name: Power Weaver
         id: pwea
@@ -549,6 +591,7 @@ list:
           traits: Power Weaver Raid
           extras: Power (Raid)
         weaponType: Dual wield
+        outdated: true
 
       - name: Condi Weaver Staff
         id: cwea-staff
@@ -559,6 +602,7 @@ list:
         traits: Condi Weaver Staff
         extras: Condi Weaver
         weaponType: Two-handed
+        outdated: true
 
       - name: Condi Weaver Scepter
         id: cwea-scepter
@@ -569,8 +613,9 @@ list:
         traits: Condi Weaver Scepter
         extras: Condi Weaver Scepter
         weaponType: Dual wield
+        outdated: true
 
-      - name: Condi Weaver Sword (Outdated)
+      - name: Condi Weaver Sword
         id: cwea-sw
         specialization: Weaver
         boonType: Condi
@@ -579,8 +624,9 @@ list:
         traits: Condi Weaver Sword
         extras: Condi Weaver Sword
         weaponType: Dual wield
+        outdated: true
 
-      - name: Condi Weaver Dagger (Outdated)
+      - name: Condi Weaver Dagger
         id: cwea-dg
         specialization: Weaver
         boonType: Condi
@@ -589,6 +635,7 @@ list:
         traits: Condi Weaver Dagger
         extras: Condi Weaver Dagger
         weaponType: Dual wield
+        outdated: true
 
       - name: Hybrid Weaver
         id: hwea
@@ -602,8 +649,9 @@ list:
         raid:
           extras: Hybrid Weaver (Raid)
         weaponType: Dual wield
+        outdated: true
 
-      - name: Quickness Power Catalyst (Outdated)
+      - name: Quickness Power Catalyst
         id: power-cat-quick
         specialization: Catalyst
         boonType: Power
@@ -615,8 +663,9 @@ list:
         raid:
           extras: Power Quickness Catalyst (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Power Catalyst (Outdated)
+      - name: Power Catalyst
         id: power-cat
         specialization: Catalyst
         boonType: Power
@@ -628,8 +677,9 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: '[beta1] Condi Catalyst (Outdated)'
+      - name: '[beta1] Condi Catalyst'
         id: condi-cat
         specialization: Catalyst
         boonType: Condi
@@ -638,6 +688,7 @@ list:
         traits: '[beta1] Condi Catalyst'
         extras: '[beta1] Condi Catalyst'
         weaponType: Two-handed
+        outdated: true
 
       - name: Heal Tempest
         id: healtemp
@@ -651,11 +702,12 @@ list:
         traits: Heal Tempest
         extras: Heal
         weaponType: Dual wield
+        outdated: true
 
   - class: Ranger
     builds:
 
-      - name: Condi Alacrity Untamed A/A Hammer (Outdated)
+      - name: Condi Alacrity Untamed A/A Hammer
         id: condi-alacrity-untamed
         specialization: Untamed
         boonType: Condi
@@ -664,8 +716,9 @@ list:
         traits: Condi Alacrity Untamed A/A Hammer
         extras: Condi Untamed Axe
         weaponType: Two-handed
+        outdated: true
 
-      - name: Condi Untamed Axe (Outdated)
+      - name: Condi Untamed Axe
         id: condi-untamed-axe
         specialization: Untamed
         boonType: Condi
@@ -674,8 +727,9 @@ list:
         traits: Condi Untamed Axe
         extras: Condi Untamed Axe
         weaponType: Dual wield
+        outdated: true
 
-      - name: Power Slb Skirm (Outdated)
+      - name: Power Slb Skirm
         id: pslb-skirm
         specialization: Soulbeast
         boonType: Power
@@ -687,8 +741,9 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Power Slb Marks (Outdated)
+      - name: Power Slb Marks
         id: pslb-marks
         specialization: Soulbeast
         boonType: Power
@@ -700,6 +755,7 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
+        outdated: true
 
       - name: Hybrid Slb LotP (Approx.)
         id: hslb
@@ -710,8 +766,9 @@ list:
         traits: Hybrid Slb LotP
         extras: Hybrid Slb
         weaponType: Dual wield
+        outdated: true
 
-      - name: Condi Slb SB (Outdated)
+      - name: Condi Slb SB
         id: cslb-sb
         specialization: Soulbeast
         boonType: Condi
@@ -720,8 +777,9 @@ list:
         traits: Condi Slb SB
         extras: Condi Slb
         weaponType: Two-handed
+        outdated: true
 
-      # - name: Condi Slb D/T A/D (Outdated)
+      # - name: Condi Slb D/T A/D
       #   id: cslb-dtad
       #   specialization: Soulbeast
       #   boonType: Condi
@@ -738,6 +796,7 @@ list:
         traits: Condi Slb D/D SB
         extras: Condi Slb
         weaponType: Dual wield
+        outdated: true
 
       - name: Condi Druid
         id: condidruid
@@ -748,6 +807,7 @@ list:
         traits: Condi Druid
         extras: Condi Druid
         weaponType: Two-handed
+        outdated: true
 
       - name: Heal Alacrity Druid
         id: druid
@@ -761,6 +821,7 @@ list:
         traits: Heal Druid
         extras: Heal
         weaponType: Two-handed
+        outdated: true
 
   - class: Revenant
     builds:
@@ -777,6 +838,7 @@ list:
         raid:
           extras: Power Quickness Herald (Raid)
         weaponType: Dual wield
+        outdated: true
 
       - name: Quickness Condi Herald
         id: cherald-quick
@@ -787,8 +849,9 @@ list:
         traits: Condi Quickness Herald
         extras: Condi Quickness Herald
         weaponType: Dual wield
+        outdated: true
 
-      - name: Power Herald FP (Outdated)
+      - name: Power Herald FP
         id: herald
         specialization: Herald
         boonType: Power
@@ -800,8 +863,9 @@ list:
         raid:
           extras: Power (Raid, air)
         weaponType: Dual wield
+        outdated: true
 
-      - name: Alacrity Condi Ren Invo (Outdated)
+      - name: Alacrity Condi Ren Invo
         id: cren-alac-invo
         specialization: Renegade
         boonType: Condi
@@ -810,6 +874,7 @@ list:
         traits: Condi Alac Ren Invo
         extras: Condi Alac Ren
         weaponType: Two-handed
+        outdated: true
 
       - name: Alacrity Power Ren
         id: pren
@@ -823,8 +888,9 @@ list:
         raid:
           extras: Power Alac Ren (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Condi Ren Invo (Outdated)
+      - name: Condi Ren Invo
         id: cren-invo
         specialization: Renegade
         boonType: Condi
@@ -833,6 +899,7 @@ list:
         traits: Condi DPS Ren Invo
         extras: Condi Ren
         weaponType: Two-handed
+        outdated: true
 
       - name: Power Vindicator
         id: vindi
@@ -846,6 +913,7 @@ list:
         raid:
           extras: DPS Vindicator (Raid)
         weaponType: Two-handed
+        outdated: true
 
       - name: Heal Alacrity Ren
         id: healren
@@ -859,6 +927,7 @@ list:
         traits: Heal Ren
         extras: Heal
         weaponType: Two-handed
+        outdated: true
 
       - name: Heal Quickness Herald
         id: heal-herald
@@ -872,6 +941,7 @@ list:
         traits: Heal Herald
         extras: Heal
         weaponType: Two-handed
+        outdated: true
 
   - class: Engineer
     builds:
@@ -887,6 +957,7 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
+        outdated: true
 
       - name: Quickness Condi Scrapper
         id: cqscrap
@@ -897,6 +968,7 @@ list:
         traits: Quickness Condi Scrapper
         extras: Condi Quickness Scrapper
         weaponType: Two-handed
+        outdated: true
 
       - name: Power Scrapper
         id: pscrap
@@ -910,8 +982,9 @@ list:
         raid:
           extras: Power Scrapper (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Power Holo ECSU (Outdated)
+      - name: Power Holo ECSU
         id: pholo-ecsu
         specialization: Holosmith
         boonType: Power
@@ -923,6 +996,7 @@ list:
         raid:
           extras: Power Holo (Raid)
         weaponType: Dual wield
+        outdated: true
 
       - name: Condi Holo
         id: cholo
@@ -933,6 +1007,7 @@ list:
         traits: Condi Holo
         extras: Condi Holo
         weaponType: Dual wield
+        outdated: true
 
       # - name: Alacrity Power Mech (inaccurate)
       #   id: mech-alac-power
@@ -946,8 +1021,9 @@ list:
       #   raid:
       #     extras: Power Alacrity Mechanist (Raid, inaccurate)
       #   weaponType: Dual wield
+      #   outdated: true
 
-      - name: Alacrity Power Mech Air (No Simulation) (Outdated)
+      - name: Alacrity Power Mech Air (No Simulation)
         id: mech-alac-power
         specialization: Mechanist
         boonType: Condi
@@ -959,8 +1035,9 @@ list:
         raid:
           extras: Power Alacrity Mechanist (Raid, air, inaccurate)
         weaponType: Dual wield
+        outdated: true
 
-      - name: Alacrity Power Mech Concentration (No Simulation) (Outdated)
+      - name: Alacrity Power Mech Concentration (No Simulation)
         id: mech-alac-power-conc
         specialization: Mechanist
         boonType: Condi
@@ -972,8 +1049,9 @@ list:
         raid:
           extras: Power Alacrity Mechanist (Raid, concentration, inaccurate)
         weaponType: Dual wield
+        outdated: true
 
-      - name: Condi Mech J-Drive (Approx.) (Outdated)
+      - name: Condi Mech J-Drive (Approx.)
         id: cmech-sig-mace
         specialization: Mechanist
         boonType: Condi
@@ -982,8 +1060,9 @@ list:
         traits: Condi Mechanist J-Drive
         extras: Condi Mechanist
         weaponType: Dual wield
+        outdated: true
 
-      - name: Condi Mech Jade Dynamo (Approx.) (Outdated)
+      - name: Condi Mech Jade Dynamo (Approx.)
         id: cmech-dynamo-pistol
         specialization: Mechanist
         boonType: Condi
@@ -992,6 +1071,7 @@ list:
         traits: Condi Mechanist Jade Dynamo
         extras: Condi Mechanist
         weaponType: Dual wield
+        outdated: true
 
       # - name: Condi Alac Mech (inaccurate)
       #   id: cmech-alac-condi
@@ -1002,6 +1082,7 @@ list:
       #   traits: Condi Alac Mechanist (inaccurate)
       #   extras: Condi Alac Mechanist (inaccurate)
       #   weaponType: Dual wield
+      #   outdated: true
 
       - name: Heal Quickness Scrapper
         id: healscrapper
@@ -1015,6 +1096,7 @@ list:
         traits: Heal Scrapper
         extras: Heal
         weaponType: Dual wield
+        outdated: true
 
       - name: Heal Alacrity Mech
         id: healmech
@@ -1028,6 +1110,7 @@ list:
         traits: Heal Mechanist
         extras: Heal
         weaponType: Dual wield
+        outdated: true
 
   - class: Necromancer
     builds:
@@ -1041,8 +1124,9 @@ list:
         traits: Quickness Harbinger
         extras: Quickness Harbinger
         weaponType: Dual wield
+        outdated: true
 
-      - name: Quickness Power Harbinger (Outdated)
+      - name: Quickness Power Harbinger
         id: qharb-power
         specialization: Harbinger
         boonType: Power
@@ -1054,6 +1138,7 @@ list:
         raid:
           extras: Power (Raid, furious)
         weaponType: Two-handed
+        outdated: true
 
       - name: Condi Harbinger
         id: charb
@@ -1064,8 +1149,9 @@ list:
         traits: DPS Harbinger
         extras: DPS Harbinger
         weaponType: Dual wield
+        outdated: true
 
-      - name: Condi Scourge (Outdated)
+      - name: Condi Scourge
         id: scourge
         specialization: Scourge
         boonType: Condi
@@ -1074,6 +1160,7 @@ list:
         traits: DPS Scourge
         extras: DPS Scourge
         weaponType: Dual wield
+        outdated: true
 
       - name: Power Reaper
         id: preaper
@@ -1087,6 +1174,7 @@ list:
         raid:
           extras: Power (Raid, furious)
         weaponType: Two-handed
+        outdated: true
 
       - name: Condi Reaper
         id: creaper
@@ -1097,12 +1185,13 @@ list:
         traits: Condi Reaper
         extras: Condi Reaper
         weaponType: Two-handed
+        outdated: true
 
 
   - class: Thief
     builds:
 
-      - name: Alacrity Specter 57% (Outdated)
+      - name: Alacrity Specter 57%
         id: specter-alac
         specialization: Specter
         boonType: Condi
@@ -1111,8 +1200,9 @@ list:
         traits: Alacrity Specter
         extras: Alacrity Specter
         weaponType: Dual wield
+        outdated: true
 
-      - name: Alacrity Specter 60% (Outdated)
+      - name: Alacrity Specter 60%
         id: specter-alac-60
         specialization: Specter
         boonType: Condi
@@ -1121,6 +1211,7 @@ list:
         traits: Alacrity Specter
         extras: Alacrity Specter
         weaponType: Dual wield
+        outdated: true
 
       - name: Condi Specter
         id: specter
@@ -1131,8 +1222,9 @@ list:
         traits: DPS Specter
         extras: DPS Specter
         weaponType: Dual wield
+        outdated: true
 
-      - name: Condi Barrier "Carrion" Specter (Outdated)
+      - name: Condi Barrier "Carrion" Specter
         id: specter-carrion
         specialization: Specter
         boonType: Condi
@@ -1141,8 +1233,9 @@ list:
         traits: DPS Specter
         extras: Condi Barrier Specter
         weaponType: Dual wield
+        outdated: true
 
-      - name: Boon Condi Daredevil (no log) (Outdated)
+      - name: Boon Condi Daredevil (no log)
         id: boondd-condi
         specialization: Daredevil
         boonType: Condi
@@ -1151,8 +1244,9 @@ list:
         traits: Condi Boon Daredevil
         extras: Condi Boon Daredevil
         weaponType: Dual wield
+        outdated: true
 
-      - name: Boon Power Daredevil (Outdated)
+      - name: Boon Power Daredevil
         id: boondd-power
         specialization: Daredevil
         boonType: Power
@@ -1161,6 +1255,7 @@ list:
         traits: Power Boon Daredevil
         extras: Power Boon Daredevil
         weaponType: Two-handed
+        outdated: true
 
       - name: Condi Daredevil
         id: cdd
@@ -1171,6 +1266,7 @@ list:
         traits: Condi Daredevil
         extras: Condi Daredevil
         weaponType: Dual wield
+        outdated: true
 
       - name: Power Staff Daredevil
         id: staffdd
@@ -1184,8 +1280,9 @@ list:
         raid:
           extras: Power Staff Daredevil
         weaponType: Two-handed
+        outdated: true
 
-      - name: Condi Deadeye (Outdated)
+      - name: Condi Deadeye
         id: cded
         specialization: Deadeye
         boonType: Condi
@@ -1194,8 +1291,9 @@ list:
         traits: Condi Deadeye
         extras: Condi Deadeye
         weaponType: Dual wield
+        outdated: true
 
-      - name: Power Deadeye Daggers M7 (Outdated)
+      - name: Power Deadeye Daggers M7
         id: pded-daggers-m7
         specialization: Deadeye
         boonType: Power
@@ -1207,8 +1305,9 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Dual wield
+        outdated: true
 
-      - name: Power Deadeye Daggers BQoBK (Outdated)
+      - name: Power Deadeye Daggers BQoBK
         id: pded-daggers-bqobk
         specialization: Deadeye
         boonType: Power
@@ -1220,8 +1319,9 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Dual wield
+        outdated: true
 
-      - name: Rifle Deadeye Premeditation (Outdated)
+      - name: Rifle Deadeye Premeditation
         id: rifleded-premed
         specialization: Deadeye
         boonType: Power
@@ -1233,8 +1333,9 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Rifle Deadeye Silent Scope (Outdated)
+      - name: Rifle Deadeye Silent Scope
         id: rifleded-silent
         specialization: Deadeye
         boonType: Power
@@ -1246,3 +1347,4 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
+        outdated: true

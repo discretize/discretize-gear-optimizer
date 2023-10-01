@@ -13,9 +13,11 @@ import {
   PrimaryAttributes,
   SecondaryAttributes,
   WeaponTypes,
+  WeaponHandednessType,
   damagingConditions,
 } from '../../utils/gw2-data';
 import { getExtrasIds } from '../slices/extras';
+import type { RootState } from '../store';
 import { Combination, Settings } from './optimizerSetup';
 
 const attributes = [
@@ -105,7 +107,7 @@ export const getAttributeId = (attribute: AttributeName) => {
 
   return index;
 };
-export const getWeaponTypeId = (weaponType: string) =>
+export const getWeaponTypeId = (weaponType: WeaponHandednessType) =>
   Object.values(WeaponTypes).indexOf(weaponType);
 export const getConditionId = (condition: string) =>
   Object.values(damagingConditions).indexOf(condition as DamagingConditionName);
@@ -252,7 +254,7 @@ export function getTotalCombinations<T>(array: T[][], combinationCount: number):
  * @param {any} reduxState redux state
  * @returns {string[][]} array of arrays of extras ids
  */
-export function getExtrasIdsCombinations(reduxState: any): string[][] {
+export function getExtrasIdsCombinations(reduxState: RootState): string[][] {
   const extrasNames = getExtrasIds(reduxState);
   const extrasIds = [
     extrasNames.Runes,
@@ -260,6 +262,7 @@ export function getExtrasIdsCombinations(reduxState: any): string[][] {
     extrasNames.Sigil2,
     extrasNames.Enhancement,
     extrasNames.Nourishment,
+    extrasNames.Relics,
   ];
 
   return extrasIds;

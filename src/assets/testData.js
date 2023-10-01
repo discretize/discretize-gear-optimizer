@@ -323,14 +323,19 @@ function parseDamage(damage, id, amountData) {
       parsePercent(amount, key, id);
       gentleAssert(allDamageModes.includes(mode), `invalid val ${allPairs} for ${key} in ${id}`);
       gentleAssert(
-        key !== 'Outgoing Critical Damage' || mode === 'unknown',
-        `set mode unknown for critical damage for now`,
+        key !== 'Outgoing Critical Damage' || mode !== 'add',
+        `if ${id} is an additive increase of a single bonus, use mode mult and calculate the addition; see GitHub PR #612. (change this to a warning if an additive critical damage bonus is found!)`,
       );
 
       // so far (mid 2023), every +condition damage output bonus that's been tested has been additive
       gentleAssert(
-        key !== 'Outgoing Condition Damage' || mode !== 'unknown' || mode !== 'mult',
-        `set mode add for condition damage and comment that it's unconfirmed (remove this test if anyone finds a multiplicative one!)`,
+        key !== 'Outgoing Condition Damage' || mode === 'add' || mode === 'target',
+        `set mode add for condition damage in ${id} and comment that it's unconfirmed (remove this test if anyone finds a multiplicative one!)`,
+      );
+
+      gentleAssert(
+        key !== 'Outgoing All Damage' || mode === 'add' || mode === 'target',
+        `set mode add for all damage in ${id} and comment that it's unconfirmed (remove this test if anyone finds a multiplicative one!)`,
       );
 
       if (mode === 'target') {
@@ -587,12 +592,18 @@ const testPresets = async () => {
         // traits,
         // extras,
         // weaponType,
+        outdated,
       } = item;
 
       if (id) {
         gentleAssert(!ids.has(id), `err: templates has duplicate id ${id}`);
         ids.add(id);
       }
+
+      gentleAssert(
+        typeof outdated === 'boolean',
+        `err: template ${name}'s outdated status should be true or false`,
+      );
 
       const checkNullRecursively = (obj) => {
         for (const value of Object.values(obj)) {

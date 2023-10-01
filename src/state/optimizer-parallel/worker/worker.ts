@@ -3,8 +3,9 @@
 import init, { calculate, calculate_heuristics_only, calculate_with_heuristics } from 'wasm_module';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { AffixName } from '../../../utils/gw2-data';
-import type { Combination as CombinationOld } from '../../optimizer/optimizerSetup';
+import type { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import {
+  ExtrasCombination,
   allowedDuplicateSigils,
   getExtrasData,
   getLifestealAmount,
@@ -25,6 +26,8 @@ import {
   FinishedHeuristicsMessage,
 } from './workerMessageTypes';
 import { ResultProperties, enhanceResults } from '../results';
+import { objectEntries } from '../../../utils/usefulFunctions';
+import { RootState } from '../../store';
 
 onmessage = (e: MessageEvent<MessageType>) => {
   console.log('worker received message', e.data);
@@ -81,7 +84,7 @@ async function start(
     postMessage(message);
   }
 }
-const bestList: [Combination, CombinationOld][] = [];
+const bestList: [Combination, ExtrasCombinationEntry][] = [];
 
 /**
  * Runs heuristics to figure out which extras combinations are likely good.
@@ -89,13 +92,13 @@ const bestList: [Combination, CombinationOld][] = [];
  *
  * @param {string[][]} chunks array of subtrees to calculate (extras combinations tree)
  * @param {string[][]} extrasIds choices of extras for each extras slot
- * @param {any} reduxState
+ * @param {RootState} reduxState
  * @param {Settings} settings
  */
 async function start_heuristics(
   chunks: string[][],
   extrasIds: string[][],
-  reduxState: any,
+  reduxState: RootState,
   settings: Settings,
 ) {
   await init();
@@ -103,8 +106,8 @@ async function start_heuristics(
   const data = getExtrasData(reduxState);
   const lifestealAmount = getLifestealAmount(reduxState);
 
-  const getModifiers = (extrasCombination: Record<string, string>) => {
-    const allModifiers = Object.entries(extrasCombination)
+  const getModifiers = (extrasCombination: ExtrasCombination) => {
+    const allModifiers = objectEntries(extrasCombination)
       .filter(([_, id]) => id)
       .map(([type, id]) => {
         if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);
@@ -118,7 +121,7 @@ async function start_heuristics(
   };
 
   // store combinations here; we batch process them
-  let currentChunkList: [Combination, CombinationOld][] = [];
+  let currentChunkList: [Combination, ExtrasCombinationEntry][] = [];
 
   // callback that is called for every leaf of the extras combination tree
   // we calculate the attributes and modifiers of the combination here
@@ -133,15 +136,16 @@ async function start_heuristics(
       Sigil2: leaf[2],
       Enhancement: leaf[3],
       Nourishment: leaf[4],
+      Relics: leaf[5],
     };
 
-    const combinationOld: CombinationOld = {
+    const extrasCombinationEntry: ExtrasCombinationEntry = {
       extrasCombination: extras,
       extrasModifiers: getModifiers(extras),
     };
 
-    const combination = createCombination(combinationOld, reduxState);
-    currentChunkList.push([combination, combinationOld]);
+    const combination = createCombination(extrasCombinationEntry.extrasModifiers, reduxState);
+    currentChunkList.push([combination, extrasCombinationEntry]);
 
     if (currentChunkList.length % 10000 === 0) {
       // add progress message
@@ -174,7 +178,7 @@ async function start_heuristics(
   postMessage(message);
 }
 
-function calcWasmHeuristics(settings: Settings, chunks: [Combination, CombinationOld][]) {
+function calcWasmHeuristics(settings: Settings, chunks: [Combination, ExtrasCombinationEntry][]) {
   const resStr = calculate_heuristics_only(
     settingsToWorkerString(settings),
     combinationsToWorkerString(chunks.map((chunk) => chunk[0])),

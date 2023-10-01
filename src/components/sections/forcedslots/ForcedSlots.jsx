@@ -3,14 +3,14 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeForcedSlot, getForcedSlots } from '../../../state/slices/forcedSlots';
-import { getPriority } from '../../../state/slices/priorities';
+import { getWeaponType } from '../../../state/slices/priorities';
 import { GEAR_SLOTS, WeaponTypes } from '../../../utils/gw2-data';
 import AffixesSelect from '../../baseComponents/AffixesSelect';
 
 const ForcedSlots = () => {
   const dispatch = useDispatch();
   const forcedSlots = useSelector(getForcedSlots);
-  const dualWielded = useSelector(getPriority('weaponType'));
+  const dualWielded = useSelector(getWeaponType);
   const { t } = useTranslation();
 
   let SLOTS = GEAR_SLOTS;
