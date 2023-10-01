@@ -168,7 +168,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          # increases base version to 25%: 1.25/1.15 = 1.08695652174
+          # increases base version to 25%: 1.25/1.15 = 1.08695652174. see GitHub PR #612.
           Outgoing Critical Damage: [8.695652174%, mult]
       gw2id: 692
       defaultEnabled: true
