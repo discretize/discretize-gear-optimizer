@@ -437,6 +437,10 @@
       modifiers:
         conversion:
           Ferocity: {Precision: 10%}
+          Condition Damage: {Power: 15%}
+      wvwModifiers:
+        conversion:
+          Ferocity: {Precision: 10%}
           Condition Damage: {Power: 10%}
       gw2id: 2011
       defaultEnabled: true
@@ -449,6 +453,10 @@
         default: 70
         quantityEntered: 100
       modifiers:
+        conversion:
+          Ferocity: {Precision: 10%}
+          Condition Damage: {Power: 15%}
+      wvwModifiers:
         conversion:
           Ferocity: {Precision: 10%}
           Condition Damage: {Power: 10%}
