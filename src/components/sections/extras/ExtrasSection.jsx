@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProfession } from '../../../state/slices/controlsSlice';
 import { changeExtras, copySigils } from '../../../state/slices/extras';
 import data from '../../../utils/data';
-import { PROFESSIONS } from '../../../utils/gw2-data';
+import { SPECIALIZATIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Extras from './Extras';
@@ -17,7 +17,7 @@ const ExtrasSection = () => {
 
   let extrasPresets;
   if (profession) {
-    const { eliteSpecializations } = PROFESSIONS.find((entry) => entry.profession === profession);
+    const eliteSpecializations = SPECIALIZATIONS[profession];
     extrasPresets = data.presetExtras.list.filter((preset) => {
       return (
         !preset.profession ||

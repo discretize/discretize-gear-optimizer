@@ -8,6 +8,7 @@ import { getExtraModifiersModifiers } from '../slices/extraModifiers';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getSkillsModifiers } from '../slices/skills';
 import { getTraitsModifiers } from '../slices/traits';
+import type { RootState } from '../store';
 import { AppliedModifier, Combination, ResultData, Settings } from './optimizerSetup';
 import { getAffixName, getAttributeName } from './utils';
 
@@ -21,12 +22,12 @@ export type ResultProperties = {
 };
 
 export const getResultProperties: (
-  reduxState: any,
+  reduxState: RootState,
   resultData: ResultData[],
-) => ResultProperties = (reduxState: any, resultData) => {
+) => ResultProperties = (reduxState: RootState, resultData) => {
   const state = reduxState.optimizer;
 
-  const sharedModifiers: AppliedModifier[] = [
+  const sharedModifiers = [
     ...(getBuffsModifiers(reduxState) || []),
     ...(getExtraModifiersModifiers(reduxState) || []),
     ...(getInfusionsModifiers(reduxState) || []),

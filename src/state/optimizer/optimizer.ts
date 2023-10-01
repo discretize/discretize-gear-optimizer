@@ -1,3 +1,4 @@
+import type { RootState } from '../store';
 import {
   CalculateGenerator,
   Character,
@@ -24,7 +25,7 @@ interface Combination extends ExtrasCombinationEntry {
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export function* calculate(reduxState: any) {
+export function* calculate(reduxState: RootState) {
   /**
    * set up input
    */

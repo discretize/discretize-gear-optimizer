@@ -17,6 +17,13 @@ import { skillsSlice } from './slices/skills';
 import { traitsSlice } from './slices/traits';
 import { userSettingsSlice } from './slices/userSettings';
 
+// credit: https://stackoverflow.com/a/52801110
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: any;
+  }
+}
+
 const reducers = combineReducers({
   optimizer: combineReducers({
     userSettings: userSettingsSlice.reducer,
@@ -43,10 +50,11 @@ const composeEnhancers =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ actionsDenylist: ['control/updateResults'] })
     : compose;
 
-export default () => {
-  const store = createStore(reducers, composeEnhancers(applyMiddleware(saga)));
-  saga.run(calculationSaga);
-  saga.run(formStateSaga);
-  saga.run(buildPageSaga);
-  return store;
-};
+const store = createStore(reducers, composeEnhancers(applyMiddleware(saga)));
+saga.run(calculationSaga);
+saga.run(formStateSaga);
+saga.run(buildPageSaga);
+export default store;
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

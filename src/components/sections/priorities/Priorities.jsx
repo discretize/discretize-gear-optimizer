@@ -16,7 +16,14 @@ import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { getProfession } from '../../../state/slices/controlsSlice';
-import { changePriority, getPriority } from '../../../state/slices/priorities';
+import {
+  changeConstraint,
+  changeOptimizeFor,
+  changeWeaponType,
+  getOptimizeFor,
+  getConstraint,
+  getWeaponType,
+} from '../../../state/slices/priorities';
 import { WeaponTypes } from '../../../utils/gw2-data';
 import { parsePriority } from '../../../utils/usefulFunctions';
 
@@ -42,27 +49,23 @@ const Priorities = () => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
-  const optimizeFor = useSelector(getPriority('optimizeFor'));
-  const weaponType = useSelector(getPriority('weaponType'));
-  const minBoonDuration = useSelector(getPriority('minBoonDuration'));
-  const minHealingPower = useSelector(getPriority('minHealingPower'));
-  const minToughness = useSelector(getPriority('minToughness'));
-  const maxToughness = useSelector(getPriority('maxToughness'));
-  const minHealth = useSelector(getPriority('minHealth'));
-  const minCritChance = useSelector(getPriority('minCritChance'));
-  const minDamage = useSelector(getPriority('minDamage'));
-  const minHealing = useSelector(getPriority('minHealing'));
-  const minOutgoingHealing = useSelector(getPriority('minOutgoingHealing'));
-  const minQuicknessDuration = useSelector(getPriority('minQuicknessDuration'));
-  const minSurvivability = useSelector(getPriority('minSurvivability'));
+  const optimizeFor = useSelector(getOptimizeFor);
+  const weaponType = useSelector(getWeaponType);
+  const minBoonDuration = useSelector(getConstraint('minBoonDuration'));
+  const minHealingPower = useSelector(getConstraint('minHealingPower'));
+  const minToughness = useSelector(getConstraint('minToughness'));
+  const maxToughness = useSelector(getConstraint('maxToughness'));
+  const minHealth = useSelector(getConstraint('minHealth'));
+  const minCritChance = useSelector(getConstraint('minCritChance'));
+  const minDamage = useSelector(getConstraint('minDamage'));
+  const minHealing = useSelector(getConstraint('minHealing'));
+  const minOutgoingHealing = useSelector(getConstraint('minOutgoingHealing'));
+  const minQuicknessDuration = useSelector(getConstraint('minQuicknessDuration'));
+  const minSurvivability = useSelector(getConstraint('minSurvivability'));
   const profession = useSelector(getProfession);
 
   const minCritChanceValue = parsePriority(minCritChance).value;
   const showWarning = profession !== 'Warrior' && minCritChanceValue && minCritChanceValue >= 99.9;
-
-  const handleChange = (event) => {
-    dispatch(changePriority({ key: event.target.name, value: event.target.value }));
-  };
 
   const optimizeForControl = (
     <Grid item xs={6}>
@@ -80,7 +83,7 @@ const Priorities = () => {
           aria-label="optimizeFor"
           name="optimizeFor"
           value={optimizeFor}
-          onChange={handleChange}
+          onChange={(event) => dispatch(changeOptimizeFor(event.target.value))}
         >
           {OPTIMIZATION_GOALS.map((goal) => (
             <FormControlLabel
@@ -112,7 +115,7 @@ const Priorities = () => {
           aria-label="weaponType"
           name="weaponType"
           value={weaponType}
-          onChange={handleChange}
+          onChange={(event) => dispatch(changeWeaponType(event.target.value))}
         >
           <FormControlLabel
             value={WeaponTypes.dualWield}
@@ -153,7 +156,9 @@ const Priorities = () => {
           <Input
             id={`${type}-input-with-icon-adornment`}
             value={value}
-            onChange={handleChange}
+            onChange={(event) =>
+              dispatch(changeConstraint({ key: type, value: event.target.value }))
+            }
             name={`${type}`}
             error={parsePriority(value).error}
             autoComplete="off"
@@ -243,7 +248,9 @@ const Priorities = () => {
           <Input
             id={`${type}-input-with-icon-adornment`}
             value={value}
-            onChange={handleChange}
+            onChange={(event) =>
+              dispatch(changeConstraint({ key: type, value: event.target.value }))
+            }
             name={`${type}`}
             error={parsePriority(value).error}
             autoComplete="off"

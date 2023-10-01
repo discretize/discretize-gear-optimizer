@@ -1,4 +1,3 @@
-import { Dispatch } from 'redux';
 import { Character } from '../../optimizer/optimizerCore';
 import { ERROR } from '../../optimizer/status';
 import {
@@ -22,6 +21,7 @@ import {
   isProgressMessage,
 } from '../worker/workerMessageTypes';
 import { enhanceResults, getResultProperties } from '../results';
+import type { AppDispatch, RootState } from '../../store';
 
 const PROGRESS_UPDATE_INTERVALL = 2000000;
 let currentProgress = 0;
@@ -29,14 +29,14 @@ let results = [] as Character[][];
 
 function onMessage(
   e: MessageEvent<MessageType>,
-  dispatch: Dispatch<any>,
+  dispatch: AppDispatch,
   index: number,
   workers: WorkerWrapper[],
   maxResults: number,
   numThreads: number,
   settings: Settings,
   resultData: ResultData[],
-  reduxState: any,
+  reduxState: RootState,
 ) {
   let message = e.data;
   if (typeof e.data === 'string') {
@@ -109,8 +109,8 @@ function onMessage(
  * power inefficiency.
  * Shouldnt be used for a lot (hundreds, thousands) of combinations.
  *
- * @param {any} reduxState
- * @param {Dispatch} dispatch
+ * @param {RootState} reduxState
+ * @param {AppDispatch} dispatch
  * @param {WorkerWrapper[]} workers
  * @param {Combination[]} combinations
  * @param {ResultData[]} resultData
@@ -119,8 +119,8 @@ function onMessage(
  * @param {boolean} withHeuristics
  */
 export default function runCalcNormal(
-  reduxState: any,
-  dispatch: Dispatch<any>,
+  reduxState: RootState,
+  dispatch: AppDispatch,
   workers: WorkerWrapper[],
   combinations: Combination[],
   resultData: ResultData[],

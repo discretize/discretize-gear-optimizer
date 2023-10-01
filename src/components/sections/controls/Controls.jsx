@@ -22,7 +22,7 @@ import {
   getProfession,
   getStatus,
 } from '../../../state/slices/controlsSlice';
-import { getPriority } from '../../../state/slices/priorities';
+import { getAffixes, getWeaponType } from '../../../state/slices/priorities';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
 import ResultTableSettings from './ResultTableSettings';
 
@@ -51,8 +51,8 @@ const ControlsBox = () => {
 
   const status = useSelector(getStatus);
   const error = useSelector(getError);
-  const affixes = useSelector(getPriority('affixes'));
-  const weaponType = useSelector(getPriority('weaponType'));
+  const affixes = useSelector(getAffixes);
+  const weaponType = useSelector(getWeaponType);
   const profession = useSelector(getProfession);
   const multicore = useSelector(getMulticore);
 

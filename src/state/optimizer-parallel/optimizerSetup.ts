@@ -26,16 +26,7 @@ import {
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
-import type {
-  AffixData,
-  AffixName,
-  ConditionName,
-  ForcedSlotName,
-  IndicatorName,
-  InfusionName,
-  ProfessionName,
-  WeaponHandednessType,
-} from '../../utils/gw2-data';
+import type { AffixData, AffixName, ConditionName, ForcedSlotName } from '../../utils/gw2-data';
 import {
   Attributes,
   Classes,
@@ -56,16 +47,12 @@ import {
 } from '../../utils/usefulFunctions';
 import type { OptimizerCoreSettings } from '../optimizer/optimizerCore';
 import { clamp, scaleValue } from '../optimizer/optimizerCore';
-import type { ExtrasCombinationEntry } from '../optimizer/optimizerSetup';
 import { getAttackRate, getMovementUptime } from '../slices/boss';
 import { getBuffsModifiers } from '../slices/buffs';
 import { getProfession } from '../slices/controlsSlice';
 import { getDistributionNew } from '../slices/distribution';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
-import {
-  getExtrasCombinationsAndModifiers as getExtrasCombinationsAndModifiersRaw,
-  getExtrasIds,
-} from '../slices/extras';
+import { getExtrasCombinationsAndModifiers, getExtrasIds } from '../slices/extras';
 import { getForcedSlots } from '../slices/forcedSlots';
 import {
   getInfusionsModifiers,
@@ -76,14 +63,18 @@ import {
   getSecondaryMaxInfusions,
 } from '../slices/infusions';
 import {
+  getAffixes,
   getCustomAffixData,
   getExclusionData,
   getExoticsData,
-  getPriority,
+  getOptimizeFor,
+  getConstraint,
+  getWeaponType,
 } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { getGameMode } from '../slices/userSettings';
+import type { RootState } from '../store';
 
 // currently a duplicate of navsettings.jsx
 export type GameMode = 'fractals' | 'raids' | 'wvw';
@@ -135,10 +126,10 @@ type MultiplierName =
   | 'Outgoing Phantasm Critical Damage';
 
 export interface AppliedModifier {
-  id: string;
-  visible: boolean;
-  enabled: boolean;
-  amount: string;
+  id?: string;
+  visible?: boolean;
+  enabled?: boolean;
+  amount?: string;
   modifiers: YamlModifiers;
   wvwModifiers?: YamlModifiers;
   amountData?: AmountData;
@@ -197,12 +188,6 @@ export interface Modifiers {
 
 export type InfusionMode = 'None' | 'Primary' | 'Few' | 'Secondary' | 'SecondaryNoDuplicates';
 
-// Reselect's createSelector apparently sometimes exports the wrong type if its arguments are not
-// explicitly typed; override this
-const getExtrasCombinationsAndModifiers = getExtrasCombinationsAndModifiersRaw as any as (
-  state: any,
-) => ExtrasCombinationEntry[];
-
 export interface CachedFormState {
   traits: Record<string, any>;
   skills: Record<string, any>;
@@ -215,11 +200,11 @@ export interface ResultData {
   extrasCombination: Record<string, string>;
 }
 
-export function setupNormal(reduxState: any): [Combination[], ResultData[]] {
+export function setupNormal(reduxState: RootState): [Combination[], ResultData[]] {
   // do not mutate selector result; it may be reused if the same calculation is run twice
-  const extrasCombinationEntries: ExtrasCombinationEntry[] = getExtrasCombinationsAndModifiers(
-    reduxState,
-  ).map((combination) => ({ ...combination }));
+  const extrasCombinationEntries = getExtrasCombinationsAndModifiers(reduxState).map(
+    (combination) => ({ ...combination }),
+  );
 
   const resultData = extrasCombinationEntries.map((entry) => ({
     extrasModifiers: entry.extrasModifiers,
@@ -235,22 +220,22 @@ export function setupNormal(reduxState: any): [Combination[], ResultData[]] {
 
 export function createCombination(
   extrasModifiers: AppliedModifier[],
-  reduxState: any,
+  reduxState: RootState,
 ): Combination {
-  const profession: ProfessionName | '' = getProfession(reduxState);
+  const profession = getProfession(reduxState);
   if (profession === '') {
     throw new Error('missing profession!');
   }
-  const unmodifiedDistribution: Record<DistributionNameUI, number> = getDistributionNew(reduxState);
+  const unmodifiedDistribution = getDistributionNew(reduxState);
   // temp: convert "poisoned" to "poison"
   const convertPoison = (dist: Record<DistributionNameUI, number>) =>
     mapEntries(dist, ([key, value]) => [key === 'Poisoned' ? 'Poison' : key, value]);
   const distribution = convertPoison(unmodifiedDistribution);
 
   const gameMode = getGameMode(reduxState) as GameMode;
-  const isWvW: boolean = gameMode === 'wvw';
+  const isWvW = gameMode === 'wvw';
 
-  const sharedModifiers: AppliedModifier[] = [
+  const sharedModifiers = [
     ...(getBuffsModifiers(reduxState) || []),
     ...(getExtraModifiersModifiers(reduxState) || []),
     ...(getInfusionsModifiers(reduxState) || []),
@@ -596,7 +581,7 @@ export function createCombination(
   };
 }
 
-export function createSettings(reduxState: any): Settings {
+export function createSettings(reduxState: RootState): Settings {
   const specialization: string = getCurrentSpecialization(reduxState);
 
   const customAffixData: Omit<typeof unmodifiedAffix.Custom, 'category'> =
@@ -608,34 +593,34 @@ export function createSettings(reduxState: any): Settings {
     (ids) => Array.isArray(ids) && ids.length > 1,
   );
 
-  const profession: ProfessionName | '' = getProfession(reduxState);
-  const primaryInfusion: InfusionName | '' = getPrimaryInfusion(reduxState);
-  const secondaryInfusion: InfusionName | '' = getSecondaryInfusion(reduxState);
-  const maxInfusionsText: string = getMaxInfusions(reduxState);
-  const primaryMaxInfusionsText: string = getPrimaryMaxInfusions(reduxState);
-  const secondaryMaxInfusionsText: string = getSecondaryMaxInfusions(reduxState);
-  const forcedSlots: (AffixName | null)[] = getForcedSlots(reduxState);
-  const exclusions: Record<AffixName, boolean[]> = getExclusionData(reduxState);
-  const exotics: Record<AffixName, boolean[]> = getExoticsData(reduxState);
-  const optimizeFor: IndicatorName = getPriority('optimizeFor')(reduxState);
-  const weaponType: WeaponHandednessType = getPriority('weaponType')(reduxState);
-  const minBoonDurationText: string = getPriority('minBoonDuration')(reduxState);
-  const minHealingPowerText: string = getPriority('minHealingPower')(reduxState);
-  const minToughnessText: string = getPriority('minToughness')(reduxState);
-  const maxToughnessText: string = getPriority('maxToughness')(reduxState);
-  const minHealthText: string = getPriority('minHealth')(reduxState);
-  const minCritChanceText: string = getPriority('minCritChance')(reduxState);
-  const minDamageText: string = getPriority('minDamage')(reduxState);
-  const minHealingText: string = getPriority('minHealing')(reduxState);
-  const minOutgoingHealingText: string = getPriority('minOutgoingHealing')(reduxState);
-  const minQuicknessDurationText: string = getPriority('minQuicknessDuration')(reduxState);
-  const minSurvivabilityText: string = getPriority('minSurvivability')(reduxState);
-  const affixes: AffixName[] = getPriority('affixes')(reduxState);
-  const unmodifiedDistribution: Record<DistributionNameUI, number> = getDistributionNew(reduxState);
-  const attackRateText: string = getAttackRate(reduxState);
-  const movementUptimeText: string = getMovementUptime(reduxState);
+  const profession = getProfession(reduxState);
+  const primaryInfusion = getPrimaryInfusion(reduxState);
+  const secondaryInfusion = getSecondaryInfusion(reduxState);
+  const maxInfusionsText = getMaxInfusions(reduxState);
+  const primaryMaxInfusionsText = getPrimaryMaxInfusions(reduxState);
+  const secondaryMaxInfusionsText = getSecondaryMaxInfusions(reduxState);
+  const forcedSlots = getForcedSlots(reduxState);
+  const exclusions = getExclusionData(reduxState);
+  const exotics = getExoticsData(reduxState);
+  const optimizeFor = getOptimizeFor(reduxState);
+  const weaponType = getWeaponType(reduxState);
+  const minBoonDurationText = getConstraint('minBoonDuration')(reduxState);
+  const minHealingPowerText = getConstraint('minHealingPower')(reduxState);
+  const minToughnessText = getConstraint('minToughness')(reduxState);
+  const maxToughnessText = getConstraint('maxToughness')(reduxState);
+  const minHealthText = getConstraint('minHealth')(reduxState);
+  const minCritChanceText = getConstraint('minCritChance')(reduxState);
+  const minDamageText = getConstraint('minDamage')(reduxState);
+  const minHealingText = getConstraint('minHealing')(reduxState);
+  const minOutgoingHealingText = getConstraint('minOutgoingHealing')(reduxState);
+  const minQuicknessDurationText = getConstraint('minQuicknessDuration')(reduxState);
+  const minSurvivabilityText = getConstraint('minSurvivability')(reduxState);
+  const affixes = getAffixes(reduxState);
+  const unmodifiedDistribution = getDistributionNew(reduxState);
+  const attackRateText = getAttackRate(reduxState);
+  const movementUptimeText = getMovementUptime(reduxState);
 
-  const gameMode = getGameMode(reduxState) as GameMode;
+  const gameMode = getGameMode(reduxState);
 
   // todo: consolidate error handling
   if (profession === '') {

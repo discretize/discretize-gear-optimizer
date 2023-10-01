@@ -5,6 +5,7 @@ import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { AffixName } from '../../../utils/gw2-data';
 import type { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import {
+  ExtrasCombination,
   allowedDuplicateSigils,
   getExtrasData,
   getLifestealAmount,
@@ -25,6 +26,8 @@ import {
   FinishedHeuristicsMessage,
 } from './workerMessageTypes';
 import { ResultProperties, enhanceResults } from '../results';
+import { objectEntries } from '../../../utils/usefulFunctions';
+import { RootState } from '../../store';
 
 onmessage = (e: MessageEvent<MessageType>) => {
   console.log('worker received message', e.data);
@@ -89,13 +92,13 @@ const bestList: [Combination, ExtrasCombinationEntry][] = [];
  *
  * @param {string[][]} chunks array of subtrees to calculate (extras combinations tree)
  * @param {string[][]} extrasIds choices of extras for each extras slot
- * @param {any} reduxState
+ * @param {RootState} reduxState
  * @param {Settings} settings
  */
 async function start_heuristics(
   chunks: string[][],
   extrasIds: string[][],
-  reduxState: any,
+  reduxState: RootState,
   settings: Settings,
 ) {
   await init();
@@ -103,8 +106,8 @@ async function start_heuristics(
   const data = getExtrasData(reduxState);
   const lifestealAmount = getLifestealAmount(reduxState);
 
-  const getModifiers = (extrasCombination: Record<string, string>) => {
-    const allModifiers = Object.entries(extrasCombination)
+  const getModifiers = (extrasCombination: ExtrasCombination) => {
+    const allModifiers = objectEntries(extrasCombination)
       .filter(([_, id]) => id)
       .map(([type, id]) => {
         if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);

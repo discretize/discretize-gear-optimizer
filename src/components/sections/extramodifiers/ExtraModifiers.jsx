@@ -15,6 +15,7 @@ import { exampleModifiers, exampleModifiersJson } from '../../../assets/modifier
 import {
   changeExtraModifiers,
   changeExtraModifiersError,
+  changeExtraModifiersText,
   getExtraModifiersError,
   getExtraModifiersTextBox,
 } from '../../../state/slices/extraModifiers';
@@ -48,10 +49,10 @@ const ExtraModifiers = () => {
 
   const handleChange = (e) => {
     const val = e.target.value;
-    dispatch(changeExtraModifiers({ key: 'textBox', value: val }));
+    dispatch(changeExtraModifiersText(val));
 
     const { data, error } = parseInput(val);
-    dispatch(changeExtraModifiers({ key: 'extraModifiers', value: data }));
+    dispatch(changeExtraModifiers(data));
     dispatch(changeExtraModifiersError(error ? t('Invalid Format.') : ''));
   };
   return (

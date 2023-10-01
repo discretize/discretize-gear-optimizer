@@ -3,13 +3,14 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  changeAffixes,
   changeExclusion,
   changeExclusionsEnabled,
   changeExoticsEnabled,
-  changePriority,
+  changePriorities,
+  getAffixes,
   getExclusionsEnabled,
   getExoticsEnabled,
-  getPriority,
 } from '../../../state/slices/priorities';
 import data from '../../../utils/data';
 import Presets from '../../baseComponents/Presets';
@@ -20,7 +21,7 @@ const AffixesSection = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
-  const affixes = useSelector(getPriority('affixes'));
+  const affixes = useSelector(getAffixes);
   const exclusionsEnabled = useSelector(getExclusionsEnabled);
   const exoticsEnabled = useSelector(getExoticsEnabled);
 
@@ -28,7 +29,7 @@ const AffixesSection = () => {
     (value) => {
       if (!value) return;
       const state = JSON.parse(value.value);
-      Object.keys(state).forEach((key) => dispatch(changePriority({ key, value: state[key] })));
+      dispatch(changePriorities(state));
     },
     [dispatch],
   );
@@ -38,12 +39,7 @@ const AffixesSection = () => {
     const backSlot = 11;
     const trinketSlots = [6, 7, 8, 9, 10];
 
-    dispatch(
-      changePriority({
-        key: 'affixes',
-        value: affixes.includes('Celestial') ? affixes : [...affixes, 'Celestial'],
-      }),
-    );
+    dispatch(changeAffixes(affixes.includes('Celestial') ? affixes : [...affixes, 'Celestial']));
 
     // exotic ritualist is usually better than cele;
     // this option disabled until exotics disable infusions correctly

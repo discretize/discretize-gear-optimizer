@@ -1,4 +1,3 @@
-import { Dispatch } from 'redux';
 import type { WorkerWrapper } from '../calculate';
 import { Combination, ResultData, Settings } from '../optimizerSetup';
 import { getLayerCombinations, getLayerNumber } from '../tree';
@@ -9,15 +8,16 @@ import {
   isFinishHeuristicsMessage,
 } from '../worker/workerMessageTypes';
 import runCalcNormal from './normal';
+import type { AppDispatch, RootState } from '../../store';
 
 export default function runCalcHeuristics(
-  reduxState: any,
-  dispatch: Dispatch<any>,
+  reduxState: RootState,
+  dispatch: AppDispatch,
   workers: WorkerWrapper[],
   settings: Settings,
   maxThreads: number,
 ) {
-  const extrasIds: string[][] = getExtrasIdsCombinations(reduxState);
+  const extrasIds = getExtrasIdsCombinations(reduxState);
   // for a particular problem it might not be possible to split work efficiently into effectiveThreads chunks
   const effectiveThreads = Math.min(maxThreads, getTotalCombinations(extrasIds, 1));
 
