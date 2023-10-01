@@ -2,8 +2,7 @@ import { Character, firstUppercase } from '@discretize/react-discretize-componen
 import React from 'react';
 import { FormControlLabel, Switch } from '@mui/material';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
-import { Classes, INFUSION_IDS, WeaponTypes } from '../../../utils/gw2-data';
-import { getWeight } from '../../../utils/usefulFunctions';
+import { Classes, INFUSION_IDS, WeaponTypes, getWeight } from '../../../utils/gw2-data';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 
 const CustomSwitch = ({ onChange, label }) => (

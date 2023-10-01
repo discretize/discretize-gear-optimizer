@@ -4,7 +4,7 @@
  * ------------------------------------------------------------------------
  */
 
-import { objectKeys } from './usefulFunctions';
+import { firstUppercase, objectKeys } from './usefulFunctions';
 
 export type AffixName =
   | 'Berserker'
@@ -1279,6 +1279,18 @@ export const Classes = {
   },
 };
 export type ProfessionName = keyof typeof Classes;
+
+export const getWeight = (profession: ProfessionName) => {
+  // Calculate weight class
+  const { defense } = Classes[firstUppercase(profession) as ProfessionName];
+  if (defense === Defense.HEAVY) {
+    return 'Heavy';
+  }
+  if (defense === Defense.MEDIUM) {
+    return 'Medium';
+  }
+  return 'Light';
+};
 
 export const conditionData = {
   Burning: {
