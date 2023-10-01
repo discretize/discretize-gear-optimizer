@@ -21,7 +21,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'yarn'
       - name: Cache dependencies
         id: node-modules-cache
         uses: actions/cache@v3
