@@ -4,7 +4,7 @@
  * ------------------------------------------------------------------------
  */
 
-import { firstUppercase, objectKeys } from './usefulFunctions';
+const objectKeys = Object.keys as <Type extends object>(value: Type) => Array<keyof Type>;
 
 export type AffixName =
   | 'Berserker'
@@ -1279,6 +1279,13 @@ export const Classes = {
   },
 };
 export type ProfessionName = keyof typeof Classes;
+
+function firstUppercase(text: string | undefined | null): string {
+  if (typeof text === 'undefined' || text === null || text === '') return '';
+
+  const toUpper = (str: string) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  return text.split(' ').map(toUpper).join(' ').trim();
+}
 
 export const getWeight = (profession: ProfessionName) => {
   // Calculate weight class
