@@ -1,7 +1,5 @@
 name: 'Deploy: Cloudflare and Github Pages'
 
-runs-on: self-hosted
-
 on:
   push:
     branches:
@@ -20,7 +18,7 @@ concurrency:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, ubuntu-latest]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
