@@ -21,7 +21,7 @@ jobs:
     container: 
       image: ghcr.io/${{ github.repository }}-build:main
       credentials: 
-          username: ${{ github.actor }}
+          username: discretize
           password: ${{ secrets.GITHUB_TOKEN }}
     environment:
       name: github-pages
