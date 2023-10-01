@@ -47,16 +47,12 @@ import {
 } from '../../utils/usefulFunctions';
 import type { OptimizerCoreSettings } from '../optimizer/optimizerCore';
 import { clamp, scaleValue } from '../optimizer/optimizerCore';
-import type { ExtrasCombinationEntry } from '../optimizer/optimizerSetup';
 import { getAttackRate, getMovementUptime } from '../slices/boss';
 import { getBuffsModifiers } from '../slices/buffs';
 import { getProfession } from '../slices/controlsSlice';
 import { getDistributionNew } from '../slices/distribution';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
-import {
-  getExtrasCombinationsAndModifiers as getExtrasCombinationsAndModifiersRaw,
-  getExtrasIds,
-} from '../slices/extras';
+import { getExtrasCombinationsAndModifiers, getExtrasIds } from '../slices/extras';
 import { getForcedSlots } from '../slices/forcedSlots';
 import {
   getInfusionsModifiers,
@@ -191,12 +187,6 @@ export interface Modifiers {
 }
 
 export type InfusionMode = 'None' | 'Primary' | 'Few' | 'Secondary' | 'SecondaryNoDuplicates';
-
-// Reselect's createSelector apparently sometimes exports the wrong type if its arguments are not
-// explicitly typed; override this
-const getExtrasCombinationsAndModifiers = getExtrasCombinationsAndModifiersRaw as any as (
-  state: any,
-) => ExtrasCombinationEntry[];
 
 export interface CachedFormState {
   traits: Record<string, any>;
