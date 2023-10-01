@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { PayloadAction, createSlice, original } from '@reduxjs/toolkit';
+import { PayloadAction, createSelector, createSlice, original } from '@reduxjs/toolkit';
 import { allExtrasModifiersById } from '../../assets/modifierdata';
 import { mapValues, objectEntries } from '../../utils/usefulFunctions';
 import type { RootState } from '../store';
@@ -116,7 +116,9 @@ export const extrasSlice = createSlice({
 });
 
 export const getExtrasData = (state: RootState) => state.optimizer.form.extras.extras;
-export const getExtrasIds = (state: RootState) => mapValues(getExtrasData(state), Object.keys);
+export const getExtrasIds = createSelector(getExtrasData, (extrasData) =>
+  mapValues(extrasData, Object.keys),
+);
 
 export const getLifestealAmount = (state: RootState) => state.optimizer.form.extras.lifestealAmount;
 
