@@ -1,0 +1,68 @@
+name: 'Deploy: Cloudflare and Github Pages'
+
+on:
+  push:
+    branches:
+      - main
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  PAGES_PROJECT_NAME: discretize-optimizer
+  
+concurrency:
+  group: 'deploy'
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: [self-hosted]
+    container: 
+      image: ghcr.io/discretize/${{ github.repository }}-build:latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      deployments: write
+      pages: write
+      id-token: write
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Compile WASM
+        run: yarn wasm
+
+
+      # Cloudflare pages
+      - name: Build Cloudflare
+        run: yarn build
+
+      - name: Deploy to Cloudflare
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CI_CF_PAGES }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: ${{ env.PAGES_PROJECT_NAME }}
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+
+      # Github Pages
+      - name: Build Github Pages
+        run: yarn build --base /discretize-gear-optimizer/
+
+      - name: Setup Github Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: './dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
