@@ -19,7 +19,7 @@ jobs:
   deploy:
     runs-on: [self-hosted]
     container: 
-      image: ghcr.io/discretize/${{ github.repository }}-build:main
+      image: ghcr.io/${{ github.repository }}-build:main
       credentials: 
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
