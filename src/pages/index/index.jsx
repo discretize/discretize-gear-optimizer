@@ -15,8 +15,6 @@ import SagaTypes from '../../state/sagas/sagaTypes';
 import { getMulticore } from '../../state/slices/controlsSlice';
 import { getGameMode } from '../../state/slices/userSettings';
 
-console.log('this change was successfully deployed!');
-
 // markup
 const IndexPage = () => {
   const { i18n } = useTranslation();
