@@ -46,8 +46,6 @@ Note that the Rust/Webassembly code will not update in real time; the `yarn wasm
 
 ### Pull Requests
 
-Be sure to base your development work and pull requests on the `staging` branch - this isn't the default!
-
 Feel free to open PRs for unfinished work as [draft PRs](https://github.blog/2019-02-14-introducing-draft-pull-requests/)!
 
 Note that due to GitHub limitations, contributors without repository write access can't request reviews using the GitHub UI, so mention in a dev channel in Discord if a maintainer doesn't see that you're ready for one.
@@ -56,17 +54,11 @@ Make sure your commit messages follow the [Conventional Commits specification](h
 
 ## Project Information
 
-### Repository:
-
-Discretize projects do development work on the `staging` branch and periodically merge changes into the `main` branch.
-
-At present, this project is built directly off `staging` while in beta; the plan is to integrate `main` into the discretize.eu website, which will benefit from a slower release cycle.
-
 ### Hosting:
 
-The optimizer is currently hosted on [Cloudflare Pages](https://pages.cloudflare.com/). Commiting to the `staging` branch will automatically deploy to Cloudflare pages using the github action found in `../../.github/workflows/staging-cf.yml` unless the description of the head commit (the merge commit, if you are merging a PR) contains `[skip ci]`. This build can be accessed at [optimizer.discretize.eu](https://optimizer.discretize.eu/).
+The optimizer is currently hosted on [Cloudflare Pages](https://pages.cloudflare.com/). This build can be accessed at [optimizer.discretize.eu](https://optimizer.discretize.eu/). For users that cannot access Cloudflare, there is also a mirror hosted on [Github Pages](https://pages.github.com/) at [discretize.github.io/discretize-gear-optimizer](https://discretize.github.io/discretize-gear-optimizer/).
 
-For users that cannot access Cloudflare, there is a mirror hosted on [Github Pages](https://pages.github.com/) at [discretize.github.io/discretize-gear-optimizer](https://discretize.github.io/discretize-gear-optimizer/). Merging into the `main` branch of this repository will automatically deploy to Github Pages using the [gh-pages](https://www.npmjs.com/package/gh-pages) package in a Github action.
+Commiting to the `main` branch will automatically deploy to both hosts using the github action found in `../../.github/workflows/build-deploy.yml` unless the description of the head commit (the merge commit, if you are merging a PR) contains `[skip ci]`.
 
 Opening a pull request will deploy a preview version to Cloudflare pages as well (action in `../../.github/workflows/previews-cf.yml`). A bot will notify about the deployment in the pullrequest. Every commit in a pullrequest will rebuild the preview. If you want to skip deploying a preview build, use `skip ci` in the commit description.
 
