@@ -399,6 +399,9 @@
       minor: true
       modifiers:
         conversion:
+          Condition Damage: {Vitality: 7%}
+      wvwModifiers:
+        conversion:
           Condition Damage: {Vitality: 13%}
       gw2id: 620
       defaultEnabled: true
