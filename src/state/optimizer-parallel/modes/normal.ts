@@ -21,7 +21,7 @@ import {
   isProgressMessage,
 } from '../worker/workerMessageTypes';
 import { enhanceResults, getResultProperties } from '../results';
-import { AppDispatch, RootState } from '../../store';
+import type { AppDispatch, RootState } from '../../store';
 
 const PROGRESS_UPDATE_INTERVALL = 2000000;
 let currentProgress = 0;

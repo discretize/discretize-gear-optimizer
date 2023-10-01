@@ -8,7 +8,7 @@ import {
   isFinishHeuristicsMessage,
 } from '../worker/workerMessageTypes';
 import runCalcNormal from './normal';
-import { AppDispatch, RootState } from '../../store';
+import type { AppDispatch, RootState } from '../../store';
 
 export default function runCalcHeuristics(
   reduxState: RootState,

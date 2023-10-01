@@ -9,7 +9,7 @@ import {
 import runCalcHeuristics from './modes/heuristics';
 import runCalcNormal from './modes/normal';
 import { createSettings, setupNormal } from './optimizerSetup';
-import { AppDispatch, RootState } from '../store';
+import type { AppDispatch, RootState } from '../store';
 
 export interface WorkerWrapper {
   status: 'created' | 'running' | 'stopped' | 'finished' | 'error' | 'finished_heuristics';
