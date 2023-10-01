@@ -329,8 +329,13 @@ function parseDamage(damage, id, amountData) {
 
       // so far (mid 2023), every +condition damage output bonus that's been tested has been additive
       gentleAssert(
-        key !== 'Outgoing Condition Damage' || mode !== 'unknown' || mode !== 'mult',
-        `set mode add for condition damage and comment that it's unconfirmed (remove this test if anyone finds a multiplicative one!)`,
+        key !== 'Outgoing Condition Damage' || mode === 'add' || mode === 'target',
+        `set mode add for condition damage in ${id} and comment that it's unconfirmed (remove this test if anyone finds a multiplicative one!)`,
+      );
+
+      gentleAssert(
+        key !== 'Outgoing All Damage' || mode === 'add' || mode === 'target',
+        `set mode add for all damage in ${id} and comment that it's unconfirmed (remove this test if anyone finds a multiplicative one!)`,
       );
 
       if (mode === 'target') {
