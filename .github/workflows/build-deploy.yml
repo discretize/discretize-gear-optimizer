@@ -48,6 +48,8 @@ jobs:
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
       - name: Cache Rust
         uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: wasm_module
       - name: Compile WASM
         run: yarn wasm
 
