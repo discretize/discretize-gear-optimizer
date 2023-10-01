@@ -10,16 +10,18 @@ on:
 
 env:
   PAGES_PROJECT_NAME: discretize-optimizer
-  
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}-build:main
+
 concurrency:
   group: 'deploy'
   cancel-in-progress: true
 
 jobs:
   deploy:
-    runs-on: [self-hosted]
+    runs-on: [ubuntu-latest]
     container: 
-      image: ghcr.io/${{ github.repository }}-build:main
+      image: ${{ env.IMAGE_NAME }}
       credentials: 
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
