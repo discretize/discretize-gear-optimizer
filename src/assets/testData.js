@@ -323,8 +323,8 @@ function parseDamage(damage, id, amountData) {
       parsePercent(amount, key, id);
       gentleAssert(allDamageModes.includes(mode), `invalid val ${allPairs} for ${key} in ${id}`);
       gentleAssert(
-        key !== 'Outgoing Critical Damage' || mode === 'unknown',
-        `set mode unknown for critical damage for now`,
+        key !== 'Outgoing Critical Damage' || mode !== 'add',
+        `set mode mult for critical damage and calculate additive mods manually`,
       );
 
       // so far (mid 2023), every +condition damage output bonus that's been tested has been additive

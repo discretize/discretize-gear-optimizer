@@ -155,7 +155,7 @@
       subText: base
       modifiers:
         damage:
-          Outgoing Critical Damage: [15%, unknown]
+          Outgoing Critical Damage: [15%, mult]
       gw2id: 692
       defaultEnabled: true
 
@@ -168,7 +168,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Critical Damage: [10%, unknown]
+          # increases base version to 25%: 1.25/1.15 = 1.08695652174
+          Outgoing Critical Damage: [8.695652174%, mult]
       gw2id: 692
       defaultEnabled: true
 
