@@ -467,6 +467,11 @@
         conversion:
           Expertise: {Vitality: 13%}
         damage:
+          Outgoing Torment Damage: [20%, add] # unconfirmed
+      wvwModifiers:
+        conversion:
+          Expertise: {Vitality: 13%}
+        damage:
           Outgoing Torment Damage: [25%, add] # unconfirmed
       gw2id: 2264
       defaultEnabled: true
