@@ -18,9 +18,7 @@ concurrency:
 
 jobs:
   deploy:
-    runs-on: [self-hosted]
-    container: 
-      image: rust
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -39,8 +37,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Install Yarn
-        run: npm install -g yarn
       - name: Cache dependencies
         id: node-modules-cache
         uses: actions/cache@v3
@@ -54,10 +50,6 @@ jobs:
         uses: Swatinem/rust-cache@v2
         with:
           workspaces: wasm_module
-          
-      - name: install WASM runtime
-        run: rustup target add wasm32-unknown-unknown
-          
       - name: Compile WASM
         run: yarn wasm
 
