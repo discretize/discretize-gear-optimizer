@@ -40,17 +40,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       
-      # - name: copy deps 
-      #   run: cp -r /app/node_modules ./node_modules
-
-      # - name: copy wasm deps
-      #   run: cp -r /app/wasm_module/ ./wasm_module
-
       - name: Compile WASM
         run: yarn wasm
         env: 
           PATH: /home/discretize/.cargo/bin/:/usr/local/bin:/usr/bin:/bin
       
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
       # Cloudflare pages
       - name: Build Cloudflare
