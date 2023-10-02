@@ -49,7 +49,7 @@ jobs:
       - name: Compile WASM
         run: yarn wasm
         env: 
-          PATH: /home/discretize/.cargo/bin/:${{ env.PATH }}
+          PATH: /home/discretize/.cargo/bin/:/usr/local/bin:/usr/bin:/bin
       
 
       # Cloudflare pages
