@@ -109,6 +109,6 @@
     "typescript": "^5.2.2",
     "vite": "^4.3.9",
     "vite-plugin-wasm-pack": "^0.1.12",
-    "wrangler": "^3.10.0"
+    "wrangler": "^3.11.0"
   }
 }
