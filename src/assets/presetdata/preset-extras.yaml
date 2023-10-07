@@ -169,6 +169,44 @@ list:
         "lifestealAmount": "3.1"
       }
 
+  # air-only approximation of air/hydro split
+  - name: Power Berserker
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "air": {
+              "amount": "4.1"
+            }
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Boon (Raid)
     value: |-
       {
