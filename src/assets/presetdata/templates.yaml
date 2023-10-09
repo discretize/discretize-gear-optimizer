@@ -874,7 +874,7 @@ list:
         traits: Condi Alac Ren Invo
         extras: Condi Alac Ren
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Alacrity Power Ren
         id: pren
