@@ -1045,17 +1045,16 @@ list:
         url: https://www.youtube.com/watch?v=dLs7hR9ZMFA
         log: https://dps.report/Wnpv-20230702-133715_golem
 
-  # nightmare icicle
   - name: Condi Scourge
     profession: Scourge
     value: >-
       {
-        "values2": { "Power": 1459, "Power2": 0, "Burning": 2.89, "Bleeding": 18.01, "Poisoned": 4, "Torment": 12.5, "Confusion": 0 }
+        "values2": { "Power": 1799, "Power2": 0, "Burning": 2.94, "Bleeding": 12.77, "Poisoned": 4.91, "Torment": 13.37, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
-        url: https://www.youtube.com/watch?v=m5oCDcbIdd0
-        log: https://dps.report/0Pzn-20220630-021720_golem
+        url: https://www.youtube.com/watch?v=mI7ky1a2-eQ
+        log: https://dps.report/LzVj-20231003-151324_golem
 
   # "Reaper does approximately 29.28% of its damage outside of shroud" - https://discord.com/channels/380901000200060929/381160724409614356/828683461074092113
   # With YaaW this is closer to 33%

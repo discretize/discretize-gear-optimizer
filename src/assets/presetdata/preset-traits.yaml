@@ -6370,7 +6370,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "2.7"
+              "amount": "3.06"
             }
           },
           {
@@ -6382,14 +6382,19 @@ list:
           },
           {
             "fell-beacon": {},
-            "sand-sage-3x": {},
-            "demonic-lore": {}
+            "demonic-lore": {},
+            "sand-sage-active": {},
+            "blood-as-sand-active": {}
           }
         ]
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "signet-of-spite": {
+            "amount": "12.9"
+          }
+        }
       }
 
   - name: Power Reaper

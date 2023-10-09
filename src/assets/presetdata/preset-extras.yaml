@@ -1953,7 +1953,9 @@ list:
             "berserker": {},
             "renegade": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {
             "bursting": {}
           },

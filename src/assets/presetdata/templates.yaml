@@ -1160,7 +1160,7 @@ list:
         traits: DPS Scourge
         extras: DPS Scourge
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Power Reaper
         id: preaper
