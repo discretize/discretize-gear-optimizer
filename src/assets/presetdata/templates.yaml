@@ -837,8 +837,8 @@ list:
           extras: Power Quickness Herald (Fractal)
         raid:
           extras: Power Quickness Herald (Raid)
-        weaponType: Dual wield
-        outdated: true
+        weaponType: Two-handed
+        outdated: false
 
       - name: Quickness Condi Herald
         id: cherald-quick

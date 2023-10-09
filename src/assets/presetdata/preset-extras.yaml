@@ -1636,7 +1636,9 @@ list:
             "fireworks": {},
             "firebrand": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
