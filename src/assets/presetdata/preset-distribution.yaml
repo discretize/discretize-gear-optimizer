@@ -704,16 +704,17 @@ list:
       - author: Snow Crows
 
   # Approximated with full solo hits/cast of vulture stance (36)
+  # Note: solo number, not with allies
   - name: Condi Slb D/D SB
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 1668, "Power2": 0, "Burning": 0, "Bleeding": 24.25, "Poisoned": 12.28, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1729, "Power2": 0, "Burning": 0, "Bleeding": 23.59, "Poisoned": 12.53, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Pip
-        url: https://www.youtube.com/watch?v=57D-xrFdf70
-        log: https://dps.report/Y7w9-20230629-181009_golem
+        url: https://www.youtube.com/watch?v=nAJhBrLKLvE
+        log: https://dps.report/4Iwe-20231003-183528_golem
 
   # - name: Hybrid Slb OS (A/T D/A)
   #   profession: Soulbeast

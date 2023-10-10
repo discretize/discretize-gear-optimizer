@@ -796,7 +796,7 @@ list:
         traits: Condi Slb D/D SB
         extras: Condi Slb
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Druid
         id: condidruid

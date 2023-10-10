@@ -1302,7 +1302,8 @@ list:
           },
           "Sigil2": {
             "agony": {},
-            "earth": {}
+            "earth": {},
+            "malice": {}
           },
           "Runes": {
             "trapper": {},
@@ -1316,9 +1317,12 @@ list:
             "afflicted": {},
             "thorns": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
+            "salsa-topped-veggie-flatbread": {},
             "bowl-of-kimchi-tofu-stew": {},
             "plate-of-kimchi-pancakes": {}
           },
