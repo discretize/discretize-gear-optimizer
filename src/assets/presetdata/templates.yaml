@@ -1149,7 +1149,7 @@ list:
         traits: DPS Harbinger
         extras: DPS Harbinger
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Scourge
         id: scourge
