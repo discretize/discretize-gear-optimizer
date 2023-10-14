@@ -229,6 +229,7 @@ export const sigilDict = [
   'no-item-sigil',
   'fire-sigil',
   'earth-torment-harb',
+  'air-earth-cwb',
 ];
 
 export const enhancementDict = [

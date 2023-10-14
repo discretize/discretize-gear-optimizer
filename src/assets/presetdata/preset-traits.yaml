@@ -721,14 +721,14 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": "5.49"
+              "amount": "5.56"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
             "sharper-images-phantasm": {
-              "amount": "1.87"
+              "amount": "1.82"
             },
             "phantasmal-fury-virtuoso": {}
           },
@@ -743,7 +743,7 @@ list:
             "quiet-intensity": {},
             "bloodsong": {},
             "jagged-mind": {
-              "amount": "6.04"
+              "amount": "5.89"
             }
           }
         ]
@@ -1299,7 +1299,7 @@ list:
             },
             "virtue-of-retribution": {},
             "inspiring-virtue": {
-              "amount": "89.8"
+              "amount": "90.4"
             },
             "power-of-the-virtuous": {}
           },
@@ -2134,7 +2134,7 @@ list:
             "double-standards-disc": {},
             "axe-mastery-one": {},
             "axe-mastery-axe": {
-              "amount": "72"
+              "amount": "73"
             }
           },
           {
@@ -2911,17 +2911,17 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "50.4"
+              "amount": "49.3"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "50.4"
+              "amount": "49.3"
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": "8.8"
+              "amount": "9.6"
             }
           },
           {
@@ -2934,7 +2934,7 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "44"
+              "amount": "43"
             },
             "bolt-to-the-heart": {
               "amount": ""
@@ -2953,10 +2953,10 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "74.3"
+              "amount": "76.9"
             },
             "elemental-polyphony-air": {
-              "amount": "66.7"
+              "amount": "65.2"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
@@ -2969,10 +2969,10 @@ list:
       {
         "skills": {
           "woven-fire": {
-            "amount": "48.4"
+            "amount": "50.1"
           },
           "woven-air": {
-            "amount": "47.7"
+            "amount": "53.1"
           }
         }
       }
@@ -4316,7 +4316,7 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "3.02"
+              "amount": "3.06"
             }
           },
           {
@@ -4333,7 +4333,7 @@ list:
               "amount": ""
             },
             "twice-as-vicious": {
-              "amount": "84.16"
+              "amount": "84.4"
             },
             "oppressive-superiority": {},
             "archetype-deadly": {}
@@ -5193,7 +5193,7 @@ list:
       {
         "skills": {
           "burst-of-strength": {
-            "amount": "89.1"
+            "amount": "90.4"
           }
         }
       }
@@ -5666,6 +5666,76 @@ list:
           {
             "lasers-edge": {
               "amount": "112"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Power Holo PBM
+    profession: Holosmith
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "38",
+          "6",
+          "57"
+        ],
+        "selectedTraits": [
+          [
+            1914,
+            1923,
+            526
+          ],
+          [
+            1882,
+            1892,
+            1947
+          ],
+          [
+            2106,
+            2152,
+            2064
+          ]
+        ],
+        "items": [
+          {
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "no-scope": {
+              "amount": ""
+            },
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "4.41"
+            }
+          },
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {
+            "lasers-edge": {
+              "amount": "50"
             }
           }
         ]
@@ -6370,7 +6440,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "2.7"
+              "amount": "3.06"
             }
           },
           {
@@ -6382,14 +6452,19 @@ list:
           },
           {
             "fell-beacon": {},
-            "sand-sage-3x": {},
-            "demonic-lore": {}
+            "demonic-lore": {},
+            "sand-sage-active": {},
+            "blood-as-sand-active": {}
           }
         ]
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "signet-of-spite": {
+            "amount": "12.9"
+          }
+        }
       }
 
   - name: Power Reaper
@@ -6556,7 +6631,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "3.07"
+              "amount": "3.05"
             }
           },
           {
@@ -6571,7 +6646,7 @@ list:
               "amount": ""
             },
             "septic-corruption": {
-              "amount": "21.4"
+              "amount": "20.8"
             },
             "alchemic-vigor": {},
             "implacable-foe": {},
@@ -6585,7 +6660,7 @@ list:
       {
         "skills": {
           "signet-of-spite": {
-            "amount": "11.9"
+            "amount": "8.5"
           }
         }
       }
@@ -6627,7 +6702,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "2.97"
+              "amount": "2.89"
             }
           },
           {
@@ -6642,7 +6717,7 @@ list:
               "amount": ""
             },
             "septic-corruption": {
-              "amount": "20.9"
+              "amount": "21.6"
             },
             "alchemic-vigor": {},
             "implacable-foe": {},
@@ -6657,7 +6732,7 @@ list:
       {
         "skills": {
           "signet-of-spite": {
-            "amount": "14.5"
+            "amount": "14.2"
           }
         }
       }

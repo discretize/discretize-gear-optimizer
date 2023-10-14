@@ -13,7 +13,7 @@ list:
         traits: Condi Virtuoso Dueling
         extras: Condi Virtuoso Dueling
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       # - name: Condi Virtuoso (sharpening sorrow)
       #   id: cvirt-sorrow
@@ -316,7 +316,7 @@ list:
         traits: Condi Willbender
         extras: Condi Willbender
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Willbender GS
         id: cwb-gs
@@ -493,9 +493,9 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power Berserker
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Power Spellbreaker GS
         id: spb-power-gs
@@ -589,9 +589,9 @@ list:
           extras: Power (Fractal)
         raid:
           traits: Power Weaver Raid
-          extras: Power (Raid)
+          extras: Power (Raid, fireworks)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Weaver Staff
         id: cwea-staff
@@ -796,7 +796,7 @@ list:
         traits: Condi Slb D/D SB
         extras: Condi Slb
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Druid
         id: condidruid
@@ -837,8 +837,8 @@ list:
           extras: Power Quickness Herald (Fractal)
         raid:
           extras: Power Quickness Herald (Raid)
-        weaponType: Dual wield
-        outdated: true
+        weaponType: Two-handed
+        outdated: false
 
       - name: Quickness Condi Herald
         id: cherald-quick
@@ -874,7 +874,7 @@ list:
         traits: Condi Alac Ren Invo
         extras: Condi Alac Ren
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Alacrity Power Ren
         id: pren
@@ -997,6 +997,20 @@ list:
           extras: Power Holo (Raid)
         weaponType: Dual wield
         outdated: true
+
+      - name: Power Holo PBM
+        id: pholo-pbm
+        specialization: Holosmith
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Holo PBM
+        traits: Power Holo PBM
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Holo (Raid)
+        weaponType: Two-handed
+        outdated: false
 
       - name: Condi Holo
         id: cholo
@@ -1124,7 +1138,7 @@ list:
         traits: Quickness Harbinger
         extras: Quickness Harbinger
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Quickness Power Harbinger
         id: qharb-power
@@ -1149,7 +1163,7 @@ list:
         traits: DPS Harbinger
         extras: DPS Harbinger
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Scourge
         id: scourge
@@ -1160,7 +1174,7 @@ list:
         traits: DPS Scourge
         extras: DPS Scourge
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Power Reaper
         id: preaper
@@ -1185,7 +1199,7 @@ list:
         traits: Condi Reaper
         extras: Condi Reaper
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
 
   - class: Thief

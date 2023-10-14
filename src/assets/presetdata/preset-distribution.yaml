@@ -23,17 +23,18 @@ list:
       }
     noCreditOkay: true
 
-  # Uses air/hydro sigils, not taken into consideration
+  # Uses air/hydro sigils, somewhat taken into consideration by giving air a
+  # proc rate high enough to match air+hydro damage
   - name: Power Berserker
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 3850, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3931, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Baseraver
-        url: https://www.youtube.com/watch?v=ec_sG681eJs
-        log: https://dps.report/ke6e-20230719-163514_golem
+        url: https://www.youtube.com/watch?v=SE8Nx35aXuw
+        log: https://dps.report/Pypi-20231003-192433_golem
 
   - name: Power Spellbreaker GS
     profession: Spellbreaker
@@ -170,12 +171,12 @@ list:
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 2829, "Power2": 0, "Burning": 13.89, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2871, "Power2": 0, "Burning": 14.05, "Bleeding": 0, "Poisoned": 0, "Torment": 0.08, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=5q-ZnzbZ89A
-        log: https://dps.report/OVsj-20230314-233458_golem
+        url: https://www.youtube.com/watch?v=1_GEZ8Wq2PM
+        log: https://dps.report/W6No-20231004-182316_golem
 
   # 12 boons
   # viper glove boot ring ear ear back, rest grieving, flame legion, fishy
@@ -371,12 +372,12 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3833, "Power2": 0, "Burning": 5.72, "Bleeding": 3.14, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3844, "Power2": 0, "Burning": 6.58, "Bleeding": 4.02, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Ryan'
-        url: https://www.youtube.com/watch?v=GgZ3xWRKtDs
-        log: https://dps.report/i0o0-20230706-075619_golem
+        url: https://www.youtube.com/watch?v=j1hJg6g1i1E
+        log: https://dps.report/SbRf-20231003-025202_golem
 
   # no jade bot
   - name: Condi Weaver Sword
@@ -519,23 +520,23 @@ list:
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 1912, "Power2": 0, "Burning": 4.31, "Bleeding": 14.27, "Poisoned": 3.62, "Torment": 16.83, "Confusion": 0 }
+        "values2": { "Power": 1903, "Power2": 0, "Burning": 4.14, "Bleeding": 13.37, "Poisoned": 4, "Torment": 16.09, "Confusion": 0 }
       }
     credit:
       - author: Umbra
-        url: https://www.youtube.com/watch?v=nF9Xh19BB4w
-        log: https://dps.report/S4Zh-20230214-191402_golem
+        url: https://www.youtube.com/watch?v=uCI1Xu63SmM
+        log: https://dps.report/ervZ-20231003-013459_golem
 
   - name: Condi Alac Invocation (no allies)
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 1912, "Power2": 0, "Burning": 4.31, "Bleeding": 10.27, "Poisoned": 3.62, "Torment": 16.83, "Confusion": 0 }
+        "values2": { "Power": 1903, "Power2": 0, "Burning": 4.14, "Bleeding": 9.37, "Poisoned": 4, "Torment": 16.09, "Confusion": 0 }
       }
     credit:
       - author: Umbra
-        url: https://www.youtube.com/watch?v=nF9Xh19BB4w
-        log: https://dps.report/S4Zh-20230214-191402_golem
+        url: https://www.youtube.com/watch?v=uCI1Xu63SmM
+        log: https://dps.report/ervZ-20231003-013459_golem
 
   # add razorclaw casts every 20sec to simulate allies
   # 4 players * 10 pulses * 2 seconds / 20 sec = 4.00 avg bleed
@@ -592,12 +593,12 @@ list:
     profession: Herald
     value: >-
       {
-        "values2": { "Power": 2862, "Power2": 0, "Burning": 1.54, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3056, "Power2": 0, "Burning": 0.72, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Umbra
-        url: https://www.youtube.com/watch?v=3TEy_DgLw4w
-        log: https://dps.report/RwCx-20230722-004858_golem
+        url: https://www.youtube.com/watch?v=uvMQy0C9fo0
+        log: https://dps.report/gpDG-20231003-204833_golem
 
   # not including ally lifesteal
   # todo: convert 268dps to self lifesteal
@@ -703,16 +704,17 @@ list:
       - author: Snow Crows
 
   # Approximated with full solo hits/cast of vulture stance (36)
+  # Note: solo number, not with allies
   - name: Condi Slb D/D SB
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 1668, "Power2": 0, "Burning": 0, "Bleeding": 24.25, "Poisoned": 12.28, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1729, "Power2": 0, "Burning": 0, "Bleeding": 23.59, "Poisoned": 12.53, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Pip
-        url: https://www.youtube.com/watch?v=57D-xrFdf70
-        log: https://dps.report/Y7w9-20230629-181009_golem
+        url: https://www.youtube.com/watch?v=nAJhBrLKLvE
+        log: https://dps.report/4Iwe-20231003-183528_golem
 
   # - name: Hybrid Slb OS (A/T D/A)
   #   profession: Soulbeast
@@ -759,6 +761,17 @@ list:
       - author: '[CnD] Tipcat'
         url: https://www.youtube.com/watch?v=II1pfW01vMc
         log: https://dps.report/T27X-20230701-154750_golem
+
+  - name: Power Holo PBM
+    profession: Holosmith
+    value: >-
+      {
+        "values2": { "Power": 3974, "Power2": 0, "Burning": 5.27, "Bleeding": 5.1, "Poisoned": 2.95, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: '[SC] Fallen'
+        url: https://www.youtube.com/watch?v=v6AARzsY6iA
+        log: https://dps.report/P7Qz-20231003-143924_golem
 
   # Slightly higher log than video received from Cody
   - name: Power Holo ECSU
@@ -996,16 +1009,18 @@ list:
         log: https://dps.report/WItI-20220804-134453_golem
 
   # https://optimizer.discretize.eu/?s=ReeYNhV3v1
+  # Above link out-of-date but good basis
+  # 2 expertise 4 malign 12 precise infusions
   - name: Condi Virtuoso Dueling
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 3064, "Power2": 923, "Burning": 0, "Bleeding": -0.87, "Poisoned": 0.01, "Torment": 8.89, "Confusion": 3.35 }
+        "values2": { "Power": 3231, "Power2": 919, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 8.86, "Confusion": 3.3 }
       }
     credit:
       - author: 'REMagic'
-        url: https://www.youtube.com/watch?v=0gVZuCXMg84
-        log: https://dps.report/Rg1w-20230701-125257_golem
+        url: https://www.youtube.com/watch?v=qqQB5vawAPs
+        log: https://dps.report/5rrD-20231003-202531_golem
 
   # simulated from above log (currently outdated)
   # remove 19 phantasmal blades procs in 97 sec
@@ -1044,17 +1059,16 @@ list:
         url: https://www.youtube.com/watch?v=dLs7hR9ZMFA
         log: https://dps.report/Wnpv-20230702-133715_golem
 
-  # nightmare icicle
   - name: Condi Scourge
     profession: Scourge
     value: >-
       {
-        "values2": { "Power": 1459, "Power2": 0, "Burning": 2.89, "Bleeding": 18.01, "Poisoned": 4, "Torment": 12.5, "Confusion": 0 }
+        "values2": { "Power": 1799, "Power2": 0, "Burning": 2.94, "Bleeding": 12.77, "Poisoned": 4.91, "Torment": 13.37, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
-        url: https://www.youtube.com/watch?v=m5oCDcbIdd0
-        log: https://dps.report/0Pzn-20220630-021720_golem
+        url: https://www.youtube.com/watch?v=mI7ky1a2-eQ
+        log: https://dps.report/LzVj-20231003-151324_golem
 
   # "Reaper does approximately 29.28% of its damage outside of shroud" - https://discord.com/channels/380901000200060929/381160724409614356/828683461074092113
   # With YaaW this is closer to 33%
@@ -1070,38 +1084,39 @@ list:
         url: https://www.youtube.com/watch?v=lx09i7VV3JE
         log: https://dps.report/XI5L-20230521-175913_golem
 
+  # uses https://github.com/hobinjk/optimizer-scripts/blob/main/reaper.js for shroud power damage split
   - name: Condi Reaper
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 3177, "Power2": 0, "Burning": 0.21, "Bleeding": 47.02, "Poisoned": 2.69, "Torment": 4.48, "Confusion": 0 }
+        "values2": { "Power": 1637, "Power2": 1288, "Burning": 0.31, "Bleeding": 47.83, "Poisoned": 2.69, "Torment": 3.76, "Confusion": 0 }
       }
     credit:
       - author: 'Sarulias'
-        url: https://www.youtube.com/watch?v=TmPOk72GbCM
-        log: https://dps.report/KAdA-20230506-114320_golem
+        url: https://www.youtube.com/watch?v=9x6c3mBoHHE
+        log: https://dps.report/O08l-20231002-152104_golem
 
   - name: DPS Harbinger
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2335, "Power2": 0, "Burning": 1.64, "Bleeding": 8.52, "Poisoned": 6.24, "Torment": 22.2, "Confusion": 0.62 }
+        "values2": { "Power": 2314, "Power2": 0, "Burning": 2, "Bleeding": 7.93, "Poisoned": 6.36, "Torment": 20.8, "Confusion": 0.65 }
       }
     credit:
       - author: 'Sarulias'
-        url: https://www.youtube.com/watch?v=H8HSxOe0F_w
-        log: https://dps.report/iX8i-20230709-182710_golem
+        url: https://www.youtube.com/watch?v=ZOC2RsEFrTY
+        log: https://dps.report/IpSJ-20231002-151234_golem
 
   - name: Quickness Harbinger
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2261, "Power2": 0, "Burning": 1.54, "Bleeding": 9.21, "Poisoned": 6.32, "Torment": 18.74, "Confusion": 0.68 }
+        "values2": { "Power": 2252, "Power2": 0, "Burning": 1.93, "Bleeding": 9.28, "Poisoned": 6.08, "Torment": 17.58, "Confusion": 0.64 }
       }
     credit:
       - author: 'Sarulias'
-        url: https://www.youtube.com/watch?v=sDiu2c3sJPI
-        log: https://dps.report/uU5Q-20230710-214626_golem
+        url: https://www.youtube.com/watch?v=hGy1hhhvhhc
+        log: https://dps.report/9GSF-20231002-152522_golem
 
   - name: Quickness Power Harbinger (Approx.)
     profession: Harbinger
