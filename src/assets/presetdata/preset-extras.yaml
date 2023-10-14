@@ -482,7 +482,9 @@ list:
           "Runes": {
             "krait": {}
           },
-          "Relics": {},
+          "Relics": {
+            "aristocracy-relic": {}
+          },
           "Nourishment": {
             "plate-of-kimchi-pancakes": {},
             "fancy-potato-and-leek-soup": {},

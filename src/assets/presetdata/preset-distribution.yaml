@@ -1009,16 +1009,18 @@ list:
         log: https://dps.report/WItI-20220804-134453_golem
 
   # https://optimizer.discretize.eu/?s=ReeYNhV3v1
+  # Above link out-of-date but good basis
+  # 2 expertise 4 malign 12 precise infusions
   - name: Condi Virtuoso Dueling
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 3064, "Power2": 923, "Burning": 0, "Bleeding": -0.87, "Poisoned": 0.01, "Torment": 8.89, "Confusion": 3.35 }
+        "values2": { "Power": 3231, "Power2": 919, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 8.86, "Confusion": 3.3 }
       }
     credit:
       - author: 'REMagic'
-        url: https://www.youtube.com/watch?v=0gVZuCXMg84
-        log: https://dps.report/Rg1w-20230701-125257_golem
+        url: https://www.youtube.com/watch?v=qqQB5vawAPs
+        log: https://dps.report/5rrD-20231003-202531_golem
 
   # simulated from above log (currently outdated)
   # remove 19 phantasmal blades procs in 97 sec
