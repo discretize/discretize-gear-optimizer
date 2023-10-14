@@ -589,9 +589,9 @@ list:
           extras: Power (Fractal)
         raid:
           traits: Power Weaver Raid
-          extras: Power (Raid)
+          extras: Power (Raid, fireworks)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Weaver Staff
         id: cwea-staff
