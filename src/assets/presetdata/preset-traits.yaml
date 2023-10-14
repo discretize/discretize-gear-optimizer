@@ -5675,6 +5675,76 @@ list:
         "skills": {}
       }
 
+  - name: Power Holo PBM
+    profession: Holosmith
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "38",
+          "6",
+          "57"
+        ],
+        "selectedTraits": [
+          [
+            1914,
+            1923,
+            526
+          ],
+          [
+            1882,
+            1892,
+            1947
+          ],
+          [
+            2106,
+            2152,
+            2064
+          ]
+        ],
+        "items": [
+          {
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "no-scope": {
+              "amount": ""
+            },
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "4.41"
+            }
+          },
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {
+            "lasers-edge": {
+              "amount": "50"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: Condi Holo
     profession: Holosmith
     traits: |-

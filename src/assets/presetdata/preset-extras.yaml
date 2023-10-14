@@ -1477,7 +1477,11 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fireworks-relic": {
+              "amount": "92.6"
+            }
+          },
           "Sigil1": {
             "force": {}
           },

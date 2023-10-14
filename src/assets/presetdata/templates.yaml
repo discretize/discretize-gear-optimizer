@@ -998,6 +998,20 @@ list:
         weaponType: Dual wield
         outdated: true
 
+      - name: Power Holo PBM
+        id: pholo-pbm
+        specialization: Holosmith
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Holo PBM
+        traits: Power Holo PBM
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Holo (Raid)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Condi Holo
         id: cholo
         specialization: Holosmith

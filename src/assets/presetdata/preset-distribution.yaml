@@ -762,6 +762,17 @@ list:
         url: https://www.youtube.com/watch?v=II1pfW01vMc
         log: https://dps.report/T27X-20230701-154750_golem
 
+  - name: Power Holo PBM
+    profession: Holosmith
+    value: >-
+      {
+        "values2": { "Power": 3974, "Power2": 0, "Burning": 5.27, "Bleeding": 5.1, "Poisoned": 2.95, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: '[SC] Fallen'
+        url: https://www.youtube.com/watch?v=v6AARzsY6iA
+        log: https://dps.report/P7Qz-20231003-143924_golem
+
   # Slightly higher log than video received from Cody
   - name: Power Holo ECSU
     profession: Holosmith
