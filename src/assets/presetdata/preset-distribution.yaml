@@ -1108,12 +1108,12 @@ list:
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2261, "Power2": 0, "Burning": 1.54, "Bleeding": 9.21, "Poisoned": 6.32, "Torment": 18.74, "Confusion": 0.68 }
+        "values2": { "Power": 2252, "Power2": 0, "Burning": 1.93, "Bleeding": 9.28, "Poisoned": 6.08, "Torment": 17.58, "Confusion": 0.64 }
       }
     credit:
       - author: 'Sarulias'
-        url: https://www.youtube.com/watch?v=sDiu2c3sJPI
-        log: https://dps.report/uU5Q-20230710-214626_golem
+        url: https://www.youtube.com/watch?v=hGy1hhhvhhc
+        log: https://dps.report/9GSF-20231002-152522_golem
 
   - name: Quickness Power Harbinger (Approx.)
     profession: Harbinger

@@ -1138,7 +1138,7 @@ list:
         traits: Quickness Harbinger
         extras: Quickness Harbinger
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Quickness Power Harbinger
         id: qharb-power

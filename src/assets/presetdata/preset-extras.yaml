@@ -2114,7 +2114,9 @@ list:
             "tormenting": {},
             "firebrand": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "salsa-topped-veggie-flatbread": {},
