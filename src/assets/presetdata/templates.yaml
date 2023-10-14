@@ -1199,7 +1199,7 @@ list:
         traits: Condi Reaper
         extras: Condi Reaper
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
 
   - class: Thief

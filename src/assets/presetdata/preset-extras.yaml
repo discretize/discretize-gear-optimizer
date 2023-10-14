@@ -2035,7 +2035,9 @@ list:
             "krait": {},
             "mad-king": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {

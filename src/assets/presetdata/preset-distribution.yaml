@@ -1082,16 +1082,17 @@ list:
         url: https://www.youtube.com/watch?v=lx09i7VV3JE
         log: https://dps.report/XI5L-20230521-175913_golem
 
+  # uses https://github.com/hobinjk/optimizer-scripts/blob/main/reaper.js for shroud power damage split
   - name: Condi Reaper
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 3177, "Power2": 0, "Burning": 0.21, "Bleeding": 47.02, "Poisoned": 2.69, "Torment": 4.48, "Confusion": 0 }
+        "values2": { "Power": 1637, "Power2": 1288, "Burning": 0.31, "Bleeding": 47.83, "Poisoned": 2.69, "Torment": 3.76, "Confusion": 0 }
       }
     credit:
       - author: 'Sarulias'
-        url: https://www.youtube.com/watch?v=TmPOk72GbCM
-        log: https://dps.report/KAdA-20230506-114320_golem
+        url: https://www.youtube.com/watch?v=9x6c3mBoHHE
+        log: https://dps.report/O08l-20231002-152104_golem
 
   - name: DPS Harbinger
     profession: Harbinger
