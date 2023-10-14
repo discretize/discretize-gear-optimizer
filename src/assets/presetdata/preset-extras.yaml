@@ -665,7 +665,7 @@ list:
             "bursting": {}
           },
           "Sigil2": {
-            "air-torment-cwb": {}
+            "air-earth-cwb": {}
           },
           "Runes": {
             "trapper": {},
@@ -679,7 +679,9 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Nourishment": {
             "fishy-rice-bowl": {},
             "cilantro-and-cured-meat-flatbread": {}

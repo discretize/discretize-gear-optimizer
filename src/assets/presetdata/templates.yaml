@@ -316,7 +316,7 @@ list:
         traits: Condi Willbender
         extras: Condi Willbender
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Willbender GS
         id: cwb-gs
