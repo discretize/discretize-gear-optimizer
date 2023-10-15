@@ -1165,6 +1165,17 @@ list:
         weaponType: Dual wield
         outdated: false
 
+      - name: Condi Alacrity Scourge
+        id: scourge-alac
+        specialization: Scourge
+        boonType: Condi
+        priority: Condi Alacrity Scourge 28.8%
+        distribution: Condi Alacrity Scourge
+        traits: Condi Alacrity Scourge
+        extras: DPS Scourge
+        weaponType: Dual wield
+        outdated: false
+
       - name: Condi Scourge
         id: scourge
         specialization: Scourge

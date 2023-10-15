@@ -285,6 +285,16 @@ list:
         "minQuicknessDuration": 21.6
       }
 
+  - name: Condi Alacrity Scourge 28.8%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 28.8,
+        "minQuicknessDuration": 0
+      }
+
   - name: Condi Quickness Harbinger 12.8%
     hidden: true
     value: >-

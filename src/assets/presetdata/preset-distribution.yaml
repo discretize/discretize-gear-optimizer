@@ -1059,6 +1059,17 @@ list:
         url: https://www.youtube.com/watch?v=dLs7hR9ZMFA
         log: https://dps.report/Wnpv-20230702-133715_golem
 
+  - name: Condi Alacrity Scourge
+    profession: Scourge
+    value: >-
+      {
+        "values2": { "Power": 1656, "Power2": 0, "Burning": 1.77, "Bleeding": 13.54, "Poisoned": 5.16, "Torment": 13.25, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=6NFYb_RK5bQ
+        log: https://dps.report/2bvf-20231014-100953_golem
+
   - name: Condi Scourge
     profession: Scourge
     value: >-
