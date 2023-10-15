@@ -1304,6 +1304,46 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Condi Quickness Untamed
+    profession: Untamed
+    value: |-
+      {
+        "extras": {
+          "Sigil1": {
+            "malice": {}
+          },
+          "Sigil2": {
+            "earth": {},
+            "bursting": {}
+          },
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
+            "afflicted": {},
+            "thorns": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
+          },
+          "Nourishment": {
+            "plate-of-kimchi-pancakes": {},
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {},
+            "magnanimous-tuning-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Untamed Axe
     profession: Untamed
     value: |-

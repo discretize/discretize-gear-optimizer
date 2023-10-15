@@ -707,14 +707,14 @@ list:
   - class: Ranger
     builds:
 
-      - name: Condi Alacrity Untamed A/A Hammer
-        id: condi-alacrity-untamed
+      - name: Condi Quickness Untamed
+        id: condi-quickness-untamed
         specialization: Untamed
         boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Alacrity Untamed A/A Hammer
-        traits: Condi Alacrity Untamed A/A Hammer
-        extras: Condi Untamed Axe
+        priority: Condi Quickness Untamed 42.2%
+        distribution: Condi Quickness Untamed
+        traits: Condi Quickness Untamed
+        extras: Condi Quickness Untamed
         weaponType: Two-handed
         outdated: true
 

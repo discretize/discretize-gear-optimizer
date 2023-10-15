@@ -636,16 +636,16 @@ list:
         url: https://www.youtube.com/watch?v=J8aDZhvJFqM
         log: https://dps.report/DWk6-20230510-145934_golem
 
-  - name: Condi Alacrity Untamed A/A Hammer
+  - name: Condi Quickness Untamed
     profession: Untamed
     value: >-
       {
-        "values2": { "Power": 2834, "Power2": 0, "Burning": 0, "Bleeding": 25.46, "Poisoned": 3.77, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2104, "Power2": 0, "Burning": 3.46, "Bleeding": 21.84, "Poisoned": 13.23, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Baym
-        url: https://www.youtube.com/watch?v=qt7y7K4kPao
-        log: https://dps.report/48qt-20220824-193816_golem
+      - author: Tiramichu
+        url: https://www.youtube.com/watch?v=svoHI_hOhds
+        log: https://dps.report/r4Vc-20231014-151702_golem
 
   - name: Condi Untamed Axe
     profession: Untamed

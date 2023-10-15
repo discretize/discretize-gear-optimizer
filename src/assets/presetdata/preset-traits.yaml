@@ -3907,30 +3907,30 @@ list:
         "skills": {}
       }
 
-  - name: Condi Alacrity Untamed A/A Hammer
+  - name: Condi Quickness Untamed
     profession: Untamed
     traits: |-
       {
         "showAll": false,
         "selectedLines": [
           "30",
-          "25",
+          "33",
           "72"
         ],
         "selectedTraits": [
           [
             1069,
             1846,
-            1888
+            1064
           ],
           [
-            1062,
-            965,
-            1038
+            1099,
+            1101,
+            1701
           ],
           [
             2301,
-            2263,
+            2287,
             2271
           ]
         ],
@@ -3940,15 +3940,17 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "3.74"
+              "amount": "4.66"
             }
           },
           {
-            "bountiful-hunter": {
-              "amount": ""
+            "oakheart-salve": {},
+            "taste-for-danger": {},
+            "ambidexterity": {},
+            "ambidexterity-2": {
+              "amount": "100"
             },
-            "instinctive-reaction": {},
-            "lingering-magic": {}
+            "poison-master": {}
           },
           {
             "natural-fortitude": {},
@@ -3957,7 +3959,7 @@ list:
             },
             "vow-of-the-untamed-pet": {},
             "vow-of-the-untamed-you": {
-              "amount": "28.6"
+              "amount": "88.2"
             }
           }
         ]
@@ -3966,7 +3968,7 @@ list:
       {
         "skills": {
           "pet-dps": {
-            "amount": "6340"
+            "amount": "3552"
           }
         }
       }
