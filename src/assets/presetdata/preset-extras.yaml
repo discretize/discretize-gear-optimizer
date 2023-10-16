@@ -1040,13 +1040,15 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {
             "earth": {}
           },
           "Sigil2": {
             "torment": {
-              "amount": "1.86"
+              "amount": "1.89"
             }
           },
           "Enhancement": {
