@@ -193,7 +193,9 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },

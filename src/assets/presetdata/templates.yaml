@@ -445,7 +445,7 @@ list:
         raid:
           extras: Bladesworn
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Quickness Condi Bers
         id: cbers
