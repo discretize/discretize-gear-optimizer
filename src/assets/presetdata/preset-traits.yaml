@@ -6999,7 +6999,7 @@ list:
               "amount": ""
             },
             "bounding-dodger": {
-              "amount": "78.3"
+              "amount": "79.8"
             },
             "lotus-training": {}
           }
@@ -7009,10 +7009,10 @@ list:
       {
         "skills": {
           "assassins-signet": {
-            "amount": "42.9"
+            "amount": "44.1"
           },
           "assassins-signet-active": {
-            "amount": "20.1"
+            "amount": "20"
           }
         }
       }

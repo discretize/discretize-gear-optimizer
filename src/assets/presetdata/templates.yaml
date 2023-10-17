@@ -1305,7 +1305,7 @@ list:
         raid:
           extras: Power Staff Daredevil
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Condi Deadeye
         id: cded
