@@ -2223,6 +2223,43 @@ list:
         }
       }
 
+  - name: Power Deadeye (Raid)
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "deadeye-relic": {
+              "amount": "90.5"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Staff Daredevil
     profession: Daredevil
     value: |-

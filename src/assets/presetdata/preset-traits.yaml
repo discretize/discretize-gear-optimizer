@@ -7196,7 +7196,7 @@ list:
             "deadly-ambition": {},
             "revealed-training-base": {},
             "revealed-training-revealed": {
-              "amount": "80"
+              "amount": "78.7"
             },
             "exposed-weakness": {
               "amount": ""
@@ -7205,7 +7205,9 @@ list:
             "executioner": {
               "amount": ""
             },
-            "dagger-training-dagger": {}
+            "dagger-training-dagger": {
+              "amount": "61"
+            }
           },
           {
             "keen-observer": {},
@@ -7235,11 +7237,10 @@ list:
       {
         "skills": {
           "assassins-signet": {
-            "amount": "33.5"
+            "amount": "40.9"
           },
-          "signet-of-agility": {},
           "assassins-signet-active": {
-            "amount": "22.1"
+            "amount": "21.1"
           }
         }
       }

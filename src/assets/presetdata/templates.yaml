@@ -1314,9 +1314,9 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
-        weaponType: Dual wield
-        outdated: true
+          extras: Power Deadeye (Raid)
+        weaponType: Two-handed
+        outdated: false
 
       - name: Power Deadeye Daggers BQoBK
         id: pded-daggers-bqobk
