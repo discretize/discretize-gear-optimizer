@@ -1573,15 +1573,19 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {
-            "malice": {}
+            "malice": {},
+            "earth": {}
           },
           "Sigil2": {
             "bursting": {}
           },
           "Enhancement": {
-            "master-tuning-crystal": {}
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {}
