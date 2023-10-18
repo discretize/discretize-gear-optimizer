@@ -729,33 +729,19 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Power Slb Skirm
-        id: pslb-skirm
+      - name: Power Soulbeast
+        id: pslb
         specialization: Soulbeast
         boonType: Power
         priority: Power DPS
-        distribution: Power Slb
-        traits: Power Slb Skirm
+        distribution: Power Soulbeast
+        traits: Power Soulbeast
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power (Raid, fireworks)
         weaponType: Two-handed
-        outdated: true
-
-      - name: Power Slb Marks
-        id: pslb-marks
-        specialization: Soulbeast
-        boonType: Power
-        priority: Power DPS
-        distribution: Power Slb
-        traits: Power Slb Marks
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid)
-        weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Hybrid Slb LotP (Approx.)
         id: hslb

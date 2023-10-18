@@ -658,14 +658,16 @@ list:
         url: https://www.youtube.com/watch?v=N59qd6lNOhA
         log: https://dps.report/Mgwd-20220826-160333_golem
 
-  # outdated
-  - name: Power Slb
+  - name: Power Soulbeast
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 2594, "Power2": 0, "Burning": 0.58, "Bleeding": 4.51, "Poisoned": 2.43, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3480, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0.39, "Torment": 0, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: '[InS] Laoshi'
+        url: https://www.youtube.com/watch?v=3YsQTHBCGEo
+        log: https://dps.report/KXbi-20231003-200539_golem
 
   # https://www.youtube.com/watch?v=-bipnEirEGA
   # https://dps.report/JBAr-20210620-110933_golem

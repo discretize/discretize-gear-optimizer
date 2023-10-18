@@ -4036,7 +4036,7 @@ list:
         }
       }
 
-  - name: Power Slb Skirm
+  - name: Power Soulbeast
     profession: Soulbeast
     traits: |-
       {
@@ -4048,8 +4048,8 @@ list:
         ],
         "selectedTraits": [
           [
-            0,
-            1016,
+            1069,
+            1700,
             1888
           ],
           [
@@ -4067,68 +4067,12 @@ list:
           {
             "hidden-barbs": {},
             "hunters-tactics": {},
-            "vicious-quarry": {}
-          },
-          {
-            "honed-axes": {},
-            "honed-axes-axe": {
-              "amount": ""
-            }
-          },
-          {
-            "furious-strength": {
-              "amount": ""
+            "vicious-quarry": {},
+            "sharpened-edges": {
+              "amount": "2.12"
             },
-            "twice-as-vicious": {
-              "amount": ""
-            },
-            "oppressive-superiority": {},
-            "archetype-ferocious": {},
-            "pack-alpha-merged": {},
-            "loud-whistle-merged": {},
-            "pets-prowess-merged": {},
-            "honed-axes-merged": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "signet-of-the-wild": {}
-        }
-      }
-
-  - name: Power Slb Marks
-    profession: Soulbeast
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "8",
-          "32",
-          "55"
-        ],
-        "selectedTraits": [
-          [
-            1014,
-            1000,
-            996
-          ],
-          [
-            1606,
-            970,
-            1066
-          ],
-          [
-            2071,
-            2161,
-            2143
-          ]
-        ],
-        "items": [
-          {
-            "farsighted": {},
-            "predators-onslaught": {
+            "striders-strength": {},
+            "striders-strength-sword": {
               "amount": ""
             }
           },
@@ -4157,7 +4101,10 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-the-wild": {}
+          "signet-of-the-wild": {},
+          "one-wolf-pack-sic-em": {
+            "amount": "0.1"
+          }
         }
       }
 
