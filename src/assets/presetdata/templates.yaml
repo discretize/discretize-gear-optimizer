@@ -162,7 +162,7 @@ list:
         traits: Axe Mirage
         extras: DPS Mirage (Raid)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
   - class: Guardian
     builds:
