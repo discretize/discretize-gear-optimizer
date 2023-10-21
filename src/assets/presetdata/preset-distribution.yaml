@@ -969,12 +969,12 @@ list:
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 1124, "Power2": 174, "Burning": 0, "Bleeding": 12.52, "Poisoned": 0.39, "Torment": 15.21, "Confusion": 18.41 }
+        "values2": { "Power": 1162, "Power2": 175, "Burning": 0.01, "Bleeding": 9.75, "Poisoned": 0.2, "Torment": 12.12, "Confusion": 18.48 }
       }
     credit:
-      - author: FidelOo
-        url: https://www.youtube.com/watch?v=jo4eNrLmxtg
-        log: https://dps.report/nECF-20230503-161902_golem
+      - author: Mastro
+        url: https://www.youtube.com/watch?v=RLll5GGvRjs
+        log: https://dps.report/xC5s-20231003-215812_golem
 
   - name: Alacrity Staff / Axe Mirage
     profession: Mirage
