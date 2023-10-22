@@ -899,7 +899,7 @@ list:
         raid:
           extras: DPS Vindicator (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Heal Alacrity Ren
         id: healren
