@@ -1085,17 +1085,17 @@ list:
 
   # "Reaper does approximately 29.28% of its damage outside of shroud" - https://discord.com/channels/380901000200060929/381160724409614356/828683461074092113
   # With YaaW this is closer to 33%
-  # scuffed approximation by splitting power damage 0.33 - 0.67
+  # uses https://github.com/hobinjk/optimizer-scripts/blob/main/reaper.js for shroud power damage split
   - name: Power Reaper
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 1658, "Power2": 2696, "Burning": 0, "Bleeding": 0.31, "Poisoned": 2.1, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1580, "Power2": 2795, "Burning": 0, "Bleeding": 0.42, "Poisoned": 1.23, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[InS] Laoshi'
-        url: https://www.youtube.com/watch?v=lx09i7VV3JE
-        log: https://dps.report/XI5L-20230521-175913_golem
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=8ySVhgasBZ4
+        log: https://dps.report/s1PP-20231007-214530_golem
 
   # uses https://github.com/hobinjk/optimizer-scripts/blob/main/reaper.js for shroud power damage split
   - name: Condi Reaper
