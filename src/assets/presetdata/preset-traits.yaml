@@ -43,7 +43,7 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": ""
+              "amount": "8.6"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
@@ -51,10 +51,10 @@ list:
             },
             "phantasmal-fury": {},
             "sharper-images-phantasm": {
-              "amount": "4.21"
+              "amount": "4.18"
             },
             "sharper-images-clone": {
-              "amount": "1.18"
+              "amount": "0.78"
             }
           },
           {

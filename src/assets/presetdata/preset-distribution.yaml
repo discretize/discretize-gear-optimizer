@@ -884,12 +884,12 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 3123, "Power2": 1363, "Burning": 0, "Bleeding": 1.09, "Poisoned": 0, "Torment": 0, "Confusion": 0.73 }
+        "values2": { "Power": 3541, "Power2": 1419, "Burning": 0, "Bleeding": 0.1, "Poisoned": 0, "Torment": 0, "Confusion": 0.93 }
       }
     credit:
-      - author: 'Luxroy'
-        url: https://www.youtube.com/watch?v=_V0dyC1aIl0
-        log: https://dps.report/4U2Z-20221207-132946_golem
+      - author: Cemox
+        url: https://www.youtube.com/watch?v=QumcjR3f3JU
+        log: https://dps.report/mV8B-20231003-224244_golem
 
   # impact
   - name: Quickness Power Chrono GS
