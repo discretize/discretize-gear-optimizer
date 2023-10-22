@@ -716,7 +716,7 @@ list:
         traits: Condi Quickness Untamed
         extras: Condi Quickness Untamed
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Condi Untamed Axe
         id: condi-untamed-axe
