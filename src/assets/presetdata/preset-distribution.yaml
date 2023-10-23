@@ -1188,7 +1188,7 @@ list:
         url: https://www.youtube.com/watch?v=gKnb5aRz5nk
         log: https://www.dps.report/WZp4-20230216-142041_golem
 
-  - name: Power Deadeye Daggers M7
+  - name: Power Deadeye M7
     profession: Deadeye
     value: >-
       {

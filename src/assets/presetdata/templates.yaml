@@ -1304,13 +1304,13 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Power Deadeye Daggers M7
-        id: pded-daggers-m7
+      - name: Power Deadeye M7
+        id: pded-m7
         specialization: Deadeye
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Deadeye Daggers M7
-        traits: Power Deadeye Daggers M7
+        distribution: Power Deadeye M7
+        traits: Power Deadeye M7
         fractal:
           extras: Power (Fractal)
         raid:
