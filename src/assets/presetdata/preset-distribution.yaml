@@ -120,12 +120,12 @@ list:
     profession: Bladesworn
     value: >-
       {
-        "values2": { "Power": 4571, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4548, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Evo
-        url: https://www.youtube.com/watch?v=bh2FuVpJB7E
-        log: https://gw2wingman.nevermindcreations.de/log/20230512-052547_StdGolem_kill
+        url: https://www.youtube.com/watch?v=0uJWLIKmN_c
+        log: https://dps.report/Kan2-20230824-061419_golem
 
   - name: DH Radiance
     profession: Dragonhunter
@@ -419,12 +419,12 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 2089, "Power2": 0, "Burning": 14.98, "Bleeding": 8.19, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2226, "Power2": 0, "Burning": 13.49, "Bleeding": 12.29, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Ryan
-        url: https://www.youtube.com/watch?v=6y6GPyibdVQ
-        log: https://dps.report/MZfE-20230221-213716_golem
+        url: https://www.youtube.com/watch?v=PJZrqru4f6I
+        log: https://dps.report/JIUx-20231008-232724_golem
 
   - name: Hybrid Weaver
     profession: Weaver
@@ -629,23 +629,23 @@ list:
     profession: Vindicator
     value: >-
       {
-        "values2": { "Power": 3676, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 3.1, "Confusion": 0 }
+        "values2": { "Power": 3529, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 2.96, "Confusion": 0 }
       }
     credit:
       - author: beng / L3m0n
-        url: https://www.youtube.com/watch?v=J8aDZhvJFqM
-        log: https://dps.report/DWk6-20230510-145934_golem
+        url: https://www.youtube.com/watch?v=-8rAXPpSk2c
+        log: https://dps.report/Szip-20231004-161928_golem
 
-  - name: Condi Alacrity Untamed A/A Hammer
+  - name: Condi Quickness Untamed
     profession: Untamed
     value: >-
       {
-        "values2": { "Power": 2834, "Power2": 0, "Burning": 0, "Bleeding": 25.46, "Poisoned": 3.77, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2104, "Power2": 0, "Burning": 3.46, "Bleeding": 21.84, "Poisoned": 13.23, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Baym
-        url: https://www.youtube.com/watch?v=qt7y7K4kPao
-        log: https://dps.report/48qt-20220824-193816_golem
+      - author: Tiramichu
+        url: https://www.youtube.com/watch?v=svoHI_hOhds
+        log: https://dps.report/r4Vc-20231014-151702_golem
 
   - name: Condi Untamed Axe
     profession: Untamed
@@ -658,14 +658,16 @@ list:
         url: https://www.youtube.com/watch?v=N59qd6lNOhA
         log: https://dps.report/Mgwd-20220826-160333_golem
 
-  # outdated
-  - name: Power Slb
+  - name: Power Soulbeast
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 2594, "Power2": 0, "Burning": 0.58, "Bleeding": 4.51, "Poisoned": 2.43, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3480, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0.39, "Torment": 0, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: '[InS] Laoshi'
+        url: https://www.youtube.com/watch?v=3YsQTHBCGEo
+        log: https://dps.report/KXbi-20231003-200539_golem
 
   # https://www.youtube.com/watch?v=-bipnEirEGA
   # https://dps.report/JBAr-20210620-110933_golem
@@ -789,12 +791,12 @@ list:
     profession: Holosmith
     value: >-
       {
-        "values2": { "Power": 2840, "Power2": 0, "Burning": 15.01, "Bleeding": 12.27, "Poisoned": 9.1, "Torment": 0, "Confusion": 4.31 }
+        "values2": { "Power": 2915, "Power2": 0, "Burning": 13.13, "Bleeding": 10.95, "Poisoned": 7.64, "Torment": 0.06, "Confusion": 4.28 }
       }
     credit:
       - author: beng / L3m0n
-        url: https://www.youtube.com/watch?v=mEEIhCStcoY
-        log: https://dps.report/3v66-20230721-173243_golem
+        url: https://www.youtube.com/watch?v=jCF4hW8Ziz0
+        log: https://dps.report/mbPx-20231009-150450_golem
 
   # has lifesteal food; subtracy 127 power dps
   # mech does burning (???) - import tool breaks
@@ -882,12 +884,12 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 3123, "Power2": 1363, "Burning": 0, "Bleeding": 1.09, "Poisoned": 0, "Torment": 0, "Confusion": 0.73 }
+        "values2": { "Power": 3541, "Power2": 1419, "Burning": 0, "Bleeding": 0.1, "Poisoned": 0, "Torment": 0, "Confusion": 0.93 }
       }
     credit:
-      - author: 'Luxroy'
-        url: https://www.youtube.com/watch?v=_V0dyC1aIl0
-        log: https://dps.report/4U2Z-20221207-132946_golem
+      - author: Cemox
+        url: https://www.youtube.com/watch?v=QumcjR3f3JU
+        log: https://dps.report/mV8B-20231003-224244_golem
 
   # impact
   - name: Quickness Power Chrono GS
@@ -967,12 +969,12 @@ list:
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 1124, "Power2": 174, "Burning": 0, "Bleeding": 12.52, "Poisoned": 0.39, "Torment": 15.21, "Confusion": 18.41 }
+        "values2": { "Power": 1162, "Power2": 175, "Burning": 0.01, "Bleeding": 9.75, "Poisoned": 0.2, "Torment": 12.12, "Confusion": 18.48 }
       }
     credit:
-      - author: FidelOo
-        url: https://www.youtube.com/watch?v=jo4eNrLmxtg
-        log: https://dps.report/nECF-20230503-161902_golem
+      - author: Mastro
+        url: https://www.youtube.com/watch?v=RLll5GGvRjs
+        log: https://dps.report/xC5s-20231003-215812_golem
 
   - name: Alacrity Staff / Axe Mirage
     profession: Mirage
@@ -989,12 +991,12 @@ list:
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 1988, "Power2": 404, "Burning": 1.05, "Bleeding": 8.26, "Poisoned": 0.34, "Torment": 23.94, "Confusion": 12.75 }
+        "values2": { "Power": 2050, "Power2": 453, "Burning": 1.08, "Bleeding": 7.88, "Poisoned": 0.46, "Torment": 22.88, "Confusion": 11.84 }
       }
     credit:
-      - author: 'Ryan'
-        url: https://www.youtube.com/watch?v=WLW0pyDu5jI
-        log: https://dps.report/une5-20220723-180845_golem
+      - author: Mastro
+        url: https://www.youtube.com/watch?v=uzQnOVI7QBc
+        log: https://dps.report/q02e-20231004-212315_golem
 
   # rit: shoulders coat gloves leggings, domi midnight, mischief, rendang icicle
   - name: Quickness Condi Chrono
@@ -1059,6 +1061,17 @@ list:
         url: https://www.youtube.com/watch?v=dLs7hR9ZMFA
         log: https://dps.report/Wnpv-20230702-133715_golem
 
+  - name: Condi Alacrity Scourge
+    profession: Scourge
+    value: >-
+      {
+        "values2": { "Power": 1656, "Power2": 0, "Burning": 1.77, "Bleeding": 13.54, "Poisoned": 5.16, "Torment": 13.25, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=6NFYb_RK5bQ
+        log: https://dps.report/2bvf-20231014-100953_golem
+
   - name: Condi Scourge
     profession: Scourge
     value: >-
@@ -1072,17 +1085,17 @@ list:
 
   # "Reaper does approximately 29.28% of its damage outside of shroud" - https://discord.com/channels/380901000200060929/381160724409614356/828683461074092113
   # With YaaW this is closer to 33%
-  # scuffed approximation by splitting power damage 0.33 - 0.67
+  # uses https://github.com/hobinjk/optimizer-scripts/blob/main/reaper.js for shroud power damage split
   - name: Power Reaper
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 1658, "Power2": 2696, "Burning": 0, "Bleeding": 0.31, "Poisoned": 2.1, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1580, "Power2": 2795, "Burning": 0, "Bleeding": 0.42, "Poisoned": 1.23, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[InS] Laoshi'
-        url: https://www.youtube.com/watch?v=lx09i7VV3JE
-        log: https://dps.report/XI5L-20230521-175913_golem
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=8ySVhgasBZ4
+        log: https://dps.report/s1PP-20231007-214530_golem
 
   # uses https://github.com/hobinjk/optimizer-scripts/blob/main/reaper.js for shroud power damage split
   - name: Condi Reaper
@@ -1144,12 +1157,12 @@ list:
     profession: Daredevil
     value: >-
       {
-        "values2": { "Power": 3362, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 2.95, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3346, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 3.02, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Left'
-        url: https://www.youtube.com/watch?v=nIGSw-6wyKw
-        log: https://www.dps.report/lo1Z-20230629-124023_golem
+        url: https://www.youtube.com/watch?v=j_KEqAhxgjc
+        log: https://dps.report/GlYP-20230826-115834_golem
 
   - name: Condi Daredevil (No Allies)
     profession: Daredevil
@@ -1175,16 +1188,16 @@ list:
         url: https://www.youtube.com/watch?v=gKnb5aRz5nk
         log: https://www.dps.report/WZp4-20230216-142041_golem
 
-  - name: Power Deadeye Daggers M7
+  - name: Power Deadeye M7
     profession: Deadeye
     value: >-
       {
-        "values2": { "Power": 3721, "Power2": 0, "Burning": 0, "Bleeding": 1.98, "Poisoned": 3.51, "Torment": 2.13, "Confusion": 0 }
+        "values2": { "Power": 3805, "Power2": 0, "Burning": 0, "Bleeding": 1.19, "Poisoned": 2.48, "Torment": 0.63, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
-        url: https://www.youtube.com/watch?v=-9XWPLBP1e0
-        log: https://dps.report/ZuuL-20221130-040247_golem
+        url: https://www.youtube.com/watch?v=F4KeTOtfzY8
+        log: https://dps.report/MXrd-20230915-172015_golem
 
   - name: Power Deadeye Daggers BQoBK
     profession: Deadeye

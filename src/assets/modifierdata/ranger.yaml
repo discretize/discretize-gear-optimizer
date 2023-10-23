@@ -241,6 +241,10 @@
     - id: striders-strength-sword
       text: Strider's Strength
       subText: with sword
+      amountData:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
       modifiers:
         attributes:
           Power: [120, buff] # buff unconfirmed

@@ -48,6 +48,10 @@
     - id: dagger-training-dagger
       text: Dagger Training
       subText: with dagger
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Power: [80, converted]

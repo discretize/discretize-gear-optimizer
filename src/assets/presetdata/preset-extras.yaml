@@ -95,7 +95,8 @@ list:
             "accuracy": {}
           },
           "Enhancement": {
-            "superior-sharpening-stone": {}
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
@@ -193,7 +194,9 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
@@ -372,7 +375,9 @@ list:
             "renegade": {},
             "leadership": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {
             "bursting": {}
           },
@@ -402,7 +407,9 @@ list:
             "berserker": {},
             "renegade": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {
             "bursting": {}
           },
@@ -1040,13 +1047,15 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {
             "earth": {}
           },
           "Sigil2": {
             "torment": {
-              "amount": "1.86"
+              "amount": "1.89"
             }
           },
           "Enhancement": {
@@ -1304,6 +1313,46 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Condi Quickness Untamed
+    profession: Untamed
+    value: |-
+      {
+        "extras": {
+          "Sigil1": {
+            "malice": {}
+          },
+          "Sigil2": {
+            "earth": {},
+            "bursting": {}
+          },
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
+            "afflicted": {},
+            "thorns": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
+          },
+          "Nourishment": {
+            "plate-of-kimchi-pancakes": {},
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {},
+            "magnanimous-tuning-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Untamed Axe
     profession: Untamed
     value: |-
@@ -1529,15 +1578,19 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {
-            "malice": {}
+            "malice": {},
+            "earth": {}
           },
           "Sigil2": {
             "bursting": {}
           },
           "Enhancement": {
-            "master-tuning-crystal": {}
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {}
@@ -1838,7 +1891,9 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
@@ -1850,7 +1905,7 @@ list:
             "cilantro-lime-sous-vide-steak": {}
           }
         },
-        "lifestealAmount": "3.9"
+        "lifestealAmount": "4.18"
       }
 
   - name: DPS Vindicator (Raid)
@@ -1867,7 +1922,9 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
@@ -1883,7 +1940,7 @@ list:
             "cilantro-lime-sous-vide-steak": {}
           }
         },
-        "lifestealAmount": "3.9"
+        "lifestealAmount": "4.18"
       }
 
   - name: Power Alacrity Mechanist (Fractal, inaccurate)
@@ -2175,6 +2232,43 @@ list:
         }
       }
 
+  - name: Power Deadeye (Raid)
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "deadeye-relic": {
+              "amount": "90.5"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Staff Daredevil
     profession: Daredevil
     value: |-
@@ -2189,7 +2283,9 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },

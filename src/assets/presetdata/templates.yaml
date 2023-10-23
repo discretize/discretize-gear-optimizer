@@ -101,7 +101,7 @@ list:
         raid:
           extras: Power (Raid, furious)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       # - name: Power Chrono DT Focus
       #   id: pchrono-dt-focus
@@ -135,12 +135,12 @@ list:
         id: alacmirage
         specialization: Mirage
         boonType: Condi
-        priority: Condi Alacrity Mirage 30%
+        priority: Condi Alacrity Mirage 0%
         distribution: Alacrity Staff Mirage
         traits: Alacrity Staff Mirage
         extras: Alacrity Staff Mirage
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Alacrity Staff / Axe Mirage
         id: alac-staxe-mirage
@@ -162,7 +162,7 @@ list:
         traits: Axe Mirage
         extras: DPS Mirage (Raid)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
   - class: Guardian
     builds:
@@ -445,7 +445,7 @@ list:
         raid:
           extras: Bladesworn
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Quickness Condi Bers
         id: cbers
@@ -613,7 +613,7 @@ list:
         traits: Condi Weaver Scepter
         extras: Condi Weaver Scepter
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Weaver Sword
         id: cwea-sw
@@ -707,16 +707,16 @@ list:
   - class: Ranger
     builds:
 
-      - name: Condi Alacrity Untamed A/A Hammer
-        id: condi-alacrity-untamed
+      - name: Condi Quickness Untamed
+        id: condi-quickness-untamed
         specialization: Untamed
         boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Alacrity Untamed A/A Hammer
-        traits: Condi Alacrity Untamed A/A Hammer
-        extras: Condi Untamed Axe
+        priority: Condi Quickness Untamed 42.2%
+        distribution: Condi Quickness Untamed
+        traits: Condi Quickness Untamed
+        extras: Condi Quickness Untamed
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Condi Untamed Axe
         id: condi-untamed-axe
@@ -729,33 +729,19 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Power Slb Skirm
-        id: pslb-skirm
+      - name: Power Soulbeast
+        id: pslb
         specialization: Soulbeast
         boonType: Power
         priority: Power DPS
-        distribution: Power Slb
-        traits: Power Slb Skirm
+        distribution: Power Soulbeast
+        traits: Power Soulbeast
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power (Raid, fireworks)
         weaponType: Two-handed
-        outdated: true
-
-      - name: Power Slb Marks
-        id: pslb-marks
-        specialization: Soulbeast
-        boonType: Power
-        priority: Power DPS
-        distribution: Power Slb
-        traits: Power Slb Marks
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid)
-        weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Hybrid Slb LotP (Approx.)
         id: hslb
@@ -913,7 +899,7 @@ list:
         raid:
           extras: DPS Vindicator (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Heal Alacrity Ren
         id: healren
@@ -1021,7 +1007,7 @@ list:
         traits: Condi Holo
         extras: Condi Holo
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       # - name: Alacrity Power Mech (inaccurate)
       #   id: mech-alac-power
@@ -1165,6 +1151,17 @@ list:
         weaponType: Dual wield
         outdated: false
 
+      - name: Condi Alacrity Scourge
+        id: scourge-alac
+        specialization: Scourge
+        boonType: Condi
+        priority: Condi Alacrity Scourge 28.8%
+        distribution: Condi Alacrity Scourge
+        traits: Condi Alacrity Scourge
+        extras: DPS Scourge
+        weaponType: Dual wield
+        outdated: false
+
       - name: Condi Scourge
         id: scourge
         specialization: Scourge
@@ -1186,9 +1183,9 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid, furious)
+          extras: Power (Raid, fireworks)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Condi Reaper
         id: creaper
@@ -1294,7 +1291,7 @@ list:
         raid:
           extras: Power Staff Daredevil
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Condi Deadeye
         id: cded
@@ -1307,19 +1304,19 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Power Deadeye Daggers M7
-        id: pded-daggers-m7
+      - name: Power Deadeye M7
+        id: pded-m7
         specialization: Deadeye
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Deadeye Daggers M7
-        traits: Power Deadeye Daggers M7
+        distribution: Power Deadeye M7
+        traits: Power Deadeye M7
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
-        weaponType: Dual wield
-        outdated: true
+          extras: Power Deadeye (Raid)
+        weaponType: Two-handed
+        outdated: false
 
       - name: Power Deadeye Daggers BQoBK
         id: pded-daggers-bqobk
