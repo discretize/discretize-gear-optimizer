@@ -543,7 +543,7 @@
       text: Conceited Curate
       modifiers:
         attributes:
-          Healing Power: [120, unknown]
+          Vitality: [180, unknown]
       gw2id: 2187
       defaultEnabled: true
 
