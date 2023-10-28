@@ -157,8 +157,8 @@
       gw2id: 1344
       defaultEnabled: true
 
-    - id: deep-strikes
-      text: Deep Strikes
+    - id: deep-strikes-fury
+      text: Deep Strikes (Fury)
       minor: true
       amountData:
         label: '% fury'
@@ -167,6 +167,19 @@
       modifiers:
         attributes:
           Condition Damage: [180, converted] # from sheet by Bekko
+      gw2id: 1343
+      defaultEnabled: true
+
+    - id: deep-strikes-bleeding
+      text: Deep Strikes (Bleeding)
+      minor: true
+      subText: '100% uptime'
+      modifiers:
+        attributes:
+          Critical Chance: 5%
+      wvwModifiers:
+        attributes:
+          Critical Chance: 10%
       gw2id: 1343
       defaultEnabled: true
 
