@@ -192,6 +192,18 @@
       gw2id: 1315
       defaultEnabled: true
 
+    - id: burst-precision
+      text: Burst Precision
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Ferocity: [150, unknown]
+      gw2id: 1336
+      defaultEnabled: true
+
     - id: blade-master
       text: Blademaster
       subText: 'base, intended: 120 expertise'
