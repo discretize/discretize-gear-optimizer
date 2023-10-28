@@ -47,6 +47,10 @@
         quantityEntered: 100
       modifiers:
         damage:
+          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Condition Damage: [15%, add] #unconfirmed
+      wvwModifiers:
+        damage:
           Outgoing Strike Damage: [10%, unknown]
           Outgoing Condition Damage: [10%, add] #unconfirmed
       gw2id: 62758
@@ -56,7 +60,7 @@
       subText: 100% uptime
       modifiers:
         attributes:
-          Critical Chance: 10%
+          Critical Chance: 15%
       wvwModifiers:
         attributes:
           Critical Chance: 12%
