@@ -268,8 +268,7 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, add]
-        attributes:
-          Condition Damage: [150, buff]
+          Outgoing Condition Damage: [10%, add]
       minor: true
       gw2id: 723
       defaultEnabled: true
