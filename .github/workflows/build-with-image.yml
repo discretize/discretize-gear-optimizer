@@ -48,6 +48,8 @@ jobs:
       # Cloudflare pages
       - name: Build Cloudflare
         run: yarn build
+        env:
+          VITE_HAS_CF: true
 
       - name: Deploy to Cloudflare
         uses: cloudflare/pages-action@1
