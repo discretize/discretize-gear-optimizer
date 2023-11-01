@@ -58,10 +58,13 @@ jobs:
           workspaces: wasm_module
       - name: Compile WASM
         run: yarn wasm
-      - name: Build
-        run: yarn build
 
-      - name: Publish
+      - name: Build Cloudflare
+        run: yarn build
+        env:
+          VITE_HAS_CF: true
+
+      - name: Deploy preview to Cloudflare
         uses: cloudflare/pages-action@1
         with:
           apiToken: ${{ secrets.CI_CF_PAGES }}
