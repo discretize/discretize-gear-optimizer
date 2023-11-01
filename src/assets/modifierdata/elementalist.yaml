@@ -551,7 +551,7 @@
       subText: 100% uptime
       modifiers:
         damage:
-          Outgoing Condition Damage: [10%, add]
+          Outgoing Condition Damage: [5%, add]
         attributes:
           Condition Duration: 20%
       wvwModifiers:
@@ -620,8 +620,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Condition Damage: [10%, add]
-          Outgoing Strike Damage: [10%, add] # untested; please confirm!
+          Outgoing Condition Damage: [7%, add]
+          Outgoing Strike Damage: [7%, add] # untested; please confirm!
       wvwModifiers:
         damage:
           Outgoing Condition Damage: [5%, add]
@@ -673,8 +673,8 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Outgoing Strike Damage: [3%, unknown]
-          Outgoing Condition Damage: [3%, add] #unconfirmed
+          Outgoing Strike Damage: [2%, unknown]
+          Outgoing Condition Damage: [2%, add] #unconfirmed
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [2%, unknown]

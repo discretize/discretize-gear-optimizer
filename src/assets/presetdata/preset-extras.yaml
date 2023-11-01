@@ -14,7 +14,9 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
@@ -45,7 +47,9 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
@@ -55,6 +59,44 @@ list:
           },
           "Enhancement": {
             "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power (Raid, fireworks)
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "fireworks-relic": {
+              "amount": "100"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
@@ -78,7 +120,9 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
@@ -112,7 +156,9 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
@@ -148,7 +194,9 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
@@ -167,6 +215,44 @@ list:
           }
         },
         "lifestealAmount": "3.1"
+      }
+
+  # air-only approximation of air/hydro split
+  - name: Power Berserker
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "air": {
+              "amount": "4.1"
+            }
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Power Boon (Raid)
@@ -289,7 +375,9 @@ list:
             "renegade": {},
             "leadership": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {
             "bursting": {}
           },
@@ -319,7 +407,9 @@ list:
             "berserker": {},
             "renegade": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {
             "bursting": {}
           },
@@ -407,7 +497,9 @@ list:
           "Runes": {
             "krait": {}
           },
-          "Relics": {},
+          "Relics": {
+            "aristocracy-relic": {}
+          },
           "Nourishment": {
             "plate-of-kimchi-pancakes": {},
             "fancy-potato-and-leek-soup": {},
@@ -590,7 +682,7 @@ list:
             "bursting": {}
           },
           "Sigil2": {
-            "air-torment-cwb": {}
+            "air-earth-cwb": {}
           },
           "Runes": {
             "trapper": {},
@@ -604,7 +696,9 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Nourishment": {
             "fishy-rice-bowl": {},
             "cilantro-and-cured-meat-flatbread": {}
@@ -953,13 +1047,15 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {
             "earth": {}
           },
           "Sigil2": {
             "torment": {
-              "amount": "1.86"
+              "amount": "1.89"
             }
           },
           "Enhancement": {
@@ -1217,6 +1313,46 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Condi Quickness Untamed
+    profession: Untamed
+    value: |-
+      {
+        "extras": {
+          "Sigil1": {
+            "malice": {}
+          },
+          "Sigil2": {
+            "earth": {},
+            "bursting": {}
+          },
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
+            "afflicted": {},
+            "thorns": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
+          },
+          "Nourishment": {
+            "plate-of-kimchi-pancakes": {},
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {},
+            "magnanimous-tuning-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Untamed Axe
     profession: Untamed
     value: |-
@@ -1264,7 +1400,8 @@ list:
           },
           "Sigil2": {
             "agony": {},
-            "earth": {}
+            "earth": {},
+            "malice": {}
           },
           "Runes": {
             "trapper": {},
@@ -1278,9 +1415,12 @@ list:
             "afflicted": {},
             "thorns": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
+            "salsa-topped-veggie-flatbread": {},
             "bowl-of-kimchi-tofu-stew": {},
             "plate-of-kimchi-pancakes": {}
           },
@@ -1398,7 +1538,11 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fireworks-relic": {
+              "amount": "92.6"
+            }
+          },
           "Sigil1": {
             "force": {}
           },
@@ -1434,15 +1578,19 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {
-            "malice": {}
+            "malice": {},
+            "earth": {}
           },
           "Sigil2": {
             "bursting": {}
           },
           "Enhancement": {
-            "master-tuning-crystal": {}
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {}
@@ -1537,7 +1685,9 @@ list:
             "weaver": {},
             "leadership": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Nourishment": {
             "meaty-asparagus-skewer": {},
             "salsa-eggs-benedict": {},
@@ -1598,7 +1748,9 @@ list:
             "fireworks": {},
             "firebrand": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
@@ -1739,7 +1891,9 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
@@ -1751,7 +1905,7 @@ list:
             "cilantro-lime-sous-vide-steak": {}
           }
         },
-        "lifestealAmount": "3.9"
+        "lifestealAmount": "4.18"
       }
 
   - name: DPS Vindicator (Raid)
@@ -1768,7 +1922,9 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
@@ -1784,7 +1940,7 @@ list:
             "cilantro-lime-sous-vide-steak": {}
           }
         },
-        "lifestealAmount": "3.9"
+        "lifestealAmount": "4.18"
       }
 
   - name: Power Alacrity Mechanist (Fractal, inaccurate)
@@ -1911,7 +2067,9 @@ list:
             "berserker": {},
             "renegade": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {
             "bursting": {}
           },
@@ -1946,7 +2104,9 @@ list:
             "krait": {},
             "mad-king": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
@@ -1965,7 +2125,8 @@ list:
         "extras": {
           "Sigil1": {
             "bursting": {},
-            "demons": {}
+            "demons": {},
+            "malice": {}
           },
           "Sigil2": {
             "geomancy-torment-harb": {},
@@ -1984,7 +2145,9 @@ list:
             "renegade": {},
             "tormenting": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Nourishment": {
             "meaty-asparagus-skewer": {},
             "cilantro-and-cured-meat-flatbread": {}
@@ -2022,7 +2185,9 @@ list:
             "tormenting": {},
             "firebrand": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "salsa-topped-veggie-flatbread": {},
@@ -2067,6 +2232,43 @@ list:
         }
       }
 
+  - name: Power Deadeye (Raid)
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "deadeye-relic": {
+              "amount": "90.5"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Staff Daredevil
     profession: Daredevil
     value: |-
@@ -2081,7 +2283,9 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
