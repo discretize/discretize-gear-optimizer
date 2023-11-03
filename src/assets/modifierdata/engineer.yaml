@@ -349,6 +349,9 @@
       modifiers:
         attributes:
           Power: [1000, buff]
+      wvwModifiers:
+        attributes:
+          Power: [500, buff]
       gw2id: 1849
       defaultEnabled: true
 
