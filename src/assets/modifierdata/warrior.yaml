@@ -159,6 +159,7 @@
 
     - id: deep-strikes-fury
       text: Deep Strikes (Fury)
+      subText: with fury
       minor: true
       amountData:
         label: '% fury'
@@ -172,6 +173,7 @@
 
     - id: deep-strikes-bleeding
       text: Deep Strikes (Bleeding)
+      subText: with bleeding
       minor: true
       subText: '100% uptime'
       modifiers:
