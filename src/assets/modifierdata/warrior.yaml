@@ -173,9 +173,8 @@
 
     - id: deep-strikes-bleeding
       text: Deep Strikes (Bleeding)
-      subText: with bleeding
+      subText: 'with bleeding (100% uptime)'
       minor: true
-      subText: '100% uptime'
       modifiers:
         attributes:
           Critical Chance: 5%
