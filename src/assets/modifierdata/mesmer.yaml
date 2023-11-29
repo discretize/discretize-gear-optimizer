@@ -177,22 +177,6 @@
   id: 45
   items:
 
-    - id: illusionary-defense
-      text: Illusionary Defense
-      amountData:
-        label: 'stacks'
-        default: 5
-        quantityEntered: 1
-        disableBlacklist: true
-      modifiers:
-        damage:
-          Damage Reduction: [5%, unknown]
-      wvwModifiers:
-        damage:
-          Damage Reduction: [2%, unknown]
-      gw2id: 675
-      defaultEnabled: true
-
     - id: illusionary-membrane
       text: Illusionary Membrane
       minor: true
