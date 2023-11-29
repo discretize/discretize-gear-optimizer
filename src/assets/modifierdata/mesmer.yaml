@@ -238,6 +238,14 @@
       gw2id: 1915
       defaultEnabled: true
 
+    - id: illusionary-inspiration
+      text: Illusionary Inspiration
+      modifiers:
+        attributes:
+          Outgoing Healing: 15%
+      gw2id: 1866
+      defaultEnabled: true
+
 - section: Illusions
   id: 24
   items:
