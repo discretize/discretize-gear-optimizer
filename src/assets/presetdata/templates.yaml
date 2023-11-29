@@ -140,7 +140,7 @@ list:
         traits: Alacrity Staff Mirage
         extras: Alacrity Staff Mirage
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Alacrity Staff / Axe Mirage
         id: alac-staxe-mirage
@@ -162,7 +162,7 @@ list:
         traits: Axe Mirage
         extras: DPS Mirage (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
   - class: Guardian
     builds:
@@ -307,7 +307,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Willbender Sword
+      - name: Condi Willbender Sword (approx.)
         id: cwb-sw
         specialization: Willbender
         boonType: Condi
@@ -433,7 +433,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Power Bladesworn
+      - name: Power Bladesworn (Approx.)
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
@@ -483,7 +483,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Power Berserker
+      - name: Power Berserker (Approx.)
         id: pbers
         specialization: Berserker
         boonType: Power
@@ -887,7 +887,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Power Vindicator
+      - name: Power Vindicator (Approx.)
         id: vindi
         specialization: Vindicator
         boonType: Power
@@ -998,7 +998,7 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Condi Holo
+      - name: Condi Holo (Approx.)
         id: cholo
         specialization: Holosmith
         boonType: Condi

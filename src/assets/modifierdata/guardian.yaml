@@ -409,6 +409,14 @@
 - section: Dragonhunter
   id: 27
   items:
+    - id: defenders-dogma
+      text: Defender's Dogma
+      minor: true
+      modifiers:
+        attributes:
+          Vitality: [180, unknown]
+      gw2id: 1896
+      defaultEnabled: true
 
     - id: zealots-aggression
       text: Zealot's Aggression
@@ -543,7 +551,7 @@
       text: Conceited Curate
       modifiers:
         attributes:
-          Healing Power: [120, unknown]
+          Vitality: [180, unknown]
       gw2id: 2187
       defaultEnabled: true
 

@@ -1021,11 +1021,16 @@ list:
             "symbolic-avenger": {}
           },
           {
+            "defenders-dogma": {},
             "zealots-aggression": {},
             "pure-of-sight": {},
             "hunters-fortification": {},
+            "heavy-light-defiant": {},
+            "heavy-light-defiant-disabled": {
+              "amount": ""
+            },
             "big-game-hunter": {
-              "amount": "71"
+              "amount": ""
             }
           }
         ]
@@ -1091,10 +1096,17 @@ list:
             "symbolic-avenger": {}
           },
           {
+            "defenders-dogma": {},
             "zealots-aggression": {},
             "pure-of-sight": {},
             "hunters-fortification": {},
-            "big-game-hunter": {}
+            "heavy-light-defiant": {},
+            "heavy-light-defiant-disabled": {
+              "amount": ""
+            },
+            "big-game-hunter": {
+              "amount": ""
+            }
           }
         ]
       }
@@ -2273,11 +2285,17 @@ list:
         ],
         "items": [
           {
+            "furious-burst": {},
             "wounding-precision": {},
             "signet-mastery": {
               "amount": ""
             },
-            "deep-strikes": {
+            "deep-strikes-fury": {
+              "amount": ""
+            },
+            "deep-strikes-bleeding": {},
+            "unsuspecting-foe-full": {},
+            "burst-precision": {
               "amount": ""
             },
             "blade-master": {},
@@ -2290,8 +2308,7 @@ list:
             },
             "bloodlust-on-crit": {
               "amount": "2.82"
-            },
-            "furious-burst": {}
+            }
           },
           {
             "warriors-sprint": {

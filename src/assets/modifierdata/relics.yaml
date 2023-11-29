@@ -247,7 +247,7 @@
       subText: 10 stacks
       modifiers:
         attributes:
-          Concentration: [150, unknown]
+          Concentration: [250, unknown]
       gw2id: 100219
 
     - id: firebrand-relic

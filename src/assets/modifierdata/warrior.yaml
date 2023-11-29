@@ -157,8 +157,9 @@
       gw2id: 1344
       defaultEnabled: true
 
-    - id: deep-strikes
-      text: Deep Strikes
+    - id: deep-strikes-fury
+      text: Deep Strikes (Fury)
+      subText: with fury
       minor: true
       amountData:
         label: '% fury'
@@ -170,6 +171,19 @@
       gw2id: 1343
       defaultEnabled: true
 
+    - id: deep-strikes-bleeding
+      text: Deep Strikes (Bleeding)
+      subText: 'with bleeding (100% uptime)'
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 5%
+      wvwModifiers:
+        attributes:
+          Critical Chance: 10%
+      gw2id: 1343
+      defaultEnabled: true
+
     - id: unsuspecting-foe-full
       text: Unsuspecting Foe
       subText: 100% Uptime # variable crit chance would be inaccurate
@@ -177,6 +191,18 @@
         attributes:
           Critical Chance: 25%
       gw2id: 1315
+      defaultEnabled: true
+
+    - id: burst-precision
+      text: Burst Precision
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Ferocity: [150, unknown]
+      gw2id: 1336
       defaultEnabled: true
 
     - id: blade-master
@@ -391,6 +417,14 @@
         damage:
           Outgoing Strike Damage: [3%, add]
       gw2id: 1413
+      defaultEnabled: true
+
+    - id: stalwart-focus
+      text: Stalwart Focus
+      modifiers:
+        attributes:
+          Outgoing Healing: 15%
+      gw2id: 1381
       defaultEnabled: true
 
     - id: axe-mastery-one

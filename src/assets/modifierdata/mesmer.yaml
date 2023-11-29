@@ -177,27 +177,11 @@
   id: 45
   items:
 
-    - id: illusionary-defense
-      text: Illusionary Defense
-      amountData:
-        label: 'stacks'
-        default: 5
-        quantityEntered: 1
-        disableBlacklist: true
-      modifiers:
-        damage:
-          Damage Reduction: [5%, unknown]
-      wvwModifiers:
-        damage:
-          Damage Reduction: [2%, unknown]
-      gw2id: 675
-      defaultEnabled: true
-
     - id: illusionary-membrane
       text: Illusionary Membrane
       minor: true
       amountData:
-        label: '% regeneration'
+        label: '% chaos aura'
         default: 100
         quantityEntered: 100
       modifiers:
@@ -254,6 +238,14 @@
       gw2id: 1915
       defaultEnabled: true
 
+    - id: illusionary-inspiration
+      text: Illusionary Inspiration
+      modifiers:
+        attributes:
+          Outgoing Healing: 15%
+      gw2id: 1866
+      defaultEnabled: true
+
 - section: Illusions
   id: 24
   items:
@@ -268,8 +260,7 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, add]
-        attributes:
-          Condition Damage: [150, buff]
+          Outgoing Condition Damage: [10%, add]
       minor: true
       gw2id: 723
       defaultEnabled: true
@@ -284,6 +275,14 @@
         damage:
           Outgoing Phantasm Damage: [25%, unknown]
       gw2id: 733
+      defaultEnabled: true
+
+    - id: malicious-sorcery
+      text: Malicious Sorcery
+      modifiers:
+        attributes:
+          Confusion Duration: 25%
+      gw2id: 753
       defaultEnabled: true
 
 - section: Chronomancer
