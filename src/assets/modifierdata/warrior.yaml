@@ -419,6 +419,14 @@
       gw2id: 1413
       defaultEnabled: true
 
+    - id: stalwart-focus
+      text: Stalwart Focus
+      modifiers:
+        attributes:
+          Outgoing Healing: 15%
+      gw2id: 1381
+      defaultEnabled: true
+
     - id: axe-mastery-one
       text: Axe Mastery
       subText: base
