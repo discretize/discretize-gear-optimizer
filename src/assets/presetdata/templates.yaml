@@ -140,7 +140,7 @@ list:
         traits: Alacrity Staff Mirage
         extras: Alacrity Staff Mirage
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Alacrity Staff / Axe Mirage
         id: alac-staxe-mirage
@@ -162,7 +162,7 @@ list:
         traits: Axe Mirage
         extras: DPS Mirage (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
   - class: Guardian
     builds:
