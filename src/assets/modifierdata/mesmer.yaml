@@ -277,6 +277,14 @@
       gw2id: 733
       defaultEnabled: true
 
+    - id: malicious-sorcery
+      text: Malicious Sorcery
+      modifiers:
+        attributes:
+          Confusion Duration: 25%
+      gw2id: 753
+      defaultEnabled: true
+
 - section: Chronomancer
   id: 40
   note: Be sure to change the power coefficient value below when adding or removing traits that change your rotation like improved alacrity.
