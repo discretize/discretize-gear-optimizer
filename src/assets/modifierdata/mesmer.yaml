@@ -181,7 +181,7 @@
       text: Illusionary Membrane
       minor: true
       amountData:
-        label: '% regeneration'
+        label: '% chaos aura'
         default: 100
         quantityEntered: 100
       modifiers:
