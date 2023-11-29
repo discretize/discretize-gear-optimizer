@@ -307,7 +307,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Willbender Sword
+      - name: Condi Willbender Sword (approx.)
         id: cwb-sw
         specialization: Willbender
         boonType: Condi
