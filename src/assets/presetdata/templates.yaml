@@ -998,7 +998,7 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Condi Holo
+      - name: Condi Holo (Approx.)
         id: cholo
         specialization: Holosmith
         boonType: Condi
