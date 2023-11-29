@@ -2285,11 +2285,17 @@ list:
         ],
         "items": [
           {
+            "furious-burst": {},
             "wounding-precision": {},
             "signet-mastery": {
               "amount": ""
             },
-            "deep-strikes": {
+            "deep-strikes-fury": {
+              "amount": ""
+            },
+            "deep-strikes-bleeding": {},
+            "unsuspecting-foe-full": {},
+            "burst-precision": {
               "amount": ""
             },
             "blade-master": {},
@@ -2302,8 +2308,7 @@ list:
             },
             "bloodlust-on-crit": {
               "amount": "2.82"
-            },
-            "furious-burst": {}
+            }
           },
           {
             "warriors-sprint": {
