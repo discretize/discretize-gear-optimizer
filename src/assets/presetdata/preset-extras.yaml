@@ -271,7 +271,9 @@ list:
             "fireworks": {},
             "leadership": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {},
             "accuracy": {}
@@ -313,7 +315,9 @@ list:
             "fireworks": {},
             "leadership": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {},
             "accuracy": {}

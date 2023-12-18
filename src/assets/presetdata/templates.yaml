@@ -50,19 +50,19 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Quickness Power Chrono GS
-        id: pchrono-stm-gs
+      - name: Boon Power Chrono GS
+        id: pchrono-boon-gs
         specialization: Chronomancer
         boonType: Power
         priority: Boon Power Chrono 0%
-        distribution: Quickness Power Chrono GS
-        traits: Quickness Power Chrono GS
+        distribution: Boon Power Chrono GS
+        traits: Boon Power Chrono GS
         fractal:
           extras: Power Boon (Fractal)
         raid:
           extras: Power Boon (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Quickness Condi Chrono
         id: condi-chrono-stm
@@ -75,19 +75,19 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Alacrity Power Chrono GS
-        id: pchrono-alac-gs
-        specialization: Chronomancer
-        boonType: Power
-        priority: Boon Power Chrono 0%
-        distribution: Alacrity Power Chrono GS
-        traits: Alacrity Power Chrono GS
-        fractal:
-          extras: Power Boon (Fractal)
-        raid:
-          extras: Power Boon (Raid)
-        weaponType: Two-handed
-        outdated: true
+      # - name: Alacrity Power Chrono GS
+      #   id: pchrono-alac-gs
+      #   specialization: Chronomancer
+      #   boonType: Power
+      #   priority: Boon Power Chrono 0%
+      #   distribution: Alacrity Power Chrono GS
+      #   traits: Alacrity Power Chrono GS
+      #   fractal:
+      #     extras: Power Boon (Fractal)
+      #   raid:
+      #     extras: Power Boon (Raid)
+      #   weaponType: Two-handed
+      #   outdated: true
 
       - name: Power Chrono IA GS
         id: pchrono-ia-gs

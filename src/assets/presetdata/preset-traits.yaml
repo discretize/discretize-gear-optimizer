@@ -204,7 +204,7 @@ list:
         "skills": {}
       }
 
-  - name: Quickness Power Chrono GS
+  - name: Boon Power Chrono GS
     profession: Chronomancer
     traits: |-
       {
@@ -246,7 +246,7 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": "7.48"
+              "amount": "6.45"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
@@ -254,10 +254,10 @@ list:
             },
             "phantasmal-fury": {},
             "sharper-images-phantasm": {
-              "amount": "1.88"
+              "amount": "2.01"
             },
             "sharper-images-clone": {
-              "amount": "0.67"
+              "amount": "0.86"
             }
           },
           {

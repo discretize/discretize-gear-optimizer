@@ -892,16 +892,16 @@ list:
         log: https://dps.report/mV8B-20231003-224244_golem
 
   # impact
-  - name: Quickness Power Chrono GS
+  - name: Boon Power Chrono GS
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 3337, "Power2": 1036, "Burning": 0, "Bleeding": 0.68, "Poisoned": 0, "Torment": 0, "Confusion": 0.81 }
+        "values2": { "Power": 3640, "Power2": 1118, "Burning": 0, "Bleeding": 0.1, "Poisoned": 0, "Torment": 0, "Confusion": 1.24 }
       }
     credit:
       - author: '[CnD] Tipcat'
-        url: https://www.youtube.com/watch?v=-ILwD0mMl3M
-        log: https://dps.report/3bs5-20230709-133638_golem
+        url: https://www.youtube.com/watch?v=Z8Ni8RZ458k
+        log: https://dps.report/wbK9-20231111-134616_golem
 
   # concentration
   - name: Quickness Power Chrono GS+Focus
