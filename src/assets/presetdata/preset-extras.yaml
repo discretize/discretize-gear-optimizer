@@ -348,7 +348,9 @@ list:
             "monk": {},
             "water": {}
           },
-          "Relics": {},
+          "Relics": {
+            "monk-relic": {}
+          },
           "Sigil1": {
             "concentration": {}
           },

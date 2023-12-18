@@ -408,6 +408,57 @@ list:
         "skills": {}
       }
 
+  - name: Heal Chrono
+    profession: Chronomancer
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "45",
+          "23",
+          "40"
+        ],
+        "selectedTraits": [
+          [
+            675,
+            668,
+            1687
+          ],
+          [
+            738,
+            740,
+            1866
+          ],
+          [
+            1987,
+            1978,
+            2022
+          ]
+        ],
+        "items": [
+          {
+            "illusionary-membrane": {
+              "amount": ""
+            },
+            "chaotic-potency": {},
+            "chaotic-persistence": {}
+          },
+          {
+            "healing-prism": {},
+            "illusionary-inspiration": {}
+          },
+          {
+            "danger-time": {},
+            "chronophantasma": {},
+            "improved-alacrity": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
 
   - name: Axe Mirage
     profession: Mirage

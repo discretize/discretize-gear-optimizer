@@ -131,6 +131,20 @@ list:
       #   weaponType: Two-handed
       #   outdated: true
 
+      - name: Heal Boon Chrono
+        id: heal-boon-chrono
+        specialization: Chronomancer
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Chrono
+        extras: Heal
+        weaponType: Two-handed
+        outdated: false
+
       - name: Alacrity Staff Mirage
         id: alacmirage
         specialization: Mirage
