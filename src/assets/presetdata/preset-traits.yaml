@@ -793,14 +793,14 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": "5.56"
+              "amount": "5.24"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
             "sharper-images-phantasm": {
-              "amount": "1.82"
+              "amount": "1.8"
             },
             "phantasmal-fury-virtuoso": {}
           },
@@ -815,7 +815,7 @@ list:
             "quiet-intensity": {},
             "bloodsong": {},
             "jagged-mind": {
-              "amount": "5.89"
+              "amount": "6.04"
             }
           }
         ]
