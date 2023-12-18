@@ -142,16 +142,27 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Alacrity Staff / Axe Mirage
-        id: alac-staxe-mirage
+      # - name: Alacrity Staff / Axe Mirage
+      #   id: alac-staxe-mirage
+      #   specialization: Mirage
+      #   boonType: Condi
+      #   priority: Condi Alacrity Mirage 0%
+      #   distribution: Alacrity Staff / Axe Mirage
+      #   traits: Alacrity Staff / Axe Mirage
+      #   extras: Alacrity Staff Mirage
+      #   weaponType: Two-handed
+      #   outdated: true
+
+      - name: Condi Staff / Axe Mirage
+        id: condi-staxe-mirage
         specialization: Mirage
         boonType: Condi
-        priority: Condi Alacrity Mirage 0%
-        distribution: Alacrity Staff / Axe Mirage
-        traits: Alacrity Staff / Axe Mirage
-        extras: Alacrity Staff Mirage
+        priority: Condi DPS
+        distribution: Condi Staff / Axe Mirage
+        traits: Condi Staff / Axe Mirage
+        extras: DPS Mirage (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Condi Axe Mirage
         id: axe-mirage-deception-torch

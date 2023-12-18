@@ -412,7 +412,9 @@ list:
             "renegade": {}
           },
           "Relics": {
-            "fractal-relic": {}
+            "fractal-relic": {
+              "amount": "0.475"
+            }
           },
           "Sigil1": {
             "bursting": {}
@@ -425,7 +427,8 @@ list:
             "cilantro-and-cured-meat-flatbread": {},
             "salsa-topped-veggie-flatbread": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Quickness Condi Chrono
