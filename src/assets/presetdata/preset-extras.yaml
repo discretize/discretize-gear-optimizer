@@ -340,6 +340,7 @@ list:
         "lifestealAmount": ""
       }
 
+  # no item sigil represents use of water sigil
   - name: Heal
     value: |-
       {
@@ -352,7 +353,8 @@ list:
             "monk-relic": {}
           },
           "Sigil1": {
-            "concentration": {}
+            "concentration": {},
+            "no-item-sigil": {}
           },
           "Sigil2": {
             "transference": {}
