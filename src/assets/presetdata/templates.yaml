@@ -586,8 +586,8 @@ list:
         distribution: Condi Tempest
         traits: Condi Tempest
         extras: Condi Tempest
-        weaponType: Dual wield
-        outdated: true
+        weaponType: Two-handed
+        outdated: false
 
       - name: Power Tempest
         id: ptemp

@@ -1063,9 +1063,7 @@ list:
             "earth": {}
           },
           "Sigil2": {
-            "torment": {
-              "amount": "1.89"
-            }
+            "smoldering": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}

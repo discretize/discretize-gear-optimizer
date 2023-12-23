@@ -3632,7 +3632,7 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "57"
+              "amount": "63"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -3642,7 +3642,7 @@ list:
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": "9.5"
+              "amount": "6.2"
             }
           },
           {
@@ -3654,7 +3654,7 @@ list:
             "gathered-focus": {},
             "hardy-conduit": {},
             "transcendent-tempest": {
-              "amount": "62"
+              "amount": "63"
             },
             "tempestuous-aria": {
               "amount": ""
@@ -3665,7 +3665,14 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "crescent-wind": {},
+          "flame-wheel": {
+            "amount": ""
+          },
+          "signet-of-fire": {},
+          "signet-of-earth": {}
+        }
       }
 
   - name: Power Tempest
