@@ -576,7 +576,7 @@ list:
         traits: Alacrity Hybrid Tempest
         extras: Alacrity Hybrid Tempest
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Tempest
         id: ctemp

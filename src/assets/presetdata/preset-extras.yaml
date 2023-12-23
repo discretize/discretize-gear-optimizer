@@ -1197,13 +1197,18 @@ list:
             "flame-legion-2": {},
             "leadership": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": "0.4"
+            }
+          },
           "Sigil1": {
-            "bursting": {}
+            "bursting": {},
+            "smoldering": {}
           },
           "Sigil2": {
             "torment": {
-              "amount": "1.87"
+              "amount": ""
             },
             "concentration": {}
           },

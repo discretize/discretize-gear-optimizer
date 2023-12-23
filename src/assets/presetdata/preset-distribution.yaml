@@ -441,12 +441,12 @@ list:
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 3142, "Power2": 0, "Burning": 11.59, "Bleeding": 11.9, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2930, "Power2": 0, "Burning": 11.56, "Bleeding": 11.96, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Dánmander'
-        url: https://www.youtube.com/watch?v=XN0BMPviEjQ
-        log: https://dps.report/NwjR-20230628-160448_golem
+        url: https://www.youtube.com/watch?v=WOrKFRobSiU
+        log: https://dps.report/RMsk-20231213-174648_golem
 
   - name: Condi Tempest
     profession: Tempest
