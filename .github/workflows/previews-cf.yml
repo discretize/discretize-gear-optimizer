@@ -73,6 +73,7 @@ jobs:
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           projectName: ${{ env.PAGES_PROJECT_NAME }}
           directory: dist
+          branch: ${{ github.head_ref || github.ref_name }} 
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Comment PR
