@@ -80,9 +80,12 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            id: ${{ steps.pages-action.outputs.id }}
-            url: ${{ steps.pages-action.outputs.url }}
-            alias: ${{ steps.pages-action.outputs.alias }}
-            environment: ${{ steps.pages-action.outputs.environment }}
+            Deployed ${{ steps.pages-action.outputs.environment }} build to Cloudflare!
+
+            | Name                    | Result |
+            | ----------------------- | - |
+            | **Last commit:**        | todo |
+            | **Preview URL**:        | ${{ steps.pages-action.outputs.url }} |
+            | **Branch Preview URL**: | ${{ github.head_ref || github.ref_name }}.${{ env.PAGES_PROJECT_NAME }}.pages.dev |
           comment_tag: deployment
           mode: upsert
