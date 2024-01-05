@@ -65,43 +65,23 @@ jobs:
         env:
           VITE_HAS_CF: true
 
-      # - name: Deploy preview to Cloudflare
-      #   uses: cloudflare/pages-action@1
-      #   id: pages-action
-      #   with:
-      #     apiToken: ${{ secrets.CI_CF_PAGES }}
-      #     accountId: ${{ secrets.CF_ACCOUNT_ID }}
-      #     projectName: ${{ env.PAGES_PROJECT_NAME }}
-      #     directory: dist
-      #     gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-
-      # - name: Comment PR
-      #   uses: thollander/actions-comment-pull-request@v2
-      #   with:
-      #     message: |
-      #       id: ${{ steps.pages-action.outputs.id }}
-      #       url: ${{ steps.pages-action.outputs.url }}
-      #       alias: ${{ steps.pages-action.outputs.alias }}
-      #       environment: ${{ steps.pages-action.outputs.environment }}
-      #     comment_tag: deployment
-      #     mode: upsert
-
       - name: Deploy preview to Cloudflare
-        uses: cloudflare/wrangler-action@v3
-        id: wrangler-action
+        uses: cloudflare/pages-action@1
+        id: pages-action
         with:
           apiToken: ${{ secrets.CI_CF_PAGES }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-        #   gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          command: pages deploy dist --project-name=${{ env.PAGES_PROJECT_NAME }}
+          projectName: ${{ env.PAGES_PROJECT_NAME }}
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Comment PR
-      #   uses: thollander/actions-comment-pull-request@v2
-      #   with:
-      #     message: |
-      #       id: ${{ steps.wrangler-action.outputs.id }}
-      #       url: ${{ steps.wrangler-action.outputs.url }}
-      #       alias: ${{ steps.wrangler-action.outputs.alias }}
-      #       environment: ${{ steps.wrangler-action.outputs.environment }}
-      #     comment_tag: deployment
-      #     mode: upsert
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            id: ${{ steps.pages-action.outputs.id }}
+            url: ${{ steps.pages-action.outputs.url }}
+            alias: ${{ steps.pages-action.outputs.alias }}
+            environment: ${{ steps.pages-action.outputs.environment }}
+          comment_tag: deployment
+          mode: upsert
