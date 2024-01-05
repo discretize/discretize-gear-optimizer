@@ -83,7 +83,7 @@ const IndexPage = () => {
           </Collapse>
         ))}
         <Typography variant="h2" sx={{ paddingBottom: 2 }}>
-          <Trans>Gear Optimizer jgvghvhv</Trans>
+          <Trans>Gear Optimizer ggggggggg</Trans>
           {multicore && (
             <>
               {' '}
