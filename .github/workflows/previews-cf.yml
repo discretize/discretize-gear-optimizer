@@ -82,10 +82,10 @@ jobs:
           message: |
             Deployed ${{ steps.pages-action.outputs.environment }} build to Cloudflare!
 
-            | Name                    | Result |
-            | ----------------------- | - |
+            |                         |   |
+            | ----------------------- | ${{ github.event.pull_request.head.sha || github.event.workflow_run.head_sha || github.sha }}|
             | **Last commit:**        | todo |
             | **Preview URL**:        | ${{ steps.pages-action.outputs.url }} |
-            | **Branch Preview URL**: | ${{ github.head_ref || github.ref_name }}.${{ env.PAGES_PROJECT_NAME }}.pages.dev |
+            | **Branch Preview URL**: | https://${{ github.head_ref || github.ref_name }}.${{ env.PAGES_PROJECT_NAME }}.pages.dev |
           comment_tag: deployment
           mode: upsert
