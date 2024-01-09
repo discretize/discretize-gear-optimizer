@@ -20,7 +20,7 @@ This is optional if you just want to contribute to the optimizer's database and 
 
 ### Building the Site
 
-This project requires [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com/). We recommend installing Node using a version manager like NVM so you can easily switch to the correct version for different projects ([here are some methods to do so](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)).
+This project requires [Node.js](https://nodejs.org/) and [Yarn](https://classic.yarnpkg.com/). We recommend installing Node using a version manager like NVM so you can easily switch to the correct version for different projects ([here are some methods to do so](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)).
 
 Setting up your editor with [EditorConfig](https://editorconfig.org/), [ESLint](https://eslint.org/), and [Prettier](https://prettier.io/) integrations is also recommended.
 
