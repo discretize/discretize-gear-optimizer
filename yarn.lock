@@ -5788,9 +5788,6 @@ wasm-pack@^0.12.1:
   dependencies:
     binary-install "^1.0.1"
 
-"wasm_module@file:./wasm_module":
-  version "0.0.0"
-
 which-boxed-primitive@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/which-boxed-primitive/-/which-boxed-primitive-1.0.2.tgz#13757bc89b209b049fe5d86430e21cf40a89a8e6"
