@@ -1,7 +1,7 @@
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
-import wasmPack from 'vite-plugin-wasm-pack';
+import wasm from 'vite-plugin-wasm';
 import yamlImporter from './plugins/YAMLImporter';
 
 // https://vitejs.dev/config/
@@ -19,9 +19,9 @@ export default defineConfig({
     },
     target: 'es2020',
   },
-  plugins: [react(), yamlImporter(), wasmPack('./wasm_module')],
+  plugins: [react(), yamlImporter(), wasm()],
   worker: {
     format: 'iife',
-    plugins: () => [yamlImporter(), wasmPack('./wasm_module')],
+    plugins: () => [yamlImporter(), wasm()],
   },
 });
