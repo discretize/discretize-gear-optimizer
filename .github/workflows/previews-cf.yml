@@ -5,26 +5,87 @@ on:
   
 env:
   PAGES_PROJECT_NAME: discretize-optimizer
+  NODE_VERSION: 18
   
 jobs:
-  deployment:
+  # see https://github.com/orgs/community/discussions/26726, https://stackoverflow.com/a/70249520
+  check-secrets:
     runs-on: ubuntu-latest
+    outputs:
+      exists: ${{ steps.check-secret-step.outputs.exists }}
+    steps:
+      - name: Check that secrets exist
+        id: check-secret-step
+        run: |
+          if [ "${{ secrets.CF_GLOBAL_APIKEY }}" != '' ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT;
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT;
+          fi
+
+  deployment:
+    needs: [check-secrets]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+      pull-requests: write 
     if: >
+      needs.check-secrets.outputs.exists == 'true' &&
       !contains(github.event.head_commit.message, 'skip ci') &&
       !contains(github.event.pull_request.body, '[no previews]') &&
       (contains(github.event.pull_request.body, '[draft previews]') || github.event.pull_request.draft == false)
     timeout-minutes: 15
 
     steps:
-      - name: Generate preview
-        env:
-          APIKEY: ${{ secrets.CF_GLOBAL_APIKEY }}
-        if: env.APIKEY != null
-        uses: tomjschuster/cloudflare-pages-deploy-action@v0
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
         with:
-          account-id: '${{ secrets.CF_ACCOUNT_ID }}'
-          project-name: '${{ env.PAGES_PROJECT_NAME }}'
-          api-key: '${{ secrets.CF_GLOBAL_APIKEY }}'
-          email: '${{ secrets.CF_EMAIL }}'
-          preview: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Cache dependencies
+        id: node-modules-cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+      - name: Cache Rust
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: wasm_module
+      - name: Compile WASM
+        run: yarn wasm
+
+      - name: Build Cloudflare
+        run: yarn build
+        env:
+          VITE_HAS_CF: true
+
+      - name: Deploy preview to Cloudflare
+        uses: cloudflare/pages-action@1
+        id: pages-action
+        with:
+          apiToken: ${{ secrets.CI_CF_PAGES }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: ${{ env.PAGES_PROJECT_NAME }}
+          directory: dist
+          branch: ${{ github.head_ref || github.ref_name }} 
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            Deployed ${{ steps.pages-action.outputs.environment }} build to Cloudflare!
+
+            |                         |   |
+            | ----------------------- | - |
+            | **Last commit:**        | ${{ github.event.pull_request.head.sha || github.event.workflow_run.head_sha || github.sha }} |
+            | **Preview URL**:        | ${{ steps.pages-action.outputs.url }} |
+            | **Branch Preview URL**: | https://${{ github.head_ref || github.ref_name }}.${{ env.PAGES_PROJECT_NAME }}.pages.dev |
+          comment_tag: deployment
+          mode: upsert
