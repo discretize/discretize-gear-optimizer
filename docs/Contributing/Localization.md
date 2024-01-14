@@ -41,7 +41,7 @@ const ARSection = ({ first }) => {
 
 ## Preparing the translation.json file: extract!
 
-Now that you found all the translations it would be a lot of work to manually copy paste them in the translation files, right? You don't have to! There is a system in place which extracts all the components wrapped via `Trans` or `t`-function. Simply execute `yarn extractLocale` and you will find a file `locale/en/translation.json`. Feel free to copy it over to `locale/zh/translation.json` and start translating.
+Now that you found all the translations it would be a lot of work to manually copy paste them in the translation files, right? You don't have to! There is a system in place which extracts all the components wrapped via `Trans` or `t`-function. Simply execute `pnpm extractLocale` and you will find a file `locale/en/translation.json`. Feel free to copy it over to `locale/zh/translation.json` and start translating.
 
 ## Important notes
 

@@ -20,26 +20,23 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-
+      - name: Set up PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Cache dependencies
-        id: node-modules-cache
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+          cache: 'pnpm'
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: pnpm install
 
       - name: Test modifier and preset data
-        run: yarn testData
+        run: pnpm testData
 
       - name: Lint with ESLint
-        run: yarn eslint
+        run: pnpm eslint
 
       - name: Format with prettier
-        run: yarn prettierCheck
+        run: pnpm prettierCheck
