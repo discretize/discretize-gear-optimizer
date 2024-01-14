@@ -75,8 +75,7 @@
     "typeface-muli": "^1.1.13",
     "typeface-raleway": "^1.1.13",
     "urlsafe-base64": "^1.0.0",
-    "wasm-pack": "^0.12.1",
-    "wasm_module": "file:./wasm_module"
+    "wasm-pack": "^0.12.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.7",
