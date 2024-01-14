@@ -22,6 +22,6 @@ export default defineConfig({
   plugins: [react(), yamlImporter(), wasmPack('./wasm_module')],
   worker: {
     format: 'iife',
-    plugins: () => [yamlImporter(), wasmPack('./wasm_module')],
+    plugins: [yamlImporter(), wasmPack('./wasm_module')],
   },
 });
