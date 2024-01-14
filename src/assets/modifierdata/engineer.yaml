@@ -348,8 +348,10 @@
         quantityEntered: 25
       modifiers:
         attributes:
+          Power: [875, buff]
+      wvwModifiers:
+        attributes:
           Power: [500, buff]
-          Condition Damage: [-375, buff]
       gw2id: 1849
       defaultEnabled: true
 
