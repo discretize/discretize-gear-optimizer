@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-// eslint-disable-next-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved, import/no-extraneous-dependencies
 import init, { calculate, calculate_heuristics_only, calculate_with_heuristics } from 'wasm_module';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { AffixName } from '../../../utils/gw2-data';
