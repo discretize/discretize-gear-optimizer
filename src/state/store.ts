@@ -1,4 +1,5 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import buildPageSaga from './sagas/buildPageSaga';
 import calculationSaga from './sagas/calculationSaga';
@@ -17,40 +18,32 @@ import { skillsSlice } from './slices/skills';
 import { traitsSlice } from './slices/traits';
 import { userSettingsSlice } from './slices/userSettings';
 
-// credit: https://stackoverflow.com/a/52801110
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: any;
-  }
-}
+const saga = createSagaMiddleware();
 
-const reducers = combineReducers({
-  optimizer: combineReducers({
-    userSettings: userSettingsSlice.reducer,
-    control: controlSlice.reducer,
-    form: combineReducers({
-      extras: extrasSlice.reducer,
-      distribution: distributionSlice.reducer,
-      buffs: buffsSlice.reducer,
-      infusions: infusionsSlice.reducer,
-      traits: traitsSlice.reducer,
-      skills: skillsSlice.reducer,
-      priorities: prioritiesSlice.reducer,
-      extraModifiers: extraModifiersSlice.reducer,
-      forcedSlots: forcedSlotsSlice.reducer,
-      boss: bossSlice.reducer,
+const store = configureStore({
+  reducer: {
+    optimizer: combineReducers({
+      userSettings: userSettingsSlice.reducer,
+      control: controlSlice.reducer,
+      form: combineReducers({
+        extras: extrasSlice.reducer,
+        distribution: distributionSlice.reducer,
+        buffs: buffsSlice.reducer,
+        infusions: infusionsSlice.reducer,
+        traits: traitsSlice.reducer,
+        skills: skillsSlice.reducer,
+        priorities: prioritiesSlice.reducer,
+        extraModifiers: extraModifiersSlice.reducer,
+        forcedSlots: forcedSlotsSlice.reducer,
+        boss: bossSlice.reducer,
+      }),
+      buildPage: buildPageSlice.reducer,
     }),
-    buildPage: buildPageSlice.reducer,
-  }),
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(saga),
+  devTools: { actionsDenylist: ['control/updateResults'] },
 });
 
-const saga = createSagaMiddleware();
-const composeEnhancers =
-  typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ actionsDenylist: ['control/updateResults'] })
-    : compose;
-
-const store = createStore(reducers, composeEnhancers(applyMiddleware(saga)));
 saga.run(calculationSaga);
 saga.run(formStateSaga);
 saga.run(buildPageSaga);
