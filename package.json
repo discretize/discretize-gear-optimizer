@@ -51,11 +51,11 @@
     "@mui/icons-material": "^5.2.5",
     "@mui/material": "^5.2.7",
     "@reduxjs/toolkit": "^2.0.1",
+    "@vitejs/plugin-react": "^4.0.0",
     "arraybuffer-equal": "^1.0.4",
     "axios": "^1.5.1",
     "buffer": "^6.0.3",
     "classnames": "^2.3.1",
-    "comlink": "^4.4.1",
     "i18next": "^23.5.1",
     "js-yaml": "^4.1.0",
     "json-url": "^3.0.0",
@@ -75,8 +75,10 @@
     "typeface-muli": "^1.1.13",
     "typeface-raleway": "^1.1.13",
     "urlsafe-base64": "^1.0.0",
+    "vite": "^5.0.0",
     "vite-plugin-wasm": "^3.3.0",
-    "wasm-pack": "^0.12.1"
+    "wasm-pack": "^0.12.1",
+    "wrangler": "^3.11.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.7",
@@ -95,7 +97,6 @@
     "@types/react-dom": "^18.2.1",
     "@typescript-eslint/eslint-plugin": "^5.59.2",
     "@typescript-eslint/parser": "^5.59.2",
-    "@vitejs/plugin-react": "^4.0.0",
     "babel-plugin-i18next-extract": "^0.10.0",
     "eslint": "^8.0.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -109,8 +110,6 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^3.0.3",
     "ts-node": "^10.9.1",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.0",
-    "wrangler": "^3.11.0"
+    "typescript": "^5.2.2"
   }
 }
