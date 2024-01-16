@@ -576,7 +576,7 @@
       text: Natural Fortitude
       modifiers:
         attributes:
-          Vitality: [240, unknown]
+          Vitality: [240, buff]
       minor: true
       gw2id: 2286
       defaultEnabled: true

@@ -414,7 +414,7 @@
       minor: true
       modifiers:
         attributes:
-          Vitality: [180, unknown]
+          Vitality: [180, converted]
       gw2id: 1896
       defaultEnabled: true
 
@@ -551,7 +551,7 @@
       text: Conceited Curate
       modifiers:
         attributes:
-          Vitality: [180, unknown]
+          Vitality: [180, converted]
       gw2id: 2187
       defaultEnabled: true
 
