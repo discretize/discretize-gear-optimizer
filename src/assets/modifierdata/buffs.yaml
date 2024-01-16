@@ -66,8 +66,8 @@
     - id: reinforced-armor
       text: Reinforced Armor
       modifiers:
-        conversionAfterBuffs:
-          Vitality: {Vitality: 5%}
+        conversion:
+          Vitality: {Vitality: 5%} # tested: https://discord.com/channels/380901000200060929/380903574282174466/1025093797304090685
       type: Text
 
 - section: Effects
