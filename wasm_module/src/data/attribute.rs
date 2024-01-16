@@ -152,6 +152,7 @@ impl Attribute {
                 | Attribute::Concentration
                 | Attribute::HealingPower
                 | Attribute::AgonyResistance
+                | Attribute::Armor
         )
     }
 

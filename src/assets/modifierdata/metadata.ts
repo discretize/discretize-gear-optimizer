@@ -9,6 +9,7 @@ const stats = [
   'Concentration',
   'Healing Power',
   'Agony Resistance',
+  'Armor',
 ] as const;
 export type StatName = (typeof stats)[number];
 
