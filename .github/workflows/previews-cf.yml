@@ -52,16 +52,13 @@ jobs:
           VITE_HAS_CF: true
 
       - name: Deploy preview to Cloudflare
-        uses: cloudflare/pages-action@1
-        id: pages-action
+        uses: cloudflare/wrangler-action@v3
+        id: wrangler-action
         with:
           apiToken: ${{ secrets.CI_CF_PAGES }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: ${{ env.PAGES_PROJECT_NAME }}
-          directory: dist
-          branch: ${{ github.head_ref || github.ref_name }} 
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          wranglerVersion: '3'
+          wranglerVersion: 3
+          command: pages deploy dist --project-name=${{ env.PAGES_PROJECT_NAME }} --branch ${{ github.head_ref || github.ref_name }} 
 
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
@@ -72,7 +69,7 @@ jobs:
             |                         |   |
             | ----------------------- | - |
             | **Last commit:**        | ${{ github.event.pull_request.head.sha || github.event.workflow_run.head_sha || github.sha }} |
-            | **Preview URL**:        | ${{ steps.pages-action.outputs.url }} |
+            | **Preview URL**:        | ${{ steps.wrangler-action.outputs.deployment-url }} |
             | **Branch Preview URL**: | https://${{ github.head_ref || github.ref_name }}.${{ env.PAGES_PROJECT_NAME }}.pages.dev |
           comment_tag: deployment
           mode: upsert
