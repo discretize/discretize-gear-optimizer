@@ -1,0 +1,35 @@
+name: 'Warm Up Caches'
+on:
+  workflow_dispatch:
+  
+env:
+  NODE_VERSION: 18
+  
+jobs:
+  warmup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Cache dependencies
+        id: node-modules-cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+      - name: Cache Rust
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: wasm_module
+      - name: Compile WASM
+        run: yarn wasm
+
