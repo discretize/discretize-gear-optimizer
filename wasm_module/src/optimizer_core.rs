@@ -320,6 +320,56 @@ fn calc_stats(
         attributes.add_a(*attribute, *bonus);
     }
 
+    // handle convertAfterBuffs modifiers
+    for (attribute, conversion) in &combination.modifiers.convertAfterBuffs {
+        let maybe_round = |val: f32| {
+            if attribute.is_point_key() {
+                round(val)
+            } else {
+                val
+            }
+        };
+
+        for (source, percent) in conversion {
+            match *source {
+                Attribute::CriticalChance => {
+                    attributes.add_a(
+                        *attribute,
+                        maybe_round(
+                            clamp(attributes.get_a(Attribute::CriticalChance), 0.0, 1.0) * percent,
+                        ),
+                    );
+                }
+                Attribute::CloneCriticalChance => {
+                    // replace macro with set
+                    attributes.add_a(
+                        *attribute,
+                        maybe_round(
+                            clamp(attributes.get_a(Attribute::CloneCriticalChance), 0.0, 1.0)
+                                * percent,
+                        ),
+                    );
+                }
+                Attribute::PhantasmCriticalChance => {
+                    attributes.add_a(
+                        *attribute,
+                        maybe_round(
+                            clamp(
+                                attributes.get_a(Attribute::PhantasmCriticalChance),
+                                0.0,
+                                1.0,
+                            ) * percent,
+                        ),
+                    );
+                }
+
+                _ => {
+                    attributes.add_a(*attribute, maybe_round(attributes.get_a(*source) * percent));
+                }
+            }
+        }
+    }
+
     // recalculate attributes
     attributes.add_a(
         Attribute::CriticalChance,
@@ -372,56 +422,6 @@ fn calc_stats(
                 + attributes.get_a(Attribute::CriticalDamage)
                 + attributes.get_a(Attribute::AltFerocity) / 15.0 / 100.0,
         );
-    }
-
-    // handle convertAfterBuffs modifiers
-    for (attribute, conversion) in &combination.modifiers.convertAfterBuffs {
-        let maybe_round = |val: f32| {
-            if attribute.is_point_key() {
-                round(val)
-            } else {
-                val
-            }
-        };
-
-        for (source, percent) in conversion {
-            match *source {
-                Attribute::CriticalChance => {
-                    attributes.add_a(
-                        *attribute,
-                        maybe_round(
-                            clamp(attributes.get_a(Attribute::CriticalChance), 0.0, 1.0) * percent,
-                        ),
-                    );
-                }
-                Attribute::CloneCriticalChance => {
-                    // replace macro with set
-                    attributes.add_a(
-                        *attribute,
-                        maybe_round(
-                            clamp(attributes.get_a(Attribute::CloneCriticalChance), 0.0, 1.0)
-                                * percent,
-                        ),
-                    );
-                }
-                Attribute::PhantasmCriticalChance => {
-                    attributes.add_a(
-                        *attribute,
-                        maybe_round(
-                            clamp(
-                                attributes.get_a(Attribute::PhantasmCriticalChance),
-                                0.0,
-                                1.0,
-                            ) * percent,
-                        ),
-                    );
-                }
-
-                _ => {
-                    attributes.add_a(*attribute, maybe_round(attributes.get_a(*source) * percent));
-                }
-            }
-        }
     }
 }
 
