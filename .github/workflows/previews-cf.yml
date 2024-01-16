@@ -8,30 +8,18 @@ env:
   NODE_VERSION: 18
   
 jobs:
-  # see https://github.com/orgs/community/discussions/26726, https://stackoverflow.com/a/70249520
-  check-secrets:
-    runs-on: ubuntu-latest
-    outputs:
-      exists: ${{ steps.check-secret-step.outputs.exists }}
-    steps:
-      - name: Check that secrets exist
-        id: check-secret-step
-        run: |
-          if [ "${{ secrets.CF_GLOBAL_APIKEY }}" != '' ]; then
-            echo "exists=true" >> $GITHUB_OUTPUT;
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT;
-          fi
-
   deployment:
-    needs: [check-secrets]
     runs-on: ubuntu-latest
     permissions:
       contents: read
       deployments: write
       pull-requests: write 
+
+    # PRs must be from the same repository or GitHub will not supply secrets for security reasons.
+    # This workflow should do nothing in those cases.
+    # See https://securitylab.github.com/research/github-actions-preventing-pwn-requests/.
     if: >
-      needs.check-secrets.outputs.exists == 'true' &&
+      github.event.pull_request.head.repo.full_name == github.event.pull_request.base.repo.full_name &&
       !contains(github.event.head_commit.message, 'skip ci') &&
       !contains(github.event.pull_request.body, '[no previews]') &&
       (contains(github.event.pull_request.body, '[draft previews]') || github.event.pull_request.draft == false)
