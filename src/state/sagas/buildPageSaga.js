@@ -4,7 +4,7 @@ import { all, put, select, take, takeLeading } from 'redux-saga/effects';
 import {
   BuildPageSchema,
   version as schemaVersion,
-} from '../../components/url-state/schema/BuildPageSchema_v2';
+} from '../../components/url-state/schema/BuildPageSchema_v3';
 import { buffsDict } from '../../components/url-state/schema/SchemaDicts';
 import { PARAMS } from '../../utils/queryParam';
 import { changeBuildPage, changeCharacter, getSkills, getWeapons } from '../slices/buildPage';
@@ -31,11 +31,7 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
   const { buffs } = character.settings.cachedFormState.buffs;
 
   const { attributes: allAttributes, gear, settings, infusions } = character;
-  const {
-    specialization,
-    weaponType,
-    extrasCombination: { Enhancement, Nourishment, Runes, Sigil1, Sigil2 },
-  } = settings;
+  const { specialization, weaponType, extrasCombination } = settings;
 
   // TODO ================================================================
   // TODO ==       ON NEXT SCHEMA UPGRADE ADD JADE BOT TIER             ==
@@ -53,13 +49,7 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
     gear,
     infusions: JSON.stringify(infusions) || '',
     settings: {
-      extrasCombination: {
-        Enhancement,
-        Nourishment,
-        Runes,
-        Sigil1,
-        Sigil2,
-      },
+      extrasCombination,
       profession,
       specialization,
       weaponType,
