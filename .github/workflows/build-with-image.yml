@@ -59,7 +59,7 @@ jobs:
           projectName: ${{ env.PAGES_PROJECT_NAME }}
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-
+          wranglerVersion: '3'
 
       # Github Pages
       - name: Build Github Pages
