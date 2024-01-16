@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { put, select, take, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga';
 import { calculate } from '../optimizer/optimizer';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
 import {
@@ -14,30 +14,29 @@ import {
   updateResults,
 } from '../slices/controlsSlice';
 import SagaTypes from './sagaTypes';
+import type { RootState } from '../store';
+import type { Character } from '../optimizer/optimizerCore';
 
-const delay = (ms) =>
+const delay = (ms: number) =>
   new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
 
 function* runCalc() {
-  let state;
-  let currentList;
-  let currentFilteredList;
-  let currentPercent;
+  const reduxState: RootState = yield* select();
+  const state = reduxState.optimizer;
+
+  let currentList: Character[] = [];
+  let currentFilteredList: Character[] = [];
+  let currentPercent: number;
   try {
-    yield put(changeStatus(RUNNING));
-    yield put(changeProgress(0));
+    yield* put(changeStatus(RUNNING));
+    yield* put(changeProgress(0));
     yield delay(0);
 
-    const reduxState = yield select();
-    state = reduxState.optimizer;
-
-    const originalSelectedCharacter = yield select(getSelectedCharacter);
+    const originalSelectedCharacter = yield* select(getSelectedCharacter);
 
     const resultGenerator = calculate(reduxState);
-    let done = false;
-    let value;
 
     let elapsed = 0;
     let timer = performance.now();
@@ -48,12 +47,18 @@ function* runCalc() {
     const listThrottle = 3;
 
     while (true) {
-      ({ value, done } = yield resultGenerator.next());
-      const { percent, isChanged, list, filteredList } = value;
+      const result = yield* call(() => resultGenerator.next());
+      if (result.done) {
+        const { percent, list, filteredList } = result.value;
+        currentList = list;
+        currentFilteredList = filteredList;
+        currentPercent = percent;
+        break;
+      }
+      const { percent, isChanged, list, filteredList } = result.value;
       currentList = list;
       currentFilteredList = filteredList;
       currentPercent = percent;
-      if (done) break;
 
       if (isChanged) {
         if (listRenderCounter > listThrottle) {
@@ -62,7 +67,7 @@ function* runCalc() {
       }
       if (listRenderCounter === listThrottle) {
         yield delay(0);
-        yield put(
+        yield* put(
           updateResults({
             list: currentList,
             filteredList: currentFilteredList,
@@ -70,7 +75,7 @@ function* runCalc() {
           }),
         );
       } else {
-        yield put(
+        yield* put(
           updateResults({
             progress: currentPercent,
           }),
@@ -81,33 +86,33 @@ function* runCalc() {
       yield delay(0);
 
       // check if calculation stopped
-      const status = yield select(getStatus);
+      const status = yield* select(getStatus);
       if (status !== RUNNING) {
         elapsed += performance.now() - timer;
         console.log(`Stopped at ${currentPercent}% in ${elapsed} ms`);
 
         // block until resume button pressed
         // (takeLatest cancels any previous runCalc() so this is not a memory leak)
-        yield take(SagaTypes.Resume);
+        yield* take(SagaTypes.Resume);
 
         timer = performance.now();
-        yield put(changeStatus(RUNNING));
+        yield* put(changeStatus(RUNNING));
       }
     }
 
     yield delay(0);
-    yield put(changeList(currentList));
-    yield put(changeFilteredList(currentFilteredList));
-    yield put(changeProgress(currentPercent));
+    yield* put(changeList(currentList));
+    yield* put(changeFilteredList(currentFilteredList));
+    yield* put(changeProgress(currentPercent));
 
     elapsed += performance.now() - timer;
     console.log(`Finished calculation in ${elapsed} ms`);
     console.time('Render Result');
     if (currentList.length > 0) {
-      yield put(changeStatus(SUCCESS));
+      yield* put(changeStatus(SUCCESS));
     } else {
-      yield put(changeStatus(ERROR));
-      yield put(
+      yield* put(changeStatus(ERROR));
+      yield* put(
         changeError(
           'No result could be generated for the provided input. Please check your constraints (min boon duration, ...)!',
         ),
@@ -115,9 +120,9 @@ function* runCalc() {
     }
 
     // automatically select the top result unless the user clicked one during the calculation
-    const selectedCharacter = yield select(getSelectedCharacter);
+    const selectedCharacter = yield* select(getSelectedCharacter);
     if (currentList && (!selectedCharacter || selectedCharacter === originalSelectedCharacter)) {
-      yield put(changeSelectedCharacter(currentList[0]));
+      yield* put(changeSelectedCharacter(currentList[0]));
     }
 
     console.timeEnd('Render Result');
@@ -126,20 +131,20 @@ function* runCalc() {
     // eslint-disable-next-line no-alert
     alert(`There was an error in the calculation!\n\n${e}`);
     console.log(e);
-    console.log('state:', { ...state });
-    console.log('list:', { ...currentList });
-    yield put(changeStatus(WAITING));
+    console.log('state:', state);
+    console.log('list:', currentList);
+    yield* put(changeStatus(WAITING));
   }
 }
 
 function* stopCalc() {
-  const status = yield select(getStatus);
+  const status = yield* select(getStatus);
   if (status === RUNNING) {
-    yield put(changeStatus(STOPPED));
+    yield* put(changeStatus(STOPPED));
   }
 }
 
 export default function* rootSaga() {
-  yield takeLatest(SagaTypes.Start, runCalc);
-  yield takeEvery(SagaTypes.Stop, stopCalc);
+  yield* takeLatest(SagaTypes.Start, runCalc);
+  yield* takeEvery(SagaTypes.Stop, stopCalc);
 }

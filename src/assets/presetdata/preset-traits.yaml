@@ -43,7 +43,7 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": ""
+              "amount": "8.6"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
@@ -51,10 +51,10 @@ list:
             },
             "phantasmal-fury": {},
             "sharper-images-phantasm": {
-              "amount": "4.21"
+              "amount": "4.18"
             },
             "sharper-images-clone": {
-              "amount": "1.18"
+              "amount": "0.78"
             }
           },
           {
@@ -456,10 +456,10 @@ list:
               "amount": ""
             },
             "sharper-images-clone": {
-              "amount": "3.48"
+              "amount": "3.53"
             },
             "sharper-images-phantasm": {
-              "amount": "0.73"
+              "amount": "0.69"
             }
           },
           {
@@ -527,10 +527,10 @@ list:
               "amount": ""
             },
             "sharper-images-clone": {
-              "amount": "2.59"
+              "amount": "2.75"
             },
             "sharper-images-phantasm": {
-              "amount": "0.3"
+              "amount": "0.32"
             },
             "phantasmal-fury": {}
           },
@@ -721,14 +721,14 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": "5.49"
+              "amount": "5.56"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
             "sharper-images-phantasm": {
-              "amount": "1.87"
+              "amount": "1.82"
             },
             "phantasmal-fury-virtuoso": {}
           },
@@ -743,7 +743,7 @@ list:
             "quiet-intensity": {},
             "bloodsong": {},
             "jagged-mind": {
-              "amount": "6.04"
+              "amount": "5.89"
             }
           }
         ]
@@ -1021,11 +1021,16 @@ list:
             "symbolic-avenger": {}
           },
           {
+            "defenders-dogma": {},
             "zealots-aggression": {},
             "pure-of-sight": {},
             "hunters-fortification": {},
+            "heavy-light-defiant": {},
+            "heavy-light-defiant-disabled": {
+              "amount": ""
+            },
             "big-game-hunter": {
-              "amount": "71"
+              "amount": ""
             }
           }
         ]
@@ -1091,10 +1096,17 @@ list:
             "symbolic-avenger": {}
           },
           {
+            "defenders-dogma": {},
             "zealots-aggression": {},
             "pure-of-sight": {},
             "hunters-fortification": {},
-            "big-game-hunter": {}
+            "heavy-light-defiant": {},
+            "heavy-light-defiant-disabled": {
+              "amount": ""
+            },
+            "big-game-hunter": {
+              "amount": ""
+            }
           }
         ]
       }
@@ -1299,7 +1311,7 @@ list:
             },
             "virtue-of-retribution": {},
             "inspiring-virtue": {
-              "amount": "89.8"
+              "amount": "90.4"
             },
             "power-of-the-virtuous": {}
           },
@@ -2134,7 +2146,7 @@ list:
             "double-standards-disc": {},
             "axe-mastery-one": {},
             "axe-mastery-axe": {
-              "amount": "72"
+              "amount": "73"
             }
           },
           {
@@ -2273,11 +2285,17 @@ list:
         ],
         "items": [
           {
+            "furious-burst": {},
             "wounding-precision": {},
             "signet-mastery": {
               "amount": ""
             },
-            "deep-strikes": {
+            "deep-strikes-fury": {
+              "amount": ""
+            },
+            "deep-strikes-bleeding": {},
+            "unsuspecting-foe-full": {},
+            "burst-precision": {
               "amount": ""
             },
             "blade-master": {},
@@ -2290,8 +2308,7 @@ list:
             },
             "bloodlust-on-crit": {
               "amount": "2.82"
-            },
-            "furious-burst": {}
+            }
           },
           {
             "warriors-sprint": {
@@ -2672,7 +2689,7 @@ list:
               "amount": "4"
             },
             "peak-performance-2": {
-              "amount": "4.4"
+              "amount": "4.1"
             }
           },
           {
@@ -2911,17 +2928,17 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "50.4"
+              "amount": "49.3"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "50.4"
+              "amount": "49.3"
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": "8.8"
+              "amount": "9.6"
             }
           },
           {
@@ -2934,7 +2951,7 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "44"
+              "amount": "43"
             },
             "bolt-to-the-heart": {
               "amount": ""
@@ -2953,10 +2970,10 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "74.3"
+              "amount": "76.9"
             },
             "elemental-polyphony-air": {
-              "amount": "66.7"
+              "amount": "65.2"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
@@ -2969,10 +2986,10 @@ list:
       {
         "skills": {
           "woven-fire": {
-            "amount": "48.4"
+            "amount": "50.1"
           },
           "woven-air": {
-            "amount": "47.7"
+            "amount": "53.1"
           }
         }
       }
@@ -3244,7 +3261,7 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "65.5"
+              "amount": "66.3"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -3254,7 +3271,7 @@ list:
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": "9.5"
+              "amount": "6"
             }
           },
           {
@@ -3271,14 +3288,14 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "96"
+              "amount": "95.8"
             },
             "elemental-polyphony-air": {
-              "amount": "7.1"
+              "amount": "7.5"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
-              "amount": "84.1"
+              "amount": "83.6"
             }
           }
         ]
@@ -3287,10 +3304,10 @@ list:
       {
         "skills": {
           "woven-fire": {
-            "amount": "53.9"
+            "amount": "53.2"
           },
           "woven-air": {
-            "amount": "54.8"
+            "amount": "54.1"
           },
           "signet-of-fire": {}
         }
@@ -3907,30 +3924,30 @@ list:
         "skills": {}
       }
 
-  - name: Condi Alacrity Untamed A/A Hammer
+  - name: Condi Quickness Untamed
     profession: Untamed
     traits: |-
       {
         "showAll": false,
         "selectedLines": [
           "30",
-          "25",
+          "33",
           "72"
         ],
         "selectedTraits": [
           [
             1069,
             1846,
-            1888
+            1064
           ],
           [
-            1062,
-            965,
-            1038
+            1099,
+            1101,
+            1701
           ],
           [
             2301,
-            2263,
+            2287,
             2271
           ]
         ],
@@ -3940,15 +3957,17 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "3.74"
+              "amount": "4.66"
             }
           },
           {
-            "bountiful-hunter": {
-              "amount": ""
+            "oakheart-salve": {},
+            "taste-for-danger": {},
+            "ambidexterity": {},
+            "ambidexterity-2": {
+              "amount": "100"
             },
-            "instinctive-reaction": {},
-            "lingering-magic": {}
+            "poison-master": {}
           },
           {
             "natural-fortitude": {},
@@ -3957,7 +3976,7 @@ list:
             },
             "vow-of-the-untamed-pet": {},
             "vow-of-the-untamed-you": {
-              "amount": "28.6"
+              "amount": "88.2"
             }
           }
         ]
@@ -3966,7 +3985,7 @@ list:
       {
         "skills": {
           "pet-dps": {
-            "amount": "6340"
+            "amount": "3552"
           }
         }
       }
@@ -4034,7 +4053,7 @@ list:
         }
       }
 
-  - name: Power Slb Skirm
+  - name: Power Soulbeast
     profession: Soulbeast
     traits: |-
       {
@@ -4046,8 +4065,8 @@ list:
         ],
         "selectedTraits": [
           [
-            0,
-            1016,
+            1069,
+            1700,
             1888
           ],
           [
@@ -4065,68 +4084,12 @@ list:
           {
             "hidden-barbs": {},
             "hunters-tactics": {},
-            "vicious-quarry": {}
-          },
-          {
-            "honed-axes": {},
-            "honed-axes-axe": {
-              "amount": ""
-            }
-          },
-          {
-            "furious-strength": {
-              "amount": ""
+            "vicious-quarry": {},
+            "sharpened-edges": {
+              "amount": "2.12"
             },
-            "twice-as-vicious": {
-              "amount": ""
-            },
-            "oppressive-superiority": {},
-            "archetype-ferocious": {},
-            "pack-alpha-merged": {},
-            "loud-whistle-merged": {},
-            "pets-prowess-merged": {},
-            "honed-axes-merged": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "signet-of-the-wild": {}
-        }
-      }
-
-  - name: Power Slb Marks
-    profession: Soulbeast
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "8",
-          "32",
-          "55"
-        ],
-        "selectedTraits": [
-          [
-            1014,
-            1000,
-            996
-          ],
-          [
-            1606,
-            970,
-            1066
-          ],
-          [
-            2071,
-            2161,
-            2143
-          ]
-        ],
-        "items": [
-          {
-            "farsighted": {},
-            "predators-onslaught": {
+            "striders-strength": {},
+            "striders-strength-sword": {
               "amount": ""
             }
           },
@@ -4155,7 +4118,10 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-the-wild": {}
+          "signet-of-the-wild": {},
+          "one-wolf-pack-sic-em": {
+            "amount": "0.1"
+          }
         }
       }
 
@@ -4316,7 +4282,7 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "3.02"
+              "amount": "3.06"
             }
           },
           {
@@ -4333,7 +4299,7 @@ list:
               "amount": ""
             },
             "twice-as-vicious": {
-              "amount": "84.16"
+              "amount": "84.4"
             },
             "oppressive-superiority": {},
             "archetype-deadly": {}
@@ -5193,7 +5159,7 @@ list:
       {
         "skills": {
           "burst-of-strength": {
-            "amount": "89.1"
+            "amount": "90.4"
           }
         }
       }
@@ -5666,6 +5632,76 @@ list:
           {
             "lasers-edge": {
               "amount": "112"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Power Holo PBM
+    profession: Holosmith
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "38",
+          "6",
+          "57"
+        ],
+        "selectedTraits": [
+          [
+            1914,
+            1923,
+            526
+          ],
+          [
+            1882,
+            1892,
+            1947
+          ],
+          [
+            2106,
+            2152,
+            2064
+          ]
+        ],
+        "items": [
+          {
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "no-scope": {
+              "amount": ""
+            },
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "4.41"
+            }
+          },
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {
+            "lasers-edge": {
+              "amount": "50"
             }
           }
         ]
@@ -6333,6 +6369,70 @@ list:
         "skills": {}
       }
 
+  - name: Condi Alacrity Scourge
+    profession: Scourge
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "39",
+          "50",
+          "60"
+        ],
+        "selectedTraits": [
+          [
+            2013,
+            816,
+            801
+          ],
+          [
+            875,
+            894,
+            905
+          ],
+          [
+            2074,
+            2123,
+            2080
+          ]
+        ],
+        "items": [
+          {
+            "barbed-precision": {},
+            "furious-demise": {},
+            "target-the-weak-base": {},
+            "target-the-weak": {
+              "amount": ""
+            },
+            "lingering-curse": {},
+            "barbed-precision-on-crit": {
+              "amount": "2.85"
+            }
+          },
+          {
+            "soul-barbs": {
+              "amount": ""
+            },
+            "vital-persistence": {},
+            "death-perception": {}
+          },
+          {
+            "fell-beacon": {},
+            "demonic-lore": {},
+            "sand-sage-active": {},
+            "blood-as-sand-active": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-spite": {
+            "amount": "12.4"
+          }
+        }
+      }
+
   - name: DPS Scourge
     profession: Scourge
     traits: |-
@@ -6370,7 +6470,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "2.7"
+              "amount": "3.06"
             }
           },
           {
@@ -6382,14 +6482,19 @@ list:
           },
           {
             "fell-beacon": {},
-            "sand-sage-3x": {},
-            "demonic-lore": {}
+            "demonic-lore": {},
+            "sand-sage-active": {},
+            "blood-as-sand-active": {}
           }
         ]
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "signet-of-spite": {
+            "amount": "12.9"
+          }
+        }
       }
 
   - name: Power Reaper
@@ -6556,7 +6661,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "3.07"
+              "amount": "3.05"
             }
           },
           {
@@ -6571,7 +6676,7 @@ list:
               "amount": ""
             },
             "septic-corruption": {
-              "amount": "21.4"
+              "amount": "20.8"
             },
             "alchemic-vigor": {},
             "implacable-foe": {},
@@ -6585,7 +6690,7 @@ list:
       {
         "skills": {
           "signet-of-spite": {
-            "amount": "11.9"
+            "amount": "8.5"
           }
         }
       }
@@ -6627,7 +6732,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "2.97"
+              "amount": "2.89"
             }
           },
           {
@@ -6642,7 +6747,7 @@ list:
               "amount": ""
             },
             "septic-corruption": {
-              "amount": "20.9"
+              "amount": "21.6"
             },
             "alchemic-vigor": {},
             "implacable-foe": {},
@@ -6657,7 +6762,7 @@ list:
       {
         "skills": {
           "signet-of-spite": {
-            "amount": "14.5"
+            "amount": "14.2"
           }
         }
       }
@@ -6858,7 +6963,7 @@ list:
               "amount": ""
             },
             "bounding-dodger": {
-              "amount": "78.3"
+              "amount": "79.8"
             },
             "lotus-training": {}
           }
@@ -6868,10 +6973,10 @@ list:
       {
         "skills": {
           "assassins-signet": {
-            "amount": "42.9"
+            "amount": "44.1"
           },
           "assassins-signet-active": {
-            "amount": "20.1"
+            "amount": "20"
           }
         }
       }
@@ -7075,7 +7180,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Deadeye Daggers M7
+  - name: Power Deadeye M7
     profession: Deadeye
     traits: |-
       {
@@ -7108,7 +7213,7 @@ list:
             "deadly-ambition": {},
             "revealed-training-base": {},
             "revealed-training-revealed": {
-              "amount": "80"
+              "amount": "78.7"
             },
             "exposed-weakness": {
               "amount": ""
@@ -7117,7 +7222,9 @@ list:
             "executioner": {
               "amount": ""
             },
-            "dagger-training-dagger": {}
+            "dagger-training-dagger": {
+              "amount": "61"
+            }
           },
           {
             "keen-observer": {},
@@ -7147,11 +7254,10 @@ list:
       {
         "skills": {
           "assassins-signet": {
-            "amount": "33.5"
+            "amount": "40.9"
           },
-          "signet-of-agility": {},
           "assassins-signet-active": {
-            "amount": "22.1"
+            "amount": "21.1"
           }
         }
       }

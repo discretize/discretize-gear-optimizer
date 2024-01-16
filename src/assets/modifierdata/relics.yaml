@@ -20,7 +20,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [7%, unknown]
       gw2id: 100947
 
     - id: brawler-relic
@@ -169,6 +169,10 @@
         quantityEntered: 10
       modifiers:
         attributes:
+          Torment Coefficient: 20
+          Confusion Coefficient: 20
+      wvwModifiers:
+        attributes:
           Torment Coefficient: 30
           Confusion Coefficient: 30
       gw2id: 100432
@@ -243,7 +247,7 @@
       subText: 10 stacks
       modifiers:
         attributes:
-          Concentration: [150, unknown]
+          Concentration: [250, unknown]
       gw2id: 100219
 
     - id: firebrand-relic

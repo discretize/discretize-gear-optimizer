@@ -285,6 +285,23 @@
       gw2id: 24605
       priceIds: []
 
+    # air noncrit: 759.55 * procs per second which is 0.1885 from log
+    # earth: at full would be 6 seconds, every 2.3ish sec -> 2.58 avg bleed
+    # so roughly 1.29 but +0.14 due to weapon swap meaning we get a free proc every 10s
+    #
+    # f1 passives from procs are 2.4s because of amplified wrath; every 3 hits if virtues
+    # air f1 passive: 1/3 * 2.4 * 0.1885 = 0.1508 avg burning
+    - id: air-earth-cwb
+      text: 'Air + Earth CWB'
+      textOverride: 'Air + Earth CWB'
+      modifiers:
+        attributes:
+          NonCrit Power Coefficient: 143.181
+          Bleeding Coefficient: 1.43
+          Burning Coefficient: 0.1508
+      gw2id: 24554
+      priceIds: []
+
     # air noncrit: 759.55 * procs per second which is 0.19075 from log
     # torment: 10 seconds, every 8.5 sec -> 1.18 avg torment
     #   plus 0.02 determined by getting coef based on log to be 0

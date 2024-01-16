@@ -285,6 +285,16 @@ list:
         "minQuicknessDuration": 21.6
       }
 
+  - name: Condi Alacrity Scourge 28.8%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 28.8,
+        "minQuicknessDuration": 0
+      }
+
   - name: Condi Quickness Harbinger 12.8%
     hidden: true
     value: >-
@@ -323,6 +333,16 @@ list:
         "optimizeFor": "Damage",
         "minBoonDuration": 0,
         "minQuicknessDuration": 40
+      }
+
+  - name: Condi Quickness Untamed 42.2%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 42.2
       }
 
   - name: Condi Hybrid Druid 52%

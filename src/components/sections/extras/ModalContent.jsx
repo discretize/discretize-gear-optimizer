@@ -323,8 +323,8 @@ function ModalContent(props) {
                                           amountData
                                             ? ''
                                             : Array.isArray(value) && value.length === 2
-                                            ? value[0]
-                                            : value
+                                              ? value[0]
+                                              : value
                                         } ${key}`,
                                     )
                                     .join(', ')}`
@@ -337,8 +337,8 @@ function ModalContent(props) {
                                           amountData
                                             ? ''
                                             : Array.isArray(value) && value.length === 2
-                                            ? value[0]
-                                            : value
+                                              ? value[0]
+                                              : value
                                         } ${key}`,
                                     )
                                     .join(', ')}`

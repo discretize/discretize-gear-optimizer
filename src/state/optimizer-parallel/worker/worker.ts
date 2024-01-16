@@ -1,6 +1,9 @@
 /* eslint-disable camelcase */
-// eslint-disable-next-line import/no-unresolved
-import init, { calculate, calculate_heuristics_only, calculate_with_heuristics } from 'wasm_module';
+import init, {
+  calculate,
+  calculate_heuristics_only,
+  calculate_with_heuristics,
+} from '../../../../wasm_module/pkg'; // eslint-disable-line
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { AffixName } from '../../../utils/gw2-data';
 import type { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';

@@ -164,8 +164,8 @@ export const controlSlice = createSlice({
     updateResults: (
       state,
       action: PayloadAction<{
-        list: Character[];
-        filteredList: Character[];
+        list?: Character[];
+        filteredList?: Character[];
         progress: number;
       }>,
     ) => {

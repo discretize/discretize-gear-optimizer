@@ -241,6 +241,10 @@
     - id: striders-strength-sword
       text: Strider's Strength
       subText: with sword
+      amountData:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
       modifiers:
         attributes:
           Power: [120, buff] # buff unconfirmed
@@ -411,7 +415,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, add]
+          Outgoing Strike Damage: [10%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, add]

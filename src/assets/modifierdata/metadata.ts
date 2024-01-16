@@ -254,10 +254,10 @@ export type AttributeModifiers = {
   [Key in AttributeKey]?: Key extends AttributePointKey
     ? [number, AttributePointMode, number?, AttributePointMode?]
     : Key extends AttributeCoefficientKey
-    ? number
-    : Key extends AttributePercentKey
-    ? Percent
-    : never;
+      ? number
+      : Key extends AttributePercentKey
+        ? Percent
+        : never;
 };
 
 export type ConversionValue = Partial<Record<ConversionSourceKey, Percent>>;
