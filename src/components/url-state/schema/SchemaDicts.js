@@ -258,6 +258,7 @@ export const sigilDict = [
   'no-item-sigil',
   'fire-sigil',
   'earth-torment-harb',
+  'air-earth-cwb',
 ];
 
 export const enhancementDict = [
@@ -367,6 +368,7 @@ export const nourishmentDict = [
   'spherified-oyster-soup-with-mint-garnish',
   'tray-of-decade-desserts',
   'no-item-food',
+  'ghost-pepper-popper-reaper',
 ];
 
 export const buffsDict = [
