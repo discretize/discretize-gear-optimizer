@@ -632,6 +632,27 @@ export class OptimizerCore {
       attributes[attribute] = (attributes[attribute] || 0) + bonus;
     }
 
+    for (const [attribute, conversion] of settings.modifiers['convertAfterBuffs']) {
+      const maybeRound = enumArrayIncludes(allAttributePointKeys, attribute)
+        ? round
+        : (val: number) => val;
+      for (const [source, percent] of conversion) {
+        if (source === 'Critical Chance') {
+          attributes[attribute] += maybeRound(clamp(attributes['Critical Chance'], 0, 1) * percent);
+        } else if (source === 'Clone Critical Chance') {
+          attributes[attribute] += maybeRound(
+            clamp(attributes['Clone Critical Chance'] ?? 0, 0, 1) * percent,
+          );
+        } else if (source === 'Phantasm Critical Chance') {
+          attributes[attribute] += maybeRound(
+            clamp(attributes['Phantasm Critical Chance'] ?? 0, 0, 1) * percent,
+          );
+        } else {
+          attributes[attribute] += maybeRound(attributes[source] * percent);
+        }
+      }
+    }
+
     attributes['Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
     attributes['Critical Damage'] += attributes['Ferocity'] / 15 / 100;
 
@@ -659,27 +680,6 @@ export class OptimizerCore {
         (attributes['Alternative Critical Damage'] ?? 0) +
         attributes['Critical Damage'] +
         (attributes['Alternative Ferocity'] ?? 0) / 15 / 100;
-    }
-
-    for (const [attribute, conversion] of settings.modifiers['convertAfterBuffs']) {
-      const maybeRound = enumArrayIncludes(allAttributePointKeys, attribute)
-        ? round
-        : (val: number) => val;
-      for (const [source, percent] of conversion) {
-        if (source === 'Critical Chance') {
-          attributes[attribute] += maybeRound(clamp(attributes['Critical Chance'], 0, 1) * percent);
-        } else if (source === 'Clone Critical Chance') {
-          attributes[attribute] += maybeRound(
-            clamp(attributes['Clone Critical Chance'] ?? 0, 0, 1) * percent,
-          );
-        } else if (source === 'Phantasm Critical Chance') {
-          attributes[attribute] += maybeRound(
-            clamp(attributes['Phantasm Critical Chance'] ?? 0, 0, 1) * percent,
-          );
-        } else {
-          attributes[attribute] += maybeRound(attributes[source] * percent);
-        }
-      }
     }
   }
 
