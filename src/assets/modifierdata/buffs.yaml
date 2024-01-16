@@ -69,6 +69,10 @@
         conversion:
           Vitality: {Vitality: 5%} # tested: https://discord.com/channels/380901000200060929/380903574282174466/1025093797304090685
           Armor: {Armor: 5%}
+      wvwModifiers:
+        conversion:
+          Vitality: {Vitality: 1%}
+          Armor: {Armor: 1%}
       type: Text
 
 - section: Effects
