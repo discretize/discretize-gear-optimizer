@@ -20,29 +20,29 @@ This is optional if you just want to contribute to the optimizer's database and 
 
 ### Building the Site
 
-This project requires [Node.js](https://nodejs.org/) and [Yarn](https://classic.yarnpkg.com/). We recommend installing Node using a version manager like NVM so you can easily switch to the correct version for different projects ([here are some methods to do so](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)).
+This project requires [Node.js](https://nodejs.org/) and [PNPM](https://pnpm.io/).
 
 Setting up your editor with [EditorConfig](https://editorconfig.org/), [ESLint](https://eslint.org/), and [Prettier](https://prettier.io/) integrations is also recommended.
 
 After cloning the repository, install its dependencies with:
 
 ```sh
-yarn install
+pnpm install
 ```
 
 Build the experimental Rust/Webassembly core with:
 
 ```sh
-yarn wasm
+pnpm wasm
 ```
 
 To start the vite development server, which will build the site on your computer and update with your changes in real time, use:
 
 ```sh
-yarn develop
+pnpm develop
 ```
 
-Note that the Rust/Webassembly code will not update in real time; the `yarn wasm` command must be rerun to compile any changes to it.
+Note that the Rust/Webassembly code will not update in real time; the `pnpm wasm` command must be rerun to compile any changes to it.
 
 ### Pull Requests
 
@@ -73,14 +73,14 @@ The site is built using [Vite](https://vitejs.dev/), which generates static site
 To start the Vite development server, which will build the site on your computer and update with your changes in real time, use:
 
 ```sh
-yarn dev
+pnpm dev
 ```
 
-Note that this builds in development mode, with verbose error messages but reduced performance. To build the site in production mode to test actual performance, you can run `yarn build` and then `yarn serve`, or shortcut both steps using `yarn buildserve`.
+Note that this builds in development mode, with verbose error messages but reduced performance. To build the site in production mode to test actual performance, you can run `pnpm build` and then `pnpm serve`, or shortcut both steps using `pnpm buildserve`.
 
-To test changes to builds quickly in production mode, you can run `yarn build --watch` in one terminal window and `yarn serve` in another.
+To test changes to builds quickly in production mode, you can run `pnpm build --watch` in one terminal window and `pnpm serve` in another.
 
-To test the Cloudflare functions used to shorten shared state links, use `yarn cfdev` in place of `yarn dev` or `yarn cfbuild` and `yarn cfserve` in place of `yarn build` and `yarn serve`. This will use Cloudflare's Wrangler CLI to simulate the real server using a proxy. The data generated in this local environment is stored in `.mf/kv/SHORT_LINKS/`.
+To test the Cloudflare functions used to shorten shared state links, use `pnpm cfdev` in place of `pnpm dev` or `pnpm cfbuild` and `pnpm cfserve` in place of `pnpm build` and `pnpm serve`. This will use Cloudflare's Wrangler CLI to simulate the real server using a proxy. The data generated in this local environment is stored in `.mf/kv/SHORT_LINKS/`.
 
 For more options, run `npx vite --help`.
 
@@ -105,7 +105,7 @@ GW2 items, traits, skills, etc are rendered using the [gw2-ui](https://github.co
 
 Feel free to check the [storybook](https://storybook.js.org/) [here](https://discretize.github.io/gw2-ui/?path=/story/components-attribute--boon-duration). It demonstrates most of the available props for the GW2-UI components. For more information, ask in Discord.
 
-Alternatively you can clone the gw2-ui repository and run `yarn dev`, which will open a [storybook](https://storybook.js.org/).
+Alternatively you can clone the gw2-ui repository and run `pnpm dev`, which will open a [storybook](https://storybook.js.org/).
 
 ### UI State
 

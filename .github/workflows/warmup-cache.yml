@@ -1,4 +1,4 @@
-name: 'Warm Up Caches'
+name: 'Warm Up Rust Cache'
 on:
   workflow_dispatch:
   
@@ -13,23 +13,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Set up PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Cache dependencies
-        id: node-modules-cache
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+          cache: pnpm
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: pnpm install
       - name: Cache Rust
         uses: Swatinem/rust-cache@v2
         with:
           workspaces: wasm_module
       - name: Compile WASM
-        run: yarn wasm
-
+        run: pnpm wasm

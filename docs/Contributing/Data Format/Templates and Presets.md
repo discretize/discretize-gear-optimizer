@@ -31,9 +31,9 @@ This file contains the metadata for the build templates.
         extras: CFB DPS
 ```
 
-You can run `yarn testPresets` in a clone of the repository to run the testPresets.js script, which will make sure the boons, priority, distribution, traits, and extras all refer to entries in the other YAML files.
+You can run `pnpm testPresets` in a clone of the repository to run the testPresets.js script, which will make sure the boons, priority, distribution, traits, and extras all refer to entries in the other YAML files.
 
-This script will be run automatically by GitHub when you push to a the source branch of an open pull request if it is not set to draft, so don't worry if you don't want to set up NPM and Yarn just for this!
+This script will be run automatically by GitHub when you push to a the source branch of an open pull request if it is not set to draft, so don't worry if you don't want to set up Node and PNPM just for this!
 
 ## preset-buffs.yaml
 
