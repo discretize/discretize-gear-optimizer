@@ -12,9 +12,14 @@ RUN /root/.cargo/bin/rustup target add wasm32-unknown-unknown
 RUN mkdir /app && mkdir /app/wasm_module
 WORKDIR /app
 
-# copy package.json and yarn.lock
-COPY package.json yarn.lock ./
-RUN --mount=type=cache,target=node_modules yarn install --frozen-lockfile
+# fetch dependencies
+RUN corepack enable && corepack prepare pnpm@8 --activate
+COPY pnpm-lock.yaml ./
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm fetch
+
+# install dependencies
+COPY package.json ./
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 COPY wasm_module/ /app
 WORKDIR /app/wasm_module
