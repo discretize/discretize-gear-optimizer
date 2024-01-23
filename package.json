@@ -31,10 +31,10 @@
     "gulp-sass": "^5.0.0",
     "gulp-uglify": "^3.0.0",
     "js-yaml": "^4.1.0",
-    "node-sass": "^9.0.0",
     "postcss": "^8.1.4",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "run-sequence": "^2.1.0"
+    "run-sequence": "^2.1.0",
+    "sass": "^1.70.0"
   },
   "engines": {
     "node": "18"

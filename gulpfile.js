@@ -73,7 +73,7 @@ var imagemin = require('gulp-imagemin');
 var htmlmin = require('gulp-htmlmin');
 var babel = require('gulp-babel');
 var uglify = require('gulp-uglify');
-var sass = require('gulp-sass')(require('node-sass'));
+var sass = require('gulp-sass')(require('sass'));
 
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
