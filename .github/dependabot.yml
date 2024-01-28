@@ -4,18 +4,12 @@ updates:
     directory: /
     schedule:
       interval: weekly
-    groups:
-      all:
-        patterns:
-          - '*'
+
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: weekly
-    groups:
-      all:
-        patterns:
-          - '*'
+
   - package-ecosystem: cargo
     directory: /wasm_module
     schedule:
