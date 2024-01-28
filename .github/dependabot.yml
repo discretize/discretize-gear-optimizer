@@ -17,6 +17,8 @@ updates:
     labels: [ ]
     schedule:
       interval: weekly
+    allow:
+      - dependency-type: all
     groups:
       cargo:
         patterns:
