@@ -14,11 +14,11 @@
     "develop": "vite",
     "dev": "vite",
     "start": "vite",
-    "cfdev": "VITE_HAS_CF=true wrangler pages dev --kv SHORT_LINKS -- yarn dev",
+    "cfdev": "VITE_HAS_CF=true wrangler pages dev --kv SHORT_LINKS -- pnpm dev",
     "build": "vite build",
     "cfbuild": "VITE_HAS_CF=true vite build --watch",
     "serve": "vite preview --host",
-    "cfserve": "VITE_HAS_CF=true wrangler pages dev --kv SHORT_LINKS -- yarn serve",
+    "cfserve": "VITE_HAS_CF=true wrangler pages dev --kv SHORT_LINKS -- pnpm serve",
     "buildserve": "vite build && vite preview --host",
     "prettier": "prettier --write . \"!**/*.{md,json,yaml,yml}\"",
     "prettierCheck": "prettier --check . \"!**/*.{md,json,yaml,yml}\"",
@@ -34,7 +34,8 @@
     "wasm": "wasm-pack build ./wasm_module --target web --release",
     "wasm-build-data": "ts-node-esm generateRustMappings.ts",
     "wasmCheck": "cd wasm_module && cargo check",
-    "wasmCheckAll": "cd wasm_module && cargo check --all-targets"
+    "wasmCheckAll": "cd wasm_module && cargo check --all-targets",
+    "preinstall": "npx only-allow pnpm"
   },
   "resolutions": {
     "@discretize/gw2-ui-new": "^0.1.2",

@@ -8,6 +8,7 @@ on:
       - main
     paths:
       - 'package.json'
+      - 'pnpm-lock.yaml'
       - 'Cargo.toml'
       - 'Cargo.lock'
   workflow_dispatch:
