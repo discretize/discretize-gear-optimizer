@@ -14,3 +14,7 @@ updates:
     directory: /wasm_module
     schedule:
       interval: weekly
+    groups:
+      all:
+        patterns:
+          - '*'
