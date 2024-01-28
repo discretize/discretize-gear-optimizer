@@ -16,3 +16,7 @@ updates:
       all:
         patterns:
           - '*'
+  - package-ecosystem: cargo
+    directory: /wasm_module
+    schedule:
+      interval: weekly
