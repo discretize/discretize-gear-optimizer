@@ -1,5 +1,7 @@
 #![allow(non_camel_case_types)]
 
+// comment goes here
+
 use optimizer_core::{start, start_with_heuristics};
 use utils::parse_args;
 use wasm_bindgen::prelude::*;
