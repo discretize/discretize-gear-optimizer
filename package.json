@@ -5,7 +5,9 @@
   "description": "Discretize Gear Optimizer",
   "author": "marcustyphoon, gw2princeps, metagame",
   "engines": {
-    "node": ">=16"
+    "node": ">=16",
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm"
   },
   "browserslist": [
     "defaults and supports es6-module"
@@ -34,8 +36,7 @@
     "wasm": "wasm-pack build ./wasm_module --target web --release",
     "wasm-build-data": "ts-node-esm generateRustMappings.ts",
     "wasmCheck": "cd wasm_module && cargo check",
-    "wasmCheckAll": "cd wasm_module && cargo check --all-targets",
-    "preinstall": "npx only-allow pnpm"
+    "wasmCheckAll": "cd wasm_module && cargo check --all-targets"
   },
   "resolutions": {
     "@discretize/gw2-ui-new": "^0.1.2",
