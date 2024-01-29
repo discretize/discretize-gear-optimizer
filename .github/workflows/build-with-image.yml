@@ -1,4 +1,4 @@
-name: 'Deploy: Cloudflare and Github Pages'
+name: 'Self-hosted Deploy: Cloudflare and Github Pages'
 
 on:
   
