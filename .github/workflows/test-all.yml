@@ -20,6 +20,7 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+
       - name: Set up PNPM
         uses: pnpm/action-setup@v2
         with:
