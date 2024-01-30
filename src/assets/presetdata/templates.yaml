@@ -587,7 +587,7 @@ list:
         traits: Condi Tempest
         extras: Condi Tempest
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Power Tempest
         id: ptemp
