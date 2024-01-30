@@ -176,7 +176,7 @@ list:
         traits: Condi Staff / Axe Mirage
         extras: DPS Mirage (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Condi Axe Mirage
         id: axe-mirage-deception-torch
