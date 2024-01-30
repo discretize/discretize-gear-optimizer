@@ -520,7 +520,7 @@ list:
         raid:
           extras: Power Berserker
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Power Spellbreaker GS
         id: spb-power-gs
