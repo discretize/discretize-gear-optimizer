@@ -26,10 +26,12 @@ const IndexPage = () => {
 
   const ALERTS = [
     <Trans>
-      🎉 Secrets of the Obscure has been released! 🎉
+      Core game changes are updated for the January 30th game patch, but preset coefficients and
+      trait selections may not yet be completely updated. Relics are a work in progress and many
+      templates are outdated.
       <br />
-      Core game changes are updated for the patch, but relics are a work in progress and most
-      templates are outdated. Proceed with caution!
+      <br />
+      Templates not marked as Outdated are up to date.
     </Trans>,
     <Trans>
       The gear optimizer is still being developed! Please report issues or suggest improvements in
