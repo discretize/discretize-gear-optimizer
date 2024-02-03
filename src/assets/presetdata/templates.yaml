@@ -508,7 +508,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Power Berserker (Approx.)
+      - name: Power Berserker
         id: pbers
         specialization: Berserker
         boonType: Power
