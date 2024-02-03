@@ -50,19 +50,19 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Quickness Power Chrono GS
-        id: pchrono-stm-gs
+      - name: Boon Power Chrono GS
+        id: pchrono-boon-gs
         specialization: Chronomancer
         boonType: Power
         priority: Boon Power Chrono 0%
-        distribution: Quickness Power Chrono GS
-        traits: Quickness Power Chrono GS
+        distribution: Boon Power Chrono GS
+        traits: Boon Power Chrono GS
         fractal:
           extras: Power Boon (Fractal)
         raid:
           extras: Power Boon (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Quickness Condi Chrono
         id: condi-chrono-stm
@@ -75,19 +75,19 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Alacrity Power Chrono GS
-        id: pchrono-alac-gs
-        specialization: Chronomancer
-        boonType: Power
-        priority: Boon Power Chrono 0%
-        distribution: Alacrity Power Chrono GS
-        traits: Alacrity Power Chrono GS
-        fractal:
-          extras: Power Boon (Fractal)
-        raid:
-          extras: Power Boon (Raid)
-        weaponType: Two-handed
-        outdated: true
+      # - name: Alacrity Power Chrono GS
+      #   id: pchrono-alac-gs
+      #   specialization: Chronomancer
+      #   boonType: Power
+      #   priority: Boon Power Chrono 0%
+      #   distribution: Alacrity Power Chrono GS
+      #   traits: Alacrity Power Chrono GS
+      #   fractal:
+      #     extras: Power Boon (Fractal)
+      #   raid:
+      #     extras: Power Boon (Raid)
+      #   weaponType: Two-handed
+      #   outdated: true
 
       - name: Power Chrono IA GS
         id: pchrono-ia-gs
@@ -131,6 +131,20 @@ list:
       #   weaponType: Two-handed
       #   outdated: true
 
+      - name: Heal Boon Chrono
+        id: heal-boon-chrono
+        specialization: Chronomancer
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Chrono
+        extras: Heal
+        weaponType: Two-handed
+        outdated: false
+
       - name: Alacrity Staff Mirage
         id: alacmirage
         specialization: Mirage
@@ -142,14 +156,25 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Alacrity Staff / Axe Mirage
-        id: alac-staxe-mirage
+      # - name: Alacrity Staff / Axe Mirage
+      #   id: alac-staxe-mirage
+      #   specialization: Mirage
+      #   boonType: Condi
+      #   priority: Condi Alacrity Mirage 0%
+      #   distribution: Alacrity Staff / Axe Mirage
+      #   traits: Alacrity Staff / Axe Mirage
+      #   extras: Alacrity Staff Mirage
+      #   weaponType: Two-handed
+      #   outdated: true
+
+      - name: Condi Staff / Axe Mirage
+        id: condi-staxe-mirage
         specialization: Mirage
         boonType: Condi
-        priority: Condi Alacrity Mirage 0%
-        distribution: Alacrity Staff / Axe Mirage
-        traits: Alacrity Staff / Axe Mirage
-        extras: Alacrity Staff Mirage
+        priority: Condi DPS
+        distribution: Condi Staff / Axe Mirage
+        traits: Condi Staff / Axe Mirage
+        extras: DPS Mirage (Raid)
         weaponType: Two-handed
         outdated: true
 
@@ -316,7 +341,7 @@ list:
         traits: Condi Willbender
         extras: Condi Willbender
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Willbender GS
         id: cwb-gs
@@ -483,7 +508,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Power Berserker (Approx.)
+      - name: Power Berserker
         id: pbers
         specialization: Berserker
         boonType: Power
@@ -495,7 +520,7 @@ list:
         raid:
           extras: Power Berserker
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Power Spellbreaker GS
         id: spb-power-gs
@@ -551,7 +576,7 @@ list:
         traits: Alacrity Hybrid Tempest
         extras: Alacrity Hybrid Tempest
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Tempest
         id: ctemp
@@ -561,7 +586,7 @@ list:
         distribution: Condi Tempest
         traits: Condi Tempest
         extras: Condi Tempest
-        weaponType: Dual wield
+        weaponType: Two-handed
         outdated: true
 
       - name: Power Tempest
@@ -702,7 +727,7 @@ list:
         traits: Heal Tempest
         extras: Heal
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
   - class: Ranger
     builds:
@@ -716,7 +741,7 @@ list:
         traits: Condi Quickness Untamed
         extras: Condi Quickness Untamed
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Condi Untamed Axe
         id: condi-untamed-axe
@@ -899,7 +924,7 @@ list:
         raid:
           extras: DPS Vindicator (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Heal Alacrity Ren
         id: healren
@@ -1007,7 +1032,7 @@ list:
         traits: Condi Holo
         extras: Condi Holo
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       # - name: Alacrity Power Mech (inaccurate)
       #   id: mech-alac-power

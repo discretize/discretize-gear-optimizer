@@ -186,6 +186,9 @@
         quantityEntered: 100
       modifiers:
         damage:
+          Outgoing Condition Damage: [7%, add]
+      wvwModifiers:
+        damage:
           Outgoing Condition Damage: [10%, add]
       gw2id: 667
       defaultEnabled: true

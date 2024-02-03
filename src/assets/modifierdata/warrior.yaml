@@ -470,11 +470,11 @@
       subText: base
       modifiers:
         conversion:
-          Ferocity: {Precision: 10%}
+          Ferocity: {Precision: 12%}
           Condition Damage: {Power: 15%}
       wvwModifiers:
         conversion:
-          Ferocity: {Precision: 10%}
+          Ferocity: {Precision: 5%}
           Condition Damage: {Power: 10%}
       gw2id: 2011
       defaultEnabled: true
@@ -488,11 +488,11 @@
         quantityEntered: 100
       modifiers:
         conversion:
-          Ferocity: {Precision: 10%}
+          Ferocity: {Precision: 12%}
           Condition Damage: {Power: 15%}
       wvwModifiers:
         conversion:
-          Ferocity: {Precision: 10%}
+          Ferocity: {Precision: 5%}
           Condition Damage: {Power: 10%}
       gw2id: 2011
       defaultEnabled: true
@@ -542,7 +542,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [20%, mult]
+          Outgoing Strike Damage: [15%, mult]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, mult]

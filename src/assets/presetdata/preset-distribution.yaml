@@ -441,23 +441,23 @@ list:
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 3142, "Power2": 0, "Burning": 11.59, "Bleeding": 11.9, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2930, "Power2": 0, "Burning": 11.56, "Bleeding": 11.96, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Dánmander'
-        url: https://www.youtube.com/watch?v=XN0BMPviEjQ
-        log: https://dps.report/NwjR-20230628-160448_golem
+        url: https://www.youtube.com/watch?v=WOrKFRobSiU
+        log: https://dps.report/RMsk-20231213-174648_golem
 
   - name: Condi Tempest
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 3638, "Power2": 0, "Burning": 11.51, "Bleeding": 16.14, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2506, "Power2": 0, "Burning": 10.73, "Bleeding": 16.73, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[NA] Crone'
-        url: https://www.youtube.com/watch?v=nedRTduluWU
-        log: https://dps.report/I4Gj-20230713-114812_golem
+      - author: 'Dánmander'
+        url: https://www.youtube.com/watch?v=UI_DqbbBhWg
+        log: https://dps.report/JJvS-20231203-145912_golem
 
   # gear is missing one infusion (and not crit capped?)
   - name: Power Tempest
@@ -892,16 +892,16 @@ list:
         log: https://dps.report/mV8B-20231003-224244_golem
 
   # impact
-  - name: Quickness Power Chrono GS
+  - name: Boon Power Chrono GS
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 3337, "Power2": 1036, "Burning": 0, "Bleeding": 0.68, "Poisoned": 0, "Torment": 0, "Confusion": 0.81 }
+        "values2": { "Power": 3640, "Power2": 1118, "Burning": 0, "Bleeding": 0.1, "Poisoned": 0, "Torment": 0, "Confusion": 1.24 }
       }
     credit:
       - author: '[CnD] Tipcat'
-        url: https://www.youtube.com/watch?v=-ILwD0mMl3M
-        log: https://dps.report/3bs5-20230709-133638_golem
+        url: https://www.youtube.com/watch?v=Z8Ni8RZ458k
+        log: https://dps.report/wbK9-20231111-134616_golem
 
   # concentration
   - name: Quickness Power Chrono GS+Focus
@@ -987,6 +987,17 @@ list:
         url: https://www.youtube.com/watch?v=OzsjeQQ7Xio
         log: https://dps.report/tzYP-20230222-184348_golem
 
+  - name: Condi Staff / Axe Mirage
+    profession: Mirage
+    value: >-
+      {
+        "values2": { "Power": 1717, "Power2": 468, "Burning": 0, "Bleeding": 9.27, "Poisoned": 0.57, "Torment": 28.87, "Confusion": 15.05 }
+      }
+    credit:
+      - author: Mastro
+        url: https://www.youtube.com/watch?v=lGcntsRuwYI
+        log: https://dps.report/cn4L-20231201-133205_golem
+
   - name: Axe Mirage (Deception Torch)
     profession: Mirage
     value: >-
@@ -1017,12 +1028,12 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 3231, "Power2": 919, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 8.86, "Confusion": 3.3 }
+        "values2": { "Power": 3200, "Power2": 930, "Burning": 0, "Bleeding": 0.03, "Poisoned": 0, "Torment": 8.98, "Confusion": 3.39 }
       }
     credit:
       - author: 'REMagic'
-        url: https://www.youtube.com/watch?v=qqQB5vawAPs
-        log: https://dps.report/5rrD-20231003-202531_golem
+        url: https://www.youtube.com/watch?v=8GvA8WZTl0M
+        log: https://dps.report/YeGx-20231205-223957_golem
 
   # simulated from above log (currently outdated)
   # remove 19 phantasmal blades procs in 97 sec

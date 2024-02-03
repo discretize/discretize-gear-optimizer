@@ -348,7 +348,7 @@
         quantityEntered: 25
       modifiers:
         attributes:
-          Power: [875, buff]
+          Power: [750, buff]
       wvwModifiers:
         attributes:
           Power: [500, buff]

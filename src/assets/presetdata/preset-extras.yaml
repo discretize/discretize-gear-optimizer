@@ -271,7 +271,9 @@ list:
             "fireworks": {},
             "leadership": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {},
             "accuracy": {}
@@ -313,7 +315,9 @@ list:
             "fireworks": {},
             "leadership": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {}
+          },
           "Sigil1": {
             "force": {},
             "accuracy": {}
@@ -336,6 +340,7 @@ list:
         "lifestealAmount": ""
       }
 
+  # no item sigil represents use of water sigil
   - name: Heal
     value: |-
       {
@@ -344,9 +349,12 @@ list:
             "monk": {},
             "water": {}
           },
-          "Relics": {},
+          "Relics": {
+            "monk-relic": {}
+          },
           "Sigil1": {
-            "concentration": {}
+            "concentration": {},
+            "no-item-sigil": {}
           },
           "Sigil2": {
             "transference": {}
@@ -408,7 +416,9 @@ list:
             "renegade": {}
           },
           "Relics": {
-            "fractal-relic": {}
+            "fractal-relic": {
+              "amount": "0.475"
+            }
           },
           "Sigil1": {
             "bursting": {}
@@ -421,7 +431,8 @@ list:
             "cilantro-and-cured-meat-flatbread": {},
             "salsa-topped-veggie-flatbread": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Quickness Condi Chrono
@@ -1054,9 +1065,7 @@ list:
             "earth": {}
           },
           "Sigil2": {
-            "torment": {
-              "amount": "1.89"
-            }
+            "smoldering": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
@@ -1188,13 +1197,18 @@ list:
             "flame-legion-2": {},
             "leadership": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": "0.4"
+            }
+          },
           "Sigil1": {
-            "bursting": {}
+            "bursting": {},
+            "smoldering": {}
           },
           "Sigil2": {
             "torment": {
-              "amount": "1.87"
+              "amount": ""
             },
             "concentration": {}
           },

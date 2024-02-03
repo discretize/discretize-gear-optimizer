@@ -204,7 +204,7 @@ list:
         "skills": {}
       }
 
-  - name: Quickness Power Chrono GS
+  - name: Boon Power Chrono GS
     profession: Chronomancer
     traits: |-
       {
@@ -246,7 +246,7 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": "7.48"
+              "amount": "6.45"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
@@ -254,10 +254,10 @@ list:
             },
             "phantasmal-fury": {},
             "sharper-images-phantasm": {
-              "amount": "1.88"
+              "amount": "2.01"
             },
             "sharper-images-clone": {
-              "amount": "0.67"
+              "amount": "0.86"
             }
           },
           {
@@ -395,6 +395,57 @@ list:
             "sharper-images-clone": {
               "amount": "0.67"
             }
+          },
+          {
+            "danger-time": {},
+            "chronophantasma": {},
+            "improved-alacrity": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Heal Chrono
+    profession: Chronomancer
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "45",
+          "23",
+          "40"
+        ],
+        "selectedTraits": [
+          [
+            675,
+            668,
+            1687
+          ],
+          [
+            738,
+            740,
+            1866
+          ],
+          [
+            1987,
+            1978,
+            2022
+          ]
+        ],
+        "items": [
+          {
+            "illusionary-membrane": {
+              "amount": ""
+            },
+            "chaotic-potency": {},
+            "chaotic-persistence": {}
+          },
+          {
+            "healing-prism": {},
+            "illusionary-inspiration": {}
           },
           {
             "danger-time": {},
@@ -621,6 +672,78 @@ list:
         }
       }
 
+  - name: Condi Staff / Axe Mirage
+    profession: Mirage
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "45",
+          "1",
+          "59"
+        ],
+        "selectedTraits": [
+          [
+            670,
+            669,
+            1687
+          ],
+          [
+            700,
+            1889,
+            1950
+          ],
+          [
+            2110,
+            2098,
+            2070
+          ]
+        ],
+        "items": [
+          {
+            "illusionary-defense": {
+              "amount": ""
+            },
+            "illusionary-membrane": {
+              "amount": ""
+            },
+            "chaotic-potency": {},
+            "chaotic-potency-2": {
+              "amount": ""
+            },
+            "chaotic-persistence": {}
+          },
+          {
+            "fencers-finesse": {
+              "amount": ""
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "sharper-images-clone": {
+              "amount": "3.95"
+            },
+            "sharper-images-phantasm": {
+              "amount": "0.73"
+            },
+            "phantasmal-fury": {}
+          },
+          {
+            "nomads-endurance": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
+        }
+      }
+
   - name: Quickness Condi Chrono
     profession: Chronomancer
     traits: |-
@@ -721,14 +844,14 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": "5.56"
+              "amount": "5.24"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
             "sharper-images-phantasm": {
-              "amount": "1.82"
+              "amount": "1.8"
             },
             "phantasmal-fury-virtuoso": {}
           },
@@ -743,7 +866,7 @@ list:
             "quiet-intensity": {},
             "bloodsong": {},
             "jagged-mind": {
-              "amount": "5.89"
+              "amount": "6.04"
             }
           }
         ]
@@ -3439,7 +3562,7 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "48.5"
+              "amount": "43.6"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -3458,7 +3581,7 @@ list:
               "amount": ""
             },
             "bountiful-power": {
-              "amount": "10.2"
+              "amount": "10.1"
             }
           },
           {
@@ -3509,7 +3632,7 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "57"
+              "amount": "63"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -3519,7 +3642,7 @@ list:
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": "9.5"
+              "amount": "6.2"
             }
           },
           {
@@ -3531,7 +3654,7 @@ list:
             "gathered-focus": {},
             "hardy-conduit": {},
             "transcendent-tempest": {
-              "amount": "62"
+              "amount": "63"
             },
             "tempestuous-aria": {
               "amount": ""
@@ -3542,7 +3665,14 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "crescent-wind": {},
+          "flame-wheel": {
+            "amount": ""
+          },
+          "signet-of-fire": {},
+          "signet-of-earth": {}
+        }
       }
 
   - name: Power Tempest
