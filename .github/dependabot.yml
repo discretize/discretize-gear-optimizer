@@ -5,12 +5,20 @@ updates:
     labels: [ ]
     schedule:
       interval: weekly
+    groups:
+      github-actions:
+        patterns:
+          - '*'
 
   - package-ecosystem: npm
     directory: /
     labels: [ ]
     schedule:
       interval: weekly
+    groups:
+      npm:
+        patterns:
+          - '*'
 
   - package-ecosystem: cargo
     directory: /wasm_module
