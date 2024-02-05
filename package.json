@@ -90,7 +90,7 @@
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
     "@babel/types": "^7.16.7",
-    "@cloudflare/workers-types": "^4.20230404.0",
+    "@cloudflare/workers-types": "^4.20240129.0",
     "@jambit/eslint-plugin-typed-redux-saga": "^0.4.0",
     "@types/babel__core": "^7.1.19",
     "@types/js-yaml": "^4.0.6",

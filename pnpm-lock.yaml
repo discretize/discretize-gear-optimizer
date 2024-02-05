@@ -147,8 +147,8 @@ devDependencies:
     specifier: ^7.16.7
     version: 7.23.9
   '@cloudflare/workers-types':
-    specifier: ^4.20230404.0
-    version: 4.20240117.0
+    specifier: ^4.20240129.0
+    version: 4.20240129.0
   '@jambit/eslint-plugin-typed-redux-saga':
     specifier: ^0.4.0
     version: 0.4.0
@@ -1744,8 +1744,8 @@ packages:
     dev: false
     optional: true
 
-  /@cloudflare/workers-types@4.20240117.0:
-    resolution: {integrity: sha512-HQU8lJhaJVh8gQXFtVA7lZwd0hK1ckIFjRuxOXkVN2Z9t7DtzNbA2YTwBry5thKNgF5EwjN4THjHg5NUZzj05A==}
+  /@cloudflare/workers-types@4.20240129.0:
+    resolution: {integrity: sha512-VyHbih/bqh/RN2FRxnXznG0bpBIg9RfSP1ldbAVnCXFinjOdv0zm2P/RWqOVN9+FgU5sanRltwwT7jGngxZy8w==}
     dev: true
 
   /@cspotcode/source-map-support@0.8.1:
