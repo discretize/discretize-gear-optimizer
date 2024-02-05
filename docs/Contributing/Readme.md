@@ -30,7 +30,7 @@ After cloning the repository, install its dependencies with:
 pnpm install
 ```
 
-Build the experimental Rust/Webassembly core with:
+If you want your development build's experimental Rust-based multicore mode to function (optional), compile the Rust code to Webassembly by [installing Rust](https://www.rust-lang.org/learn/get-started) and running:
 
 ```sh
 pnpm wasm
