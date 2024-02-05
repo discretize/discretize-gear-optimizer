@@ -6,7 +6,6 @@
   },
   "plugins": ["@typescript-eslint", "@jambit/eslint-plugin-typed-redux-saga"],
   "extends": [
-    "react-app",
     "airbnb/whitespace",
     "airbnb/hooks",
     "plugin:jsdoc/recommended",
@@ -38,6 +37,8 @@
       { "argsIgnorePattern": "^e$|^theme$|^_", "varsIgnorePattern": "^e$|^theme$|^_" }
     ],
     "lines-between-class-members": ["warn", "always", { "exceptAfterSingleLine": true }],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "off",
 
     // temp
     "react/prop-types": "off",
@@ -84,9 +85,6 @@
       "ignorePackages",
       { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }
     ],
-    // Replace base rules with typescript-aware rules
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
     // Being explicit about types is sometimes good
     "@typescript-eslint/no-inferrable-types": "off",
     // We want to enable these eventually
