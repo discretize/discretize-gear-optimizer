@@ -50,7 +50,7 @@
     "@discretize/typeface-menomonia": "^0.1.3",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
-    "@mui/icons-material": "^5.2.5",
+    "@mui/icons-material": "^5.15.7",
     "@mui/material": "^5.2.7",
     "@reduxjs/toolkit": "^2.0.1",
     "@vitejs/plugin-react": "^4.0.0",

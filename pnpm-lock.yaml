@@ -31,8 +31,8 @@ dependencies:
     specifier: ^11.6.0
     version: 11.11.0(@emotion/react@11.11.3)(@types/react@18.2.48)(react@18.2.0)
   '@mui/icons-material':
-    specifier: ^5.2.5
-    version: 5.15.6(@mui/material@5.15.6)(@types/react@18.2.48)(react@18.2.0)
+    specifier: ^5.15.7
+    version: 5.15.7(@mui/material@5.15.6)(@types/react@18.2.48)(react@18.2.0)
   '@mui/material':
     specifier: ^5.2.7
     version: 5.15.6(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
@@ -1759,7 +1759,7 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@mui/icons-material': 5.15.6(@mui/material@5.15.6)(@types/react@18.2.48)(react@18.2.0)
+      '@mui/icons-material': 5.15.7(@mui/material@5.15.6)(@types/react@18.2.48)(react@18.2.0)
       '@mui/material': 5.15.6(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
       '@mui/styles': 5.15.6(@types/react@18.2.48)(react@18.2.0)
       classnames: 2.5.1
@@ -2507,8 +2507,8 @@ packages:
     resolution: {integrity: sha512-0aoWS4qvk1uzm9JBs83oQmIMIQeTBUeqqu8u+3uo2tMznrB5fIKqQVCbCgq+4Tm4jG+5F7dIvnjvQ2aV7UKtdw==}
     dev: false
 
-  /@mui/icons-material@5.15.6(@mui/material@5.15.6)(@types/react@18.2.48)(react@18.2.0):
-    resolution: {integrity: sha512-GnkxMtlhs+8ieHLmCytg00ew0vMOiXGFCw8Ra9nxMsBjBqnrOI5gmXqUm+sGggeEU/HG8HyeqC1MX/IxOBJHzA==}
+  /@mui/icons-material@5.15.7(@mui/material@5.15.6)(@types/react@18.2.48)(react@18.2.0):
+    resolution: {integrity: sha512-EDAc8TVJGIA/imAvR3u4nANl2W5h3QeHieu2gK7Ypez/nIA55p08tHjf8UrMXEpxCAvfZO6piY9S9uaxETdicA==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@mui/material': ^5.0.0
