@@ -14,9 +14,9 @@ default = ["console_error_panic_hook"]
 
 [dependencies]
 # deps to compile for web
-wasm-bindgen = {version = "0.2.90", features = []}
-js-sys = "0.3.67"
-web-sys = {version = "0.3.67", features = ["console", "DedicatedWorkerGlobalScope", "MessageEvent"]}
+wasm-bindgen = {version = "0.2.91", features = []}
+js-sys = "0.3.68"
+web-sys = {version = "0.3.68", features = ["console", "DedicatedWorkerGlobalScope", "MessageEvent"]}
 criterion = {version = "0.5.1", default-features = false}
 
 
@@ -32,7 +32,7 @@ rand = { version = "0.8.5", features = [] }
 getrandom = { version = "0.2", features = ["js"] }
 
 [dev-dependencies]
-wasm-bindgen-test = "0.3.40"
+wasm-bindgen-test = "0.3.41"
 
 [profile.release]
 # either "s" or 3. "s" is small bundle size, 3 is fast execution
