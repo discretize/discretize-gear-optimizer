@@ -1,29 +1,49 @@
-import buffs from './buffs.yaml';
-import Elementalist from './elementalist.yaml';
-import Engineer from './engineer.yaml';
-import food from './food.yaml';
-import Guardian from './guardian.yaml';
-import Mesmer from './mesmer.yaml';
-import Necromancer from './necromancer.yaml';
-import Ranger from './ranger.yaml';
-import relics from './relics.yaml';
-import Revenant from './revenant.yaml';
-import runes from './runes.yaml';
-import sigils from './sigils.yaml';
-import Thief from './thief.yaml';
-import utility from './utility.yaml';
-import Warrior from './warrior.yaml';
+import rawbuffs from './buffs.yaml';
+import rawElementalist from './elementalist.yaml';
+import rawEngineer from './engineer.yaml';
+import rawfood from './food.yaml';
+import rawGuardian from './guardian.yaml';
+import rawMesmer from './mesmer.yaml';
+import rawNecromancer from './necromancer.yaml';
+import rawRanger from './ranger.yaml';
+import rawrelics from './relics.yaml';
+import rawRevenant from './revenant.yaml';
+import rawrunes from './runes.yaml';
+import rawsigils from './sigils.yaml';
+import rawThief from './thief.yaml';
+import { type ModiferData } from './types';
+import rawutility from './utility.yaml';
+import rawWarrior from './warrior.yaml';
+
+// files are type checked in ../testSchema.ts
+const buffs = rawbuffs as ModiferData;
+const Elementalist = rawElementalist as ModiferData;
+const Engineer = rawEngineer as ModiferData;
+const food = rawfood as ModiferData;
+const Guardian = rawGuardian as ModiferData;
+const Mesmer = rawMesmer as ModiferData;
+const Necromancer = rawNecromancer as ModiferData;
+const Ranger = rawRanger as ModiferData;
+const relics = rawrelics as ModiferData;
+const Revenant = rawRevenant as ModiferData;
+const runes = rawrunes as ModiferData;
+const sigils = rawsigils as ModiferData;
+const Thief = rawThief as ModiferData;
+const utility = rawutility as ModiferData;
+const Warrior = rawWarrior as ModiferData;
 
 // combines items in all sections into one object
-const byId = (sections) => {
-  const sectionsFlat = sections.flatMap(
-    ({ section, items }) => items?.map(({ id, ...rest }) => [id, { ...rest, section }]) || [],
+const byId = (sections: ModiferData[number][]) => {
+  const sectionsFlat = sections.flatMap(({ section, items }) =>
+    items.map(({ id, ...rest }) => [id, { ...rest, section }] as const),
   );
   return Object.fromEntries(sectionsFlat);
 };
 // combines items in all sections in all entries into one object
-const allById = (group) =>
-  Object.assign({}, ...Object.values(group).map((category) => byId(category)));
+const allById = (group: Record<string, ModiferData>) => {
+  const sections = Object.values(group).flat();
+  return byId(sections);
+};
 
 export const classModifiers = {
   Elementalist,
@@ -43,7 +63,7 @@ const traitSectionsArray = Object.values(classModifiers)
   .filter((section) => section.id);
 
 export const traitSectionsById = Object.fromEntries(
-  traitSectionsArray.map((section) => [section.id, section]),
+  traitSectionsArray.map((section) => [String(section.id), section]),
 );
 
 export const extrasModifiers = {
