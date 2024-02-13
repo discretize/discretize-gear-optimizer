@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'node:fs';
 
 // removes underscores and any text preceding them from translation values
 const regex = /.*_/;
