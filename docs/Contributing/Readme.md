@@ -105,7 +105,7 @@ GW2 items, traits, skills, etc are rendered using the [gw2-ui](https://github.co
 
 Feel free to check the [storybook](https://storybook.js.org/) [here](https://discretize.github.io/gw2-ui/?path=/story/components-attribute--boon-duration). It demonstrates most of the available props for the GW2-UI components. For more information, ask in Discord.
 
-Alternatively you can clone the gw2-ui repository and run `pnpm dev`, which will open a [storybook](https://storybook.js.org/).
+Alternatively you can clone the gw2-ui repository and run `yarn dev`, which will open a [storybook](https://storybook.js.org/).
 
 ### UI State
 
