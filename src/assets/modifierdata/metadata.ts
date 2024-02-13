@@ -115,7 +115,7 @@ export type DamageKey = (typeof allDamageKeys)[number];
 export const allDamageModes = ['add', 'mult', 'target', 'unknown'] as const;
 export type DamageMode = (typeof allDamageModes)[number];
 
-export const allAttributePointKeys = [...stats, ...alternateStats];
+export const allAttributePointKeys = [...stats, ...alternateStats] as const;
 type AttributePointKey = (typeof allAttributePointKeys)[number];
 
 export const allAttributePointModes = ['buff', 'converted', 'unknown'] as const;
