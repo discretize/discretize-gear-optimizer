@@ -1,9 +1,13 @@
 /* eslint-disable */
 // @ts-nocheck
-const { writeFileSync } = require('fs');
-const { requireTS } = require('./src/utils/require-ts.js');
-const { Affix, AffixNameOrCustom, AscendedItem, ExoticItem, PrimaryAttributes } =
-  requireTS('./src/utils/gw2-data.ts');
+import { writeFileSync } from 'node:fs';
+import {
+  Affix,
+  AffixNameOrCustom,
+  AscendedItem,
+  ExoticItem,
+  PrimaryAttributes,
+} from './src/utils/gw2-data.ts';
 
 /*
 WARNING

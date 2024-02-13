@@ -34,7 +34,7 @@
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL",
     "cleanupLocale": "node cleanupLocale.js",
     "wasm": "wasm-pack build ./wasm_module --target web --release",
-    "wasm-build-data": "ts-node-esm generateRustMappings.ts",
+    "wasm-build-data": "tsx generateRustMappings.ts",
     "wasmCheck": "cd wasm_module && cargo check",
     "wasmCheckAll": "cd wasm_module && cargo check --all-targets"
   },
@@ -110,7 +110,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^3.2.5",
-    "ts-node": "^10.9.1",
+    "tsx": "^4.7.1",
     "typescript": "^5.2.2"
   }
 }
