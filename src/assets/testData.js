@@ -1,33 +1,23 @@
-/* eslint-disable import/extensions */
 /* eslint-disable camelcase */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-await-in-loop */
-/* eslint-disable no-console */
-const fs = require('fs/promises');
-// eslint-disable-next-line import/no-extraneous-dependencies
-const yaml = require('js-yaml');
-const path = require('path');
-const { requireTS } = require('../utils/require-ts.js');
+import yaml from 'js-yaml';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 
-const { templateTransform } = requireTS(path.join(__dirname, './presetdata/templateTransform.js'));
+import { templateTransform } from './presetdata/templateTransform';
 
-// causes the script to fail if condition is false, but does not stop execution
-const gentleAssert = (condition, message) => {
-  if (!condition) {
-    console.error(`❌ ${message} ❌`);
-    process.exitCode = 1;
-  }
-};
+import {
+  buffsDict,
+  enhancementDict,
+  nourishmentDict,
+  relicsDict,
+  runesDict,
+  sigilDict,
+} from '../components/url-state/schema/SchemaDicts';
 
-/**
- * test modifiers
- */
-
-const { buffsDict, enhancementDict, nourishmentDict, runesDict, relicsDict, sigilDict } = requireTS(
-  path.join(__dirname, '../components/url-state/schema/SchemaDicts.js'),
-);
 // import specializationData from '../utils/mapping/specializations.json' assert { type: 'json' };
-const {
+import {
   allAttributeCoefficientKeys,
   allAttributePercentKeys,
   allAttributePointKeys,
@@ -42,8 +32,19 @@ const {
   attributePointKeysBlacklist,
   damageKeysBlacklist,
   alternateStats,
-  // mayBeConvertedToBlacklist,
-} = requireTS(path.join(__dirname, './modifierdata/metadata.ts'));
+} from './modifierdata/metadata';
+
+// causes the script to fail if condition is false, but does not stop execution
+const gentleAssert = (condition, message) => {
+  if (!condition) {
+    console.error(`❌ ${message} ❌`);
+    process.exitCode = 1;
+  }
+};
+
+/**
+ * test modifiers
+ */
 
 const schemaKeys = {
   'runes.yaml': runesDict,

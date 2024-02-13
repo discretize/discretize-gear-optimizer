@@ -9,6 +9,7 @@
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm"
   },
+  "type": "module",
   "browserslist": [
     "defaults and supports es6-module"
   ],
@@ -26,7 +27,7 @@
     "prettierCheck": "prettier --check . \"!**/*.{md,json,yaml,yml}\"",
     "eslint": "eslint --ignore-path .gitignore --max-warnings 0 . --ext .js,.jsx,.ts,.tsx",
     "updateMappings": "node updateMappings.js",
-    "testData": "node ./src/assets/testData.js",
+    "testData": "tsx ./src/assets/testData.js",
     "testModifiers": "echo 'this script has been replaced with testData!'",
     "testPresets": "echo 'this script has been replaced with testData!'",
     "extractLocale": "babel --config-file ./babel-extract.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null",

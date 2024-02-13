@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable id-length */
-/* eslint-disable no-console */
-const axios = require('axios');
-const fs = require('fs');
+import axios from 'axios';
+import fs from 'node:fs';
 // eslint-disable-next-line import/no-unresolved
 // const itemstatMapping = require('./src/utils/mapping/itemstats.json');
 // const specializationMapping = require('./src/utils/mapping/specializations.json');
