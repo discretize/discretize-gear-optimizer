@@ -18,7 +18,7 @@ updates:
     ignore:
       - dependency-name: eslint-plugin-jsx-a11y
     groups:
-      npm:
+      npm-dependencies:
         patterns:
           - '*'
 
@@ -30,6 +30,6 @@ updates:
     allow:
       - dependency-type: all
     groups:
-      cargo:
+      cargo-dependencies:
         patterns:
           - '*'
