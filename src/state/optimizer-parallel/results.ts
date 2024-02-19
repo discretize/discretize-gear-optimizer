@@ -12,14 +12,14 @@ import type { RootState } from '../store';
 import { AppliedModifier, Combination, ResultData, Settings } from './optimizerSetup';
 import { getAffixName, getAttributeName } from './utils';
 
-export type ResultProperties = {
+export interface ResultProperties {
   cachedFormState: OptimizerCoreSettings['cachedFormState'];
   sharedModifiers: AppliedModifier[];
   allExtrasData: {
     extrasModifiers: AppliedModifier[];
     extrasCombination: Record<string, string>;
   }[];
-};
+}
 
 export const getResultProperties: (
   reduxState: RootState,

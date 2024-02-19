@@ -44,9 +44,9 @@ export const parseBoss = (text: number | string | null | undefined) =>
 
 export const objectEntries = Object.entries as <Type extends object>(
   value: Type,
-) => Array<[keyof Type, Type[keyof Type]]>;
+) => [keyof Type, Type[keyof Type]][];
 
-export const objectKeys = Object.keys as <Type extends object>(value: Type) => Array<keyof Type>;
+export const objectKeys = Object.keys as <Type extends object>(value: Type) => (keyof Type)[];
 
 /*
  * Like Array.prototype.map(), but for key-value objects.
