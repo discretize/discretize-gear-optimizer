@@ -156,12 +156,7 @@ export function settingsToWorkerString(settings: Settings): string {
 // in rust we use enums, which are i32 indexed, so we need to convert the strings to numbers
 export function combinationsToWorkerString(combinations: Combination[]): any {
   // deep copy combinations
-  const toReturn: any[] = []; // JSON.parse(JSON.stringify(combinations));
-
-  for (let i = 0; i < combinations.length; i++) {
-    const combination = combinationtoWasmFormat(combinations[i]);
-    toReturn.push(combination);
-  }
+  const toReturn = combinations.map(combinationtoWasmFormat); // JSON.parse(JSON.stringify(combinations));
 
   return JSON.stringify(toReturn);
 }

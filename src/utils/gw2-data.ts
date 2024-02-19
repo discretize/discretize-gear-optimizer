@@ -4,7 +4,7 @@
  * ------------------------------------------------------------------------
  */
 
-const objectKeys = Object.keys as <Type extends object>(value: Type) => Array<keyof Type>;
+const objectKeys = Object.keys as <Type extends object>(value: Type) => (keyof Type)[];
 
 export type AffixName =
   | 'Berserker'

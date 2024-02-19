@@ -10,6 +10,7 @@
     "airbnb/hooks",
     "plugin:jsdoc/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/stylistic",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
