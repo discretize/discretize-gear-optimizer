@@ -279,20 +279,6 @@ list:
       #   weaponType: Dual wield
       #   outdated: true
 
-      - name: Power DH Radiance (Approx.)
-        id: dh-radiance
-        specialization: Dragonhunter
-        boonType: Power
-        priority: Power DPS
-        distribution: DH Radiance
-        traits: DH Radiance
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid)
-        weaponType: Two-handed
-        outdated: true
-
       - name: Power DH Virtues
         id: dh-virtues
         specialization: Dragonhunter
@@ -304,6 +290,20 @@ list:
           extras: DH Virtues (Fractal)
         raid:
           extras: Power (Raid, furious)
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Power DH Radiance
+        id: dh-radiance
+        specialization: Dragonhunter
+        boonType: Power
+        priority: Power DPS
+        distribution: DH Radiance
+        traits: DH Radiance
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Two-handed
         outdated: true
 

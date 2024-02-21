@@ -1114,7 +1114,7 @@ list:
             2017
           ],
           [
-            1898,
+            0,
             1835,
             1955
           ]
@@ -1181,7 +1181,7 @@ list:
           [
             624,
             603,
-            622
+            0
           ],
           [
             634,
@@ -1189,7 +1189,7 @@ list:
             2017
           ],
           [
-            1898,
+            1911,
             1835,
             1955
           ]
@@ -1197,6 +1197,9 @@ list:
         "items": [
           {
             "inspired-virtue": {
+              "amount": ""
+            },
+            "unscathed-contender-health": {
               "amount": ""
             },
             "unscathed-contender": {
