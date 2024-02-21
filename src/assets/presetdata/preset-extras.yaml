@@ -1512,33 +1512,33 @@ list:
       {
         "extras": {
           "Sigil1": {
-            "earth": {}
-          },
-          "Sigil2": {
+            "agony": {},
             "bursting": {},
-            "geomancy": {}
+            "malice": {}
           },
+          "Sigil2": {},
           "Runes": {
             "trapper": {},
             "nightmare": {},
             "tempest": {},
             "lich": {},
-            "renegade": {},
-            "berserker": {},
             "krait": {},
-            "mad-king": {},
-            "afflicted": {},
-            "thorns": {},
-            "leadership": {}
+            "afflicted": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "salsa-topped-veggie-flatbread": {},
+            "plate-of-kimchi-pancakes": {},
+            "bowl-of-kimchi-tofu-stew": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Power Holo (Raid)

@@ -757,7 +757,7 @@ list:
     profession: Druid
     value: >-
       {
-        "values2": { "Power": 1578, "Power2": 0, "Burning": 2.32, "Bleeding": 34.01, "Poisoned": 12.9, "Torment": 0.02, "Confusion": 0 }
+        "values2": { "Power": 1594, "Power2": 0, "Burning": 4.33, "Bleeding": 30.01, "Poisoned": 15.04, "Torment": 0.05, "Confusion": 0 }
       }
     credit:
       - author: '[CnD] Tipcat'

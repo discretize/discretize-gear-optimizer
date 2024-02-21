@@ -4660,7 +4660,7 @@ list:
           [
             1069,
             1846,
-            1912
+            1888
           ],
           [
             1099,
@@ -4679,7 +4679,7 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "4.18"
+              "amount": "2.66"
             }
           },
           {
@@ -4687,7 +4687,7 @@ list:
             "taste-for-danger": {},
             "ambidexterity": {},
             "ambidexterity-2": {
-              "amount": ""
+              "amount": "100"
             },
             "poison-master": {}
           },
@@ -4705,7 +4705,7 @@ list:
       {
         "skills": {
           "pet-dps": {
-            "amount": "2124"
+            "amount": "1865"
           }
         }
       }
