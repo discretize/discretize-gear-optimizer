@@ -4077,7 +4077,7 @@ list:
           ],
           [
             2301,
-            2287,
+            0,
             2271
           ]
         ],
@@ -4101,12 +4101,11 @@ list:
           },
           {
             "natural-fortitude": {},
-            "ferocious-symbiosis": {
-              "amount": ""
-            },
-            "vow-of-the-untamed-pet": {},
             "vow-of-the-untamed-you": {
               "amount": "88.2"
+            },
+            "ferocious-symbiosis": {
+              "amount": ""
             }
           }
         ]

@@ -335,14 +335,14 @@ list:
         "minQuicknessDuration": 40
       }
 
-  - name: Condi Quickness Untamed 42.2%
+  - name: Condi Quickness Untamed 30%
     hidden: true
     value: >-
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0,
-        "minQuicknessDuration": 42.2
+        "minQuicknessDuration": 30
       }
 
   - name: Condi Hybrid Druid 52%

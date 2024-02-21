@@ -736,7 +736,7 @@ list:
         id: condi-quickness-untamed
         specialization: Untamed
         boonType: Condi
-        priority: Condi Quickness Untamed 42.2%
+        priority: Condi Quickness Untamed 30%
         distribution: Condi Quickness Untamed
         traits: Condi Quickness Untamed
         extras: Condi Quickness Untamed

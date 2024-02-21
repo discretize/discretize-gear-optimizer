@@ -1358,11 +1358,13 @@ list:
           "Nourishment": {
             "plate-of-kimchi-pancakes": {},
             "salsa-topped-veggie-flatbread": {},
-            "cilantro-and-cured-meat-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "bowl-of-kimchi-tofu-stew": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {},
-            "magnanimous-tuning-crystal": {}
+            "magnanimous-tuning-crystal": {},
+            "master-tuning-crystal": {}
           }
         },
         "lifestealAmount": ""
