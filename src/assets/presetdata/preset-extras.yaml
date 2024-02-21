@@ -2109,14 +2109,7 @@ list:
       {
         "extras": {
           "Runes": {
-            "trapper": {},
-            "nightmare": {},
-            "tempest": {},
-            "lich": {},
-            "renegade": {},
-            "berserker": {},
-            "krait": {},
-            "mad-king": {}
+            "krait": {}
           },
           "Relics": {
             "fractal-relic": {}
@@ -2127,7 +2120,9 @@ list:
             "toxic-focusing-crystal": {}
           },
           "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "plate-of-kimchi-pancakes": {},
+            "truffle-risotto": {}
           }
         }
       }
