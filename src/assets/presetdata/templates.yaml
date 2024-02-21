@@ -1076,27 +1076,27 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Mech J-Drive (Approx.)
-        id: cmech-sig-mace
-        specialization: Mechanist
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Mechanist J-Drive (approx.)
-        traits: Condi Mechanist J-Drive
-        extras: Condi Mechanist
-        weaponType: Dual wield
-        outdated: false
+      # - name: Condi Mech J-Drive (Approx.)
+      #   id: cmech-sig-mace
+      #   specialization: Mechanist
+      #   boonType: Condi
+      #   priority: Condi DPS
+      #   distribution: Condi Mechanist J-Drive (approx.)
+      #   traits: Condi Mechanist J-Drive
+      #   extras: Condi Mechanist
+      #   weaponType: Dual wield
+      #   outdated: false
 
-      - name: Condi Mech Jade Dynamo (Approx.)
-        id: cmech-dynamo-pistol
-        specialization: Mechanist
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Mechanist Jade Dynamo Pistol (approx.)
-        traits: Condi Mechanist Jade Dynamo
-        extras: Condi Mechanist
-        weaponType: Dual wield
-        outdated: true
+      # - name: Condi Mech Jade Dynamo (Approx.)
+      #   id: cmech-dynamo-pistol
+      #   specialization: Mechanist
+      #   boonType: Condi
+      #   priority: Condi DPS
+      #   distribution: Condi Mechanist Jade Dynamo Pistol (approx.)
+      #   traits: Condi Mechanist Jade Dynamo
+      #   extras: Condi Mechanist
+      #   weaponType: Dual wield
+      #   outdated: true
 
       # - name: Condi Alac Mech (inaccurate)
       #   id: cmech-alac-condi
