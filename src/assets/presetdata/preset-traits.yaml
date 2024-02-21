@@ -5589,13 +5589,13 @@ list:
           ],
           [
             1823,
-            0,
+            1819,
             1815
           ],
           [
             1813,
             1738,
-            1772
+            1746
           ]
         ],
         "items": [
@@ -5609,6 +5609,7 @@ list:
           },
           {
             "draconic-fortitude": {},
+            "elevated-compassion": {},
             "reinforced-potency-base": {},
             "reinforced-potency-boons": {
               "amount": ""
