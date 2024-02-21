@@ -2386,7 +2386,7 @@ list:
         }
       }
 
-  - name: Condi (Quickness) Berserker
+  - name: Condi Quickness Berserker
     profession: Berserker
     traits: |-
       {
@@ -2410,6 +2410,95 @@ list:
           [
             2039,
             2042,
+            2038
+          ]
+        ],
+        "items": [
+          {
+            "furious-burst": {},
+            "wounding-precision": {},
+            "signet-mastery": {
+              "amount": ""
+            },
+            "deep-strikes-fury": {
+              "amount": ""
+            },
+            "deep-strikes-bleeding": {},
+            "unsuspecting-foe-full": {},
+            "burst-precision": {
+              "amount": ""
+            },
+            "blade-master": {},
+            "blade-master-2": {
+              "amount": ""
+            },
+            "bloodlust": {},
+            "furious": {
+              "amount": "19.1"
+            },
+            "bloodlust-on-crit": {
+              "amount": "2.82"
+            }
+          },
+          {
+            "warriors-sprint": {
+              "amount": ""
+            },
+            "axe-mastery-one": {},
+            "axe-mastery-axe": {
+              "amount": ""
+            }
+          },
+          {
+            "blood-reaction-base": {},
+            "blood-reaction-with": {
+              "amount": ""
+            },
+            "heat-the-soul": {},
+            "heat-the-soul-with": {
+              "amount": ""
+            },
+            "fatal-frenzy-power-condi": {
+              "amount": "72.7"
+            },
+            "fatal-frenzy-toughness": {},
+            "bloody-roar": {
+              "amount": ""
+            },
+            "king-of-fires": {},
+            "eternal-champion": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Condi Berserker
+    profession: Berserker
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "36",
+          "51",
+          "18"
+        ],
+        "selectedTraits": [
+          [
+            1455,
+            1333,
+            1346
+          ],
+          [
+            1329,
+            1484,
+            1657
+          ],
+          [
+            2039,
+            2011,
             2038
           ]
         ],

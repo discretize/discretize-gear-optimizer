@@ -325,14 +325,14 @@ list:
         "minQuicknessDuration": 0
       }
 
-  - name: Condi Quickness Berserker 40%
+  - name: Condi Quickness Berserker 43.5%
     hidden: true
     value: >-
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0,
-        "minQuicknessDuration": 40
+        "minQuicknessDuration": 43.5
       }
 
   - name: Condi Quickness Untamed 30%
