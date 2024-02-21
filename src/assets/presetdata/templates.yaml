@@ -550,20 +550,6 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Quickness Power Spellbreaker
-        id: spb-quick
-        specialization: Spellbreaker
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Power Quickness Spellbreaker
-        traits: Power Quickness Spellbreaker
-        fractal:
-          extras: Power Boon (Fractal)
-        raid:
-          extras: Power Boon (Raid)
-        weaponType: Two-handed
-        outdated: true
-
   - class: Elementalist
     builds:
 
