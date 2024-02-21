@@ -674,7 +674,8 @@ list:
             "accuracy": {}
           },
           "Enhancement": {
-            "furious-sharpening-stone": {}
+            "furious-sharpening-stone": {},
+            "superior-sharpening-stone": {}
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
