@@ -960,7 +960,7 @@ list:
         id: pqscrap
         specialization: Scrapper
         boonType: Power
-        priority: Power Quickness Scrapper 23.3%
+        priority: Power DPS
         distribution: Quickness Power Scrapper
         traits: Quickness Power Scrapper
         fractal:
