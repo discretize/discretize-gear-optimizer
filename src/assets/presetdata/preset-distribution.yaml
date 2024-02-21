@@ -811,18 +811,16 @@ list:
         url: https://www.youtube.com/watch?v=xjCNAyzVmQM
         log: https://dps.report/PRXW-20220416-225625_golem
 
-  # (subtracted 110 dps from lifesteal food)
-  # icicle
-  - name: Condi Mechanist J-Drive Mace (approx.)
+  - name: Condi Mechanist J-Drive (approx.)
     profession: Mechanist
     value: >-
       {
-        "values2": { "Power": 3597, "Power2": 0, "Burning": 7.55, "Bleeding": 13.29, "Poisoned": 3.57, "Torment": 0, "Confusion": 15.46 }
+        "values2": { "Power": 3622, "Power2": 0, "Burning": 6.17, "Bleeding": 18.34, "Poisoned": 9.03, "Torment": 0, "Confusion": 2.39 }
       }
     credit:
-      - author: '[CnD] Xyonon'
-        url: https://www.youtube.com/watch?v=D_XVn26s8S4
-        log: https://dps.report/Vtz8-20220321-012350_golem
+      - author: '[NA] Crone'
+        url: https://www.youtube.com/watch?v=o3cmPNH620s
+        log: https://dps.report/Vh6i-20240220-101735_golem
 
   # icicle
   - name: Condi Mechanist Jade Dynamo Pistol (approx.)

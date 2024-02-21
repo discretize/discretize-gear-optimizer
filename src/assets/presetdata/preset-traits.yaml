@@ -5997,7 +5997,7 @@ list:
           ],
           [
             1882,
-            1892,
+            482,
             505
           ],
           [
@@ -6012,16 +6012,14 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
-            "no-scope": {
-              "amount": ""
-            },
+            "no-scope": {},
             "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
             "incendiary-powder": {},
             "sharpshooter": {
-              "amount": "2.29"
+              "amount": "3.24"
             }
           },
           {

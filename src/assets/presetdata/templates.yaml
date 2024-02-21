@@ -1081,11 +1081,11 @@ list:
         specialization: Mechanist
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Mechanist J-Drive Mace (approx.)
+        distribution: Condi Mechanist J-Drive (approx.)
         traits: Condi Mechanist J-Drive
         extras: Condi Mechanist
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Mech Jade Dynamo (Approx.)
         id: cmech-dynamo-pistol
