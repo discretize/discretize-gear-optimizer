@@ -371,7 +371,9 @@
       gw2id: 2122
       defaultEnabled: true
 
+  # mechanist damage is no longer accurate (even on condi)
+  # see: https://wiki.guildwars2.com/wiki/Game_updates/2023-02-14#Mechanist
 - section: Mechanist
   id: 70
-  note: Mech condition damage is only accurate with the conductive alloys trait. Mech power damage is not currently accurate at all. Use this optimizer with condi DPS mechanist only.
+  note: Damage dealt by the mechanist mech is not currently simulated accurately. It should inherit some, but not all, player stats and bonuses.
   items: []
