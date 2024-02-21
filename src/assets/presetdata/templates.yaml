@@ -257,7 +257,7 @@ list:
       #   traits: Condi Quickbrand
       #   extras: CFB w/ Quickness (renegade)
 
-      - name: Condi Firebrand 5 Page RF
+      - name: Condi Firebrand
         id: cfb-geo
         specialization: Firebrand
         boonType: Condi
