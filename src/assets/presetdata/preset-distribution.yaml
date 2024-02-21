@@ -635,17 +635,6 @@ list:
         url: https://www.youtube.com/watch?v=svoHI_hOhds
         log: https://dps.report/r4Vc-20231014-151702_golem
 
-  - name: Condi Untamed Axe
-    profession: Untamed
-    value: >-
-      {
-        "values2": { "Power": 3050, "Power2": 0, "Burning": 0, "Bleeding": 34.51, "Poisoned": 5.07, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Incera'
-        url: https://www.youtube.com/watch?v=N59qd6lNOhA
-        log: https://dps.report/Mgwd-20220826-160333_golem
-
   - name: Power Soulbeast
     profession: Soulbeast
     value: >-

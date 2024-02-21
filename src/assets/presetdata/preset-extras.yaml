@@ -1371,42 +1371,6 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Untamed Axe
-    profession: Untamed
-    value: |-
-      {
-        "extras": {
-          "Sigil1": {
-            "earth": {}
-          },
-          "Sigil2": {
-            "severance-perma": {},
-            "geomancy": {}
-          },
-          "Runes": {
-            "trapper": {},
-            "nightmare": {},
-            "tempest": {},
-            "lich": {},
-            "renegade": {},
-            "berserker": {},
-            "krait": {},
-            "mad-king": {},
-            "afflicted": {},
-            "thorns": {}
-          },
-          "Relics": {},
-          "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {},
-            "plate-of-kimchi-pancakes": {}
-          },
-          "Enhancement": {
-            "toxic-focusing-crystal": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
   - name: Condi Slb
     profession: Soulbeast
     value: |-
