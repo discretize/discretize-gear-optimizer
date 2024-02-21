@@ -2300,7 +2300,8 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-might": {}
+          "signet-of-might": {},
+          "signet-of-fury": {}
         }
       }
 
@@ -2322,12 +2323,12 @@ list:
           ],
           [
             1413,
-            1484,
+            1489,
             1369
           ],
           [
             2049,
-            2011,
+            2042,
             1928
           ]
         ],
@@ -2352,24 +2353,24 @@ list:
             "double-standards-disc": {},
             "axe-mastery-one": {},
             "axe-mastery-axe": {
-              "amount": "50"
+              "amount": "73"
             }
           },
           {
             "blood-reaction-base": {},
             "blood-reaction-with": {
-              "amount": "82.5"
+              "amount": "100"
             },
             "heat-the-soul": {},
             "heat-the-soul-with": {
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
-              "amount": "82.5"
+              "amount": "100"
             },
             "fatal-frenzy-toughness": {},
             "bloody-roar": {
-              "amount": "82.5"
+              "amount": "100"
             },
             "king-of-fires": {},
             "eternal-champion": {},
@@ -2379,7 +2380,10 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "signet-of-might": {},
+          "signet-of-fury": {}
+        }
       }
 
   - name: Condi (Quickness) Berserker

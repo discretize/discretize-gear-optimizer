@@ -498,13 +498,13 @@ list:
         id: pbers-quick
         specialization: Berserker
         boonType: Power
-        priority: Power Quickness Berserker 35.6%
-        distribution: Power Quickness Berserker
+        priority: Power DPS (no dragon)
+        distribution: Power Berserker
         traits: Power Quickness Berserker
         fractal:
-          extras: Power Boon (Fractal)
+          extras: Power (Fractal)
         raid:
-          extras: Power Boon (Raid)
+          extras: Power Berserker
         weaponType: Two-handed
         outdated: true
 
