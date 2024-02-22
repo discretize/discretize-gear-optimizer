@@ -833,38 +833,6 @@ list:
         }
       }
 
-  # - name: Condi Quickbrand 35%
-  #   profession: Firebrand
-  #   value: |-
-  #     {
-  #       "Runes": {
-  #         "balthazar": {},
-  #         "renegade": {},
-  #         "berserker": {},
-  #         "trapper": {},
-  #         "nightmare": {},
-  #         "tempest": {},
-  #         "lich": {},
-  #         "weaver": {},
-  #         "baelfire": {},
-  #         "flame-legion-2": {},
-  #         "firebrand": {}
-  #       },
-  #       "Relics": {},
-  #       "Sigil1": {
-  #           "bursting": {}
-  #       },
-  #       "Sigil2": {
-  #           "geomancy-torment-cfb5-virtues": {}
-  #       },
-  #       "Enhancement": {
-  #           "toxic-maintenance-oil": {}
-  #       },
-  #       "Nourishment": {
-  #           "spherified-cilantro-oyster-soup": {}
-  #       }
-  #     }
-
   - name: Hybrid FB Traveler
     profession: Firebrand
     value: |-
@@ -954,30 +922,6 @@ list:
           }
         }
       }
-
-  # - name: Flame Legion Power Weaver (Raid)
-  #   profession: Weaver
-  #   value: |-
-  #     {
-  #       "extras": {
-  #         "Runes": {
-  #           "flame-legion": {}
-  #         },
-  #       "Relics": {},
-  #         "Sigil1": {
-  #           "force": {}
-  #         },
-  #         "Sigil2": {
-  #           "impact/night/slaying-only-3": {}
-  #         },
-  #         "Enhancement": {
-  #           "superior-sharpening-stone": {}
-  #         },
-  #         "Nourishment": {
-  #           "cilantro-lime-sous-vide-steak": {}
-  #         }
-  #       }
-  #     }
 
   - name: Condi Weaver Sword
     profession: Weaver
@@ -1415,30 +1359,6 @@ list:
         },
         "lifestealAmount": ""
       }
-
-  # - name: Pure Shortbow Slb BM
-  #   profession: Soulbeast
-  #   value: |-
-  #     {
-  #       "extras": {
-  #         "Sigil1": {
-  #           "bursting": {}
-  #         },
-  #         "Sigil2": {
-  #           "earth": {}
-  #         },
-  #         "Runes": {
-  #           "krait": {}
-  #         },
-  #         "Relics": {},
-  #         "Nourishment": {
-  #           "salsa-topped-veggie-flatbread": {}
-  #         },
-  #         "Enhancement": {
-  #           "toxic-focusing-crystal": {}
-  #         }
-  #       }
-  #     }
 
   - name: Condi Druid
     profession: Druid
