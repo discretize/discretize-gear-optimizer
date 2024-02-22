@@ -104,16 +104,6 @@ list:
         "minQuicknessDuration": 0
       }
 
-  - name: Power Alacrity Bladesworn 0%
-    hidden: true
-    value: >-
-      {
-        "affixes": ["Berserker", "Assassin", "Diviner"],
-        "optimizeFor": "Damage",
-        "minBoonDuration": 0,
-        "minQuicknessDuration": 0
-      }
-
   - name: Power Alacrity Willbender 14%
     hidden: true
     value: >-
@@ -213,16 +203,6 @@ list:
         "optimizeFor": "Damage",
         "minBoonDuration": 0,
         "minQuicknessDuration": 10.3
-      }
-
-  - name: Boon Power Chrono 0%
-    hidden: true
-    value: >-
-      {
-        "affixes": ["Berserker", "Assassin", "Diviner"],
-        "optimizeFor": "Damage",
-        "minBoonDuration": 0,
-        "minQuicknessDuration": 0
       }
 
   - name: Condi Alacrity Scourge 28.8%

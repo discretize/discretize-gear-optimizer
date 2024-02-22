@@ -54,7 +54,7 @@ list:
         id: pchrono-boon-gs
         specialization: Chronomancer
         boonType: Power
-        priority: Boon Power Chrono 0%
+        priority: Power DPS
         distribution: Boon Power Chrono GS
         traits: Boon Power Chrono GS
         fractal:
@@ -448,7 +448,7 @@ list:
         id: bls-alac
         specialization: Bladesworn
         boonType: Power
-        priority: Power Alacrity Bladesworn 0%
+        priority: Power DPS
         distribution: Power Alacrity Bladesworn
         traits: Alacrity Bladesworn
         fractal:
