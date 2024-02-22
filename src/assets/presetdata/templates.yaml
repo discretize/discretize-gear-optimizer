@@ -473,7 +473,7 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: Quickness Condi Bers
+      - name: Quickness Condi Berserker
         id: cbers
         specialization: Berserker
         boonType: Condi
@@ -495,7 +495,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Quickness Power Bers
+      - name: Quickness Power Berserker
         id: pbers-quick
         specialization: Berserker
         boonType: Power
@@ -733,7 +733,7 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Hybrid Slb LotP (Approx.)
+      - name: Hybrid Soulbeast LotP (Approx.)
         id: hslb
         specialization: Soulbeast
         boonType: Condi
@@ -744,7 +744,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      # - name: Condi Slb D/T SB
+      # - name: Condi Soulbeast D/T SB
       #   id: cslb-sb
       #   specialization: Soulbeast
       #   boonType: Condi
@@ -755,7 +755,7 @@ list:
       #   weaponType: Two-handed
       #   outdated: true
 
-      # - name: Condi Slb D/T A/D
+      # - name: Condi Soulbeast D/T A/D
       #   id: cslb-dtad
       #   specialization: Soulbeast
       #   boonType: Condi
@@ -763,7 +763,7 @@ list:
       #   distribution: Condi Slb (D/T A/D)
       #   traits: Condi Slb D/T A/D
 
-      - name: Condi Slb D/D SB
+      - name: Condi Soulbeast D/D SB
         id: cslb-ddsb
         specialization: Soulbeast
         boonType: Condi
@@ -841,7 +841,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Alacrity Condi Ren Invo
+      - name: Alacrity Condi Renegade Invo
         id: cren-alac-invo
         specialization: Renegade
         boonType: Condi
@@ -852,7 +852,7 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Alacrity Power Ren
+      - name: Alacrity Power Renegade
         id: pren
         specialization: Renegade
         boonType: Power
@@ -866,7 +866,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Condi Ren Invo
+      - name: Condi Renegade Invo
         id: cren-invo
         specialization: Renegade
         boonType: Condi
@@ -891,7 +891,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Heal Alacrity Ren
+      - name: Heal Alacrity Renegade
         id: healren
         specialization: Renegade
         boonType: Power
@@ -1141,7 +1141,7 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: Condi Alacrity Scourge
+      - name: Alacrity Condi Scourge
         id: scourge-alac
         specialization: Scourge
         boonType: Condi
