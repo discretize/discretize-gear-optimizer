@@ -841,7 +841,7 @@ list:
         id: herald-quick
         specialization: Herald
         boonType: Power
-        priority: Power Quickness Herald 0%
+        priority: Power DPS
         distribution: Power Quickness Herald
         traits: Power Quickness Herald
         fractal:
