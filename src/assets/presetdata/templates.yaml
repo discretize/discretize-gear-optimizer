@@ -715,7 +715,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Heal Tempest
+      - name: Heal Alacrity Tempest
         id: healtemp
         specialization: Tempest
         boonType: Power
