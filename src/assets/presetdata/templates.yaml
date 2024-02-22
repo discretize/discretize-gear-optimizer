@@ -54,7 +54,7 @@ list:
         id: pchrono-boon-gs
         specialization: Chronomancer
         boonType: Power
-        priority: Boon Power Chrono 0%
+        priority: Power DPS
         distribution: Boon Power Chrono GS
         traits: Boon Power Chrono GS
         fractal:
@@ -64,14 +64,14 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Quickness Condi Chrono
+      - name: Boon Condi Chrono
         id: condi-chrono-stm
         specialization: Chronomancer
         boonType: Condi
-        priority: Quickness Condi Chrono 10%
-        distribution: Quickness Condi Chrono
-        traits: Quickness Condi Chrono
-        extras: Quickness Condi Chrono
+        priority: Boon Condi Chrono 10%
+        distribution: Boon Condi Chrono
+        traits: Boon Condi Chrono
+        extras: Boon Condi Chrono
         weaponType: Dual wield
         outdated: true
 
@@ -131,19 +131,6 @@ list:
       #   weaponType: Two-handed
       #   outdated: true
 
-      - name: Heal Boon Chrono
-        id: heal-boon-chrono
-        specialization: Chronomancer
-        boonType: Power
-        fractal:
-          priority: Heal (Fractal)
-        raid:
-          priority: Heal (Raid)
-        distribution: None
-        traits: Heal Chrono
-        extras: Heal
-        weaponType: Two-handed
-        outdated: false
 
       - name: Alacrity Staff Mirage
         id: alacmirage
@@ -188,6 +175,20 @@ list:
         extras: DPS Mirage (Raid)
         weaponType: Dual wield
         outdated: true
+
+      - name: Heal Boon Chrono
+        id: heal-boon-chrono
+        specialization: Chronomancer
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Chrono
+        extras: Heal
+        weaponType: Two-handed
+        outdated: false
 
   - class: Guardian
     builds:
@@ -257,7 +258,7 @@ list:
       #   traits: Condi Quickbrand
       #   extras: CFB w/ Quickness (renegade)
 
-      - name: Condi Firebrand 5 Page RF
+      - name: Condi Firebrand
         id: cfb-geo
         specialization: Firebrand
         boonType: Condi
@@ -279,20 +280,6 @@ list:
       #   weaponType: Dual wield
       #   outdated: true
 
-      - name: Power DH Radiance (Approx.)
-        id: dh-radiance
-        specialization: Dragonhunter
-        boonType: Power
-        priority: Power DPS
-        distribution: DH Radiance
-        traits: DH Radiance
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid)
-        weaponType: Two-handed
-        outdated: true
-
       - name: Power DH Virtues
         id: dh-virtues
         specialization: Dragonhunter
@@ -304,6 +291,20 @@ list:
           extras: DH Virtues (Fractal)
         raid:
           extras: Power (Raid, furious)
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Power DH Radiance
+        id: dh-radiance
+        specialization: Dragonhunter
+        boonType: Power
+        priority: Power DPS
+        distribution: DH Radiance
+        traits: DH Radiance
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Two-handed
         outdated: true
 
@@ -448,7 +449,7 @@ list:
         id: bls-alac
         specialization: Bladesworn
         boonType: Power
-        priority: Power Alacrity Bladesworn 0%
+        priority: Power DPS
         distribution: Power Alacrity Bladesworn
         traits: Alacrity Bladesworn
         fractal:
@@ -472,13 +473,13 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: Quickness Condi Bers
+      - name: Quickness Condi Berserker
         id: cbers
         specialization: Berserker
         boonType: Condi
-        priority: Condi Quickness Berserker 40%
+        priority: Condi Quickness Berserker 43.5%
         distribution: Condi Quickness Bers
-        traits: Condi (Quickness) Berserker
+        traits: Condi Quickness Berserker
         extras: Condi Quickness Bers
         weaponType: Two-handed
         outdated: true
@@ -489,22 +490,22 @@ list:
         boonType: Condi
         priority: Condi DPS
         distribution: Condi Berserker
-        traits: Condi (Quickness) Berserker
+        traits: Condi Berserker
         extras: Condi Berserker
         weaponType: Two-handed
         outdated: true
 
-      - name: Quickness Power Bers
+      - name: Quickness Power Berserker
         id: pbers-quick
         specialization: Berserker
         boonType: Power
-        priority: Power Quickness Berserker 35.6%
-        distribution: Power Quickness Berserker
+        priority: Power DPS (no dragon)
+        distribution: Power Berserker
         traits: Power Quickness Berserker
         fractal:
-          extras: Power Boon (Fractal)
+          extras: Power (Fractal)
         raid:
-          extras: Power Boon (Raid)
+          extras: Power Berserker
         weaponType: Two-handed
         outdated: true
 
@@ -547,20 +548,6 @@ list:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
-        weaponType: Two-handed
-        outdated: true
-
-      - name: Quickness Power Spellbreaker
-        id: spb-quick
-        specialization: Spellbreaker
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Power Quickness Spellbreaker
-        traits: Power Quickness Spellbreaker
-        fractal:
-          extras: Power Boon (Fractal)
-        raid:
-          extras: Power Boon (Raid)
         weaponType: Two-handed
         outdated: true
 
@@ -704,18 +691,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: '[beta1] Condi Catalyst'
-        id: condi-cat
-        specialization: Catalyst
-        boonType: Condi
-        priority: Condi DPS
-        distribution: '[beta1] Condi Catalyst'
-        traits: '[beta1] Condi Catalyst'
-        extras: '[beta1] Condi Catalyst'
-        weaponType: Two-handed
-        outdated: true
-
-      - name: Heal Tempest
+      - name: Heal Alacrity Tempest
         id: healtemp
         specialization: Tempest
         boonType: Power
@@ -736,22 +712,11 @@ list:
         id: condi-quickness-untamed
         specialization: Untamed
         boonType: Condi
-        priority: Condi Quickness Untamed 42.2%
+        priority: Condi Quickness Untamed 30%
         distribution: Condi Quickness Untamed
         traits: Condi Quickness Untamed
         extras: Condi Quickness Untamed
         weaponType: Two-handed
-        outdated: true
-
-      - name: Condi Untamed Axe
-        id: condi-untamed-axe
-        specialization: Untamed
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Untamed Axe
-        traits: Condi Untamed Axe
-        extras: Condi Untamed Axe
-        weaponType: Dual wield
         outdated: true
 
       - name: Power Soulbeast
@@ -768,7 +733,7 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Hybrid Slb LotP (Approx.)
+      - name: Hybrid Soulbeast LotP (Approx.)
         id: hslb
         specialization: Soulbeast
         boonType: Condi
@@ -779,18 +744,18 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Slb SB
-        id: cslb-sb
-        specialization: Soulbeast
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Slb (D/T SB)
-        traits: Condi Slb SB
-        extras: Condi Slb
-        weaponType: Two-handed
-        outdated: true
+      # - name: Condi Soulbeast D/T SB
+      #   id: cslb-sb
+      #   specialization: Soulbeast
+      #   boonType: Condi
+      #   priority: Condi DPS
+      #   distribution: Condi Slb (D/T SB)
+      #   traits: Condi Slb SB
+      #   extras: Condi Slb
+      #   weaponType: Two-handed
+      #   outdated: true
 
-      # - name: Condi Slb D/T A/D
+      # - name: Condi Soulbeast D/T A/D
       #   id: cslb-dtad
       #   specialization: Soulbeast
       #   boonType: Condi
@@ -798,7 +763,7 @@ list:
       #   distribution: Condi Slb (D/T A/D)
       #   traits: Condi Slb D/T A/D
 
-      - name: Condi Slb D/D SB
+      - name: Condi Soulbeast D/D SB
         id: cslb-ddsb
         specialization: Soulbeast
         boonType: Condi
@@ -818,7 +783,7 @@ list:
         traits: Condi Druid
         extras: Condi Druid
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Heal Alacrity Druid
         id: druid
@@ -841,7 +806,7 @@ list:
         id: herald-quick
         specialization: Herald
         boonType: Power
-        priority: Power Quickness Herald 0%
+        priority: Power DPS
         distribution: Power Quickness Herald
         traits: Power Quickness Herald
         fractal:
@@ -876,7 +841,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Alacrity Condi Ren Invo
+      - name: Alacrity Condi Renegade Invo
         id: cren-alac-invo
         specialization: Renegade
         boonType: Condi
@@ -887,7 +852,7 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Alacrity Power Ren
+      - name: Alacrity Power Renegade
         id: pren
         specialization: Renegade
         boonType: Power
@@ -901,7 +866,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Condi Ren Invo
+      - name: Condi Renegade Invo
         id: cren-invo
         specialization: Renegade
         boonType: Condi
@@ -926,7 +891,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Heal Alacrity Ren
+      - name: Heal Alacrity Renegade
         id: healren
         specialization: Renegade
         boonType: Power
@@ -960,7 +925,7 @@ list:
         id: pqscrap
         specialization: Scrapper
         boonType: Power
-        priority: Power Quickness Scrapper 23.3%
+        priority: Power DPS
         distribution: Quickness Power Scrapper
         traits: Quickness Power Scrapper
         fractal:
@@ -1076,27 +1041,27 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Mech J-Drive (Approx.)
-        id: cmech-sig-mace
-        specialization: Mechanist
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Mechanist J-Drive Mace (approx.)
-        traits: Condi Mechanist J-Drive
-        extras: Condi Mechanist
-        weaponType: Dual wield
-        outdated: true
+      # - name: Condi Mech J-Drive (Approx.)
+      #   id: cmech-sig-mace
+      #   specialization: Mechanist
+      #   boonType: Condi
+      #   priority: Condi DPS
+      #   distribution: Condi Mechanist J-Drive (approx.)
+      #   traits: Condi Mechanist J-Drive
+      #   extras: Condi Mechanist
+      #   weaponType: Dual wield
+      #   outdated: false
 
-      - name: Condi Mech Jade Dynamo (Approx.)
-        id: cmech-dynamo-pistol
-        specialization: Mechanist
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Mechanist Jade Dynamo Pistol (approx.)
-        traits: Condi Mechanist Jade Dynamo
-        extras: Condi Mechanist
-        weaponType: Dual wield
-        outdated: true
+      # - name: Condi Mech Jade Dynamo (Approx.)
+      #   id: cmech-dynamo-pistol
+      #   specialization: Mechanist
+      #   boonType: Condi
+      #   priority: Condi DPS
+      #   distribution: Condi Mechanist Jade Dynamo Pistol (approx.)
+      #   traits: Condi Mechanist Jade Dynamo
+      #   extras: Condi Mechanist
+      #   weaponType: Dual wield
+      #   outdated: true
 
       # - name: Condi Alac Mech (inaccurate)
       #   id: cmech-alac-condi
@@ -1176,7 +1141,7 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: Condi Alacrity Scourge
+      - name: Alacrity Condi Scourge
         id: scourge-alac
         specialization: Scourge
         boonType: Condi

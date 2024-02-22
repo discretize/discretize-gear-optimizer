@@ -435,7 +435,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Quickness Condi Chrono
+  - name: Boon Condi Chrono
     profession: Chronomancer
     value: |-
       {
@@ -674,7 +674,8 @@ list:
             "accuracy": {}
           },
           "Enhancement": {
-            "furious-sharpening-stone": {}
+            "furious-sharpening-stone": {},
+            "superior-sharpening-stone": {}
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
@@ -832,38 +833,6 @@ list:
         }
       }
 
-  # - name: Condi Quickbrand 35%
-  #   profession: Firebrand
-  #   value: |-
-  #     {
-  #       "Runes": {
-  #         "balthazar": {},
-  #         "renegade": {},
-  #         "berserker": {},
-  #         "trapper": {},
-  #         "nightmare": {},
-  #         "tempest": {},
-  #         "lich": {},
-  #         "weaver": {},
-  #         "baelfire": {},
-  #         "flame-legion-2": {},
-  #         "firebrand": {}
-  #       },
-  #       "Relics": {},
-  #       "Sigil1": {
-  #           "bursting": {}
-  #       },
-  #       "Sigil2": {
-  #           "geomancy-torment-cfb5-virtues": {}
-  #       },
-  #       "Enhancement": {
-  #           "toxic-maintenance-oil": {}
-  #       },
-  #       "Nourishment": {
-  #           "spherified-cilantro-oyster-soup": {}
-  #       }
-  #     }
-
   - name: Hybrid FB Traveler
     profession: Firebrand
     value: |-
@@ -953,30 +922,6 @@ list:
           }
         }
       }
-
-  # - name: Flame Legion Power Weaver (Raid)
-  #   profession: Weaver
-  #   value: |-
-  #     {
-  #       "extras": {
-  #         "Runes": {
-  #           "flame-legion": {}
-  #         },
-  #       "Relics": {},
-  #         "Sigil1": {
-  #           "force": {}
-  #         },
-  #         "Sigil2": {
-  #           "impact/night/slaying-only-3": {}
-  #         },
-  #         "Enhancement": {
-  #           "superior-sharpening-stone": {}
-  #         },
-  #         "Nourishment": {
-  #           "cilantro-lime-sous-vide-steak": {}
-  #         }
-  #       }
-  #     }
 
   - name: Condi Weaver Sword
     profession: Weaver
@@ -1254,38 +1199,8 @@ list:
           },
           "Nourishment": {
             "salsa-topped-veggie-flatbread": {},
-            "plate-of-kimchi-pancakes": {}
-          }
-        }
-      }
-
-  - name: '[beta1] Condi Catalyst'
-    profession: Catalyst
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "trapper": {},
-            "nightmare": {},
-            "tempest": {},
-            "lich": {},
-            "balthazar": {},
-            "renegade": {},
-            "berserker": {},
-            "weaver": {},
-            "baelfire": {},
-            "flame-legion-2": {}
-          },
-          "Relics": {},
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {},
-          "Enhancement": {
-            "toxic-focusing-crystal": {}
-          },
-          "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
+            "plate-of-kimchi-pancakes": {},
+            "cilantro-and-cured-meat-flatbread": {}
           }
         }
       }
@@ -1357,47 +1272,13 @@ list:
           "Nourishment": {
             "plate-of-kimchi-pancakes": {},
             "salsa-topped-veggie-flatbread": {},
-            "cilantro-and-cured-meat-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "bowl-of-kimchi-tofu-stew": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {},
-            "magnanimous-tuning-crystal": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
-  - name: Condi Untamed Axe
-    profession: Untamed
-    value: |-
-      {
-        "extras": {
-          "Sigil1": {
-            "earth": {}
-          },
-          "Sigil2": {
-            "severance-perma": {},
-            "geomancy": {}
-          },
-          "Runes": {
-            "trapper": {},
-            "nightmare": {},
-            "tempest": {},
-            "lich": {},
-            "renegade": {},
-            "berserker": {},
-            "krait": {},
-            "mad-king": {},
-            "afflicted": {},
-            "thorns": {}
-          },
-          "Relics": {},
-          "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {},
-            "plate-of-kimchi-pancakes": {}
-          },
-          "Enhancement": {
-            "toxic-focusing-crystal": {}
+            "magnanimous-tuning-crystal": {},
+            "master-tuning-crystal": {}
           }
         },
         "lifestealAmount": ""
@@ -1479,63 +1360,39 @@ list:
         "lifestealAmount": ""
       }
 
-  # - name: Pure Shortbow Slb BM
-  #   profession: Soulbeast
-  #   value: |-
-  #     {
-  #       "extras": {
-  #         "Sigil1": {
-  #           "bursting": {}
-  #         },
-  #         "Sigil2": {
-  #           "earth": {}
-  #         },
-  #         "Runes": {
-  #           "krait": {}
-  #         },
-  #         "Relics": {},
-  #         "Nourishment": {
-  #           "salsa-topped-veggie-flatbread": {}
-  #         },
-  #         "Enhancement": {
-  #           "toxic-focusing-crystal": {}
-  #         }
-  #       }
-  #     }
-
   - name: Condi Druid
     profession: Druid
     value: |-
       {
         "extras": {
           "Sigil1": {
-            "earth": {}
-          },
-          "Sigil2": {
+            "agony": {},
             "bursting": {},
-            "geomancy": {}
+            "malice": {}
           },
+          "Sigil2": {},
           "Runes": {
             "trapper": {},
             "nightmare": {},
             "tempest": {},
             "lich": {},
-            "renegade": {},
-            "berserker": {},
             "krait": {},
-            "mad-king": {},
-            "afflicted": {},
-            "thorns": {},
-            "leadership": {}
+            "afflicted": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "salsa-topped-veggie-flatbread": {},
+            "plate-of-kimchi-pancakes": {},
+            "bowl-of-kimchi-tofu-stew": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Power Holo (Raid)
@@ -2050,9 +1907,11 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {
-            "bursting": {}
+            "geomancy": {}
           },
           "Sigil2": {
             "earth": {}
@@ -2109,14 +1968,7 @@ list:
       {
         "extras": {
           "Runes": {
-            "trapper": {},
-            "nightmare": {},
-            "tempest": {},
-            "lich": {},
-            "renegade": {},
-            "berserker": {},
-            "krait": {},
-            "mad-king": {}
+            "krait": {}
           },
           "Relics": {
             "fractal-relic": {}
@@ -2127,7 +1979,9 @@ list:
             "toxic-focusing-crystal": {}
           },
           "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "plate-of-kimchi-pancakes": {},
+            "truffle-risotto": {}
           }
         }
       }

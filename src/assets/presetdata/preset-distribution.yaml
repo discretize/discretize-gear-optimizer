@@ -82,29 +82,6 @@ list:
         url: https://www.youtube.com/watch?v=u0oIU0DSspE
         log: https://dps.report/aSwf-20230216-210051_golem
 
-  - name: Power Quickness Berserker
-    profession: Berserker
-    value: >-
-      {
-        "values2": { "Power": 3466, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Evo'
-        url: https://www.youtube.com/watch?v=85iwbyRS66E
-        log: https://gw2wingman.nevermindcreations.de/log/20230514-061129_StdGolem_kill
-
-
-  - name: Power Quickness Spellbreaker
-    profession: Spellbreaker
-    value: >-
-      {
-        "values2": { "Power": 2671, "Power2": 0, "Burning": 0, "Bleeding": 0.87, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Baym'
-        url: https://www.youtube.com/watch?v=xT9DZDcwBzI
-        log: https://dps.report/HzZk-20221213-184016_golem
-
   - name: Power Alacrity Bladesworn
     profession: Bladesworn
     value: >-
@@ -493,16 +470,6 @@ list:
         url: https://www.youtube.com/watch?v=92XCBnuU5jM
         log: https://dps.report/MtKD-20221221-124558_golem
 
-  # https://discord.com/channels/380901000200060929/888049167455379532/907951956864163870
-  # power: 13422, burn: 18047, bleed: 11426, total: 42895
-  - name: '[beta1] Condi Catalyst'
-    profession: Catalyst
-    value: >-
-      {
-        "values2": { "Power": 3559, "Power2": 0, "Burning": 10.41, "Bleeding": 19.43, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    noCreditOkay: true
-
   - name: Alacrity Renegade
     profession: Renegade
     value: >-
@@ -647,17 +614,6 @@ list:
         url: https://www.youtube.com/watch?v=svoHI_hOhds
         log: https://dps.report/r4Vc-20231014-151702_golem
 
-  - name: Condi Untamed Axe
-    profession: Untamed
-    value: >-
-      {
-        "values2": { "Power": 3050, "Power2": 0, "Burning": 0, "Bleeding": 34.51, "Poisoned": 5.07, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Incera'
-        url: https://www.youtube.com/watch?v=N59qd6lNOhA
-        log: https://dps.report/Mgwd-20220826-160333_golem
-
   - name: Power Soulbeast
     profession: Soulbeast
     value: >-
@@ -757,7 +713,7 @@ list:
     profession: Druid
     value: >-
       {
-        "values2": { "Power": 1578, "Power2": 0, "Burning": 2.32, "Bleeding": 34.01, "Poisoned": 12.9, "Torment": 0.02, "Confusion": 0 }
+        "values2": { "Power": 1594, "Power2": 0, "Burning": 4.33, "Bleeding": 30.01, "Poisoned": 15.04, "Torment": 0.05, "Confusion": 0 }
       }
     credit:
       - author: '[CnD] Tipcat'
@@ -811,18 +767,16 @@ list:
         url: https://www.youtube.com/watch?v=xjCNAyzVmQM
         log: https://dps.report/PRXW-20220416-225625_golem
 
-  # (subtracted 110 dps from lifesteal food)
-  # icicle
-  - name: Condi Mechanist J-Drive Mace (approx.)
+  - name: Condi Mechanist J-Drive (approx.)
     profession: Mechanist
     value: >-
       {
-        "values2": { "Power": 3597, "Power2": 0, "Burning": 7.55, "Bleeding": 13.29, "Poisoned": 3.57, "Torment": 0, "Confusion": 15.46 }
+        "values2": { "Power": 3622, "Power2": 0, "Burning": 6.17, "Bleeding": 18.34, "Poisoned": 9.03, "Torment": 0, "Confusion": 2.39 }
       }
     credit:
-      - author: '[CnD] Xyonon'
-        url: https://www.youtube.com/watch?v=D_XVn26s8S4
-        log: https://dps.report/Vtz8-20220321-012350_golem
+      - author: '[NA] Crone'
+        url: https://www.youtube.com/watch?v=o3cmPNH620s
+        log: https://dps.report/Vh6i-20240220-101735_golem
 
   # icicle
   - name: Condi Mechanist Jade Dynamo Pistol (approx.)
@@ -903,68 +857,6 @@ list:
         url: https://www.youtube.com/watch?v=Z8Ni8RZ458k
         log: https://dps.report/wbK9-20231111-134616_golem
 
-  # concentration
-  - name: Quickness Power Chrono GS+Focus
-    profession: Chronomancer
-    value: >-
-      {
-        "values2": { "Power": 2830, "Power2": 1002, "Burning": 0, "Bleeding": 0.83, "Poisoned": 0, "Torment": 0, "Confusion": 1.13 }
-      }
-    credit:
-      - author: '[CnD] Tipcat'
-        url: https://www.youtube.com/watch?v=yK0MNj1WIHo
-        log: https://dps.report/ffej-20220817-160705_golem
-
-  - name: Alacrity Power Chrono GS
-    profession: Chronomancer
-    value: >-
-      {
-        "values2": { "Power": 3337, "Power2": 1036, "Burning": 0, "Bleeding": 0.68, "Poisoned": 0, "Torment": 0, "Confusion": 0.81 }
-      }
-    credit:
-      - author: '[CnD] Tipcat'
-        url: https://www.youtube.com/watch?v=-ILwD0mMl3M
-        log: https://dps.report/3bs5-20230709-133638_golem
-
-  # DT focus domi/duel
-  # asassin leg acc acc
-  - name: Power Chrono DT Focus
-    profession: Chronomancer
-    value: >-
-      {
-        "values2": { "Power": 2384, "Power2": 1391, "Burning": 0.62, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.08 }
-      }
-    credit:
-      - author: '[CnD] Tipcat'
-        url: https://www.youtube.com/watch?v=hkl9kewy_1k
-        log: https://dps.report/Ki5n-20210520-152542_golem
-
-  # IA focus domi/duel
-  # thief rune, truffle steak, furious stone, assassin helm glove boot
-  - name: Power Chrono IA Focus
-    profession: Chronomancer
-    value: >-
-      {
-        "values2": { "Power": 2400, "Power2": 1324, "Burning": 0.63, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.09 }
-      }
-    credit:
-      - author: '[CnD] Tipcat'
-        url: https://www.youtube.com/watch?v=zdIAYu7R8lk
-        log: https://dps.report/0pRk-20210521-152703_golem
-
-  # IA GS/SW
-  # thief rune, truffle steak, furious stone, assassin helm glove boot
-  - name: Power Quickness Chrono
-    profession: Chronomancer
-    value: >-
-      {
-        "values2": { "Power": 2380, "Power2": 1334, "Burning": 0.6, "Bleeding": 0.45, "Poisoned": 0, "Torment": 0, "Confusion": 0.17 }
-      }
-    credit:
-      - author: '[CnD] DaedDee'
-        url: https://www.youtube.com/watch?v=3VQqzxB6Pn8
-        log: https://dps.report/mv3g-20210604-005500_golem
-
   - name: Alacrity Staff Mirage
     profession: Mirage
     value: >-
@@ -975,17 +867,6 @@ list:
       - author: Mastro
         url: https://www.youtube.com/watch?v=RLll5GGvRjs
         log: https://dps.report/xC5s-20231003-215812_golem
-
-  - name: Alacrity Staff / Axe Mirage
-    profession: Mirage
-    value: >-
-      {
-        "values2": { "Power": 1682, "Power2": 209, "Burning": 0, "Bleeding": 12.91, "Poisoned": 0.61, "Torment": 18.48, "Confusion": 16.62 }
-      }
-    credit:
-      - author: Mastro
-        url: https://www.youtube.com/watch?v=OzsjeQQ7Xio
-        log: https://dps.report/tzYP-20230222-184348_golem
 
   - name: Condi Staff / Axe Mirage
     profession: Mirage
@@ -1010,7 +891,7 @@ list:
         log: https://dps.report/q02e-20231004-212315_golem
 
   # rit: shoulders coat gloves leggings, domi midnight, mischief, rendang icicle
-  - name: Quickness Condi Chrono
+  - name: Boon Condi Chrono
     profession: Chronomancer
     value: >-
       {
@@ -1034,19 +915,6 @@ list:
       - author: 'REMagic'
         url: https://www.youtube.com/watch?v=8GvA8WZTl0M
         log: https://dps.report/YeGx-20231205-223957_golem
-
-  # simulated from above log (currently outdated)
-  # remove 19 phantasmal blades procs in 97 sec
-  # 19 blade hits in 107 sec => - 0.1776 jagged mind hit/sec
-  # 0.7 coefficient with 2615.5 weapon strength => -325 power coefficient
-  # - name: Condi Virtuoso (sharpening sorrow)
-  #   profession: Virtuoso
-  #   value: >-
-  #     {
-  #       "values2": { "Power": 2481, "Power2": 883, "Burning": 0, "Bleeding": 0.13, "Poisoned": 0.06, "Torment": 7.84, "Confusion": 3.38 }
-  #     }
-  #   credit:
-  #     - author: 'REMagic'
 
   # https://optimizer.discretize.eu/?s=tC0aBKlpv1
   - name: Condi Virtuoso Chaos
@@ -1281,14 +1149,3 @@ list:
         url: https://www.youtube.com/watch?v=m24fDZee1bc
         log: https://dps.report/KKWN-20220902-160446_golem
 
-  # writ, carrion/viper mix
-  - name: '[beta1] DPS Specter Endless Night'
-    profession: Specter
-    value: >-
-      {
-        "values2": { "Power": 556, "Power2": 0, "Burning": 0.5, "Bleeding": 0, "Poisoned": 12.5, "Torment": 38.9, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Left'
-        url: https://www.youtube.com/watch?v=QjDA4W3nYYM
-        log: https://www.dps.report/hwaM-20211027-132434_golem
