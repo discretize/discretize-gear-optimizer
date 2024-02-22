@@ -28,6 +28,15 @@ list:
         "minQuicknessDuration": 0
       }
 
+  - name: Condi DPS Rampager
+    value: >-
+      {
+        "affixes": ["Viper", "Sinister", "Rampager"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 0
+      }
+
   - name: Hybrid DPS
     value: >-
       {
@@ -157,6 +166,7 @@ list:
       }
 
   - name: Condi Quickness Herald 0%
+    hidden: true
     value: >-
       {
         "affixes": ["Viper", "Sinister", "Ritualist"],
@@ -266,6 +276,7 @@ list:
       }
 
   - name: Power Alacrity Renegade 37.5%
+    hidden: true
     value: >-
       {
         "affixes": ["Berserker", "Assassin", "Diviner", "Dragon"],
@@ -335,6 +346,7 @@ list:
       }
 
   - name: Condi Tempest
+    hidden: true
     value: >-
       {
         "affixes": ["Viper", "Grieving", "Sinister"],
@@ -343,16 +355,8 @@ list:
         "minQuicknessDuration": 0
       }
 
-  - name: Condi DPS Rampager
-    value: >-
-      {
-        "affixes": ["Viper", "Sinister", "Rampager"],
-        "optimizeFor": "Damage",
-        "minBoonDuration": 0,
-        "minQuicknessDuration": 0
-      }
-
   - name: Heal Specter 88%
+    hidden: true
     value: >-
       {
         "affixes": ["Plaguedoctor", "Minstrel", "Giver"],
