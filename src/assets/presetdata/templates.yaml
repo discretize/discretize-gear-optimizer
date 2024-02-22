@@ -754,16 +754,16 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Slb SB
-        id: cslb-sb
-        specialization: Soulbeast
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Slb (D/T SB)
-        traits: Condi Slb SB
-        extras: Condi Slb
-        weaponType: Two-handed
-        outdated: true
+      # - name: Condi Slb D/T SB
+      #   id: cslb-sb
+      #   specialization: Soulbeast
+      #   boonType: Condi
+      #   priority: Condi DPS
+      #   distribution: Condi Slb (D/T SB)
+      #   traits: Condi Slb SB
+      #   extras: Condi Slb
+      #   weaponType: Two-handed
+      #   outdated: true
 
       # - name: Condi Slb D/T A/D
       #   id: cslb-dtad
