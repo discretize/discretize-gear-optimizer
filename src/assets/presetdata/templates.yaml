@@ -722,7 +722,7 @@ list:
   - class: Ranger
     builds:
 
-      - name: Condi Quickness Untamed
+      - name: Quickness Condi Untamed
         id: condi-quickness-untamed
         specialization: Untamed
         boonType: Condi
