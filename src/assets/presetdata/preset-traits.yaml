@@ -432,7 +432,7 @@ list:
           [
             1987,
             1978,
-            2022
+            0
           ]
         ],
         "items": [
@@ -449,8 +449,8 @@ list:
           },
           {
             "danger-time": {},
-            "chronophantasma": {},
-            "improved-alacrity": {}
+            "improved-alacrity": {},
+            "chronophantasma": {}
           }
         ]
       }
