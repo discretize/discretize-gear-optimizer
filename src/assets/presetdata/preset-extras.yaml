@@ -1282,6 +1282,49 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power Quickness Untamed (Raid)
+    profession: Untamed
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "firebrand": {}
+          },
+          "Relics": {
+            "thief-relic": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "air": {
+              "amount": ""
+            },
+            "accuracy": {},
+            "impact/night/slaying-only-3": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "potent-lucent-oil": {},
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Slb
     profession: Soulbeast
     value: |-

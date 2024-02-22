@@ -3568,6 +3568,135 @@ list:
         }
       }
 
+  - name: Quickness Power Untamed
+    profession: Untamed
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "25",
+          "72"
+        ],
+        "selectedTraits": [
+          [
+            1069,
+            1700,
+            1888
+          ],
+          [
+            1062,
+            965,
+            1038
+          ],
+          [
+            2301,
+            0,
+            2274
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
+            "sharpened-edges": {
+              "amount": "2.75"
+            },
+            "striders-strength": {},
+            "striders-strength-sword": {
+              "amount": ""
+            }
+          },
+          {
+            "bountiful-hunter": {
+              "amount": ""
+            },
+            "instinctive-reaction": {},
+            "lingering-magic": {}
+          },
+          {
+            "natural-fortitude": {},
+            "vow-of-the-untamed-you": {
+              "amount": "90"
+            },
+            "ferocious-symbiosis": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-the-wild": {}
+        }
+      }
+
+  - name: Power Untamed
+    profession: Untamed
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "8",
+          "72"
+        ],
+        "selectedTraits": [
+          [
+            1069,
+            1700,
+            1888
+          ],
+          [
+            0,
+            1000,
+            996
+          ],
+          [
+            2301,
+            0,
+            2274
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
+            "sharpened-edges": {
+              "amount": "2.75"
+            },
+            "striders-strength": {},
+            "striders-strength-sword": {
+              "amount": ""
+            }
+          },
+          {
+            "farsighted": {},
+            "predators-onslaught": {
+              "amount": ""
+            }
+          },
+          {
+            "natural-fortitude": {},
+            "vow-of-the-untamed-you": {
+              "amount": "90"
+            },
+            "ferocious-symbiosis": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-the-wild": {}
+        }
+      }
+
   - name: Condi Slb D/D SB
     profession: Soulbeast
     traits: |-

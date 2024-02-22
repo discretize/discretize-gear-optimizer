@@ -733,6 +733,34 @@ list:
         weaponType: Two-handed
         outdated: true
 
+      - name: Quickness Power Untamed
+        id: quickness-power-untamed
+        specialization: Untamed
+        boonType: Power
+        priority: Power Quickness Untamed 40%
+        distribution: 100% Power
+        traits: Quickness Power Untamed
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Quickness Untamed (Raid)
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Power Untamed
+        id: power-untamed
+        specialization: Untamed
+        boonType: Power
+        priority: Power DPS
+        distribution: 100% Power
+        traits: Power Untamed
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
+        weaponType: Two-handed
+        outdated: true
+
       - name: Power Soulbeast
         id: pslb
         specialization: Soulbeast

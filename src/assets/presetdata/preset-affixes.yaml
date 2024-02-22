@@ -364,3 +364,12 @@ list:
         "minBoonDuration": 88,
         "minQuicknessDuration": 0
       }
+
+  - name: Power Quickness Untamed 40%
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 40
+      }
