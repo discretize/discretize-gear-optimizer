@@ -435,7 +435,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Quickness Condi Chrono
+  - name: Boon Condi Chrono
     profession: Chronomancer
     value: |-
       {

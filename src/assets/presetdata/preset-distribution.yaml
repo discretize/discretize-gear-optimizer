@@ -891,7 +891,7 @@ list:
         log: https://dps.report/q02e-20231004-212315_golem
 
   # rit: shoulders coat gloves leggings, domi midnight, mischief, rendang icicle
-  - name: Quickness Condi Chrono
+  - name: Boon Condi Chrono
     profession: Chronomancer
     value: >-
       {

@@ -401,7 +401,7 @@ list:
         }
       }
 
-  - name: Quickness Condi Chrono
+  - name: Boon Condi Chrono
     profession: Chronomancer
     traits: |-
       {
@@ -425,7 +425,7 @@ list:
           [
             1995,
             1978,
-            2022
+            0
           ]
         ],
         "items": [
@@ -451,7 +451,8 @@ list:
           },
           {
             "danger-time": {},
-            "improved-alacrity": {}
+            "improved-alacrity": {},
+            "chronophantasma": {}
           }
         ]
       }
