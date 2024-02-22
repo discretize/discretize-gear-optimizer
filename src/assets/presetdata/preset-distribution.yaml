@@ -481,16 +481,6 @@ list:
         url: https://www.youtube.com/watch?v=92XCBnuU5jM
         log: https://dps.report/MtKD-20221221-124558_golem
 
-  # https://discord.com/channels/380901000200060929/888049167455379532/907951956864163870
-  # power: 13422, burn: 18047, bleed: 11426, total: 42895
-  - name: '[beta1] Condi Catalyst'
-    profession: Catalyst
-    value: >-
-      {
-        "values2": { "Power": 3559, "Power2": 0, "Burning": 10.41, "Bleeding": 19.43, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    noCreditOkay: true
-
   - name: Alacrity Renegade
     profession: Renegade
     value: >-
@@ -1256,14 +1246,3 @@ list:
         url: https://www.youtube.com/watch?v=m24fDZee1bc
         log: https://dps.report/KKWN-20220902-160446_golem
 
-  # writ, carrion/viper mix
-  - name: '[beta1] DPS Specter Endless Night'
-    profession: Specter
-    value: >-
-      {
-        "values2": { "Power": 556, "Power2": 0, "Burning": 0.5, "Bleeding": 0, "Poisoned": 12.5, "Torment": 38.9, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Left'
-        url: https://www.youtube.com/watch?v=QjDA4W3nYYM
-        log: https://www.dps.report/hwaM-20211027-132434_golem

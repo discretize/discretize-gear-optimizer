@@ -690,17 +690,6 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: '[beta1] Condi Catalyst'
-        id: condi-cat
-        specialization: Catalyst
-        boonType: Condi
-        priority: Condi DPS
-        distribution: '[beta1] Condi Catalyst'
-        traits: '[beta1] Condi Catalyst'
-        extras: '[beta1] Condi Catalyst'
-        weaponType: Two-handed
-        outdated: true
-
       - name: Heal Alacrity Tempest
         id: healtemp
         specialization: Tempest

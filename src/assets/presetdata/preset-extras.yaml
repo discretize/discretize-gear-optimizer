@@ -1261,37 +1261,6 @@ list:
         }
       }
 
-  - name: '[beta1] Condi Catalyst'
-    profession: Catalyst
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "trapper": {},
-            "nightmare": {},
-            "tempest": {},
-            "lich": {},
-            "balthazar": {},
-            "renegade": {},
-            "berserker": {},
-            "weaver": {},
-            "baelfire": {},
-            "flame-legion-2": {}
-          },
-          "Relics": {},
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {},
-          "Enhancement": {
-            "toxic-focusing-crystal": {}
-          },
-          "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
-          }
-        }
-      }
-
   - name: Power Quickness Catalyst (Raid)
     profession: Catalyst
     value: |-
