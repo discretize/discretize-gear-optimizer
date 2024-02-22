@@ -1378,6 +1378,75 @@ list:
         "skills": {}
       }
 
+  - name: Heal Alacrity Willbender
+    profession: Willbender
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "46",
+          "49",
+          "65"
+        ],
+        "selectedTraits": [
+          [
+            0,
+            0,
+            554
+          ],
+          [
+            1899,
+            562,
+            558
+          ],
+          [
+            0,
+            2210,
+            2195
+          ]
+        ],
+        "items": [
+          {
+            "inspired-virtue": {
+              "amount": ""
+            },
+            "unscathed-contender-health": {
+              "amount": ""
+            },
+            "unscathed-contender": {
+              "amount": ""
+            },
+            "virtue-of-retribution": {},
+            "inspiring-virtue": {
+              "amount": ""
+            },
+            "power-of-the-virtuous": {}
+          },
+          {
+            "invigorating-bulwark": {
+              "amount": ""
+            },
+            "honorable-staff": {},
+            "force-of-will": {}
+          },
+          {
+            "searing-pact": {},
+            "power-for-power": {},
+            "conceited-curate": {},
+            "lethal-tempo": {
+              "amount": ""
+            },
+            "tyrants-momentum": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: Power Willbender Radiance
     profession: Willbender
     traits: |-
@@ -3778,20 +3847,20 @@ list:
       {
         "showAll": false,
         "selectedLines": [
-          "",
+          "8",
           "25",
           "5"
         ],
         "selectedTraits": [
           [
-            0,
-            0,
-            0
+            986,
+            1070,
+            996
           ],
           [
             978,
-            0,
-            1038
+            965,
+            1697
           ],
           [
             0,
@@ -4272,7 +4341,7 @@ list:
             1815
           ],
           [
-            0,
+            2120,
             2108,
             2182
           ]
@@ -5156,12 +5225,12 @@ list:
           ],
           [
             521,
-            520,
+            470,
             473
           ],
           [
             1917,
-            1954,
+            1999,
             2052
           ]
         ],
@@ -5480,6 +5549,57 @@ list:
               "amount": ""
             },
             "reapers-onslaught": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Heal Scourge
+    profession: Scourge
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "19",
+          "50",
+          "60"
+        ],
+        "selectedTraits": [
+          [
+            780,
+            789,
+            778
+          ],
+          [
+            875,
+            892,
+            889
+          ],
+          [
+            2167,
+            2123,
+            2080
+          ]
+        ],
+        "items": [
+          {
+            "banshees-wail": {}
+          },
+          {
+            "soul-barbs": {
+              "amount": ""
+            },
+            "vital-persistence": {},
+            "death-perception": {}
+          },
+          {
+            "fell-beacon": {},
+            "sand-sage-active": {},
+            "blood-as-sand-active": {},
+            "demonic-lore": {}
           }
         ]
       }
@@ -6488,6 +6608,57 @@ list:
             "strength-of-shadows-condis": {
               "amount": ""
             }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Heal Specter
+    profession: Specter
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "20",
+          "44",
+          "71"
+        ],
+        "selectedTraits": [
+          [
+            1160,
+            1297,
+            1134
+          ],
+          [
+            1163,
+            1277,
+            0
+          ],
+          [
+            0,
+            2285,
+            2289
+          ]
+        ],
+        "items": [
+          {},
+          {
+            "preparedness": {},
+            "lead-attacks": {
+              "amount": ""
+            },
+            "deadly-ambush": {}
+          },
+          {
+            "second-opinion-base": {},
+            "second-opinion-scepter": {
+              "amount": ""
+            },
+            "dark-sentry": {},
+            "strength-of-shadows-base": {}
           }
         ]
       }

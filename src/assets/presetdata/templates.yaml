@@ -428,6 +428,20 @@ list:
         weaponType: Two-handed
         outdated: true
 
+      - name: Heal Alacrity Willbender
+        id: heal-willbender
+        specialization: Willbender
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Alacrity Willbender
+        extras: Heal
+        weaponType: Two-handed
+        outdated: false
+
       - name: Heal Quickness Firebrand
         id: hb
         specialization: Firebrand
@@ -440,7 +454,7 @@ list:
         traits: Healbrand
         extras: Heal
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
   - class: Warrior
     builds:
@@ -797,7 +811,7 @@ list:
         traits: Heal Druid
         extras: Heal
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
   - class: Revenant
     builds:
@@ -903,7 +917,7 @@ list:
         traits: Heal Ren
         extras: Heal
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Heal Quickness Herald
         id: heal-herald
@@ -917,7 +931,7 @@ list:
         traits: Heal Herald
         extras: Heal
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
   - class: Engineer
     builds:
@@ -1086,7 +1100,7 @@ list:
         traits: Heal Scrapper
         extras: Heal
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Heal Alacrity Mech
         id: healmech
@@ -1100,7 +1114,7 @@ list:
         traits: Heal Mechanist
         extras: Heal
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
   - class: Necromancer
     builds:
@@ -1188,6 +1202,19 @@ list:
         weaponType: Two-handed
         outdated: false
 
+      - name: Heal Alacrity Scourge
+        id: healscourge
+        specialization: Scourge
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Scourge
+        extras: Heal
+        weaponType: Dual wield
+        outdated: false
 
   - class: Thief
     builds:
@@ -1349,3 +1376,14 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
         outdated: true
+
+      - name: Heal Alacrity Specter
+        id: heal-specter
+        specialization: Specter
+        boonType: Power
+        priority: Heal Specter 88%
+        distribution: None
+        traits: Heal Specter
+        extras: Heal
+        weaponType: Dual wield
+        outdated: false

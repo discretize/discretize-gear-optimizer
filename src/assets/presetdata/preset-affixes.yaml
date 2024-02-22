@@ -67,7 +67,7 @@ list:
   - name: Heal (Raid)
     value: >-
       {
-        "affixes": ["Harrier", "Minstrel", "Giver", "Magi"],
+        "affixes": ["Harrier", "Minstrel", "Magi"],
         "optimizeFor": "Healing",
         "minBoonDuration": 100,
         "minQuicknessDuration": 0
@@ -76,7 +76,7 @@ list:
   - name: Heal (Fractal)
     value: >-
       {
-        "affixes": ["Harrier", "Minstrel", "Giver", "Cleric"],
+        "affixes": ["Harrier", "Minstrel", "Cleric"],
         "optimizeFor": "Healing",
         "minBoonDuration": 100,
         "minQuicknessDuration": 0
@@ -349,5 +349,14 @@ list:
         "affixes": ["Viper", "Sinister", "Rampager"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0,
+        "minQuicknessDuration": 0
+      }
+
+  - name: Heal Specter 88%
+    value: >-
+      {
+        "affixes": ["Plaguedoctor", "Minstrel", "Giver"],
+        "optimizeFor": "Healing",
+        "minBoonDuration": 88,
         "minQuicknessDuration": 0
       }
