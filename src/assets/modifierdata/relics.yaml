@@ -170,7 +170,6 @@
 
     - id: akeem-relic
       text: Relic of Akeem
-      subText: (unconfirmed)
       amountData:
         label: '/10s'
         default: 0
@@ -181,8 +180,8 @@
           Confusion Coefficient: 20
       wvwModifiers:
         attributes:
-          Torment Coefficient: 30
-          Confusion Coefficient: 30
+          Torment Coefficient: 10
+          Confusion Coefficient: 10
       gw2id: 100432
 
     - id: vass-relic
