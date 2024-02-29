@@ -65,7 +65,7 @@
     # 1.0 coefficient, 690.5 strength, 7 hits
     - id: cerus-relic
       text: Relic of Cerus
-      subText: (unconfirmed)
+      subText: with quickness (7 hits)
       amountData:
         label: '/10s'
         default: 0
@@ -73,6 +73,18 @@
       modifiers:
         attributes:
           Power Coefficient: 4833.5
+      gw2id: 100074
+
+    - id: cerus-relic-10
+      text: Relic of Cerus
+      subText: 10 hits
+      amountData:
+        label: '/10s'
+        default: 0
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Power Coefficient: 6905
       gw2id: 100074
 
     - id: dagda-relic
