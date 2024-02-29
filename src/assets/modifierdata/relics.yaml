@@ -170,7 +170,6 @@
 
     - id: fractal-relic
       text: Relic of the Fractal
-      subText: (unconfirmed)
       amountData:
         label: '/10s'
         default: 0.49
@@ -179,6 +178,10 @@
         attributes:
           Torment Coefficient: 24
           Burning Coefficient: 16
+      wvwModifiers:
+        attributes:
+          Torment Coefficient: 12
+          Burning Coefficient: 4
       gw2id: 100153
 
     - id: akeem-relic
