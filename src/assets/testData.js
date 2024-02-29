@@ -149,7 +149,7 @@ const testModifiers = async () => {
         if (schemaKeys[fileName]) {
           gentleAssert(
             schemaKeys[fileName].includes(id),
-            `err: schema for ${fileName} doesn't include ${id}!`,
+            `err: ${id} is missing from ${fileName} schema! (src/components/url-state/schema/SchemaDicts.js)`,
           );
         }
 
