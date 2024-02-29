@@ -216,6 +216,7 @@ export const relicsDict = [
   'monk-relic',
   'cerus-relic-10',
   'relic-of-nourys',
+  'demon-queen-relic',
 ];
 
 export const sigilDict = [

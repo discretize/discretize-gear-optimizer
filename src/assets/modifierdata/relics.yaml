@@ -259,6 +259,20 @@
           Torment Coefficient: 8
       gw2id: 100230
 
+    - id: demon-queen-relic
+      text: Relic of the Demon Queen
+      amountData:
+        label: '/10s'
+        default: 0
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Poison Coefficient: 6
+      wvwModifiers:
+        attributes:
+          Poison Coefficient: 3
+      gw2id: 101166
+
 - section: Support Relics
   items:
 
