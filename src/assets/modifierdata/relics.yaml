@@ -224,15 +224,16 @@
       modifiers: {}
       # gw2id intentionally omitted
 
+    # 0.9 coefficient, 690.5 strength
     - id: nightmare-relic
       text: Relic of the Nightmare
-      subText: (unconfirmed)
       amountData:
         label: '/10s'
         default: 0
         quantityEntered: 10
       modifiers:
         attributes:
+          Power Coefficient: 621.45
           Poison Coefficient: 24
       gw2id: 100579
 
