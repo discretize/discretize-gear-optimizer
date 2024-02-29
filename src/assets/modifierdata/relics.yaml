@@ -87,17 +87,17 @@
           Power Coefficient: 6905
       gw2id: 100074
 
-    - id: dagda-relic
-      text: 'Relic of Dagda: not yet implemented'
-      subText: 'Relic of Dagda: not yet implemented'
-      modifiers: {}
-      # gw2id intentionally omitted
+    # - id: dagda-relic
+    #   text: 'Relic of Dagda: not yet implemented'
+    #   subText: 'Relic of Dagda: not yet implemented'
+    #   modifiers: {}
+    #   # gw2id intentionally omitted
 
-    - id: wizards-tower-relic
-      text: "Relic of the Wizard's Tower: not yet implemented"
-      subText: "Relic of the Wizard's Tower: not yet implemented"
-      modifiers: {}
-      # gw2id intentionally omitted
+    # - id: wizards-tower-relic
+    #   text: "Relic of the Wizard's Tower: not yet implemented"
+    #   subText: "Relic of the Wizard's Tower: not yet implemented"
+    #   modifiers: {}
+    #   # gw2id intentionally omitted
 
 - section: Hybrid Relics
   items:
