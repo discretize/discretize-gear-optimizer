@@ -202,12 +202,14 @@
 
     - id: vass-relic
       text: Relic of Vass
-      subText: (unconfirmed)
       amountData:
         label: '/10s'
         default: 0
         quantityEntered: 10
       modifiers:
+        attributes:
+          Poison Coefficient: 15
+      wvwModifiers:
         attributes:
           Poison Coefficient: 9
       gw2id: 100775
