@@ -130,6 +130,19 @@
           Condition Duration Uncapped: 10%
       gw2id: 99997
 
+    - id: relic-of-nourys
+      text: Relic of Nourys
+      amountData:
+        label: '% uptime'
+        default: 0
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [25%, unknown]
+          Outgoing Condition Damage: [25%, add]
+          Damage Reduction: [15%, unknown]
+      gw2id: 101191
+
     - id: peitha-relic
       text: 'Relic of Peitha: not yet implemented'
       subText: 'Relic of Peitha: not yet implemented'
