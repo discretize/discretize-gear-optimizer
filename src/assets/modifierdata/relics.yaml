@@ -92,14 +92,17 @@
 
     - id: dragonhunter-relic
       text: Relic of the Dragonhunter
+      subText: inaccurate on condi builds!
       amountData:
         label: '% uptime'
         default: 0
         quantityEntered: 100
+        disableBlacklist: true
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, unknown]
-          Outgoing Condition Damage: [10%, add] # unconfirmed
+        attributes:
+          Condition Duration: 10%
       gw2id: 100090
 
     # - id: isgarren-relic
