@@ -298,6 +298,24 @@
           Boon Duration: 20%
       gw2id: 100453
 
+    - id: midnight-king-relic
+      text: 'Relic of the Midnight King: not implemented'
+      subText: 'Relic of the Midnight King: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+    - id: pack-relic
+      text: 'Relic of the Pack: not implemented'
+      subText: 'Relic of the Pack: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+    - id: zephyrite-relic
+      text: 'Relic of the Zephyrite: not implemented'
+      subText: 'Relic of the Zephyrite: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
 - section: Heal Relics
   items:
 
@@ -311,6 +329,36 @@
         attributes:
           Outgoing Healing: 10%
       gw2id: 100031
+
+    - id: karakosa-relic
+      text: 'Relic of Karakosa: not implemented'
+      subText: 'Relic of Karakosa: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+    - id: flock-relic
+      text: 'Relic of the Flock: not implemented'
+      subText: 'Relic of the Flock: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+    - id: dwayna-relic
+      text: 'Relic of Dwayna: not implemented'
+      subText: 'Relic of Dwayna: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+    - id: lyhr-relic
+      text: 'Relic of Lyhr: not implemented'
+      subText: 'Relic of Lyhr: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+    - id: mercy-relic
+      text: 'Relic of Mercy: not implemented'
+      subText: 'Relic of Mercy: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
 
 - section: Placeholder Items
   items:

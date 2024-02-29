@@ -217,6 +217,14 @@ export const relicsDict = [
   'cerus-relic-10',
   'relic-of-nourys',
   'demon-queen-relic',
+  'midnight-king-relic',
+  'pack-relic',
+  'zephyrite-relic',
+  'karakosa-relic',
+  'flock-relic',
+  'dwayna-relic',
+  'lyhr-relic',
+  'mercy-relic',
 ];
 
 export const sigilDict = [
