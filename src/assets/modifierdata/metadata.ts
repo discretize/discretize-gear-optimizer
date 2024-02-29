@@ -80,6 +80,7 @@ export const percents = [
   'Boon Duration',
   ...boonDurations,
   'Condition Duration',
+  'Condition Duration Uncapped',
   ...conditionDurations,
   'Maximum Health',
   'Outgoing Healing',

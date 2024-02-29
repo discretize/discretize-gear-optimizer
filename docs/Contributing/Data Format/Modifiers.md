@@ -124,6 +124,7 @@ For attribute point bonuses, one must specify if they have an effect on "gain X 
 - Maximum Health
 - Outgoing Healing
 - Condition Duration
+- Condition Duration Uncapped
 - Bleeding Duration
 - Burning Duration
 - Confusion Duration

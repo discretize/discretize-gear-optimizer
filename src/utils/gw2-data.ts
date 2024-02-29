@@ -1387,6 +1387,7 @@ export const DerivedAttributes = [
   'Critical Chance',
   'Critical Damage',
   'Condition Duration',
+  'Condition Duration Uncapped',
   'Boon Duration',
   'Health',
   'Armor',

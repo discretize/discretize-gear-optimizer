@@ -260,6 +260,7 @@ export function createCombination(
   }
 
   settings_baseAttributes['Condition Duration'] = 0;
+  settings_baseAttributes['Condition Duration Uncapped'] = 0;
   settings_baseAttributes['Boon Duration'] = 0;
   settings_baseAttributes['Critical Chance'] = 0.05;
   settings_baseAttributes['Critical Damage'] = 1.5;

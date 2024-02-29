@@ -574,13 +574,13 @@ pub fn calc_condi(
 
         let coeff = attributes.get_a(condition.get_coefficient_attribute());
 
-        let duration = 1.0
-            + clamp(
+        let duration =
+            1.0 + clamp(
                 attributes.get_a(condition.get_duration_attribute())
                     + attributes.get_a(Attribute::ConditionDuration),
                 0.0,
                 1.0,
-            );
+            ) + attributes.get_a(Attribute::ConditionDurationUncapped);
 
         let stacks = coeff * duration;
         attributes.set_a(condition.get_stacks_attribute(), stacks);
