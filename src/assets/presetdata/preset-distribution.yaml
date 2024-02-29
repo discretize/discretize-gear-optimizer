@@ -771,7 +771,7 @@ list:
     profession: Mechanist
     value: >-
       {
-        "values2": { "Power": 3622, "Power2": 0, "Burning": 6.17, "Bleeding": 18.34, "Poisoned": 9.03, "Torment": 0, "Confusion": 2.39 }
+        "values2": { "Power": 3622, "Power2": 0, "Burning": 6.17, "Bleeding": 18.34, "Poisoned": 9.03, "Torment": 0, "Confusion": 3.83 }
       }
     credit:
       - author: '[NA] Crone'
