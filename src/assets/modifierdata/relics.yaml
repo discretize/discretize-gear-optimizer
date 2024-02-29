@@ -112,7 +112,8 @@
         damage:
           Outgoing Strike Damage: [10%, unknown]
         attributes:
-          Condition Duration Uncapped: 10% # unconfirmed
+          # this is additive but uncapped; see https://github.com/discretize/discretize-gear-optimizer/pull/677
+          Condition Duration Uncapped: 10%
       gw2id: 100090
 
     - id: isgarren-relic
@@ -125,7 +126,8 @@
         damage:
           Outgoing Strike Damage: [10%, unknown]
         attributes:
-          Condition Duration Uncapped: 10% # unconfirmed
+          # this is additive but uncapped; see https://github.com/discretize/discretize-gear-optimizer/pull/677
+          Condition Duration Uncapped: 10%
       gw2id: 99997
 
     - id: peitha-relic
