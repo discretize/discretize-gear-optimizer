@@ -248,15 +248,16 @@
           Torment Coefficient: 12
       gw2id: 100158
 
+    # 0.5 coefficient, 690.5 strength
     - id: krait-relic
       text: Relic of the Krait
-      subText: (unconfirmed)
       amountData:
         label: '/10s'
         default: 0
         quantityEntered: 10
       modifiers:
         attributes:
+          Power Coefficient: 345.25
           Bleeding Coefficient: 8
           Poison Coefficient: 8
           Torment Coefficient: 8
