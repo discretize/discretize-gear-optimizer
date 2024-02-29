@@ -829,7 +829,8 @@ export class OptimizerCore {
 
       const duration =
         1 +
-        clamp((attributes[`${condition} Duration`] || 0) + attributes['Condition Duration'], 0, 1);
+        clamp((attributes[`${condition} Duration`] || 0) + attributes['Condition Duration'], 0, 1) +
+        attributes['Condition Duration Uncapped'];
 
       const stacks = (attributes[`${condition} Coefficient`] || 0) * duration;
       attributes[`${condition} Stacks`] = stacks;

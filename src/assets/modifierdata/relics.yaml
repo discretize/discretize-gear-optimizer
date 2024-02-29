@@ -104,38 +104,31 @@
 
     - id: dragonhunter-relic
       text: Relic of the Dragonhunter
-      subText: inaccurate on condi builds!
       amountData:
         label: '% uptime'
         default: 0
         quantityEntered: 100
-        disableBlacklist: true
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, unknown]
         attributes:
-          Condition Duration: 10%
+          # this is additive but uncapped; see https://github.com/discretize/discretize-gear-optimizer/pull/677
+          Condition Duration Uncapped: 10%
       gw2id: 100090
 
-    # - id: isgarren-relic
-    #   text: Relic of Isgarren
-    #   amountData:
-    #     label: '% uptime'
-    #     default: 0
-    #     quantityEntered: 100
-    #   modifiers:
-    #     damage:
-    #       Outgoing Strike Damage: [10%, unknown]
-    #       Outgoing Condition Damage: [10%, unknown] #remove one of...
-    #     attributes:
-    #       Condition Duration: 10% #...these; we don't know which it is right now
-    #   gw2id: 99997
-
     - id: isgarren-relic
-      text: 'Relic of Isgarren: not yet implemented'
-      subText: 'Relic of Isgarren: not yet implemented'
-      modifiers: {}
-      # gw2id intentionally omitted
+      text: Relic of Isgarren
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, unknown]
+        attributes:
+          # this is additive but uncapped; see https://github.com/discretize/discretize-gear-optimizer/pull/677
+          Condition Duration Uncapped: 10%
+      gw2id: 99997
 
     - id: peitha-relic
       text: 'Relic of Peitha: not yet implemented'
