@@ -238,7 +238,6 @@
 
     - id: mirage-relic
       text: Relic of the Mirage
-      subText: (unconfirmed)
       amountData:
         label: '/10s'
         default: 0
