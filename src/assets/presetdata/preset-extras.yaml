@@ -897,26 +897,20 @@ list:
           "Runes": {
             "trapper": {},
             "nightmare": {},
-            "tempest": {},
-            "lich": {},
-            "balthazar": {},
-            "renegade": {},
-            "berserker": {},
-            "weaver": {},
-            "baelfire": {},
-            "flame-legion-2": {},
-            "firebrand": {}
+            "tempest": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
-            "master-tuning-crystal": {},
-            "toxic-focusing-crystal": {}
+            "toxic-maintenance-oil": {}
           },
           "Nourishment": {
             "salsa-topped-veggie-flatbread": {},
-            "cilantro-and-cured-meat-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "spherified-cilantro-oyster-soup": {}
           }
         }
       }
