@@ -41,7 +41,6 @@
     "wasmCheckAll": "cd wasm_module && cargo check --all-targets"
   },
   "resolutions": {
-    "@discretize/gw2-ui-new": "^0.1.2",
     "eslint-plugin-jsx-a11y": "^6.5.1 <6.8.0"
   },
   "dependencies": {
