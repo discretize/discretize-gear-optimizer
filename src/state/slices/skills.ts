@@ -48,14 +48,10 @@ export const skillsSlice = createSlice({
       return { ...state, ...action.payload?.form?.skills };
     });
 
-    builder.addCase(changeProfession, (state, action) => {
-      if (state.profession !== action.payload) {
-        return {
-          ...state,
-          skills: {},
-        };
-      }
-    });
+    builder.addCase(changeProfession, (state, action) => ({
+      ...state,
+      skills: {},
+    }));
 
     builder.addCase(setBuildTemplate, (state, action) => {
       const { skillsPreset = {} } = action.payload;

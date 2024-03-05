@@ -104,20 +104,16 @@ export const traitsSlice = createSlice({
       return { ...state, ...action.payload?.form?.traits };
     });
 
-    builder.addCase(changeProfession, (state, action) => {
-      if (state.profession !== action.payload) {
-        return {
-          ...state,
-          selectedLines: ['', '', ''],
-          selectedTraits: [
-            [0, 0, 0],
-            [0, 0, 0],
-            [0, 0, 0],
-          ],
-          items: [{}, {}, {}],
-        };
-      }
-    });
+    builder.addCase(changeProfession, (state, action) => ({
+      ...state,
+      selectedLines: ['', '', ''],
+      selectedTraits: [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+      ],
+      items: [{}, {}, {}],
+    }));
 
     builder.addCase(setBuildTemplate, (state, action) => {
       const { traitsPreset = {} } = action.payload;

@@ -225,7 +225,7 @@ const Navbar = () => {
             <Button
               onClick={() => {
                 dispatch({ type: SagaTypes.Stop });
-                if (expertMode) {
+                if (prof !== profession && expertMode) {
                   dispatch(changeProfession(prof));
                 }
               }}
