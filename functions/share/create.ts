@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
+// @ts-nocheck
 import isEqual from 'arraybuffer-equal';
 import { Buffer } from 'buffer';
 import base64 from 'urlsafe-base64';

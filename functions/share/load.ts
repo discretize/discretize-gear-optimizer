@@ -16,7 +16,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
   const urlObject = new URL(request.url);
   const key = urlObject.searchParams.get(PARAMS.SHORTENER);
 
-  const value = await KV.get(key, { type: 'stream' });
+  const value = await KV.get(key!, { type: 'stream' });
 
   return new Response(value, {
     'headers': { 'Content-Type': 'application/json' },
