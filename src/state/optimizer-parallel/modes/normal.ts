@@ -1,5 +1,5 @@
 import { Character } from '../../optimizer/optimizerCore';
-import { ERROR } from '../../optimizer/status';
+import { ERROR, SUCCESS } from '../../optimizer/status';
 import {
   addToList,
   changeList,
@@ -61,7 +61,7 @@ function onMessage(
         throw new Error('Dispatch not set');
       }
 
-      dispatch(changeStatus(FINISHED));
+      dispatch(changeStatus(SUCCESS));
       dispatch(changeList(sortedResults));
       dispatch(changeSelectedCharacter(sortedResults[0]));
     }
