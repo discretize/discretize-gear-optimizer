@@ -55,7 +55,10 @@ const TemplateHelper = ({ character }) => {
             return;
           }
 
-          const playerData = data.players.find((player) => player.name === data.recordedBy);
+          const playerData =
+            data.players.length > 1
+              ? data.players.find((player) => player.name === data.recordedBy)
+              : data.players[0];
 
           if (!playerData) {
             setUrlResult('no player data!');
