@@ -1802,7 +1802,6 @@ list:
               "amount": "100"
             },
             "king-of-fires": {},
-            "eternal-champion": {},
             "smash-brawler-full": {}
           }
         ]
@@ -1879,7 +1878,6 @@ list:
               "amount": "100"
             },
             "king-of-fires": {},
-            "eternal-champion": {},
             "smash-brawler-full": {}
           }
         ]
@@ -1967,8 +1965,7 @@ list:
             "bloody-roar": {
               "amount": ""
             },
-            "king-of-fires": {},
-            "eternal-champion": {}
+            "king-of-fires": {}
           }
         ]
       }
@@ -2052,8 +2049,7 @@ list:
             "bloody-roar": {
               "amount": ""
             },
-            "king-of-fires": {},
-            "eternal-champion": {}
+            "king-of-fires": {}
           }
         ]
       }

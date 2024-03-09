@@ -548,15 +548,6 @@
       gw2id: 2038
       defaultEnabled: true
 
-    - id: eternal-champion
-      text: Eternal Champion
-      subText: toughness during berserk
-      modifiers:
-        attributes:
-          Toughness: [300, buff]
-      gw2id: 2043
-      defaultEnabled: true
-
 - section: Spellbreaker
   id: 61
   items:
