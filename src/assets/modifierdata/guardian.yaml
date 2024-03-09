@@ -275,8 +275,8 @@
   id: 49
   items:
 
-    - id: invigorating-bulwark
-      text: Invigorating Bulwark
+    - id: invigorated-bulwark
+      text: Invigorated Bulwark
       amountData:
         label: 'stacks'
         default: 5
@@ -372,7 +372,7 @@
       gw2id: 624
       defaultEnabled: true
 
-    - id: virtue-of-retribution
+    - id: virtue-of-resolution
       text: Virtue of Resolution
       minor: true
       modifiers:
