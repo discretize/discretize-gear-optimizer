@@ -503,28 +503,6 @@
       gw2id: 2011
       defaultEnabled: true
 
-    - id: heat-the-soul
-      text: Heat the Soul
-      subText: base
-      modifiers:
-        attributes:
-          Condition Damage: [120, converted] # from sheet by Bekko
-      gw2id: 2042
-      defaultEnabled: true
-
-    - id: heat-the-soul-with
-      text: Heat the Soul
-      subText: with torch
-      amountData:
-        label: '% uptime'
-        default: 50
-        quantityEntered: 100
-      modifiers:
-        attributes:
-          Condition Damage: [120, converted] # from sheet by Bekko
-      gw2id: 2042
-      defaultEnabled: true
-
     - id: fatal-frenzy-power-condi
       text: Fatal Frenzy
       subText: power/condition damage
