@@ -48,7 +48,7 @@ export const skillsSlice = createSlice({
       return { ...state, ...action.payload?.form?.skills };
     });
 
-    builder.addCase(changeProfession, (state, action) => ({
+    builder.addCase(changeProfession, (state, _action) => ({
       ...state,
       skills: {},
     }));

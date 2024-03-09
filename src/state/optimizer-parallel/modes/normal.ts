@@ -12,7 +12,6 @@ import { Combination, ResultData, Settings } from '../optimizerSetup';
 import { getLayerCombinations, getLayerNumber } from '../tree';
 import { getTotalCombinations, splitCombinations } from '../utils';
 import {
-  FINISHED,
   MessageType,
   START,
   StartMessage,
