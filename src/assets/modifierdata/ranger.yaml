@@ -330,8 +330,8 @@
       gw2id: 1062
       defaultEnabled: true
 
-    - id: instinctive-reaction
-      text: Instinctive Reaction
+    - id: wellspring
+      text: Wellspring
       modifiers:
         conversion:
           Healing Power: {Power: 7%}
