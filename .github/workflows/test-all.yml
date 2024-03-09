@@ -6,7 +6,7 @@ on:
     types: [opened, reopened, synchronize, ready_for_review]
   push:
     branches:
-      - staging
+      - main
 
 env:
   NODE_VERSION: 18
