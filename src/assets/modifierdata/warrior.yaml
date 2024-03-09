@@ -515,6 +515,10 @@
         attributes:
           Power: [300, buff]
           Condition Damage: [300, buff]
+      wvwModifiers:
+        attributes:
+          Power: [150, buff]
+          Condition Damage: [300, buff]
       gw2id: 2046
       defaultEnabled: true
 
