@@ -498,10 +498,6 @@
       modifiers:
         damage:
           Outgoing All Damage: [2%, add]
-      wvwModifiers:
-        damage:
-          Outgoing Strike Damage: [1%, add]
-          Outgoing Condition Damage: [2%, add]
       gw2id: 2181
       defaultEnabled: true
 
