@@ -11,8 +11,8 @@
     - id: signet-of-earth
       text: Signet of Earth
       modifiers:
-        attributes:
-          Toughness: [180, buff]
+        damage:
+          Damage Reduction: [10%, unknown]
       gw2id: 5571
 
     - id: woven-fire
