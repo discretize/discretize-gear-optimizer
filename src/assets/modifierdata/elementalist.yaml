@@ -368,7 +368,7 @@
   id: 17
   items:
 
-    - id: piercing-blades
+    - id: piercing-shards
       text: Piercing Shards
       subText: base
       modifiers:
@@ -380,7 +380,7 @@
       gw2id: 363
       defaultEnabled: true
 
-    - id: piercing-blades-2
+    - id: piercing-shards-2
       text: Piercing Shards
       amountData:
         label: '% water attunement'
