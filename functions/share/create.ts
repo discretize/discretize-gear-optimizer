@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 import isEqual from 'arraybuffer-equal';
 import { Buffer } from 'buffer';

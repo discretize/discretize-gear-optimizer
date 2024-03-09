@@ -104,7 +104,7 @@ export const traitsSlice = createSlice({
       return { ...state, ...action.payload?.form?.traits };
     });
 
-    builder.addCase(changeProfession, (state, action) => ({
+    builder.addCase(changeProfession, (state, _action) => ({
       ...state,
       selectedLines: ['', '', ''],
       selectedTraits: [
