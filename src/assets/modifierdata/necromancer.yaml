@@ -184,12 +184,12 @@
 - section: Blood Magic
   id: 19
   items:
-    - id: banshees-wail
-      text: Banshee's Wail
+    - id: life-from-death
+      text: Life from Death
       modifiers:
         attributes:
           Outgoing Healing: 10%
-      gw2id: 799
+      gw2id: 789
       defaultEnabled: true
 
 - section: Soul Reaping
