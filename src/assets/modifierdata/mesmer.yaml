@@ -373,7 +373,7 @@
           Bleeding Coefficient: {Critical Chance: 450%}
       wvwModifiers:
         conversionAfterBuffs:
-          Bleeding Coefficient: {Critical Chance: 500%}
+          Bleeding Coefficient: {Critical Chance: 300%}
       gw2id: 2202
       defaultEnabled: false
 
