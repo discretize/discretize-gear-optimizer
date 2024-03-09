@@ -427,6 +427,9 @@
       modifiers:
         attributes:
           Outgoing Healing: 15%
+      wvwModifiers:
+        attributes:
+          Outgoing Healing: 10%
       gw2id: 1381
       defaultEnabled: true
 
