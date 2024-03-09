@@ -612,9 +612,9 @@
           Precision: [250, buff]
       wvwModifiers:
         attributes:
-          Ferocity: [175, buff]
-          Power: [175, buff]
-          Precision: [175, buff]
+          Ferocity: [150, buff]
+          Power: [150, buff]
+          Precision: [150, buff]
       gw2id: 2130
       defaultEnabled: true
 
