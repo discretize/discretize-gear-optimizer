@@ -589,8 +589,8 @@
           Outgoing Condition Damage: [3%, add] # ???
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [4%, add] # as per Cat
-          Outgoing Condition Damage: [4%, add] # ???
+          Outgoing Strike Damage: [2%, add] # as per Cat
+          Outgoing Condition Damage: [2%, add] # ???
       gw2id: 2201
       defaultEnabled: true
 
