@@ -30,8 +30,6 @@
     "checkAll": "pnpm testData && pnpm eslint && pnpm prettierCheck && pnpm tscCheck",
     "updateMappings": "node updateMappings.js",
     "testData": "tsx ./src/assets/testData.js",
-    "testModifiers": "echo 'this script has been replaced with testData!'",
-    "testPresets": "echo 'this script has been replaced with testData!'",
     "extractLocale": "babel --config-file ./babel-extract.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null",
     "extractLocaleEn": "babel --config-file ./babel-extract-en.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null && node cleanupLocale.js",
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL",
