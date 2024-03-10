@@ -320,7 +320,7 @@
           Outgoing Phantasm Damage: [100%, mult]
       wvwModifiers:
         damage:
-          Outgoing Phantasm Damage: [75%, mult]
+          Outgoing Phantasm Damage: [50%, mult]
       gw2id: 1890
       defaultEnabled: true
 
@@ -373,7 +373,7 @@
           Bleeding Coefficient: {Critical Chance: 450%}
       wvwModifiers:
         conversionAfterBuffs:
-          Bleeding Coefficient: {Critical Chance: 500%}
+          Bleeding Coefficient: {Critical Chance: 300%}
       gw2id: 2202
       defaultEnabled: false
 

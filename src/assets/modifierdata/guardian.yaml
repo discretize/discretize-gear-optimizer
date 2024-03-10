@@ -275,8 +275,8 @@
   id: 49
   items:
 
-    - id: invigorating-bulwark
-      text: Invigorating Bulwark
+    - id: invigorated-bulwark
+      text: Invigorated Bulwark
       amountData:
         label: 'stacks'
         default: 5
@@ -372,7 +372,7 @@
       gw2id: 624
       defaultEnabled: true
 
-    - id: virtue-of-retribution
+    - id: virtue-of-resolution
       text: Virtue of Resolution
       minor: true
       modifiers:
@@ -499,6 +499,9 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [20%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [15%, mult]
       gw2id: 1955
       defaultEnabled: true
 
@@ -586,8 +589,8 @@
           Outgoing Condition Damage: [3%, add] # ???
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [4%, add] # as per Cat
-          Outgoing Condition Damage: [4%, add] # ???
+          Outgoing Strike Damage: [2%, add] # as per Cat
+          Outgoing Condition Damage: [2%, add] # ???
       gw2id: 2201
       defaultEnabled: true
 

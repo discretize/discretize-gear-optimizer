@@ -176,6 +176,9 @@
       modifiers:
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 100%}
+      wvwModifiers:
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 33%}
       gw2id: 1069
       defaultEnabled: false
 
@@ -327,8 +330,8 @@
       gw2id: 1062
       defaultEnabled: true
 
-    - id: instinctive-reaction
-      text: Instinctive Reaction
+    - id: wellspring
+      text: Wellspring
       modifiers:
         conversion:
           Healing Power: {Power: 7%}

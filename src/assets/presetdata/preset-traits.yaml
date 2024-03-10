@@ -790,7 +790,7 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": {},
+            "virtue-of-resolution": {},
             "inspiring-virtue": {
               "amount": ""
             },
@@ -888,7 +888,7 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": {},
+            "virtue-of-resolution": {},
             "inspiring-virtue": {
               "amount": "80"
             },
@@ -1020,7 +1020,7 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": {},
+            "virtue-of-resolution": {},
             "inspiring-virtue": {
               "amount": "90.4"
             },
@@ -1094,7 +1094,7 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": {},
+            "virtue-of-resolution": {},
             "inspiring-virtue": {
               "amount": ""
             },
@@ -1162,7 +1162,7 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": {},
+            "virtue-of-resolution": {},
             "inspiring-virtue": {
               "amount": ""
             },
@@ -1235,7 +1235,7 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": {},
+            "virtue-of-resolution": {},
             "inspiring-virtue": {
               "amount": ""
             },
@@ -1295,7 +1295,7 @@ list:
             "righteous-instincts": {}
           },
           {
-            "invigorating-bulwark": {
+            "invigorated-bulwark": {
               "amount": ""
             },
             "honorable-staff": {},
@@ -1353,14 +1353,14 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": {},
+            "virtue-of-resolution": {},
             "inspiring-virtue": {
               "amount": ""
             },
             "power-of-the-virtuous": {}
           },
           {
-            "invigorating-bulwark": {
+            "invigorated-bulwark": {
               "amount": ""
             },
             "honorable-staff": {},
@@ -1416,14 +1416,14 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": {},
+            "virtue-of-resolution": {},
             "inspiring-virtue": {
               "amount": ""
             },
             "power-of-the-virtuous": {}
           },
           {
-            "invigorating-bulwark": {
+            "invigorated-bulwark": {
               "amount": ""
             },
             "honorable-staff": {},
@@ -1550,7 +1550,7 @@ list:
             "inspired-virtue": {
               "amount": ""
             },
-            "virtue-of-retribution": {},
+            "virtue-of-resolution": {},
             "inspiring-virtue": {
               "amount": "79"
             },
@@ -1640,7 +1640,7 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": {},
+            "virtue-of-resolution": {},
             "inspiring-virtue": {
               "amount": ""
             },
@@ -1702,7 +1702,7 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": {},
+            "virtue-of-resolution": {},
             "inspiring-virtue": {
               "amount": ""
             },
@@ -1794,10 +1794,6 @@ list:
             "blood-reaction-with": {
               "amount": "100"
             },
-            "heat-the-soul": {},
-            "heat-the-soul-with": {
-              "amount": ""
-            },
             "fatal-frenzy-power-condi": {
               "amount": "100"
             },
@@ -1806,7 +1802,6 @@ list:
               "amount": "100"
             },
             "king-of-fires": {},
-            "eternal-champion": {},
             "smash-brawler-full": {}
           }
         ]
@@ -1875,10 +1870,6 @@ list:
             "blood-reaction-with": {
               "amount": "100"
             },
-            "heat-the-soul": {},
-            "heat-the-soul-with": {
-              "amount": ""
-            },
             "fatal-frenzy-power-condi": {
               "amount": "100"
             },
@@ -1887,7 +1878,6 @@ list:
               "amount": "100"
             },
             "king-of-fires": {},
-            "eternal-champion": {},
             "smash-brawler-full": {}
           }
         ]
@@ -1968,10 +1958,6 @@ list:
             "blood-reaction-with": {
               "amount": ""
             },
-            "heat-the-soul": {},
-            "heat-the-soul-with": {
-              "amount": ""
-            },
             "fatal-frenzy-power-condi": {
               "amount": "72.7"
             },
@@ -1979,8 +1965,7 @@ list:
             "bloody-roar": {
               "amount": ""
             },
-            "king-of-fires": {},
-            "eternal-champion": {}
+            "king-of-fires": {}
           }
         ]
       }
@@ -2057,10 +2042,6 @@ list:
             "blood-reaction-with": {
               "amount": ""
             },
-            "heat-the-soul": {},
-            "heat-the-soul-with": {
-              "amount": ""
-            },
             "fatal-frenzy-power-condi": {
               "amount": "72.7"
             },
@@ -2068,8 +2049,7 @@ list:
             "bloody-roar": {
               "amount": ""
             },
-            "king-of-fires": {},
-            "eternal-champion": {}
+            "king-of-fires": {}
           }
         ]
       }
@@ -3410,7 +3390,7 @@ list:
             }
           },
           {
-            "piercing-blades": {},
+            "piercing-shards": {},
             "flow-like-water": {
               "amount": ""
             },
@@ -3612,7 +3592,7 @@ list:
             "bountiful-hunter": {
               "amount": ""
             },
-            "instinctive-reaction": {},
+            "wellspring": {},
             "lingering-magic": {}
           },
           {
@@ -4008,7 +3988,7 @@ list:
             "bountiful-hunter": {
               "amount": ""
             },
-            "instinctive-reaction": {},
+            "wellspring": {},
             "lingering-magic": {}
           },
           {
@@ -5715,7 +5695,7 @@ list:
         ],
         "items": [
           {
-            "banshees-wail": {}
+            "life-from-death": {}
           },
           {
             "soul-barbs": {

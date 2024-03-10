@@ -123,6 +123,9 @@
       modifiers:
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 100%}
+      wvwModifiers:
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 33%}
       gw2id: 515
       defaultEnabled: false
 
@@ -351,7 +354,7 @@
           Power: [750, buff]
       wvwModifiers:
         attributes:
-          Power: [500, buff]
+          Power: [375, buff]
       gw2id: 1849
       defaultEnabled: true
 
