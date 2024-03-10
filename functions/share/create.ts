@@ -1,10 +1,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-nocheck
-import isEqual from 'arraybuffer-equal';
-import { Buffer } from 'buffer';
-import base64 from 'urlsafe-base64';
+/* eslint-disable no-lonely-if */
+import { areUint8ArraysEqual, uint8ArrayToBase64 } from 'uint8array-extras';
 
 interface Env {
   SHORT_LINKS: KVNamespace;
@@ -12,7 +9,7 @@ interface Env {
 
 async function generate_hash(data: ArrayBuffer) {
   const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-  const hash = base64.encode(Buffer.from(hashBuffer));
+  const hash = uint8ArrayToBase64(new Uint8Array(hashBuffer), { urlSafe: true });
   return hash.slice(0, 8);
 }
 
@@ -55,17 +52,15 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     let key = await generate_hash(dataBuffer);
 
     // check if there is an existing entry for this specific key - dont insert duplicates
-    const existingValue = await KV.get(key, { type: 'stream' });
-    if (!existingValue) {
+    const existingValueBuffer = await KV.get(key, { type: 'arrayBuffer' });
+    if (!existingValueBuffer) {
       // no duplicate, insert value
       console.log(`writing new key: ${key}`);
       await KV.put(key, dataBuffer);
     } else {
       // duplicate detected.
-      const existingBuffer = await new Response(existingValue).arrayBuffer();
-
       // checks if the saved buffer in KV is equals with what was transmitted in the request
-      if (isEqual(dataBuffer, existingBuffer)) {
+      if (areUint8ArraysEqual(new Uint8Array(dataBuffer), new Uint8Array(existingValueBuffer))) {
         console.log(`returning saved key: ${key}`);
         // in case we have a duplicate, we dont need to do anything - the key is already stored in the key variable
       } else {
