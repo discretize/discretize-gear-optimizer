@@ -1,10 +1,16 @@
 name: "Test: Lint Rust"
 
 on:
-  workflow_dispatch:
   pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
     paths:
       - wasm_module/**
+  push:
+    branches:
+      - main
+    paths:
+      - wasm_module/**
+  workflow_dispatch:
 
 env:
   NODE_VERSION: 18
