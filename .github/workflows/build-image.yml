@@ -3,14 +3,14 @@ name: Create and publish a Docker image
 
 # Configures this workflow to run every time a change to package.json or Cargo.toml is committed to the main branch.
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'package.json'
-      - 'pnpm-lock.yaml'
-      - 'Cargo.toml'
-      - 'Cargo.lock'
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'package.json'
+  #     - 'pnpm-lock.yaml'
+  #     - 'Cargo.toml'
+  #     - 'Cargo.lock'
   workflow_dispatch:
 
 # Defines two custom environment variables for the workflow. These are used for the Container registry domain, and a name for the Docker image that this workflow builds.
