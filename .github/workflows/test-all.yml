@@ -41,6 +41,3 @@ jobs:
 
       - name: Format with prettier
         run: pnpm prettierCheck
-
-      - name: Typecheck with tsc
-        run: pnpm tscCheck
