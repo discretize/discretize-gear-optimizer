@@ -85,7 +85,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     return new Response(
       JSON.stringify({
         'Status': 500,
-        'Message': e.message,
+        'Message': e instanceof Error ? e.message : e,
         'ShortUrl': null,
       }),
       {

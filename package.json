@@ -27,6 +27,7 @@
     "prettierCheck": "prettier --check . \"!**/*.{md,json,yaml,yml}\"",
     "eslint": "eslint --ignore-path .gitignore --max-warnings 0 . --ext .js,.jsx,.ts,.tsx",
     "tscCheck": "tsc --noEmit",
+    "checkAll": "pnpm testData && pnpm eslint && pnpm prettierCheck && pnpm tscCheck",
     "updateMappings": "node updateMappings.js",
     "testData": "tsx ./src/assets/testData.js",
     "testModifiers": "echo 'this script has been replaced with testData!'",
