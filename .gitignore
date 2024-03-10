@@ -8,6 +8,7 @@ misc/
 .cache
 tmp/
 .yarn
+.wrangler
 
 src/.idea
 install.bat
