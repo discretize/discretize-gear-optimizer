@@ -45,8 +45,6 @@ import {
   parseInfusionCount,
   parsePriority,
 } from '../../utils/usefulFunctions';
-import type { OptimizerCoreSettings } from '../optimizer/optimizerCore';
-import { clamp, scaleValue } from '../optimizer/optimizerCore';
 import { getAttackRate, getMovementUptime } from '../slices/boss';
 import { getBuffsModifiers } from '../slices/buffs';
 import { getProfession } from '../slices/controlsSlice';
@@ -64,17 +62,19 @@ import {
 } from '../slices/infusions';
 import {
   getAffixes,
+  getConstraint,
   getCustomAffixData,
   getExclusionData,
   getExoticsData,
   getOptimizeFor,
-  getConstraint,
   getWeaponType,
 } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { getGameMode } from '../slices/userSettings';
 import type { RootState } from '../store';
+import type { OptimizerCoreSettings } from '../optimizer/optimizerCore';
+import { clamp, scaleValue } from '../optimizer/optimizerCore';
 
 // currently a duplicate of navsettings.jsx
 export type GameMode = 'fractals' | 'raids' | 'wvw';

@@ -17,8 +17,8 @@ import type {
   DamageKey,
   DamageMode,
   DamageValue,
-  Modifiers as YamlModifiers,
   Percent,
+  Modifiers as YamlModifiers,
 } from '../../assets/modifierdata/metadata';
 import {
   allAttributeCoefficientKeys,
@@ -28,13 +28,13 @@ import {
 } from '../../assets/modifierdata/metadata';
 import type { AffixData, AffixName, ForcedSlotName } from '../../utils/gw2-data';
 import {
-  Affix as unmodifiedAffix,
   Attributes,
   Classes,
-  conditionData,
   ForcedSlots,
   Slots,
+  conditionData,
   damagingConditions,
+  Affix as unmodifiedAffix,
 } from '../../utils/gw2-data';
 import {
   enumArrayIncludes,
@@ -62,11 +62,11 @@ import {
 } from '../slices/infusions';
 import {
   getAffixes,
+  getConstraint,
   getCustomAffixData,
   getExclusionData,
   getExoticsData,
   getOptimizeFor,
-  getConstraint,
   getWeaponType,
 } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
