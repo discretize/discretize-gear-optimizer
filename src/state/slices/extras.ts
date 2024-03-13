@@ -2,6 +2,7 @@
 import { PayloadAction, createSelector, createSlice, original } from '@reduxjs/toolkit';
 import { allExtrasModifiersById } from '../../assets/modifierdata';
 import { mapValues, objectEntries } from '../../utils/usefulFunctions';
+import type { AppliedModifier } from '../optimizer/optimizerSetup';
 import type { RootState } from '../store';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
@@ -191,7 +192,7 @@ export const getExtrasCombinationsAndModifiers = (state: RootState) => {
   console.log('extrasCombinations', extrasCombinations);
 
   const getModifiers = (extrasCombination: ExtrasCombination) => {
-    const allModifiers = objectEntries(extrasCombination)
+    const allModifiers: AppliedModifier[] = objectEntries(extrasCombination)
       .filter(([_, id]) => id)
       .map(([type, id]) => {
         if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);

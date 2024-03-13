@@ -51,9 +51,9 @@ import { getProfession } from '../slices/controlsSlice';
 import { getDistributionNew } from '../slices/distribution';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
 import {
-  ExtrasCombination,
   getExtrasCombinationsAndModifiers,
   getExtrasIds,
+  type ExtrasCombination,
 } from '../slices/extras';
 import { getForcedSlots } from '../slices/forcedSlots';
 import {
@@ -84,7 +84,7 @@ import { clamp, scaleValue } from './optimizerCore';
 export type GameMode = 'fractals' | 'raids' | 'wvw';
 
 export interface ExtrasCombinationEntry {
-  extrasCombination: Record<string, string>;
+  extrasCombination: ExtrasCombination;
   extrasModifiers: AppliedModifier[];
 }
 
@@ -230,7 +230,7 @@ export function setupCombinations(
 function createCombination(
   reduxState: RootState,
   extrasCombination: ExtrasCombination,
-  extrasModifiers: any[],
+  extrasModifiers: AppliedModifier[],
 ): [ExtrasCombinationEntry, OptimizerCoreSettings] {
   const state = reduxState.optimizer;
 
