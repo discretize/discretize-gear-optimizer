@@ -36,6 +36,9 @@ jobs:
       - name: Test modifier and preset data
         run: pnpm testData
 
+      - name: Validate modifier and preset data types
+        run: pnpm validateDataTypes
+
       - name: Lint with ESLint
         run: pnpm eslint
 
