@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
@@ -50,7 +51,11 @@ import { getBuffsModifiers } from '../slices/buffs';
 import { getProfession } from '../slices/controlsSlice';
 import { getDistributionNew } from '../slices/distribution';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
-import { getExtrasCombinationsAndModifiers, getExtrasIds } from '../slices/extras';
+import {
+  ExtrasCombination,
+  getExtrasCombinationsAndModifiers,
+  getExtrasIds,
+} from '../slices/extras';
 import { getForcedSlots } from '../slices/forcedSlots';
 import {
   getInfusionsModifiers,
@@ -205,6 +210,29 @@ export interface CachedFormState {
 export function setupCombinations(
   reduxState: RootState,
 ): [ExtrasCombinationEntry, OptimizerCoreSettings][] {
+  console.groupCollapsed('Debug Info:');
+  console.log('Redux State:', reduxState.optimizer);
+
+  // do not mutate selector result; it may be reused if the same calculation is run twice
+  const combinations = getExtrasCombinationsAndModifiers(reduxState).map((combination) => ({
+    ...combination,
+  }));
+
+  const data: [ExtrasCombinationEntry, OptimizerCoreSettings][] = combinations.map(
+    ({ extrasCombination, extrasModifiers }) =>
+      createCombination(reduxState, extrasCombination, extrasModifiers),
+  );
+
+  console.groupEnd();
+
+  return data;
+}
+
+function createCombination(
+  reduxState: RootState,
+  extrasCombination: ExtrasCombination,
+  extrasModifiers: any[],
+): [ExtrasCombinationEntry, OptimizerCoreSettings] {
   const state = reduxState.optimizer;
 
   const specialization = getCurrentSpecialization(reduxState);
@@ -226,16 +254,8 @@ export function setupCombinations(
     (ids) => Array.isArray(ids) && ids.length > 1,
   );
 
-  console.groupCollapsed('Debug Info:');
-  console.log('Redux State:', state);
-
-  // do not mutate selector result; it may be reused if the same calculation is run twice
-  const combinations = getExtrasCombinationsAndModifiers(reduxState).map((combination) => ({
-    ...combination,
-  }));
-
-  const data: [ExtrasCombinationEntry, OptimizerCoreSettings][] = combinations.map(
-    ({ extrasCombination, extrasModifiers }) => {
+  {
+    {
       const appliedModifiers = [...sharedModifiers, ...extrasModifiers];
       const cachedFormState = {
         traits: state.form.traits,
@@ -912,10 +932,6 @@ export function setupCombinations(
       console.log('Input option:', { extrasCombination, extrasModifiers });
 
       return [{ extrasCombination, extrasModifiers }, settings];
-    },
-  );
-
-  console.groupEnd();
-
-  return data;
+    }
+  }
 }
