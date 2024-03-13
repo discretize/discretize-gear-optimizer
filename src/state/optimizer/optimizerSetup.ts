@@ -661,11 +661,7 @@ function createCombination(
 
   /* Infusions */
 
-  const settings_maxInfusions: OptimizerCoreSettings['maxInfusions'] = clamp(
-    maxInfusions,
-    0,
-    18,
-  );
+  const settings_maxInfusions: OptimizerCoreSettings['maxInfusions'] = clamp(maxInfusions, 0, 18);
 
   const primaryMaxInfusionsInput = clamp(primaryMaxInfusions, 0, settings_maxInfusions);
   const secondaryMaxInfusionsInput = clamp(secondaryMaxInfusions, 0, settings_maxInfusions);
@@ -724,10 +720,7 @@ function createCombination(
       settings_infusionMode = 'Primary';
       break;
     case 2:
-      if (
-        settings_primaryMaxInfusions + settings_secondaryMaxInfusions <=
-        settings_maxInfusions
-      ) {
+      if (settings_primaryMaxInfusions + settings_secondaryMaxInfusions <= settings_maxInfusions) {
         settings_infusionMode = 'Few';
       } else {
         settings_infusionMode = infusionNoDuplicates ? 'SecondaryNoDuplicates' : 'Secondary';
@@ -789,9 +782,7 @@ function createCombination(
     const slotAffixesArrays = slotIndexes.map((index) => settings_affixesArray[index]);
     const slotAffixesArraysIdentical = arrayEntriesDeepEqual(slotAffixesArrays);
 
-    const slotRarities = slotIndexes.map((index) =>
-      Object.values(exotics).map((e) => e[index]),
-    );
+    const slotRarities = slotIndexes.map((index) => Object.values(exotics).map((e) => e[index]));
     const slotRaritiesIdentical = arrayEntriesDeepEqual(slotRarities);
 
     return slotAffixesArraysIdentical && slotRaritiesIdentical;
