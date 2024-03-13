@@ -116,8 +116,8 @@ export type DamageKey = (typeof allDamageKeys)[number];
 export const allDamageModes = ['add', 'mult', 'target', 'unknown'] as const;
 export type DamageMode = (typeof allDamageModes)[number];
 
-export const allAttributePointKeys = [...stats, ...alternateStats];
-type AttributePointKey = (typeof allAttributePointKeys)[number];
+export const allAttributePointKeys = [...stats, ...alternateStats] as const;
+export type AttributePointKey = (typeof allAttributePointKeys)[number];
 
 export const allAttributePointModes = ['buff', 'converted', 'unknown'] as const;
 export type AttributePointMode = (typeof allAttributePointModes)[number];
@@ -249,18 +249,17 @@ export const exampleModifiersJson = `{
 
 export type Percent = string;
 
-export type DamageValue = [Percent, DamageMode, Percent?, DamageMode?];
+export type DamageValue = [Percent, DamageMode] | [Percent, DamageMode, Percent, DamageMode];
 export type DamageModifiers = Partial<Record<DamageKey, DamageValue>>;
 
-export type AttributeModifiers = {
-  [Key in AttributeKey]?: Key extends AttributePointKey
-    ? [number, AttributePointMode, number?, AttributePointMode?]
-    : Key extends AttributeCoefficientKey
-      ? number
-      : Key extends AttributePercentKey
-        ? Percent
-        : never;
-};
+export type AttributeModifiers = Partial<
+  Record<
+    AttributePointKey,
+    [number, AttributePointMode] | [number, AttributePointMode, number, AttributePointMode]
+  > &
+    Record<AttributePercentKey, Percent> &
+    Record<AttributeCoefficientKey, number>
+>;
 
 export type ConversionValue = Partial<Record<ConversionSourceKey, Percent>>;
 export type ConversionModifers = Partial<Record<ConversionDestinationKey, ConversionValue>>;
@@ -281,6 +280,7 @@ export interface AmountData {
   label: string;
   default: number;
   quantityEntered: number;
+  defaultInput?: string;
   disableBlacklist?: boolean;
 }
 
