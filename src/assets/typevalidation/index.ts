@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 import yaml from 'js-yaml';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -8,7 +9,7 @@ import type { ModifierData } from '../modifierdata/metadata';
 const assertValidModifierData = typia.createAssert<ModifierData>();
 
 // causes the script to fail if condition is false, but does not stop execution
-const gentleAssert = (condition, message) => {
+const gentleAssert = (condition: boolean, message: string) => {
   if (!condition) {
     console.error(`❌ ${message} ❌`);
     process.exitCode = 1;

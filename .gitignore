@@ -18,3 +18,4 @@ install.bat
 .mf/
 
 wasm_module/target/
+/src/assets/typevalidation/output
