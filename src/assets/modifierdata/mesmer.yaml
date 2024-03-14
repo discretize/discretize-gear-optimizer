@@ -232,15 +232,6 @@
   id: 23
   items:
 
-    - id: healing-prism
-      text: Healing Prism
-      modifiers:
-        conversion:
-          Healing Power: {Power: 13%}
-      minor: true
-      gw2id: 1915
-      defaultEnabled: true
-
     - id: illusionary-inspiration
       text: Illusionary Inspiration
       modifiers:
