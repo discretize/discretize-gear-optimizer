@@ -218,8 +218,14 @@ export function setupCombinations(
   }));
 
   const data: [ExtrasCombinationEntry, OptimizerCoreSettings][] = combinations.map(
-    ({ extrasCombination, extrasModifiers }) =>
-      createCombination(reduxState, extrasCombination, extrasModifiers),
+    ({ extrasCombination, extrasModifiers }) => {
+      console.log('Input option:', { extrasCombination, extrasModifiers });
+
+      return [
+        { extrasCombination, extrasModifiers },
+        createSettings(reduxState, extrasCombination, extrasModifiers),
+      ];
+    },
   );
 
   console.groupEnd();
@@ -227,11 +233,11 @@ export function setupCombinations(
   return data;
 }
 
-function createCombination(
+function createSettings(
   reduxState: RootState,
   extrasCombination: ExtrasCombination,
   extrasModifiers: AppliedModifier[],
-): [ExtrasCombinationEntry, OptimizerCoreSettings] {
+): OptimizerCoreSettings {
   const state = reduxState.optimizer;
 
   const specialization = getCurrentSpecialization(reduxState);
@@ -917,7 +923,5 @@ function createCombination(
     gameMode,
   };
 
-  console.log('Input option:', { extrasCombination, extrasModifiers });
-
-  return [{ extrasCombination, extrasModifiers }, settings];
+  return settings;
 }
