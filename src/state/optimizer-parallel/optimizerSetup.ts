@@ -73,29 +73,24 @@ import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { getGameMode } from '../slices/userSettings';
 import type { RootState } from '../store';
-import type { OptimizerCoreSettings } from '../optimizer/optimizerCore';
+import type {
+  OptimizerCoreSettings,
+  OptimizerCoreSettingsPerCalculation,
+  OptimizerCoreSettingsPerCombination,
+} from '../optimizer/optimizerCore';
 import { clamp, scaleValue } from '../optimizer/optimizerCore';
 
 // currently a duplicate of navsettings.jsx
 export type GameMode = 'fractals' | 'raids' | 'wvw';
 
-export interface Combination {
-  baseAttributes: OptimizerCoreSettings['baseAttributes'];
-  modifiers: Modifiers;
-  relevantConditions: ConditionName[];
-  disableCondiResultCache: boolean;
-}
+export type Combination = Omit<
+  OptimizerCoreSettingsPerCombination,
+  'appliedModifiers' | 'extrasCombination'
+>;
 
 export type Settings = Omit<
-  OptimizerCoreSettings,
-  | 'baseAttributes'
-  | 'modifiers'
-  | 'runsAfterThisSlot'
-  | 'appliedModifiers'
-  | 'cachedFormState'
-  | 'extrasCombination'
-  | 'relevantConditions'
-  | 'disableCondiResultCache'
+  OptimizerCoreSettingsPerCalculation,
+  'runsAfterThisSlot' | 'cachedFormState'
 >;
 
 // export type Settings = _Settings & {
