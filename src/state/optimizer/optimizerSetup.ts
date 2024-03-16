@@ -108,8 +108,6 @@ type MultiplierName =
 
 export interface AppliedModifier {
   id?: string;
-  visible?: boolean;
-  enabled?: boolean;
   amount?: string;
   modifiers: YamlModifiers;
   wvwModifiers?: YamlModifiers;
@@ -708,8 +706,6 @@ export function createSettingsPerCombination(
   for (const item of appliedModifiers) {
     const {
       id = '[no id]',
-      visible = true,
-      enabled = true,
       amount: amountText,
       // data: {
       modifiers,
@@ -726,10 +722,6 @@ export function createSettingsPerCombination(
       // note,
       // ...otherModifiers
     } = isWvW ? wvwModifiers ?? modifiers : modifiers;
-
-    if (!visible || !enabled) {
-      continue;
-    }
 
     const { value: amountInput } = parseAmount(amountText);
 
