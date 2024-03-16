@@ -10,10 +10,7 @@ import {
 import { getExtrasCombinationsAndModifiers } from '../slices/extras';
 import type { RootState } from '../store';
 
-export type Combination = Omit<
-  OptimizerCoreSettingsPerCombination,
-  'appliedModifiers' | 'extrasCombination'
->;
+export type Combination = Omit<OptimizerCoreSettingsPerCombination, 'appliedModifiers'>;
 
 export type Settings = Omit<
   OptimizerCoreSettingsPerCalculation,
@@ -58,7 +55,7 @@ export function createCombination(
   extrasModifiers: AppliedModifier[],
   reduxState: RootState,
 ): Combination {
-  return createSettingsPerCombination(reduxState, undefined, extrasModifiers);
+  return createSettingsPerCombination(reduxState, extrasModifiers);
 }
 
 export function createSettings(reduxState: RootState): Settings {

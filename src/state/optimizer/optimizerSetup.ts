@@ -582,7 +582,6 @@ export function createSettingsPerCalculation(
 
 export function createSettingsPerCombination(
   reduxState: RootState,
-  extrasCombination: ExtrasCombination,
   extrasModifiers: AppliedModifier[],
 ): OptimizerCoreSettingsPerCombination {
   const sharedModifiers = [
@@ -948,7 +947,6 @@ export function createSettingsPerCombination(
     relevantConditions: settings_relevantConditions,
     disableCondiResultCache: settings_disableCondiResultCache,
     appliedModifiers,
-    extrasCombination,
   };
 
   return settings;
@@ -961,6 +959,7 @@ function createSettings(
 ): OptimizerCoreSettings {
   return {
     ...createSettingsPerCalculation(reduxState),
-    ...createSettingsPerCombination(reduxState, extrasCombination, extrasModifiers),
+    ...createSettingsPerCombination(reduxState, extrasModifiers),
+    extrasCombination,
   };
 }

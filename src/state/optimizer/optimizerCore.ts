@@ -156,11 +156,10 @@ export interface OptimizerCoreSettingsPerCombination {
   disableCondiResultCache: boolean;
   relevantConditions: DamagingConditionName[];
   appliedModifiers: AppliedModifier[];
-  extrasCombination: Record<string, string>;
 }
 
 export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &
-  OptimizerCoreSettingsPerCombination;
+  OptimizerCoreSettingsPerCombination & { extrasCombination: Record<string, string> };
 
 export type OptimizerCoreMinimalSettings = Pick<
   OptimizerCoreSettings,
