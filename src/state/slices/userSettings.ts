@@ -3,6 +3,8 @@ import { PARAMS, setQueryParm, useQueryParam } from '../../utils/queryParam';
 import { changeAll } from './controlsSlice';
 import type { RootState } from '../store';
 
+export type GameMode = 'fractals' | 'raids' | 'wvw';
+
 function getLocalStorageState(): object {
   try {
     const stored = localStorage.getItem(SETTINGS_STORAGE_KEY);
@@ -25,6 +27,10 @@ export const loadedSettings = {
   ...defaultState,
   ...getLocalStorageState(), // override default state with potentially saved localStorage variables
   ...(gameModeParam && { gameMode: gameModeParam }), // gameMode from query param takes priority
+} as {
+  expertMode: boolean;
+  gameMode: GameMode;
+  language: string;
 };
 
 // append the gamemode to the query param if no query param is present
@@ -34,8 +40,8 @@ export const userSettingsSlice = createSlice({
   name: 'userSettings',
 
   initialState: {
-    expertMode: loadedSettings?.expertMode,
-    gameMode: loadedSettings?.gameMode,
+    expertMode: loadedSettings.expertMode,
+    gameMode: loadedSettings.gameMode,
   },
 
   reducers: {
@@ -45,8 +51,7 @@ export const userSettingsSlice = createSlice({
     changeExpertMode: (state, action: PayloadAction<boolean>) => {
       state.expertMode = action.payload;
     },
-    // todo: type this
-    changeGameMode: (state, action: PayloadAction<string>) => {
+    changeGameMode: (state, action: PayloadAction<GameMode>) => {
       state.gameMode = action.payload;
     },
   },

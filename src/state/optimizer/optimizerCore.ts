@@ -16,11 +16,11 @@ import type {
 } from '../../utils/gw2-data';
 import { Attributes, conditionData, conditionDataWvW, INFUSION_BONUS } from '../../utils/gw2-data';
 import { enumArrayIncludes, objectKeys } from '../../utils/usefulFunctions';
+import type { GameMode } from '../slices/userSettings';
 import type {
   AppliedModifier,
   CachedFormState,
   DistributionNameInternal,
-  GameMode,
   InfusionMode,
   Modifiers,
 } from './optimizerSetup';

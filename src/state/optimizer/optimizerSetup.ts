@@ -82,9 +82,6 @@ import type {
 } from './optimizerCore';
 import { clamp, scaleValue } from './optimizerCore';
 
-// currently a duplicate of navsettings.jsx
-export type GameMode = 'fractals' | 'raids' | 'wvw';
-
 export interface ExtrasCombinationEntry {
   extrasCombination: ExtrasCombination;
   extrasModifiers: AppliedModifier[];
@@ -284,7 +281,7 @@ export function createSettingsPerCalculation(
   const attackRateText = getAttackRate(reduxState);
   const movementUptimeText = getMovementUptime(reduxState);
 
-  const gameMode = getGameMode(reduxState) as GameMode;
+  const gameMode = getGameMode(reduxState);
 
   // todo: consolidate error handling
   if (profession === '') {
@@ -595,7 +592,7 @@ export function createSettingsPerCombination(
   const profession = getProfession(reduxState);
   const unmodifiedDistribution = getDistributionNew(reduxState);
 
-  const gameMode = getGameMode(reduxState) as GameMode;
+  const gameMode = getGameMode(reduxState);
   const isWvW = gameMode === 'wvw';
 
   // todo: consolidate error handling
