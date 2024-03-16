@@ -21,6 +21,7 @@ import type { GameMode } from '../slices/userSettings';
 import type {
   AppliedModifier,
   CachedFormState,
+  DamageMultiplier,
   DistributionNameInternal,
   InfusionMode,
   Modifiers,
@@ -733,7 +734,7 @@ export class OptimizerCore {
     return invalid;
   }
 
-  calcPower(character: Character, damageMultiplier: Record<string, number>) {
+  calcPower(character: Character, damageMultiplier: DamageMultiplier) {
     const { settings } = this;
     const { attributes } = character;
 
@@ -806,7 +807,7 @@ export class OptimizerCore {
 
   calcCondi(
     character: Character,
-    damageMultiplier: Record<string, number>,
+    damageMultiplier: DamageMultiplier,
     relevantConditions: readonly DamagingConditionName[],
   ) {
     const { settings } = this;
@@ -852,7 +853,7 @@ export class OptimizerCore {
     return condiDamageScore;
   }
 
-  calcSurvivability(character: Character, damageMultiplier: Record<string, number>) {
+  calcSurvivability(character: Character, damageMultiplier: DamageMultiplier) {
     const { attributes } = character;
 
     attributes['Armor'] += attributes['Toughness'];

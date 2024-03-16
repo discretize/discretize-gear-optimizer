@@ -110,10 +110,7 @@ export function enhanceResults(
       rankby,
       shouldDisplayExtras,
       extrasCombination: allExtrasData[character.combination_id].extrasCombination,
-      modifiers: {
-        ...modifiers,
-        damageMultiplierBreakdown: {},
-      },
+      modifiers,
       gameMode,
     };
 

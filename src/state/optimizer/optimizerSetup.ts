@@ -156,9 +156,10 @@ export interface MultiplierBreakdown {
   add: number;
   target: number;
 }
-export type DamageMultiplierBreakdown = Partial<Record<MultiplierName, MultiplierBreakdown>>;
+export type DamageMultiplier = Record<MultiplierName, number>;
+export type DamageMultiplierBreakdown = Record<MultiplierName, MultiplierBreakdown>;
 export interface Modifiers {
-  damageMultiplier: Record<MultiplierName, number>;
+  damageMultiplier: DamageMultiplier;
   damageMultiplierBreakdown: DamageMultiplierBreakdown;
   buff: [AttributeKey, number][];
   convert: [ConversionDestinationKey, [ConversionSourceKey, number][]][];
@@ -883,8 +884,8 @@ export function createSettingsPerCombination(
     }
   }
 
-  const damageMultiplier: Record<string, number> = {};
-  const damageMultiplierBreakdown: DamageMultiplierBreakdown = {};
+  const damageMultiplier: any = {};
+  const damageMultiplierBreakdown: any = {};
 
   objectKeys(initialMultipliers).forEach((attribute) => {
     damageMultiplier[attribute] =
