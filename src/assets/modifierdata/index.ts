@@ -4,6 +4,7 @@ import Engineer from './engineer.yaml';
 import food from './food.yaml';
 import Guardian from './guardian.yaml';
 import Mesmer from './mesmer.yaml';
+import type { ModifierData, Section } from './metadata';
 import Necromancer from './necromancer.yaml';
 import Ranger from './ranger.yaml';
 import relics from './relics.yaml';
@@ -15,15 +16,17 @@ import utility from './utility.yaml';
 import Warrior from './warrior.yaml';
 
 // combines items in all sections into one object
-const byId = (sections) => {
-  const sectionsFlat = sections.flatMap(
-    ({ section, items }) => items?.map(({ id, ...rest }) => [id, { ...rest, section }]) || [],
+const byId = (sections: Section[]) => {
+  const sectionsFlat = sections.flatMap(({ section, items }) =>
+    items.map(({ id, ...rest }) => [id, { ...rest, section }] as const),
   );
   return Object.fromEntries(sectionsFlat);
 };
 // combines items in all sections in all entries into one object
-const allById = (group) =>
-  Object.assign({}, ...Object.values(group).map((category) => byId(category)));
+const allById = (group: Record<string, ModifierData>) => {
+  const sections = Object.values(group).flat();
+  return byId(sections);
+};
 
 export const classModifiers = {
   Elementalist,
@@ -35,7 +38,7 @@ export const classModifiers = {
   Revenant,
   Thief,
   Warrior,
-};
+} as Record<string, ModifierData>;
 export const allClassModifiersById = allById(classModifiers);
 
 const traitSectionsArray = Object.values(classModifiers)
@@ -43,7 +46,7 @@ const traitSectionsArray = Object.values(classModifiers)
   .filter((section) => section.id);
 
 export const traitSectionsById = Object.fromEntries(
-  traitSectionsArray.map((section) => [section.id, section]),
+  traitSectionsArray.map((section) => [String(section.id), section]),
 );
 
 export const extrasModifiers = {
@@ -52,11 +55,11 @@ export const extrasModifiers = {
   runes,
   relics,
   sigils,
-};
+} as Record<string, ModifierData>;
 export const allExtrasModifiersById = allById(extrasModifiers);
 
-export const buffModifiers = buffs;
-export const buffModifiersById = byId(buffs);
+export const buffModifiers = buffs as ModifierData;
+export const buffModifiersById = byId(buffs as ModifierData);
 
 // item used to represent nothing
 export const placeholderItem = 77359; // no reward
