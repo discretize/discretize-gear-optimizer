@@ -87,7 +87,7 @@ export const distributionSlice = createSlice({
     changeAllDistributions: (state, action: PayloadAction<{ name: string; value: string }>) => {
       const { name, value } = action.payload;
       try {
-        const distributionPreset = JSON.parse(value);
+        const distributionPreset = JSON.parse(value) as typeof initialState;
 
         return {
           ...state,
