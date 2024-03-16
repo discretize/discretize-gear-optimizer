@@ -6,7 +6,7 @@ import init, {
 } from '../../../../wasm_module/pkg'; // eslint-disable-line
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { AffixName } from '../../../utils/gw2-data';
-import type { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
+import type { AppliedModifier, ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import {
   ExtrasCombination,
   allowedDuplicateSigils,
@@ -110,7 +110,7 @@ async function start_heuristics(
   const lifestealAmount = getLifestealAmount(reduxState);
 
   const getModifiers = (extrasCombination: ExtrasCombination) => {
-    const allModifiers = objectEntries(extrasCombination)
+    const allModifiers: AppliedModifier[] = objectEntries(extrasCombination)
       .filter(([_, id]) => id)
       .map(([type, id]) => {
         if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);
