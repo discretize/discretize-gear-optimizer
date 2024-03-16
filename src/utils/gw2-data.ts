@@ -1400,6 +1400,7 @@ export const BoonDurationAttributes = [
   'Might Duration',
   'Protection Duration',
   'Quickness Duration',
+  'Alacrity Duration',
   'Regeneration Duration',
   'Resistance Duration',
   'Resolution Duration',
