@@ -176,7 +176,7 @@ export type OptimizerCoreMinimalSettings = Pick<
   | 'gameMode'
 >;
 export type Gear = AffixName[];
-export type GearStats = Record<string, number>;
+export type GearStats = Record<AttributeName, number>;
 export interface Character {
   id?: string;
   settings: OptimizerCoreMinimalSettings;
