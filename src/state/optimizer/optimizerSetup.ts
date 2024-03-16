@@ -732,7 +732,7 @@ export function createSettingsPerCombination(
       const allPairsMut = [...allPairs];
       while (allPairsMut.length) {
         const pairs = allPairsMut.splice(0, 2);
-        const [percentAmount, addOrMult] = pairs as any as [string, DamageMode];
+        const [percentAmount, addOrMult] = pairs as [string, DamageMode];
 
         const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
@@ -782,10 +782,10 @@ export function createSettingsPerCombination(
         // stat, i.e.
         //   Concentration: [70, converted, 100, buff]
 
-        const allPairsMut = [...(allPairs as any[])];
+        const allPairsMut = [...allPairs];
         while (allPairsMut.length) {
           const pairs = allPairsMut.splice(0, 2);
-          const [amount, convertedOrBuff] = pairs as any as [number, AttributePointMode];
+          const [amount, convertedOrBuff] = pairs as [number, AttributePointMode];
 
           const scaledAmount = scaleValue(amount, amountInput, amountData);
 
