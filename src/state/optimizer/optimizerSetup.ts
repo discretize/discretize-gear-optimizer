@@ -78,6 +78,7 @@ import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { getGameMode } from '../slices/userSettings';
 import type { RootState } from '../store';
 import type {
+  AttributeName,
   OptimizerCoreSettings,
   OptimizerCoreSettingsPerCalculation,
   OptimizerCoreSettingsPerCombination,
@@ -485,7 +486,7 @@ export function createSettingsPerCalculation(
   const settings_affixStatsArray: OptimizerCoreSettings['affixStatsArray'] =
     settings_affixesArray.map((possibleAffixes, slotindex) =>
       possibleAffixes.map((affix) => {
-        const statTotals: Record<string, number> = {};
+        const statTotals: Record<AttributeName, number> = {};
         const item = exotics?.[affix]?.[slotindex]
           ? settings_slots[slotindex].exo
           : settings_slots[slotindex].asc;
@@ -696,7 +697,7 @@ export function createSettingsPerCombination(
   const extraRelevantConditions = Object.fromEntries(
     Object.keys(conditionData).map((condition) => [condition, false]),
   );
-  const makeConditionsRelevant = (attribute: string) => {
+  const makeConditionsRelevant = (attribute: AttributeName) => {
     const condition = attribute.replace(' Coefficient', '');
     if (extraRelevantConditions[condition] !== undefined) {
       extraRelevantConditions[condition] = true;

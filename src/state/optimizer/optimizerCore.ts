@@ -189,7 +189,7 @@ export interface Character {
   infusions?: Partial<Record<InfusionName, number>>;
   results?: Record<string, any>;
 }
-type AttributeName = string; // TODO: replace with AttributeName from gw2-data
+export type AttributeName = string; // TODO: replace with AttributeName from gw2-data
 
 export type CalculateGenerator = ReturnType<OptimizerCore['calculate']>;
 
