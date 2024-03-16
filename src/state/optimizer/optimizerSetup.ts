@@ -111,7 +111,6 @@ export interface AppliedModifier {
   modifiers: YamlModifiers;
   wvwModifiers?: YamlModifiers;
   amountData?: AmountData;
-  // },
 }
 
 // todo: move these; they should be synchronized with ../../assets/modifierdata/metadata.js and
