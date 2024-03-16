@@ -157,7 +157,7 @@ export const getCurrentSpecialization = (state: RootState): string => {
   // contains the names of the selected trait lines
   const selectedTraitLinesNames = selectedLines
     .map((id) => classModifiers[profession].find((section: any) => section?.id === Number(id)))
-    .filter((section) => section !== undefined)
+    .filter(Boolean)
     .map((section) => section.section);
 
   // currently selected specialization. In case multiple elite specializations are selected, only the first one is counted.

@@ -39,7 +39,7 @@ function onMessage(
 ) {
   let message = e.data;
   if (typeof e.data === 'string') {
-    message = JSON.parse(e.data);
+    message = JSON.parse(e.data) as any;
   }
 
   if (isFinishMessage(message)) {

@@ -123,7 +123,7 @@ export const getAffixName = (affixId: number) => {
 
 export function settingsToWorkerString(settings: Settings): string {
   // deep copy combinations
-  const toReturn = JSON.parse(JSON.stringify(settings));
+  const toReturn = JSON.parse(JSON.stringify(settings)) as any;
 
   toReturn.rankby = getAttributeId(settings.rankby as AttributeName);
   toReturn.weaponType = getWeaponTypeId(settings.weaponType);

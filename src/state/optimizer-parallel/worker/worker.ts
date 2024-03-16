@@ -186,7 +186,7 @@ function calcWasmHeuristics(settings: Settings, chunks: [Combination, ExtrasComb
     settingsToWorkerString(settings),
     combinationsToWorkerString(chunks.map((chunk) => chunk[0])),
   );
-  const combinationIds: number[] = JSON.parse(resStr || '[]');
+  const combinationIds = JSON.parse(resStr || '[]') as number[];
   // find combinations for the ids
   const res = combinationIds.map((id) => chunks[id]);
 

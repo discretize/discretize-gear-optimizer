@@ -3,11 +3,11 @@ import { PARAMS, setQueryParm, useQueryParam } from '../../utils/queryParam';
 import { changeAll } from './controlsSlice';
 import type { RootState } from '../store';
 
-function getLocalStorageState() {
+function getLocalStorageState(): object {
   try {
     const stored = localStorage.getItem(SETTINGS_STORAGE_KEY);
     if (stored) {
-      return JSON.parse(stored);
+      return JSON.parse(stored) as object;
     }
   } catch (e) {
     return {};
