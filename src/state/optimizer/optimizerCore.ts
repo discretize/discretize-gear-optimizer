@@ -15,7 +15,7 @@ import type {
   WeaponHandednessType,
 } from '../../utils/gw2-data';
 import { Attributes, conditionData, conditionDataWvW, INFUSION_BONUS } from '../../utils/gw2-data';
-import { enumArrayIncludes } from '../../utils/usefulFunctions';
+import { enumArrayIncludes, objectKeys } from '../../utils/usefulFunctions';
 import type {
   AppliedModifier,
   CachedFormState,
@@ -946,9 +946,8 @@ export class OptimizerCore {
     const attrsWithModifiedCoefficient = (newCoefficient: number) => {
       const newCharacter = this.clone(character);
       newCharacter.baseAttributes = { ...character.baseAttributes };
-      Object.keys(settings.distribution).forEach((key) => {
-        newCharacter.baseAttributes[`${key} Coefficient`] -=
-          settings.distribution[key as keyof typeof settings.distribution];
+      objectKeys(settings.distribution).forEach((key) => {
+        newCharacter.baseAttributes[`${key} Coefficient`] -= settings.distribution[key];
         newCharacter.baseAttributes[`${key} Coefficient`] += newCoefficient;
       });
       this.updateAttributes(newCharacter);
