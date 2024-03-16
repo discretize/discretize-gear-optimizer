@@ -175,6 +175,7 @@ export interface CachedFormState {
   skills: Record<string, any>;
   extras: Record<string, any>;
   buffs: Record<string, any>;
+  priorities: Record<string, any>;
 }
 
 // interface OptimizerInput {
