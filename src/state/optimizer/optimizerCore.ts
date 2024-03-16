@@ -16,7 +16,7 @@ import type {
 } from '../../utils/gw2-data';
 import { Attributes, conditionData, conditionDataWvW, INFUSION_BONUS } from '../../utils/gw2-data';
 import { enumArrayIncludes, objectKeys } from '../../utils/usefulFunctions';
-import type { ExtrasCombination } from '../slices/extras';
+import type { ExtrasCombination, ShouldDisplayExtras } from '../slices/extras';
 import type { GameMode } from '../slices/userSettings';
 import type {
   AppliedModifier,
@@ -146,7 +146,7 @@ export interface OptimizerCoreSettingsPerCalculation {
   affixesArray: AffixName[][];
   affixStatsArray: [AttributeName, number][][][];
 
-  shouldDisplayExtras: Record<string, boolean>;
+  shouldDisplayExtras: ShouldDisplayExtras;
   cachedFormState: CachedFormState;
 }
 
