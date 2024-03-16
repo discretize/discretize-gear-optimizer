@@ -24,7 +24,7 @@ import {
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
-import type { AffixData, AffixName, ForcedSlotName } from '../../utils/gw2-data';
+import type { AffixName, ForcedSlotName } from '../../utils/gw2-data';
 import {
   Attributes,
   Classes,
@@ -38,6 +38,8 @@ import {
   enumArrayIncludes,
   mapEntries,
   mapValues,
+  objectEntries,
+  objectKeys,
   parseAmount,
   parseBoss,
   parseInfusionCount,
@@ -76,14 +78,12 @@ import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { getGameMode } from '../slices/userSettings';
 import type { RootState } from '../store';
 import type {
+  AttributeName,
   OptimizerCoreSettings,
   OptimizerCoreSettingsPerCalculation,
   OptimizerCoreSettingsPerCombination,
 } from './optimizerCore';
 import { clamp, scaleValue } from './optimizerCore';
-
-// currently a duplicate of navsettings.jsx
-export type GameMode = 'fractals' | 'raids' | 'wvw';
 
 export interface ExtrasCombinationEntry {
   extrasCombination: ExtrasCombination;
@@ -112,7 +112,6 @@ export interface AppliedModifier {
   modifiers: YamlModifiers;
   wvwModifiers?: YamlModifiers;
   amountData?: AmountData;
-  // },
 }
 
 // todo: move these; they should be synchronized with ../../assets/modifierdata/metadata.js and
@@ -157,13 +156,17 @@ export interface MultiplierBreakdown {
   add: number;
   target: number;
 }
-export type DamageMultiplierBreakdown = Partial<Record<MultiplierName, MultiplierBreakdown>>;
+export type DamageMultiplier = Record<MultiplierName, number>;
+export type DamageMultiplierBreakdown = Record<MultiplierName, MultiplierBreakdown>;
 export interface Modifiers {
-  damageMultiplier: Record<string, number>;
+  damageMultiplier: DamageMultiplier;
   damageMultiplierBreakdown: DamageMultiplierBreakdown;
-  buff: [string, number][];
-  convert: [string, [string, number][]][];
-  convertAfterBuffs: [string, [string, number][]][];
+  buff: [AttributeKey, number][];
+  convert: [ConversionDestinationKey, [ConversionSourceKey, number][]][];
+  convertAfterBuffs: [
+    ConversionAfterBuffsDestinationKey,
+    [ConversionAfterBuffsSourceKey, number][],
+  ][];
 }
 
 export type InfusionMode = 'None' | 'Primary' | 'Few' | 'Secondary' | 'SecondaryNoDuplicates';
@@ -173,6 +176,7 @@ export interface CachedFormState {
   skills: Record<string, any>;
   extras: Record<string, any>;
   buffs: Record<string, any>;
+  priorities: Record<string, any>;
 }
 
 // interface OptimizerInput {
@@ -284,7 +288,7 @@ export function createSettingsPerCalculation(
   const attackRateText = getAttackRate(reduxState);
   const movementUptimeText = getMovementUptime(reduxState);
 
-  const gameMode = getGameMode(reduxState) as GameMode;
+  const gameMode = getGameMode(reduxState);
 
   // todo: consolidate error handling
   if (profession === '') {
@@ -482,14 +486,11 @@ export function createSettingsPerCalculation(
   const settings_affixStatsArray: OptimizerCoreSettings['affixStatsArray'] =
     settings_affixesArray.map((possibleAffixes, slotindex) =>
       possibleAffixes.map((affix) => {
-        const statTotals: Record<string, number> = {};
+        const statTotals: Record<AttributeName, number> = {};
         const item = exotics?.[affix]?.[slotindex]
           ? settings_slots[slotindex].exo
           : settings_slots[slotindex].asc;
-        const bonuses = Object.entries(item[Affix[affix].type]) as [
-          keyof AffixData['bonuses'],
-          number,
-        ][];
+        const bonuses = objectEntries(item[Affix[affix].type]);
         for (const [type, bonus] of bonuses) {
           for (const stat of Affix[affix].bonuses[type] ?? []) {
             statTotals[stat] = (statTotals[stat] || 0) + bonus;
@@ -595,7 +596,7 @@ export function createSettingsPerCombination(
   const profession = getProfession(reduxState);
   const unmodifiedDistribution = getDistributionNew(reduxState);
 
-  const gameMode = getGameMode(reduxState) as GameMode;
+  const gameMode = getGameMode(reduxState);
   const isWvW = gameMode === 'wvw';
 
   // todo: consolidate error handling
@@ -696,7 +697,7 @@ export function createSettingsPerCombination(
   const extraRelevantConditions = Object.fromEntries(
     Object.keys(conditionData).map((condition) => [condition, false]),
   );
-  const makeConditionsRelevant = (attribute: string) => {
+  const makeConditionsRelevant = (attribute: AttributeName) => {
     const condition = attribute.replace(' Coefficient', '');
     if (extraRelevantConditions[condition] !== undefined) {
       extraRelevantConditions[condition] = true;
@@ -732,7 +733,7 @@ export function createSettingsPerCombination(
       const allPairsMut = [...allPairs];
       while (allPairsMut.length) {
         const pairs = allPairsMut.splice(0, 2);
-        const [percentAmount, addOrMult] = pairs as any as [string, DamageMode];
+        const [percentAmount, addOrMult] = pairs as [string, DamageMode];
 
         const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
@@ -782,10 +783,10 @@ export function createSettingsPerCombination(
         // stat, i.e.
         //   Concentration: [70, converted, 100, buff]
 
-        const allPairsMut = [...(allPairs as any[])];
+        const allPairsMut = [...allPairs];
         while (allPairsMut.length) {
           const pairs = allPairsMut.splice(0, 2);
-          const [amount, convertedOrBuff] = pairs as any as [number, AttributePointMode];
+          const [amount, convertedOrBuff] = pairs as [number, AttributePointMode];
 
           const scaledAmount = scaleValue(amount, amountInput, amountData);
 
@@ -806,16 +807,16 @@ export function createSettingsPerCombination(
         // coefficient, i.e.
         //   Power Coefficient: 69.05
 
-        const value = Array.isArray(allPairs) ? allPairs[0] : allPairs;
-        const scaledAmount = scaleValue(value as number, amountInput, amountData);
+        const value: number = Array.isArray(allPairs) ? allPairs[0] : allPairs;
+        const scaledAmount = scaleValue(value, amountInput, amountData);
         settings_baseAttributes[attribute] =
           (settings_baseAttributes[attribute] || 0) + scaledAmount;
       } else if (enumArrayIncludes(allAttributePercentKeys, attribute)) {
         // percent, i.e.
         //   Torment Duration: 15%
 
-        const value = Array.isArray(allPairs) ? allPairs[0] : allPairs;
-        const scaledAmount = scaleValue(parsePercent(value as string), amountInput, amountData);
+        const value: string = Array.isArray(allPairs) ? allPairs[0] : allPairs;
+        const scaledAmount = scaleValue(parsePercent(value), amountInput, amountData);
         // unconfirmed if +max health mods are mult but ¯\_(ツ)_/¯
         // +outgoing healing is assumed additive
         if (attribute === 'Maximum Health') {
@@ -884,12 +885,10 @@ export function createSettingsPerCombination(
     }
   }
 
-  const damageMultiplier: Record<string, number> = {};
-  const damageMultiplierBreakdown: DamageMultiplierBreakdown = {};
+  const damageMultiplier: any = {};
+  const damageMultiplierBreakdown: any = {};
 
-  Object.keys(initialMultipliers).forEach((attr) => {
-    const attribute = attr as keyof typeof initialMultipliers;
-
+  objectKeys(initialMultipliers).forEach((attribute) => {
     damageMultiplier[attribute] =
       allDmgMult.mult[attribute] * allDmgMult.add[attribute] * allDmgMult.target[attribute];
 
@@ -902,22 +901,21 @@ export function createSettingsPerCombination(
 
   // convert modifiers to arrays for simpler iteration
   const buff = Object.entries(collectedModifiers['buff']);
-  const convert = Object.entries(collectedModifiers['convert']).map(
-    ([attribute, conversion]) =>
-      [attribute, Object.entries(conversion)] as [string, [string, number][]],
-  );
+  const convert = Object.entries(collectedModifiers['convert']).map(([attribute, conversion]) => [
+    attribute,
+    Object.entries(conversion),
+  ]);
   const convertAfterBuffs = Object.entries(collectedModifiers['convertAfterBuffs']).map(
-    ([attribute, conversion]) =>
-      [attribute, Object.entries(conversion)] as [string, [string, number][]],
+    ([attribute, conversion]) => [attribute, Object.entries(conversion)],
   );
 
-  const modifiers: Modifiers = {
+  const modifiers = {
     damageMultiplier,
     damageMultiplierBreakdown,
     buff,
     convert,
     convertAfterBuffs,
-  };
+  } as Modifiers;
 
   /* Relevant Conditions + Condi Caching Toggle */
 

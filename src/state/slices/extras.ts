@@ -31,6 +31,7 @@ type ExtrasType = 'Sigil1' | 'Sigil2' | 'Runes' | 'Relics' | 'Nourishment' | 'En
 type ExtrasValues = Record<string, ExtraValue>;
 
 export type ExtrasCombination = Record<ExtrasType, string>;
+export type ShouldDisplayExtras = Record<ExtrasType, boolean>;
 
 const initialState: {
   extras: {

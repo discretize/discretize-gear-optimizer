@@ -24,7 +24,7 @@ import type { AppDispatch, RootState } from '../../store';
 
 const PROGRESS_UPDATE_INTERVALL = 2000000;
 let currentProgress = 0;
-let results = [] as Character[][];
+let results: Character[][] = [];
 
 function onMessage(
   e: MessageEvent<MessageType>,

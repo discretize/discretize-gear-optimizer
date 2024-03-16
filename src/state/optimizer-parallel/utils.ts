@@ -1,7 +1,6 @@
 import {
   Affix,
   AffixName,
-  AttributeName,
   BoonDurationAttributes,
   ConditionCoefficientAttributes,
   ConditionDurationAttributes,
@@ -16,6 +15,7 @@ import {
   WeaponHandednessType,
   damagingConditions,
 } from '../../utils/gw2-data';
+import { objectKeys } from '../../utils/usefulFunctions';
 import { getExtrasIds } from '../slices/extras';
 import type { RootState } from '../store';
 import { Combination, Settings } from './optimizerSetup';
@@ -87,10 +87,12 @@ const attributes = [
   'Outgoing Phantasm Critical Damage',
 
   'Outgoing All Damage',
-];
+] as const;
+
+type AttributeName = (typeof attributes)[number];
 
 export const getAffixId = (affix: AffixName) => {
-  const index = Object.keys(Affix).indexOf(affix as string);
+  const index = objectKeys(Affix).indexOf(affix);
   if (index === -1) {
     throw new Error(`Affix ${affix} not found`);
   }
@@ -125,7 +127,7 @@ export function settingsToWorkerString(settings: Settings): string {
   // deep copy combinations
   const toReturn = JSON.parse(JSON.stringify(settings)) as any;
 
-  toReturn.rankby = getAttributeId(settings.rankby as AttributeName);
+  toReturn.rankby = getAttributeId(settings.rankby);
   toReturn.weaponType = getWeaponTypeId(settings.weaponType);
   toReturn.forcedAffixes = settings.forcedAffixes.map((fa) => (fa ? getAffixId(fa) : null));
   toReturn.affixesArray = settings.affixesArray.map((slot) =>
@@ -184,20 +186,20 @@ export function combinationtoWasmFormat(combination: Combination): any {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   toReturn.modifiers.buff = combination.modifiers.buff.map((mod) => [
-    getAttributeId(mod[0] as AttributeName),
+    getAttributeId(mod[0]),
     mod[1],
   ]);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   toReturn.modifiers.convert = combination.modifiers.convert.map((mod) => [
-    getAttributeId(mod[0] as AttributeName),
-    mod[1].map((convert) => [getAttributeId(convert[0] as AttributeName), convert[1]]),
+    getAttributeId(mod[0]),
+    mod[1].map((convert) => [getAttributeId(convert[0]), convert[1]]),
   ]);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   toReturn.modifiers.convertAfterBuffs = combination.modifiers.convertAfterBuffs.map((mod) => [
-    getAttributeId(mod[0] as AttributeName),
-    mod[1].map((convert) => [getAttributeId(convert[0] as AttributeName), convert[1]]),
+    getAttributeId(mod[0]),
+    mod[1].map((convert) => [getAttributeId(convert[0]), convert[1]]),
   ]);
 
   // replace space in key of object with underscore

@@ -8,11 +8,11 @@ import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { AffixName } from '../../../utils/gw2-data';
 import type { AppliedModifier, ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import {
-  ExtrasCombination,
   allowedDuplicateSigils,
   getExtrasData,
   getLifestealAmount,
   lifestealData,
+  type ExtrasCombination,
 } from '../../slices/extras';
 import { Combination, Settings, createCombination } from '../optimizerSetup';
 import { descendSubtreeDFS } from '../tree';

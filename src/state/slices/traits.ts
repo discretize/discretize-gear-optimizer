@@ -14,7 +14,7 @@ interface TraitValue {
   amount?: string;
 }
 
-// todo: specify skills keys
+// todo: specify trait keys
 type TraitsValues = Record<string, TraitValue>;
 
 // todo: type item data

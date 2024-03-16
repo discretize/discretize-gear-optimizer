@@ -6,6 +6,7 @@ import {
 import type { AppliedModifier } from '../optimizer/optimizerSetup';
 import { getBuffsModifiers } from '../slices/buffs';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
+import type { ExtrasCombination } from '../slices/extras';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getSkillsModifiers } from '../slices/skills';
 import { getTraitsModifiers } from '../slices/traits';
@@ -18,7 +19,7 @@ export interface ResultProperties {
   sharedModifiers: AppliedModifier[];
   allExtrasData: {
     extrasModifiers: AppliedModifier[];
-    extrasCombination: Record<string, string>;
+    extrasCombination: ExtrasCombination;
   }[];
 }
 
@@ -109,10 +110,7 @@ export function enhanceResults(
       rankby,
       shouldDisplayExtras,
       extrasCombination: allExtrasData[character.combination_id].extrasCombination,
-      modifiers: {
-        ...modifiers,
-        damageMultiplierBreakdown: {},
-      },
+      modifiers,
       gameMode,
     };
 

@@ -7,7 +7,7 @@ import {
   createSettingsPerCombination,
   type AppliedModifier,
 } from '../optimizer/optimizerSetup';
-import { getExtrasCombinationsAndModifiers } from '../slices/extras';
+import { getExtrasCombinationsAndModifiers, type ExtrasCombination } from '../slices/extras';
 import type { RootState } from '../store';
 
 export type Combination = Omit<OptimizerCoreSettingsPerCombination, 'appliedModifiers'>;
@@ -30,7 +30,7 @@ export type Settings = Omit<
 
 export interface ResultData {
   extrasModifiers: AppliedModifier[];
-  extrasCombination: Record<string, string>;
+  extrasCombination: ExtrasCombination;
 }
 
 export function setupNormal(reduxState: RootState): [Combination[], ResultData[]] {

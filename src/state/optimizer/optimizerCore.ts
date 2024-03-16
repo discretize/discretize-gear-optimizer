@@ -15,12 +15,14 @@ import type {
   WeaponHandednessType,
 } from '../../utils/gw2-data';
 import { Attributes, conditionData, conditionDataWvW, INFUSION_BONUS } from '../../utils/gw2-data';
-import { enumArrayIncludes } from '../../utils/usefulFunctions';
+import { enumArrayIncludes, objectKeys } from '../../utils/usefulFunctions';
+import type { ExtrasCombination, ShouldDisplayExtras } from '../slices/extras';
+import type { GameMode } from '../slices/userSettings';
 import type {
   AppliedModifier,
   CachedFormState,
+  DamageMultiplier,
   DistributionNameInternal,
-  GameMode,
   InfusionMode,
   Modifiers,
 } from './optimizerSetup';
@@ -145,7 +147,7 @@ export interface OptimizerCoreSettingsPerCalculation {
   affixesArray: AffixName[][];
   affixStatsArray: [AttributeName, number][][][];
 
-  shouldDisplayExtras: Record<string, boolean>;
+  shouldDisplayExtras: ShouldDisplayExtras;
   cachedFormState: CachedFormState;
 }
 
@@ -159,7 +161,7 @@ export interface OptimizerCoreSettingsPerCombination {
 }
 
 export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &
-  OptimizerCoreSettingsPerCombination & { extrasCombination: Record<string, string> };
+  OptimizerCoreSettingsPerCombination & { extrasCombination: ExtrasCombination };
 
 export type OptimizerCoreMinimalSettings = Pick<
   OptimizerCoreSettings,
@@ -175,7 +177,7 @@ export type OptimizerCoreMinimalSettings = Pick<
   | 'gameMode'
 >;
 export type Gear = AffixName[];
-export type GearStats = Record<string, number>;
+export type GearStats = Record<AttributeName, number>;
 export interface Character {
   id?: string;
   settings: OptimizerCoreMinimalSettings;
@@ -184,10 +186,10 @@ export interface Character {
   gearStats: GearStats;
   valid: boolean;
   baseAttributes: OptimizerCoreSettings['baseAttributes'];
-  infusions?: Record<string, any>;
+  infusions?: Partial<Record<InfusionName, number>>;
   results?: Record<string, any>;
 }
-type AttributeName = string; // TODO: replace with AttributeName from gw2-data
+export type AttributeName = string; // TODO: replace with AttributeName from gw2-data
 
 export type CalculateGenerator = ReturnType<OptimizerCore['calculate']>;
 
@@ -732,7 +734,7 @@ export class OptimizerCore {
     return invalid;
   }
 
-  calcPower(character: Character, damageMultiplier: Record<string, number>) {
+  calcPower(character: Character, damageMultiplier: DamageMultiplier) {
     const { settings } = this;
     const { attributes } = character;
 
@@ -805,7 +807,7 @@ export class OptimizerCore {
 
   calcCondi(
     character: Character,
-    damageMultiplier: Record<string, number>,
+    damageMultiplier: DamageMultiplier,
     relevantConditions: readonly DamagingConditionName[],
   ) {
     const { settings } = this;
@@ -851,7 +853,7 @@ export class OptimizerCore {
     return condiDamageScore;
   }
 
-  calcSurvivability(character: Character, damageMultiplier: Record<string, number>) {
+  calcSurvivability(character: Character, damageMultiplier: DamageMultiplier) {
     const { attributes } = character;
 
     attributes['Armor'] += attributes['Toughness'];
@@ -946,9 +948,8 @@ export class OptimizerCore {
     const attrsWithModifiedCoefficient = (newCoefficient: number) => {
       const newCharacter = this.clone(character);
       newCharacter.baseAttributes = { ...character.baseAttributes };
-      Object.keys(settings.distribution).forEach((key) => {
-        newCharacter.baseAttributes[`${key} Coefficient`] -=
-          settings.distribution[key as keyof typeof settings.distribution];
+      objectKeys(settings.distribution).forEach((key) => {
+        newCharacter.baseAttributes[`${key} Coefficient`] -= settings.distribution[key];
         newCharacter.baseAttributes[`${key} Coefficient`] += newCoefficient;
       });
       this.updateAttributes(newCharacter);
