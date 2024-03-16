@@ -158,11 +158,14 @@ export interface MultiplierBreakdown {
 }
 export type DamageMultiplierBreakdown = Partial<Record<MultiplierName, MultiplierBreakdown>>;
 export interface Modifiers {
-  damageMultiplier: Record<string, number>;
+  damageMultiplier: Record<MultiplierName, number>;
   damageMultiplierBreakdown: DamageMultiplierBreakdown;
-  buff: [string, number][];
-  convert: [string, [string, number][]][];
-  convertAfterBuffs: [string, [string, number][]][];
+  buff: [AttributeKey, number][];
+  convert: [ConversionDestinationKey, [ConversionSourceKey, number][]][];
+  convertAfterBuffs: [
+    ConversionAfterBuffsDestinationKey,
+    [ConversionAfterBuffsSourceKey, number][],
+  ][];
 }
 
 export type InfusionMode = 'None' | 'Primary' | 'Few' | 'Secondary' | 'SecondaryNoDuplicates';
@@ -896,22 +899,21 @@ export function createSettingsPerCombination(
 
   // convert modifiers to arrays for simpler iteration
   const buff = Object.entries(collectedModifiers['buff']);
-  const convert = Object.entries(collectedModifiers['convert']).map(
-    ([attribute, conversion]) =>
-      [attribute, Object.entries(conversion)] as [string, [string, number][]],
-  );
+  const convert = Object.entries(collectedModifiers['convert']).map(([attribute, conversion]) => [
+    attribute,
+    Object.entries(conversion),
+  ]);
   const convertAfterBuffs = Object.entries(collectedModifiers['convertAfterBuffs']).map(
-    ([attribute, conversion]) =>
-      [attribute, Object.entries(conversion)] as [string, [string, number][]],
+    ([attribute, conversion]) => [attribute, Object.entries(conversion)],
   );
 
-  const modifiers: Modifiers = {
+  const modifiers = {
     damageMultiplier,
     damageMultiplierBreakdown,
     buff,
     convert,
     convertAfterBuffs,
-  };
+  } as Modifiers;
 
   /* Relevant Conditions + Condi Caching Toggle */
 
