@@ -3,13 +3,14 @@ import {
   OptimizerCoreMinimalSettings,
   OptimizerCoreSettings,
 } from '../optimizer/optimizerCore';
+import type { AppliedModifier } from '../optimizer/optimizerSetup';
 import { getBuffsModifiers } from '../slices/buffs';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getSkillsModifiers } from '../slices/skills';
 import { getTraitsModifiers } from '../slices/traits';
 import type { RootState } from '../store';
-import { AppliedModifier, Combination, ResultData, Settings } from './optimizerSetup';
+import type { Combination, ResultData, Settings } from './optimizerSetup';
 import { getAffixName, getAttributeName } from './utils';
 
 export interface ResultProperties {

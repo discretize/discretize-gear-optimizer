@@ -104,7 +104,8 @@ export const clamp = (input: number, min: number, max: number): number => {
  * ------------------------------------------------------------------------
  */
 
-export interface OptimizerCoreSettings {
+// settings that do not vary based on extras combination
+export interface OptimizerCoreSettingsPerCalculation {
   // these are direct copies or slight modifications of OptimizerInput
   profession: ProfessionName;
   specialization: string;
@@ -143,17 +144,23 @@ export interface OptimizerCoreSettings {
   runsAfterThisSlot: number[];
   affixesArray: AffixName[][];
   affixStatsArray: [AttributeName, number][][][];
+
+  shouldDisplayExtras: Record<string, boolean>;
+  cachedFormState: CachedFormState;
+}
+
+// settings that **do** vary based on extras combination
+export interface OptimizerCoreSettingsPerCombination {
   baseAttributes: Record<AttributeName, number>;
   modifiers: Modifiers;
   disableCondiResultCache: boolean;
   relevantConditions: DamagingConditionName[];
-
-  // these aren't used by the optimizer, they're just attached to the results
-  shouldDisplayExtras: Record<string, boolean>;
   appliedModifiers: AppliedModifier[];
-  cachedFormState: CachedFormState;
-  extrasCombination: Record<string, string>;
 }
+
+export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &
+  OptimizerCoreSettingsPerCombination & { extrasCombination: Record<string, string> };
+
 export type OptimizerCoreMinimalSettings = Pick<
   OptimizerCoreSettings,
   | 'cachedFormState'
