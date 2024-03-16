@@ -16,6 +16,7 @@ import {
   WeaponHandednessType,
   damagingConditions,
 } from '../../utils/gw2-data';
+import { objectKeys } from '../../utils/usefulFunctions';
 import { getExtrasIds } from '../slices/extras';
 import type { RootState } from '../store';
 import { Combination, Settings } from './optimizerSetup';
@@ -90,7 +91,7 @@ const attributes = [
 ];
 
 export const getAffixId = (affix: AffixName) => {
-  const index = Object.keys(Affix).indexOf(affix as string);
+  const index = objectKeys(Affix).indexOf(affix);
   if (index === -1) {
     throw new Error(`Affix ${affix} not found`);
   }
