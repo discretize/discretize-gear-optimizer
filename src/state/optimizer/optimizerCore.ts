@@ -16,6 +16,7 @@ import type {
 } from '../../utils/gw2-data';
 import { Attributes, conditionData, conditionDataWvW, INFUSION_BONUS } from '../../utils/gw2-data';
 import { enumArrayIncludes, objectKeys } from '../../utils/usefulFunctions';
+import type { ExtrasCombination } from '../slices/extras';
 import type { GameMode } from '../slices/userSettings';
 import type {
   AppliedModifier,
@@ -159,7 +160,7 @@ export interface OptimizerCoreSettingsPerCombination {
 }
 
 export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &
-  OptimizerCoreSettingsPerCombination & { extrasCombination: Record<string, string> };
+  OptimizerCoreSettingsPerCombination & { extrasCombination: ExtrasCombination };
 
 export type OptimizerCoreMinimalSettings = Pick<
   OptimizerCoreSettings,
