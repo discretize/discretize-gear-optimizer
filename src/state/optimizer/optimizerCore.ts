@@ -186,7 +186,7 @@ export interface Character {
   gearStats: GearStats;
   valid: boolean;
   baseAttributes: OptimizerCoreSettings['baseAttributes'];
-  infusions?: Record<string, any>;
+  infusions?: Partial<Record<InfusionName, number>>;
   results?: Record<string, any>;
 }
 type AttributeName = string; // TODO: replace with AttributeName from gw2-data
