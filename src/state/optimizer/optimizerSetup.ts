@@ -39,6 +39,7 @@ import {
   mapEntries,
   mapValues,
   objectEntries,
+  objectKeys,
   parseAmount,
   parseBoss,
   parseInfusionCount,
@@ -882,9 +883,7 @@ export function createSettingsPerCombination(
   const damageMultiplier: Record<string, number> = {};
   const damageMultiplierBreakdown: DamageMultiplierBreakdown = {};
 
-  Object.keys(initialMultipliers).forEach((attr) => {
-    const attribute = attr as keyof typeof initialMultipliers;
-
+  objectKeys(initialMultipliers).forEach((attribute) => {
     damageMultiplier[attribute] =
       allDmgMult.mult[attribute] * allDmgMult.add[attribute] * allDmgMult.target[attribute];
 
