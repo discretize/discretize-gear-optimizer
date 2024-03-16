@@ -801,16 +801,16 @@ export function createSettingsPerCombination(
         // coefficient, i.e.
         //   Power Coefficient: 69.05
 
-        const value = Array.isArray(allPairs) ? allPairs[0] : allPairs;
-        const scaledAmount = scaleValue(value as number, amountInput, amountData);
+        const value: number = Array.isArray(allPairs) ? allPairs[0] : allPairs;
+        const scaledAmount = scaleValue(value, amountInput, amountData);
         settings_baseAttributes[attribute] =
           (settings_baseAttributes[attribute] || 0) + scaledAmount;
       } else if (enumArrayIncludes(allAttributePercentKeys, attribute)) {
         // percent, i.e.
         //   Torment Duration: 15%
 
-        const value = Array.isArray(allPairs) ? allPairs[0] : allPairs;
-        const scaledAmount = scaleValue(parsePercent(value as string), amountInput, amountData);
+        const value: string = Array.isArray(allPairs) ? allPairs[0] : allPairs;
+        const scaledAmount = scaleValue(parsePercent(value), amountInput, amountData);
         // unconfirmed if +max health mods are mult but ¯\_(ツ)_/¯
         // +outgoing healing is assumed additive
         if (attribute === 'Maximum Health') {
