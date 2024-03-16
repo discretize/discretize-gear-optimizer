@@ -24,7 +24,7 @@ import {
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
-import type { AffixData, AffixName, ForcedSlotName } from '../../utils/gw2-data';
+import type { AffixName, ForcedSlotName } from '../../utils/gw2-data';
 import {
   Attributes,
   Classes,
@@ -38,6 +38,7 @@ import {
   enumArrayIncludes,
   mapEntries,
   mapValues,
+  objectEntries,
   parseAmount,
   parseBoss,
   parseInfusionCount,
@@ -483,10 +484,7 @@ export function createSettingsPerCalculation(
         const item = exotics?.[affix]?.[slotindex]
           ? settings_slots[slotindex].exo
           : settings_slots[slotindex].asc;
-        const bonuses = Object.entries(item[Affix[affix].type]) as [
-          keyof AffixData['bonuses'],
-          number,
-        ][];
+        const bonuses = objectEntries(item[Affix[affix].type]);
         for (const [type, bonus] of bonuses) {
           for (const stat of Affix[affix].bonuses[type] ?? []) {
             statTotals[stat] = (statTotals[stat] || 0) + bonus;
