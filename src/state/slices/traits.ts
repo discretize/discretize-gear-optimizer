@@ -139,7 +139,9 @@ export const getTraitsModifiers = (state: RootState): AppliedModifier[] => {
       const itemData = allClassModifiersById[id];
       if (!itemData) return;
 
-      const visible = itemData.minor || allSelectedTraits.includes(itemData.gw2id);
+      const visible =
+        itemData.minor ||
+        (typeof itemData.gw2id === 'number' && allSelectedTraits.includes(itemData.gw2id));
       if (visible) {
         result.push({ id, ...itemData, amount: value?.amount });
       }
