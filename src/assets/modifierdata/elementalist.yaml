@@ -94,6 +94,18 @@
           Outgoing Condition Damage: [5%, add] # unconfirmed
       gw2id: 71828
 
+    - id: arcane-power
+      text: Arcane Power
+      subText: ferocity only
+      amountData:
+        label: '% uptime'
+        default: 0
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Ferocity: [300, unknown]
+      gw2id: 5635
+
     # - id: flame-axe
     #   text: Flame Axe
     #   subText: when equipped
