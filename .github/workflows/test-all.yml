@@ -67,4 +67,4 @@ jobs:
         run: pnpm prettierCheck
 
       - name: Typecheck with tsc
-        run: pnpm tscCheck
+        run: pnpm typeCheck
