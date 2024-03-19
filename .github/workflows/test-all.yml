@@ -12,20 +12,20 @@ env:
   NODE_VERSION: 18
 
 jobs:
-  testAll:
+  test:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up PNPM
         uses: pnpm/action-setup@v3
         with:
           version: 8
-      - name: Setup Node
+      - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
