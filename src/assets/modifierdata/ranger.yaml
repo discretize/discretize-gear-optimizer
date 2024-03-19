@@ -430,6 +430,7 @@
           Outgoing Condition Damage: [10%, add] # unconfirmed
         attributes:
           Condition Duration: 10%
+          Concentration: [300, unknown]
       gw2id: 2056
       defaultEnabled: true
 
