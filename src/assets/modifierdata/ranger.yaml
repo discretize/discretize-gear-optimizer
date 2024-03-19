@@ -325,6 +325,16 @@
       gw2id: 1101
       defaultEnabled: true
 
+    - id: survival-instincts-high
+      text: Survival Instincts
+      subText: high health
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, unknown]
+          Damage Reduction: [10%, unknown]
+      gw2id: 2032
+      defaultEnabled: true
+
     - id: poison-master
       text: Poison Master
       modifiers:
