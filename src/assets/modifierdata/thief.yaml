@@ -310,12 +310,12 @@
     - id: havoc-specialist
       text: Havoc Specialist
       amountData:
-        label: 'missing bars'
-        default: 3
-        quantityEntered: 1
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [15%, unknown]
       gw2id: 1893
       defaultEnabled: true
 
