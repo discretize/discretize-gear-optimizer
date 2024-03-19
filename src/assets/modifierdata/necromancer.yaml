@@ -430,6 +430,9 @@
       subText: base
       modifiers:
         damage:
+          Outgoing Critical Damage: [12.5%, unknown]
+      wvwModifiers:
+        damage:
           Outgoing Critical Damage: [10%, unknown]
       gw2id: 2188
       defaultEnabled: true
@@ -441,6 +444,9 @@
         default: 11.6
         quantityEntered: 1
       modifiers:
+        damage:
+          Outgoing Strike Damage: [1%, add] # tested by ReMagic
+      wvwModifiers:
         damage:
           Outgoing Strike Damage: [0.5%, add] # tested by ReMagic
       gw2id: 2188
