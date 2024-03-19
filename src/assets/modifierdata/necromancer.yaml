@@ -517,6 +517,7 @@
 
     - id: cascading-corruption
       text: Cascading Corruption
+      subText: power bonus only
       modifiers:
         attributes:
           Power: [240, converted] # tested by Jezereal
