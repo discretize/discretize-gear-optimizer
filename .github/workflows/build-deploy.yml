@@ -34,6 +34,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - uses: dtinth/setup-github-actions-caching-for-turbo@v1
+
       - name: Set up PNPM
         uses: pnpm/action-setup@v3
         with:
@@ -61,7 +63,7 @@ jobs:
           workspaces: wasm_module
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
       - name: Compile Rust
-        run: pnpm wasm
+        run: pnpm turbo wasm --color
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
 
       - name: Build
