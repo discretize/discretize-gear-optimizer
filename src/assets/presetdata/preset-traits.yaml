@@ -3003,7 +3003,7 @@ list:
           },
           {
             "elemental-enchantment": {},
-            "elemental-surge": {
+            "arcane-lightning": {
               "amount": ""
             },
             "bountiful-power": {
@@ -3298,7 +3298,7 @@ list:
         "items": [
           {
             "elemental-enchantment": {},
-            "elemental-surge": {
+            "arcane-lightning": {
               "amount": ""
             },
             "bountiful-power": {
@@ -3381,7 +3381,7 @@ list:
         "items": [
           {
             "elemental-enchantment": {},
-            "elemental-surge": {
+            "arcane-lightning": {
               "amount": ""
             },
             "bountiful-power": {

@@ -447,8 +447,8 @@
       gw2id: 2004
       defaultEnabled: true
 
-    - id: elemental-surge
-      text: Elemental Surge
+    - id: arcane-lightning
+      text: Arcane Lightning
       amountData:
         label: '% uptime'
         default: 100
