@@ -148,5 +148,7 @@ install.bat
 .DS_Store
 .mf/
 
+/.turbo
+
 wasm_module/target/
 /src/assets/typevalidation/output

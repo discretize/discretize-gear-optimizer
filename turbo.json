@@ -1,0 +1,38 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "prettierCheck": {
+      "inputs": ["$TURBO_DEFAULT$", "!wasm_module/**", "!src/assets/**/*.yaml", "!**/*.md"]
+    },
+    "eslint": {
+      "inputs": ["$TURBO_DEFAULT$", "!wasm_module/**", "!src/assets/**/*.yaml", "!**/*.md"]
+    },
+    "typeCheck": {
+      "dependsOn": ["wasm"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!wasm_module/pkg/**",
+        "!wasm_module/target/**",
+        "!src/assets/**/*.yaml",
+        "!**/*.md"
+      ]
+    },
+    "testData": {
+      "inputs": ["$TURBO_DEFAULT$", "!wasm_module/**", "!**/*.md"]
+    },
+    "validateDataTypes": {
+      "inputs": ["$TURBO_DEFAULT$", "!wasm_module/**", "!**/*.md"],
+      "outputs": ["src/assets/typevalidation/output/**"]
+    },
+    "wasm": {
+      "inputs": ["wasm_module/**", "!wasm_module/pkg/**", "!wasm_module/target/**"],
+      "outputs": ["wasm_module/pkg/**", "wasm_module/target/**"]
+    },
+    "wasmCheck": {
+      "inputs": ["wasm_module/**", "!wasm_module/pkg/**", "!wasm_module/target/**"]
+    },
+    "wasmCheckAll": {
+      "inputs": ["wasm_module/**", "!wasm_module/pkg/**", "!wasm_module/target/**"]
+    }
+  }
+}
