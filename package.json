@@ -37,8 +37,7 @@
     "cleanupLocale": "node cleanupLocale.js",
     "wasm": "wasm-pack build ./wasm_module --target web --release",
     "wasm-build-data": "tsx generateRustMappings.ts",
-    "wasmCheck": "cd wasm_module && cargo check",
-    "wasmCheckAll": "cd wasm_module && cargo check --all-targets"
+    "wasmCheck": "cd wasm_module && cargo check --all-targets"
   },
   "resolutions": {
     "eslint-plugin-jsx-a11y": "^6.5.1 <6.8.0"
