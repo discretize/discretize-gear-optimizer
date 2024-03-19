@@ -536,7 +536,7 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, unknown]
-          Outgoing Condition Damage: [10%, add] # unconfirmed
+          Outgoing Condition Damage: [5%, add] # unconfirmed
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, unknown]
