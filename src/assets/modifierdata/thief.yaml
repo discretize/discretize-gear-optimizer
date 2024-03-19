@@ -149,7 +149,7 @@
 
     - id: twin-fangs-scholar
       text: Twin Fangs
-      subText: 100% scholar (check both)
+      subText: high health (check both)
       modifiers:
         damage:
           Outgoing Critical Damage: [7%, unknown]
