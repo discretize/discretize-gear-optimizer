@@ -27,7 +27,7 @@
     "prettierCheck": "prettier --check . \"!**/*.{md,json,yaml,yml}\"",
     "eslint": "eslint --ignore-path .gitignore --max-warnings 0 . --ext .js,.jsx,.ts,.tsx",
     "typeCheck": "tsc --noEmit",
-    "checkAll": "concurrently -g -c auto pnpm:testData pnpm:validateDataTypes pnpm:eslint pnpm:prettierCheck pnpm:typeCheck",
+    "checkAll": "concurrently -g -c auto pnpm:testData pnpm:validateDataTypes pnpm:eslint pnpm:prettierCheck pnpm:typeCheck pnpm:wasmCheck",
     "updateMappings": "node updateMappings.js",
     "testData": "tsx ./src/assets/testData.js",
     "validateDataTypes": "typia generate --input ./src/assets/typevalidation/ --output ./src/assets/typevalidation/output && tsx ./src/assets/typevalidation/output",
