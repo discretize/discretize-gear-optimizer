@@ -426,7 +426,7 @@
       text: Aquamancer's Training
       modifiers:
         attributes:
-          Outgoing Healing: 15%
+          Outgoing Healing: 20%
       minor: true
       gw2id: 1676
       defaultEnabled: true
