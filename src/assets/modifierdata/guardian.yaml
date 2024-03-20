@@ -602,3 +602,15 @@
           Outgoing Strike Damage: [10%, mult] # as per Cat
       gw2id: 2201
       defaultEnabled: false
+
+    - id: deathless-courage
+      text: Deathless Courage
+      amountData:
+        label: '% uptime'
+        default: 0
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Damage Reduction: [50%, unknown]
+      gw2id: 2198
+      defaultEnabled: true

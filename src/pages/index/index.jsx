@@ -26,9 +26,9 @@ const IndexPage = () => {
 
   const ALERTS = [
     <Trans>
-      Core game changes are updated for the January 30th game patch, but preset coefficients and
-      trait selections may not yet be completely updated. Relics are a work in progress and many
-      templates are outdated.
+      Core game changes are updated for the March 19th game patch, but preset coefficients and trait
+      selections may not yet be completely updated. Most gear results will be correctly optimized,
+      but DPS estimates and comparisons may be wrong.
       <br />
       <br />
       Templates not marked as Outdated are up to date.

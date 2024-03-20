@@ -119,6 +119,25 @@
           Bleeding Coefficient: {Critical Chance: 100%}
       gw2id: 45717
 
+    - id: force-of-nature
+      text: Force of Nature
+      subText: Force of Nature
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add] #unconfirmed
+        attributes:
+          Outgoing Healing: 10%
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [25%, add] #unconfirmed
+        attributes:
+          Outgoing Healing: 25%
+
 - section: Marksmanship
   id: 8
   note: Farsighted currently breaks air and hydromancy sigil simulation, and possibly some other effects.
@@ -306,6 +325,16 @@
       gw2id: 1101
       defaultEnabled: true
 
+    - id: survival-instincts-high
+      text: Survival Instincts
+      subText: high health
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, unknown]
+          Damage Reduction: [10%, unknown]
+      gw2id: 2032
+      defaultEnabled: true
+
     - id: poison-master
       text: Poison Master
       modifiers:
@@ -401,6 +430,7 @@
           Outgoing Condition Damage: [10%, add] # unconfirmed
         attributes:
           Condition Duration: 10%
+          Concentration: [300, unknown]
       gw2id: 2056
       defaultEnabled: true
 

@@ -136,6 +136,7 @@
 
     - id: keen-observer
       text: Keen Observer
+      subText: high health
       minor: true
       modifiers:
         attributes:
@@ -148,7 +149,7 @@
 
     - id: twin-fangs-scholar
       text: Twin Fangs
-      subText: 100% scholar (check both)
+      subText: high health (check both)
       modifiers:
         damage:
           Outgoing Critical Damage: [7%, unknown]
@@ -309,12 +310,12 @@
     - id: havoc-specialist
       text: Havoc Specialist
       amountData:
-        label: 'missing bars'
-        default: 3
-        quantityEntered: 1
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [15%, unknown]
       gw2id: 1893
       defaultEnabled: true
 

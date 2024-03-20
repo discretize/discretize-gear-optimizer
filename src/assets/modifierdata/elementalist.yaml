@@ -94,6 +94,18 @@
           Outgoing Condition Damage: [5%, add] # unconfirmed
       gw2id: 71828
 
+    - id: arcane-power
+      text: Arcane Power
+      subText: ferocity only
+      amountData:
+        label: '% uptime'
+        default: 0
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Ferocity: [300, unknown]
+      gw2id: 5635
+
     # - id: flame-axe
     #   text: Flame Axe
     #   subText: when equipped
@@ -414,7 +426,7 @@
       text: Aquamancer's Training
       modifiers:
         attributes:
-          Outgoing Healing: 15%
+          Outgoing Healing: 20%
       minor: true
       gw2id: 1676
       defaultEnabled: true
@@ -435,8 +447,8 @@
       gw2id: 2004
       defaultEnabled: true
 
-    - id: elemental-surge
-      text: Elemental Surge
+    - id: arcane-lightning
+      text: Arcane Lightning
       amountData:
         label: '% uptime'
         default: 100
@@ -524,7 +536,7 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, unknown]
-          Outgoing Condition Damage: [10%, add] # unconfirmed
+          Outgoing Condition Damage: [5%, add] # unconfirmed
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, unknown]

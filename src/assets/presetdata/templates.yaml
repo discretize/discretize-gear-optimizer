@@ -773,7 +773,7 @@ list:
         raid:
           extras: Power (Raid, fireworks)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Hybrid Soulbeast LotP (Approx.)
         id: hslb
@@ -883,7 +883,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Alacrity Condi Renegade Invo
+      - name: Alacrity Condi Renegade Invo (Approx.)
         id: cren-alac-invo
         specialization: Renegade
         boonType: Condi
@@ -1028,7 +1028,7 @@ list:
         raid:
           extras: Power Holo (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Condi Holo (Approx.)
         id: cholo
@@ -1324,7 +1324,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Power Staff Daredevil
+      - name: Power Staff Daredevil (Approx.)
         id: staffdd
         specialization: Daredevil
         boonType: Power
@@ -1361,7 +1361,7 @@ list:
         raid:
           extras: Power Deadeye (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Power Deadeye Daggers BQoBK
         id: pded-daggers-bqobk
