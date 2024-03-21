@@ -30,9 +30,6 @@
     },
     "wasmCheck": {
       "inputs": ["wasm_module/**", "!wasm_module/pkg/**", "!wasm_module/target/**"]
-    },
-    "wasmCheckAll": {
-      "inputs": ["wasm_module/**", "!wasm_module/pkg/**", "!wasm_module/target/**"]
     }
   }
 }
