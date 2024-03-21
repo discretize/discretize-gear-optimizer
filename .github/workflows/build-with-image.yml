@@ -45,11 +45,8 @@ jobs:
         env: 
           PATH: /home/discretize/.cargo/bin/:/usr/local/bin:/usr/bin:/bin
 
-      # Cloudflare pages
-      - name: Build Cloudflare
-        run: pnpm build
-        env:
-          VITE_HAS_CF: true
+      - name: Build
+        run: pnpm build-all
 
       - name: Deploy to Cloudflare
         uses: cloudflare/pages-action@1
@@ -57,20 +54,16 @@ jobs:
           apiToken: ${{ secrets.CI_CF_PAGES }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           projectName: ${{ env.PAGES_PROJECT_NAME }}
-          directory: dist
+          directory: dist-cf
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           wranglerVersion: '3'
-
-      # Github Pages
-      - name: Build Github Pages
-        run: pnpm build --base /discretize-gear-optimizer/
 
       - name: Setup Github Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './dist-gh'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
