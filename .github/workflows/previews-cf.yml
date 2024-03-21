@@ -74,9 +74,7 @@ jobs:
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
 
       - name: Build Cloudflare
-        run: pnpm build
-        env:
-          VITE_HAS_CF: true
+        run: build-cf
 
       - name: Deploy preview to Cloudflare
         uses: cloudflare/pages-action@1

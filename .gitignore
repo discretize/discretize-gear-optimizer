@@ -139,6 +139,7 @@ misc/
 tmp/
 .yarn
 .wrangler
+dist-*
 
 src/.idea
 install.bat
