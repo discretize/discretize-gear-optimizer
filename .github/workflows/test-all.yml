@@ -49,7 +49,6 @@ jobs:
         uses: Swatinem/rust-cache@v2
         with:
           workspaces: wasm_module
-        if: steps.rust-output-cache.outputs.cache-hit != 'true'
       - name: Compile Rust
         run: pnpm wasm
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
@@ -68,3 +67,6 @@ jobs:
 
       - name: Typecheck with tsc
         run: pnpm typeCheck
+
+      - name: Check Rust with cargo
+        run: pnpm wasmCheck
