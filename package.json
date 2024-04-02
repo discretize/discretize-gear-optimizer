@@ -92,8 +92,8 @@
     "@types/node": "^20.12.2",
     "@types/react": "^18.2.73",
     "@types/react-dom": "^18.2.23",
-    "@typescript-eslint/eslint-plugin": "^7.4.0",
-    "@typescript-eslint/parser": "^7.4.0",
+    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/parser": "^7.5.0",
     "@vitejs/plugin-react": "^4.0.0",
     "babel-plugin-i18next-extract": "^0.10.0",
     "concurrently": "^8.2.2",
@@ -109,10 +109,10 @@
     "prettier": "^3.2.5",
     "tsx": "^4.7.1",
     "typescript": "^5.4.3",
-    "typia": "^5.5.7",
+    "typia": "^5.5.8",
     "vite": "^5.2.7",
     "vite-plugin-wasm": "^3.3.0",
     "wasm-pack": "^0.12.1",
-    "wrangler": "^3.41.0"
+    "wrangler": "^3.42.0"
   }
 }
