@@ -731,17 +731,16 @@ list:
         url: https://www.youtube.com/watch?v=v6AARzsY6iA
         log: https://dps.report/P7Qz-20231003-143924_golem
 
-  # Slightly higher log than video received from Cody
   - name: Power Holo ECSU
     profession: Holosmith
     value: >-
       {
-        "values2": { "Power": 3551, "Power2": 0, "Burning": 2.94, "Bleeding": 9.02, "Poisoned": 2.82, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3890, "Power2": 0, "Burning": 5.41, "Bleeding": 9.82, "Poisoned": 2.39, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Cody
-        url: https://www.youtube.com/watch?v=iKpNrLWJchU
-        log: https://dps.report/C8rh-20230112-212337_golem
+        url: https://www.youtube.com/watch?v=F6A09H0W0B4
+        log: https://dps.report/j9eE-20240324-171603_golem
 
   - name: Condi Holo
     profession: Holosmith
