@@ -118,7 +118,7 @@ const TemplateHelper = ({ character }) => {
           const nonConditionDataSection = nonConditionDataEntries.length
             ? [
                 '   -- lifesteal effects must be subtracted from power DPS! --',
-                '      (not automated; not all of these are lifesteal)',
+                '      (not all of these are lifesteal; double check this!)',
                 '\n',
                 [`Power DPS raw`, powerDPS],
                 ...nonConditionDataEntries,
@@ -243,7 +243,7 @@ const TemplateHelper = ({ character }) => {
             })
             .join('\n');
 
-          setInput({ Power: powerDPS, Power2: 0, ...conditionData });
+          setInput({ Power: powerDPSWithoutLifesteal, Power2: 0, ...conditionData });
           setUrlResult(resultAreaText);
         } catch (e) {
           console.error(e);
