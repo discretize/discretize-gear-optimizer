@@ -1014,7 +1014,7 @@ list:
         raid:
           extras: Power Holo (Raid)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Power Holo PBM
         id: pholo-pbm

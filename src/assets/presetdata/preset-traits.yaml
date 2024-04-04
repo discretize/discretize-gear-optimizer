@@ -4656,7 +4656,7 @@ list:
             },
             "incendiary-powder": {},
             "sharpshooter": {
-              "amount": "4.62"
+              "amount": "4.77"
             }
           },
           {
@@ -4664,7 +4664,7 @@ list:
               "amount": ""
             },
             "explosive-temper": {
-              "amount": ""
+              "amount": "9.181"
             },
             "blast-shield": {},
             "shaped-charge": {
@@ -4674,7 +4674,7 @@ list:
           },
           {
             "lasers-edge": {
-              "amount": "112"
+              "amount": "120"
             }
           }
         ]
