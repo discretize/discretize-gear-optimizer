@@ -17,8 +17,6 @@ updates:
       interval: weekly
     ignore:
       - dependency-name: eslint-plugin-jsx-a11y
-      - dependency-name: eslint
-        update-types: ["version-update:semver-major"]
     groups:
       npm-dependencies:
         patterns:
