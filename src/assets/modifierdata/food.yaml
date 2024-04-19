@@ -414,6 +414,7 @@
       amountData:
         label: 'proc/s'
         default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
         attributes:

@@ -62,7 +62,16 @@ export const extrasSlice = createSlice({
     changeExtraIds: (state, action: PayloadAction<{ type: ExtrasType; ids: string[] }>) => {
       const { type, ids } = action.payload;
       const previousState = original(state.extras[type])!;
-      state.extras[type] = Object.fromEntries(ids.map((key) => [key, previousState[key] || {}]));
+      state.extras[type] = Object.fromEntries(
+        ids.map((key) => {
+          const itemData = allExtrasModifiersById[key];
+          const defaultVal = itemData?.amountData
+            ? { amount: itemData?.amountData?.defaultInput ?? '' }
+            : {};
+
+          return [key, previousState[key] || defaultVal];
+        }),
+      );
     },
     changeExtraAmount: (
       state,

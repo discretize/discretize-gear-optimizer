@@ -113,6 +113,7 @@
       amountData:
         label: 'stacks'
         default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
         damage:

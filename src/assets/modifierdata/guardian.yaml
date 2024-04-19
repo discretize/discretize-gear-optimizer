@@ -608,6 +608,7 @@
       amountData:
         label: '% uptime'
         default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:

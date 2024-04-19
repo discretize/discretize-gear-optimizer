@@ -17,6 +17,7 @@
       amountData:
         label: '% uptime'
         default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
@@ -39,6 +40,7 @@
       amountData:
         label: '% uptime'
         default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
@@ -50,6 +52,7 @@
       amountData:
         label: '% uptime'
         default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
@@ -69,6 +72,7 @@
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
@@ -81,6 +85,7 @@
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
@@ -107,6 +112,7 @@
       amountData:
         label: '% uptime'
         default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
@@ -135,6 +141,7 @@
       amountData:
         label: '% uptime'
         default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
@@ -189,6 +196,7 @@
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
@@ -205,6 +213,7 @@
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
@@ -232,6 +241,7 @@
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
@@ -244,6 +254,7 @@
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
@@ -256,6 +267,7 @@
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
@@ -270,6 +282,7 @@
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
