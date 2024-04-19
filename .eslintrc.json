@@ -8,6 +8,7 @@
   "extends": [
     "airbnb/whitespace",
     "airbnb/hooks",
+    "plugin:react/jsx-runtime",
     "plugin:jsdoc/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/stylistic",
