@@ -90,6 +90,43 @@
           Power Coefficient: 776.8
       gw2id: 24597
 
+    - id: blood-sigil
+      text: Superior Sigil of Blood
+      amountData:
+        label: '/10s'
+        default: 1.9
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 451
+          Siphon Coefficient: 0.075
+      gw2id: 24570
+
+    - id: draining-sigil
+      text: Superior Sigil of Draining
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 1042
+          Siphon Coefficient: 0.075
+      gw2id: 70825
+
+    - id: leeching-sigil
+      text: Superior Sigil of Leeching
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 974
+      gw2id: 24599
+
 - section: Support Sigils
   items:
 
