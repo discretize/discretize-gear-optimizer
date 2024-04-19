@@ -242,7 +242,7 @@
       text: Blood Bond
       amountData:
         label: '/10s'
-        default: 0.6 # 16.7 second interval seems reasonable?
+        default: 0.75 # 13.3 second interval seems reasonable with alacrity?
         quantityEntered: 10
       modifiers:
         attributes:
