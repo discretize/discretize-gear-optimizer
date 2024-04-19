@@ -110,6 +110,7 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^3.2.5",
+    "rollup-preserve-directives": "^1.1.1",
     "tsx": "^4.7.2",
     "typescript": "^5.4.5",
     "typia": "^6.0.3",
