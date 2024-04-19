@@ -3,6 +3,7 @@
 
     - id: signet-of-spite
       text: Signet of Spite
+      subText: passive
       amountData:
         label: '% uptime'
         default: 100
@@ -10,16 +11,6 @@
       modifiers:
         attributes:
           Power: [180, buff]
-      gw2id: 10622
-
-    # additional 270 - 180 = 90 power while in shroud
-    - id: signet-of-spite-traited
-      text: Signet of Spite
-      subText: traited, 100%
-      modifiers:
-        attributes:
-          Power: [180, buff]
-          Alternative Power: [90, buff]
       gw2id: 10622
 
 - section: Spite
