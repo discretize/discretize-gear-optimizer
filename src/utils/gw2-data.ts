@@ -1203,7 +1203,14 @@ export const Classes = {
     health: Health.MEDIUM,
     defense: Defense.MEDIUM,
     weapons: {
-      mainHand: [WEAPONS.MACE, WEAPONS.PISTOL, WEAPONS.SWORD, WEAPONS.RIFLE, WEAPONS.HAMMER, WEAPONS.SHORTBOW],
+      mainHand: [
+        WEAPONS.MACE,
+        WEAPONS.PISTOL,
+        WEAPONS.SWORD,
+        WEAPONS.RIFLE,
+        WEAPONS.HAMMER,
+        WEAPONS.SHORTBOW,
+      ],
       offHand: [WEAPONS.PISTOL, WEAPONS.SHIELD],
     },
   },
@@ -1280,7 +1287,14 @@ export const Classes = {
     health: Health.LOW,
     defense: Defense.LIGHT,
     weapons: {
-      mainHand: [WEAPONS.DAGGER, WEAPONS.HAMMER, WEAPONS.SWORD, WEAPONS.SCEPTER, WEAPONS.STAFF, WEAPONS.PISTOL],
+      mainHand: [
+        WEAPONS.DAGGER,
+        WEAPONS.HAMMER,
+        WEAPONS.SWORD,
+        WEAPONS.SCEPTER,
+        WEAPONS.STAFF,
+        WEAPONS.PISTOL,
+      ],
       offHand: [WEAPONS.FOCUS, WEAPONS.DAGGER, WEAPONS.WARHORN],
     },
   },
