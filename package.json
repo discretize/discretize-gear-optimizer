@@ -109,7 +109,7 @@
     "prettier": "^3.2.5",
     "tsx": "^4.7.2",
     "typescript": "^5.4.5",
-    "typia": "^5.5.10",
+    "typia": "^6.0.3",
     "vite": "^5.2.10",
     "vite-plugin-wasm": "^3.3.0",
     "wasm-pack": "^0.12.1",

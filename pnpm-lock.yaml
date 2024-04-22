@@ -200,8 +200,8 @@ devDependencies:
     specifier: ^5.4.5
     version: 5.4.5
   typia:
-    specifier: ^5.5.10
-    version: 5.5.10(typescript@5.4.5)
+    specifier: ^6.0.3
+    version: 6.0.3(typescript@5.4.5)
   vite:
     specifier: ^5.2.10
     version: 5.2.10(@types/node@20.12.7)
@@ -2099,6 +2099,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@samchon/openapi@0.1.19:
+    resolution: {integrity: sha512-DNKgasPNtsIgIQXVpCAhfnWKigwk/NmiVkIevVyiJOXJhnqiGLP4vfcmSsomdswISSqDxJMOjyqwsV/mbWEy2w==}
+    dev: true
 
   /@total-typescript/ts-reset@0.5.1:
     resolution: {integrity: sha512-AqlrT8YA1o7Ff5wPfMOL0pvL+1X+sw60NN6CcOCqs658emD6RfiXhF7Gu9QcfKBH7ELY2nInLhKSCWVoNL70MQ==}
@@ -5810,12 +5814,13 @@ packages:
     hasBin: true
     dev: true
 
-  /typia@5.5.10(typescript@5.4.5):
-    resolution: {integrity: sha512-IhSzSNW/CrFmrP9cgBMFj6oEJpDD9+mXSepaJu/E0/5mOUkH+riXsZSM6BjaMtBRtlhYeYyTRSyToL7XxZlueg==}
+  /typia@6.0.3(typescript@5.4.5):
+    resolution: {integrity: sha512-Yq69N1EbVcU3kXxeEQEdl9J9mhWRJLfGiKBl9e2zLCIVfzYt/WVjEidlpy1BAPybfOTuIZ+jFtsooZ4FQNJffw==}
     hasBin: true
     peerDependencies:
       typescript: '>=4.8.0 <5.5.0'
     dependencies:
+      '@samchon/openapi': 0.1.19
       commander: 10.0.1
       comment-json: 4.2.3
       inquirer: 8.2.6
