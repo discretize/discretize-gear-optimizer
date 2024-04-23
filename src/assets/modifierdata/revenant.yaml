@@ -315,7 +315,6 @@
 
 - section: Devastation
   id: 15
-  note: Battle scars is not currently simulated.
   items:
 
     - id: unsuspecting-strikes
@@ -456,7 +455,6 @@
 
 - section: Herald
   id: 52
-  note: Shiro lifesteal is not currently simulated separately.
   items:
 
     - id: draconic-fortitude
