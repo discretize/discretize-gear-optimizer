@@ -13,6 +13,49 @@
           Power: [180, buff]
       gw2id: 10622
 
+    - id: signet-of-vampirism
+      text: Signet of Vampirism
+      subText: passive
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 151
+          Siphon Coefficient: 0.022
+      gw2id: 21762
+
+    - id: locust-swarm
+      text: Locust Swarm
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 1170
+          Siphon Coefficient: 0.8
+      gw2id: 10557
+
+    - id: soul-grasp
+      text: Soul Grasp
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 660
+          Siphon Coefficient: 2
+      wvwModifiers:
+        attributes:
+          Siphon Base Coefficient: 248
+          Siphon Coefficient: 0.75
+      gw2id: 55050
+
 - section: Spite
   id: 53
   items:
@@ -41,6 +84,24 @@
           Condition Damage: [-250, buff]
       gw2id: 829
       defaultEnabled: true
+
+    # - id: signets-of-suffering
+    #   text: Signets of Suffering
+    #   amountData:
+    #     label: 'proc/s'
+    #     default: 0
+    #     defaultInput: ???
+    #     quantityEntered: 1
+    #   modifiers:
+    #     attributes:
+    #       Siphon Base Coefficient: ???
+    #       Siphon Coefficient: ???
+    #   wvwModifiers:
+    #     attributes:
+    #       Siphon Base Coefficient: ???
+    #       Siphon Coefficient: ???
+    #   gw2id: 909
+    #   defaultEnabled: true
 
     - id: close-to-death
       text: Close to Death
@@ -175,12 +236,73 @@
 - section: Blood Magic
   id: 19
   items:
+
+    # includes the value of all 5 vampiric mark stacks
+    - id: blood-bond
+      text: Blood Bond
+      amountData:
+        label: '/10s'
+        default: 0.75 # 13.3 second interval seems reasonable with alacrity?
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 1235
+          Siphon Coefficient: 0.42
+      gw2id: 1876
+      defaultEnabled: true
+
+    - id: vampiric
+      text: Vampiric
+      subText: self only
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 38
+          Siphon Coefficient: 0.003
+      gw2id: 783
+      minor: true
+      defaultEnabled: true
+
     - id: life-from-death
       text: Life from Death
       modifiers:
         attributes:
           Outgoing Healing: 10%
       gw2id: 789
+      defaultEnabled: true
+
+    - id: vampiric-presence
+      text: Vampiric Presence
+      subText: not in shroud
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 65
+          Siphon Coefficient: 0.0333
+      gw2id: 1844
+      defaultEnabled: true
+
+    - id: vampiric-presence-shroud
+      text: Vampiric Presence
+      subText: in shroud
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 129
+          Siphon Coefficient: 0.0666
+      gw2id: 1844
       defaultEnabled: true
 
 - section: Soul Reaping
@@ -366,6 +488,36 @@
 - section: Reaper
   id: 34
   items:
+
+    - id: augury-of-death
+      text: Augury of Death
+      subText: melee
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 344
+          Siphon Coefficient: 0.025
+      gw2id: 1974
+      defaultEnabled: true
+
+    - id: augury-of-death-ranged
+      text: Augury of Death
+      subText: not melee
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 172
+          Siphon Coefficient: 0.0125
+      gw2id: 1974
+      defaultEnabled: true
 
     - id: soul-eater
       text: Soul Eater

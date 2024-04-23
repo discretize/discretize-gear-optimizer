@@ -335,6 +335,24 @@
       gw2id: 2032
       defaultEnabled: true
 
+    - id: carnivore
+      text: Carnivore
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 3255
+          Siphon Coefficient: 0.05
+      wvwModifiers:
+        attributes:
+          Siphon Base Coefficient: 586
+          Siphon Coefficient: 0.05
+      gw2id: 1094
+      defaultEnabled: true
+
     - id: poison-master
       text: Poison Master
       modifiers:
@@ -454,6 +472,20 @@
           Outgoing Strike Damage: [7%, add]
       minor: true
       gw2id: 2156
+      defaultEnabled: true
+
+    - id: predators-cunning
+      text: Predator's Cunning
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 170
+          Siphon Coefficient: 0.006
+      gw2id: 2161
       defaultEnabled: true
 
     - id: twice-as-vicious

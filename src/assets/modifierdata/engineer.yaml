@@ -378,5 +378,5 @@
   # see: https://wiki.guildwars2.com/wiki/Game_updates/2023-02-14#Mechanist
 - section: Mechanist
   id: 70
-  note: Damage dealt by the mechanist mech is not currently simulated accurately. It should inherit some, but not all, player stats and bonuses.
+  note: Damage dealt by the mechanist mech is not currently simulated accurately. It inherits some, but not all, player stats and bonuses.
   items: []

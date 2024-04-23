@@ -100,6 +100,7 @@ pub enum Attribute {
     PhantasmCriticalChance,
     PhantasmCriticalDamage,
     PhantasmEffectivePower,
+    SiphonCoefficient,
     SiphonBaseCoefficient,
     SiphonDPS,
 
@@ -236,6 +237,7 @@ impl Attribute {
             Attribute::CloneCriticalChance => "Clone Critical Chance",
             Attribute::PhantasmCriticalChance => "Phantasm Critical Chance",
             Attribute::PhantasmCriticalDamage => "Phantasm Critical Damage",
+            Attribute::SiphonCoefficient => "Siphon Coefficient",
             Attribute::SiphonBaseCoefficient => "Siphon Base Coefficient",
             Attribute::SiphonDPS => "Siphon DPS",
             Attribute::MaxHealth => "Max Health",

@@ -501,7 +501,8 @@ pub fn calc_power(
         attributes.set_a(Attribute::Power2DPS, 0.0);
     }
 
-    let siphon_damage = attributes.get_a(Attribute::SiphonBaseCoefficient)
+    let siphon_damage = (attributes.get_a(Attribute::SiphonBaseCoefficient)
+        + attributes.get_a(Attribute::SiphonCoefficient) * attributes.get_a(Attribute::Power))
         * mods.get_dmg_multiplier(Attribute::OutgoingSiphonDamage);
 
     attributes.set_a(Attribute::SiphonDPS, siphon_damage);

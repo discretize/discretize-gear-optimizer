@@ -747,6 +747,7 @@ export function createSettingsPerCombination(
           case 'Outgoing Torment Damage':
           case 'Outgoing Alternative Damage':
           case 'Outgoing Phantasm Damage':
+          case 'Outgoing Siphon Damage':
             dmgBuff(attribute, scaledAmount, addOrMult);
             break;
           case 'Outgoing All Damage':

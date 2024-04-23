@@ -95,6 +95,7 @@ const coefficients = [
   'Power2 Coefficient',
   ...conditionCoefficients,
   'Flat DPS',
+  'Siphon Coefficient',
   'Siphon Base Coefficient',
 ] as const;
 
@@ -110,6 +111,7 @@ export const allDamageKeys = [
   'Outgoing Alternative Critical Damage',
   'Outgoing Phantasm Damage',
   'Outgoing Phantasm Critical Damage',
+  'Outgoing Siphon Damage',
 ] as const;
 export type DamageKey = (typeof allDamageKeys)[number];
 
