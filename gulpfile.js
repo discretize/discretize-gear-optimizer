@@ -60,7 +60,7 @@ var src = {
 /* ==================================================
    Plugins
 ================================================== */
-var runSequence = require('run-sequence');
+// var runSequence = require('run-sequence');
 
 var gulp = require('gulp');
 const { series, parallel } = require('gulp');
@@ -69,14 +69,14 @@ const del = require('del');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 
-var imagemin = require('gulp-imagemin');
+// var imagemin = require('gulp-imagemin');
 // var htmlmin = require('gulp-htmlmin');
 var babel = require('gulp-babel');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass')(require('sass'));
 
 var postcss = require('gulp-postcss');
-var autoprefixer = require('autoprefixer');
+// var autoprefixer = require('autoprefixer');
 var flexbugsfixes = require('postcss-flexbugs-fixes');
 var cssnano = require('cssnano');
 
