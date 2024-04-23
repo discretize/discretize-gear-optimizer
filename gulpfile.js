@@ -70,7 +70,7 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 
 var imagemin = require('gulp-imagemin');
-var htmlmin = require('gulp-htmlmin');
+// var htmlmin = require('gulp-htmlmin');
 var babel = require('gulp-babel');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass')(require('sass'));
@@ -254,23 +254,23 @@ const html = function () {
 		.pipe(replace(/<a\s+?data-(boon|condition|control|misc)>(.+?)<\/a>/g, function(match, p1, p2, offset, string) {
 			return '<a class=\"text-' + p1 + '\" href=\"' + gw2wikihost + encodeURIComponent(p2) + '\" target= \"_blank\" rel=\"external\"><span class=\"icon icon-' + p2.toLowerCase() + '\"></span> ' + p2 + '</a>';
 		}))
-		.pipe(htmlmin({
-			collapseBooleanAttributes: true,
-			collapseWhitespace: true,
-			decodeEntities: true,
-			minifyCSS: true,
-			minifyJS: true,
-			processConditionalComments: true,
-			removeAttributeQuotes: true,
-			removeComments: true,
-			removeEmptyAttributes: true,
-			removeOptionalTags: true,
-			removeRedundantAttributes: true,
-			removeScriptTypeAttributes: true,
-			removeStyleLinkTypeAttributes: true,
-			trimCustomFragments: true,
-			useShortDoctype: true
-		}))
+		// .pipe(htmlmin({
+		// 	collapseBooleanAttributes: true,
+		// 	collapseWhitespace: true,
+		// 	decodeEntities: true,
+		// 	minifyCSS: true,
+		// 	minifyJS: true,
+		// 	processConditionalComments: true,
+		// 	removeAttributeQuotes: true,
+		// 	removeComments: true,
+		// 	removeEmptyAttributes: true,
+		// 	removeOptionalTags: true,
+		// 	removeRedundantAttributes: true,
+		// 	removeScriptTypeAttributes: true,
+		// 	removeStyleLinkTypeAttributes: true,
+		// 	trimCustomFragments: true,
+		// 	useShortDoctype: true
+		// }))
 			.on('error', swallowError)
 		.pipe(gulp.dest(base.dist));
 };
