@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { PayloadAction, createSelector, createSlice, original } from '@reduxjs/toolkit';
-import { OptimizerStatus, RUNNING, WAITING } from '../optimizer/status';
-import type { RootState } from '../store';
-import { Character } from '../optimizer/optimizerCore';
 import {
   IndicatorName,
   ProfessionName,
   ProfessionOrSpecializationName,
 } from '../../utils/gw2-data';
+import { Character } from '../optimizer/optimizerCore';
+import { OptimizerStatus, RUNNING, WAITING } from '../optimizer/status';
+import type { RootState } from '../store';
 
 const roundThree = (num: number) => Math.round(num * 1000) / 1000;
 

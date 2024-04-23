@@ -28,10 +28,10 @@ import {
   allConversionSourceKeys,
   allDamageKeys,
   allDamageModes,
+  alternateStats,
   attributePercentKeysBlacklist,
   attributePointKeysBlacklist,
   damageKeysBlacklist,
-  alternateStats,
 } from './modifierdata/metadata';
 
 // causes the script to fail if condition is false, but does not stop execution

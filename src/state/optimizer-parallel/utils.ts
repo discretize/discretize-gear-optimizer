@@ -11,8 +11,8 @@ import {
   Indicators,
   PrimaryAttributes,
   SecondaryAttributes,
-  WeaponTypes,
   WeaponHandednessType,
+  WeaponTypes,
   damagingConditions,
 } from '../../utils/gw2-data';
 import { objectKeys } from '../../utils/usefulFunctions';

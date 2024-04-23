@@ -20,8 +20,8 @@ import {
   changeConstraint,
   changeOptimizeFor,
   changeWeaponType,
-  getOptimizeFor,
   getConstraint,
+  getOptimizeFor,
   getWeaponType,
 } from '../../../state/slices/priorities';
 import { WeaponTypes } from '../../../utils/gw2-data';

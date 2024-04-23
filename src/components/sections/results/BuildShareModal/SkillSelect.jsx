@@ -1,7 +1,6 @@
 import { Skill } from '@discretize/gw2-ui-new';
 import { NoSelection } from '@discretize/react-discretize-components';
 import { MenuItem, Select } from '@mui/material';
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { changeSkill } from '../../../../state/slices/buildPage';

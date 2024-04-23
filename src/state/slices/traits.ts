@@ -5,10 +5,10 @@ import {
   traitSectionsById,
 } from '../../assets/modifierdata';
 import { SPECIALIZATIONS } from '../../utils/gw2-data';
-import { changeAll, changeProfession, getProfession, setBuildTemplate } from './controlsSlice';
+import { enumArrayIncludes } from '../../utils/usefulFunctions';
 import type { AppliedModifier } from '../optimizer/optimizerSetup';
 import type { RootState } from '../store';
-import { enumArrayIncludes } from '../../utils/usefulFunctions';
+import { changeAll, changeProfession, getProfession, setBuildTemplate } from './controlsSlice';
 
 interface TraitValue {
   amount?: string;

@@ -1,7 +1,7 @@
 import { Profession } from '@discretize/gw2-ui-new';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { Link } from '@mui/material';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import creditData from '../assets/presetdata/credit.yaml';

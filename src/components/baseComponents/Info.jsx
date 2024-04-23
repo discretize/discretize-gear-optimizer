@@ -1,5 +1,4 @@
 import { Box, Paper, Typography } from '@mui/material';
-import React from 'react';
 
 export default function Info({ children, direction = 'row', variant = 'caption', icon }) {
   return (

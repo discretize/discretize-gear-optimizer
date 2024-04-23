@@ -7,8 +7,10 @@ import {
   changeSelectedCharacter,
   changeStatus,
 } from '../../slices/controlsSlice';
+import type { AppDispatch, RootState } from '../../store';
 import type { WorkerWrapper } from '../calculate';
 import { Combination, ResultData, Settings } from '../optimizerSetup';
+import { enhanceResults, getResultProperties } from '../results';
 import { getLayerCombinations, getLayerNumber } from '../tree';
 import { getTotalCombinations, splitCombinations } from '../utils';
 import {
@@ -19,8 +21,6 @@ import {
   isFinishMessage,
   isProgressMessage,
 } from '../worker/workerMessageTypes';
-import { enhanceResults, getResultProperties } from '../results';
-import type { AppDispatch, RootState } from '../../store';
 
 const PROGRESS_UPDATE_INTERVALL = 2000000;
 let currentProgress = 0;

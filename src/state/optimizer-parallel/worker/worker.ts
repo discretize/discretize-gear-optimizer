@@ -6,6 +6,7 @@ import init, {
 } from '../../../../wasm_module/pkg'; // eslint-disable-line
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { AffixName } from '../../../utils/gw2-data';
+import { objectEntries } from '../../../utils/usefulFunctions';
 import type { AppliedModifier, ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import {
   allowedDuplicateSigils,
@@ -14,23 +15,22 @@ import {
   lifestealData,
   type ExtrasCombination,
 } from '../../slices/extras';
+import { RootState } from '../../store';
 import { Combination, Settings, createCombination } from '../optimizerSetup';
+import { ResultProperties, enhanceResults } from '../results';
 import { descendSubtreeDFS } from '../tree';
 import { combinationsToWorkerString, getAffixId, settingsToWorkerString } from '../utils';
 import {
   ERROR,
+  ErrorMessage,
   FINISHED,
   FINISHED_HEURISTICS,
+  FinishedHeuristicsMessage,
+  FinishedMessage,
   MessageType,
   isStartHeuristicsMessage,
   isStartMessage,
-  FinishedMessage,
-  ErrorMessage,
-  FinishedHeuristicsMessage,
 } from './workerMessageTypes';
-import { ResultProperties, enhanceResults } from '../results';
-import { objectEntries } from '../../../utils/usefulFunctions';
-import { RootState } from '../../store';
 
 onmessage = (e: MessageEvent<MessageType>) => {
   console.log('worker received message', e.data);

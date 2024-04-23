@@ -1,10 +1,10 @@
 import { PayloadAction, createSelector, createSlice } from '@reduxjs/toolkit';
 import { InfusionName, agonyInfusionIds, omnipotionModifiers } from '../../utils/gw2-data';
 import { parseAmount, parseAr, parseInfusionCount } from '../../utils/usefulFunctions';
+import type { AppliedModifier } from '../optimizer/optimizerSetup';
 import type { RootState } from '../store';
 import { changeAll } from './controlsSlice';
 import { changeGameMode, loadedSettings } from './userSettings';
-import type { AppliedModifier } from '../optimizer/optimizerSetup';
 
 const isFractal = loadedSettings.gameMode === 'fractals';
 

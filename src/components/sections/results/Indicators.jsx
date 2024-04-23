@@ -1,5 +1,4 @@
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
-import React from 'react';
 import { Trans } from 'react-i18next';
 
 const AffixesStats = ({ data }) => {

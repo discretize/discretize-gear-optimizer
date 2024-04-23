@@ -1,6 +1,5 @@
 import { Attribute } from '@discretize/gw2-ui-new';
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
-import React from 'react';
 
 const EffectiveGainLoss = ({ data, title }) => {
   return (

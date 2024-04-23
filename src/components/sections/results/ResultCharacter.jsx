@@ -1,5 +1,4 @@
 import { Character, firstUppercase } from '@discretize/react-discretize-components';
-import React from 'react';
 import { FormControlLabel, Switch } from '@mui/material';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { Classes, INFUSION_IDS, WeaponTypes, getWeight } from '../../../utils/gw2-data';

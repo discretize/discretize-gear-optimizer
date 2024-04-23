@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { changeAll } from './controlsSlice';
 import { AffixName } from '../../utils/gw2-data';
 import type { RootState } from '../store';
+import { changeAll } from './controlsSlice';
 
 const initialState = {
   slots: Array(14).fill(null) as (AffixName | null)[],

@@ -6,10 +6,10 @@ import {
   changeStatus,
   getHeuristics,
 } from '../slices/controlsSlice';
+import type { AppDispatch, RootState } from '../store';
 import runCalcHeuristics from './modes/heuristics';
 import runCalcNormal from './modes/normal';
 import { createSettings, setupNormal } from './optimizerSetup';
-import type { AppDispatch, RootState } from '../store';
 
 export interface WorkerWrapper {
   status: 'created' | 'running' | 'stopped' | 'finished' | 'error' | 'finished_heuristics';

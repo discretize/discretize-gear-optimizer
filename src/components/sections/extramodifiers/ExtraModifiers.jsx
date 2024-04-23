@@ -8,7 +8,6 @@ import {
   Typography,
 } from '@mui/material';
 import yaml from 'js-yaml';
-import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { exampleModifiers, exampleModifiersJson } from '../../../assets/modifierdata/metadata';
