@@ -1,5 +1,4 @@
 import { Alert, Snackbar } from '@mui/material';
-import React from 'react';
 
 export default function URLStateSnackbar({ state, setState }) {
   return (

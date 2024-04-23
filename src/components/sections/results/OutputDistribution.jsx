@@ -1,6 +1,5 @@
 import { Attribute, Condition } from '@discretize/gw2-ui-new';
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
 import { damagingConditions } from '../../../utils/gw2-data';

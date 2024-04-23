@@ -1,7 +1,6 @@
 import { HelperIcon } from '@discretize/react-discretize-components';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import { Box, Stack, Typography } from '@mui/material';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import {

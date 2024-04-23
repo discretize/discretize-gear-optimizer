@@ -14,7 +14,7 @@ import type {
   ProfessionName,
   WeaponHandednessType,
 } from '../../utils/gw2-data';
-import { Attributes, conditionData, conditionDataWvW, INFUSION_BONUS } from '../../utils/gw2-data';
+import { Attributes, INFUSION_BONUS, conditionData, conditionDataWvW } from '../../utils/gw2-data';
 import { enumArrayIncludes, objectKeys } from '../../utils/usefulFunctions';
 import type { ExtrasCombination, ShouldDisplayExtras } from '../slices/extras';
 import type { GameMode } from '../slices/userSettings';

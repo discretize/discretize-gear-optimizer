@@ -7,18 +7,17 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import { getForcedSlots } from '../../../state/slices/forcedSlots';
 import {
-  changeExotic,
   changeAllExotic,
-  getUsedExoticsData,
-  getExclusionData,
+  changeExotic,
   getAffixes,
+  getExclusionData,
+  getUsedExoticsData,
   getWeaponType,
 } from '../../../state/slices/priorities';
-import { getForcedSlots } from '../../../state/slices/forcedSlots';
 import { GEAR_SLOTS, WeaponTypes } from '../../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({

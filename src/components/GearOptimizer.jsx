@@ -1,6 +1,5 @@
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { Box, Grid, Typography } from '@mui/material';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getProfession } from '../state/slices/controlsSlice';

@@ -1,3 +1,4 @@
+import type { AppDispatch, RootState } from '../../store';
 import type { WorkerWrapper } from '../calculate';
 import { Combination, ResultData, Settings } from '../optimizerSetup';
 import { getLayerCombinations, getLayerNumber } from '../tree';
@@ -8,7 +9,6 @@ import {
   isFinishHeuristicsMessage,
 } from '../worker/workerMessageTypes';
 import runCalcNormal from './normal';
-import type { AppDispatch, RootState } from '../../store';
 
 export default function runCalcHeuristics(
   reduxState: RootState,

@@ -1,5 +1,4 @@
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
-import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 const LANGUAGES = [

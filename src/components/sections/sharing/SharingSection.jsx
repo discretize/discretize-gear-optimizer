@@ -1,7 +1,6 @@
 import ShareIcon from '@mui/icons-material/Share';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import { IconButton, Typography } from '@mui/material';
-import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';

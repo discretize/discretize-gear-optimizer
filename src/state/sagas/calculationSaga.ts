@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { call, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga';
 import { calculate } from '../optimizer/optimizer';
+import type { Character } from '../optimizer/optimizerCore';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
 import {
   changeError,
@@ -13,9 +14,8 @@ import {
   getStatus,
   updateResults,
 } from '../slices/controlsSlice';
-import SagaTypes from './sagaTypes';
 import type { RootState } from '../store';
-import type { Character } from '../optimizer/optimizerCore';
+import SagaTypes from './sagaTypes';
 
 const delay = (ms: number) =>
   new Promise((resolve) => {

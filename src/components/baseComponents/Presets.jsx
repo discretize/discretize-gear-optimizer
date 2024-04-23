@@ -1,7 +1,6 @@
 import { Profession } from '@discretize/gw2-ui-new';
 import { Box, Chip, TextField, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getProfession, getSelectedTemplate } from '../../state/slices/controlsSlice';

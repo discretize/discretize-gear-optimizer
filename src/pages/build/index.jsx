@@ -3,7 +3,6 @@ import { APILanguageProvider } from '@discretize/gw2-ui-new';
 import { Box, Chip, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import React from 'react';
 import BuildPage from '../../components/BuildPage';
 import BackgroundImage from '../../components/baseComponents/BackgroundImage';
 import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
