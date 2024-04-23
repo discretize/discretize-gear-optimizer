@@ -206,7 +206,58 @@
 
 - section: Shadow Arts
   id: 20
-  items: []
+  items:
+
+    - id: leeching-venoms
+      text: Leeching Venoms
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 320
+          Siphon Coefficient: 0.033
+      wvwModifiers:
+        attributes:
+          Siphon Base Coefficient: 160
+          Siphon Coefficient: 0.0165
+      gw2id: 1130
+      defaultEnabled: true
+
+    - id: cloaked-in-shadow
+      text: Cloaked in Shadow
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 130
+          Siphon Coefficient: 0.04
+      gw2id: 1300
+      defaultEnabled: true
+
+    - id: shadow-siphoning
+      text: Shadow Siphoning
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 412
+          Siphon Coefficient: 0.01
+      wvwModifiers:
+        attributes:
+          Siphon Base Coefficient: 288
+          Siphon Coefficient: 0.07
+      minor: true
+      gw2id: 1705
+      defaultEnabled: true
 
 - section: Acrobatics
   id: 54
@@ -463,6 +514,20 @@
         attributes:
           Outgoing Healing: 10%
       gw2id: 2272
+      defaultEnabled: true
+
+    - id: larcenous-torment
+      text: Larcenous Torment
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 99
+          Siphon Coefficient: 0.005
+      gw2id: 2290
       defaultEnabled: true
 
     - id: strength-of-shadows-base

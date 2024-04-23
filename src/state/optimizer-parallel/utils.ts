@@ -55,6 +55,7 @@ const attributes = [
   'Phantasm Critical Chance',
   'Phantasm Critical Damage',
   'Phantasm Effective Power',
+  'Siphon Coefficient',
   'Siphon Base Coefficient',
   'Siphon DPS',
 

@@ -270,6 +270,9 @@ export const sigilDict = [
   'fire-sigil',
   'earth-torment-harb',
   'air-earth-cwb',
+  'blood-sigil',
+  'draining-sigil',
+  'leeching-sigil',
 ];
 
 export const enhancementDict = [

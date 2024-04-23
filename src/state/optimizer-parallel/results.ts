@@ -131,11 +131,11 @@ export function enhanceResults(
         character.results.effectiveNegativeValues,
       ),
       damageBreakdown: convAttr(
-        ['Power', 'Power2', 'Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'],
+        ['Power', 'Power2', 'Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment', 'Siphon'],
         character.results.damageBreakdown,
       ),
       effectiveDamageDistribution: convAttr(
-        ['Power', 'Power2', 'Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'],
+        ['Power', 'Power2', 'Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment', 'Siphon'],
         character.results.effectiveDamageDistribution,
       ),
       indicators,

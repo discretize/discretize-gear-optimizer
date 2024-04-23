@@ -74,8 +74,8 @@ impl ResultCharacter {
                         intercept: 0.0,
                     },
                 },
-                damageBreakdown: [0.0; 7],
-                effectiveDamageDistribution: [0.0; 7],
+                damageBreakdown: [0.0; 8],
+                effectiveDamageDistribution: [0.0; 8],
                 effectiveNegativeValues: [0.0; 5],
                 effectivePositiveValues: [0.0; 5],
             },
@@ -85,8 +85,8 @@ impl ResultCharacter {
 #[derive(Debug, Clone, Copy, Serialize)]
 pub struct Results {
     pub coefficientHelper: CoefficientHelper,
-    pub damageBreakdown: [f32; 7],
-    pub effectiveDamageDistribution: [f32; 7],
+    pub damageBreakdown: [f32; 8],
+    pub effectiveDamageDistribution: [f32; 8],
     pub effectiveNegativeValues: [f32; 5],
     pub effectivePositiveValues: [f32; 5],
     pub value: f32,
@@ -158,6 +158,7 @@ impl ResultCharacter {
             Attribute::ConfusionDPS,
             Attribute::PoisonDPS,
             Attribute::TormentDPS,
+            Attribute::SiphonDPS,
         ]
         .iter()
         .enumerate()

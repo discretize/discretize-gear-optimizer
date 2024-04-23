@@ -796,7 +796,9 @@ export class OptimizerCore {
     }
 
     const siphonDamage =
-      (attributes['Siphon Base Coefficient'] || 0) * damageMultiplier['Outgoing Siphon Damage'];
+      ((attributes['Siphon Base Coefficient'] || 0) +
+        (attributes['Siphon Coefficient'] || 0) * attributes['Power']) *
+      damageMultiplier['Outgoing Siphon Damage'];
     attributes['Siphon DPS'] = siphonDamage;
 
     return powerDamage + siphonDamage;
@@ -925,7 +927,7 @@ export class OptimizerCore {
 
     // effective damage distribution
     results.effectiveDamageDistribution = {};
-    for (const key of Object.keys(settings.distribution)) {
+    for (const key of [...Object.keys(settings.distribution), 'Siphon']) {
       if (attributes[`${key} DPS`] === undefined) continue;
 
       const damage = attributes[`${key} DPS`] / attributes['Damage'];
@@ -934,7 +936,7 @@ export class OptimizerCore {
 
     // damage indicator breakdown
     results.damageBreakdown = {};
-    for (const key of Object.keys(settings.distribution)) {
+    for (const key of [...Object.keys(settings.distribution), 'Siphon']) {
       if (attributes[`${key} DPS`] === undefined) continue;
 
       results.damageBreakdown[`${key}`] = attributes[`${key} DPS`];
