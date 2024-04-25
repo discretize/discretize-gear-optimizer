@@ -16,8 +16,8 @@ import {
 import type { RootState } from '../store';
 import SagaTypes from './sagaTypes';
 
-const resultGenerator = new ComlinkWorker<typeof import('../optimizer/worker')>(
-  new URL('../optimizer/worker.ts', import.meta.url),
+const worker = new ComlinkWorker<typeof import('../optimizer/optimizer')>(
+  new URL('../optimizer/optimizer.ts', import.meta.url),
   {
     type: 'module',
   },
@@ -46,9 +46,9 @@ function* runCalc() {
     let elapsed = 0;
     let timer = performance.now();
 
-    yield resultGenerator.setup(reduxState);
+    yield worker.setup(reduxState);
 
-    let nextPromise = resultGenerator.next();
+    let nextPromise = worker.next();
 
     while (true) {
       // eslint-disable-next-line no-loop-func
@@ -69,7 +69,7 @@ function* runCalc() {
 
       if (!result.done) {
         // concurrency: send next request to worker thread before rendering current on main thread
-        nextPromise = resultGenerator.next();
+        nextPromise = worker.next();
       }
 
       yield* put(

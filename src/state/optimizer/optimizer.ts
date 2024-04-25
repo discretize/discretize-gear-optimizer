@@ -37,8 +37,7 @@ type Result =
       extraFilteredLists: undefined;
     };
 
-// eslint-disable-next-line import/prefer-default-export
-export function* calculate(reduxState: RootState) {
+function* calculate(reduxState: RootState) {
   /**
    * set up input
    */
@@ -163,3 +162,10 @@ export function* calculate(reduxState: RootState) {
     }
   }
 }
+
+let generator: ReturnType<typeof calculate>;
+
+export const setup = (reduxState: RootState) => {
+  generator = calculate(reduxState);
+};
+export const next = () => generator.next();
