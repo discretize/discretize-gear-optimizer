@@ -1,5 +1,6 @@
 import { RUNNING } from '../optimizer/status';
 import {
+  changeFilteredList,
   changeList,
   changeProgress,
   changeSelectedCharacter,
@@ -24,6 +25,7 @@ export default function calculate(reduxState: RootState, dispatch: AppDispatch):
 
   dispatch(changeStatus(RUNNING));
   dispatch(changeList([]));
+  dispatch(changeFilteredList([]));
   dispatch(changeProgress(0));
   dispatch(changeSelectedCharacter(null));
 
