@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import { freeze } from '@reduxjs/toolkit';
 import { call, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga';
 import type { Character } from '../optimizer/optimizerCore';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
@@ -63,6 +64,9 @@ function* runCalc() {
       currentPercent = percent;
 
       if (isChanged) {
+        // shallow freeze as a performance optimization; immer freezes recursively instead by default
+        freeze(list, false);
+        freeze(filteredList, false);
         yield* put(
           updateResults({
             list: currentList,

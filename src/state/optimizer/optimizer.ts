@@ -94,7 +94,8 @@ export function* calculate(reduxState: RootState) {
       const newGlobalFilteredList = combinations
         .map(({ list }) => list[0])
         .filter(Boolean)
-        .sort((a, b) => characterLT(a, b, rankby));
+        .sort((a, b) => characterLT(a, b, rankby))
+        .slice(0, 100);
 
       if (isArrayDifferent(globalFilteredList, newGlobalFilteredList)) {
         globalFilteredList = newGlobalFilteredList;
