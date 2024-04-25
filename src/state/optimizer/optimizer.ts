@@ -14,8 +14,6 @@ const isArrayDifferent = (a: any[], b: any[]) => {
   return a.some((_, i) => a[i] !== b[i]);
 };
 
-// todo: convert this file to a web worker handler
-
 interface Combination extends ExtrasCombinationEntry {
   settings: OptimizerCoreSettings;
   core: OptimizerCore;
