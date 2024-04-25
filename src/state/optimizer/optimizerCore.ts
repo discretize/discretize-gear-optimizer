@@ -281,7 +281,7 @@ export class OptimizerCore {
         yield {
           isChanged: this.isChanged,
           calculationRuns,
-          newList: this.isChanged ? this.list.slice() : null,
+          newList: this.list,
         };
         this.isChanged = false;
         iterationTimer = Date.now();
@@ -354,7 +354,7 @@ export class OptimizerCore {
     return {
       isChanged: this.isChanged,
       calculationRuns,
-      newList: this.isChanged ? this.list.slice() : null,
+      newList: this.list,
     };
   }
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 import type { ExtraFilterMode } from '../slices/controlsSlice';
 import type { ExtrasType } from '../slices/extras';
 import type { RootState } from '../store';
@@ -19,6 +20,22 @@ interface Combination extends ExtrasCombinationEntry {
   list: Character[];
   calculationRuns: number;
 }
+
+type Result =
+  | {
+      percent: number;
+      isChanged: true;
+      list: Character[];
+      filteredList: Character[];
+      extraFilteredLists: Record<ExtraFilterMode, Character[]>;
+    }
+  | {
+      percent: number;
+      isChanged: false;
+      list: undefined;
+      filteredList: undefined;
+      extraFilteredLists: undefined;
+    };
 
 // eslint-disable-next-line import/prefer-default-export
 export function* calculate(reduxState: RootState) {
@@ -63,8 +80,10 @@ export function* calculate(reduxState: RootState) {
 
     if (combination.done) continue;
 
-    const { value: { isChanged, calculationRuns, newList } = {}, done } =
-      combination.calculation.next();
+    const {
+      value: { isChanged, calculationRuns, newList },
+      done,
+    } = combination.calculation.next();
 
     console.log(`option ${currentIndex} progress: ${calculationRuns} / ${runsAfterThisSlot[0]}`);
     combination.calculationRuns = calculationRuns ?? 0;
@@ -72,19 +91,20 @@ export function* calculate(reduxState: RootState) {
     const globalCalculationRuns = combinations.reduce((prev, cur) => prev + cur.calculationRuns, 0);
     console.log(`total progress: ${globalCalculationRuns} / ${globalCalculationTotal}`);
 
-    if (done) {
-      combination.done = true;
-    }
+    combination.list = newList;
+    combination.done = Boolean(done);
     const everyCombinationDone = combinations.every((comb) => comb.done);
 
-    if (isChanged && newList) {
-      combination.list = newList;
-    }
+    const createResult = () => {
+      if (!isChanged) {
+        return {
+          percent: Math.floor((globalCalculationRuns * 100) / globalCalculationTotal),
+          isChanged,
+        } as Result;
+      }
 
-    if (everyCombinationDone || (isChanged && newList && Date.now() - iterationTimer > UPDATE_MS)) {
       const normalList = combinations
         .flatMap(({ list }) => list)
-        // eslint-disable-next-line no-loop-func
         .filter((character) => character.attributes[rankby] >= globalWorstScore)
         .sort((a, b) => characterLT(a, b, rankby))
         .slice(0, 50);
@@ -124,18 +144,21 @@ export function* calculate(reduxState: RootState) {
         Enhancement: findExtraBestResults('Enhancement'),
       };
 
-      const result = {
+      return {
         percent: Math.floor((globalCalculationRuns * 100) / globalCalculationTotal),
         isChanged,
         list: normalList,
         filteredList,
         extraFilteredLists,
-      };
+      } as Result;
+    };
 
-      if (everyCombinationDone) {
-        return result;
-      }
-      yield result;
+    if (everyCombinationDone) {
+      return createResult();
+    }
+
+    if (Date.now() - iterationTimer > UPDATE_MS) {
+      yield createResult();
       iterationTimer = Date.now();
     }
   }

@@ -6,9 +6,6 @@ import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
 import {
   ExtraFilterMode,
   changeError,
-  changeExtraFilteredLists,
-  changeFilteredList,
-  changeList,
   changeProgress,
   changeSelectedCharacter,
   changeStatus,
@@ -39,7 +36,7 @@ function* runCalc() {
     Nourishment: [],
     Enhancement: [],
   };
-  let currentPercent: number;
+  let currentPercent = 0;
   try {
     yield* put(changeStatus(RUNNING));
     yield* put(changeProgress(0));
@@ -57,42 +54,35 @@ function* runCalc() {
       // eslint-disable-next-line no-loop-func
       const result = yield* call(() => nextPromise);
 
-      if (result.done) {
-        const { percent, list, filteredList, extraFilteredLists } = result.value;
-        currentList = list;
-        currentFilteredList = filteredList;
-        currentExtrasFilteredLists = extraFilteredLists;
-        currentPercent = percent;
-        break;
-      }
-      // concurrency: send next request to worker thread before rendering current on main thread
-      nextPromise = resultGenerator.next();
-
       const { percent, isChanged, list, filteredList, extraFilteredLists } = result.value;
-      currentList = list;
-      currentFilteredList = filteredList;
-      currentExtrasFilteredLists = extraFilteredLists;
-      currentPercent = percent;
-
       if (isChanged) {
         // shallow freeze as a performance optimization; immer freezes recursively instead by default
         freeze(list, false);
         freeze(filteredList, false);
         freeze(currentExtrasFilteredLists, false);
-        yield* put(
-          updateResults({
-            list: currentList,
-            filteredList: currentFilteredList,
-            extraFilteredLists: currentExtrasFilteredLists,
-            progress: currentPercent,
-          }),
-        );
-      } else {
-        yield* put(
-          updateResults({
-            progress: currentPercent,
-          }),
-        );
+
+        currentList = list;
+        currentFilteredList = filteredList;
+        currentExtrasFilteredLists = extraFilteredLists;
+        currentPercent = percent;
+      }
+
+      if (!result.done) {
+        // concurrency: send next request to worker thread before rendering current on main thread
+        nextPromise = resultGenerator.next();
+      }
+
+      yield* put(
+        updateResults({
+          list: currentList,
+          filteredList: currentFilteredList,
+          extraFilteredLists: currentExtrasFilteredLists,
+          progress: currentPercent,
+        }),
+      );
+
+      if (result.done) {
+        break;
       }
 
       // check if calculation stopped
@@ -109,11 +99,6 @@ function* runCalc() {
         yield* put(changeStatus(RUNNING));
       }
     }
-
-    yield* put(changeList(currentList));
-    yield* put(changeFilteredList(currentFilteredList));
-    yield* put(changeExtraFilteredLists(currentExtrasFilteredLists));
-    yield* put(changeProgress(currentPercent));
 
     elapsed += performance.now() - timer;
     console.log(`Finished calculation in ${elapsed} ms`);
