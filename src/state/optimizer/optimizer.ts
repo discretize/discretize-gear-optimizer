@@ -5,6 +5,7 @@ import {
   characterLT,
   OptimizerCore,
   OptimizerCoreSettings,
+  UPDATE_MS,
 } from './optimizerCore';
 import { ExtrasCombinationEntry, setupCombinations } from './optimizerSetup';
 
@@ -58,6 +59,8 @@ export function* calculate(reduxState: RootState) {
   let globalFilteredList: Character[] = [];
 
   let globalWorstScore = 0;
+
+  let iterationTimer = Date.now();
 
   while (true) {
     const combination = combinations[i];
@@ -117,7 +120,10 @@ export function* calculate(reduxState: RootState) {
     };
 
     if (combinations.some((comb) => !comb.done)) {
-      yield result;
+      if (Date.now() - iterationTimer > UPDATE_MS / 2) {
+        yield result;
+        iterationTimer = Date.now();
+      }
     } else {
       return result;
     }

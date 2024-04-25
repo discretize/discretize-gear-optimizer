@@ -193,6 +193,8 @@ export type AttributeName = string; // TODO: replace with AttributeName from gw2
 
 export type CalculateGenerator = ReturnType<OptimizerCore['calculate']>;
 
+export const UPDATE_MS = 90;
+
 export class OptimizerCore {
   settings: OptimizerCoreSettings;
   minimalSettings: OptimizerCoreMinimalSettings;
@@ -269,13 +271,12 @@ export class OptimizerCore {
     calculationStatsQueue.push({});
 
     let iterationTimer = Date.now();
-    const UPDATE_MS = 90;
     let cycles = 0;
     this.isChanged = true;
     while (calculationQueue.length > 0) {
       cycles++;
 
-      // pause to update UI at around 15 frames per second
+      // pause to update UI
       if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
         yield {
           isChanged: this.isChanged,
@@ -283,7 +284,6 @@ export class OptimizerCore {
           newList: this.isChanged ? this.list.slice() : null,
         };
         this.isChanged = false;
-        // UPDATE_MS = 55;
         iterationTimer = Date.now();
       }
 
