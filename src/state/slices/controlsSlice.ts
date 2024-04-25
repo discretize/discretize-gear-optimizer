@@ -61,7 +61,7 @@ const logAttributeDiff = (newCharacter: Character | null, oldCharacter: Characte
   }
 };
 
-type FilterMode =
+export type FilterMode =
   | 'None'
   | 'Combinations'
   | 'Sigils'
@@ -70,11 +70,14 @@ type FilterMode =
   | 'Nourishment'
   | 'Enhancement';
 
+export type ExtraFilterMode = 'Sigils' | 'Runes' | 'Relics' | 'Nourishment' | 'Enhancement';
+
 type DisplayAttributes = ('Toughness' | 'Boon Duration' | 'Health' | 'Critical Chance')[];
 
 const initialState: {
   list: Character[];
   filteredList: Character[];
+  extraFilteredLists: Record<ExtraFilterMode, Character[]>;
   saved: Character[];
   compareByPercent: boolean;
   tallTable: boolean;
@@ -93,6 +96,13 @@ const initialState: {
 } = {
   list: [],
   filteredList: [],
+  extraFilteredLists: {
+    Sigils: [],
+    Runes: [],
+    Relics: [],
+    Nourishment: [],
+    Enhancement: [],
+  },
   saved: [],
   compareByPercent: false,
   tallTable: false,
@@ -161,18 +171,26 @@ export const controlSlice = createSlice({
     changeFilteredList: (state, action: PayloadAction<Character[]>) => {
       return { ...state, filteredList: action.payload };
     },
+    changeExtraFilteredLists: (
+      state,
+      action: PayloadAction<Record<ExtraFilterMode, Character[]>>,
+    ) => {
+      return { ...state, ...action.payload };
+    },
     updateResults: (
       state,
       action: PayloadAction<{
         list?: Character[];
         filteredList?: Character[];
+        extraFilteredLists?: Record<ExtraFilterMode, Character[]>;
         progress: number;
       }>,
     ) => {
-      const { list, filteredList, progress } = action.payload;
+      const { list, filteredList, extraFilteredLists, progress } = action.payload;
       state.progress = progress;
       if (list) state.list = list;
       if (filteredList) state.filteredList = filteredList;
+      if (extraFilteredLists) state.extraFilteredLists = extraFilteredLists;
     },
     toggleSaved: (state, action: PayloadAction<Character>) => {
       // required to use reference equality check with immer.js
@@ -227,6 +245,8 @@ export const getSelectedSpecialization = (state: RootState) =>
 export const getStatus = (state: RootState) => state.optimizer.control.status;
 export const getList = (state: RootState) => state.optimizer.control.list;
 export const getFilteredList = (state: RootState) => state.optimizer.control.filteredList;
+export const getExtraFilteredLists = (state: RootState) =>
+  state.optimizer.control.extraFilteredLists;
 export const getSaved = (state: RootState) => state.optimizer.control.saved;
 export const getCompareByPercent = (state: RootState) => state.optimizer.control.compareByPercent;
 export const getFilterMode = (state: RootState) => state.optimizer.control.filterMode;
@@ -248,6 +268,7 @@ export const {
   changeProgress,
   changeList,
   changeFilteredList,
+  changeExtraFilteredLists,
   updateResults,
   changeFilterMode,
   changeDisplayAttributes,

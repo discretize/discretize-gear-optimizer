@@ -4,7 +4,9 @@ import { call, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga
 import type { Character } from '../optimizer/optimizerCore';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
 import {
+  ExtraFilterMode,
   changeError,
+  changeExtraFilteredLists,
   changeFilteredList,
   changeList,
   changeProgress,
@@ -30,6 +32,13 @@ function* runCalc() {
 
   let currentList: Character[] = [];
   let currentFilteredList: Character[] = [];
+  let currentExtrasFilteredLists: Record<ExtraFilterMode, Character[]> = {
+    Sigils: [],
+    Runes: [],
+    Relics: [],
+    Nourishment: [],
+    Enhancement: [],
+  };
   let currentPercent: number;
   try {
     yield* put(changeStatus(RUNNING));
@@ -49,28 +58,32 @@ function* runCalc() {
       const result = yield* call(() => nextPromise);
 
       if (result.done) {
-        const { percent, list, filteredList } = result.value;
+        const { percent, list, filteredList, extraFilteredLists } = result.value;
         currentList = list;
         currentFilteredList = filteredList;
+        currentExtrasFilteredLists = extraFilteredLists;
         currentPercent = percent;
         break;
       }
       // concurrency: send next request to worker thread before rendering current on main thread
       nextPromise = resultGenerator.next();
 
-      const { percent, isChanged, list, filteredList } = result.value;
+      const { percent, isChanged, list, filteredList, extraFilteredLists } = result.value;
       currentList = list;
       currentFilteredList = filteredList;
+      currentExtrasFilteredLists = extraFilteredLists;
       currentPercent = percent;
 
       if (isChanged) {
         // shallow freeze as a performance optimization; immer freezes recursively instead by default
         freeze(list, false);
         freeze(filteredList, false);
+        freeze(currentExtrasFilteredLists, false);
         yield* put(
           updateResults({
             list: currentList,
             filteredList: currentFilteredList,
+            extraFilteredLists: currentExtrasFilteredLists,
             progress: currentPercent,
           }),
         );
@@ -99,6 +112,7 @@ function* runCalc() {
 
     yield* put(changeList(currentList));
     yield* put(changeFilteredList(currentFilteredList));
+    yield* put(changeExtraFilteredLists(currentExtrasFilteredLists));
     yield* put(changeProgress(currentPercent));
 
     elapsed += performance.now() - timer;

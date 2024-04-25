@@ -15,6 +15,7 @@ import {
   getFilteredList,
   getFilterMode,
   getList,
+  getExtraFilteredLists,
   getSaved,
   getSelectedCharacter,
   getTallTable,
@@ -79,43 +80,19 @@ const StickyHeadTable = () => {
 
   const { t } = useTranslation();
   const selectedCharacter = useSelector(getSelectedCharacter);
-  const normalList = useSelector(getList) || emptyArray;
-  const rawFilteredList = useSelector(getFilteredList) || emptyArray;
+  const normalList = useSelector(getList);
+  const filteredList = useSelector(getFilteredList);
+  const extraFilteredLists = useSelector(getExtraFilteredLists);
   const saved = useSelector(getSaved) || emptyArray;
   const compareByPercent = useSelector(getCompareByPercent);
   const filterMode = useSelector(getFilterMode);
   const tallTable = useSelector(getTallTable);
 
-  const list = React.useMemo(() => {
-    if (filterMode === 'None') {
-      return normalList;
-    }
-    if (filterMode === 'Combinations') {
-      return rawFilteredList;
-    }
-    if (filterMode === 'Sigils') {
-      return rawFilteredList.filter((character, i) => {
-        const isWorse = rawFilteredList.slice(0, i).some((prevChar) => {
-          const sameSigils =
-            prevChar.settings.extrasCombination.Sigil1 ===
-              character.settings.extrasCombination.Sigil1 &&
-            prevChar.settings.extrasCombination.Sigil2 ===
-              character.settings.extrasCombination.Sigil2;
-          return sameSigils && prevChar.results.value > character.results.value;
-        });
-        return !isWorse;
-      });
-    }
-    return rawFilteredList.filter((character, i) => {
-      const isWorse = rawFilteredList.slice(0, i).some((prevChar) => {
-        const sameExtra =
-          prevChar.settings.extrasCombination[filterMode] ===
-          character.settings.extrasCombination[filterMode];
-        return sameExtra && prevChar.results.value > character.results.value;
-      });
-      return !isWorse;
-    });
-  }, [filterMode, normalList, rawFilteredList]);
+  const list = {
+    None: normalList,
+    Combinations: filteredList,
+    ...extraFilteredLists,
+  }[filterMode];
 
   let mostCommonAffix = null;
   let mostCommonRarity = null;

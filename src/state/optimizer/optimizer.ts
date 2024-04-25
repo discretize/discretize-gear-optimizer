@@ -1,3 +1,5 @@
+import type { ExtraFilterMode } from '../slices/controlsSlice';
+import type { ExtrasType } from '../slices/extras';
 import type { RootState } from '../store';
 import {
   CalculateGenerator,
@@ -8,11 +10,6 @@ import {
   UPDATE_MS,
 } from './optimizerCore';
 import { ExtrasCombinationEntry, setupCombinations } from './optimizerSetup';
-
-const isArrayDifferent = (a: any[], b: any[]) => {
-  if (a.length !== b.length) return true;
-  return a.some((_, i) => a[i] !== b[i]);
-};
 
 interface Combination extends ExtrasCombinationEntry {
   settings: OptimizerCoreSettings;
@@ -53,8 +50,6 @@ export function* calculate(reduxState: RootState) {
   const globalCalculationTotal = runsAfterThisSlot[0] * combinations.length;
 
   let i = 0;
-  let globalList: Character[] = [];
-  let globalFilteredList: Character[] = [];
 
   let globalWorstScore = 0;
 
@@ -71,59 +66,77 @@ export function* calculate(reduxState: RootState) {
     const { value: { isChanged, calculationRuns, newList } = {}, done } =
       combination.calculation.next();
 
+    console.log(`option ${currentIndex} progress: ${calculationRuns} / ${runsAfterThisSlot[0]}`);
+    combination.calculationRuns = calculationRuns ?? 0;
+
+    const globalCalculationRuns = combinations.reduce((prev, cur) => prev + cur.calculationRuns, 0);
+    console.log(`total progress: ${globalCalculationRuns} / ${globalCalculationTotal}`);
+
     if (done) {
       combination.done = true;
     }
+    const everyCombinationDone = combinations.every((comb) => comb.done);
 
     if (isChanged && newList) {
       combination.list = newList;
+    }
 
-      const newGlobalList = combinations
+    if (
+      everyCombinationDone ||
+      (isChanged && newList && Date.now() - iterationTimer > UPDATE_MS / 2)
+    ) {
+      const normalList = combinations
         .flatMap(({ list }) => list)
         // eslint-disable-next-line no-loop-func
         .filter((character) => character.attributes[rankby] >= globalWorstScore)
         .sort((a, b) => characterLT(a, b, rankby))
         .slice(0, 50);
 
-      if (newGlobalList.length === 50)
-        globalWorstScore = newGlobalList[newGlobalList.length - 1].attributes[rankby];
+      if (normalList.length === 50)
+        globalWorstScore = normalList[normalList.length - 1].attributes[rankby];
 
-      if (isArrayDifferent(globalList, newGlobalList)) {
-        globalList = newGlobalList;
-      }
-
-      const newGlobalFilteredList = combinations
+      const combinationBestResults = combinations
         .map(({ list }) => list[0])
         .filter(Boolean)
-        .sort((a, b) => characterLT(a, b, rankby))
-        .slice(0, 100);
+        .sort((a, b) => characterLT(a, b, rankby));
 
-      if (isArrayDifferent(globalFilteredList, newGlobalFilteredList)) {
-        globalFilteredList = newGlobalFilteredList;
+      const filteredList = combinationBestResults.slice(0, 100);
+
+      const findExtraBestResults = (...extrasTypes: ExtrasType[]) =>
+        combinationBestResults.filter((character, j) => {
+          const isWorse = combinationBestResults.slice(0, j).some((prevChar) => {
+            const sameExtra = extrasTypes.every(
+              (extra) =>
+                prevChar.settings.extrasCombination[extra] ===
+                character.settings.extrasCombination[extra],
+            );
+
+            return sameExtra && prevChar.results!.value > character.results!.value;
+          });
+          return !isWorse;
+        });
+
+      const extraFilteredLists: Record<ExtraFilterMode, Character[]> = {
+        Sigils: findExtraBestResults('Sigil1', 'Sigil2'),
+        Runes: findExtraBestResults('Runes'),
+        Relics: findExtraBestResults('Relics'),
+        Nourishment: findExtraBestResults('Nourishment'),
+        Enhancement: findExtraBestResults('Enhancement'),
+      };
+
+      const result = {
+        percent: Math.floor((globalCalculationRuns * 100) / globalCalculationTotal),
+        isChanged,
+        list: normalList,
+        filteredList,
+        extraFilteredLists,
+      };
+
+      if (everyCombinationDone) {
+        return result;
       }
-    }
-
-    console.log(`option ${currentIndex} progress: ${calculationRuns} / ${runsAfterThisSlot[0]}`);
-
-    combination.calculationRuns = calculationRuns ?? 0;
-
-    const globalCalculationRuns = combinations.reduce((prev, cur) => prev + cur.calculationRuns, 0);
-    console.log(`total progress: ${globalCalculationRuns} / ${globalCalculationTotal}`);
-
-    const result = {
-      percent: Math.floor((globalCalculationRuns * 100) / globalCalculationTotal),
-      isChanged,
-      list: globalList,
-      filteredList: globalFilteredList,
-    };
-
-    if (combinations.some((comb) => !comb.done)) {
-      if (Date.now() - iterationTimer > UPDATE_MS / 2) {
-        yield result;
-        iterationTimer = Date.now();
-      }
-    } else {
-      return result;
+      yield result;
+      iterationTimer = Date.now();
     }
   }
 }
