@@ -81,10 +81,7 @@ export function* calculate(reduxState: RootState) {
       combination.list = newList;
     }
 
-    if (
-      everyCombinationDone ||
-      (isChanged && newList && Date.now() - iterationTimer > UPDATE_MS / 2)
-    ) {
+    if (everyCombinationDone || (isChanged && newList && Date.now() - iterationTimer > UPDATE_MS)) {
       const normalList = combinations
         .flatMap(({ list }) => list)
         // eslint-disable-next-line no-loop-func
