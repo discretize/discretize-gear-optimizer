@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import { call, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga';
-import { calculate } from '../optimizer/optimizer';
 import type { Character } from '../optimizer/optimizerCore';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
 import {
@@ -22,6 +21,13 @@ const delay = (ms: number) =>
     setTimeout(resolve, ms);
   });
 
+const resultGenerator = new ComlinkWorker<typeof import('../optimizer/worker')>(
+  new URL('../optimizer/worker.ts', import.meta.url),
+  {
+    type: 'module',
+  },
+);
+
 function* runCalc() {
   const reduxState: RootState = yield* select();
   const state = reduxState.optimizer;
@@ -32,22 +38,20 @@ function* runCalc() {
   try {
     yield* put(changeStatus(RUNNING));
     yield* put(changeProgress(0));
-    yield delay(0);
 
     const originalSelectedCharacter = yield* select(getSelectedCharacter);
-
-    const resultGenerator = calculate(reduxState);
 
     let elapsed = 0;
     let timer = performance.now();
 
-    // render list updates on a trailing throttle
-    // back-to-back(to-back) list updates will only be rendered once
-    let listRenderCounter = 3;
-    const listThrottle = 3;
+    yield resultGenerator.setup(reduxState);
+
+    let nextPromise = resultGenerator.next();
 
     while (true) {
-      const result = yield* call(() => resultGenerator.next());
+      // eslint-disable-next-line no-loop-func
+      const result = yield* call(() => nextPromise);
+
       if (result.done) {
         const { percent, list, filteredList } = result.value;
         currentList = list;
@@ -55,18 +59,15 @@ function* runCalc() {
         currentPercent = percent;
         break;
       }
+      // concurrency: send next request to worker thread before rendering current on main thread
+      nextPromise = resultGenerator.next();
+
       const { percent, isChanged, list, filteredList } = result.value;
       currentList = list;
       currentFilteredList = filteredList;
       currentPercent = percent;
 
       if (isChanged) {
-        if (listRenderCounter > listThrottle) {
-          listRenderCounter = 0;
-        }
-      }
-      if (listRenderCounter === listThrottle) {
-        yield delay(0);
         yield* put(
           updateResults({
             list: currentList,
@@ -81,7 +82,6 @@ function* runCalc() {
           }),
         );
       }
-      listRenderCounter++;
 
       yield delay(0);
 
@@ -100,7 +100,6 @@ function* runCalc() {
       }
     }
 
-    yield delay(0);
     yield* put(changeList(currentList));
     yield* put(changeFilteredList(currentFilteredList));
     yield* put(changeProgress(currentPercent));
@@ -121,7 +120,10 @@ function* runCalc() {
 
     // automatically select the top result unless the user clicked one during the calculation
     const selectedCharacter = yield* select(getSelectedCharacter);
-    if (currentList && (!selectedCharacter || selectedCharacter === originalSelectedCharacter)) {
+    if (
+      currentList &&
+      (!selectedCharacter || selectedCharacter.id === originalSelectedCharacter?.id)
+    ) {
       yield* put(changeSelectedCharacter(currentList[0]));
     }
 

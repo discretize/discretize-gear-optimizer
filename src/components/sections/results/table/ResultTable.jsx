@@ -222,7 +222,7 @@ const StickyHeadTable = () => {
                   <ResultTableRow
                     character={character}
                     key={character.id}
-                    selected={character === selectedCharacter}
+                    selected={character.id === selectedCharacter?.id}
                     saved={saved.includes(character)}
                     mostCommonAffix={mostCommonAffix}
                     mostCommonRarity={mostCommonRarity}
@@ -274,7 +274,7 @@ const StickyHeadTable = () => {
                       <ResultTableRow
                         character={character}
                         key={character.id}
-                        selected={character === selectedCharacter}
+                        selected={character.id === selectedCharacter?.id}
                         saved={saved.includes(character)}
                         mostCommonAffix={mostCommonAffix}
                         mostCommonRarity={mostCommonRarity}
