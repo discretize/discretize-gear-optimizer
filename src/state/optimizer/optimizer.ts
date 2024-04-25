@@ -102,9 +102,10 @@ export function* calculate(reduxState: RootState) {
 
       const filteredList = combinationBestResults.slice(0, 100);
 
-      const findExtraBestResults = (...extrasTypes: ExtrasType[]) =>
-        combinationBestResults.filter((character, j) => {
-          const isWorse = combinationBestResults.slice(0, j).some((prevChar) => {
+      const findExtraBestResults = (...extrasTypes: ExtrasType[]) => {
+        const result: Character[] = [];
+        combinationBestResults.forEach((character) => {
+          const isWorse = result.some((prevChar) => {
             const sameExtra = extrasTypes.every(
               (extra) =>
                 prevChar.settings.extrasCombination[extra] ===
@@ -113,8 +114,10 @@ export function* calculate(reduxState: RootState) {
 
             return sameExtra && prevChar.results!.value > character.results!.value;
           });
-          return !isWorse;
+          if (!isWorse) result.push(character);
         });
+        return result;
+      };
 
       const extraFilteredLists: Record<ExtraFilterMode, Character[]> = {
         Sigils: findExtraBestResults('Sigil1', 'Sigil2'),
