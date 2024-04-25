@@ -16,11 +16,6 @@ import {
 import type { RootState } from '../store';
 import SagaTypes from './sagaTypes';
 
-const delay = (ms: number) =>
-  new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-
 const resultGenerator = new ComlinkWorker<typeof import('../optimizer/worker')>(
   new URL('../optimizer/worker.ts', import.meta.url),
   {
@@ -82,8 +77,6 @@ function* runCalc() {
           }),
         );
       }
-
-      yield delay(0);
 
       // check if calculation stopped
       const status = yield* select(getStatus);
