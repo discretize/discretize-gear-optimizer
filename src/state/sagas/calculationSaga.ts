@@ -68,10 +68,20 @@ function* runCalc() {
         currentExtrasFilteredLists = extraFilteredLists;
       }
 
-      if (!result.done) {
-        // concurrency: send next request to worker thread before rendering current on main thread
-        nextPromise = worker.next();
+      if (result.done) {
+        yield* put(
+          updateResults({
+            list: currentList,
+            filteredList: currentFilteredList,
+            extraFilteredLists: currentExtrasFilteredLists,
+            progress: currentPercent,
+          }),
+        );
+        break;
       }
+
+      // concurrency: send next request to worker thread before rendering current on main thread
+      nextPromise = worker.next();
 
       yield* put(
         updateResults({
@@ -81,10 +91,6 @@ function* runCalc() {
           progress: currentPercent,
         }),
       );
-
-      if (result.done) {
-        break;
-      }
 
       // check if calculation stopped
       const status = yield* select(getStatus);
