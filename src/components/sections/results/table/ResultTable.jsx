@@ -12,8 +12,8 @@ import { makeStyles } from 'tss-react/mui';
 import {
   getCompareByPercent,
   getDisplayAttributes,
-  getFilteredList,
   getFilterMode,
+  getFilteredLists,
   getList,
   getSaved,
   getSelectedCharacter,
@@ -79,43 +79,17 @@ const StickyHeadTable = () => {
 
   const { t } = useTranslation();
   const selectedCharacter = useSelector(getSelectedCharacter);
-  const normalList = useSelector(getList) || emptyArray;
-  const rawFilteredList = useSelector(getFilteredList) || emptyArray;
+  const normalList = useSelector(getList);
+  const filteredLists = useSelector(getFilteredLists);
   const saved = useSelector(getSaved) || emptyArray;
   const compareByPercent = useSelector(getCompareByPercent);
   const filterMode = useSelector(getFilterMode);
   const tallTable = useSelector(getTallTable);
 
-  const list = React.useMemo(() => {
-    if (filterMode === 'None') {
-      return normalList;
-    }
-    if (filterMode === 'Combinations') {
-      return rawFilteredList.slice(0, 100);
-    }
-    if (filterMode === 'Sigils') {
-      return rawFilteredList.filter((character, i) => {
-        const isWorse = rawFilteredList.slice(0, i).some((prevChar) => {
-          const sameSigils =
-            prevChar.settings.extrasCombination.Sigil1 ===
-              character.settings.extrasCombination.Sigil1 &&
-            prevChar.settings.extrasCombination.Sigil2 ===
-              character.settings.extrasCombination.Sigil2;
-          return sameSigils && prevChar.results.value > character.results.value;
-        });
-        return !isWorse;
-      });
-    }
-    return rawFilteredList.filter((character, i) => {
-      const isWorse = rawFilteredList.slice(0, i).some((prevChar) => {
-        const sameExtra =
-          prevChar.settings.extrasCombination[filterMode] ===
-          character.settings.extrasCombination[filterMode];
-        return sameExtra && prevChar.results.value > character.results.value;
-      });
-      return !isWorse;
-    });
-  }, [filterMode, normalList, rawFilteredList]);
+  const list = {
+    None: normalList,
+    ...filteredLists,
+  }[filterMode];
 
   let mostCommonAffix = null;
   let mostCommonRarity = null;
@@ -222,7 +196,7 @@ const StickyHeadTable = () => {
                   <ResultTableRow
                     character={character}
                     key={character.id}
-                    selected={character === selectedCharacter}
+                    selected={character.id === selectedCharacter?.id}
                     saved={saved.includes(character)}
                     mostCommonAffix={mostCommonAffix}
                     mostCommonRarity={mostCommonRarity}
@@ -274,7 +248,7 @@ const StickyHeadTable = () => {
                       <ResultTableRow
                         character={character}
                         key={character.id}
-                        selected={character === selectedCharacter}
+                        selected={character.id === selectedCharacter?.id}
                         saved={saved.includes(character)}
                         mostCommonAffix={mostCommonAffix}
                         mostCommonRarity={mostCommonRarity}

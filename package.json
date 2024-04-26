@@ -57,6 +57,7 @@
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
     "classnames": "^2.3.1",
+    "comlink": "^4.4.1",
     "i18next": "^23.11.2",
     "js-yaml": "^4.1.0",
     "json-url": "^3.0.0",
@@ -66,6 +67,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.13",
+    "react-fast-compare": "^3.2.2",
     "react-i18next": "^14.1.0",
     "react-redux": "^9.1.1",
     "redux": "^5.0.1",
@@ -112,6 +114,7 @@
     "typescript": "^5.4.5",
     "typia": "^6.0.3",
     "vite": "^5.2.10",
+    "vite-plugin-comlink": "^4.0.3",
     "vite-plugin-wasm": "^3.3.0",
     "wasm-pack": "^0.12.1",
     "wrangler": "^3.51.2"

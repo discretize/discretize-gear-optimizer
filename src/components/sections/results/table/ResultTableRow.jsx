@@ -4,6 +4,7 @@ import { Typography } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import React from 'react';
+import isEqual from 'react-fast-compare';
 import { useDispatch } from 'react-redux';
 import { allExtrasModifiersById, placeholderItem } from '../../../../assets/modifierdata';
 import { percents } from '../../../../assets/modifierdata/metadata';
@@ -152,4 +153,4 @@ const ResultTableRow = ({
   );
 };
 
-export default React.memo(ResultTableRow);
+export default React.memo(ResultTableRow, isEqual);

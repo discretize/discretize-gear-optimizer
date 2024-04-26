@@ -1,6 +1,7 @@
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
+import { comlink } from 'vite-plugin-comlink';
 import wasm from 'vite-plugin-wasm';
 import yamlImporter from './plugins/YAMLImporter';
 
@@ -19,9 +20,9 @@ export default defineConfig({
     },
     target: 'es2020',
   },
-  plugins: [react(), yamlImporter(), wasm()],
+  plugins: [comlink(), react(), yamlImporter(), wasm()],
   worker: {
     format: 'iife',
-    plugins: () => [yamlImporter(), wasm()],
+    plugins: () => [comlink(), yamlImporter(), wasm()],
   },
 });

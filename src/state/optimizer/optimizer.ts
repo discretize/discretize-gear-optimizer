@@ -1,3 +1,6 @@
+/* eslint-disable no-loop-func */
+import type { ExtraFilterMode } from '../slices/controlsSlice';
+import type { ExtrasType } from '../slices/extras';
 import type { RootState } from '../store';
 import {
   CalculateGenerator,
@@ -5,15 +8,9 @@ import {
   characterLT,
   OptimizerCore,
   OptimizerCoreSettings,
+  UPDATE_MS,
 } from './optimizerCore';
 import { ExtrasCombinationEntry, setupCombinations } from './optimizerSetup';
-
-const isArrayDifferent = (a: any[], b: any[]) => {
-  if (a.length !== b.length) return true;
-  return a.some((_, i) => a[i] !== b[i]);
-};
-
-// todo: convert this file to a web worker handler
 
 interface Combination extends ExtrasCombinationEntry {
   settings: OptimizerCoreSettings;
@@ -24,8 +21,21 @@ interface Combination extends ExtrasCombinationEntry {
   calculationRuns: number;
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export function* calculate(reduxState: RootState) {
+type Result =
+  | {
+      percent: number;
+      isChanged: true;
+      list: Character[];
+      filteredLists: Record<ExtraFilterMode, Character[]>;
+    }
+  | {
+      percent: number;
+      isChanged: false;
+      list: undefined;
+      filteredLists: undefined;
+    };
+
+function* calculate(reduxState: RootState) {
   /**
    * set up input
    */
@@ -54,10 +64,10 @@ export function* calculate(reduxState: RootState) {
   const globalCalculationTotal = runsAfterThisSlot[0] * combinations.length;
 
   let i = 0;
-  let globalList: Character[] = [];
-  let globalFilteredList: Character[] = [];
 
   let globalWorstScore = 0;
+
+  let iterationTimer = Date.now();
 
   while (true) {
     const combination = combinations[i];
@@ -67,58 +77,91 @@ export function* calculate(reduxState: RootState) {
 
     if (combination.done) continue;
 
-    const { value: { isChanged, calculationRuns, newList } = {}, done } =
-      combination.calculation.next();
-
-    if (done) {
-      combination.done = true;
-    }
-
-    if (isChanged && newList) {
-      combination.list = newList;
-
-      const newGlobalList = combinations
-        .flatMap(({ list }) => list)
-        // eslint-disable-next-line no-loop-func
-        .filter((character) => character.attributes[rankby] >= globalWorstScore)
-        .sort((a, b) => characterLT(a, b, rankby))
-        .slice(0, 50);
-
-      if (newGlobalList.length === 50)
-        globalWorstScore = newGlobalList[newGlobalList.length - 1].attributes[rankby];
-
-      if (isArrayDifferent(globalList, newGlobalList)) {
-        globalList = newGlobalList;
-      }
-
-      const newGlobalFilteredList = combinations
-        .map(({ list }) => list[0])
-        .filter(Boolean)
-        .sort((a, b) => characterLT(a, b, rankby));
-
-      if (isArrayDifferent(globalFilteredList, newGlobalFilteredList)) {
-        globalFilteredList = newGlobalFilteredList;
-      }
-    }
+    const {
+      value: { isChanged, calculationRuns, newList },
+      done,
+    } = combination.calculation.next();
 
     console.log(`option ${currentIndex} progress: ${calculationRuns} / ${runsAfterThisSlot[0]}`);
-
     combination.calculationRuns = calculationRuns ?? 0;
 
     const globalCalculationRuns = combinations.reduce((prev, cur) => prev + cur.calculationRuns, 0);
     console.log(`total progress: ${globalCalculationRuns} / ${globalCalculationTotal}`);
 
-    const result = {
-      percent: Math.floor((globalCalculationRuns * 100) / globalCalculationTotal),
-      isChanged,
-      list: globalList,
-      filteredList: globalFilteredList,
+    combination.list = newList;
+    combination.done = Boolean(done);
+    const everyCombinationDone = combinations.every((comb) => comb.done);
+
+    const createResult = () => {
+      if (!isChanged) {
+        return {
+          percent: Math.floor((globalCalculationRuns * 100) / globalCalculationTotal),
+          isChanged,
+        } as Result;
+      }
+
+      const normalList = combinations
+        .flatMap(({ list }) => list)
+        .filter((character) => character.attributes[rankby] >= globalWorstScore)
+        .sort((a, b) => characterLT(a, b, rankby))
+        .slice(0, 50);
+
+      if (normalList.length === 50)
+        globalWorstScore = normalList[normalList.length - 1].attributes[rankby];
+
+      const combinationBestResults = combinations
+        .map(({ list }) => list[0])
+        .filter(Boolean)
+        .sort((a, b) => characterLT(a, b, rankby));
+
+      const findExtraBestResults = (...extrasTypes: ExtrasType[]) => {
+        const result: Character[] = [];
+        combinationBestResults.forEach((character) => {
+          const isWorse = result.some((prevChar) => {
+            const sameExtra = extrasTypes.every(
+              (extra) =>
+                prevChar.settings.extrasCombination[extra] ===
+                character.settings.extrasCombination[extra],
+            );
+
+            return sameExtra && prevChar.results!.value > character.results!.value;
+          });
+          if (!isWorse) result.push(character);
+        });
+        return result;
+      };
+
+      const filteredLists: Record<ExtraFilterMode, Character[]> = {
+        Combinations: combinationBestResults.slice(0, 100),
+        Sigils: findExtraBestResults('Sigil1', 'Sigil2'),
+        Runes: findExtraBestResults('Runes'),
+        Relics: findExtraBestResults('Relics'),
+        Nourishment: findExtraBestResults('Nourishment'),
+        Enhancement: findExtraBestResults('Enhancement'),
+      };
+
+      return {
+        percent: Math.floor((globalCalculationRuns * 100) / globalCalculationTotal),
+        isChanged,
+        list: normalList,
+        filteredLists,
+      } as Result;
     };
 
-    if (combinations.some((comb) => !comb.done)) {
-      yield result;
-    } else {
-      return result;
+    if (everyCombinationDone) {
+      return createResult();
+    }
+
+    if (Date.now() - iterationTimer > UPDATE_MS) {
+      yield createResult();
+      iterationTimer = Date.now();
     }
   }
 }
+
+let generator: ReturnType<typeof calculate>;
+
+export const setup = (reduxState: RootState) => {
+  generator = calculate(reduxState);
+};
+export const next = () => generator.next();

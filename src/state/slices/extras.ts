@@ -25,7 +25,7 @@ export const lifestealData = {
 interface ExtraValue {
   amount?: string;
 }
-type ExtrasType = 'Sigil1' | 'Sigil2' | 'Runes' | 'Relics' | 'Nourishment' | 'Enhancement';
+export type ExtrasType = 'Sigil1' | 'Sigil2' | 'Runes' | 'Relics' | 'Nourishment' | 'Enhancement';
 
 // todo: specify extras keys
 type ExtrasValues = Record<string, ExtraValue>;
