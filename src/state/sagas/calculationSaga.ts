@@ -28,8 +28,8 @@ function* runCalc() {
   const state = reduxState.optimizer;
 
   let currentList: Character[] = [];
-  let currentFilteredList: Character[] = [];
-  let currentExtrasFilteredLists: Record<ExtraFilterMode, Character[]> = {
+  let currentFilteredLists: Record<ExtraFilterMode, Character[]> = {
+    Combinations: [],
     Sigils: [],
     Runes: [],
     Relics: [],
@@ -54,26 +54,23 @@ function* runCalc() {
       // eslint-disable-next-line no-loop-func
       const result = yield* call(() => nextPromise);
 
-      const { percent, isChanged, list, filteredList, extraFilteredLists } = result.value;
+      const { percent, isChanged, list, filteredLists } = result.value;
       currentPercent = percent;
 
       if (isChanged) {
         // shallow freeze as a performance optimization; immer freezes recursively instead by default
         freeze(list, false);
-        freeze(filteredList, false);
-        freeze(currentExtrasFilteredLists, false);
+        freeze(filteredLists, false);
 
         currentList = list;
-        currentFilteredList = filteredList;
-        currentExtrasFilteredLists = extraFilteredLists;
+        currentFilteredLists = filteredLists;
       }
 
       if (result.done) {
         yield* put(
           updateResults({
             list: currentList,
-            filteredList: currentFilteredList,
-            extraFilteredLists: currentExtrasFilteredLists,
+            filteredLists: currentFilteredLists,
             progress: currentPercent,
           }),
         );
@@ -86,8 +83,7 @@ function* runCalc() {
       yield* put(
         updateResults({
           list: currentList,
-          filteredList: currentFilteredList,
-          extraFilteredLists: currentExtrasFilteredLists,
+          filteredLists: currentFilteredLists,
           progress: currentPercent,
         }),
       );

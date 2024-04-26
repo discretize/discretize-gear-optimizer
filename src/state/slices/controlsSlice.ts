@@ -70,14 +70,19 @@ export type FilterMode =
   | 'Nourishment'
   | 'Enhancement';
 
-export type ExtraFilterMode = 'Sigils' | 'Runes' | 'Relics' | 'Nourishment' | 'Enhancement';
+export type ExtraFilterMode =
+  | 'Combinations'
+  | 'Sigils'
+  | 'Runes'
+  | 'Relics'
+  | 'Nourishment'
+  | 'Enhancement';
 
 type DisplayAttributes = ('Toughness' | 'Boon Duration' | 'Health' | 'Critical Chance')[];
 
 const initialState: {
   list: Character[];
-  filteredList: Character[];
-  extraFilteredLists: Record<ExtraFilterMode, Character[]>;
+  filteredLists: Record<ExtraFilterMode, Character[]>;
   saved: Character[];
   compareByPercent: boolean;
   tallTable: boolean;
@@ -95,8 +100,8 @@ const initialState: {
   error: string;
 } = {
   list: [],
-  filteredList: [],
-  extraFilteredLists: {
+  filteredLists: {
+    Combinations: [],
     Sigils: [],
     Runes: [],
     Relics: [],
@@ -168,29 +173,21 @@ export const controlSlice = createSlice({
 
       return { ...state, list: newList.slice(0, 100) };
     },
-    changeFilteredList: (state, action: PayloadAction<Character[]>) => {
-      return { ...state, filteredList: action.payload };
-    },
-    changeExtraFilteredLists: (
-      state,
-      action: PayloadAction<Record<ExtraFilterMode, Character[]>>,
-    ) => {
+    changeFilteredLists: (state, action: PayloadAction<Record<ExtraFilterMode, Character[]>>) => {
       return { ...state, ...action.payload };
     },
     updateResults: (
       state,
       action: PayloadAction<{
         list?: Character[];
-        filteredList?: Character[];
-        extraFilteredLists?: Record<ExtraFilterMode, Character[]>;
+        filteredLists?: Record<ExtraFilterMode, Character[]>;
         progress: number;
       }>,
     ) => {
-      const { list, filteredList, extraFilteredLists, progress } = action.payload;
+      const { list, filteredLists, progress } = action.payload;
       state.progress = progress;
       if (list) state.list = list;
-      if (filteredList) state.filteredList = filteredList;
-      if (extraFilteredLists) state.extraFilteredLists = extraFilteredLists;
+      if (filteredLists) state.filteredLists = filteredLists;
     },
     toggleSaved: (state, action: PayloadAction<Character>) => {
       // required to use reference equality check with immer.js
@@ -244,9 +241,7 @@ export const getSelectedSpecialization = (state: RootState) =>
   state.optimizer.control.selectedSpecialization;
 export const getStatus = (state: RootState) => state.optimizer.control.status;
 export const getList = (state: RootState) => state.optimizer.control.list;
-export const getFilteredList = (state: RootState) => state.optimizer.control.filteredList;
-export const getExtraFilteredLists = (state: RootState) =>
-  state.optimizer.control.extraFilteredLists;
+export const getFilteredLists = (state: RootState) => state.optimizer.control.filteredLists;
 export const getSaved = (state: RootState) => state.optimizer.control.saved;
 export const getCompareByPercent = (state: RootState) => state.optimizer.control.compareByPercent;
 export const getFilterMode = (state: RootState) => state.optimizer.control.filterMode;
@@ -267,8 +262,7 @@ export const {
   changeStatus,
   changeProgress,
   changeList,
-  changeFilteredList,
-  changeExtraFilteredLists,
+  changeFilteredLists,
   updateResults,
   changeFilterMode,
   changeDisplayAttributes,

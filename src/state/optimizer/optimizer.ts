@@ -26,15 +26,13 @@ type Result =
       percent: number;
       isChanged: true;
       list: Character[];
-      filteredList: Character[];
-      extraFilteredLists: Record<ExtraFilterMode, Character[]>;
+      filteredLists: Record<ExtraFilterMode, Character[]>;
     }
   | {
       percent: number;
       isChanged: false;
       list: undefined;
-      filteredList: undefined;
-      extraFilteredLists: undefined;
+      filteredLists: undefined;
     };
 
 function* calculate(reduxState: RootState) {
@@ -116,8 +114,6 @@ function* calculate(reduxState: RootState) {
         .filter(Boolean)
         .sort((a, b) => characterLT(a, b, rankby));
 
-      const filteredList = combinationBestResults.slice(0, 100);
-
       const findExtraBestResults = (...extrasTypes: ExtrasType[]) => {
         const result: Character[] = [];
         combinationBestResults.forEach((character) => {
@@ -135,7 +131,8 @@ function* calculate(reduxState: RootState) {
         return result;
       };
 
-      const extraFilteredLists: Record<ExtraFilterMode, Character[]> = {
+      const filteredLists: Record<ExtraFilterMode, Character[]> = {
+        Combinations: combinationBestResults.slice(0, 100),
         Sigils: findExtraBestResults('Sigil1', 'Sigil2'),
         Runes: findExtraBestResults('Runes'),
         Relics: findExtraBestResults('Relics'),
@@ -147,8 +144,7 @@ function* calculate(reduxState: RootState) {
         percent: Math.floor((globalCalculationRuns * 100) / globalCalculationTotal),
         isChanged,
         list: normalList,
-        filteredList,
-        extraFilteredLists,
+        filteredLists,
       } as Result;
     };
 

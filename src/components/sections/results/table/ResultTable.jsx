@@ -12,10 +12,9 @@ import { makeStyles } from 'tss-react/mui';
 import {
   getCompareByPercent,
   getDisplayAttributes,
-  getFilteredList,
   getFilterMode,
+  getFilteredLists,
   getList,
-  getExtraFilteredLists,
   getSaved,
   getSelectedCharacter,
   getTallTable,
@@ -81,8 +80,7 @@ const StickyHeadTable = () => {
   const { t } = useTranslation();
   const selectedCharacter = useSelector(getSelectedCharacter);
   const normalList = useSelector(getList);
-  const filteredList = useSelector(getFilteredList);
-  const extraFilteredLists = useSelector(getExtraFilteredLists);
+  const filteredLists = useSelector(getFilteredLists);
   const saved = useSelector(getSaved) || emptyArray;
   const compareByPercent = useSelector(getCompareByPercent);
   const filterMode = useSelector(getFilterMode);
@@ -90,8 +88,7 @@ const StickyHeadTable = () => {
 
   const list = {
     None: normalList,
-    Combinations: filteredList,
-    ...extraFilteredLists,
+    ...filteredLists,
   }[filterMode];
 
   let mostCommonAffix = null;
