@@ -29,12 +29,12 @@ list:
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 3931, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3871, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Baseraver
-        url: https://www.youtube.com/watch?v=SE8Nx35aXuw
-        log: https://dps.report/Pypi-20231003-192433_golem
+      - author: Linsi
+        url: https://www.youtube.com/watch?v=nI-Y6GsZvUQ
+        log: https://dps.report/fLGV-20240202-220024_golem
 
   # Uses air/hydro sigils, somewhat taken into consideration by giving air a
   # proc rate high enough to match air+hydro damage
