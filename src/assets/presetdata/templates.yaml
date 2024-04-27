@@ -563,7 +563,7 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
   - class: Elementalist
     builds:

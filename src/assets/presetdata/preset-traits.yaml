@@ -2139,6 +2139,8 @@ list:
         }
       }
 
+  # Uses integer attacker's insight (which gives less accurate dps) so that
+  # gear may be calculated properly for crit cap
   - name: Power Spellbreaker Hammer
     profession: Spellbreaker
     traits: |-
@@ -2179,7 +2181,7 @@ list:
               "amount": "4"
             },
             "peak-performance-2": {
-              "amount": "29"
+              "amount": "30"
             }
           },
           {
@@ -2200,7 +2202,7 @@ list:
               "amount": ""
             },
             "attackers-insight": {
-              "amount": "4.7"
+              "amount": "5"
             },
             "magebane-tether": {
               "amount": "74"
