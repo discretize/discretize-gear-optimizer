@@ -58,17 +58,17 @@ list:
         url: https://www.youtube.com/watch?v=cLXtPAzTzKw
         log: https://dps.report/hj0c-20221204-150307_golem
 
-  # includes geo/earth + doom/torment
+  # includes sigils
   - name: Condi Quickness Bers
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 2104, "Power2": 0, "Burning": 10.29, "Bleeding": 15.77, "Poisoned": 1.93, "Torment": 1.16, "Confusion": 0 }
+        "values2": { "Power": 2438, "Power2": 0, "Burning": 8.82, "Bleeding": 14.13, "Poisoned": 2.1, "Torment": 3.64, "Confusion": 0 }
       }
     credit:
-      - author: 'Costa Primo'
-        url: https://www.youtube.com/watch?v=h1BlQAMiKsY
-        log: https://dps.report/44iU-20230416-120753_golem
+      - author: 'Saint Mighty'
+        url: https://www.youtube.com/watch?v=hHBBZwsdN7k
+        log: https://dps.report/tNb1-20231014-165434_golem
 
   # Sundering leap for higher potential number
   - name: Condi Berserker

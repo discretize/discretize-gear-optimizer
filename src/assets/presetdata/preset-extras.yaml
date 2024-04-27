@@ -895,6 +895,7 @@ list:
       {
         "extras": {
           "Runes": {
+            "firebrand": {},
             "trapper": {},
             "nightmare": {},
             "tempest": {}
@@ -905,7 +906,8 @@ list:
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
-            "toxic-maintenance-oil": {}
+            "toxic-maintenance-oil": {},
+            "master-tuning-crystal": {}
           },
           "Nourishment": {
             "salsa-topped-veggie-flatbread": {},
