@@ -2,6 +2,8 @@
 
 The Discretize Gear Optimizer helps find the strongest equipment setups for PvE builds in [Guild Wars 2](https://www.guildwars2.com/). Its core was originally created by [ManuelHaag](https://github.com/ManuelHaag), and it has been been extended and integrated into a new React-based UI by [gw2princeps](https://github.com/gw2princeps), [marcustyphoon](https://github.com/marcustyphoon), and contributors from the Discretize community!
 
+Special thanks to hundreds of players across the GW2 theorycrafting community whose research and testing form our understanding of the combat system and are reflected across this code.
+
 To learn about how the math works and its limitations, see [How It Works](<How It Works.md>)!
 
 ## Usage
