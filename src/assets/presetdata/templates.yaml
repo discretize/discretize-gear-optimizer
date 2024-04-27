@@ -496,7 +496,7 @@ list:
         traits: Condi Quickness Berserker
         extras: Condi Quickness Bers
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Condi Berserker
         id: cbers-dps
