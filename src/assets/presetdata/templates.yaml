@@ -507,7 +507,7 @@ list:
         traits: Condi Berserker
         extras: Condi Berserker
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Quickness Power Berserker
         id: pbers-quick

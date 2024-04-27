@@ -874,7 +874,11 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {

@@ -70,17 +70,17 @@ list:
         url: https://www.youtube.com/watch?v=hHBBZwsdN7k
         log: https://dps.report/tNb1-20231014-165434_golem
 
-  # Sundering leap for higher potential number
+  # includes sigils
   - name: Condi Berserker
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 2102, "Power2": 0, "Burning": 12.16, "Bleeding": 13.19, "Poisoned": 2.17, "Torment": 1.22, "Confusion": 0 }
+        "values2": { "Power": 2470, "Power2": 0, "Burning": 8.29, "Bleeding": 13.67, "Poisoned": 2.15, "Torment": 5.11, "Confusion": 0 }
       }
     credit:
       - author: 'Costa Primo'
-        url: https://www.youtube.com/watch?v=u0oIU0DSspE
-        log: https://dps.report/aSwf-20230216-210051_golem
+        url: https://www.youtube.com/watch?v=Cg52M5WGU5o
+        log: https://dps.report/RzZh-20231014-102529_golem
 
   - name: Power Alacrity Bladesworn
     profession: Bladesworn
