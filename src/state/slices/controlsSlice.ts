@@ -80,6 +80,15 @@ export type ExtraFilterMode =
 
 type DisplayAttributes = ('Toughness' | 'Boon Duration' | 'Health' | 'Critical Chance')[];
 
+export const emptyFilteredLists = {
+  Combinations: [],
+  Sigils: [],
+  Runes: [],
+  Relics: [],
+  Nourishment: [],
+  Enhancement: [],
+};
+
 const initialState: {
   list: Character[];
   filteredLists: Record<ExtraFilterMode, Character[]>;
@@ -100,14 +109,7 @@ const initialState: {
   error: string;
 } = {
   list: [],
-  filteredLists: {
-    Combinations: [],
-    Sigils: [],
-    Runes: [],
-    Relics: [],
-    Nourishment: [],
-    Enhancement: [],
-  },
+  filteredLists: emptyFilteredLists,
   saved: [],
   compareByPercent: false,
   tallTable: false,
