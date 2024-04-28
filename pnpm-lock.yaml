@@ -199,6 +199,9 @@ devDependencies:
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
+  rollup-preserve-directives:
+    specifier: ^1.1.1
+    version: 1.1.1(rollup@4.16.1)
   tsx:
     specifier: ^4.7.2
     version: 4.7.2
@@ -5265,6 +5268,15 @@ packages:
     resolution: {integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==}
     dependencies:
       estree-walker: 0.6.1
+    dev: true
+
+  /rollup-preserve-directives@1.1.1(rollup@4.16.1):
+    resolution: {integrity: sha512-+eQafbuEfDPfxQ9hQPlwaROfin4yiVRxap8hnrvvvcSGoukv1tTiYpAW9mvm3uR8J+fe4xd8FdVd5rz9q7jZ+Q==}
+    peerDependencies:
+      rollup: ^2.0.0 || ^3.0.0 || ^4.0.0
+    dependencies:
+      magic-string: 0.30.5
+      rollup: 4.16.1
     dev: true
 
   /rollup@4.16.1:
