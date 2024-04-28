@@ -491,7 +491,7 @@ list:
         id: cbers
         specialization: Berserker
         boonType: Condi
-        priority: Condi Quickness Berserker 11.5%
+        priority: Condi Quickness Berserker 44.7%
         distribution: Condi Quickness Bers
         traits: Condi Quickness Berserker
         extras: Condi Quickness Bers
@@ -507,21 +507,21 @@ list:
         traits: Condi Berserker
         extras: Condi Berserker
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Quickness Power Berserker
         id: pbers-quick
         specialization: Berserker
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Berserker
+        distribution: Power Quickness Berserker
         traits: Power Quickness Berserker
         fractal:
           extras: Power (Fractal)
         raid:
           extras: Power Berserker
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Power Berserker
         id: pbers
@@ -535,7 +535,7 @@ list:
         raid:
           extras: Power Berserker
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Power Spellbreaker GS
         id: spb-power-gs
@@ -563,7 +563,7 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
   - class: Elementalist
     builds:

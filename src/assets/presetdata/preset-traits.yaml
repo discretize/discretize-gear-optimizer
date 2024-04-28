@@ -1906,8 +1906,8 @@ list:
             1346
           ],
           [
-            1329,
-            1484,
+            1413,
+            1709,
             1657
           ],
           [
@@ -1937,10 +1937,10 @@ list:
             },
             "bloodlust": {},
             "furious": {
-              "amount": "19.1"
+              "amount": "18.9"
             },
             "bloodlust-on-crit": {
-              "amount": "2.82"
+              "amount": "2.94"
             }
           },
           {
@@ -1958,7 +1958,7 @@ list:
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
-              "amount": "72.7"
+              "amount": "99"
             },
             "fatal-frenzy-toughness": {},
             "bloody-roar": {
@@ -1990,8 +1990,8 @@ list:
             1346
           ],
           [
-            1329,
-            1484,
+            1413,
+            1709,
             1657
           ],
           [
@@ -2021,10 +2021,10 @@ list:
             },
             "bloodlust": {},
             "furious": {
-              "amount": "19.1"
+              "amount": "21.5"
             },
             "bloodlust-on-crit": {
-              "amount": "2.82"
+              "amount": "2.95"
             }
           },
           {
@@ -2042,7 +2042,7 @@ list:
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
-              "amount": "72.7"
+              "amount": "97"
             },
             "fatal-frenzy-toughness": {},
             "bloody-roar": {
@@ -2139,6 +2139,8 @@ list:
         }
       }
 
+  # Uses integer attacker's insight (which gives less accurate dps) so that
+  # gear may be calculated properly for crit cap
   - name: Power Spellbreaker Hammer
     profession: Spellbreaker
     traits: |-
@@ -2179,7 +2181,7 @@ list:
               "amount": "4"
             },
             "peak-performance-2": {
-              "amount": "29"
+              "amount": "30"
             }
           },
           {
@@ -2200,7 +2202,7 @@ list:
               "amount": ""
             },
             "attackers-insight": {
-              "amount": "4.7"
+              "amount": "5"
             },
             "magebane-tether": {
               "amount": "74"
