@@ -7,7 +7,7 @@
         attributes:
           Precision: [180, buff]
       gw2id: 5542
-      outOfCombat: true
+      combatOnly: false
 
     - id: signet-of-earth
       text: Signet of Earth
@@ -66,7 +66,7 @@
         attributes:
           Critical Chance: 12%
       gw2id: 62887
-      outOfCombat: false
+      combatOnly: true
 
     - id: relentless-fire
       text: Relentless Fire
@@ -108,7 +108,7 @@
         attributes:
           Ferocity: [300, unknown]
       gw2id: 5635
-      outOfCombat: false
+      combatOnly: true
 
     # - id: flame-axe
     #   text: Flame Axe
@@ -171,7 +171,7 @@
           Power: [150, buff]
       gw2id: 320
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: burning-precision
       text: Burning Precision
@@ -184,7 +184,7 @@
           Burning Duration: 15%
       gw2id: 296
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     # - id: burning-precision-on-crit
     #   text: Burning Precision
@@ -205,7 +205,7 @@
           Condition Damage: [180, buff]
       gw2id: 325
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: power-overwhelming
       text: Power Overwhelming
@@ -215,7 +215,7 @@
           Power: [150, buff]
       gw2id: 334
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: power-overwhelming-2
       text: Power Overwhelming
@@ -228,7 +228,7 @@
           Power: [150, buff]
       gw2id: 334
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: pyromancers-training
       text: Pyromancer's Training
@@ -263,7 +263,7 @@
           Critical Chance: 5%
       gw2id: 221
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: ferocious-winds
       text: Ferocious Winds
@@ -272,7 +272,7 @@
           Ferocity: {Precision: 7%}
       gw2id: 232
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: raging-storm
       text: Raging Storm
@@ -285,7 +285,7 @@
           Ferocity: [180, buff]
       gw2id: 214
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: stormsoul
       text: Stormsoul
@@ -309,7 +309,7 @@
           Ferocity: [150, buff]
       gw2id: 223
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: aeromancers-training-2
       text: Aeromancer's Training
@@ -323,7 +323,7 @@
           Ferocity: [150, buff]
       gw2id: 223
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: bolt-to-the-heart
       text: Bolt to the Heart
@@ -348,7 +348,7 @@
           Ferocity: [250, buff]
       gw2id: 1503
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
 - section: Earth
   id: 26
@@ -373,7 +373,7 @@
           Bleeding Duration: 20%
       gw2id: 1507
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: strength-of-stone
       text: Strength of Stone
@@ -382,7 +382,7 @@
           Condition Damage: {Toughness: 10%}
       gw2id: 275
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: geomancers-training
       text: Geomancer's Training
@@ -447,7 +447,7 @@
       minor: true
       gw2id: 1676
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
 - section: Arcane
   id: 37
@@ -464,7 +464,7 @@
       minor: true
       gw2id: 2004
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: arcane-lightning
       text: Arcane Lightning
@@ -477,7 +477,7 @@
           Ferocity: [150, converted]
       gw2id: 263
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: bountiful-power
       text: Bountiful Power
@@ -507,7 +507,7 @@
       minor: true
       gw2id: 1938
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: gathered-focus-2
       text: Gathered Focus
@@ -521,7 +521,7 @@
       minor: true
       gw2id: 1938
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: hardy-conduit
       text: Hardy Conduit
@@ -581,7 +581,7 @@
           Critical Chance: 15%
       gw2id: 2177
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: masters-fortitude
       text: Master's Fortitude
@@ -591,7 +591,7 @@
           Vitality: {Power: 5%, Condition Damage: 5%}
       gw2id: 2115
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: masters-fortitude-sword
       text: Master's Fortitude
@@ -601,7 +601,7 @@
           Vitality: [120, converted]
       gw2id: 2115
       defaultEnabled: true
-      outOfCombat: true # since you only have one weapon set
+      combatOnly: false # since you only have one weapon set
 
     - id: weavers-prowess
       text: Weaver's Prowess
@@ -618,7 +618,7 @@
           Condition Duration: 7%
       gw2id: 2180
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: swift-revenge
       text: Swift Revenge
@@ -647,7 +647,7 @@
           Power: [120, buff]
       gw2id: 2081
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: elemental-polyphony-air
       text: Elemental Polyphony
@@ -661,7 +661,7 @@
           Ferocity: [120, buff]
       gw2id: 2081
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: elements-of-rage-base
       text: Elements of Rage
@@ -671,7 +671,7 @@
           Precision: {Vitality: 13%}
       gw2id: 2131
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: elements-of-rage-buff
       text: Elements of Rage
@@ -725,7 +725,7 @@
           Healing Power: {Healing Power: 10%}
       gw2id: 2250
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: empowering-auras
       text: Empowering Auras
@@ -767,4 +767,4 @@
           Healing Power: {Healing Power: 10%}
       gw2id: 2241
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true

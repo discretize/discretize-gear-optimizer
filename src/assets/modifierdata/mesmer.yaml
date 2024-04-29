@@ -7,7 +7,7 @@
         attributes:
           Condition Damage: [180, buff]
       gw2id: 10232
-      outOfCombat: true
+      combatOnly: false
 
     - id: signet-of-midnight
       text: Signet of Midnight
@@ -15,7 +15,7 @@
         attributes:
           Expertise: [180, buff]
       gw2id: 10234
-      outOfCombat: true
+      combatOnly: false
 
 - section: Domination
   id: 10
@@ -85,7 +85,7 @@
           Phantasm Critical Chance: 20%
       gw2id: 701
       defaultEnabled: false
-      outOfCombat: true
+      combatOnly: false
 
     - id: phantasmal-fury-virtuoso
       text: Phantasmal Fury
@@ -98,7 +98,7 @@
           Phantasm Critical Chance: 35%
       gw2id: 701
       defaultEnabled: false
-      outOfCombat: true
+      combatOnly: false
 
     - id: phantasmal-fury-virtuoso-bugged
       text: Phantasmal Fury
@@ -111,7 +111,7 @@
           Phantasm Critical Chance: 30%
       gw2id: 701
       defaultEnabled: false
-      outOfCombat: true
+      combatOnly: false
 
     - id: sharper-images-phantasm
       text: Sharper Images
@@ -127,7 +127,7 @@
           Bleeding Coefficient: {Phantasm Critical Chance: 500%}
       gw2id: 710
       defaultEnabled: false
-      outOfCombat: true
+      combatOnly: false
 
     - id: sharper-images-clone
       text: Sharper Images
@@ -143,7 +143,7 @@
           Bleeding Coefficient: {Clone Critical Chance: 500%}
       gw2id: 710
       defaultEnabled: false
-      outOfCombat: true
+      combatOnly: false
 
     - id: fencers-finesse
       text: Fencer's Finesse
@@ -156,7 +156,7 @@
           Ferocity: [150, buff]
       gw2id: 708
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: superiority-complex-base
       text: Superiority Complex
@@ -209,7 +209,7 @@
           Condition Damage: [120, buff]
       gw2id: 669
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     # no configurable amount; causes scaled boon duration with toxic oil
     - id: chaotic-potency-2
@@ -224,7 +224,7 @@
           Condition Damage: [120, converted] # tested by marcus
       gw2id: 669
       defaultEnabled: false
-      outOfCombat: false
+      combatOnly: true
 
     - id: chaotic-persistence
       text: Chaotic Persistence
@@ -237,7 +237,7 @@
           # converted: https://discord.com/channels/380901000200060929/875327743334707251/911570311177207818
       gw2id: 1865
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
 - section: Inspiration
   id: 23
@@ -250,7 +250,7 @@
           Outgoing Healing: 15%
       gw2id: 1866
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
 - section: Illusions
   id: 24
@@ -290,7 +290,7 @@
           Confusion Duration: 25%
       gw2id: 753
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
 - section: Chronomancer
   id: 40
@@ -307,7 +307,7 @@
           Clone Critical Chance: 15%
       gw2id: 2009
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: improved-alacrity
       text: Improved Alacrity
@@ -345,7 +345,7 @@
       minor: true
       gw2id: 2069
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
 - section: Virtuoso
   id: 66
@@ -382,7 +382,7 @@
           Bleeding Coefficient: {Critical Chance: 300%}
       gw2id: 2202
       defaultEnabled: false
-      outOfCombat: false
+      combatOnly: true
 
     # does not affect lifesteal despite "all text" description
     # https://discord.com/channels/380901000200060929/1017105862357176341/1017167619478003792
@@ -408,7 +408,7 @@
           Expertise: [150, unknown]
       gw2id: 2207
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: quiet-intensity
       text: Quiet Intensity
@@ -426,7 +426,7 @@
           Critical Chance: 10%
       gw2id: 2193
       defaultEnabled: true
-      outOfCombat: needsToBeSplit
+      combatOnly: needsToBeSplit
 
     - id: bloodsong
       text: Bloodsong

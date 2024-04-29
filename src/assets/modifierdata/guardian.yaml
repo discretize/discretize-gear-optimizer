@@ -11,7 +11,7 @@
         attributes:
           Power: [180, buff]
       gw2id: 9093
-      outOfCombat: true
+      combatOnly: false
 
     - id: bane-signet-2
       text: Bane Signet
@@ -24,7 +24,7 @@
         attributes:
           Power: [216, buff]
       gw2id: 9093
-      outOfCombat: true
+      combatOnly: false
 
     - id: signet-of-judgement
       text: Signet of Judgement
@@ -47,7 +47,7 @@
         attributes:
           Concentration: [120, buff]
       gw2id: 9163
-      outOfCombat: true
+      combatOnly: false
 
     - id: signet-of-mercy-2
       text: Signet of Mercy
@@ -56,7 +56,7 @@
         attributes:
           Concentration: [150, buff]
       gw2id: 9163
-      outOfCombat: true
+      combatOnly: false
 
     - id: signet-of-wrath
       text: Signet of Wrath
@@ -68,7 +68,7 @@
         attributes:
           Condition Damage: [180, buff]
       gw2id: 9151
-      outOfCombat: true
+      combatOnly: false
 
     - id: signet-of-wrath-2
       text: Signet of Wrath
@@ -81,7 +81,7 @@
         attributes:
           Condition Damage: [216, buff]
       gw2id: 9151
-      outOfCombat: true
+      combatOnly: false
 
     # 0.7 coefficient, 690.5(?) strength, 18 proc/120s traited
     # burning: 4s
@@ -104,7 +104,7 @@
           Power Coefficient: 483.3
           Burning Coefficient: 4.8
       gw2id: 46148
-      outOfCombat: false
+      combatOnly: true
 
     # 0.7 coefficient, 690.5(?) strength, 18 proc/120s traited
     # burning: 4s
@@ -124,7 +124,7 @@
           Power Coefficient: 483.3
           Burning Coefficient: 4
       gw2id: 46148
-      outOfCombat: false
+      combatOnly: true
 
 - section: Zeal
   id: 42
@@ -155,7 +155,7 @@
           Power: [120, buff] #confirmed by Cat
       gw2id: 653
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: zealous-blade-gs
       text: Zealous Blade
@@ -169,7 +169,7 @@
           Power: [120, converted] #confirmed by Cat
       gw2id: 653
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: kindled-zeal
       text: Kindled Zeal
@@ -178,7 +178,7 @@
           Condition Damage: {Power: 10%}
       gw2id: 1556
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: symbolic-avenger
       text: Symbolic Avenger
@@ -201,7 +201,7 @@
           Precision: [80, buff] # confirmed from bench hero panel
       gw2id: 566
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: right-hand-strength-1h
       text: Right-Hand Strength
@@ -215,7 +215,7 @@
           Power: [80, converted] # found by Cat
       gw2id: 566
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: radiant-fire
       text: Radiant Fire
@@ -227,7 +227,7 @@
           Burning Duration: 7%
       gw2id: 567
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: retribution
       text: Retribution
@@ -251,7 +251,7 @@
           Ferocity: [150, buff]
       gw2id: 568
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: amplified-wrath
       text: Amplified Wrath
@@ -272,7 +272,7 @@
           Critical Chance: 25%
       gw2id: 1683
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
 - section: Valor
   id: 13
@@ -286,7 +286,7 @@
           Toughness: [240, buff]
       gw2id: 580
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
 - section: Honor
   id: 49
@@ -306,7 +306,7 @@
           Outgoing Healing: 10%
       gw2id: 1899
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: honorable-staff
       text: Honorable Staff
@@ -319,7 +319,7 @@
           Concentration: [60, buff] # tested by Stephan
       gw2id: 557
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: honorable-staff-2
       text: Honorable Staff
@@ -332,7 +332,7 @@
           Concentration: [60, converted] # tested by Stephan
       gw2id: 557
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
     - id: force-of-will
       text: Force of Will
@@ -348,7 +348,7 @@
           Outgoing Healing: {Vitality: 0.005%}
       gw2id: 1682
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
 - section: Virtues
   id: 46
@@ -401,7 +401,7 @@
           Resolution Duration: 25%
       gw2id: 604
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: inspiring-virtue
       text: Inspiring Virtue
@@ -427,7 +427,7 @@
           Condition Damage: {Vitality: 13%}
       gw2id: 620
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
 - section: Dragonhunter
   id: 27
@@ -440,7 +440,7 @@
           Vitality: [180, converted]
       gw2id: 1896
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: zealots-aggression
       text: Zealot's Aggression
@@ -553,7 +553,7 @@
           Vitality: [150, converted]
       gw2id: 2148
       defaultEnabled: true
-      outOfCombat: false
+      combatOnly: true
 
 - section: Willbender
   id: 65
@@ -566,7 +566,7 @@
           Condition Damage: [120, unknown]
       gw2id: 2191
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: power-for-power
       text: Power for Power
@@ -575,7 +575,7 @@
           Power: [120, unknown]
       gw2id: 2190
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: conceited-curate
       text: Conceited Curate
@@ -584,7 +584,7 @@
           Vitality: [180, converted]
       gw2id: 2187
       defaultEnabled: true
-      outOfCombat: true
+      combatOnly: false
 
     - id: lethal-tempo
       text: Lethal Tempo

@@ -130,7 +130,7 @@ const testModifiers = async () => {
           hasLifesteal,
           displayIds,
           priceIds,
-          outOfCombat,
+          combatOnly,
           ...otherKeys
         } = item;
 
@@ -303,13 +303,13 @@ const testModifiers = async () => {
         });
 
         if (modifiers.attributes || modifiers.conversion || modifiers.conversionAfterBuffs) {
-          if (outOfCombat !== undefined) {
+          if (combatOnly !== undefined) {
             gentleAssert(
-              typeof outOfCombat === 'boolean',
-              `err: ${id}'s outOfCombat label is ${outOfCombat}!`,
+              typeof combatOnly === 'boolean',
+              `err: ${id}'s combatOnly label is ${combatOnly}!`,
             );
           } else {
-            gentleAssert(false, `err: ${id} is missing outOfCombat label!`);
+            gentleAssert(false, `err: ${id} is missing combatOnly true/false label!`);
           }
         }
       }

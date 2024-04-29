@@ -112,7 +112,7 @@ export interface AppliedModifier {
   modifiers: YamlModifiers;
   wvwModifiers?: YamlModifiers;
   amountData?: AmountData;
-  outOfCombat?: boolean;
+  combatOnly?: boolean;
 }
 
 // todo: move these; they should be synchronized with ../../assets/modifierdata/metadata.js and
@@ -714,11 +714,11 @@ export function createSettingsPerCombination(
       modifiers,
       wvwModifiers,
       amountData,
-      outOfCombat,
+      combatOnly,
       // },
     } = item;
 
-    if (simulateOutOfCombat && outOfCombat === false) {
+    if (simulateOutOfCombat && combatOnly === true) {
       continue;
     }
 

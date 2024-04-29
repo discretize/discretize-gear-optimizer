@@ -301,7 +301,7 @@ export interface ModifierItem {
   priceIds?: number[];
   defaultEnabled?: boolean;
   type?: string;
-  outOfCombat?: boolean;
+  combatOnly?: boolean;
 }
 
 export interface Section {
