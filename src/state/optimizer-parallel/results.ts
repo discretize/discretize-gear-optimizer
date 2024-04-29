@@ -152,6 +152,7 @@ export function enhanceResults(
           })
           .filter(([_, stat]: [any, number]) => stat > 0),
       ),
+      infusions: {},
       id: `${index}_${character.combination_id}_${Math.random()}`,
       settings: characterSettings,
       results: charResults,
