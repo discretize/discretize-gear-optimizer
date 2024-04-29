@@ -112,6 +112,7 @@ export interface AppliedModifier {
   modifiers: YamlModifiers;
   wvwModifiers?: YamlModifiers;
   amountData?: AmountData;
+  outOfCombat?: boolean;
 }
 
 // todo: move these; they should be synchronized with ../../assets/modifierdata/metadata.js and
@@ -582,6 +583,7 @@ export function createSettingsPerCalculation(
 export function createSettingsPerCombination(
   reduxState: RootState,
   extrasModifiers: AppliedModifier[],
+  simulateOutOfCombat = false,
 ): OptimizerCoreSettingsPerCombination {
   const sharedModifiers = [
     ...(getBuffsModifiers(reduxState) || []),
@@ -712,8 +714,13 @@ export function createSettingsPerCombination(
       modifiers,
       wvwModifiers,
       amountData,
+      outOfCombat,
       // },
     } = item;
+
+    if (simulateOutOfCombat && outOfCombat === false) {
+      continue;
+    }
 
     const {
       damage = {},
@@ -948,9 +955,15 @@ function createSettings(
   extrasCombination: ExtrasCombination,
   extrasModifiers: AppliedModifier[],
 ): OptimizerCoreSettings {
+  const settingsPerCalculation = createSettingsPerCalculation(reduxState);
+  const settingsPerCombination = createSettingsPerCombination(reduxState, extrasModifiers);
+  const outOfCombat = createSettingsPerCombination(reduxState, extrasModifiers, true);
+
   return {
-    ...createSettingsPerCalculation(reduxState),
-    ...createSettingsPerCombination(reduxState, extrasModifiers),
+    ...settingsPerCalculation,
+    ...settingsPerCombination,
+    outOfCombatBaseAttributes: outOfCombat.baseAttributes,
+    outOfCombatModifiers: outOfCombat.modifiers,
     extrasCombination,
   };
 }

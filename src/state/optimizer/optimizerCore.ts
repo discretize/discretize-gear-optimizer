@@ -161,7 +161,11 @@ export interface OptimizerCoreSettingsPerCombination {
 }
 
 export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &
-  OptimizerCoreSettingsPerCombination & { extrasCombination: ExtrasCombination };
+  OptimizerCoreSettingsPerCombination & {
+    outOfCombatBaseAttributes?: Record<AttributeName, number>;
+    outOfCombatModifiers?: Modifiers;
+    extrasCombination: ExtrasCombination;
+  };
 
 export type OptimizerCoreMinimalSettings = Pick<
   OptimizerCoreSettings,
@@ -542,10 +546,12 @@ export class OptimizerCore {
    * @param {boolean} [noRounding] - does not round conversions if true
    */
   updateAttributes(character: Character, noRounding = false) {
-    const { damageMultiplier } = this.settings.modifiers;
+    const { modifiers } = this.settings;
+    const { damageMultiplier } = modifiers;
+
     character.valid = true;
 
-    this.calcStats(character, noRounding);
+    this.calcStats(character, modifiers, noRounding);
 
     const powerDamageScore = this.calcPower(character, damageMultiplier);
     const condiDamageScore = this.calcCondi(character, damageMultiplier, Attributes.CONDITION);
@@ -566,10 +572,11 @@ export class OptimizerCore {
    */
   updateAttributesFast(character: Character, skipValidation = false): boolean {
     const { settings } = this;
-    const { damageMultiplier } = settings.modifiers;
+    const { modifiers } = this.settings;
+    const { damageMultiplier } = modifiers;
     character.valid = true;
 
-    this.calcStats(character);
+    this.calcStats(character, modifiers);
 
     const { attributes } = character;
 
@@ -609,7 +616,7 @@ export class OptimizerCore {
     return true;
   }
 
-  calcStats(character: Character, noRounding = false) {
+  calcStats(character: Character, modifiers: Modifiers, noRounding = false) {
     const { settings } = this;
 
     const round = noRounding ? (val: number) => val : roundEven;
@@ -617,7 +624,7 @@ export class OptimizerCore {
     character.attributes = { ...character.baseAttributes };
     const { attributes, baseAttributes } = character;
 
-    for (const [attribute, conversion] of settings.modifiers['convert']) {
+    for (const [attribute, conversion] of modifiers['convert']) {
       const maybeRound = enumArrayIncludes(allAttributePointKeys, attribute)
         ? round
         : (val: number) => val;
@@ -626,7 +633,7 @@ export class OptimizerCore {
       }
     }
 
-    for (const [attribute, bonus] of settings.modifiers['buff']) {
+    for (const [attribute, bonus] of modifiers['buff']) {
       attributes[attribute] = (attributes[attribute] || 0) + bonus;
     }
 
@@ -662,7 +669,7 @@ export class OptimizerCore {
         (attributes['Alternative Ferocity'] ?? 0) / 15 / 100;
     }
 
-    for (const [attribute, conversion] of settings.modifiers['convertAfterBuffs']) {
+    for (const [attribute, conversion] of modifiers['convertAfterBuffs']) {
       const maybeRound = enumArrayIncludes(allAttributePointKeys, attribute)
         ? round
         : (val: number) => val;
@@ -955,6 +962,18 @@ export class OptimizerCore {
         slope: withOne[`${key} DPS`] - withZero[`${key} DPS`],
         intercept: withZero[`${key} DPS`],
       };
+    }
+
+    // out of combat hero panel simulation (overrides both baseAttributes and modifiers)
+    if (settings.outOfCombatBaseAttributes && settings.outOfCombatModifiers) {
+      const temp = this.createCharacter(
+        character.gear,
+        character.gearStats,
+        character.infusions,
+        settings.outOfCombatBaseAttributes,
+      );
+      this.calcStats(temp, settings.outOfCombatModifiers);
+      results.outOfCombatAttributes = temp.attributes;
     }
   }
 
