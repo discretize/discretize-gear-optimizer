@@ -645,11 +645,14 @@ export class OptimizerCore {
     attributes['Critical Damage'] += attributes['Ferocity'] / 15 / 100;
 
     attributes['Boon Duration'] += attributes['Concentration'] / 15 / 100;
+    attributes['Condition Duration'] += attributes['Expertise'] / 15 / 100;
 
     attributes['Health'] = round(
       (attributes['Health'] + attributes['Vitality'] * 10) *
         (1 + (attributes['Maximum Health'] || 0)),
     );
+
+    attributes['Armor'] += attributes['Toughness'];
 
     // clones/phantasms/shroud
 
@@ -815,7 +818,6 @@ export class OptimizerCore {
     const { settings } = this;
     const { attributes } = character;
 
-    attributes['Condition Duration'] += attributes['Expertise'] / 15 / 100;
     let condiDamageScore = 0;
     for (const condition of relevantConditions) {
       const cdmg = attributes['Condition Damage'];
@@ -857,8 +859,6 @@ export class OptimizerCore {
 
   calcSurvivability(character: Character, damageMultiplier: DamageMultiplier) {
     const { attributes } = character;
-
-    attributes['Armor'] += attributes['Toughness'];
 
     attributes['Effective Health'] =
       attributes['Health'] * attributes['Armor'] * (1 / damageMultiplier['Incoming Strike Damage']);
