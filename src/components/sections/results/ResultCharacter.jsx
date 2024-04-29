@@ -1,8 +1,11 @@
 import { Character, firstUppercase } from '@discretize/react-discretize-components';
-import { FormControlLabel, Switch } from '@mui/material';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
+import { Box, FormControlLabel, Switch } from '@mui/material';
+import { useState } from 'react';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { Classes, INFUSION_IDS, WeaponTypes, getWeight } from '../../../utils/gw2-data';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
+import Info from '../../baseComponents/Info';
 
 const CustomSwitch = ({ onChange, label }) => (
   <FormControlLabel control={<Switch onChange={onChange} />} label={label} />
@@ -122,7 +125,7 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
   }
 
   // Calculate armor props
-  const { gear, attributes } = character;
+  const { gear, attributes, results: { outOfCombatAttributes } = {} } = character;
   const runeId = rune ? rune.gw2id : undefined;
   const armorPropsAPI = {
     weight: firstUppercase(weight),
@@ -185,10 +188,37 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
 
   const relicId = allExtrasModifiersById[relics]?.gw2id;
 
+  const [showOutOfCombat, setShowOutOfCombat] = useState(false);
+
   return (
     <ErrorBoundary location="Character" resetKeys={[character]}>
+      {character.results.outOfCombatAttributes && (
+        <>
+          <FormControlLabel
+            control={
+              <Switch
+                checked={showOutOfCombat}
+                onChange={(e) => setShowOutOfCombat(e.target.checked)}
+                name="checked"
+                color="primary"
+              />
+            }
+            label="Simulate out-of-combat hero panel"
+          />
+          {showOutOfCombat && (
+            <Box sx={{ p: 1 }}>
+              <Info icon={<WarningAmberIcon />}>
+                {`Simulation is not exact. For example, neither "while wielding one-handed-weapons"
+                and "while wielding a two-handed-weapon" are included, so builds with both will show
+                stats that will never match ingame. Use with caution.`}
+              </Info>
+            </Box>
+          )}
+        </>
+      )}
+
       <Character
-        attributes={{ profession, data: attributes }}
+        attributes={{ profession, data: (showOutOfCombat && outOfCombatAttributes) || attributes }}
         armor={armorPropsAPI}
         weapon={weaponPropsAPI}
         backAndTrinket={backAndTrinketPropsAPI}
