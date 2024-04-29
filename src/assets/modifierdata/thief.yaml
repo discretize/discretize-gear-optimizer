@@ -12,6 +12,7 @@
         attributes:
           Power: [180, buff]
       gw2id: 13046
+      outOfCombat: true
 
     - id: assassins-signet-active
       text: Assassin's Signet
@@ -24,6 +25,7 @@
         attributes:
           Power: [540, buff]
       gw2id: 13046
+      outOfCombat: false
 
     - id: signet-of-agility
       text: Signet of Agility
@@ -31,6 +33,7 @@
         attributes:
           Precision: [180, buff]
       gw2id: 13062
+      outOfCombat: true
 
 - section: Deadly Arts
   id: 28
@@ -44,6 +47,7 @@
           Power: [80, converted]
       gw2id: 1245
       defaultEnabled: true
+      outOfCombat: true
 
     - id: dagger-training-dagger
       text: Dagger Training
@@ -57,6 +61,7 @@
           Power: [80, converted]
       gw2id: 1245
       defaultEnabled: false
+      outOfCombat: false
 
     - id: deadly-ambition
       text: Deadly Ambition
@@ -68,6 +73,7 @@
           Condition Damage: [120, converted]
       gw2id: 1164
       defaultEnabled: true
+      outOfCombat: true
 
     - id: revealed-training-base
       text: Revealed Training
@@ -77,6 +83,7 @@
           Power: [80, buff]
       gw2id: 1704
       defaultEnabled: true
+      outOfCombat: true
 
     - id: revealed-training-revealed
       text: Revealed Training
@@ -89,6 +96,7 @@
           Power: [120, buff]
       gw2id: 1704
       defaultEnabled: false
+      outOfCombat: false
 
     - id: exposed-weakness
       text: Exposed Weakness
@@ -117,6 +125,7 @@
           Poison Duration: 5%
       gw2id: 1291
       defaultEnabled: true
+      outOfCombat: true
 
     - id: executioner
       text: Executioner
@@ -146,6 +155,7 @@
           Critical Chance: 10%
       gw2id: 1281
       defaultEnabled: true
+      outOfCombat: needsToBeSplit
 
     - id: twin-fangs-scholar
       text: Twin Fangs
@@ -164,6 +174,7 @@
           Critical Chance: 7%
       gw2id: 1268
       defaultEnabled: true
+      outOfCombat: false
 
     - id: practiced-tolerance
       text: Practiced Tolerance
@@ -175,6 +186,7 @@
           Ferocity: {Precision: 15%}
       gw2id: 1272
       defaultEnabled: true
+      outOfCombat: true
 
     - id: ferocious-strikes
       text: Ferocious Strikes
@@ -203,6 +215,7 @@
           Ferocity: [300, buff]
       gw2id: 1904
       defaultEnabled: true
+      outOfCombat: false
 
 - section: Shadow Arts
   id: 20
@@ -225,6 +238,7 @@
           Siphon Coefficient: 0.0165
       gw2id: 1130
       defaultEnabled: true
+      outOfCombat: false
 
     - id: cloaked-in-shadow
       text: Cloaked in Shadow
@@ -239,6 +253,7 @@
           Siphon Coefficient: 0.04
       gw2id: 1300
       defaultEnabled: true
+      outOfCombat: false
 
     - id: shadow-siphoning
       text: Shadow Siphoning
@@ -258,6 +273,7 @@
       minor: true
       gw2id: 1705
       defaultEnabled: true
+      outOfCombat: false
 
 - section: Acrobatics
   id: 54
@@ -288,6 +304,7 @@
           Expertise: [150, converted]
       gw2id: 1232
       defaultEnabled: true
+      outOfCombat: true
 
     - id: lead-attacks
       text: Lead Attacks
@@ -324,6 +341,7 @@
           Vitality: {Power: 7%}
       gw2id: 1933
       defaultEnabled: true
+      outOfCombat: true
 
     - id: weakening-strikes
       text: Weakening Strikes
@@ -348,6 +366,7 @@
           Power: [120, converted]
       gw2id: 1884
       defaultEnabled: true
+      outOfCombat: true
 
     - id: staff-master-staff
       text: Staff Master
@@ -357,6 +376,7 @@
           Power: [120, converted]
       gw2id: 1884
       defaultEnabled: true
+      outOfCombat: false
 
     - id: havoc-specialist
       text: Havoc Specialist
@@ -415,6 +435,7 @@
           Precision: [120, converted]
       gw2id: 2118
       defaultEnabled: true
+      outOfCombat: true
 
     - id: silent-scope-rifle
       text: Silent Scope
@@ -424,6 +445,7 @@
           Precision: [120, converted]
       gw2id: 2118
       defaultEnabled: true
+      outOfCombat: false
 
     - id: premeditation-base
       text: Premeditation
@@ -436,6 +458,7 @@
           Concentration: [60, buff]
       gw2id: 2160
       defaultEnabled: true
+      outOfCombat: true
 
     - id: premeditation
       text: Premeditation
@@ -475,6 +498,7 @@
           Precision: [200, buff]
       gw2id: 2093
       defaultEnabled: true
+      outOfCombat: false
 
 - section: Specter
   id: 71
@@ -490,6 +514,7 @@
           Condition Damage: [90, unknown]
       gw2id: 2284
       defaultEnabled: true
+      outOfCombat: true
 
     - id: second-opinion-scepter
       text: Second Opinion
@@ -503,6 +528,7 @@
           Condition Damage: [90, unknown]
       gw2id: 2284
       defaultEnabled: true
+      outOfCombat: false
 
     - id: dark-sentry
       text: Dark Sentry
@@ -515,6 +541,7 @@
           Outgoing Healing: 10%
       gw2id: 2272
       defaultEnabled: true
+      outOfCombat: true
 
     - id: larcenous-torment
       text: Larcenous Torment
@@ -529,6 +556,7 @@
           Siphon Coefficient: 0.005
       gw2id: 2290
       defaultEnabled: true
+      outOfCombat: false
 
     - id: strength-of-shadows-base
       text: Strength of Shadows
@@ -545,3 +573,4 @@
           Outgoing Torment Damage: [25%, add] # unconfirmed
       gw2id: 2264
       defaultEnabled: true
+      outOfCombat: true

@@ -7,6 +7,7 @@
         attributes:
           Power: [180, buff]
       gw2id: 14404
+      outOfCombat: true
 
     - id: signet-of-fury
       text: Signet of Fury
@@ -14,6 +15,7 @@
         attributes:
           Precision: [180, buff]
       gw2id: 14410
+      outOfCombat: true
 
     - id: dolyak-signet
       text: Dolyak Signet
@@ -21,6 +23,7 @@
         attributes:
           Toughness: [180, buff]
       gw2id: 14413
+      outOfCombat: true
 
 - section: Strength
   id: 4
@@ -62,6 +65,7 @@
           Power: [120, converted] # from sheet by Bekko
       gw2id: 1338
       defaultEnabled: true
+      outOfCombat: true
 
     - id: forceful-greatsword-2
       text: Forceful Greatsword
@@ -75,6 +79,7 @@
           Power: [120, converted] # from sheet by Bekko
       gw2id: 1338
       defaultEnabled: false
+      outOfCombat: false
 
     - id: great-fortitude
       text: Great Fortitude
@@ -84,6 +89,7 @@
           Ferocity: {Power: 10%}
       gw2id: 1449
       defaultEnabled: true
+      outOfCombat: true
 
     - id: pinnacle-of-strength-crit
       text: Pinnacle Of Strength
@@ -94,6 +100,7 @@
           Critical Chance: 5%
       gw2id: 1453
       defaultEnabled: true
+      outOfCombat: true
 
     - id: pinnacle-of-strength
       text: Pinnacle Of Strength
@@ -107,6 +114,7 @@
           Power: [250, buff] # confirmed from bench hero panel
       gw2id: 1453
       defaultEnabled: true
+      outOfCombat: false
 
     - id: berserkers-power
       text: Berserker's Power
@@ -134,6 +142,7 @@
           Critical Chance: 5%
       gw2id: 1342
       defaultEnabled: true
+      outOfCombat: false
 
     - id: wounding-precision
       text: Wounding Precision
@@ -145,6 +154,7 @@
           Expertise: {Precision: 4%}
       gw2id: 1455
       defaultEnabled: true
+      outOfCombat: true
 
     - id: signet-mastery
       text: Signet Mastery
@@ -157,6 +167,7 @@
           Ferocity: [500, converted]
       gw2id: 1344
       defaultEnabled: true
+      outOfCombat: false
 
     - id: deep-strikes-fury
       text: Deep Strikes (Fury)
@@ -171,6 +182,7 @@
           Condition Damage: [180, converted] # from sheet by Bekko
       gw2id: 1343
       defaultEnabled: true
+      outOfCombat: false
 
     - id: deep-strikes-bleeding
       text: Deep Strikes (Bleeding)
@@ -184,6 +196,7 @@
           Critical Chance: 10%
       gw2id: 1343
       defaultEnabled: true
+      outOfCombat: false
 
     - id: unsuspecting-foe-full
       text: Unsuspecting Foe
@@ -193,6 +206,7 @@
           Critical Chance: 25%
       gw2id: 1315
       defaultEnabled: true
+      outOfCombat: false
 
     - id: burst-precision
       text: Burst Precision
@@ -205,6 +219,7 @@
           Ferocity: [150, unknown]
       gw2id: 1336
       defaultEnabled: true
+      outOfCombat: false
 
     - id: blade-master
       text: Blademaster
@@ -214,6 +229,7 @@
           Expertise: [120, converted] # confirmed from bench hero panel
       gw2id: 1333
       defaultEnabled: true
+      outOfCombat: true
 
     - id: blade-master-base-bugged
       text: Blademaster
@@ -223,6 +239,7 @@
           Expertise: [160, converted]
       gw2id: 1333
       defaultEnabled: false
+      outOfCombat: true
 
     - id: blade-master-2
       text: Blademaster
@@ -236,6 +253,7 @@
           Condition Damage: [120, converted] # from sheet by Bekko
       gw2id: 1333
       defaultEnabled: true
+      outOfCombat: false
 
     - id: bloodlust
       text: Bloodlust
@@ -249,6 +267,7 @@
           Bleeding Duration: 15%
       gw2id: 1337
       defaultEnabled: true
+      outOfCombat: true
 
     - id: bloodlust-on-crit
       text: Bloodlust
@@ -267,6 +286,7 @@
           Bleeding Coefficient: {Critical Chance: 33%}
       gw2id: 1337
       defaultEnabled: false
+      outOfCombat: false
 
     - id: furious
       text: Furious
@@ -283,6 +303,7 @@
           Condition Damage: [250, buff]
       gw2id: 1346
       defaultEnabled: true
+      outOfCombat: false
 
 - section: Defense
   id: 22
@@ -367,6 +388,7 @@
           Concentration: [60, buff]
       gw2id: 1471
       defaultEnabled: true
+      outOfCombat: true
 
     - id: empowered
       text: Empowered
@@ -403,6 +425,7 @@
           Healing Power: {Power: 13%}
       gw2id: 1470
       defaultEnabled: true
+      outOfCombat: true
 
 - section: Discipline
   id: 51
@@ -433,6 +456,7 @@
           Outgoing Healing: 10%
       gw2id: 1381
       defaultEnabled: true
+      outOfCombat: true
 
     - id: axe-mastery-one
       text: Axe Mastery
@@ -442,6 +466,7 @@
           Ferocity: [120, converted] # confirmed from bench hero panel
       gw2id: 1369
       defaultEnabled: true
+      outOfCombat: true
 
     - id: axe-mastery-axe
       text: Axe Mastery
@@ -455,6 +480,7 @@
           Ferocity: [120, converted] # confirmed from bench hero panel
       gw2id: 1369
       defaultEnabled: true
+      outOfCombat: false
 
 - section: Berserker
   id: 18
@@ -471,6 +497,7 @@
           Critical Chance: 5%
       gw2id: 2049
       defaultEnabled: true
+      outOfCombat: false
 
     - id: blood-reaction-base
       text: Blood Reaction
@@ -485,6 +512,7 @@
           Condition Damage: {Power: 10%}
       gw2id: 2011
       defaultEnabled: true
+      outOfCombat: true
 
     - id: blood-reaction-with
       text: Blood Reaction
@@ -503,6 +531,7 @@
           Condition Damage: {Power: 10%}
       gw2id: 2011
       defaultEnabled: true
+      outOfCombat: false
 
     - id: fatal-frenzy-power-condi
       text: Fatal Frenzy
@@ -522,6 +551,7 @@
           Condition Damage: [300, buff]
       gw2id: 2046
       defaultEnabled: true
+      outOfCombat: false
 
     - id: bloody-roar
       text: Bloody Roar
@@ -548,6 +578,7 @@
           Burning Duration: 10%
       gw2id: 2038
       defaultEnabled: true
+      outOfCombat: true
 
 - section: Spellbreaker
   id: 61
@@ -618,6 +649,7 @@
           Precision: [150, buff]
       gw2id: 2130
       defaultEnabled: true
+      outOfCombat: false
 
     - id: magebane-tether
       text: Magebane Tether
@@ -662,3 +694,4 @@
           Ferocity: [250, unknown]
       gw2id: 2236
       defaultEnabled: true
+      outOfCombat: false

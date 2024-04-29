@@ -73,6 +73,7 @@
           Ferocity: [20, buff]
       gw2id: 1892
       defaultEnabled: true
+      outOfCombat: false
 
     - id: blast-shield
       text: Blast Shield
@@ -81,6 +82,7 @@
           Vitality: {Power: 10%}
       gw2id: 1944
       defaultEnabled: true
+      outOfCombat: true
 
     - id: shaped-charge
       text: Shaped Charge
@@ -128,6 +130,7 @@
           Bleeding Coefficient: {Critical Chance: 33%}
       gw2id: 515
       defaultEnabled: false
+      outOfCombat: false
 
     - id: chemical-rounds
       text: Chemical Rounds
@@ -136,6 +139,7 @@
           Condition Damage: [120, buff]
       gw2id: 1878
       defaultEnabled: true
+      outOfCombat: true
 
     - id: high-caliber
       text: High Caliber
@@ -145,6 +149,7 @@
           Critical Chance: 15%
       gw2id: 1914
       defaultEnabled: true
+      outOfCombat: false
 
     - id: hematic-focus
       text: Hematic Focus
@@ -157,6 +162,7 @@
       minor: true
       gw2id: 536
       defaultEnabled: true
+      outOfCombat: false
 
     - id: thermal-vision
       text: Thermal Vision
@@ -172,6 +178,7 @@
           Expertise: [60, converted]
       gw2id: 2006
       defaultEnabled: true
+      outOfCombat: needsToBeSplit
 
     - id: no-scope
       text: No Scope
@@ -181,6 +188,7 @@
           Ferocity: [150, buff]
       gw2id: 1923
       defaultEnabled: true
+      outOfCombat: false
 
     - id: serrated-steel
       text: Serrated Steel
@@ -193,6 +201,7 @@
       minor: true
       gw2id: 516
       defaultEnabled: true
+      outOfCombat: true
 
     - id: modified-ammunition
       text: Modified Ammunition
@@ -216,6 +225,7 @@
           Burning Duration: 10%
       gw2id: 433
       defaultEnabled: true
+      outOfCombat: true
 
 - section: Inventions
   id: 47
@@ -237,6 +247,7 @@
       minor: true
       gw2id: 519
       defaultEnabled: true
+      outOfCombat: false
 
 - section: Alchemy
   id: 29
@@ -253,6 +264,7 @@
           Outgoing Healing: 7%
       gw2id: 521
       defaultEnabled: false
+      outOfCombat: false
 
     - id: compounding-chemicals
       text: Compounding Chemicals
@@ -265,6 +277,7 @@
       minor: true
       gw2id: 413
       defaultEnabled: true
+      outOfCombat: true
 
     - id: iron-blooded
       text: Iron Blooded
@@ -342,6 +355,7 @@
           Concentration: {Power: 10%}
       gw2id: 2052
       defaultEnabled: true
+      outOfCombat: true
 
     - id: applied-force
       text: Applied Force
@@ -357,6 +371,7 @@
           Power: [375, buff]
       gw2id: 1849
       defaultEnabled: true
+      outOfCombat: false
 
 - section: Holosmith
   id: 57

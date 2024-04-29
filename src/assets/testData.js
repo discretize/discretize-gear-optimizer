@@ -130,6 +130,7 @@ const testModifiers = async () => {
           hasLifesteal,
           displayIds,
           priceIds,
+          outOfCombat,
           ...otherKeys
         } = item;
 
@@ -300,6 +301,17 @@ const testModifiers = async () => {
             parseConversionAfterBuffs(conversionAfterBuffs, id, amountData);
           }
         });
+
+        if (modifiers.attributes || modifiers.conversion || modifiers.conversionAfterBuffs) {
+          if (outOfCombat !== undefined) {
+            gentleAssert(
+              typeof outOfCombat === 'boolean',
+              `err: ${id}'s outOfCombat label is ${outOfCombat}!`,
+            );
+          } else {
+            gentleAssert(false, `err: ${id} is missing outOfCombat label!`);
+          }
+        }
       }
     }
   }

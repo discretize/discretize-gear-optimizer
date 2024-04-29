@@ -9,6 +9,7 @@
           Power: [100, converted]
           Ferocity: [70, converted]
       gw2id: 91805
+      outOfCombat: true
 
     - id: sweet-and-spicy-butternut-squash-soup
       text: Sweet and Spicy Butternut Squash Soup / Spicy Moa Wings
@@ -19,6 +20,7 @@
       gw2id: 41569
       displayIds: [41569, 91917]
       priceIds: [41569, 91917]
+      outOfCombat: true
 
     - id: avocado-smoothie
       text: Avocado Smoothie
@@ -27,6 +29,7 @@
           Power: [80, converted]
           Ferocity: [60, converted]
       gw2id: 87029
+      outOfCombat: true
 
     - id: plate-of-coq-au-vin-with-salsa
       text: Plate of Coq Au Vin with Salsa
@@ -36,6 +39,7 @@
           Power: [100, converted]
           Precision: [70, converted]
       gw2id: 91709
+      outOfCombat: true
 
     - id: truffle-steak
       text: Plate of Truffle Steak
@@ -45,6 +49,7 @@
           Precision: [70, converted]
       gw2id: 12467
       priceIds: [12467, 79786]
+      outOfCombat: true
 
     - id: curry-butternut-squash-soup
       text: Bowl of Curry Butternut Squash Soup
@@ -53,6 +58,7 @@
           Precision: [100, converted]
           Ferocity: [70, converted]
       gw2id: 12486
+      outOfCombat: true
 
     - id: dragon's-breath-bun
       text: Dragon's Breath Bun
@@ -63,6 +69,7 @@
           Ferocity: [70, converted]
       gw2id: 43360
       priceIds: [43360, 12469, 41561]
+      outOfCombat: true # sort of
 
     - id: block-of-tofu
       text: Block of Tofu
@@ -73,6 +80,7 @@
           Ferocity: [100, converted]
           Precision: [70, converted]
       gw2id: 96793
+      outOfCombat: true # sort of
 
     - id: seaweed-salad
       text: Bowl of Seaweed Salad / Bowl of Winterberry Seaweed Salad
@@ -93,6 +101,7 @@
         attributes:
           Power: [150, converted]
       gw2id: 71797
+      outOfCombat: true
 
     - id: sawgill-mushroom-risotto
       text: Bowl of Sawgill Mushroom Risotto
@@ -100,6 +109,7 @@
         attributes:
           Precision: [150, converted]
       gw2id: 75010
+      outOfCombat: true
 
     - id: roasted-cactus
       text: Bowl of Prickly Pear Sorbet / Roasted Cactus
@@ -109,6 +119,7 @@
       gw2id: 66539
       displayIds: [66539, 66536]
       priceIds: [66539, 66536]
+      outOfCombat: true
 
     - id: strawberry-cilantro-cheesecake
       text: Strawberry Cilantro Cheesecake
@@ -117,6 +128,7 @@
         attributes:
           Concentration: [100, converted]
       gw2id: 91851
+      outOfCombat: true
 
     - id: fried-golden-dumpling
       text: Fried Golden Dumpling / Cheesecake
@@ -124,6 +136,7 @@
         attributes:
           Concentration: [100, converted]
       gw2id: 68633
+      outOfCombat: true
 
     - id: slice-of-candied-dragon-roll
       text: Slice of Candied Dragon Roll / Mintberry Swirl Ice Cream
@@ -134,6 +147,7 @@
       gw2id: 43362
       displayIds: [43362, 77630]
       priceIds: [43362, 77630, 12457, 36083, 79748]
+      outOfCombat: true
 
     - id: slice-of-allspice-cake
       text: Slice of Allspice Cake
@@ -142,6 +156,7 @@
         attributes:
           Power: [70, converted]
       gw2id: 75126
+      outOfCombat: true
 
 - section: Support Food
   items:
@@ -154,6 +169,7 @@
           Concentration: [100, converted]
           Power: [70, converted]
       gw2id: 91862
+      outOfCombat: true
 
     - id: soul-pastry
       text: Soul Pastry
@@ -162,6 +178,7 @@
           Concentration: [100, converted]
           Power: [70, converted]
       gw2id: 89002
+      outOfCombat: true
 
     - id: salsa-eggs-benedict
       text: Salsa Eggs Benedict
@@ -171,6 +188,7 @@
           Concentration: [100, converted]
           Expertise: [70, converted]
       gw2id: 91847
+      outOfCombat: true
 
     - id: eggs-benedict
       text: Plate of Eggs Benedict
@@ -180,6 +198,7 @@
           Expertise: [70, converted]
       gw2id: 91842
       priceIds: [91842, 91950, 91954, 92078]
+      outOfCombat: true
 
     - id: plate-of-poultry-aspic-with-salsa-garnish
       text: Plate of Poultry Aspic with Salsa Garnish
@@ -189,6 +208,7 @@
           Concentration: [100, converted]
           Toughness: [70, converted]
       gw2id: 91704
+      outOfCombat: true
 
     - id: nopalitos-saute
       text: Bowl of Nopalitos Sauté / Poultry Aspic
@@ -198,6 +218,7 @@
           Toughness: [70, converted]
       gw2id: 66530
       priceIds: [66530, 66527]
+      outOfCombat: true
 
     - id: mussels-gnashblade
       text: Plate of Mussels Gnashblade
@@ -207,6 +228,7 @@
         attributes:
           Concentration: [70, converted]
       gw2id: 74969
+      outOfCombat: true
 
 - section: Heal Food
   items:
@@ -219,6 +241,7 @@
           Concentration: [70, converted]
           Outgoing Healing: 10%
       gw2id: 91690
+      outOfCombat: true
 
     - id: mint-creme-brulee
       text: Mint Creme Brulee
@@ -228,6 +251,7 @@
           Healing Power: [70, converted]
           Outgoing Healing: 10%
       gw2id: 91743
+      outOfCombat: true
 
     - id: delicious-rice-ball
       text: Delicious Rice Ball
@@ -236,6 +260,7 @@
           Healing Power: [100, converted]
           Outgoing Healing: 10%
       gw2id: 68634
+      outOfCombat: true
 
     - id: poultry-satay
       text: Bowl of Poultry Satay
@@ -244,6 +269,7 @@
           Healing Power: [100, converted]
           Concentration: [70, converted]
       gw2id: 87076
+      outOfCombat: true
 
 - section: Condition Food
   items:
@@ -256,6 +282,7 @@
           Expertise: [100, converted]
           Condition Damage: [70, converted]
       gw2id: 91876
+      outOfCombat: true
 
     - id: rare-veggie-pizza
       text: Rare Veggie Pizza / Koi Cake
@@ -266,6 +293,7 @@
       gw2id: 12464
       displayIds: [12464, 43361]
       priceIds: [12464, 43361, 84550, 41565]
+      outOfCombat: true
 
     - id: cilantro-and-cured-meat-flatbread
       text: Cilantro and Cured Meat Flatbread
@@ -275,6 +303,7 @@
           Condition Damage: [100, converted]
           Expertise: [70, converted]
       gw2id: 91878
+      outOfCombat: true
 
     - id: beef-rendang
       text: Plate of Beef Rendang
@@ -283,6 +312,7 @@
           Condition Damage: [100, converted]
           Expertise: [70, converted]
       gw2id: 86997
+      outOfCombat: true
 
     - id: fishy-rice-bowl
       text: Fishy Rice Bowl
@@ -291,6 +321,7 @@
           Burning Duration: 15%
           Condition Damage: [70, converted]
       gw2id: 97767
+      outOfCombat: true
 
     - id: plate-of-kimchi-pancakes
       text: Plate of Kimchi Pancakes
@@ -299,6 +330,7 @@
           Bleeding Duration: 15%
           Condition Damage: [70, converted]
       gw2id: 96578
+      outOfCombat: true
 
     - id: bowl-of-kimchi-tofu-stew
       text: Bowl of Kimchi Tofu Stew
@@ -307,6 +339,7 @@
           Poison Duration: 15%
           Condition Damage: [70, converted]
       gw2id: 97422
+      outOfCombat: true
 
     - id: meaty-asparagus-skewer
       text: Meaty Asparagus Skewer
@@ -315,6 +348,7 @@
           Torment Duration: 15%
           Condition Damage: [70, converted]
       gw2id: 95942
+      outOfCombat: true
 
     - id: meaty-rice-bowl
       text: Meaty Rice Bowl
@@ -323,6 +357,7 @@
           Confusion Duration: 15%
           Condition Damage: [70, converted]
       gw2id: 96916
+      outOfCombat: true
 
     - id: fire-meat-chili
       text: Bowl of Fire Meat Chili
@@ -331,6 +366,7 @@
           Burning Duration: 15%
           Precision: [70, converted]
       gw2id: 12484
+      outOfCombat: true
 
     - id: fancy-truffle-burger
       text: Fancy Truffle Burger
@@ -339,6 +375,7 @@
           Poison Duration: 15%
           Precision: [70, converted]
       gw2id: 12463
+      outOfCombat: true
 
     - id: saffron-stuffed-mushroom
       text: Saffron Stuffed Mushroom
@@ -348,6 +385,7 @@
           Precision: [70, converted]
           Condition Damage: [200, converted]
       gw2id: 12476
+      outOfCombat: true # sort of
 
     - id: steamed-red-dumpling
       text: Steamed Red Dumpling
@@ -357,6 +395,7 @@
           Power: [200, converted]
           Condition Damage: [140, converted]
       gw2id: 68635
+      outOfCombat: true # sort of
 
     - id: truffle-risotto
       text: Bowl of Truffle Risotto
@@ -365,6 +404,7 @@
           Condition Damage: [100, converted]
           Precision: [70, converted]
       gw2id: 12465
+      outOfCombat: true
 
     - id: sweet-and-spicy-beans
       text: Bowl of Sweet and Spicy Beans
@@ -374,6 +414,7 @@
           Power: [70, converted]
       gw2id: 66528
       priceIds: [66528, 66526]
+      outOfCombat: true
 
     - id: fire-flank-steak
       text: Plate of Fire Flank Steak
@@ -382,6 +423,7 @@
           Power: [100, converted]
           Condition Damage: [70, converted]
       gw2id: 12466
+      outOfCombat: true
 
     - id: fancy-potato-and-leek-soup
       text: Bowl of Fancy Potato and Leek Soup
@@ -390,6 +432,7 @@
           Precision: [100, converted]
           Condition Damage: [70, converted]
       gw2id: 12485
+      outOfCombat: true
 
     - id: prickly-pear-pie
       text: Prickly Pear Pie
@@ -399,6 +442,7 @@
           Expertise: [100, converted]
       gw2id: 66538
       priceIds: [66538, 66523]
+      outOfCombat: true
 
     - id: slice-of-allspice-cake-with-ice-cream
       text: Slice of Allspice Cake with Ice Cream
@@ -407,6 +451,7 @@
         attributes:
           Condition Damage: [70, converted]
       gw2id: 76359
+      outOfCombat: true
 
     - id: ghost-pepper-popper-reaper
       text: Ghost Pepper Popper
@@ -423,6 +468,7 @@
         attributes:
           Bleeding Coefficient: 8
       gw2id: 12479
+      outOfCombat: false
 
 - section: Hybrid Food
   items:
@@ -442,6 +488,7 @@
           Ferocity: [45, converted]
           Healing Power: [45, converted]
       gw2id: 91804
+      outOfCombat: true
 
     - id: spherified-oyster-soup-with-mint-garnish
       text: Spherified Oyster Soup with Mint Garnish
@@ -459,6 +506,7 @@
           Healing Power: [45, converted]
           Outgoing Healing: 10%
       gw2id: 91748
+      outOfCombat: true
 
     - id: dragon's-revelry-starcake
       text: Oyster Soup
@@ -475,6 +523,7 @@
           Ferocity: [45, converted]
           Healing Power: [45, converted]
       gw2id: 92471
+      outOfCombat: true
 
     - id: dragons-revelry-starcake-bugged
       text: Dragon's Revelry Starcake
@@ -491,6 +540,7 @@
           Ferocity: [45, buff]
           Healing Power: [45, buff]
       gw2id: 43550
+      outOfCombat: true
 
     - id: birthday-blaster
       text: Birthday Blaster
@@ -506,6 +556,7 @@
           Ferocity: [40, buff]
           Healing Power: [40, buff]
       gw2id: 66961
+      outOfCombat: true
 
     - id: passion-fruit-tapioca-pudding
       text: Bowl of Passion Fruit Tapioca Pudding
@@ -514,6 +565,7 @@
           Power: [100, converted]
           Healing Power: [70, converted]
       gw2id: 71826
+      outOfCombat: true
 
     - id: prickly-pear-tapioca-pudding
       text: Bowl of Prickly Pear Tapioca Pudding
@@ -522,6 +574,7 @@
           Condition Damage: [100, converted]
           Healing Power: [70, converted]
       gw2id: 76135
+      outOfCombat: true
 
     - id: tropical-fruit-salad
       text: Bowl of Tropical Fruit Salad
@@ -530,6 +583,7 @@
           Condition Damage: [70, converted]
           Healing Power: [100, converted]
       gw2id: 36793
+      outOfCombat: true
 
     - id: spicy-chocolate-cookie
       text: Spicy Chocolate Cookie
@@ -538,6 +592,7 @@
           Healing Power: [100, converted]
           Precision: [70, converted]
       gw2id: 12454
+      outOfCombat: true
 
 - section: Toughness Food
   items:
@@ -549,6 +604,7 @@
           Power: [100, converted]
           Toughness: [70, converted]
       gw2id: 41563
+      outOfCombat: true
 
     - id: spicy-herbed-chicken
       text: Plate of Spicy Herbed Chicken
@@ -557,6 +613,7 @@
           Power: [70, converted]
           Toughness: [100, converted]
       gw2id: 41567
+      outOfCombat: true
 
     - id: truffle-ravioli
       text: Bowl of Truffle Ravioli
@@ -566,6 +623,7 @@
           Toughness: [100, converted]
       gw2id: 12461
       priceIds: [12461, 41564]
+      outOfCombat: true
 
     - id: plate-of-clear-truffle-and-cilantro-ravioli
       text: Plate of Clear Truffle and Cilantro Ravioli
@@ -575,6 +633,7 @@
           Vitality: [100, converted]
           Toughness: [70, converted]
       gw2id: 91735
+      outOfCombat: true
 
     - id: omnomberry-bread
       text: Loaf of Omnomberry Bread / Ravioli
@@ -583,6 +642,7 @@
           Vitality: [100, converted]
           Toughness: [70, converted]
       gw2id: 12473
+      outOfCombat: true
 
     - id: kralkachocolate-bar
       text: Kralkachocolate Bar
@@ -592,6 +652,7 @@
           Toughness: [70, converted]
       gw2id: 43358
       priceIds: [43358, 38210]
+      outOfCombat: true
 
     - id: chocolate-tapioca-pudding
       text: Bowl of Chocolate Tapioca Pudding
@@ -600,6 +661,7 @@
           Healing Power: [70, converted]
           Toughness: [100, converted]
       gw2id: 76415
+      outOfCombat: true
 
     - id: tropical-mousse
       text: Bowl of Tropical Mousse
@@ -608,6 +670,7 @@
           Condition Damage: [70, converted]
           Toughness: [100, converted]
       gw2id: 36841
+      outOfCombat: true
 
     - id: elon-red
       text: Bowl of "Elon Red"
@@ -616,6 +679,7 @@
           Expertise: [100, converted]
           Toughness: [70, converted]
       gw2id: 82541
+      outOfCombat: true
 
 - section: ???
   items:
@@ -635,6 +699,7 @@
           Ferocity: {Ferocity: 3%}
           Healing Power: {Healing Power: 3%}
       gw2id: 98924
+      outOfCombat: true
 
 - section: Placeholder Items
   items:

@@ -12,6 +12,7 @@
         attributes:
           Power: [180, buff]
       gw2id: 10622
+      outOfCombat: true
 
     - id: signet-of-vampirism
       text: Signet of Vampirism
@@ -25,6 +26,7 @@
           Siphon Base Coefficient: 151
           Siphon Coefficient: 0.022
       gw2id: 21762
+      outOfCombat: true
 
     - id: locust-swarm
       text: Locust Swarm
@@ -38,6 +40,7 @@
           Siphon Base Coefficient: 1170
           Siphon Coefficient: 0.8
       gw2id: 10557
+      outOfCombat: false
 
     - id: soul-grasp
       text: Soul Grasp
@@ -55,6 +58,7 @@
           Siphon Base Coefficient: 248
           Siphon Coefficient: 0.75
       gw2id: 55050
+      outOfCombat: false
 
 - section: Spite
   id: 53
@@ -84,6 +88,7 @@
           Condition Damage: [-250, buff]
       gw2id: 829
       defaultEnabled: true
+      outOfCombat: false
 
     # - id: signets-of-suffering
     #   text: Signets of Suffering
@@ -129,6 +134,7 @@
           Bleeding Duration: 20%
       gw2id: 802
       defaultEnabled: true
+      outOfCombat: true
 
     - id: barbed-precision-on-crit
       text: Barbed Precision
@@ -147,6 +153,7 @@
           Bleeding Coefficient: {Critical Chance: 33%}
       gw2id: 802
       defaultEnabled: false
+      outOfCombat: false
 
     - id: furious-demise
       text: Furious Demise
@@ -156,6 +163,7 @@
           Precision: [180, buff] # unconverted (except by Target the Weak), tested by Marcus and Jezereal
       gw2id: 803
       defaultEnabled: true
+      outOfCombat: true
 
     - id: target-the-weak-base
       text: Target the Weak
@@ -168,6 +176,7 @@
           Condition Damage: [23, buff] # conversion of 180 precision from Furious Demise; see https://wiki.guildwars2.com/wiki/Game_updates/2021-08-17#Necromancer
       gw2id: 810
       defaultEnabled: true
+      outOfCombat: true
 
     - id: target-the-weak
       text: Target the Weak
@@ -183,6 +192,7 @@
           Critical Chance: 20%
       gw2id: 810
       defaultEnabled: true
+      outOfCombat: false
 
     - id: lingering-curse
       text: Lingering Curse
@@ -192,6 +202,7 @@
           Condition Damage: [200, buff]
       gw2id: 801
       defaultEnabled: true
+      outOfCombat: true
 
 - section: Death Magic
   id: 2
@@ -211,6 +222,7 @@
         attributes:
           Toughness: [20, buff]
       defaultEnabled: true
+      outOfCombat: false
 
     - id: putrid-defense
       text: Putrid Defense
@@ -232,6 +244,7 @@
           Condition Damage: [10, buff] # unverified
       gw2id: 855
       defaultEnabled: true
+      outOfCombat: false
 
 - section: Blood Magic
   id: 19
@@ -250,6 +263,7 @@
           Siphon Coefficient: 0.42
       gw2id: 1876
       defaultEnabled: true
+      outOfCombat: false
 
     - id: vampiric
       text: Vampiric
@@ -266,6 +280,7 @@
       gw2id: 783
       minor: true
       defaultEnabled: true
+      outOfCombat: false
 
     - id: life-from-death
       text: Life from Death
@@ -274,6 +289,7 @@
           Outgoing Healing: 10%
       gw2id: 789
       defaultEnabled: true
+      outOfCombat: true
 
     - id: vampiric-presence
       text: Vampiric Presence
@@ -289,6 +305,7 @@
           Siphon Coefficient: 0.0333
       gw2id: 1844
       defaultEnabled: true
+      outOfCombat: false
 
     - id: vampiric-presence-shroud
       text: Vampiric Presence
@@ -304,6 +321,7 @@
           Siphon Coefficient: 0.0666
       gw2id: 1844
       defaultEnabled: true
+      outOfCombat: false
 
 - section: Soul Reaping
   id: 50
@@ -330,6 +348,7 @@
           Vitality: [180, converted]
       gw2id: 861
       defaultEnabled: true
+      outOfCombat: true
 
     - id: death-perception
       text: Death Perception
@@ -340,6 +359,7 @@
           Outgoing Alternative Critical Damage: [15%, unknown]
       gw2id: 893
       defaultEnabled: true
+      outOfCombat: true
 
 - section: Scourge
   id: 60
@@ -360,6 +380,7 @@
           Expertise: {Condition Damage: 4%}
       gw2id: 2074
       defaultEnabled: true
+      outOfCombat: true
 
     - id: sand-sage-active
       text: Sand Sage
@@ -375,6 +396,7 @@
           Expertise: [150, converted]
       gw2id: 2121
       defaultEnabled: true
+      outOfCombat: false
 
     - id: sand-sage-1x-old
       text: Sand Sage
@@ -390,6 +412,7 @@
           Expertise: [45, converted]
       gw2id: 2121
       defaultEnabled: false
+      outOfCombat: false
 
     - id: sand-sage-2x-old
       text: Sand Sage
@@ -405,6 +428,7 @@
           Expertise: [90, converted]
       gw2id: 2121
       defaultEnabled: false
+      outOfCombat: false
 
     - id: sand-sage-3x-old
       text: Sand Sage
@@ -420,6 +444,7 @@
           Expertise: [135, converted]
       gw2id: 2121
       defaultEnabled: false
+      outOfCombat: false
 
     - id: blood-as-sand-active
       text: Blood as Sand
@@ -503,6 +528,7 @@
           Siphon Coefficient: 0.025
       gw2id: 1974
       defaultEnabled: true
+      outOfCombat: false
 
     - id: augury-of-death-ranged
       text: Augury of Death
@@ -518,6 +544,7 @@
           Siphon Coefficient: 0.0125
       gw2id: 1974
       defaultEnabled: true
+      outOfCombat: false
 
     - id: soul-eater
       text: Soul Eater
@@ -539,6 +566,7 @@
           Critical Chance: 50%
       gw2id: 2031
       defaultEnabled: true
+      outOfCombat: false
 
     - id: cold-shoulder
       text: Cold Shoulder
@@ -563,6 +591,7 @@
           Alternative Ferocity: [300, buff]
       gw2id: 2021
       defaultEnabled: true
+      outOfCombat: true
 
 - section: Harbinger
   id: 64
@@ -620,6 +649,7 @@
           Vitality: [240, converted]
       gw2id: 2186
       defaultEnabled: true
+      outOfCombat: true
 
     - id: alchemic-vigor-bugged
       text: Alchemic Vigor
@@ -633,6 +663,7 @@
           Vitality: [360, converted, -120, buff]
       gw2id: 2186
       defaultEnabled: false
+      outOfCombat: true
 
     - id: implacable-foe
       text: Implacable Foe
@@ -641,6 +672,7 @@
           Ferocity: {Vitality: 13%}
       gw2id: 2192
       defaultEnabled: true
+      outOfCombat: true
 
     - id: twisted-medicine
       text: Twisted Medicine
@@ -649,6 +681,7 @@
           Concentration: {Vitality: 13%}
       gw2id: 2220
       defaultEnabled: true
+      outOfCombat: true
 
     - id: dark-gunslinger
       text: Dark Gunslinger
@@ -657,6 +690,7 @@
           Expertise: {Vitality: 13%}
       gw2id: 2209
       defaultEnabled: true
+      outOfCombat: true
 
     - id: cascading-corruption
       text: Cascading Corruption
@@ -666,6 +700,7 @@
           Power: [240, converted] # tested by Jezereal
       gw2id: 2218
       defaultEnabled: true
+      outOfCombat: true
 
     - id: doom-approaches
       text: Doom Approaches
@@ -674,3 +709,4 @@
           Condition Damage: [240, converted] # tested by Jezereal
       gw2id: 2203
       defaultEnabled: true
+      outOfCombat: true

@@ -78,6 +78,7 @@
         attributes:
           Power Coefficient: 4833.5
       gw2id: 100074
+      outOfCombat: false
 
     - id: cerus-relic-10
       text: Relic of Cerus
@@ -91,6 +92,7 @@
         attributes:
           Power Coefficient: 6905
       gw2id: 100074
+      outOfCombat: false
 
     # - id: dagda-relic
     #   text: 'Relic of Dagda: not yet implemented'
@@ -121,6 +123,7 @@
           # this is additive but uncapped; see https://github.com/discretize/discretize-gear-optimizer/pull/677
           Condition Duration Uncapped: 10%
       gw2id: 100090
+      outOfCombat: false
 
     - id: isgarren-relic
       text: Relic of Isgarren
@@ -135,6 +138,7 @@
           # this is additive but uncapped; see https://github.com/discretize/discretize-gear-optimizer/pull/677
           Condition Duration Uncapped: 10%
       gw2id: 99997
+      outOfCombat: false
 
     - id: relic-of-nourys
       text: Relic of Nourys
@@ -166,6 +170,7 @@
         attributes:
           Condition Duration: 15%
       gw2id: 100849
+      outOfCombat: false
 
     - id: scourge-relic
       text: Relic of the Scourge
@@ -174,6 +179,7 @@
         attributes:
           Condition Duration: 15%
       gw2id: 100368
+      outOfCombat: false
 
     - id: fractal-relic
       text: Relic of the Fractal
@@ -190,6 +196,7 @@
           Torment Coefficient: 12
           Burning Coefficient: 4
       gw2id: 100153
+      outOfCombat: false
 
     - id: akeem-relic
       text: Relic of Akeem
@@ -207,6 +214,7 @@
           Torment Coefficient: 10
           Confusion Coefficient: 10
       gw2id: 100432
+      outOfCombat: false
 
     - id: vass-relic
       text: Relic of Vass
@@ -222,6 +230,7 @@
         attributes:
           Poison Coefficient: 9
       gw2id: 100775
+      outOfCombat: false
 
     - id: sunless-relic
       text: 'Relic of the Sunless: not yet implemented'
@@ -248,6 +257,7 @@
           Power Coefficient: 621.45
           Poison Coefficient: 24
       gw2id: 100579
+      outOfCombat: false
 
     - id: mirage-relic
       text: Relic of the Mirage
@@ -260,6 +270,7 @@
         attributes:
           Torment Coefficient: 12
       gw2id: 100158
+      outOfCombat: false
 
     # 0.5 coefficient, 690.5 strength
     - id: krait-relic
@@ -276,6 +287,7 @@
           Poison Coefficient: 8
           Torment Coefficient: 8
       gw2id: 100230
+      outOfCombat: false
 
     - id: demon-queen-relic
       text: Relic of the Demon Queen
@@ -291,6 +303,7 @@
         attributes:
           Poison Coefficient: 3
       gw2id: 101166
+      outOfCombat: false
 
 - section: Support Relics
   items:
@@ -302,6 +315,7 @@
         attributes:
           Concentration: [250, unknown]
       gw2id: 100219
+      outOfCombat: false
 
     - id: firebrand-relic
       text: Relic of the Firebrand
@@ -310,6 +324,7 @@
         attributes:
           Boon Duration: 20%
       gw2id: 100453
+      outOfCombat: false
 
     - id: midnight-king-relic
       text: 'Relic of the Midnight King: not implemented'
@@ -342,6 +357,7 @@
         attributes:
           Outgoing Healing: 10%
       gw2id: 100031
+      outOfCombat: false
 
     - id: karakosa-relic
       text: 'Relic of Karakosa: not implemented'

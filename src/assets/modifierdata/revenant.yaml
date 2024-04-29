@@ -17,6 +17,7 @@
         attributes:
           Siphon Base Coefficient: 58
           Siphon Coefficient: 0.003
+      outOfCombat: false
 
     - id: facet-of-nature-assassin
       text: Facet of Nature—Assassin
@@ -30,6 +31,7 @@
         attributes:
           Siphon Base Coefficient: 53
           Siphon Coefficient: 0.0666
+      outOfCombat: false
 
     - id: facet-of-darkness-draconic-echo
       text: Facet of Darkness
@@ -42,6 +44,7 @@
           Critical Chance: 5%
       gw2id: 28379
       defaultEnabled: false
+      outOfCombat: false
 
     - id: facet-of-elements-draconic-echo
       text: Facet of Elements
@@ -96,6 +99,7 @@
           Boon Duration: 5%
       gw2id: 29371
       defaultEnabled: false
+      outOfCombat: false
 
     - id: burst-of-strength
       text: Burst of Strength
@@ -137,6 +141,7 @@
           Siphon Base Coefficient: 325
           Siphon Coefficient: 0.04
       gw2id: 45773
+      outOfCombat: false
 
     - id: enchanted-daggers
       text: Enchanted Daggers
@@ -154,6 +159,7 @@
           Siphon Base Coefficient: 5148
           Siphon Coefficient: 0.3
       gw2id: 26937
+      outOfCombat: false
 
 - section: Corruption
   id: 14
@@ -175,6 +181,7 @@
           Condition Damage: [120, buff]
       gw2id: 1801
       defaultEnabled: true
+      outOfCombat: true
 
     - id: demonic-resistance
       text: Demonic Resistance
@@ -198,6 +205,7 @@
           Condition Duration: 7%
       gw2id: 1714
       defaultEnabled: true
+      outOfCombat: false
 
     - id: yearning-empowerment
       text: Yearning Empowerment
@@ -207,6 +215,7 @@
           Condition Duration: 10%
       gw2id: 1744
       defaultEnabled: true
+      outOfCombat: false
 
 - section: Retribution
   id: 9
@@ -265,6 +274,7 @@
           Power: {Toughness: 4%}
       gw2id: 1770
       defaultEnabled: true
+      outOfCombat: true
 
 - section: Invocation
   id: 3
@@ -312,6 +322,7 @@
           Critical Chance: 20%
       gw2id: 1719
       defaultEnabled: true
+      outOfCombat: false
 
 - section: Devastation
   id: 15
@@ -371,6 +382,7 @@
           Condition Damage: [-250, buff]
       gw2id: 1765
       defaultEnabled: true
+      outOfCombat: false
 
     - id: targeted-destruction
       text: Targeted Destruction
@@ -416,6 +428,7 @@
           Concentration: {Healing Power: 4%}
       gw2id: 1821
       defaultEnabled: true
+      outOfCombat: true
 
     - id: invoking-harmony
       text: Invoking Harmony
@@ -431,6 +444,7 @@
           Outgoing Healing: 10%
       gw2id: 1823
       defaultEnabled: true
+      outOfCombat: false
 
     - id: serene-rejuvenation
       text: Serene Rejuvenation
@@ -443,6 +457,7 @@
           Outgoing Healing: 15%
       gw2id: 1814
       defaultEnabled: true
+      outOfCombat: true
 
     - id: unyielding-devotion
       text: Unyielding Devotion
@@ -465,6 +480,7 @@
           Maximum Health: 10%
       gw2id: 1737
       defaultEnabled: true
+      outOfCombat: true
 
     - id: hardening-persistence
       text: Hardening Persistence
@@ -486,6 +502,7 @@
           Concentration: {Power: 13%}
       gw2id: 1746
       defaultEnabled: true
+      outOfCombat: true
 
     - id: reinforced-potency-base
       text: Reinforced Potency
@@ -499,6 +516,7 @@
           Concentration: [60, converted]
       gw2id: 1788
       defaultEnabled: true
+      outOfCombat: true
 
     - id: reinforced-potency-boons
       text: Reinforced Potency
@@ -573,6 +591,7 @@
           Bleeding Duration: 25%
       gw2id: 2079
       defaultEnabled: true
+      outOfCombat: false
 
     - id: heartpiercer
       text: Heartpiercer
@@ -591,6 +610,7 @@
           Critical Chance: 33%
       gw2id: 2142
       defaultEnabled: true
+      outOfCombat: true
 
     - id: lasting-legacy
       text: Lasting Legacy
@@ -633,6 +653,7 @@
           Power: [240, converted]
       gw2id: 2229
       defaultEnabled: true
+      outOfCombat: true
 
     - id: empire-divided-below
       text: Empire Divided
@@ -647,6 +668,7 @@
           Healing Power: [240, converted]
       gw2id: 2229
       defaultEnabled: true
+      outOfCombat: false
 
     - id: forerunner-of-death
       text: Forerunner of Death
