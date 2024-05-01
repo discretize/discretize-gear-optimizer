@@ -741,19 +741,18 @@ export class OptimizerCore {
     const critDmg = attributes['Critical Damage'] * damageMultiplier['Outgoing Critical Damage'];
     const critChance = clamp(attributes['Critical Chance'], 0, 1);
 
-    attributes['Effective Power'] =
-      attributes['Power'] *
-      (1 + critChance * (critDmg - 1)) *
-      damageMultiplier['Outgoing Strike Damage'];
+    attributes['Effective Power'] = attributes['Power'] * (1 + critChance * (critDmg - 1));
 
-    attributes['NonCrit Effective Power'] =
-      attributes['Power'] * damageMultiplier['Outgoing Strike Damage'];
+    attributes['NonCrit Effective Power'] = attributes['Power'];
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
     let powerDamage =
-      ((attributes['Power Coefficient'] || 0) / 2597) * attributes['Effective Power'] +
+      ((attributes['Power Coefficient'] || 0) / 2597) *
+        attributes['Effective Power'] *
+        damageMultiplier['Outgoing Strike Damage'] +
       ((attributes['NonCrit Power Coefficient'] || 0) / 2597) *
-        attributes['NonCrit Effective Power'];
+        attributes['NonCrit Effective Power'] *
+        damageMultiplier['Outgoing Strike Damage'];
 
     attributes['Power DPS'] = powerDamage;
 
@@ -765,12 +764,12 @@ export class OptimizerCore {
         const phantasmCritChance = clamp(attributes['Phantasm Critical Chance'], 0, 1);
 
         attributes['Phantasm Effective Power'] =
-          attributes['Power'] *
-          (1 + phantasmCritChance * (phantasmCritDmg - 1)) *
-          damageMultiplier['Outgoing Phantasm Damage'];
+          attributes['Power'] * (1 + phantasmCritChance * (phantasmCritDmg - 1));
 
         const phantasmPowerDamage =
-          ((attributes['Power2 Coefficient'] || 0) / 2597) * attributes['Phantasm Effective Power'];
+          ((attributes['Power2 Coefficient'] || 0) / 2597) *
+          attributes['Phantasm Effective Power'] *
+          damageMultiplier['Outgoing Phantasm Damage'];
         attributes['Power2 DPS'] = phantasmPowerDamage;
         powerDamage += phantasmPowerDamage;
       } else {
@@ -780,14 +779,13 @@ export class OptimizerCore {
         const alternativeCritChance = clamp(attributes['Alternative Critical Chance'], 0, 1);
 
         attributes['Alternative Effective Power'] =
-          attributes['Alternative Power'] *
-          (1 + alternativeCritChance * (alternativeCritDmg - 1)) *
-          damageMultiplier['Outgoing Strike Damage'] *
-          damageMultiplier['Outgoing Alternative Damage'];
+          attributes['Alternative Power'] * (1 + alternativeCritChance * (alternativeCritDmg - 1));
 
         const alternativePowerDamage =
           ((attributes['Power2 Coefficient'] || 0) / 2597) *
-          attributes['Alternative Effective Power'];
+          attributes['Alternative Effective Power'] *
+          damageMultiplier['Outgoing Strike Damage'] *
+          damageMultiplier['Outgoing Alternative Damage'];
         attributes['Power2 DPS'] = alternativePowerDamage;
         powerDamage += alternativePowerDamage;
       }
