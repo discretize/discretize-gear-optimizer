@@ -3,7 +3,6 @@ import {
   changeFilteredLists,
   changeList,
   changeProgress,
-  changeSelectedCharacter,
   changeStatus,
   getHeuristics,
 } from '../slices/controlsSlice';
