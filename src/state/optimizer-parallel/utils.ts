@@ -65,7 +65,6 @@ const attributes = [
   'Damage Reduction',
   'Power Coefficient',
   'NonCrit Power Coefficient',
-  'NonCrit Effective Power',
   'Power2 DPS',
   'Power2 Coefficient',
   'Flat DPS',

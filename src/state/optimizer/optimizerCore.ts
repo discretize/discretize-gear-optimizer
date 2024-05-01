@@ -743,15 +743,13 @@ export class OptimizerCore {
 
     attributes['Effective Power'] = attributes['Power'] * (1 + critChance * (critDmg - 1));
 
-    attributes['NonCrit Effective Power'] = attributes['Power'];
-
     // 2597: standard enemy armor value, also used for ingame damage tooltips
     let powerDamage =
       ((attributes['Power Coefficient'] || 0) / 2597) *
         attributes['Effective Power'] *
         damageMultiplier['Outgoing Strike Damage'] +
       ((attributes['NonCrit Power Coefficient'] || 0) / 2597) *
-        attributes['NonCrit Effective Power'] *
+        attributes['Power'] *
         damageMultiplier['Outgoing Strike Damage'];
 
     attributes['Power DPS'] = powerDamage;
