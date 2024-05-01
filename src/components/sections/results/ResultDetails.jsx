@@ -31,9 +31,6 @@ const ResultDetails = () => {
     return null;
   }
 
-  // eslint-disable-next-line no-console
-  console.log('Selected Character Data:', character);
-
   // Replace the names to match gw2-ui names
   const damageBreakdown = Object.keys(character.results.effectiveDamageDistribution).map(
     (damageType) => ({

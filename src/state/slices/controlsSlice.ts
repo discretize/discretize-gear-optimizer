@@ -214,6 +214,8 @@ export const controlSlice = createSlice({
       state.tallTable = action.payload;
     },
     changeSelectedCharacter: (state, action: PayloadAction<Character | null>) => {
+      console.log('Selected Character Data:', action.payload);
+
       const oldCharacter = state.selectedCharacter ? original(state.selectedCharacter)! : null;
       const newCharacter = action.payload;
       logAttributeDiff(newCharacter, oldCharacter);

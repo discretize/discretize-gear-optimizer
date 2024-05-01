@@ -144,7 +144,6 @@ const TemplateHelper = ({ character }) => {
           };
 
           for (const { name, totalTargetDamage, targetDamageDist } of minions) {
-            console.log(name);
             let type = 'Minion';
             if (name === 'Clone') type = 'Clone';
             if (name?.startsWith('Illusionary')) type = 'Phantasm';
@@ -156,7 +155,6 @@ const TemplateHelper = ({ character }) => {
 
               minionCounts[type].names.add(name);
 
-              console.log(minionCrits, minionHits);
               minionCounts[type].minionHits += minionHits ?? 0;
               minionCounts[type].minionCrits += minionCrits ?? 0;
             }
