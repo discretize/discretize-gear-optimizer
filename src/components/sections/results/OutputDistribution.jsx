@@ -15,7 +15,7 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const OutputDistribution = ({ title, data }) => {
+const OutputDistribution = ({ character }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
   const [alternativeDamageLabel] = useAlternativeDamage();
@@ -25,9 +25,20 @@ const OutputDistribution = ({ title, data }) => {
     Siphon: t('Life Siphon'),
   };
 
+  const { damageBreakdown } = character.results;
+
+  const data = Object.keys(damageBreakdown)
+    .filter((damageType) => damageBreakdown[damageType])
+    .map((damageType) => ({
+      // Replace the names to match gw2-ui names
+      name: damageType === 'Poison' ? 'Poisoned' : damageType.replace('Damage', '').trim(),
+      value: damageBreakdown[damageType],
+      percent: (damageBreakdown[damageType] / character.attributes.Damage) * 100,
+    }));
+
   return (
     <>
-      <Typography variant="h6">{title}</Typography>
+      <Typography variant="h6">{t('Damage Distribution')}</Typography>
       <Table padding="none">
         <TableBody>
           {data.map((damageType) => (
@@ -43,9 +54,8 @@ const OutputDistribution = ({ title, data }) => {
                   />
                 )}
               </TableCell>
-              <TableCell align="right">
-                {damageType.value.toFixed?.(2) ?? damageType.value}
-              </TableCell>
+              <TableCell align="right">{damageType.value.toFixed(1)}</TableCell>
+              <TableCell align="right">({damageType.percent.toFixed(1)}%)</TableCell>
             </TableRow>
           ))}
         </TableBody>
