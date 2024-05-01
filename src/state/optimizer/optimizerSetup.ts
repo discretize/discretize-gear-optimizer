@@ -177,6 +177,7 @@ export interface CachedFormState {
   extras: Record<string, any>;
   buffs: Record<string, any>;
   priorities: Record<string, any>;
+  boss: Record<string, any>;
 }
 
 // interface OptimizerInput {
@@ -259,6 +260,7 @@ export function createSettingsPerCalculation(
     extras: state.form.extras,
     buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
     priorities: state.form.priorities,
+    boss: state.form.boss,
   };
 
   const profession = getProfession(reduxState);

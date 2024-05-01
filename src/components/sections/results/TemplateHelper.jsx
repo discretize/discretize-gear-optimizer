@@ -1,9 +1,9 @@
-import { Button, TextField, Typography } from '@mui/material';
+import { Alert, Button, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { changeAllDistributionNew } from '../../../state/slices/distribution';
-import { mapValues, parseDistribution } from '../../../utils/usefulFunctions';
+import { mapValues, parseDistribution, parseNumber } from '../../../utils/usefulFunctions';
 
 const initial = {
   Power: 0,
@@ -37,6 +37,7 @@ const TemplateHelper = ({ character }) => {
 
   const [url, setUrl] = React.useState('');
   const [urlResult, setUrlResult] = React.useState('');
+  const [probablyGolem, setProbablyGolem] = React.useState(false);
 
   React.useEffect(() => {
     async function fetchData() {
@@ -244,6 +245,7 @@ const TemplateHelper = ({ character }) => {
             .join('\n');
 
           setInput({ Power: powerDPSWithoutLifesteal, Power2: 0, ...conditionData });
+          setProbablyGolem(data.players.length === 1);
           setUrlResult(resultAreaText);
         } catch (e) {
           console.error(e);
@@ -261,6 +263,17 @@ const TemplateHelper = ({ character }) => {
 
   const { cachedFormState } = character.settings;
   const { coefficientHelper } = character.results;
+
+  // warn user if log might be golem and they didn't zero the boss section
+  const confusionValue = data.find(({ key }) => key === 'Confusion').value;
+  const tormentValue = data.find(({ key }) => key === 'Torment').value;
+
+  const parseBoss = (val) => parseNumber(val, 0, false).value;
+  const attackRate = parseBoss(character.settings?.cachedFormState?.boss?.attackRate);
+  const movementUptime = parseBoss(character.settings?.cachedFormState?.boss?.movementUptime);
+
+  const warnAboutAttackRate = probablyGolem && confusionValue !== 0 && attackRate !== 0;
+  const warnAboutMovementUptime = probablyGolem && tormentValue !== 0 && movementUptime !== 0;
 
   // reverse engineer coefficient needed to reach target damage
   // DPS = slope * coefficient + intercept
@@ -331,6 +344,13 @@ const TemplateHelper = ({ character }) => {
       </table>
 
       <br />
+
+      {(warnAboutAttackRate || warnAboutMovementUptime) && (
+        <Alert severity="warning" sx={{ marginBottom: 2 }}>
+          Is this a stationary golem log? If so, your attack rate or movement uptime are probably
+          set incorrectly! Adjust them and rerun the calculation if so.
+        </Alert>
+      )}
 
       <Typography variant="caption">
         <Trans>or, enter a dps.report URL to attempt to to fetch the data automatically:</Trans>
