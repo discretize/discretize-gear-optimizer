@@ -439,21 +439,16 @@ pub fn calc_power(
 
     attributes.set_a(
         Attribute::EffectivePower,
-        attributes.get_a(Attribute::Power)
-            * (1.0 + crit_chance * (crit_dmg - 1.0))
-            * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage),
-    );
-    attributes.set_a(
-        Attribute::NonCritEffectivePower,
-        attributes.get_a(Attribute::Power)
-            * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage),
+        attributes.get_a(Attribute::Power) * (1.0 + crit_chance * (crit_dmg - 1.0)),
     );
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
     let mut power_damage = (attributes.get_a(Attribute::PowerCoefficient) / 2597.0)
         * attributes.get_a(Attribute::EffectivePower)
+        * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage)
         + (attributes.get_a(Attribute::NonCritPowerCoefficient) / 2597.0)
-            * attributes.get_a(Attribute::NonCritEffectivePower);
+            * attributes.get_a(Attribute::Power)
+            * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage);
     // this is nowhere read again?
     attributes.set_a(Attribute::PowerDPS, power_damage);
 
@@ -471,12 +466,12 @@ pub fn calc_power(
             attributes.set_a(
                 Attribute::PhantasmEffectivePower,
                 attributes.get_a(Attribute::Power)
-                    * (1.0 + phantasm_crit_chance * (phantasm_crit_dmg - 1.0))
-                    * mods.get_dmg_multiplier(Attribute::OutgoingPhantasmDamage),
+                    * (1.0 + phantasm_crit_chance * (phantasm_crit_dmg - 1.0)),
             );
 
             let phantasm_power_damage = (attributes.get_a(Attribute::Power2Coefficient) / 2597.0)
-                * attributes.get_a(Attribute::PhantasmEffectivePower);
+                * attributes.get_a(Attribute::PhantasmEffectivePower)
+                * mods.get_dmg_multiplier(Attribute::OutgoingPhantasmDamage);
             attributes.set_a(Attribute::Power2DPS, phantasm_power_damage);
             power_damage += phantasm_power_damage;
         } else {
@@ -487,13 +482,13 @@ pub fn calc_power(
             attributes.set_a(
                 Attribute::AltEffectivePower,
                 attributes.get_a(Attribute::AltPower)
-                    * (1.0 + alt_crit_chance * (alt_crit_dmg - 1.0))
-                    * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage)
-                    * mods.get_dmg_multiplier(Attribute::OutgoingAltDamage),
+                    * (1.0 + alt_crit_chance * (alt_crit_dmg - 1.0)),
             );
 
             let alt_power_damage = (attributes.get_a(Attribute::Power2Coefficient) / 2597.0)
-                * attributes.get_a(Attribute::AltEffectivePower);
+                * attributes.get_a(Attribute::AltEffectivePower)
+                * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage)
+                * mods.get_dmg_multiplier(Attribute::OutgoingAltDamage);
             attributes.set_a(Attribute::Power2DPS, alt_power_damage);
             power_damage += alt_power_damage;
         }
