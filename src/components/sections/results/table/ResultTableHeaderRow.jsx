@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { extrasTypes } from '../../../../state/slices/extras';
-import { INFUSION_IDS, Slots } from '../../../../utils/gw2-data';
+import { INFUSION_IDS, Slots, maxSlotsLength } from '../../../../utils/gw2-data';
 
 const extrasLabels = {
   Sigil1: <Item id={24615} disableLink disableText disableTooltip style={{ fontSize: 18 }} />,
@@ -31,6 +31,14 @@ const ResultTableHeaderRow = ({
 }) => {
   const { t } = useTranslation();
 
+  const emptyCell = (
+    <TableCell className={classNames(classes.tablehead)} align="center" padding="none" />
+  );
+  const padCellArray = (minLength, array) =>
+    array.length < minLength
+      ? [...array, ...Array(minLength - array.length).fill(emptyCell)]
+      : array;
+
   return (
     <TableRow>
       <TableCell className={classes.tablehead} align="center" padding="none">
@@ -44,40 +52,49 @@ const ResultTableHeaderRow = ({
           context: rankBy,
         })}
       </TableCell>
-      {Slots[weaponType].map((slot) => (
-        <TableCell
-          className={classNames(classes.tablehead, classes.gearColumn)}
-          key={slot.name}
-          align="center"
-          padding="none"
-        >
-          {slot.short}
-        </TableCell>
-      ))}
-      {Object.keys(infusions).map((type) => (
-        <TableCell
-          className={classNames(classes.tablehead, classes.infusionColumn)}
-          key={type}
-          align="center"
-          padding="none"
-        >
-          <Item id={INFUSION_IDS[type]} disableText disableLink />
-        </TableCell>
-      ))}
-
-      {extrasTypes
-        .filter((type) => displayExtras[type])
-        .map((type, index) => (
+      {padCellArray(
+        maxSlotsLength,
+        Slots[weaponType].map((slot) => (
           <TableCell
-            className={classNames(classes.tablehead, classes.extrasColumn)}
-            // eslint-disable-next-line react/no-array-index-key
-            key={`extras${index}`}
+            className={classNames(classes.tablehead, classes.gearColumn)}
+            key={slot.name}
             align="center"
             padding="none"
           >
-            {extrasLabels[type]}
+            {slot.short}
           </TableCell>
-        ))}
+        )),
+      )}
+      {padCellArray(
+        2,
+        Object.keys(infusions).map((type) => (
+          <TableCell
+            className={classNames(classes.tablehead, classes.infusionColumn)}
+            key={type}
+            align="center"
+            padding="none"
+          >
+            <Item id={INFUSION_IDS[type]} disableText disableLink />
+          </TableCell>
+        )),
+      )}
+
+      {padCellArray(
+        extrasTypes.length,
+        extrasTypes
+          .filter((type) => displayExtras[type])
+          .map((type, index) => (
+            <TableCell
+              className={classNames(classes.tablehead, classes.extrasColumn)}
+              // eslint-disable-next-line react/no-array-index-key
+              key={`extras${index}`}
+              align="center"
+              padding="none"
+            >
+              {extrasLabels[type]}
+            </TableCell>
+          )),
+      )}
 
       {displayAttributes.map((attribute, index) => (
         <TableCell

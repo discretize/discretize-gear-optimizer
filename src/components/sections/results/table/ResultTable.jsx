@@ -29,6 +29,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   shortTable: {
     maxHeight: 440,
+    overflowY: 'scroll',
   },
   tallTable: {
     maxHeight: '90vh',
