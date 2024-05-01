@@ -1,5 +1,5 @@
 import { TextDivider } from '@discretize/react-discretize-components';
-import { Box, Divider, FormControlLabel, Grid, Switch } from '@mui/material';
+import { Divider, FormControlLabel, Grid, Switch } from '@mui/material';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -11,16 +11,16 @@ import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
 import Bonuses from './Bonuses';
+import ConditionDetails from './ConditionDetails';
+import EffectiveAttributes from './EffectiveAttributes';
 import EffectiveGainLoss from './EffectiveGainLoss';
 import Indicators from './Indicators';
+import MultiplierBreakdown from './MultiplierBreakdown';
 import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
 import ResultCharacter from './ResultCharacter';
 import SpecialDurations from './SpecialDurations';
 import TemplateHelperSections from './TemplateHelperSections';
-import ConditionDetails from './ConditionDetails';
-import EffectiveAttributes from './EffectiveAttributes';
-import MultiplierBreakdown from './MultiplierBreakdown';
 
 const roundTwo = (num) => Math.round(num * 100) / 100;
 
