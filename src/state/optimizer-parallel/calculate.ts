@@ -36,7 +36,6 @@ export default function calculate(reduxState: RootState, dispatch: AppDispatch):
     }),
   );
   dispatch(changeProgress(0));
-  dispatch(changeSelectedCharacter(null));
 
   console.log('Parallel Optimizer');
   console.log('State', reduxState);
