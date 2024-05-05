@@ -29,6 +29,24 @@ const fixPoison = (input) =>
     }),
   );
 
+const apiUrls = [
+  {
+    siteName: 'dps.report',
+    subString: 'dps.report',
+    performFetch: (permalink) => fetch(`https://dps.report/getJson?permalink=${permalink}`),
+    loadingStatus: 'loading, please wait.',
+  },
+  {
+    siteName: 'gw2wingman',
+    subString: 'gw2wingman.nevermindcreations.de',
+    performFetch: (permalink) =>
+      fetch(`https://gw2wingman.nevermindcreations.de/api/getFullJson/${permalink}`, {
+        cache: 'force-cache',
+      }),
+    loadingStatus: 'loading, please wait. this may take a long time!',
+  },
+];
+
 const TemplateHelper = ({ character }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -46,10 +64,19 @@ const TemplateHelper = ({ character }) => {
         try {
           const permalink = url.split('/').slice(-1);
           if (!permalink) return;
-          console.log('loading data from dps.report...');
-          const response = await fetch(`https://dps.report/getJson?permalink=${permalink}`);
+
+          const { siteName, performFetch, loadingStatus } =
+            apiUrls.find(({ subString }) => url.includes(subString)) ?? {};
+          if (!siteName) {
+            setUrlResult('unknown url!');
+            return;
+          }
+          if (loadingStatus) setUrlResult(loadingStatus);
+
+          console.log(`loading data from ${siteName}...`);
+          const response = await performFetch(permalink);
           const data = await response.json();
-          console.log('got data from dps.report: ', data);
+          console.log(`got data from ${siteName}: `, data);
 
           if (data.error || !Array.isArray(data?.players)) {
             setUrlResult(JSON.stringify(data, null, 2));
@@ -351,7 +378,9 @@ const TemplateHelper = ({ character }) => {
       )}
 
       <Typography variant="caption">
-        <Trans>or, enter a dps.report URL to attempt to to fetch the data automatically:</Trans>
+        <Trans>
+          or, enter a dps.report or gw2wingman URL to attempt to to fetch the data automatically:
+        </Trans>
       </Typography>
       <br />
       <TextField
