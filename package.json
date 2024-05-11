@@ -109,6 +109,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1 <6.8.0",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-react-perf": "^3.3.2",
     "prettier": "^3.2.5",
     "rollup-preserve-directives": "^1.1.1",
     "tsx": "^4.7.2",
