@@ -44,6 +44,7 @@ export const getResultProperties: (
       extras: state.form.extras,
       buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
       priorities: state.form.priorities,
+      boss: state.form.boss,
     },
     sharedModifiers,
     allExtrasData: resultData,

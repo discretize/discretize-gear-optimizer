@@ -1,9 +1,9 @@
-import { Button, TextField, Typography } from '@mui/material';
+import { Alert, Button, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { changeAllDistributionNew } from '../../../state/slices/distribution';
-import { mapValues, parseDistribution } from '../../../utils/usefulFunctions';
+import { mapValues, parseDistribution, parseNumber } from '../../../utils/usefulFunctions';
 
 const initial = {
   Power: 0,
@@ -29,6 +29,24 @@ const fixPoison = (input) =>
     }),
   );
 
+const apiUrls = [
+  {
+    siteName: 'dps.report',
+    subString: 'dps.report',
+    performFetch: (permalink) => fetch(`https://dps.report/getJson?permalink=${permalink}`),
+    loadingStatus: 'loading, please wait.',
+  },
+  {
+    siteName: 'gw2wingman',
+    subString: 'gw2wingman.nevermindcreations.de',
+    performFetch: (permalink) =>
+      fetch(`https://gw2wingman.nevermindcreations.de/api/getFullJson/${permalink}`, {
+        cache: 'force-cache',
+      }),
+    loadingStatus: 'loading, please wait. this may take a long time!',
+  },
+];
+
 const TemplateHelper = ({ character }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -37,6 +55,7 @@ const TemplateHelper = ({ character }) => {
 
   const [url, setUrl] = React.useState('');
   const [urlResult, setUrlResult] = React.useState('');
+  const [probablyGolem, setProbablyGolem] = React.useState(false);
 
   React.useEffect(() => {
     async function fetchData() {
@@ -45,10 +64,19 @@ const TemplateHelper = ({ character }) => {
         try {
           const permalink = url.split('/').slice(-1);
           if (!permalink) return;
-          console.log('loading data from dps.report...');
-          const response = await fetch(`https://dps.report/getJson?permalink=${permalink}`);
+
+          const { siteName, performFetch, loadingStatus } =
+            apiUrls.find(({ subString }) => url.includes(subString)) ?? {};
+          if (!siteName) {
+            setUrlResult('unknown url!');
+            return;
+          }
+          if (loadingStatus) setUrlResult(loadingStatus);
+
+          console.log(`loading data from ${siteName}...`);
+          const response = await performFetch(permalink);
           const data = await response.json();
-          console.log('got data from dps.report: ', data);
+          console.log(`got data from ${siteName}: `, data);
 
           if (data.error || !Array.isArray(data?.players)) {
             setUrlResult(JSON.stringify(data, null, 2));
@@ -143,7 +171,6 @@ const TemplateHelper = ({ character }) => {
           };
 
           for (const { name, totalTargetDamage, targetDamageDist } of minions) {
-            console.log(name);
             let type = 'Minion';
             if (name === 'Clone') type = 'Clone';
             if (name?.startsWith('Illusionary')) type = 'Phantasm';
@@ -155,7 +182,6 @@ const TemplateHelper = ({ character }) => {
 
               minionCounts[type].names.add(name);
 
-              console.log(minionCrits, minionHits);
               minionCounts[type].minionHits += minionHits ?? 0;
               minionCounts[type].minionCrits += minionCrits ?? 0;
             }
@@ -244,6 +270,7 @@ const TemplateHelper = ({ character }) => {
             .join('\n');
 
           setInput({ Power: powerDPSWithoutLifesteal, Power2: 0, ...conditionData });
+          setProbablyGolem(data.players.length === 1);
           setUrlResult(resultAreaText);
         } catch (e) {
           console.error(e);
@@ -261,6 +288,17 @@ const TemplateHelper = ({ character }) => {
 
   const { cachedFormState } = character.settings;
   const { coefficientHelper } = character.results;
+
+  // warn user if log might be golem and they didn't zero the boss section
+  const confusionValue = data.find(({ key }) => key === 'Confusion').value;
+  const tormentValue = data.find(({ key }) => key === 'Torment').value;
+
+  const parseBoss = (val) => parseNumber(val, 0, false).value;
+  const attackRate = parseBoss(character.settings?.cachedFormState?.boss?.attackRate);
+  const movementUptime = parseBoss(character.settings?.cachedFormState?.boss?.movementUptime);
+
+  const warnAboutAttackRate = probablyGolem && confusionValue !== 0 && attackRate !== 0;
+  const warnAboutMovementUptime = probablyGolem && tormentValue !== 0 && movementUptime !== 0;
 
   // reverse engineer coefficient needed to reach target damage
   // DPS = slope * coefficient + intercept
@@ -332,8 +370,17 @@ const TemplateHelper = ({ character }) => {
 
       <br />
 
+      {(warnAboutAttackRate || warnAboutMovementUptime) && (
+        <Alert severity="warning" sx={{ marginBottom: 2 }}>
+          Is this a stationary golem log? If so, your attack rate or movement uptime are probably
+          set incorrectly! Adjust them and rerun the calculation if so.
+        </Alert>
+      )}
+
       <Typography variant="caption">
-        <Trans>or, enter a dps.report URL to attempt to to fetch the data automatically:</Trans>
+        <Trans>
+          or, enter a dps.report or gw2wingman URL to attempt to to fetch the data automatically:
+        </Trans>
       </Typography>
       <br />
       <TextField

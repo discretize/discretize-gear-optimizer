@@ -3,7 +3,6 @@ import {
   changeFilteredLists,
   changeList,
   changeProgress,
-  changeSelectedCharacter,
   changeStatus,
   getHeuristics,
 } from '../slices/controlsSlice';
@@ -36,7 +35,6 @@ export default function calculate(reduxState: RootState, dispatch: AppDispatch):
     }),
   );
   dispatch(changeProgress(0));
-  dispatch(changeSelectedCharacter(null));
 
   console.log('Parallel Optimizer');
   console.log('State', reduxState);

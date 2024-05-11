@@ -9,7 +9,7 @@ export function firstUppercase(text: string | undefined | null): string {
  * Parses a string to a number, treating non-parsable strings like empty inputs but indicating an
  * error so text boxes can display the error validation state
  */
-function parseNumber<Default>(
+export function parseNumber<Default>(
   input: number | string | null | undefined,
   defaultValue: Default,
   integerMode: boolean, // if true, parse as integer instead of float
