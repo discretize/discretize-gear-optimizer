@@ -3,7 +3,7 @@ import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import { Typography } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import React from 'react';
+import React, { Fragment } from 'react';
 import isEqual from 'react-fast-compare';
 import { useDispatch } from 'react-redux';
 import { allExtrasModifiersById, placeholderItem } from '../../../../assets/modifierdata';
@@ -42,10 +42,15 @@ const ResultTableRow = ({
     character.settings.cachedFormState.priorities?.exotics.data?.[affix]?.[index];
 
   const emptyCell = <TableCell align="center" padding="none" />;
-  const padCellArray = (minLength, array) =>
-    array.length < minLength
-      ? [...array, ...Array(minLength - array.length).fill(emptyCell)]
-      : array;
+  const padCellArray = (minLength, array) => {
+    const resultArray =
+      array.length < minLength
+        ? [...array, ...Array(minLength - array.length).fill(emptyCell)]
+        : array;
+
+    // eslint-disable-next-line react/no-array-index-key
+    return resultArray.map((element, i) => <Fragment key={i}>{element}</Fragment>);
+  };
 
   return (
     <TableRow
@@ -101,8 +106,7 @@ const ResultTableRow = ({
             .join('');
 
           return (
-            // eslint-disable-next-line react/no-array-index-key
-            <TableCell align="center" key={affix + index} padding="none">
+            <TableCell align="center" padding="none">
               <Typography
                 style={{
                   fontWeight: 300,
@@ -119,9 +123,8 @@ const ResultTableRow = ({
       )}
       {padCellArray(
         2,
-        Object.values(character.infusions ?? {}).map((element, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <TableCell align="center" key={`infu${index}`} padding="none">
+        Object.values(character.infusions ?? {}).map((element) => (
+          <TableCell align="center" padding="none">
             {element}
           </TableCell>
         )),
@@ -130,12 +133,11 @@ const ResultTableRow = ({
         extrasTypes.length,
         extrasTypes
           .filter((type) => displayExtras[type])
-          .map((key, index) => {
+          .map((key) => {
             const extra = character.settings.extrasCombination[key];
             const id = allExtrasModifiersById[extra]?.gw2id;
             return (
-              // eslint-disable-next-line react/no-array-index-key
-              <TableCell align="center" key={`extras${index}`} padding="none">
+              <TableCell align="center" padding="none">
                 {extra ? (
                   <Item
                     id={id ?? placeholderItem}
@@ -150,13 +152,8 @@ const ResultTableRow = ({
           }),
       )}
 
-      {displayAttributes.map((attribute, index) => (
-        <TableCell
-          // eslint-disable-next-line react/no-array-index-key
-          key={`attrs${index}`}
-          align="center"
-          padding="none"
-        >
+      {displayAttributes.map((attribute) => (
+        <TableCell align="center" padding="none">
           <Typography variant="caption">
             {roundTwo(
               (character.attributes[attribute] ?? 0) * (percents.includes(attribute) ? 100 : 1),
