@@ -14,8 +14,6 @@ type Data = Partial<Record<AffixNameOrCustom, boolean[]>>;
 const fillAffix = (data: Data, affix: AffixNameOrCustom, value = false) => {
   data[affix] = Array(14).fill(value);
 };
-const pick = (object: Record<string, any>, keysToPick: string[]) =>
-  Object.fromEntries(keysToPick.filter((key) => key in object).map((key) => [key, object[key]]));
 
 const initialState: {
   optimizeFor: IndicatorName;
@@ -179,8 +177,6 @@ export const getExoticsEnabled = (state: RootState) =>
 export const getExclusionData = (state: RootState) =>
   state.optimizer.form.priorities.exclusions.data;
 export const getExoticsData = (state: RootState) => state.optimizer.form.priorities.exotics.data;
-export const getUsedExoticsData = (state: RootState) =>
-  pick(state.optimizer.form.priorities.exotics.data, state.optimizer.form.priorities.affixes);
 
 export const getCustomAffixText = (state: RootState) =>
   state.optimizer.form.priorities.customAffixTextBox;

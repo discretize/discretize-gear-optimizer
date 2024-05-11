@@ -15,10 +15,11 @@ import {
   changeExotic,
   getAffixes,
   getExclusionData,
-  getUsedExoticsData,
+  getExoticsData,
   getWeaponType,
 } from '../../../state/slices/priorities';
 import { GEAR_SLOTS, WeaponTypes } from '../../../utils/gw2-data';
+import { pick } from '../../../utils/usefulFunctions';
 
 const useStyles = makeStyles()((theme) => ({
   tableCollapse: {
@@ -38,7 +39,9 @@ const ExoticSlots = () => {
   const excludedSlots = useSelector(getExclusionData);
   const dualWielded = useSelector(getWeaponType);
   const affixes = useSelector(getAffixes);
-  const exotics = useSelector(getUsedExoticsData);
+  const exoticsData = useSelector(getExoticsData);
+
+  const exotics = pick(exoticsData, affixes);
 
   let SLOTS = GEAR_SLOTS;
   if (dualWielded !== WeaponTypes.dualWield) {
