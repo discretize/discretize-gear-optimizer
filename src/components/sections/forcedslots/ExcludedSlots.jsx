@@ -50,13 +50,15 @@ const ExcludedSlots = () => {
     <TableContainer>
       <Table className={classes.tableCollapse}>
         <TableHead>
-          <TableCell padding="none" />
-          {SLOTS.map((slot, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <TableCell padding="none" key={index}>
-              {slot.short}
-            </TableCell>
-          ))}
+          <TableRow>
+            <TableCell padding="none" />
+            {SLOTS.map((slot, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <TableCell padding="none" key={index}>
+                {slot.short}
+              </TableCell>
+            ))}
+          </TableRow>
         </TableHead>
         <TableBody>
           {affixes.map((affix) => (

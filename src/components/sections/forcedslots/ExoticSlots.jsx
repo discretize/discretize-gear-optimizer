@@ -61,20 +61,22 @@ const ExoticSlots = () => {
     <TableContainer>
       <Table className={classes.tableCollapse}>
         <TableHead>
-          <TableCell padding="none">
-            <Checkbox
-              size="small"
-              classes={{ root: classes.checkbox }}
-              checked={allExoticsChecked}
-              indeterminate={someExoticsChecked}
-              onChange={handleChangeAll}
-            />
-          </TableCell>
-          {SLOTS.map(({ short }) => (
-            <TableCell padding="none" key={`header ${short}`}>
-              {short}
+          <TableRow>
+            <TableCell padding="none">
+              <Checkbox
+                size="small"
+                classes={{ root: classes.checkbox }}
+                checked={allExoticsChecked}
+                indeterminate={someExoticsChecked}
+                onChange={handleChangeAll}
+              />
             </TableCell>
-          ))}
+            {SLOTS.map(({ short }) => (
+              <TableCell padding="none" key={`header ${short}`}>
+                {short}
+              </TableCell>
+            ))}
+          </TableRow>
         </TableHead>
         <TableBody>
           {affixes.map((affix) => (
