@@ -486,7 +486,7 @@
   "extraSubText_with quickness (7 hits)": "with quickness (7 hits)",
   "gw2combat project": "gw2combat project",
   "input the DPS values from a golem log here:": "input the DPS values from a golem log here:",
-  "or, enter a dps.report URL to attempt to to fetch the data automatically:": "or, enter a dps.report URL to attempt to to fetch the data automatically:",
+  "or, enter a dps.report or gw2wingman URL to attempt to to fetch the data automatically:": "or, enter a dps.report or gw2wingman URL to attempt to to fetch the data automatically:",
   "preset": "preset",
   "preset_affix_Alacrity Hybrid Tempest 28%": "Alacrity Hybrid Tempest 28%",
   "preset_affix_Boon Condi Chrono 10%": "Boon Condi Chrono 10%",
