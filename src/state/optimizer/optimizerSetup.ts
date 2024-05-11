@@ -899,6 +899,7 @@ export function createSettingsPerCombination(
       mult: allDmgMult.mult[attribute],
       add: allDmgMult.add[attribute],
       target: allDmgMult.target[attribute],
+      total: damageMultiplier[attribute],
     };
   });
 
