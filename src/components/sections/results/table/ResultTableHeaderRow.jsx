@@ -3,7 +3,7 @@ import { HelperIcon } from '@discretize/react-discretize-components';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import classNames from 'classnames';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { extrasTypes } from '../../../../state/slices/extras';
 import { INFUSION_IDS, Slots, maxSlotsLength } from '../../../../utils/gw2-data';
@@ -34,10 +34,15 @@ const ResultTableHeaderRow = ({
   const emptyCell = (
     <TableCell className={classNames(classes.tablehead)} align="center" padding="none" />
   );
-  const padCellArray = (minLength, array) =>
-    array.length < minLength
-      ? [...array, ...Array(minLength - array.length).fill(emptyCell)]
-      : array;
+  const padCellArray = (minLength, array) => {
+    const resultArray =
+      array.length < minLength
+        ? [...array, ...Array(minLength - array.length).fill(emptyCell)]
+        : array;
+
+    // eslint-disable-next-line react/no-array-index-key
+    return resultArray.map((element, i) => <Fragment key={i}>{element}</Fragment>);
+  };
 
   return (
     <TableRow>
@@ -57,7 +62,6 @@ const ResultTableHeaderRow = ({
         Slots[weaponType].map((slot) => (
           <TableCell
             className={classNames(classes.tablehead, classes.gearColumn)}
-            key={slot.name}
             align="center"
             padding="none"
           >
@@ -70,7 +74,6 @@ const ResultTableHeaderRow = ({
         Object.keys(infusions).map((type) => (
           <TableCell
             className={classNames(classes.tablehead, classes.infusionColumn)}
-            key={type}
             align="center"
             padding="none"
           >
@@ -83,11 +86,9 @@ const ResultTableHeaderRow = ({
         extrasTypes.length,
         extrasTypes
           .filter((type) => displayExtras[type])
-          .map((type, index) => (
+          .map((type) => (
             <TableCell
               className={classNames(classes.tablehead, classes.extrasColumn)}
-              // eslint-disable-next-line react/no-array-index-key
-              key={`extras${index}`}
               align="center"
               padding="none"
             >
@@ -96,11 +97,9 @@ const ResultTableHeaderRow = ({
           )),
       )}
 
-      {displayAttributes.map((attribute, index) => (
+      {displayAttributes.map((attribute) => (
         <TableCell
           className={classNames(classes.tablehead, classes.attributesColumn)}
-          // eslint-disable-next-line react/no-array-index-key
-          key={`attrs${index}`}
           align="center"
           padding="none"
         >

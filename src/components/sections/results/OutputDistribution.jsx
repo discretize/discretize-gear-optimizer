@@ -41,9 +41,11 @@ const OutputDistribution = ({ character }) => {
       <Typography variant="h6">{t('Damage Distribution')}</Typography>
       <Table padding="none" sx={{ marginTop: '-0.7em' }}>
         <TableHead>
-          <TableCell />
-          <TableCell align="right">{t('damage')}</TableCell>
-          <TableCell align="right">{t('percent')}</TableCell>
+          <TableRow>
+            <TableCell />
+            <TableCell align="right">{t('damage')}</TableCell>
+            <TableCell align="right">{t('percent')}</TableCell>
+          </TableRow>
         </TableHead>
         <TableBody>
           {data.map((damageType) => (

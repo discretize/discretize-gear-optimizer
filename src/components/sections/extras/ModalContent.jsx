@@ -13,7 +13,7 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
@@ -214,7 +214,7 @@ function ModalContent(props) {
       {filteredItems.map(([label, options]) => {
         if (options.length === 0) return null;
         return (
-          <div>
+          <div key={label}>
             <FormControl sx={{ margin: 1, width: '100%' }} component="fieldset" variant="standard">
               <FormLabel
                 component="legend"
@@ -233,7 +233,7 @@ function ModalContent(props) {
               <FormGroup>
                 {options.map(
                   ({ id, gw2id, displayIds, subText, textOverride, modifiers, amountData }) => (
-                    <>
+                    <Fragment key={id}>
                       <Box
                         sx={{
                           display: 'flex',
@@ -257,6 +257,7 @@ function ModalContent(props) {
                                   displayIds.map((displayId) => (
                                     <Item
                                       id={displayId ?? placeholderItem}
+                                      key={displayId ?? placeholderItem}
                                       disableLink
                                       text={textOverride ?? formatApiText}
                                       disableText={!displayId}
@@ -367,7 +368,7 @@ function ModalContent(props) {
                           }
                         </Typography>
                       )}
-                    </>
+                    </Fragment>
                   ),
                 )}
               </FormGroup>
