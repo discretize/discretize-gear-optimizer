@@ -35,7 +35,7 @@ type Result =
       filteredLists: undefined;
     };
 
-function* calculate(reduxState: RootState) {
+export function* calculate(reduxState: RootState) {
   /**
    * set up input
    */
