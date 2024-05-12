@@ -107,12 +107,12 @@
       text: Potent Poison
       modifiers:
         damage:
-          Outgoing Poison Damage: [33%, unknown]
+          Outgoing Poison Damage: [33%, mult] # unconfirmed
         attributes:
           Poison Duration: 33%
       wvwModifiers:
         damage:
-          Outgoing Poison Damage: [20%, unknown]
+          Outgoing Poison Damage: [20%, mult] # unconfirmed
         attributes:
           Poison Duration: 5%
       gw2id: 1291
@@ -306,7 +306,7 @@
       text: Deadly Ambush
       modifiers:
         damage:
-          Outgoing Bleeding Damage: [25%, unknown]
+          Outgoing Bleeding Damage: [25%, mult] # unconfirmed
       gw2id: 1706
       defaultEnabled: true
 
@@ -537,11 +537,11 @@
         conversion:
           Expertise: {Vitality: 13%}
         damage:
-          Outgoing Torment Damage: [20%, add] # unconfirmed
+          Outgoing Torment Damage: [20%, mult] # unconfirmed
       wvwModifiers:
         conversion:
           Expertise: {Vitality: 13%}
         damage:
-          Outgoing Torment Damage: [25%, add] # unconfirmed
+          Outgoing Torment Damage: [25%, mult] # unconfirmed
       gw2id: 2264
       defaultEnabled: true

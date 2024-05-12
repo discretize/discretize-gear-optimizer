@@ -242,10 +242,10 @@
       text: Amplified Wrath
       modifiers:
         damage:
-          Outgoing Burning Damage: [10%, unknown]
+          Outgoing Burning Damage: [10%, mult] # unconfirmed
       wvwModifiers:
         damage:
-          Outgoing Burning Damage: [15%, unknown]
+          Outgoing Burning Damage: [15%, mult] # unconfirmed
       gw2id: 1686
       defaultEnabled: true
 
