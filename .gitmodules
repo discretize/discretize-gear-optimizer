@@ -1,0 +1,3 @@
+[submodule "discretize-ui"]
+	path = discretize-ui
+	url = https://github.com/discretize/discretize-ui
