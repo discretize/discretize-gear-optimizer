@@ -155,6 +155,7 @@
           Critical Chance: 5%
       gw2id: 1281
       defaultEnabled: true
+      combatOnly: false
 
     - id: keen-observer-scholar
       text: Keen Observer
@@ -165,7 +166,7 @@
           Critical Chance: 5%
       gw2id: 1281
       defaultEnabled: true
-      combatOnly: needsToBeSplit
+      combatOnly: true
 
     - id: twin-fangs-scholar
       text: Twin Fangs

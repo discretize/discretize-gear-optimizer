@@ -419,6 +419,7 @@
           Ferocity: {Vitality: 10%}
       gw2id: 2193
       defaultEnabled: true
+      combatOnly: false
 
     - id: quiet-intensity-fury
       text: Quiet Intensity
@@ -432,7 +433,7 @@
           Critical Chance: 10%
       gw2id: 2193
       defaultEnabled: true
-      combatOnly: needsToBeSplit
+      combatOnly: true
 
     - id: bloodsong
       text: Bloodsong

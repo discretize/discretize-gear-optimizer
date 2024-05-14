@@ -175,7 +175,7 @@
           Expertise: [60, converted]
       gw2id: 2006
       defaultEnabled: true
-      combatOnly: needsToBeSplit
+      combatOnly: false
 
     - id: thermal-vision-buff
       text: Thermal Vision
