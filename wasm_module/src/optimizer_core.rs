@@ -433,17 +433,13 @@ pub fn calc_power(
     let attributes = &mut character.attributes;
     let mods = &combination.modifiers;
 
-    attributes.set_a(
-        Attribute::CriticalDamage,
-        attributes.get_a(Attribute::CriticalDamage)
-            * mods.get_dmg_multiplier(Attribute::OutgoingCriticalDamage),
-    );
+    let crit_dmg = attributes.get_a(Attribute::CriticalDamage)
+        * mods.get_dmg_multiplier(Attribute::OutgoingCriticalDamage);
     let crit_chance = clamp(attributes.get_a(Attribute::CriticalChance), 0.0, 1.0);
 
     attributes.set_a(
         Attribute::EffectivePower,
-        attributes.get_a(Attribute::Power)
-            * (1.0 + crit_chance * (attributes.get_a(Attribute::CriticalDamage) - 1.0)),
+        attributes.get_a(Attribute::Power) * (1.0 + crit_chance * (crit_dmg - 1.0)),
     );
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
@@ -459,11 +455,8 @@ pub fn calc_power(
     if attributes.get_a(Attribute::Power2Coefficient) > 0.0 {
         // do stuff
         if settings.profession.eq("Mesmer") {
-            attributes.set_a(
-                Attribute::PhantasmCriticalDamage,
-                attributes.get_a(Attribute::PhantasmCriticalDamage)
-                    * mods.get_dmg_multiplier(Attribute::OutgoingPhantasmCriticalDamage),
-            );
+            let phantasm_crit_dmg = attributes.get_a(Attribute::PhantasmCriticalDamage)
+                * mods.get_dmg_multiplier(Attribute::OutgoingPhantasmCriticalDamage);
             let phantasm_crit_chance = clamp(
                 attributes.get_a(Attribute::PhantasmCriticalChance),
                 0.0,
@@ -473,9 +466,7 @@ pub fn calc_power(
             attributes.set_a(
                 Attribute::PhantasmEffectivePower,
                 attributes.get_a(Attribute::Power)
-                    * (1.0
-                        + phantasm_crit_chance
-                            * (attributes.get_a(Attribute::PhantasmCriticalDamage) - 1.0)),
+                    * (1.0 + phantasm_crit_chance * (phantasm_crit_dmg - 1.0)),
             );
 
             let phantasm_power_damage = (attributes.get_a(Attribute::Power2Coefficient) / 2597.0)
@@ -484,18 +475,14 @@ pub fn calc_power(
             attributes.set_a(Attribute::Power2DPS, phantasm_power_damage);
             power_damage += phantasm_power_damage;
         } else {
-            attributes.set_a(
-                Attribute::AltCriticalDamage,
-                attributes.get_a(Attribute::AltCriticalDamage)
-                    * mods.get_dmg_multiplier(Attribute::OutgoingAltCriticalDamage),
-            );
+            let alt_crit_dmg = attributes.get_a(Attribute::AltCriticalDamage)
+                * mods.get_dmg_multiplier(Attribute::OutgoingAltCriticalDamage);
             let alt_crit_chance = clamp(attributes.get_a(Attribute::AltCriticalChance), 0.0, 1.0);
 
             attributes.set_a(
                 Attribute::AltEffectivePower,
                 attributes.get_a(Attribute::AltPower)
-                    * (1.0
-                        + alt_crit_chance * (attributes.get_a(Attribute::AltCriticalDamage) - 1.0)),
+                    * (1.0 + alt_crit_chance * (alt_crit_dmg - 1.0)),
             );
 
             let alt_power_damage = (attributes.get_a(Attribute::Power2Coefficient) / 2597.0)
