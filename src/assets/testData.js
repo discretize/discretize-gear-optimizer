@@ -130,6 +130,8 @@ const testModifiers = async () => {
           hasLifesteal,
           displayIds,
           priceIds,
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          temporaryBuff,
           ...otherKeys
         } = item;
 

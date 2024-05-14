@@ -11,6 +11,7 @@
           Power: [30, buff]
           Condition Damage: [30, buff]
       type: Boon
+      temporaryBuff: true
 
     - id: fury
       text: Fury
@@ -21,6 +22,7 @@
         attributes:
           Critical Chance: 20%
       type: Boon
+      temporaryBuff: true
 
     - id: protection
       text: Protection
@@ -51,6 +53,7 @@
         attributes:
           Vitality: [85, converted]
       type: Text
+      temporaryBuff: false
 
     - id: jade-bot-per-tier
       text: Jade Bot Tier
@@ -62,6 +65,7 @@
         attributes:
           Vitality: [15, converted]
       type: Text
+      temporaryBuff: false
 
     - id: reinforced-armor
       text: Reinforced Armor
@@ -74,6 +78,7 @@
           Vitality: {Vitality: 1%}
           Armor: {Armor: 1%}
       type: Text
+      temporaryBuff: false
 
 - section: Effects
   items:

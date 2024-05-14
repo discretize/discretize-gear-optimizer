@@ -112,6 +112,7 @@ export interface AppliedModifier {
   modifiers: YamlModifiers;
   wvwModifiers?: YamlModifiers;
   amountData?: AmountData;
+  temporaryBuff?: true | false | 'activeOutOfCombat';
 }
 
 // todo: move these; they should be synchronized with ../../assets/modifierdata/metadata.js and
@@ -584,6 +585,7 @@ export function createSettingsPerCalculation(
 export function createSettingsPerCombination(
   reduxState: RootState,
   extrasModifiers: AppliedModifier[],
+  simulateUnbuffed = false,
 ): OptimizerCoreSettingsPerCombination {
   const sharedModifiers = [
     ...(getBuffsModifiers(reduxState) || []),
@@ -713,9 +715,18 @@ export function createSettingsPerCombination(
       // data: {
       modifiers,
       wvwModifiers,
-      amountData,
+      amountData: realAmountData,
+      temporaryBuff,
       // },
     } = item;
+
+    // unbuffed mode: remove temporary buffs that will not affect the hero panel out of combat
+    if (simulateUnbuffed && temporaryBuff === true) {
+      continue;
+    }
+    // unbuffed mode: ignore amounts when *not* removing active-out-of-combat buffs, e.g. signet passive effects
+    const amountData =
+      simulateUnbuffed && temporaryBuff === 'activeOutOfCombat' ? undefined : realAmountData;
 
     const {
       damage = {},
@@ -951,9 +962,15 @@ function createSettings(
   extrasCombination: ExtrasCombination,
   extrasModifiers: AppliedModifier[],
 ): OptimizerCoreSettings {
+  const settingsPerCalculation = createSettingsPerCalculation(reduxState);
+  const settingsPerCombination = createSettingsPerCombination(reduxState, extrasModifiers);
+  const unbuffedSettings = createSettingsPerCombination(reduxState, extrasModifiers, true);
+
   return {
-    ...createSettingsPerCalculation(reduxState),
-    ...createSettingsPerCombination(reduxState, extrasModifiers),
+    ...settingsPerCalculation,
+    ...settingsPerCombination,
+    unbuffedBaseAttributes: unbuffedSettings.baseAttributes,
+    unbuffedModifiers: unbuffedSettings.modifiers,
     extrasCombination,
   };
 }

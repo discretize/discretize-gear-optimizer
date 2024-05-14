@@ -333,6 +333,10 @@ fn calc_stats(
         Attribute::BoonDuration,
         attributes.get_a(Attribute::Concentration) / 15.0 / 100.0,
     );
+    attributes.add_a(
+        Attribute::ConditionDuration,
+        attributes.get_a(Attribute::Expertise) / 15.0 / 100.0,
+    );
     attributes.set_a(
         Attribute::Health,
         round(
@@ -340,6 +344,8 @@ fn calc_stats(
                 * (1.0 + attributes.get_a(Attribute::MaxHealth)),
         ),
     );
+
+    attributes.add_a(Attribute::Armor, attributes.get_a(Attribute::Toughness));
 
     // clones/phantasms/shroud
     if settings.profession.eq("Mesmer") {
@@ -532,11 +538,6 @@ pub fn calc_condi(
     let attributes = &mut character.attributes;
     let mods = &combination.modifiers;
 
-    attributes.add_a(
-        Attribute::ConditionDuration,
-        attributes.get_a(Attribute::Expertise) / 15.0 / 100.0,
-    );
-
     let mut condi_damage_score = 0.0;
     // iterate over all (relevant) conditions
     for condition in relevant_conditions.iter() {
@@ -594,8 +595,6 @@ pub fn calc_condi(
 fn calc_survivability(character: &mut Character, combination: &Combination) {
     let attributes = &mut character.attributes;
     let mods = &combination.modifiers;
-
-    attributes.add_a(Attribute::Armor, attributes.get_a(Attribute::Toughness));
 
     attributes.set_a(
         Attribute::EffectiveHealth,
