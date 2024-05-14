@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Character, firstUppercase } from '@discretize/react-discretize-components';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import { Box, FormControlLabel, Switch } from '@mui/material';
@@ -193,28 +194,17 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
   return (
     <ErrorBoundary location="Character" resetKeys={[character]}>
       {character.results.outOfCombatAttributes && (
-        <>
-          <FormControlLabel
-            control={
-              <Switch
-                checked={showOutOfCombat}
-                onChange={(e) => setShowOutOfCombat(e.target.checked)}
-                name="checked"
-                color="primary"
-              />
-            }
-            label="Simulate out-of-combat hero panel"
-          />
-          {showOutOfCombat && (
-            <Box sx={{ p: 1 }}>
-              <Info icon={<WarningAmberIcon />}>
-                {`Simulation is not exact. For example, neither "while wielding one-handed-weapons"
-                and "while wielding a two-handed-weapon" are included, so builds with both will show
-                stats that will never match ingame. Use with caution.`}
-              </Info>
-            </Box>
-          )}
-        </>
+        <FormControlLabel
+          control={
+            <Switch
+              checked={showOutOfCombat}
+              onChange={(e) => setShowOutOfCombat(e.target.checked)}
+              name="checked"
+              color="primary"
+            />
+          }
+          label="Simulate Unbuffed Attributes"
+        />
       )}
 
       <Character
@@ -236,6 +226,16 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
         }
         switchElement={CustomSwitch}
       />
+      {showOutOfCombat && (
+        <Box sx={{ p: 1 }}>
+          <Info icon={<WarningAmberIcon />}>
+            Simulated unbuffed attributes are not exact and may not match ingame hero panel! For
+            example, "while wielding a one-handed-weapon" and "while wielding a two-handed-weapon"
+            buffs are both excluded, which may result in simulating a scenario which is impossible
+            to observe ingame. Use with caution.
+          </Info>
+        </Box>
+      )}
     </ErrorBoundary>
   );
 }
