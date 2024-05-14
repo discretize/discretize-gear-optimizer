@@ -166,19 +166,29 @@
 
     - id: thermal-vision
       text: Thermal Vision
+      subText: base
       modifiers:
-        damage:
-          Outgoing Condition Damage: [5%, add]
         attributes:
           Expertise: [150, converted]
       wvwModifiers:
-        damage:
-          Outgoing Condition Damage: [5%, add]
         attributes:
           Expertise: [60, converted]
       gw2id: 2006
       defaultEnabled: true
       combatOnly: needsToBeSplit
+
+    - id: thermal-vision-buff
+      text: Thermal Vision
+      subText: buff
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Condition Damage: [5%, add]
+      gw2id: 2006
+      defaultEnabled: true
 
     - id: no-scope
       text: No Scope

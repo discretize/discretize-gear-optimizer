@@ -412,16 +412,22 @@
 
     - id: quiet-intensity
       text: Quiet Intensity
-      subText: 100% fury
+      subText: base
       minor: true
       modifiers:
         conversion:
           Ferocity: {Vitality: 10%}
+      gw2id: 2193
+      defaultEnabled: true
+
+    - id: quiet-intensity-fury
+      text: Quiet Intensity
+      subText: 100% fury
+      minor: true
+      modifiers:
         attributes:
           Critical Chance: 15%
       wvwModifiers:
-        conversion:
-          Ferocity: {Vitality: 10%}
         attributes:
           Critical Chance: 10%
       gw2id: 2193

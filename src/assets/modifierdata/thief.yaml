@@ -145,14 +145,24 @@
 
     - id: keen-observer
       text: Keen Observer
+      subText: base
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 10%
+      wvwModifiers:
+        attributes:
+          Critical Chance: 5%
+      gw2id: 1281
+      defaultEnabled: true
+
+    - id: keen-observer-scholar
+      text: Keen Observer
       subText: high health
       minor: true
       modifiers:
         attributes:
-          Critical Chance: 15%
-      wvwModifiers:
-        attributes:
-          Critical Chance: 10%
+          Critical Chance: 5%
       gw2id: 1281
       defaultEnabled: true
       combatOnly: needsToBeSplit
