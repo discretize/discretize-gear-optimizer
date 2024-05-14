@@ -305,8 +305,8 @@ const testModifiers = async () => {
         if (modifiers.attributes || modifiers.conversion || modifiers.conversionAfterBuffs) {
           if (temporaryBuff !== undefined) {
             gentleAssert(
-              typeof temporaryBuff === 'boolean',
-              `err: ${id}'s temporaryBuff label is ${temporaryBuff}!`,
+              [true, false, 'activeOutOfCombat'].includes(temporaryBuff),
+              `err: ${id}'s temporaryBuff value is not true, false, or activeOutOfCombat!`,
             );
           } else {
             gentleAssert(false, `err: ${id} is missing temporaryBuff true/false label!`);

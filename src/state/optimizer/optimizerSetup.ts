@@ -112,7 +112,7 @@ export interface AppliedModifier {
   modifiers: YamlModifiers;
   wvwModifiers?: YamlModifiers;
   amountData?: AmountData;
-  temporaryBuff?: boolean;
+  temporaryBuff?: true | false | 'activeOutOfCombat';
 }
 
 // todo: move these; they should be synchronized with ../../assets/modifierdata/metadata.js and
@@ -715,14 +715,18 @@ export function createSettingsPerCombination(
       // data: {
       modifiers,
       wvwModifiers,
-      amountData,
+      amountData: realAmountData,
       temporaryBuff,
       // },
     } = item;
 
+    // unbuffed mode: remove temporary buffs that will not affect the hero panel out of combat
     if (simulateUnbuffed && temporaryBuff === true) {
       continue;
     }
+    // unbuffed mode: ignore amounts when *not* removing active-out-of-combat buffs, e.g. signet passive effects
+    const amountData =
+      simulateUnbuffed && temporaryBuff === 'activeOutOfCombat' ? undefined : realAmountData;
 
     const {
       damage = {},

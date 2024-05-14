@@ -301,7 +301,7 @@ export interface ModifierItem {
   priceIds?: number[];
   defaultEnabled?: boolean;
   type?: string;
-  temporaryBuff?: boolean;
+  temporaryBuff?: true | false | 'activeOutOfCombat';
 }
 
 export interface Section {

@@ -79,7 +79,7 @@
           Power: [120, converted] # from sheet by Bekko
       gw2id: 1338
       defaultEnabled: false
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: great-fortitude
       text: Great Fortitude
@@ -480,7 +480,7 @@
           Ferocity: [120, converted] # confirmed from bench hero panel
       gw2id: 1369
       defaultEnabled: true
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
 - section: Berserker
   id: 18

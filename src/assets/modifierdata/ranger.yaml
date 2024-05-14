@@ -286,7 +286,7 @@
           Power: [120, buff] # buff unconfirmed
       gw2id: 1700
       defaultEnabled: true
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
 - section: Wilderness Survival
   id: 33
@@ -341,7 +341,7 @@
           Condition Damage: [120, buff]
       gw2id: 1101
       defaultEnabled: true
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: survival-instincts-high
       text: Survival Instincts
@@ -444,7 +444,7 @@
           Ferocity: [120, buff]
       gw2id: 1066
       defaultEnabled: true
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
 - section: Druid
   id: 5

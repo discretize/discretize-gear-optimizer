@@ -224,7 +224,7 @@
           Condition Damage: [120, converted] # tested by marcus
       gw2id: 669
       defaultEnabled: false
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: chaotic-persistence
       text: Chaotic Persistence

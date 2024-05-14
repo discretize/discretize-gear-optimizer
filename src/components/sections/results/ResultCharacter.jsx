@@ -230,9 +230,9 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
         <Box sx={{ p: 1 }}>
           <Info icon={<WarningAmberIcon />}>
             Simulated unbuffed attributes are not exact and may not match ingame hero panel! For
-            example, "while wielding a one-handed-weapon" and "while wielding a two-handed-weapon"
-            buffs are both excluded, which may result in simulating a scenario which is impossible
-            to observe ingame. Use with caution.
+            example, permanent "while in fire attunement" and "while in air attunement" buffs are
+            both included, simulating a scenario which is impossible to observe ingame. Use with
+            caution.
           </Info>
         </Box>
       )}

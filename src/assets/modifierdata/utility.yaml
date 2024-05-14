@@ -226,7 +226,7 @@
         attributes:
           Power: [200, converted]
       gw2id: 73191
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat
 
     - id: writ-of-learned-strength
       text: Writ of Learned Strength
@@ -238,7 +238,7 @@
         attributes:
           Power: [160, converted]
       gw2id: 72807
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat
 
     - id: writ-of-calculated-strength
       text: Writ of Calculated Strength
@@ -250,7 +250,7 @@
         attributes:
           Power: [120, converted]
       gw2id: 77128
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat
 
     - id: writ-of-masterful-malice
       text: Writ of Masterful Malice
@@ -262,7 +262,7 @@
         attributes:
           Condition Damage: [200, converted]
       gw2id: 72510
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat
 
     - id: writ-of-learned-malice
       text: Writ of Learned Malice
@@ -274,7 +274,7 @@
         attributes:
           Condition Damage: [160, converted]
       gw2id: 76478
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat
 
     - id: writ-of-calculated-malice
       text: Writ of Calculated Malice
@@ -286,7 +286,7 @@
         attributes:
           Condition Damage: [120, converted]
       gw2id: 72572
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat
 
     - id: writ-of-masterful-accuracy
       text: Writ of Masterful Accuracy
@@ -295,7 +295,7 @@
         attributes:
           Precision: [200, converted]
       gw2id: 76833
-      temporaryBuff: true # todo: maybe override this
+      temporaryBuff: activeOutOfCombat
 
     - id: writ-of-learned-accuracy
       text: Writ of Learned Accuracy
@@ -304,7 +304,7 @@
         attributes:
           Precision: [160, converted]
       gw2id: 75610
-      temporaryBuff: true # todo: maybe override this
+      temporaryBuff: activeOutOfCombat
 
     - id: writ-of-calculated-accuracy
       text: Writ of Calculated Accuracy
@@ -313,7 +313,7 @@
         attributes:
           Precision: [120, converted]
       gw2id: 72821
-      temporaryBuff: true # todo: maybe override this
+      temporaryBuff: activeOutOfCombat
 
 - section: Misc
   items:

@@ -171,7 +171,7 @@
           Power: [150, buff]
       gw2id: 320
       defaultEnabled: true
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: burning-precision
       text: Burning Precision
@@ -228,7 +228,7 @@
           Power: [150, buff]
       gw2id: 334
       defaultEnabled: true
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: pyromancers-training
       text: Pyromancer's Training
@@ -323,7 +323,7 @@
           Ferocity: [150, buff]
       gw2id: 223
       defaultEnabled: true
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: bolt-to-the-heart
       text: Bolt to the Heart
@@ -647,7 +647,7 @@
           Power: [120, buff]
       gw2id: 2081
       defaultEnabled: true
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: elemental-polyphony-air
       text: Elemental Polyphony
@@ -661,7 +661,7 @@
           Ferocity: [120, buff]
       gw2id: 2081
       defaultEnabled: true
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: elements-of-rage-base
       text: Elements of Rage

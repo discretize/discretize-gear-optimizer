@@ -12,7 +12,7 @@
         attributes:
           Power: [180, buff]
       gw2id: 13046
-      temporaryBuff: true # todo: maybe override this
+      temporaryBuff: activeOutOfCombat
 
     - id: assassins-signet-active
       text: Assassin's Signet
@@ -61,7 +61,7 @@
           Power: [80, converted]
       gw2id: 1245
       defaultEnabled: false
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: deadly-ambition
       text: Deadly Ambition
@@ -166,7 +166,7 @@
           Critical Chance: 5%
       gw2id: 1281
       defaultEnabled: true
-      temporaryBuff: true # does not show up in hero panel
+      temporaryBuff: true # active out of combat, but does not show up in hero panel
 
     - id: twin-fangs-scholar
       text: Twin Fangs
@@ -387,7 +387,7 @@
           Power: [120, converted]
       gw2id: 1884
       defaultEnabled: true
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: havoc-specialist
       text: Havoc Specialist
@@ -456,7 +456,7 @@
           Precision: [120, converted]
       gw2id: 2118
       defaultEnabled: true
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: premeditation-base
       text: Premeditation
@@ -539,7 +539,7 @@
           Condition Damage: [90, unknown]
       gw2id: 2284
       defaultEnabled: true
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: dark-sentry
       text: Dark Sentry
