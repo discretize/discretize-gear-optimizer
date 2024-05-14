@@ -166,7 +166,7 @@
           Critical Chance: 5%
       gw2id: 1281
       defaultEnabled: true
-      temporaryBuff: true
+      temporaryBuff: true # does not show up in hero panel
 
     - id: twin-fangs-scholar
       text: Twin Fangs

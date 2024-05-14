@@ -127,7 +127,7 @@
           Bleeding Coefficient: {Phantasm Critical Chance: 500%}
       gw2id: 710
       defaultEnabled: false
-      temporaryBuff: false
+      temporaryBuff: true
 
     - id: sharper-images-clone
       text: Sharper Images
@@ -143,7 +143,7 @@
           Bleeding Coefficient: {Clone Critical Chance: 500%}
       gw2id: 710
       defaultEnabled: false
-      temporaryBuff: false
+      temporaryBuff: true
 
     - id: fencers-finesse
       text: Fencer's Finesse
