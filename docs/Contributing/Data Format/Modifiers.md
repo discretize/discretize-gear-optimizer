@@ -318,4 +318,10 @@ Used for unbuffed, out-of-combat hero panel simulation. Required unless the item
 
 This `activeOutOfCombat` implementation errs on the side of **including** both "when wielding a two-handed weapon" and "when wielding a one-handed weapon" buffs on e.g. dragonhunter, both "when in air attunement" and "when in fire attunement" on elementalist, etc. This can be inaccurate to the ingame hero panel. **Excluding** all of those effects would, of course, also be inaccurate to the ingame hero panel in some cases.
 
-We could come up with standard rules for this ("assume the user is in fire attunement") for more consistency, but it will never be perfect (a condi ranger could plausibly have any combination of axe, torch, and dagger).
+We can come up with standard rules for this in some cases for more consistency, but it will never be perfect (a condi ranger could plausibly have any combination of axe, torch, and dagger; good luck).
+
+Currently used rules:
+
+- Elementalist: assume the user is in fire attunement, not air (arbitrary, but seems common)
+- Guardian: assume the user is on a dual-wield set (simulates better than the reverse if it's a full dual-wield build; a greatsword-only or staff-only build is less likely)
+- Warrior: assume the user is on a dual-wield set (simulates better than the reverse if it's a full dual-wield build; a greatsword-only build is less likely)

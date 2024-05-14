@@ -230,8 +230,8 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
         <Box sx={{ p: 1 }}>
           <Info icon={<WarningAmberIcon />}>
             Simulated unbuffed attributes are not exact and may not match ingame hero panel! For
-            example, permanent "while in fire attunement" and "while in air attunement" buffs are
-            both included, simulating a scenario which is impossible to observe ingame. Use with
+            example, soulbeast's "with axe" and "with torch/dagger" buffs are both included,
+            simulating a scenario which doesn't occur in either weapon set on some builds. Use with
             caution.
           </Info>
         </Box>
