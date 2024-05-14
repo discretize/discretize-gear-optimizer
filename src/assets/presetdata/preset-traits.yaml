@@ -521,6 +521,7 @@ list:
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
+            "quiet-intensity-fury": {},
             "bloodsong": {},
             "jagged-mind": {
               "amount": "6.04"
@@ -591,6 +592,7 @@ list:
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
+            "quiet-intensity-fury": {},
             "bloodsong": {},
             "jagged-mind": {
               "amount": "5.86"
@@ -667,6 +669,7 @@ list:
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
+            "quiet-intensity-fury": {},
             "bloodsong": {}
           }
         ]
@@ -4649,6 +4652,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -4719,6 +4723,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -4789,6 +4794,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -4859,6 +4865,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -4927,6 +4934,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {},
             "serrated-steel": {},
             "modified-ammunition": {
@@ -4993,6 +5001,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -5059,6 +5068,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -5125,6 +5135,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -5200,6 +5211,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -5275,6 +5287,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -6038,6 +6051,7 @@ list:
           },
           {
             "keen-observer": {},
+            "keen-observer-scholar": {},
             "twin-fangs-scholar": {},
             "twin-fangs-flank": {},
             "practiced-tolerance": {},
@@ -6322,6 +6336,7 @@ list:
           },
           {
             "keen-observer": {},
+            "keen-observer-scholar": {},
             "twin-fangs-scholar": {},
             "twin-fangs-flank": {},
             "practiced-tolerance": {},
@@ -6402,6 +6417,7 @@ list:
           },
           {
             "keen-observer": {},
+            "keen-observer-scholar": {},
             "twin-fangs-scholar": {},
             "twin-fangs-flank": {},
             "practiced-tolerance": {},
@@ -6481,6 +6497,7 @@ list:
           },
           {
             "keen-observer": {},
+            "keen-observer-scholar": {},
             "twin-fangs-scholar": {},
             "twin-fangs-flank": {},
             "practiced-tolerance": {},
@@ -6560,6 +6577,7 @@ list:
           },
           {
             "keen-observer": {},
+            "keen-observer-scholar": {},
             "twin-fangs-scholar": {},
             "twin-fangs-flank": {},
             "practiced-tolerance": {},
