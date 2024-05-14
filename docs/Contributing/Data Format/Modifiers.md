@@ -290,7 +290,7 @@ Array of numerical GW2 ids to show in the selection modal, if more than one item
 
 #### priceIds (optional; extras only)
 
-Array of numerical GW2 ids to select the cheapest price from if "show prices" is checked in the selection modal, if more than one item in the game has this effect. (This can be more complete than the priceIds list, which must be short enough not to overflow the UI.)
+Array of numerical GW2 ids to select the cheapest price from if "show prices" is checked in the selection modal, if more than one item in the game has this effect. (This can be more complete than the displayIds list, which must be short enough not to overflow the UI.)
 
 #### type (buffs only)
 
