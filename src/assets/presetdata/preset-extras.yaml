@@ -2319,7 +2319,7 @@ list:
         }
       }
 
-  - name: DPS Specter
+  - name: DPS Specter SC/D
     profession: Specter
     value: |-
       {
@@ -2359,7 +2359,7 @@ list:
         "lifestealAmount": "3.5"
       }
 
-  - name: Condi Barrier Specter
+  - name: Condi Barrier Specter SC/D
     profession: Specter
     value: |-
       {
@@ -2399,7 +2399,7 @@ list:
         "lifestealAmount": "3.5"
       }
 
-  - name: Alacrity Specter
+  - name: Alacrity Specter SC/D
     profession: Specter
     value: |-
       {
