@@ -1,7 +1,7 @@
 import { APILanguageProvider } from '@discretize/gw2-ui-new';
 import CloseIcon from '@mui/icons-material/Close';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { Alert, Chip, Collapse, IconButton, Link, List, ListItem, Typography } from '@mui/material';
+import { Alert, Chip, Collapse, IconButton, Link, Typography } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
