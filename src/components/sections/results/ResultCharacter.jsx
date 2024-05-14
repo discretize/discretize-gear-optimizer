@@ -226,7 +226,7 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
         }
         switchElement={CustomSwitch}
       />
-      {showUnbuffed && (
+      {showUnbuffed && unbuffedAttributes && (
         <Box sx={{ p: 1 }}>
           <Info icon={<WarningAmberIcon />}>
             Simulated unbuffed attributes are not exact and may not match ingame hero panel! For
