@@ -4649,6 +4649,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -4719,6 +4720,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -4789,6 +4791,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -4859,6 +4862,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -4927,6 +4931,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {},
             "serrated-steel": {},
             "modified-ammunition": {
@@ -4993,6 +4998,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -5059,6 +5065,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -5125,6 +5132,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -5200,6 +5208,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
@@ -5275,6 +5284,7 @@ list:
             "high-caliber": {},
             "hematic-focus": {},
             "thermal-vision": {},
+            "thermal-vision-buff": {},
             "no-scope": {
               "amount": ""
             },
