@@ -1,7 +1,7 @@
 import { APILanguageProvider } from '@discretize/gw2-ui-new';
 import CloseIcon from '@mui/icons-material/Close';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { Alert, Chip, Collapse, IconButton, Link, List, ListItem, Typography } from '@mui/material';
+import { Alert, Chip, Collapse, IconButton, Link, Typography } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
@@ -97,39 +97,36 @@ const IndexPage = () => {
         {multicore && (
           <Alert severity="error" sx={{ marginBottom: 2 }}>
             <Typography variant="body2" paragraph>
-              You selected the experimental multicore mode. This mode is still in development and
-              may cause issues. Please report any issues in the Discretize Discord. More in-depth
-              explanation of the technical background can be found{' '}
-              <Link href="https://sopuli.xyz/post/713722"> here </Link>
+              You have selected the experimental multicore mode. This mode is still in development
+              and may cause issues. Please report any issues in the Discretize{' '}
+              <Link href="https://discord.gg/Qdt7nFY" target="_blank" rel="noopener">
+                Discord
+              </Link>
+              . More in-depth explanation and technical background information can be found{' '}
+              <Link href="https://sopuli.xyz/post/713722" target="_blank" rel="noopener">
+                here
+              </Link>
+              .
             </Typography>
 
             <Typography variant="body2" paragraph>
-              Numerous features are incomplete / broken in this mode. Other than whats enumerated
+              A number of features are incomplete / broken in this mode. Other than those enumerated
               here, the optimizer should work as expected.
             </Typography>
 
-            <List
-              dense
-              sx={{
-                listStyleType: 'disc',
-                pl: 4,
-                '& .MuiListItem-root': {
-                  display: 'list-item',
-                },
-              }}
-            >
-              <ListItem>
-                Pausing / Resuming a calculation. Once started, the only way to prematurely
-                terminated a calculation is to refresh the tab
-              </ListItem>
-              <ListItem>
-                Infusions are not yet supported. They are ignored in the calculation
-              </ListItem>
-              <ListItem>
-                Displaying the best result for each combination is not possible due to the Rust
-                implementation not calculating every combination.
-              </ListItem>
-            </List>
+            <Typography variant="body2" component="ul" sx={{ '& > li': { mb: 1 } }}>
+              <li>
+                <b>Pausing / Resuming a calculation.</b> Once started, the only way to prematurely
+                terminate a calculation is to refresh the tab.
+              </li>
+              <li>
+                <b>Infusions.</b> They are not yet supported and are ignored in the calculation.
+              </li>
+              <li>
+                <b>Displaying the best result for each combination.</b> This is not possible due to
+                the Rust implementation not calculating every combination.
+              </li>
+            </Typography>
           </Alert>
         )}
 

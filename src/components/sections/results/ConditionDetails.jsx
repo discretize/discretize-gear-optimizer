@@ -33,9 +33,11 @@ const ConditionDetails = ({ character }) => {
       <Typography variant="h6">{t('Condi Details')}</Typography>
       <Table padding="none" sx={{ marginTop: '-0.7em' }}>
         <TableHead>
-          <TableCell />
-          <TableCell align="right">{t('avg stacks')}</TableCell>
-          <TableCell align="right">{t('dmg/stack')}</TableCell>
+          <TableRow>
+            <TableCell />
+            <TableCell align="right">{t('avg stacks')}</TableCell>
+            <TableCell align="right">{t('dmg/stack')}</TableCell>
+          </TableRow>
         </TableHead>
         <TableBody>
           {conditionEntries.map(({ attribute, tick, stacks }) => (

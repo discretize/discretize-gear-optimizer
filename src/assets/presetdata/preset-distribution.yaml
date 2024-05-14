@@ -1124,7 +1124,7 @@ list:
         log: https://dps.report/OK9l-20230214-214155_golem
 
   # 1.72 torment proc rate (from evtc tool applied to previous log)
-  - name: DPS Specter (Allies)
+  - name: DPS Specter SC/D (Allies)
     profession: Specter
     value: >-
       {
@@ -1138,7 +1138,7 @@ list:
   # https://optimizer.discretize.eu/?s=wpWaF0plv1
   # bugged log: has leeching venoms
   # 1.52 torment proc rate (from evtc tool)
-  - name: DPS Barrier Specter (Allies)
+  - name: DPS Barrier Specter SC/D (Allies)
     profession: Specter
     value: >-
       {
@@ -1150,7 +1150,7 @@ list:
         log: https://dps.report/pfgp-20220827-121511_golem
 
   # 1.52 torment proc rate (from evtc tool on carrion spec, which has the same critchance)
-  - name: Alacrity Specter (allies)
+  - name: Alacrity Specter SC/D (allies)
     profession: Specter
     value: >-
       {

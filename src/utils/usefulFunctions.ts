@@ -104,3 +104,6 @@ export function enumArrayIncludes<T extends readonly string[]>(
 ): value is T[number] {
   return arr.includes(value);
 }
+
+export const pick = (object: Record<string, any>, keysToPick: string[]) =>
+  Object.fromEntries(keysToPick.filter((key) => key in object).map((key) => [key, object[key]]));

@@ -3,7 +3,7 @@ import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@m
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
 import { damagingConditions } from '../../../utils/gw2-data';
-import useAlternativeDamage from '../../baseComponents/useAlternativeDamage';
+import { getAlternativeDamage } from '../../baseComponents/useAlternativeDamage';
 
 const useStyles = makeStyles()((theme) => ({
   root: {
@@ -18,7 +18,7 @@ const useStyles = makeStyles()((theme) => ({
 const OutputDistribution = ({ character }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
-  const [alternativeDamageLabel] = useAlternativeDamage();
+  const [alternativeDamageLabel] = getAlternativeDamage(character.settings.profession, t);
 
   const damageLabels = {
     Power2: alternativeDamageLabel,
@@ -41,9 +41,11 @@ const OutputDistribution = ({ character }) => {
       <Typography variant="h6">{t('Damage Distribution')}</Typography>
       <Table padding="none" sx={{ marginTop: '-0.7em' }}>
         <TableHead>
-          <TableCell />
-          <TableCell align="right">{t('damage')}</TableCell>
-          <TableCell align="right">{t('percent')}</TableCell>
+          <TableRow>
+            <TableCell />
+            <TableCell align="right">{t('damage')}</TableCell>
+            <TableCell align="right">{t('percent')}</TableCell>
+          </TableRow>
         </TableHead>
         <TableBody>
           {data.map((damageType) => (

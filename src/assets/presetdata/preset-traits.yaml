@@ -6594,7 +6594,7 @@ list:
         }
       }
 
-  - name: DPS Specter
+  - name: DPS Specter SC/D
     profession: Specter
     traits: |-
       {
@@ -6660,7 +6660,7 @@ list:
         "skills": {}
       }
 
-  - name: Alacrity Specter
+  - name: Alacrity Specter SC/D
     profession: Specter
     traits: |-
       {

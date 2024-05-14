@@ -26,12 +26,14 @@ const MultiplierBreakdown = ({ character }) => {
 
       <Table padding="none">
         <TableHead>
-          <TableCell />
-          {modes.map(({ title, key }) => (
-            <TableCell align="left" key={key}>
-              {title}
-            </TableCell>
-          ))}
+          <TableRow>
+            <TableCell />
+            {modes.map(({ title, key }) => (
+              <TableCell align="left" key={key}>
+                {title}
+              </TableCell>
+            ))}
+          </TableRow>
         </TableHead>
         <TableBody>
           {entries.map(([attribute, breakdown]) => (

@@ -195,6 +195,7 @@ export default function ExtraSelection(props) {
                           joinWith(
                             displayIds.map((id) => (
                               <Item
+                                key={id ?? placeholderItem}
                                 id={id ?? placeholderItem}
                                 text={textOverride ?? formatApiText}
                                 disableText={!id}

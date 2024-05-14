@@ -432,6 +432,6 @@
       text: Bloodsong
       modifiers:
         damage:
-          Outgoing Bleeding Damage: [25%, unknown]
+          Outgoing Bleeding Damage: [25%, mult] # unconfirmed
       gw2id: 2223
       defaultEnabled: true

@@ -228,7 +228,7 @@
       text: Putrid Defense
       modifiers:
         damage:
-          Outgoing Poison Damage: [15%, unknown]
+          Outgoing Poison Damage: [15%, mult] # unconfirmed
       gw2id: 857
       defaultEnabled: true
 
@@ -370,12 +370,12 @@
       text: Fell Beacon
       modifiers:
         damage:
-          Outgoing Burning Damage: [10%, add] # unconfirmed
+          Outgoing Burning Damage: [10%, mult] # unconfirmed
         conversion:
           Expertise: {Condition Damage: 7%}
       wvwModifiers:
         damage:
-          Outgoing Burning Damage: [10%, add] # unconfirmed
+          Outgoing Burning Damage: [10%, mult] # unconfirmed
         conversion:
           Expertise: {Condition Damage: 4%}
       gw2id: 2074
@@ -503,10 +503,10 @@
       subText: torment only
       modifiers:
         damage:
-          Outgoing Torment Damage: [33%, add] # unconfirmed
+          Outgoing Torment Damage: [33%, mult] # unconfirmed
       wvwModifiers:
         damage:
-          Outgoing Torment Damage: [33%, add] # unconfirmed
+          Outgoing Torment Damage: [33%, mult] # unconfirmed
       gw2id: 2164
       defaultEnabled: true
 

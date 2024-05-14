@@ -346,6 +346,22 @@ function parseDamage(damage, id, amountData) {
         `set mode add for condition damage in ${id} and comment that it's unconfirmed (remove this test if anyone finds a multiplicative one!)`,
       );
 
+      // so far (mid 2023), only one specific +condition damage output bonus can be used at a time
+      // the mode for these only applies to multiple, so it has no effect
+      // to avoid confusion let's call it mult until proven otherwise
+      gentleAssert(
+        ![
+          'Outgoing Burning Damage',
+          'Outgoing Bleeding Damage',
+          'Outgoing Confusion Damage',
+          'Outgoing Poison Damage',
+          'Outgoing Torment Damage',
+        ].includes(key) ||
+          mode === 'mult' ||
+          mode === 'target',
+        `set mode mult for ${key} in ${id} and comment that it's unconfirmed (remove this test if anyone tests multiple at once!)`,
+      );
+
       gentleAssert(
         key !== 'Outgoing All Damage' || mode === 'add' || mode === 'target',
         `set mode add for all damage in ${id} and comment that it's unconfirmed (remove this test if anyone finds a multiplicative one!)`,

@@ -1247,47 +1247,47 @@ list:
   - class: Thief
     builds:
 
-      - name: Alacrity Specter 57%
+      - name: Alacrity Specter SC/D 57%
         id: specter-alac
         specialization: Specter
         boonType: Condi
         priority: Condi Alacrity Specter 57%
-        distribution: Alacrity Specter (allies)
-        traits: Alacrity Specter
-        extras: Alacrity Specter
+        distribution: Alacrity Specter SC/D (allies)
+        traits: Alacrity Specter SC/D
+        extras: Alacrity Specter SC/D
         weaponType: Dual wield
         outdated: true
 
-      - name: Alacrity Specter 60%
+      - name: Alacrity Specter SC/D 60%
         id: specter-alac-60
         specialization: Specter
         boonType: Condi
         priority: Condi Alacrity Specter 60%
-        distribution: Alacrity Specter (allies)
-        traits: Alacrity Specter
-        extras: Alacrity Specter
+        distribution: Alacrity Specter SC/D (allies)
+        traits: Alacrity Specter SC/D
+        extras: Alacrity Specter SC/D
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Specter
+      - name: Condi Specter SC/D
         id: specter
         specialization: Specter
         boonType: Condi
         priority: Condi DPS
-        distribution: DPS Specter (Allies)
-        traits: DPS Specter
-        extras: DPS Specter
+        distribution: DPS Specter SC/D (Allies)
+        traits: DPS Specter SC/D
+        extras: DPS Specter SC/D
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Barrier "Carrion" Specter
+      - name: Condi Barrier "Carrion" Specter SC/D
         id: specter-carrion
         specialization: Specter
         boonType: Condi
         priority: Condi Barrier Specter
-        distribution: DPS Barrier Specter (Allies)
-        traits: DPS Specter
-        extras: Condi Barrier Specter
+        distribution: DPS Barrier Specter SC/D (Allies)
+        traits: DPS Specter SC/D
+        extras: Condi Barrier Specter SC/D
         weaponType: Dual wield
         outdated: true
 

@@ -13,9 +13,11 @@ const EffectiveGainLoss = ({ character }) => {
       <Typography variant="h6">{t('Damage Change from ±5 Stat:')}</Typography>
       <Table padding="none">
         <TableHead>
-          <TableCell />
-          <TableCell align="right">{t('+5 stat')}</TableCell>
-          <TableCell align="right">{t('-5 stat')}</TableCell>
+          <TableRow>
+            <TableCell />
+            <TableCell align="right">{t('+5 stat')}</TableCell>
+            <TableCell align="right">{t('-5 stat')}</TableCell>
+          </TableRow>
         </TableHead>
         <TableBody>
           {Object.keys(positive).map((attribute) => (

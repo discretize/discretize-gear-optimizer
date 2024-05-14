@@ -215,7 +215,7 @@
       text: Hidden Barbs
       modifiers:
         damage:
-          Outgoing Bleeding Damage: [33%, unknown]
+          Outgoing Bleeding Damage: [33%, mult] # unconfirmed
       gw2id: 1846
       defaultEnabled: true
 
@@ -376,7 +376,7 @@
       text: Poison Master
       modifiers:
         damage:
-          Outgoing Poison Damage: [25%, unknown]
+          Outgoing Poison Damage: [25%, mult] # unconfirmed
       gw2id: 1701
       defaultEnabled: true
 
