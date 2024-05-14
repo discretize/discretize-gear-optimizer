@@ -241,6 +241,7 @@
 
     - id: energy-amplifier
       text: Energy Amplifier
+      subText: 100% regeneration
       modifiers:
         attributes:
           Healing Power: [250, buff]
