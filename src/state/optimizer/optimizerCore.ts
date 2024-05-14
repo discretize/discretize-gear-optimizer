@@ -969,8 +969,6 @@ export class OptimizerCore {
         settings.unbuffedBaseAttributes,
       );
       this.calcStats(temp, settings.unbuffedModifiers);
-      // calcPower is not run so outgoing critical damage mods are not applied;
-      // they do not show up in the ingame hero panel so this is intentional
       results.unbuffedAttributes = temp.attributes;
     }
   }
