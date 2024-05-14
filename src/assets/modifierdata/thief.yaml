@@ -12,7 +12,7 @@
         attributes:
           Power: [180, buff]
       gw2id: 13046
-      temporaryBuff: false
+      temporaryBuff: true # todo: maybe override this
 
     - id: assassins-signet-active
       text: Assassin's Signet

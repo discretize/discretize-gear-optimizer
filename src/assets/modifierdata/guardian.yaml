@@ -11,7 +11,7 @@
         attributes:
           Power: [180, buff]
       gw2id: 9093
-      temporaryBuff: false
+      temporaryBuff: true # todo: maybe override this
 
     - id: bane-signet-2
       text: Bane Signet
@@ -24,7 +24,7 @@
         attributes:
           Power: [216, buff]
       gw2id: 9093
-      temporaryBuff: false
+      temporaryBuff: true # todo: maybe override this
 
     - id: signet-of-judgement
       text: Signet of Judgement
@@ -68,7 +68,7 @@
         attributes:
           Condition Damage: [180, buff]
       gw2id: 9151
-      temporaryBuff: false
+      temporaryBuff: true # todo: maybe override this
 
     - id: signet-of-wrath-2
       text: Signet of Wrath
@@ -81,7 +81,7 @@
         attributes:
           Condition Damage: [216, buff]
       gw2id: 9151
-      temporaryBuff: false
+      temporaryBuff: true # todo: maybe override this
 
     # 0.7 coefficient, 690.5(?) strength, 18 proc/120s traited
     # burning: 4s

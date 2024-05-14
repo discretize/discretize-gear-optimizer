@@ -295,7 +295,7 @@
         attributes:
           Precision: [200, converted]
       gw2id: 76833
-      temporaryBuff: false
+      temporaryBuff: true # todo: maybe override this
 
     - id: writ-of-learned-accuracy
       text: Writ of Learned Accuracy
@@ -304,7 +304,7 @@
         attributes:
           Precision: [160, converted]
       gw2id: 75610
-      temporaryBuff: false
+      temporaryBuff: true # todo: maybe override this
 
     - id: writ-of-calculated-accuracy
       text: Writ of Calculated Accuracy
@@ -313,7 +313,7 @@
         attributes:
           Precision: [120, converted]
       gw2id: 72821
-      temporaryBuff: false
+      temporaryBuff: true # todo: maybe override this
 
 - section: Misc
   items:

@@ -653,7 +653,7 @@
           Power: [240, converted]
       gw2id: 2229
       defaultEnabled: true
-      temporaryBuff: false
+      temporaryBuff: true # todo: maybe override this
 
     - id: empire-divided-below
       text: Empire Divided

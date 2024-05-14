@@ -12,7 +12,7 @@
         attributes:
           Power: [180, buff]
       gw2id: 10622
-      temporaryBuff: false
+      temporaryBuff: true # todo: maybe override this
 
     - id: signet-of-vampirism
       text: Signet of Vampirism
@@ -26,7 +26,7 @@
           Siphon Base Coefficient: 151
           Siphon Coefficient: 0.022
       gw2id: 21762
-      temporaryBuff: false
+      temporaryBuff: true # todo: maybe override this
 
     - id: locust-swarm
       text: Locust Swarm

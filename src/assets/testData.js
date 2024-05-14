@@ -312,6 +312,12 @@ const testModifiers = async () => {
             gentleAssert(false, `err: ${id} is missing temporaryBuff true/false label!`);
           }
         }
+
+        /*
+        if (temporaryBuff === false && amountData) {
+          console.log(`${id} is set to be permanent and has amount data; are you sure?`);
+        }
+        */
       }
     }
   }
