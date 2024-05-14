@@ -126,7 +126,7 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
   }
 
   // Calculate armor props
-  const { gear, attributes, results: { outOfCombatAttributes } = {} } = character;
+  const { gear, attributes, results: { unbuffedAttributes } = {} } = character;
   const runeId = rune ? rune.gw2id : undefined;
   const armorPropsAPI = {
     weight: firstUppercase(weight),
@@ -189,16 +189,16 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
 
   const relicId = allExtrasModifiersById[relics]?.gw2id;
 
-  const [showOutOfCombat, setShowOutOfCombat] = useState(false);
+  const [showUnbuffed, setShowUnbuffed] = useState(false);
 
   return (
     <ErrorBoundary location="Character" resetKeys={[character]}>
-      {character.results.outOfCombatAttributes && (
+      {character.results.unbuffedAttributes && (
         <FormControlLabel
           control={
             <Switch
-              checked={showOutOfCombat}
-              onChange={(e) => setShowOutOfCombat(e.target.checked)}
+              checked={showUnbuffed}
+              onChange={(e) => setShowUnbuffed(e.target.checked)}
               name="checked"
               color="primary"
             />
@@ -208,7 +208,7 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
       )}
 
       <Character
-        attributes={{ profession, data: (showOutOfCombat && outOfCombatAttributes) || attributes }}
+        attributes={{ profession, data: (showUnbuffed && unbuffedAttributes) || attributes }}
         armor={armorPropsAPI}
         weapon={weaponPropsAPI}
         backAndTrinket={backAndTrinketPropsAPI}
@@ -226,7 +226,7 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
         }
         switchElement={CustomSwitch}
       />
-      {showOutOfCombat && (
+      {showUnbuffed && (
         <Box sx={{ p: 1 }}>
           <Info icon={<WarningAmberIcon />}>
             Simulated unbuffed attributes are not exact and may not match ingame hero panel! For

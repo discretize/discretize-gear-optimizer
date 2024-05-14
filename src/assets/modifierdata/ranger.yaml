@@ -12,7 +12,7 @@
       modifiers:
         attributes:
           Flat DPS: 1
-      combatOnly: true
+      temporaryBuff: true
 
     - id: signet-of-stone
       text: Signet of Stone
@@ -20,7 +20,7 @@
         attributes:
           Toughness: [180, buff]
       gw2id: 12500
-      combatOnly: false
+      temporaryBuff: false
 
     - id: signet-of-the-wild
       text: Signet of the Wild
@@ -28,7 +28,7 @@
         attributes:
           Ferocity: [180, buff]
       gw2id: 12491
-      combatOnly: false
+      temporaryBuff: false
 
     - id: vulture-stance
       text: Vulture Stance
@@ -41,7 +41,7 @@
         attributes:
           Poison Coefficient: 4
       gw2id: 40498
-      combatOnly: true
+      temporaryBuff: true
 
     # pve: .95 * 690.5 * 1.25 = 820.0
     # wvw: .63 * 690.5 * 1.25 = 543.8
@@ -60,7 +60,7 @@
         attributes:
           Power Coefficient: 543.8
       gw2id: 45717
-      combatOnly: true
+      temporaryBuff: true
 
     # pve: .95 * 690.5 = 655.0
     # wvw: .63 * 690.5 = 435.0
@@ -79,7 +79,7 @@
         attributes:
           Power Coefficient: 435
       gw2id: 45717
-      combatOnly: true
+      temporaryBuff: true
 
     # pve: .95 * 690.5 * 1.25 = 820.0
     # wvw: .63 * 690.5 * 1.25 = 543.8
@@ -102,7 +102,7 @@
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 100%}
       gw2id: 45717
-      combatOnly: true
+      temporaryBuff: true
 
     # pve: .95 * 690.5 = 655.0
     # wvw: .63 * 690.5 = 435.0
@@ -125,7 +125,7 @@
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 100%}
       gw2id: 45717
-      combatOnly: true
+      temporaryBuff: true
 
     - id: force-of-nature
       text: Force of Nature
@@ -145,7 +145,7 @@
           Outgoing Strike Damage: [25%, add] #unconfirmed
         attributes:
           Outgoing Healing: 25%
-      combatOnly: true
+      temporaryBuff: true
 
 - section: Marksmanship
   id: 8
@@ -209,7 +209,7 @@
           Bleeding Coefficient: {Critical Chance: 33%}
       gw2id: 1069
       defaultEnabled: false
-      combatOnly: true
+      temporaryBuff: true
 
     - id: hidden-barbs
       text: Hidden Barbs
@@ -235,7 +235,7 @@
       minor: true
       gw2id: 1068
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: light-on-your-feet
       text: Light on your Feet
@@ -247,7 +247,7 @@
           Condition Duration: 10%
       gw2id: 1912
       defaultEnabled: false
-      combatOnly: true
+      temporaryBuff: true
 
     - id: vicious-quarry
       text: Vicious Quarry
@@ -262,7 +262,7 @@
           Critical Chance: 10%
       gw2id: 1888
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: striders-strength
       text: Strider's Strength
@@ -272,7 +272,7 @@
           Power: [120, buff] # buff unconfirmed
       gw2id: 1700
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: striders-strength-sword
       text: Strider's Strength
@@ -286,7 +286,7 @@
           Power: [120, buff] # buff unconfirmed
       gw2id: 1700
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
 - section: Wilderness Survival
   id: 33
@@ -317,7 +317,7 @@
           Expertise: {Vitality: 4%}
       gw2id: 1099
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: ambidexterity
       text: Ambidexterity
@@ -327,7 +327,7 @@
           Condition Damage: [120, buff]
       gw2id: 1101
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: ambidexterity-2
       text: Ambidexterity
@@ -341,7 +341,7 @@
           Condition Damage: [120, buff]
       gw2id: 1101
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: survival-instincts-high
       text: Survival Instincts
@@ -370,7 +370,7 @@
           Siphon Coefficient: 0.05
       gw2id: 1094
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: poison-master
       text: Poison Master
@@ -403,7 +403,7 @@
           Healing Power: {Power: 7%}
       gw2id: 978
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: lingering-magic
       text: Lingering Magic
@@ -416,7 +416,7 @@
       minor: true
       gw2id: 1059
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Beastmastery
   id: 32
@@ -430,7 +430,7 @@
           Ferocity: [120, buff]
       gw2id: 1066
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: honed-axes-axe
       text: Honed Axes
@@ -444,7 +444,7 @@
           Ferocity: [120, buff]
       gw2id: 1066
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
 - section: Druid
   id: 5
@@ -462,7 +462,7 @@
       minor: true
       gw2id: 1992
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: natural-balance
       text: Natural Balance
@@ -475,7 +475,7 @@
           Concentration: [300, unknown]
       gw2id: 2056
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
 - section: Soulbeast
   id: 55
@@ -512,7 +512,7 @@
           Siphon Coefficient: 0.006
       gw2id: 2161
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: twice-as-vicious
       text: Twice as Vicious
@@ -542,7 +542,7 @@
           Condition Duration: 10%
       gw2id: 2143
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: archetype-stout
       subText: Archetype Stout (Tough/Vit)
@@ -556,7 +556,7 @@
           Vitality: [100, buff]
       minor: true
       defaultEnabled: false
-      combatOnly: false
+      temporaryBuff: false
 
     - id: archetype-deadly
       subText: Archetype Deadly (ConDmg/Prec)
@@ -570,7 +570,7 @@
           Precision: [100, buff]
       minor: true
       defaultEnabled: false
-      combatOnly: false
+      temporaryBuff: false
 
     - id: archetype-versatile
       subText: Archetype Versatile (Vit/Conc)
@@ -584,7 +584,7 @@
           Concentration: [225, buff]
       minor: true
       defaultEnabled: false
-      combatOnly: false
+      temporaryBuff: false
 
     - id: archetype-ferocious
       subText: Archetype Ferocious (Pwr/Feroc)
@@ -598,7 +598,7 @@
           Ferocity: [100, buff]
       minor: true
       defaultEnabled: false
-      combatOnly: false
+      temporaryBuff: false
 
     - id: archetype-supportive
       subText: Archetype Supportive (Vit/Heal)
@@ -612,7 +612,7 @@
           Outgoing Healing: 25%
       minor: true
       defaultEnabled: false
-      combatOnly: false
+      temporaryBuff: false
 
     - id: pack-alpha-merged
       subText: merged
@@ -633,7 +633,7 @@
       minor: true
       gw2id: 1900
       defaultEnabled: false
-      combatOnly: false
+      temporaryBuff: false
 
     - id: loud-whistle-merged
       subText: merged
@@ -655,7 +655,7 @@
       minor: true
       gw2id: 1065
       defaultEnabled: false
-      combatOnly: false
+      temporaryBuff: false
 
     - id: honed-axes-merged
       subText: merged, base
@@ -665,7 +665,7 @@
       minor: true
       gw2id: 1066
       defaultEnabled: false
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Untamed
   id: 72
@@ -680,7 +680,7 @@
       minor: true
       gw2id: 2286
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: vow-of-the-untamed-you
       text: Vow of the Untamed

@@ -7,7 +7,7 @@
         attributes:
           Power: [180, buff]
       gw2id: 14404
-      combatOnly: false
+      temporaryBuff: false
 
     - id: signet-of-fury
       text: Signet of Fury
@@ -15,7 +15,7 @@
         attributes:
           Precision: [180, buff]
       gw2id: 14410
-      combatOnly: false
+      temporaryBuff: false
 
     - id: dolyak-signet
       text: Dolyak Signet
@@ -23,7 +23,7 @@
         attributes:
           Toughness: [180, buff]
       gw2id: 14413
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Strength
   id: 4
@@ -65,7 +65,7 @@
           Power: [120, converted] # from sheet by Bekko
       gw2id: 1338
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: forceful-greatsword-2
       text: Forceful Greatsword
@@ -79,7 +79,7 @@
           Power: [120, converted] # from sheet by Bekko
       gw2id: 1338
       defaultEnabled: false
-      combatOnly: true
+      temporaryBuff: true
 
     - id: great-fortitude
       text: Great Fortitude
@@ -89,7 +89,7 @@
           Ferocity: {Power: 10%}
       gw2id: 1449
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: pinnacle-of-strength-crit
       text: Pinnacle Of Strength
@@ -100,7 +100,7 @@
           Critical Chance: 5%
       gw2id: 1453
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: pinnacle-of-strength
       text: Pinnacle Of Strength
@@ -114,7 +114,7 @@
           Power: [250, buff] # confirmed from bench hero panel
       gw2id: 1453
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: berserkers-power
       text: Berserker's Power
@@ -142,7 +142,7 @@
           Critical Chance: 5%
       gw2id: 1342
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: wounding-precision
       text: Wounding Precision
@@ -154,7 +154,7 @@
           Expertise: {Precision: 4%}
       gw2id: 1455
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: signet-mastery
       text: Signet Mastery
@@ -167,7 +167,7 @@
           Ferocity: [500, converted]
       gw2id: 1344
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: deep-strikes-fury
       text: Deep Strikes (Fury)
@@ -182,7 +182,7 @@
           Condition Damage: [180, converted] # from sheet by Bekko
       gw2id: 1343
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: deep-strikes-bleeding
       text: Deep Strikes (Bleeding)
@@ -196,7 +196,7 @@
           Critical Chance: 10%
       gw2id: 1343
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: unsuspecting-foe-full
       text: Unsuspecting Foe
@@ -206,7 +206,7 @@
           Critical Chance: 25%
       gw2id: 1315
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: burst-precision
       text: Burst Precision
@@ -219,7 +219,7 @@
           Ferocity: [150, unknown]
       gw2id: 1336
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: blade-master
       text: Blademaster
@@ -229,7 +229,7 @@
           Expertise: [120, converted] # confirmed from bench hero panel
       gw2id: 1333
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: blade-master-base-bugged
       text: Blademaster
@@ -239,7 +239,7 @@
           Expertise: [160, converted]
       gw2id: 1333
       defaultEnabled: false
-      combatOnly: false
+      temporaryBuff: false
 
     - id: blade-master-2
       text: Blademaster
@@ -253,7 +253,7 @@
           Condition Damage: [120, converted] # from sheet by Bekko
       gw2id: 1333
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: bloodlust
       text: Bloodlust
@@ -267,7 +267,7 @@
           Bleeding Duration: 15%
       gw2id: 1337
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: bloodlust-on-crit
       text: Bloodlust
@@ -286,7 +286,7 @@
           Bleeding Coefficient: {Critical Chance: 33%}
       gw2id: 1337
       defaultEnabled: false
-      combatOnly: true
+      temporaryBuff: true
 
     - id: furious
       text: Furious
@@ -303,7 +303,7 @@
           Condition Damage: [250, buff]
       gw2id: 1346
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
 - section: Defense
   id: 22
@@ -388,7 +388,7 @@
           Concentration: [60, buff]
       gw2id: 1471
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: empowered
       text: Empowered
@@ -425,7 +425,7 @@
           Healing Power: {Power: 13%}
       gw2id: 1470
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Discipline
   id: 51
@@ -456,7 +456,7 @@
           Outgoing Healing: 10%
       gw2id: 1381
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: axe-mastery-one
       text: Axe Mastery
@@ -466,7 +466,7 @@
           Ferocity: [120, converted] # confirmed from bench hero panel
       gw2id: 1369
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: axe-mastery-axe
       text: Axe Mastery
@@ -480,7 +480,7 @@
           Ferocity: [120, converted] # confirmed from bench hero panel
       gw2id: 1369
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
 - section: Berserker
   id: 18
@@ -497,7 +497,7 @@
           Critical Chance: 5%
       gw2id: 2049
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: blood-reaction-base
       text: Blood Reaction
@@ -512,7 +512,7 @@
           Condition Damage: {Power: 10%}
       gw2id: 2011
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: blood-reaction-with
       text: Blood Reaction
@@ -531,7 +531,7 @@
           Condition Damage: {Power: 10%}
       gw2id: 2011
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: fatal-frenzy-power-condi
       text: Fatal Frenzy
@@ -551,7 +551,7 @@
           Condition Damage: [300, buff]
       gw2id: 2046
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: bloody-roar
       text: Bloody Roar
@@ -578,7 +578,7 @@
           Burning Duration: 10%
       gw2id: 2038
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Spellbreaker
   id: 61
@@ -649,7 +649,7 @@
           Precision: [150, buff]
       gw2id: 2130
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: magebane-tether
       text: Magebane Tether
@@ -694,4 +694,4 @@
           Ferocity: [250, unknown]
       gw2id: 2236
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true

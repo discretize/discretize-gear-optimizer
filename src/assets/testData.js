@@ -130,7 +130,7 @@ const testModifiers = async () => {
           hasLifesteal,
           displayIds,
           priceIds,
-          combatOnly,
+          temporaryBuff,
           ...otherKeys
         } = item;
 
@@ -303,13 +303,13 @@ const testModifiers = async () => {
         });
 
         if (modifiers.attributes || modifiers.conversion || modifiers.conversionAfterBuffs) {
-          if (combatOnly !== undefined) {
+          if (temporaryBuff !== undefined) {
             gentleAssert(
-              typeof combatOnly === 'boolean',
-              `err: ${id}'s combatOnly label is ${combatOnly}!`,
+              typeof temporaryBuff === 'boolean',
+              `err: ${id}'s temporaryBuff label is ${temporaryBuff}!`,
             );
           } else {
-            gentleAssert(false, `err: ${id} is missing combatOnly true/false label!`);
+            gentleAssert(false, `err: ${id} is missing temporaryBuff true/false label!`);
           }
         }
       }

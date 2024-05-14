@@ -162,8 +162,8 @@ export interface OptimizerCoreSettingsPerCombination {
 
 export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &
   OptimizerCoreSettingsPerCombination & {
-    outOfCombatBaseAttributes?: Record<AttributeName, number>;
-    outOfCombatModifiers?: Modifiers;
+    unbuffedBaseAttributes?: Record<AttributeName, number>;
+    unbuffedModifiers?: Modifiers;
     extrasCombination: ExtrasCombination;
   };
 
@@ -961,15 +961,15 @@ export class OptimizerCore {
     }
 
     // out of combat hero panel simulation (overrides both baseAttributes and modifiers)
-    if (settings.outOfCombatBaseAttributes && settings.outOfCombatModifiers) {
+    if (settings.unbuffedBaseAttributes && settings.unbuffedModifiers) {
       const temp = this.createCharacter(
         character.gear,
         character.gearStats,
         character.infusions,
-        settings.outOfCombatBaseAttributes,
+        settings.unbuffedBaseAttributes,
       );
-      this.calcStats(temp, settings.outOfCombatModifiers);
-      results.outOfCombatAttributes = temp.attributes;
+      this.calcStats(temp, settings.unbuffedModifiers);
+      results.unbuffedAttributes = temp.attributes;
     }
   }
 

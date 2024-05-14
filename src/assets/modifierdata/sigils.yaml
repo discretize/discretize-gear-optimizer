@@ -14,7 +14,7 @@
         attributes:
           Critical Chance: 7%
       gw2id: 24618
-      combatOnly: false
+      temporaryBuff: false
 
     - id: impact/night/slaying-both
       text: Superior Sigil of Impact/Night/Slaying
@@ -45,7 +45,7 @@
         attributes:
           NonCrit Power Coefficient: 759.55
       gw2id: 24554
-      combatOnly: true
+      temporaryBuff: true
 
     - id: fire-sigil
       text: Superior Sigil of Fire
@@ -57,7 +57,7 @@
         attributes:
           NonCrit Power Coefficient: 586.925
       gw2id: 24548
-      combatOnly: true
+      temporaryBuff: true
 
     - id: severance-perma
       text: Superior Sigil of Severance
@@ -67,7 +67,7 @@
           Precision: [250, buff] # tested unconverted by Snappy Joe
           Ferocity: [250, buff] # tested unconverted by Snappy Joe
       gw2id: 84505
-      combatOnly: true
+      temporaryBuff: true
 
     # 1.0 coefficient, 690.5 strength
     - id: hydromancy
@@ -81,7 +81,7 @@
         attributes:
           Power Coefficient: 690.5
       gw2id: 24597
-      combatOnly: true
+      temporaryBuff: true
 
     - id: hydromancy-bonus
       text: Superior Sigil of Hydromancy
@@ -94,7 +94,7 @@
         attributes:
           Power Coefficient: 776.8
       gw2id: 24597
-      combatOnly: true
+      temporaryBuff: true
 
     - id: blood-sigil
       text: Superior Sigil of Blood
@@ -107,7 +107,7 @@
           Siphon Base Coefficient: 451
           Siphon Coefficient: 0.075
       gw2id: 24570
-      combatOnly: true
+      temporaryBuff: true
 
     - id: draining-sigil
       text: Superior Sigil of Draining
@@ -121,7 +121,7 @@
           Siphon Base Coefficient: 1042
           Siphon Coefficient: 0.075
       gw2id: 70825
-      combatOnly: true
+      temporaryBuff: true
 
     - id: leeching-sigil
       text: Superior Sigil of Leeching
@@ -134,7 +134,7 @@
         attributes:
           Siphon Base Coefficient: 974
       gw2id: 24599
-      combatOnly: true
+      temporaryBuff: true
 
 - section: Support Sigils
   items:
@@ -145,7 +145,7 @@
         attributes:
           Boon Duration: 10%
       gw2id: 72339
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Heal Sigils
   items:
@@ -156,7 +156,7 @@
         attributes:
           Outgoing Healing: 10%
       gw2id: 74326
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Condition Duration Sigils
   items:
@@ -167,7 +167,7 @@
         attributes:
           Condition Duration: 10%
       gw2id: 44950
-      combatOnly: false
+      temporaryBuff: false
 
     - id: bursting
       text: Superior Sigil of Bursting
@@ -182,7 +182,7 @@
         attributes:
           Bleeding Duration: 20%
       gw2id: 24612
-      combatOnly: false
+      temporaryBuff: false
 
     - id: smoldering
       text: Superior Sigil of Smoldering
@@ -190,7 +190,7 @@
         attributes:
           Burning Duration: 20%
       gw2id: 24624
-      combatOnly: false
+      temporaryBuff: false
 
     - id: venom
       text: Superior Sigil of Venom
@@ -198,7 +198,7 @@
         attributes:
           Poison Duration: 20%
       gw2id: 24632
-      combatOnly: false
+      temporaryBuff: false
 
     - id: demons
       text: Superior Sigil of Demons
@@ -206,7 +206,7 @@
         attributes:
           Torment Duration: 20%
       gw2id: 24583
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Condition Effect Sigils
   items:
@@ -225,7 +225,7 @@
           Power Coefficient: 172.625
           Bleeding Coefficient: 24
       gw2id: 24605
-      combatOnly: true
+      temporaryBuff: true
 
     # 1 stack * 6 seconds
     # 2s icd
@@ -239,7 +239,7 @@
         attributes:
           Bleeding Coefficient: 6
       gw2id: 24560
-      combatOnly: true
+      temporaryBuff: true
 
     # 3 stacks * 8 seconds
     - id: doom
@@ -252,7 +252,7 @@
         attributes:
           Poison Coefficient: 24
       gw2id: 24609
-      combatOnly: true
+      temporaryBuff: true
 
     # 2 stacks * 5 seconds
     # 5s icd
@@ -266,7 +266,7 @@
         attributes:
           Torment Coefficient: 10
       gw2id: 48911
-      combatOnly: true
+      temporaryBuff: true
 
     # 0.15 coefficient * (probably) 690.5 weapon strength
     # Ineptitide: 2 stacks * 5 seconds
@@ -282,7 +282,7 @@
           Confusion Coefficient: 10
           Power Coefficient: 103.58
       gw2id: 68436
-      combatOnly: true
+      temporaryBuff: true
 
 - section: Temporary hard-coded dual sigils
   items:
@@ -304,7 +304,7 @@
           Burning Coefficient: 0.048
       gw2id: 24605
       priceIds: []
-      combatOnly: true
+      temporaryBuff: true
 
     # geo power: 0.25 coeff, 690.5 strength, every 14.5 sec -> 11.9 power coefficient
     # geo bleed: 24 seconds, every 14.5 sec -> 1.65 avg bleed
@@ -323,7 +323,7 @@
           Burning Coefficient: 0.055
       gw2id: 24605
       priceIds: []
-      combatOnly: true
+      temporaryBuff: true
 
     # geo power: 0.25 coeff, 690.5 strength, every 20 sec -> 8.6 power coefficient
     # geo bleed: 24 seconds, every 20 sec -> 1.2 avg bleed
@@ -344,7 +344,7 @@
           Burning Coefficient: 0.04
       gw2id: 24605
       priceIds: []
-      combatOnly: true
+      temporaryBuff: true
 
     # air noncrit: 759.55 * procs per second which is 0.1885 from log
     # earth: at full would be 6 seconds, every 2.3ish sec -> 2.58 avg bleed
@@ -362,7 +362,7 @@
           Burning Coefficient: 0.1508
       gw2id: 24554
       priceIds: []
-      combatOnly: true
+      temporaryBuff: true
 
     # air noncrit: 759.55 * procs per second which is 0.19075 from log
     # torment: 10 seconds, every 8.5 sec -> 1.18 avg torment
@@ -380,7 +380,7 @@
           Burning Coefficient: 0.1526
       gw2id: 24554
       priceIds: []
-      combatOnly: true
+      temporaryBuff: true
 
     # geo power: 0.25 coeff, 690.5 strength, every 27 sec -> 6.4 power coefficient
     # geo bleed: 24 seconds, every 27 sec -> 0.89 avg bleed
@@ -399,7 +399,7 @@
           Burning Coefficient: 0.03
       gw2id: 24605
       priceIds: []
-      combatOnly: true
+      temporaryBuff: true
 
     # 4 geo in 97 sec
     # 12 torment in 97 sec; thanks jezereal for calculation
@@ -423,7 +423,7 @@
           Bleeding Coefficient: {Critical Chance: 4.1%}
       gw2id: 24605
       priceIds: []
-      combatOnly: true
+      temporaryBuff: true
 
     # attempt at creating something similar to the above geo-torment setup
     # earth is 6 seconds every 2 and a bit seconds
@@ -442,7 +442,7 @@
           Torment Coefficient: 1.47
       gw2id: 24560
       priceIds: []
-      combatOnly: true
+      temporaryBuff: true
 
 - section: Stacking Sigils
   items:
@@ -457,7 +457,7 @@
         attributes:
           Power: [250, converted]
       gw2id: 24575
-      combatOnly: true
+      temporaryBuff: true
 
     - id: cruelty
       text: Superior Sigil of Cruelty
@@ -469,7 +469,7 @@
         attributes:
           Ferocity: [250, converted]
       gw2id: 67341
-      combatOnly: true
+      temporaryBuff: true
 
     - id: perception
       text: Superior Sigil of Perception
@@ -482,7 +482,7 @@
         attributes:
           Precision: [250, converted]
       gw2id: 24580
-      combatOnly: true
+      temporaryBuff: true
 
     - id: corruption
       text: Superior Sigil of Corruption
@@ -494,7 +494,7 @@
         attributes:
           Condition Damage: [250, converted]
       gw2id: 24578
-      combatOnly: true
+      temporaryBuff: true
 
     - id: life
       text: Superior Sigil of Life
@@ -506,7 +506,7 @@
         attributes:
           Healing Power: [250, converted]
       gw2id: 24582
-      combatOnly: true
+      temporaryBuff: true
 
     - id: bounty
       text: Superior Sigil of Bounty
@@ -519,7 +519,7 @@
         attributes:
           Concentration: [225, converted]
       gw2id: 81045
-      combatOnly: true
+      temporaryBuff: true
 
     - id: benevolence
       text: Superior Sigil of Benevolence
@@ -531,7 +531,7 @@
         attributes:
           Outgoing Healing: 12.5%
       gw2id: 24584
-      combatOnly: true
+      temporaryBuff: true
 
     - id: momentum
       text: Superior Sigil of Momentum
@@ -544,7 +544,7 @@
         attributes:
           Toughness: [125, converted]
       gw2id: 49457
-      combatOnly: true
+      temporaryBuff: true
 
     - id: stars
       text: Superior Sigil of the Stars
@@ -565,7 +565,7 @@
           Ferocity: [50, converted]
           Healing Power: [50, converted]
       gw2id: 86170
-      combatOnly: true
+      temporaryBuff: true
 
 - section: Gemstones
   items:
@@ -576,7 +576,7 @@
         attributes:
           Concentration: [40, converted]
       gw2id: 24773
-      combatOnly: false
+      temporaryBuff: false
 
     - id: ruby-orb
       text: Ruby Orb
@@ -586,7 +586,7 @@
           Precision: [14, converted]
           Ferocity: [14, converted]
       gw2id: 24508
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Placeholder Items
   items:

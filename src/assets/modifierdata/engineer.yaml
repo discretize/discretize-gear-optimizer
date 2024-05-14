@@ -73,7 +73,7 @@
           Ferocity: [20, buff]
       gw2id: 1892
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: blast-shield
       text: Blast Shield
@@ -82,7 +82,7 @@
           Vitality: {Power: 10%}
       gw2id: 1944
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: shaped-charge
       text: Shaped Charge
@@ -130,7 +130,7 @@
           Bleeding Coefficient: {Critical Chance: 33%}
       gw2id: 515
       defaultEnabled: false
-      combatOnly: true
+      temporaryBuff: true
 
     - id: chemical-rounds
       text: Chemical Rounds
@@ -139,7 +139,7 @@
           Condition Damage: [120, buff]
       gw2id: 1878
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: high-caliber
       text: High Caliber
@@ -149,7 +149,7 @@
           Critical Chance: 15%
       gw2id: 1914
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: hematic-focus
       text: Hematic Focus
@@ -162,7 +162,7 @@
       minor: true
       gw2id: 536
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: thermal-vision
       text: Thermal Vision
@@ -175,7 +175,7 @@
           Expertise: [60, converted]
       gw2id: 2006
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: thermal-vision-buff
       text: Thermal Vision
@@ -198,7 +198,7 @@
           Ferocity: [150, buff]
       gw2id: 1923
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
     - id: serrated-steel
       text: Serrated Steel
@@ -211,7 +211,7 @@
       minor: true
       gw2id: 516
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: modified-ammunition
       text: Modified Ammunition
@@ -235,7 +235,7 @@
           Burning Duration: 10%
       gw2id: 433
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Inventions
   id: 47
@@ -257,7 +257,7 @@
       minor: true
       gw2id: 519
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
 - section: Alchemy
   id: 29
@@ -274,7 +274,7 @@
           Outgoing Healing: 7%
       gw2id: 521
       defaultEnabled: false
-      combatOnly: true
+      temporaryBuff: true
 
     - id: compounding-chemicals
       text: Compounding Chemicals
@@ -287,7 +287,7 @@
       minor: true
       gw2id: 413
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: iron-blooded
       text: Iron Blooded
@@ -365,7 +365,7 @@
           Concentration: {Power: 10%}
       gw2id: 2052
       defaultEnabled: true
-      combatOnly: false
+      temporaryBuff: false
 
     - id: applied-force
       text: Applied Force
@@ -381,7 +381,7 @@
           Power: [375, buff]
       gw2id: 1849
       defaultEnabled: true
-      combatOnly: true
+      temporaryBuff: true
 
 - section: Holosmith
   id: 57

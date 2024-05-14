@@ -18,7 +18,7 @@
           Power: {Precision: 3%}
           Ferocity: {Precision: 3%}
       gw2id: 67530
-      combatOnly: false
+      temporaryBuff: false
 
     - id: superior-sharpening-stone
       text: Tin of Fruitcake / Superior Sharpening Stone
@@ -28,7 +28,7 @@
       gw2id: 77569
       displayIds: [77569, 9443]
       priceIds: [77569, 9443]
-      combatOnly: false
+      temporaryBuff: false
 
     - id: toxic-sharpening-stone
       text: Toxic Sharpening Stone
@@ -36,7 +36,7 @@
         conversion:
           Power: {Condition Damage: 6%, Expertise: 8%}
       gw2id: 48915
-      combatOnly: false
+      temporaryBuff: false
 
     - id: magnanimous-sharpening-stone
       text: Magnanimous Sharpening Stone
@@ -44,7 +44,7 @@
         conversion:
           Power: {Vitality: 3%, Toughness: 3%}
       gw2id: 81034
-      combatOnly: false
+      temporaryBuff: false
 
     - id: bountiful-sharpening-stone
       text: Bountiful Sharpening Stone
@@ -52,7 +52,7 @@
         conversion:
           Power: {Healing Power: 6%, Concentration: 8%}
       gw2id: 67531
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Support Utilities
   items:
@@ -63,7 +63,7 @@
         conversion:
           Concentration: {Power: 3%, Precision: 3%}
       gw2id: 89203
-      combatOnly: false
+      temporaryBuff: false
 
     - id: toxic-maintenance-oil
       text: Toxic Maintenance Oil
@@ -71,7 +71,7 @@
         conversion:
           Concentration: {Power: 3%, Condition Damage: 6%}
       gw2id: 48916
-      combatOnly: false
+      temporaryBuff: false
 
     - id: enhanced-lucent-oil
       text: Enhanced Lucent Oil
@@ -79,7 +79,7 @@
         conversion:
           Concentration: {Precision: 3%, Condition Damage: 6%}
       gw2id: 89157
-      combatOnly: false
+      temporaryBuff: false
 
     - id: furious-maintenance-oil
       text: Furious Maintenance Oil
@@ -88,7 +88,7 @@
           Concentration: {Precision: 3%}
           Healing Power: {Precision: 3%}
       gw2id: 67529
-      combatOnly: false
+      temporaryBuff: false
 
     - id: magnanimous-maintenance-oil
       text: Magnanimous Maintenance Oil
@@ -96,7 +96,7 @@
         conversion:
           Concentration: {Vitality: 3%, Toughness: 3%}
       gw2id: 81157
-      combatOnly: false
+      temporaryBuff: false
 
     - id: master-maintenance-oil
       text: Peppermint Oil / Master Maintenance Oil
@@ -106,7 +106,7 @@
       gw2id: 77632
       displayIds: [77632, 9461]
       priceIds: [77632, 9461]
-      combatOnly: false
+      temporaryBuff: false
 
     - id: corsair-maintenance-oil
       text: Corsair Maintenance Oil
@@ -115,7 +115,7 @@
           Concentration: {Toughness: 3%}
           Expertise: {Toughness: 3%}
       gw2id: 86016
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Support Utilities (SAB)
   items:
@@ -127,7 +127,7 @@
           Power: {Concentration: 8%}
           Concentration: {Precision: 3%}
       gw2id: 87358
-      combatOnly: false
+      temporaryBuff: false
 
     - id: holographic-super-apple
       text: Holographic Super Apple
@@ -136,7 +136,7 @@
           Condition Damage: {Concentration: 8%}
           Concentration: {Precision: 3%}
       gw2id: 87336
-      combatOnly: false
+      temporaryBuff: false
 
     - id: holographic-super-drumstick
       text: Holographic Super Drumstick
@@ -145,7 +145,7 @@
           Healing Power: {Concentration: 8%}
           Concentration: {Precision: 3%}
       gw2id: 87329
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Heal Utilities
   items:
@@ -156,7 +156,7 @@
         conversion:
           Outgoing Healing: {Healing Power: 0.006%, Concentration: 0.008%}
       gw2id: 67528
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Condition Utilities
   items:
@@ -167,7 +167,7 @@
         conversion:
           Condition Damage: {Power: 3%, Precision: 3%}
       gw2id: 48917
-      combatOnly: false
+      temporaryBuff: false
 
     - id: furious-tuning-crystal
       text: Furious Tuning Crystal
@@ -176,7 +176,7 @@
           Condition Damage: {Precision: 3%}
           Expertise: {Precision: 3%}
       gw2id: 67524
-      combatOnly: false
+      temporaryBuff: false
 
     - id: master-tuning-crystal
       text: Tuning Icicle / Master Tuning Crystal
@@ -186,7 +186,7 @@
       gw2id: 77567
       displayIds: [77567, 9476]
       priceIds: [77567, 9476]
-      combatOnly: false
+      temporaryBuff: false
 
     - id: magnanimous-tuning-crystal
       text: Magnanimous Tuning Crystal
@@ -194,7 +194,7 @@
         conversion:
           Condition Damage: {Vitality: 3%, Toughness: 3%}
       gw2id: 81079
-      combatOnly: false
+      temporaryBuff: false
 
     - id: corsair-tuning-crystal
       text: Corsair Tuning Crystal
@@ -203,7 +203,7 @@
           Condition Damage: {Toughness: 3%}
           Expertise: {Toughness: 3%}
       gw2id: 86287
-      combatOnly: false
+      temporaryBuff: false
 
     - id: bountiful-tuning-crystal
       text: Bountiful Tuning Crystal
@@ -211,7 +211,7 @@
         conversion:
           Condition Damage: {Healing Power: 6%, Concentration: 8%}
       gw2id: 67522
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Writs
   items:
@@ -226,7 +226,7 @@
         attributes:
           Power: [200, converted]
       gw2id: 73191
-      combatOnly: true
+      temporaryBuff: true
 
     - id: writ-of-learned-strength
       text: Writ of Learned Strength
@@ -238,7 +238,7 @@
         attributes:
           Power: [160, converted]
       gw2id: 72807
-      combatOnly: true
+      temporaryBuff: true
 
     - id: writ-of-calculated-strength
       text: Writ of Calculated Strength
@@ -250,7 +250,7 @@
         attributes:
           Power: [120, converted]
       gw2id: 77128
-      combatOnly: true
+      temporaryBuff: true
 
     - id: writ-of-masterful-malice
       text: Writ of Masterful Malice
@@ -262,7 +262,7 @@
         attributes:
           Condition Damage: [200, converted]
       gw2id: 72510
-      combatOnly: true
+      temporaryBuff: true
 
     - id: writ-of-learned-malice
       text: Writ of Learned Malice
@@ -274,7 +274,7 @@
         attributes:
           Condition Damage: [160, converted]
       gw2id: 76478
-      combatOnly: true
+      temporaryBuff: true
 
     - id: writ-of-calculated-malice
       text: Writ of Calculated Malice
@@ -286,7 +286,7 @@
         attributes:
           Condition Damage: [120, converted]
       gw2id: 72572
-      combatOnly: true
+      temporaryBuff: true
 
     - id: writ-of-masterful-accuracy
       text: Writ of Masterful Accuracy
@@ -295,7 +295,7 @@
         attributes:
           Precision: [200, converted]
       gw2id: 76833
-      combatOnly: false
+      temporaryBuff: false
 
     - id: writ-of-learned-accuracy
       text: Writ of Learned Accuracy
@@ -304,7 +304,7 @@
         attributes:
           Precision: [160, converted]
       gw2id: 75610
-      combatOnly: false
+      temporaryBuff: false
 
     - id: writ-of-calculated-accuracy
       text: Writ of Calculated Accuracy
@@ -313,7 +313,7 @@
         attributes:
           Precision: [120, converted]
       gw2id: 72821
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Misc
   items:
@@ -324,7 +324,7 @@
         attributes:
           Toughness: [150, converted]
       gw2id: 42428
-      combatOnly: false
+      temporaryBuff: false
 
     - id: corsair-sharpening-stone
       text: Corsair Sharpening Stone
@@ -333,7 +333,7 @@
           Power: {Toughness: 3%}
           Expertise: {Toughness: 3%}
       gw2id: 86378
-      combatOnly: false
+      temporaryBuff: false
 
 - section: ???
   items:
@@ -353,7 +353,7 @@
           Ferocity: {Ferocity: 3%}
           Healing Power: {Healing Power: 3%}
       gw2id: 98893
-      combatOnly: false
+      temporaryBuff: false
 
 - section: Placeholder Items
   items:
