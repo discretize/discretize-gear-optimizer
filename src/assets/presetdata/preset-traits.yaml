@@ -521,6 +521,7 @@ list:
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
+            "quiet-intensity-fury": {},
             "bloodsong": {},
             "jagged-mind": {
               "amount": "6.04"
@@ -591,6 +592,7 @@ list:
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
+            "quiet-intensity-fury": {},
             "bloodsong": {},
             "jagged-mind": {
               "amount": "5.86"
@@ -667,6 +669,7 @@ list:
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
+            "quiet-intensity-fury": {},
             "bloodsong": {}
           }
         ]
