@@ -193,7 +193,7 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
 
   return (
     <ErrorBoundary location="Character" resetKeys={[character]}>
-      {character.results.unbuffedAttributes && (
+      {unbuffedAttributes && (
         <FormControlLabel
           control={
             <Switch
