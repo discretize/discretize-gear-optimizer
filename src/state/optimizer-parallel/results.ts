@@ -1,4 +1,5 @@
-import {
+import type {
+  Attributes,
   Character,
   OptimizerCoreMinimalSettings,
   OptimizerCoreSettings,
@@ -143,8 +144,8 @@ export function enhanceResults(
     };
 
     resultList.push({
-      baseAttributes: arrayToObject(character.base_attributes),
-      attributes: arrayToObject(character.attributes),
+      baseAttributes: arrayToObject(character.base_attributes) as Attributes,
+      attributes: arrayToObject(character.attributes) as Attributes,
       gear: character.gear.map(getAffixName).slice(0, slots),
       gearStats: arrayToObject(
         character.gear_stats

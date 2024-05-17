@@ -616,23 +616,27 @@ export function createSettingsPerCombination(
 
   /* Base Attributes */
 
-  const settings_baseAttributes: OptimizerCoreSettings['baseAttributes'] = {};
-  settings_baseAttributes.Health = Classes[profession].health;
-  settings_baseAttributes.Armor = Classes[profession].defense;
+  const settings_baseAttributes: OptimizerCoreSettings['baseAttributes'] = {
+    'Power': 1000,
+    'Precision': 1000,
+    'Toughness': 1000,
+    'Vitality': 1000,
 
-  for (const attribute of Attributes.PRIMARY) {
-    settings_baseAttributes[attribute] = 1000;
-  }
+    'Ferocity': 0,
+    'Condition Damage': 0,
+    'Expertise': 0,
+    'Concentration': 0,
+    'Healing Power': 0,
+    'Agony Resistance': 0,
 
-  for (const attribute of Attributes.SECONDARY) {
-    settings_baseAttributes[attribute] = 0;
-  }
-
-  settings_baseAttributes['Condition Duration'] = 0;
-  settings_baseAttributes['Condition Duration Uncapped'] = 0;
-  settings_baseAttributes['Boon Duration'] = 0;
-  settings_baseAttributes['Critical Chance'] = 0.05;
-  settings_baseAttributes['Critical Damage'] = 1.5;
+    'Critical Chance': 0.05,
+    'Critical Damage': 1.5,
+    'Condition Duration': 0,
+    'Condition Duration Uncapped': 0,
+    'Boon Duration': 0,
+    'Health': Classes[profession].health,
+    'Armor': Classes[profession].defense,
+  };
 
   if (profession === 'Mesmer') {
     settings_baseAttributes['Clone Critical Chance'] = 0.05;
