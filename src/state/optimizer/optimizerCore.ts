@@ -653,10 +653,12 @@ export class OptimizerCore {
     // clones/phantasms/shroud
 
     if (settings.profession === 'Mesmer') {
+      // mesmer illusions: special bonuses are INSTEAD OF player attributes
       attributes['Clone Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
       attributes['Phantasm Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
       attributes['Phantasm Critical Damage'] += attributes['Ferocity'] / 15 / 100;
     } else if (attributes['Power2 Coefficient']) {
+      // necromancer shroud: special bonuses are IN ADDITION TO player attributes
       attributes['Alternative Power'] =
         (attributes['Alternative Power'] ?? 0) + attributes['Power'];
       attributes['Alternative Critical Chance'] =
@@ -755,6 +757,7 @@ export class OptimizerCore {
 
     if (attributes['Power2 Coefficient']) {
       if (settings.profession === 'Mesmer') {
+        // mesmer illusions: special bonuses are INSTEAD OF player attributes
         const phantasmCritDmg =
           attributes['Phantasm Critical Damage'] *
           damageMultiplier['Outgoing Phantasm Critical Damage'];
@@ -770,8 +773,10 @@ export class OptimizerCore {
         attributes['Power2 DPS'] = phantasmPowerDamage;
         powerDamage += phantasmPowerDamage;
       } else {
+        // necromancer shroud: special bonuses are IN ADDITION TO player attributes
         const alternativeCritDmg =
           attributes['Alternative Critical Damage'] *
+          damageMultiplier['Outgoing Critical Damage'] *
           damageMultiplier['Outgoing Alternative Critical Damage'];
         const alternativeCritChance = clamp(attributes['Alternative Critical Chance'], 0, 1);
 

@@ -349,6 +349,7 @@ fn calc_stats(
 
     // clones/phantasms/shroud
     if settings.profession.eq("Mesmer") {
+        // mesmer illusions: special bonuses are INSTEAD OF player attributes
         attributes.add_a(
             Attribute::CloneCriticalChance,
             (attributes.get_a(Attribute::Precision) - 1000.0) / 21.0 / 100.0,
@@ -362,6 +363,7 @@ fn calc_stats(
             attributes.get_a(Attribute::Ferocity) / 15.0 / 100.0,
         );
     } else if attributes.get_a(Attribute::Power2Coefficient) > 0.0 {
+        // necromancer shroud: special bonuses are IN ADDITION TO player attributes
         attributes.set_a(
             Attribute::AltPower,
             attributes.get_a(Attribute::AltPower) + attributes.get_a(Attribute::Power),
@@ -461,6 +463,7 @@ pub fn calc_power(
     if attributes.get_a(Attribute::Power2Coefficient) > 0.0 {
         // do stuff
         if settings.profession.eq("Mesmer") {
+            // mesmer illusions: special bonuses are INSTEAD OF player attributes
             let phantasm_crit_dmg = attributes.get_a(Attribute::PhantasmCriticalDamage)
                 * mods.get_dmg_multiplier(Attribute::OutgoingPhantasmCriticalDamage);
             let phantasm_crit_chance = clamp(
@@ -481,7 +484,9 @@ pub fn calc_power(
             attributes.set_a(Attribute::Power2DPS, phantasm_power_damage);
             power_damage += phantasm_power_damage;
         } else {
+            // necromancer shroud: special bonuses are IN ADDITION TO player attributes
             let alt_crit_dmg = attributes.get_a(Attribute::AltCriticalDamage)
+                * mods.get_dmg_multiplier(Attribute::OutgoingCriticalDamage)
                 * mods.get_dmg_multiplier(Attribute::OutgoingAltCriticalDamage);
             let alt_crit_chance = clamp(attributes.get_a(Attribute::AltCriticalChance), 0.0, 1.0);
 
