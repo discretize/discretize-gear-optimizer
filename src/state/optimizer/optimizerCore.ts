@@ -9,9 +9,12 @@ import type {
   AffixName,
   ConditionName,
   DamagingConditionName,
+  DerivedAttributeName,
   IndicatorName,
   InfusionName,
+  PrimaryAttributeName,
   ProfessionName,
+  SecondaryAttributeName,
   WeaponHandednessType,
 } from '../../utils/gw2-data';
 import { Attributes, INFUSION_BONUS, conditionData, conditionDataWvW } from '../../utils/gw2-data';
@@ -151,9 +154,15 @@ export interface OptimizerCoreSettingsPerCalculation {
   cachedFormState: CachedFormState;
 }
 
+export type Attributes = Record<
+  PrimaryAttributeName | SecondaryAttributeName | DerivedAttributeName,
+  number
+> &
+  Record<string, number>;
+
 // settings that **do** vary based on extras combination
 export interface OptimizerCoreSettingsPerCombination {
-  baseAttributes: Record<AttributeName, number>;
+  baseAttributes: Attributes;
   modifiers: Modifiers;
   disableCondiResultCache: boolean;
   relevantConditions: DamagingConditionName[];
@@ -162,7 +171,7 @@ export interface OptimizerCoreSettingsPerCombination {
 
 export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &
   OptimizerCoreSettingsPerCombination & {
-    unbuffedBaseAttributes?: Record<AttributeName, number>;
+    unbuffedBaseAttributes?: Attributes;
     unbuffedModifiers?: Modifiers;
     extrasCombination: ExtrasCombination;
   };
@@ -182,17 +191,21 @@ export type OptimizerCoreMinimalSettings = Pick<
 >;
 export type Gear = AffixName[];
 export type GearStats = Record<AttributeName, number>;
-export interface Character {
+export interface CharacterUnprocessed {
   id?: string;
   settings: OptimizerCoreMinimalSettings;
-  attributes: Record<AttributeName, number>;
+  attributes?: Attributes;
   gear: Gear;
   gearStats: GearStats;
   valid: boolean;
-  baseAttributes: OptimizerCoreSettings['baseAttributes'];
+  baseAttributes: Attributes;
   infusions: Partial<Record<InfusionName, number>>;
   results?: Record<string, any>;
 }
+export interface Character extends CharacterUnprocessed {
+  attributes: Attributes;
+}
+
 export type AttributeName = string; // TODO: replace with AttributeName from gw2-data
 
 export type CalculateGenerator = ReturnType<OptimizerCore['calculate']>;
@@ -370,12 +383,12 @@ export class OptimizerCore {
     infusions: Character['infusions'],
     baseAttributes = this.settings.baseAttributes,
   ) {
-    const character: Character = {
+    const character: CharacterUnprocessed = {
       gear, // passed by reference
       infusions, // passed by reference
       settings: this.minimalSettings, // passed by reference
       gearStats, // passed by reference
-      attributes: {},
+      attributes: undefined,
       valid: true,
       baseAttributes: { ...baseAttributes },
     };
@@ -481,7 +494,7 @@ export class OptimizerCore {
     }
   }
 
-  testInfusionUsefulness(character: Character) {
+  testInfusionUsefulness(character: CharacterUnprocessed) {
     const { settings } = this;
     const temp = this.clone(character);
     this.addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
@@ -534,7 +547,7 @@ export class OptimizerCore {
     this.isChanged = true;
   }
 
-  addBaseStats(character: Character, stat: AttributeName, amount: number) {
+  addBaseStats(character: CharacterUnprocessed, stat: AttributeName, amount: number) {
     character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
   }
 
@@ -545,7 +558,10 @@ export class OptimizerCore {
    * @param {object} character
    * @param {boolean} [noRounding] - does not round conversions if true
    */
-  updateAttributes(character: Character, noRounding = false) {
+  updateAttributes(
+    character: CharacterUnprocessed,
+    noRounding = false,
+  ): asserts character is Character {
     const { modifiers } = this.settings;
     const { damageMultiplier } = modifiers;
 
@@ -570,7 +586,10 @@ export class OptimizerCore {
    * @param {object} character
    * @param {boolean} [skipValidation] - skips the validation check if true
    */
-  updateAttributesFast(character: Character, skipValidation = false): boolean {
+  updateAttributesFast(
+    character: CharacterUnprocessed,
+    skipValidation = false,
+  ): asserts character is Character {
     const { settings } = this;
     const { modifiers } = this.settings;
     const { damageMultiplier } = modifiers;
@@ -581,7 +600,7 @@ export class OptimizerCore {
     const { attributes } = character;
 
     if (!skipValidation && this.checkInvalid(character)) {
-      return false;
+      return;
     }
 
     if (settings.rankby === 'Damage' || settings.minDamage) {
@@ -609,14 +628,16 @@ export class OptimizerCore {
       this.calcSurvivability(character, damageMultiplier);
     }
 
-    if (!skipValidation && this.checkInvalidIndicators(character)) {
-      return false;
+    if (!skipValidation) {
+      this.checkInvalidIndicators(character);
     }
-
-    return true;
   }
 
-  calcStats(character: Character, modifiers: Modifiers, noRounding = false) {
+  calcStats(
+    character: CharacterUnprocessed,
+    modifiers: Modifiers,
+    noRounding = false,
+  ): asserts character is Character {
     const { settings } = this;
 
     const round = noRounding ? (val: number) => val : roundEven;
@@ -742,6 +763,13 @@ export class OptimizerCore {
     const critDmg = attributes['Critical Damage'] * damageMultiplier['Outgoing Critical Damage'];
     const critChance = clamp(attributes['Critical Chance'], 0, 1);
 
+    // this should really just overwrite the 'Critical Damage' value, but we use
+    // it for "the critical damage stat in the hero panel," which includes
+    // ferocity but excludes "critical hits do more damage" modifiers
+    if (damageMultiplier['Outgoing Critical Damage'] !== 1) {
+      attributes['Player Critical Damage'] = critDmg;
+    }
+
     attributes['Effective Power'] = attributes['Power'] * (1 + critChance * (critDmg - 1));
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
@@ -758,13 +786,13 @@ export class OptimizerCore {
     if (attributes['Power2 Coefficient']) {
       if (settings.profession === 'Mesmer') {
         // mesmer illusions: special bonuses are INSTEAD OF player attributes
-        const phantasmCritDmg =
-          attributes['Phantasm Critical Damage'] *
+        attributes['Phantasm Critical Damage'] *=
           damageMultiplier['Outgoing Phantasm Critical Damage'];
         const phantasmCritChance = clamp(attributes['Phantasm Critical Chance'], 0, 1);
 
         attributes['Phantasm Effective Power'] =
-          attributes['Power'] * (1 + phantasmCritChance * (phantasmCritDmg - 1));
+          attributes['Power'] *
+          (1 + phantasmCritChance * (attributes['Phantasm Critical Damage'] - 1));
 
         const phantasmPowerDamage =
           ((attributes['Power2 Coefficient'] || 0) / 2597) *
@@ -774,14 +802,14 @@ export class OptimizerCore {
         powerDamage += phantasmPowerDamage;
       } else {
         // necromancer shroud: special bonuses are IN ADDITION TO player attributes
-        const alternativeCritDmg =
-          attributes['Alternative Critical Damage'] *
+        attributes['Alternative Critical Damage'] *=
           damageMultiplier['Outgoing Critical Damage'] *
           damageMultiplier['Outgoing Alternative Critical Damage'];
         const alternativeCritChance = clamp(attributes['Alternative Critical Chance'], 0, 1);
 
         attributes['Alternative Effective Power'] =
-          attributes['Alternative Power'] * (1 + alternativeCritChance * (alternativeCritDmg - 1));
+          attributes['Alternative Power'] *
+          (1 + alternativeCritChance * (attributes['Alternative Critical Damage'] - 1));
 
         const alternativePowerDamage =
           ((attributes['Power2 Coefficient'] || 0) / 2597) *
@@ -986,7 +1014,7 @@ export class OptimizerCore {
    * @param {object} character
    * @returns {object} character
    */
-  clone(character: Character): Character {
+  clone(character: CharacterUnprocessed): CharacterUnprocessed {
     return {
       settings: character.settings, // passed by reference
       attributes: character.attributes, // passed by reference

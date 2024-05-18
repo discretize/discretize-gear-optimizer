@@ -3,7 +3,7 @@ use serde_repr::{Deserialize_repr, Serialize_repr};
 use std::fmt;
 
 // align to 64 bytes = 2 attributes per cache line
-pub const ATTRIBUTE_COUNT: usize = 104;
+pub const ATTRIBUTE_COUNT: usize = 108;
 
 #[derive(Debug, Sequence, Serialize_repr, Deserialize_repr, Default, Clone, Copy)]
 #[repr(u8)]
@@ -130,8 +130,10 @@ pub enum Attribute {
     OutgoingAltCriticalDamage,
     OutgoingPhantasmDamage,
     OutgoingPhantasmCriticalDamage,
-
     OutgoingAllDamage,
+
+    // display only
+    PlayerCriticalDamage,
 
     #[default]
     None = 255,
@@ -278,8 +280,9 @@ impl Attribute {
             Attribute::OutgoingAltCriticalDamage => "Outgoing Alt Critical Damage",
             Attribute::OutgoingPhantasmDamage => "Outgoing Phantasm Damage",
             Attribute::OutgoingPhantasmCriticalDamage => "Outgoing Phantasm Critical Damage",
-
             Attribute::OutgoingAllDamage => "Outgoing All Damage",
+
+            Attribute::PlayerCriticalDamage => "Player Critical Damage",
         }
     }
 
