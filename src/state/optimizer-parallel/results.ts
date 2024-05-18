@@ -13,7 +13,7 @@ import { getSkillsModifiers } from '../slices/skills';
 import { getTraitsModifiers } from '../slices/traits';
 import type { RootState } from '../store';
 import type { Combination, ResultData, Settings } from './optimizerSetup';
-import { getAffixName, getAttributeName } from './utils';
+import { getAffixName, getAttributeId, getAttributeName } from './utils';
 
 export interface ResultProperties {
   cachedFormState: OptimizerCoreSettings['cachedFormState'];
@@ -117,9 +117,9 @@ export function enhanceResults(
     };
 
     const indicators = {
-      Damage: character.attributes[54][1],
-      Survivability: character.attributes[55][1],
-      Healing: character.attributes[56][1],
+      Damage: character.attributes[getAttributeId('Damage')][1],
+      Survivability: character.attributes[getAttributeId('Survivability')][1],
+      Healing: character.attributes[getAttributeId('Healing')][1],
     };
 
     const charResults = {
