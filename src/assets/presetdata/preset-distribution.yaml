@@ -1026,7 +1026,7 @@ list:
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 1589, "Power2": 1520, "Burning": 0.13, "Bleeding": 2.44, "Poisoned": 2.14, "Torment": 9.49, "Confusion": 0.13 }
+        "values2": { "Power": 1589, "Power2": 1382, "Burning": 0.13, "Bleeding": 2.44, "Poisoned": 2.14, "Torment": 9.49, "Confusion": 0.13 }
       }
     credit:
       - author: '[CnD] Aphrodite Lady'

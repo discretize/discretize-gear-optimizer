@@ -14,6 +14,10 @@ const useStyles = makeStyles()((theme) => ({
 const OutputInfusions = ({ data }) => {
   const { classes } = useStyles();
 
+  if (!Object.entries(data).length) {
+    return;
+  }
+
   return (
     <>
       <Typography variant="h6">

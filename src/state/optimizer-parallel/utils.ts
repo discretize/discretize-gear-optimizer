@@ -85,8 +85,9 @@ const attributes = [
   'Outgoing Alternative Critical Damage',
   'Outgoing Phantasm Damage',
   'Outgoing Phantasm Critical Damage',
-
   'Outgoing All Damage',
+
+  'Player Critical Damage',
 ] as const;
 
 type AttributeName = (typeof attributes)[number];

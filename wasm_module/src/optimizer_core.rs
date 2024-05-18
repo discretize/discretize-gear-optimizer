@@ -349,6 +349,7 @@ fn calc_stats(
 
     // clones/phantasms/shroud
     if settings.profession.eq("Mesmer") {
+        // mesmer illusions: special bonuses are INSTEAD OF player attributes
         attributes.add_a(
             Attribute::CloneCriticalChance,
             (attributes.get_a(Attribute::Precision) - 1000.0) / 21.0 / 100.0,
@@ -362,6 +363,7 @@ fn calc_stats(
             attributes.get_a(Attribute::Ferocity) / 15.0 / 100.0,
         );
     } else if attributes.get_a(Attribute::Power2Coefficient) > 0.0 {
+        // necromancer shroud: special bonuses are IN ADDITION TO player attributes
         attributes.set_a(
             Attribute::AltPower,
             attributes.get_a(Attribute::AltPower) + attributes.get_a(Attribute::Power),
@@ -443,6 +445,13 @@ pub fn calc_power(
         * mods.get_dmg_multiplier(Attribute::OutgoingCriticalDamage);
     let crit_chance = clamp(attributes.get_a(Attribute::CriticalChance), 0.0, 1.0);
 
+    // this should really just overwrite the 'Critical Damage' value, but we use
+    // it for "the critical damage stat in the hero panel," which includes
+    // ferocity but excludes "critical hits do more damage" modifiers
+    if mods.get_dmg_multiplier(Attribute::OutgoingCriticalDamage) != 1.0 {
+        attributes.set_a(Attribute::PlayerCriticalDamage, crit_dmg);
+    }
+
     attributes.set_a(
         Attribute::EffectivePower,
         attributes.get_a(Attribute::Power) * (1.0 + crit_chance * (crit_dmg - 1.0)),
@@ -461,8 +470,12 @@ pub fn calc_power(
     if attributes.get_a(Attribute::Power2Coefficient) > 0.0 {
         // do stuff
         if settings.profession.eq("Mesmer") {
-            let phantasm_crit_dmg = attributes.get_a(Attribute::PhantasmCriticalDamage)
-                * mods.get_dmg_multiplier(Attribute::OutgoingPhantasmCriticalDamage);
+            // mesmer illusions: special bonuses are INSTEAD OF player attributes
+            attributes.set_a(
+                Attribute::PhantasmCriticalDamage,
+                attributes.get_a(Attribute::PhantasmCriticalDamage)
+                    * mods.get_dmg_multiplier(Attribute::OutgoingPhantasmCriticalDamage),
+            );
             let phantasm_crit_chance = clamp(
                 attributes.get_a(Attribute::PhantasmCriticalChance),
                 0.0,
@@ -472,7 +485,9 @@ pub fn calc_power(
             attributes.set_a(
                 Attribute::PhantasmEffectivePower,
                 attributes.get_a(Attribute::Power)
-                    * (1.0 + phantasm_crit_chance * (phantasm_crit_dmg - 1.0)),
+                    * (1.0
+                        + phantasm_crit_chance
+                            * (attributes.get_a(Attribute::PhantasmCriticalDamage) - 1.0)),
             );
 
             let phantasm_power_damage = (attributes.get_a(Attribute::Power2Coefficient) / 2597.0)
@@ -481,14 +496,20 @@ pub fn calc_power(
             attributes.set_a(Attribute::Power2DPS, phantasm_power_damage);
             power_damage += phantasm_power_damage;
         } else {
-            let alt_crit_dmg = attributes.get_a(Attribute::AltCriticalDamage)
-                * mods.get_dmg_multiplier(Attribute::OutgoingAltCriticalDamage);
+            // necromancer shroud: special bonuses are IN ADDITION TO player attributes
+            attributes.set_a(
+                Attribute::AltCriticalDamage,
+                attributes.get_a(Attribute::AltCriticalDamage)
+                    * mods.get_dmg_multiplier(Attribute::OutgoingCriticalDamage)
+                    * mods.get_dmg_multiplier(Attribute::OutgoingAltCriticalDamage),
+            );
             let alt_crit_chance = clamp(attributes.get_a(Attribute::AltCriticalChance), 0.0, 1.0);
 
             attributes.set_a(
                 Attribute::AltEffectivePower,
                 attributes.get_a(Attribute::AltPower)
-                    * (1.0 + alt_crit_chance * (alt_crit_dmg - 1.0)),
+                    * (1.0
+                        + alt_crit_chance * (attributes.get_a(Attribute::AltCriticalDamage) - 1.0)),
             );
 
             let alt_power_damage = (attributes.get_a(Attribute::Power2Coefficient) / 2597.0)
