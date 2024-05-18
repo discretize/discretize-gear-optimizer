@@ -43,6 +43,7 @@ const ResultDetails = () => {
   const bonuses = {};
   Object.entries({
     'Outgoing Healing': t('Outgoing Healing'),
+    'Player Critical Damage': t('Player Critical Damage'),
     'Clone Critical Chance': t('Clone Critical Chance'),
     'Phantasm Critical Chance': t('Phantasm Critical Chance'),
     'Phantasm Critical Damage': t('Phantasm Critical Damage'),

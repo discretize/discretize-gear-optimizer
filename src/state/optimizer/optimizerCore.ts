@@ -763,6 +763,13 @@ export class OptimizerCore {
     const critDmg = attributes['Critical Damage'] * damageMultiplier['Outgoing Critical Damage'];
     const critChance = clamp(attributes['Critical Chance'], 0, 1);
 
+    // this should really just overwrite the 'Critical Damage' value, but we use
+    // it for "the critical damage stat in the hero panel," which includes
+    // ferocity but excludes "critical hits do more damage" modifiers
+    if (damageMultiplier['Outgoing Critical Damage'] !== 1) {
+      attributes['Player Critical Damage'] = critDmg;
+    }
+
     attributes['Effective Power'] = attributes['Power'] * (1 + critChance * (critDmg - 1));
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
@@ -779,13 +786,13 @@ export class OptimizerCore {
     if (attributes['Power2 Coefficient']) {
       if (settings.profession === 'Mesmer') {
         // mesmer illusions: special bonuses are INSTEAD OF player attributes
-        const phantasmCritDmg =
-          attributes['Phantasm Critical Damage'] *
+        attributes['Phantasm Critical Damage'] *=
           damageMultiplier['Outgoing Phantasm Critical Damage'];
         const phantasmCritChance = clamp(attributes['Phantasm Critical Chance'], 0, 1);
 
         attributes['Phantasm Effective Power'] =
-          attributes['Power'] * (1 + phantasmCritChance * (phantasmCritDmg - 1));
+          attributes['Power'] *
+          (1 + phantasmCritChance * (attributes['Phantasm Critical Damage'] - 1));
 
         const phantasmPowerDamage =
           ((attributes['Power2 Coefficient'] || 0) / 2597) *
@@ -795,14 +802,14 @@ export class OptimizerCore {
         powerDamage += phantasmPowerDamage;
       } else {
         // necromancer shroud: special bonuses are IN ADDITION TO player attributes
-        const alternativeCritDmg =
-          attributes['Alternative Critical Damage'] *
+        attributes['Alternative Critical Damage'] *=
           damageMultiplier['Outgoing Critical Damage'] *
           damageMultiplier['Outgoing Alternative Critical Damage'];
         const alternativeCritChance = clamp(attributes['Alternative Critical Chance'], 0, 1);
 
         attributes['Alternative Effective Power'] =
-          attributes['Alternative Power'] * (1 + alternativeCritChance * (alternativeCritDmg - 1));
+          attributes['Alternative Power'] *
+          (1 + alternativeCritChance * (attributes['Alternative Critical Damage'] - 1));
 
         const alternativePowerDamage =
           ((attributes['Power2 Coefficient'] || 0) / 2597) *
