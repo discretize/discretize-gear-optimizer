@@ -215,8 +215,8 @@ devDependencies:
     specifier: ^5.2.11
     version: 5.2.11(@types/node@20.12.12)
   vite-plugin-comlink:
-    specifier: ^4.0.3
-    version: 4.0.3(comlink@4.4.1)(vite@5.2.11)
+    specifier: ^5.0.1
+    version: 5.0.1(comlink@4.4.1)(vite@5.2.11)
   vite-plugin-wasm:
     specifier: ^3.3.0
     version: 3.3.0(vite@5.2.11)
@@ -4427,6 +4427,12 @@ packages:
       sourcemap-codec: 1.4.8
     dev: true
 
+  /magic-string@0.30.10:
+    resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.4.15
+    dev: true
+
   /magic-string@0.30.5:
     resolution: {integrity: sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==}
     engines: {node: '>=12'}
@@ -5785,15 +5791,15 @@ packages:
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  /vite-plugin-comlink@4.0.3(comlink@4.4.1)(vite@5.2.11):
-    resolution: {integrity: sha512-CJVVd4h6YkeIxXEbRTbkvlbDwAHa1eOSl20AtNux9jd9aPe3AVKkYSxyTjGI9331Rg3wzAYsCUBSsnWHl1Ph0g==}
+  /vite-plugin-comlink@5.0.1(comlink@4.4.1)(vite@5.2.11):
+    resolution: {integrity: sha512-4TGw5+bTg5ROd8N2m9O/y0CoS81g8nyce9EI/eV51i54EJ938lFadXEButhaptJs89l5NY9+TkdjI5jXX4cWOw==}
     peerDependencies:
       comlink: ^4.3.1
       vite: '>=2.9.6'
     dependencies:
       comlink: 4.4.1
       json5: 2.2.3
-      magic-string: 0.30.5
+      magic-string: 0.30.10
       source-map: 0.7.4
       vite: 5.2.11(@types/node@20.12.12)
     dev: true
