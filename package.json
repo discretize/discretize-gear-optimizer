@@ -115,7 +115,7 @@
     "typescript": "^5.4.5",
     "typia": "^6.0.4",
     "vite": "^5.2.11",
-    "vite-plugin-comlink": "^4.0.3",
+    "vite-plugin-comlink": "^5.0.1",
     "vite-plugin-wasm": "^3.3.0",
     "wasm-pack": "^0.12.1",
     "wrangler": "^3.57.1"
