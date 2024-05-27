@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@discretize/globals": "^0.0.2",
-    "@discretize/gw2-ui-new": "^0.1.4",
+    "@discretize/gw2-ui-new": "^0.1.5",
     "@discretize/object-compression": "^1.0.3",
     "@discretize/react-discretize-components": "^2.6.1",
     "@discretize/typeface-menomonia": "^0.1.3",

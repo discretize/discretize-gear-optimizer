@@ -12,8 +12,8 @@ dependencies:
     specifier: ^0.0.2
     version: 0.0.2(@emotion/react@11.11.4)(@emotion/styled@11.11.5)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
   '@discretize/gw2-ui-new':
-    specifier: ^0.1.4
-    version: 0.1.4
+    specifier: ^0.1.5
+    version: 0.1.5
   '@discretize/object-compression':
     specifier: ^1.0.3
     version: 1.0.3
@@ -769,8 +769,8 @@ packages:
       - react-dom
     dev: false
 
-  /@discretize/gw2-ui-new@0.1.4:
-    resolution: {integrity: sha512-ZiR7EZUR5oMqsPc48rftsKv3KuxBJpozTh9U1skg9XFRySQp8YL9gBHoLekmqWtXC/PTjNiZOpKfveoHLo37rA==}
+  /@discretize/gw2-ui-new@0.1.5:
+    resolution: {integrity: sha512-mY1Z/MSyw2CF4yd7Ul3SR905NdnPc0TYk7YvFYVw3zg6pgcblM63dr3uFM68rGvRz79rqGWMraPJfDiRtdVDTQ==}
     engines: {node: '>=16.0.0'}
     dependencies:
       '@discretize/typeface-menomonia': 0.1.3
@@ -790,7 +790,7 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@discretize/gw2-ui-new': 0.1.4
+      '@discretize/gw2-ui-new': 0.1.5
       '@discretize/typeface-menomonia': 0.1.3
       classnames: 2.5.1
       react: 18.3.1
