@@ -40,9 +40,13 @@ const modifyState = (optimizerState) => {
 
   // remove all list entries that are not selected character
   const modifiedList =
-    selectedCharacter && list.includes(selectedCharacter) ? [modifiedSelectedCharacter] : [];
+    selectedCharacter && list.some(({ id }) => selectedCharacter.id === id)
+      ? [modifiedSelectedCharacter]
+      : [];
   const modifiedSaved =
-    selectedCharacter && saved.includes(selectedCharacter) ? [modifiedSelectedCharacter] : [];
+    selectedCharacter && saved.some(({ id }) => selectedCharacter.id === id)
+      ? [modifiedSelectedCharacter]
+      : [];
 
   const filteredLists = emptyFilteredLists;
 
