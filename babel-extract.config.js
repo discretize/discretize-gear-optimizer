@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
-const YAML = require('js-yaml');
-const fs = require('fs');
-const { requireTS } = require('./src/utils/require-ts.js');
+import YAML from 'js-yaml';
+import fs from 'fs';
+import requireTS from './src/utils/require-ts.js';
 
 const { GEAR_SLOTS, Affix } = requireTS('./src/utils/gw2-data.ts');
 
@@ -31,14 +31,15 @@ const professions = {
 const extra = {
   sigils: YAML.load(fs.readFileSync('./src/assets/modifierdata/sigils.yaml', 'utf8')),
   runes: YAML.load(fs.readFileSync('./src/assets/modifierdata/runes.yaml', 'utf8')),
+  relics: YAML.load(fs.readFileSync('./src/assets/modifierdata/relics.yaml', 'utf8')),
   food: YAML.load(fs.readFileSync('./src/assets/modifierdata/food.yaml', 'utf8')),
   utility: YAML.load(fs.readFileSync('./src/assets/modifierdata/utility.yaml', 'utf8')),
 };
-module.exports = {
+export default {
   presets: ['@babel/preset-typescript', '@babel/preset-react'],
   plugins: [
     [
-      './extract_context_injection',
+      './extract_context_injection/index.js',
       {
         buildTemplateName: [
           ...new Set(templates.list.flatMap((item) => item.builds).map((item) => item.name)),

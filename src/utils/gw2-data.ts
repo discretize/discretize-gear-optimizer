@@ -4,6 +4,8 @@
  * ------------------------------------------------------------------------
  */
 
+const objectKeys = Object.keys as <Type extends object>(value: Type) => (keyof Type)[];
+
 export type AffixName =
   | 'Berserker'
   | 'Assassin'
@@ -42,15 +44,20 @@ export type AffixName =
   | 'Settler'
   | 'Bringer'
   | 'Ritualist'
-  | 'Dragon';
+  | 'Dragon'
+  | 'BerserkerValkyrie'
+  | 'RabidApothecary'
+  | 'DireRabid';
 
-type AffixNameOrCustom = AffixName | 'Custom';
+export type AffixNameOrCustom = AffixName | 'Custom';
 export interface AffixData {
-  type: 'triple' | 'quadruple' | 'celestial';
+  type: 'triple' | 'quadruple' | 'celestial' | 'ascendedMismatchedTrinket';
   category: string;
   bonuses: {
     major: (PrimaryAttributeName | SecondaryAttributeName)[];
     minor: (PrimaryAttributeName | SecondaryAttributeName)[];
+    jewelMajor?: (PrimaryAttributeName | SecondaryAttributeName)[];
+    jewelMinor?: (PrimaryAttributeName | SecondaryAttributeName)[];
   };
 }
 export const Affix: Record<AffixNameOrCustom, AffixData> = {
@@ -366,9 +373,282 @@ export const Affix: Record<AffixNameOrCustom, AffixData> = {
       minor: ['Precision', 'Vitality'],
     },
   },
+  BerserkerValkyrie: {
+    type: 'ascendedMismatchedTrinket',
+    category: 'Open World',
+    bonuses: {
+      major: ['Power'],
+      minor: ['Precision', 'Ferocity'],
+      jewelMajor: ['Power'],
+      jewelMinor: ['Vitality', 'Ferocity'],
+    },
+  },
+  RabidApothecary: {
+    type: 'ascendedMismatchedTrinket',
+    category: 'Open World',
+    bonuses: {
+      major: ['Condition Damage'],
+      minor: ['Toughness', 'Precision'],
+      jewelMajor: ['Healing Power'],
+      jewelMinor: ['Condition Damage', 'Toughness'],
+    },
+  },
+  DireRabid: {
+    type: 'ascendedMismatchedTrinket',
+    category: 'Open World',
+    bonuses: {
+      major: ['Condition Damage'],
+      minor: ['Toughness', 'Vitality'],
+      jewelMajor: ['Condition Damage'],
+      jewelMinor: ['Toughness', 'Precision'],
+    },
+  },
 };
 
-export const Item = {
+export const ExoticItem = {
+  HELM: {
+    triple: {
+      major: 60,
+      minor: 43,
+    },
+    quadruple: {
+      major: 51,
+      minor: 28,
+    },
+    celestial: {
+      major: 28,
+      minor: 28,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
+  },
+  SHOULDERS: {
+    triple: {
+      major: 45,
+      minor: 32,
+    },
+    quadruple: {
+      major: 38,
+      minor: 21,
+    },
+    celestial: {
+      major: 21,
+      minor: 21,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
+  },
+  CHEST: {
+    triple: {
+      major: 134,
+      minor: 96,
+    },
+    quadruple: {
+      major: 115,
+      minor: 63,
+    },
+    celestial: {
+      major: 63,
+      minor: 63,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
+  },
+  GLOVES: {
+    triple: {
+      major: 45,
+      minor: 32,
+    },
+    quadruple: {
+      major: 38,
+      minor: 21,
+    },
+    celestial: {
+      major: 21,
+      minor: 21,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
+  },
+  LEGGINGS: {
+    triple: {
+      major: 90,
+      minor: 64,
+    },
+    quadruple: {
+      major: 77,
+      minor: 42,
+    },
+    celestial: {
+      major: 42,
+      minor: 42,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
+  },
+  BOOTS: {
+    triple: {
+      major: 45,
+      minor: 32,
+    },
+    quadruple: {
+      major: 38,
+      minor: 21,
+    },
+    celestial: {
+      major: 21,
+      minor: 21,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
+  },
+  AMULET: {
+    triple: {
+      major: 145,
+      minor: 100,
+    },
+    quadruple: {
+      major: 122,
+      minor: 66,
+    },
+    celestial: {
+      major: 68,
+      minor: 68,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
+  },
+  RING: {
+    triple: {
+      major: 115,
+      minor: 79,
+    },
+    quadruple: {
+      major: 97,
+      minor: 52,
+    },
+    celestial: {
+      major: 54,
+      minor: 54,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
+  },
+  ACCESSORY: {
+    triple: {
+      major: 100,
+      minor: 68,
+    },
+    quadruple: {
+      major: 84,
+      minor: 45,
+    },
+    celestial: {
+      major: 47,
+      minor: 47,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
+  },
+  BACK_ITEM: {
+    triple: {
+      major: 55,
+      minor: 36,
+    },
+    quadruple: {
+      major: 46,
+      minor: 24,
+    },
+    celestial: {
+      major: 26,
+      minor: 26,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
+  },
+  ONEHANDED_WEAPON: {
+    triple: {
+      major: 120,
+      minor: 85,
+    },
+    quadruple: {
+      major: 102,
+      minor: 56,
+    },
+    celestial: {
+      major: 56,
+      minor: 56,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
+  },
+  TWOHANDED_WEAPON: {
+    triple: {
+      major: 239,
+      minor: 171,
+    },
+    quadruple: {
+      major: 205,
+      minor: 113,
+    },
+    celestial: {
+      major: 113,
+      minor: 113,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
+  },
+};
+
+export const AscendedItem = {
   HELM: {
     triple: {
       major: 63,
@@ -381,6 +661,12 @@ export const Item = {
     celestial: {
       major: 30,
       minor: 30,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
     },
   },
   SHOULDERS: {
@@ -396,6 +682,12 @@ export const Item = {
       major: 22,
       minor: 22,
     },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
   },
   CHEST: {
     triple: {
@@ -409,6 +701,12 @@ export const Item = {
     celestial: {
       major: 67,
       minor: 67,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
     },
   },
   GLOVES: {
@@ -424,6 +722,12 @@ export const Item = {
       major: 22,
       minor: 22,
     },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
   },
   LEGGINGS: {
     triple: {
@@ -437,6 +741,12 @@ export const Item = {
     celestial: {
       major: 44,
       minor: 44,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
     },
   },
   BOOTS: {
@@ -452,6 +762,12 @@ export const Item = {
       major: 22,
       minor: 22,
     },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
   },
   AMULET: {
     triple: {
@@ -465,6 +781,12 @@ export const Item = {
     celestial: {
       major: 72,
       minor: 72,
+    },
+    ascendedMismatchedTrinket: {
+      major: 157 - 32,
+      minor: 108 - 18,
+      jewelMajor: 32,
+      jewelMinor: 18,
     },
   },
   RING: {
@@ -480,6 +802,12 @@ export const Item = {
       major: 57,
       minor: 57,
     },
+    ascendedMismatchedTrinket: {
+      major: 126 - 32,
+      minor: 85 - 18,
+      jewelMajor: 32,
+      jewelMinor: 18,
+    },
   },
   ACCESSORY: {
     triple: {
@@ -493,6 +821,12 @@ export const Item = {
     celestial: {
       major: 50,
       minor: 50,
+    },
+    ascendedMismatchedTrinket: {
+      major: 110 - 32,
+      minor: 74 - 18,
+      jewelMajor: 32,
+      jewelMinor: 18,
     },
   },
   BACK_ITEM: {
@@ -508,6 +842,12 @@ export const Item = {
       major: 28,
       minor: 28,
     },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
   },
   ONEHANDED_WEAPON: {
     triple: {
@@ -521,6 +861,12 @@ export const Item = {
     celestial: {
       major: 59,
       minor: 59,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
     },
   },
   TWOHANDED_WEAPON: {
@@ -536,159 +882,195 @@ export const Item = {
       major: 118,
       minor: 118,
     },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
   },
 };
-export type ItemSlot = keyof typeof Item;
+
+export type ItemSlot = keyof typeof AscendedItem;
 
 export const WeaponTypes = {
   dualWield: 'Dual wield',
   twoHanded: 'Two-handed',
-};
+} as const;
 
 export const Slots = {
   'Dual wield': [
     {
       name: 'Helm',
       short: 'Helm',
-      item: Item.HELM,
+      asc: AscendedItem.HELM,
+      exo: ExoticItem.HELM,
     },
     {
       name: 'Shoulders',
       short: 'Shld',
-      item: Item.SHOULDERS,
+      asc: AscendedItem.SHOULDERS,
+      exo: ExoticItem.SHOULDERS,
     },
     {
       name: 'Coat',
       short: 'Coat',
-      item: Item.CHEST,
+      asc: AscendedItem.CHEST,
+      exo: ExoticItem.CHEST,
     },
     {
       name: 'Gloves',
       short: 'Glov',
-      item: Item.GLOVES,
+      asc: AscendedItem.GLOVES,
+      exo: ExoticItem.GLOVES,
     },
     {
       name: 'Leggings',
       short: 'Legs',
-      item: Item.LEGGINGS,
+      asc: AscendedItem.LEGGINGS,
+      exo: ExoticItem.LEGGINGS,
     },
     {
       name: 'Boots',
       short: 'Boot',
-      item: Item.BOOTS,
+      asc: AscendedItem.BOOTS,
+      exo: ExoticItem.BOOTS,
     },
     {
       name: 'Amulet',
       short: 'Amul',
-      item: Item.AMULET,
+      asc: AscendedItem.AMULET,
+      exo: ExoticItem.AMULET,
     },
     {
       name: 'Ring 1',
       short: 'Rng1',
-      item: Item.RING,
+      asc: AscendedItem.RING,
+      exo: ExoticItem.RING,
     },
     {
       name: 'Ring 2',
       short: 'Rng2',
-      item: Item.RING,
+      asc: AscendedItem.RING,
+      exo: ExoticItem.RING,
     },
     {
       name: 'Accessory 1',
       short: 'Acc1',
-      item: Item.ACCESSORY,
+      asc: AscendedItem.ACCESSORY,
+      exo: ExoticItem.ACCESSORY,
     },
     {
       name: 'Accessory 2',
       short: 'Acc2',
-      item: Item.ACCESSORY,
+      asc: AscendedItem.ACCESSORY,
+      exo: ExoticItem.ACCESSORY,
     },
     {
       name: 'Back Item',
       short: 'Back',
-      item: Item.BACK_ITEM,
+      asc: AscendedItem.BACK_ITEM,
+      exo: ExoticItem.BACK_ITEM,
     },
     {
       name: 'Mainhand',
       short: 'Wep1',
-      item: Item.ONEHANDED_WEAPON,
+      asc: AscendedItem.ONEHANDED_WEAPON,
+      exo: ExoticItem.ONEHANDED_WEAPON,
     },
     {
       name: 'Offhand',
       short: 'Wep2',
-      item: Item.ONEHANDED_WEAPON,
+      asc: AscendedItem.ONEHANDED_WEAPON,
+      exo: ExoticItem.ONEHANDED_WEAPON,
     },
   ],
   'Two-handed': [
     {
       name: 'Helm',
       short: 'Helm',
-      item: Item.HELM,
+      asc: AscendedItem.HELM,
+      exo: ExoticItem.HELM,
     },
     {
       name: 'Shoulders',
       short: 'Shld',
-      item: Item.SHOULDERS,
+      asc: AscendedItem.SHOULDERS,
+      exo: ExoticItem.SHOULDERS,
     },
     {
       name: 'Coat',
       short: 'Coat',
-      item: Item.CHEST,
+      asc: AscendedItem.CHEST,
+      exo: ExoticItem.CHEST,
     },
     {
       name: 'Gloves',
       short: 'Glov',
-      item: Item.GLOVES,
+      asc: AscendedItem.GLOVES,
+      exo: ExoticItem.GLOVES,
     },
     {
       name: 'Leggings',
       short: 'Legs',
-      item: Item.LEGGINGS,
+      asc: AscendedItem.LEGGINGS,
+      exo: ExoticItem.LEGGINGS,
     },
     {
       name: 'Boots',
       short: 'Boot',
-      item: Item.BOOTS,
+      asc: AscendedItem.BOOTS,
+      exo: ExoticItem.BOOTS,
     },
     {
       name: 'Amulet',
       short: 'Amul',
-      item: Item.AMULET,
+      asc: AscendedItem.AMULET,
+      exo: ExoticItem.AMULET,
     },
     {
       name: 'Ring 1',
       short: 'Rng1',
-      item: Item.RING,
+      asc: AscendedItem.RING,
+      exo: ExoticItem.RING,
     },
     {
       name: 'Ring 2',
       short: 'Rng2',
-      item: Item.RING,
+      asc: AscendedItem.RING,
+      exo: ExoticItem.RING,
     },
     {
       name: 'Accessory 1',
       short: 'Acc1',
-      item: Item.ACCESSORY,
+      asc: AscendedItem.ACCESSORY,
+      exo: ExoticItem.ACCESSORY,
     },
     {
       name: 'Accessory 2',
       short: 'Acc2',
-      item: Item.ACCESSORY,
+      asc: AscendedItem.ACCESSORY,
+      exo: ExoticItem.ACCESSORY,
     },
     {
       name: 'Back Item',
       short: 'Back',
-      item: Item.BACK_ITEM,
+      asc: AscendedItem.BACK_ITEM,
+      exo: ExoticItem.BACK_ITEM,
     },
     {
       name: 'Weapon',
       short: 'Weap',
-      item: Item.TWOHANDED_WEAPON,
+      asc: AscendedItem.TWOHANDED_WEAPON,
+      exo: ExoticItem.TWOHANDED_WEAPON,
     },
   ],
 };
 export type WeaponHandednessType = keyof typeof Slots;
 
-export type SlotsEntry = typeof Slots['Dual wield'];
+export type SlotsEntry = (typeof Slots)['Dual wield'];
+
+export const maxSlotsLength = Math.max(...Object.values(Slots).map((arr) => arr.length));
 
 // used for forcing slots to a certain affix
 export const ForcedSlots = [
@@ -706,17 +1088,19 @@ export const ForcedSlots = [
   'back', // 11
   'wep1', // 12
   'wep2', // 13
-];
+] as const;
+
+export type ForcedSlotName = (typeof ForcedSlots)[number];
 
 export const omnipotionModifiers = {
   // Condi dmg from omnipot has been removed
   'damage': {
-    'Strike Damage': ['15%', 'mult'],
-    'Condition Damage': ['15%', 'add'],
-    'Damage Reduction': ['25%', 'add'],
+    'Outgoing Strike Damage': ['15%', 'add'] as [string, 'add'],
+    'Outgoing Condition Damage': ['15%', 'add'] as [string, 'add'],
+    'Damage Reduction': ['25%', 'add'] as [string, 'add'],
   },
   'conversion': {
-    'Precision': { 'Agony Resistance': '150%' },
+    'Vitality': { 'Agony Resistance': '150%' },
     'Toughness': { 'Agony Resistance': '150%' },
     'Concentration': { 'Agony Resistance': '150%' },
   },
@@ -771,6 +1155,7 @@ export const Classes = {
         WEAPONS.HAMMER,
         WEAPONS.LONGBOW,
         WEAPONS.RIFLE,
+        WEAPONS.STAFF,
       ],
       offHand: [
         WEAPONS.AXE,
@@ -795,8 +1180,9 @@ export const Classes = {
         WEAPONS.SCEPTER,
         WEAPONS.GREATSWORD,
         WEAPONS.STAFF,
+        WEAPONS.SWORD,
       ],
-      offHand: [WEAPONS.FOCUS, WEAPONS.WARHORN, WEAPONS.TORCH, WEAPONS.DAGGER],
+      offHand: [WEAPONS.FOCUS, WEAPONS.WARHORN, WEAPONS.TORCH, WEAPONS.DAGGER, WEAPONS.SWORD],
     },
   },
   Revenant: {
@@ -810,6 +1196,7 @@ export const Classes = {
         WEAPONS.HAMMER,
         WEAPONS.SHORTBOW,
         WEAPONS.STAFF,
+        WEAPONS.SCEPTER,
       ],
       offHand: [WEAPONS.AXE, WEAPONS.SWORD, WEAPONS.SHIELD],
     },
@@ -818,7 +1205,14 @@ export const Classes = {
     health: Health.MEDIUM,
     defense: Defense.MEDIUM,
     weapons: {
-      mainHand: [WEAPONS.MACE, WEAPONS.PISTOL, WEAPONS.SWORD, WEAPONS.RIFLE, WEAPONS.HAMMER],
+      mainHand: [
+        WEAPONS.MACE,
+        WEAPONS.PISTOL,
+        WEAPONS.SWORD,
+        WEAPONS.RIFLE,
+        WEAPONS.HAMMER,
+        WEAPONS.SHORTBOW,
+      ],
       offHand: [WEAPONS.PISTOL, WEAPONS.SHIELD],
     },
   },
@@ -835,8 +1229,9 @@ export const Classes = {
         WEAPONS.LONGBOW,
         WEAPONS.SHORTBOW,
         WEAPONS.STAFF,
+        WEAPONS.MACE,
       ],
-      offHand: [WEAPONS.AXE, WEAPONS.DAGGER, WEAPONS.TORCH, WEAPONS.WARHORN],
+      offHand: [WEAPONS.AXE, WEAPONS.DAGGER, WEAPONS.TORCH, WEAPONS.WARHORN, WEAPONS.MACE],
     },
   },
   Mesmer: {
@@ -850,6 +1245,7 @@ export const Classes = {
         WEAPONS.SCEPTER,
         WEAPONS.GREATSWORD,
         WEAPONS.STAFF,
+        WEAPONS.RIFLE,
       ],
       offHand: [WEAPONS.PISTOL, WEAPONS.SWORD, WEAPONS.FOCUS, WEAPONS.SHIELD, WEAPONS.TORCH],
     },
@@ -867,8 +1263,9 @@ export const Classes = {
         WEAPONS.HAMMER,
         WEAPONS.LONGBOW,
         WEAPONS.STAFF,
+        WEAPONS.PISTOL,
       ],
-      offHand: [WEAPONS.FOCUS, WEAPONS.SHIELD, WEAPONS.SWORD, WEAPONS.TORCH],
+      offHand: [WEAPONS.FOCUS, WEAPONS.SHIELD, WEAPONS.SWORD, WEAPONS.TORCH, WEAPONS.PISTOL],
     },
   },
   Thief: {
@@ -883,6 +1280,7 @@ export const Classes = {
         WEAPONS.RIFLE,
         WEAPONS.SHORTBOW,
         WEAPONS.STAFF,
+        WEAPONS.AXE,
       ],
       offHand: [WEAPONS.DAGGER, WEAPONS.PISTOL],
     },
@@ -891,12 +1289,38 @@ export const Classes = {
     health: Health.LOW,
     defense: Defense.LIGHT,
     weapons: {
-      mainHand: [WEAPONS.DAGGER, WEAPONS.HAMMER, WEAPONS.SWORD, WEAPONS.SCEPTER, WEAPONS.STAFF],
+      mainHand: [
+        WEAPONS.DAGGER,
+        WEAPONS.HAMMER,
+        WEAPONS.SWORD,
+        WEAPONS.SCEPTER,
+        WEAPONS.STAFF,
+        WEAPONS.PISTOL,
+      ],
       offHand: [WEAPONS.FOCUS, WEAPONS.DAGGER, WEAPONS.WARHORN],
     },
   },
 };
 export type ProfessionName = keyof typeof Classes;
+
+function firstUppercase(text: string | undefined | null): string {
+  if (typeof text === 'undefined' || text === null || text === '') return '';
+
+  const toUpper = (str: string) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  return text.split(' ').map(toUpper).join(' ').trim();
+}
+
+export const getWeight = (profession: ProfessionName) => {
+  // Calculate weight class
+  const { defense } = Classes[firstUppercase(profession) as ProfessionName];
+  if (defense === Defense.HEAVY) {
+    return 'Heavy';
+  }
+  if (defense === Defense.MEDIUM) {
+    return 'Medium';
+  }
+  return 'Light';
+};
 
 export const conditionData = {
   Burning: {
@@ -920,6 +1344,36 @@ export const conditionData = {
     factor: 0.06,
   },
   Confusion: {
+    baseDamage: 18.25,
+    factor: 0.05,
+  },
+  ConfusionActive: {
+    baseDamage: 16.34,
+    factor: 0.0325,
+  },
+};
+export const conditionDataWvW = {
+  Burning: {
+    baseDamage: 131,
+    factor: 0.155,
+  },
+  Bleeding: {
+    baseDamage: 22,
+    factor: 0.06,
+  },
+  Poison: {
+    baseDamage: 33.5,
+    factor: 0.06,
+  },
+  Torment: {
+    baseDamage: 26,
+    factor: 0.07,
+  },
+  TormentMoving: {
+    baseDamage: 19.8,
+    factor: 0.054,
+  },
+  Confusion: {
     baseDamage: 11,
     factor: 0.03,
   },
@@ -930,18 +1384,19 @@ export const conditionData = {
 };
 export type ConditionName = keyof typeof conditionData;
 
-export const damagingConditions: ConditionName[] = [
+export const damagingConditions = [
   'Bleeding',
   'Burning',
   'Confusion',
   'Poison',
   'Torment',
-];
+] as const;
+export type DamagingConditionName = (typeof damagingConditions)[number];
 
-const PrimaryAttributes = ['Power', 'Precision', 'Toughness', 'Vitality'] as const;
-export type PrimaryAttributeName = typeof PrimaryAttributes[number];
+export const PrimaryAttributes = ['Power', 'Precision', 'Toughness', 'Vitality'] as const;
+export type PrimaryAttributeName = (typeof PrimaryAttributes)[number];
 
-const SecondaryAttributes = [
+export const SecondaryAttributes = [
   'Ferocity',
   'Condition Damage',
   'Expertise',
@@ -949,24 +1404,26 @@ const SecondaryAttributes = [
   'Healing Power',
   'Agony Resistance',
 ] as const;
-export type SecondaryAttributeName = typeof SecondaryAttributes[number];
+export type SecondaryAttributeName = (typeof SecondaryAttributes)[number];
 
-const DerivedAttributes = [
+export const DerivedAttributes = [
   'Critical Chance',
   'Critical Damage',
   'Condition Duration',
+  'Condition Duration Uncapped',
   'Boon Duration',
   'Health',
   'Armor',
 ] as const;
-export type DerivedAttributeName = typeof DerivedAttributes[number];
+export type DerivedAttributeName = (typeof DerivedAttributes)[number];
 
-const BoonDurationAttributes = [
+export const BoonDurationAttributes = [
   'Aegis Duration',
   'Fury Duration',
   'Might Duration',
   'Protection Duration',
   'Quickness Duration',
+  'Alacrity Duration',
   'Regeneration Duration',
   'Resistance Duration',
   'Resolution Duration',
@@ -974,9 +1431,9 @@ const BoonDurationAttributes = [
   'Swiftness Duration',
   'Vigor Duration',
 ] as const;
-export type BoonDurationAttributeName = typeof BoonDurationAttributes[number];
+export type BoonDurationAttributeName = (typeof BoonDurationAttributes)[number];
 
-const ConditionDurationAttributes = [
+export const ConditionDurationAttributes = [
   'Bleeding Duration',
   'Blind Duration',
   'Burning Duration',
@@ -992,22 +1449,44 @@ const ConditionDurationAttributes = [
   'Vulnerability Duration',
   'Weakness Duration',
 ] as const;
-export type ConditionDurationAttributeName = typeof ConditionDurationAttributes[number];
+export type ConditionDurationAttributeName = (typeof ConditionDurationAttributes)[number];
 
-const ConditionDamageAttributes = [
+export type ConditionDamageAttributeName = `${DamagingConditionName} Damage`;
+export const ConditionDamageAttributes: readonly ConditionDamageAttributeName[] = [
   'Bleeding Damage',
   'Burning Damage',
   'Confusion Damage',
   'Poison Damage',
   'Torment Damage',
 ] as const;
-export type ConditionDamageAttributeName = typeof ConditionDamageAttributes[number];
 
-const EffectiveAttributes = ['Effective Power', 'Effective Health', 'Effective Healing'] as const;
-export type EffectiveAttributeName = typeof EffectiveAttributes[number];
+export type ConditionCoefficientAttributeName = `${DamagingConditionName} Coefficient`;
+export const ConditionCoefficientAttributes: readonly ConditionCoefficientAttributeName[] = [
+  'Bleeding Coefficient',
+  'Burning Coefficient',
+  'Confusion Coefficient',
+  'Poison Coefficient',
+  'Torment Coefficient',
+] as const;
 
-const Indicators = ['Damage', 'Survivability', 'Healing'] as const;
-export type IndicatorName = typeof Indicators[number];
+export type ConditionTickAttributeName = `${DamagingConditionName} Damage Tick`;
+export const ConditionTickAttributes: readonly ConditionTickAttributeName[] = [
+  'Bleeding Damage Tick',
+  'Burning Damage Tick',
+  'Confusion Damage Tick',
+  'Poison Damage Tick',
+  'Torment Damage Tick',
+] as const;
+
+export const EffectiveAttributes = [
+  'Effective Power',
+  'Effective Health',
+  'Effective Healing',
+] as const;
+export type EffectiveAttributeName = (typeof EffectiveAttributes)[number];
+
+export const Indicators = ['Damage', 'Survivability', 'Healing'] as const;
+export type IndicatorName = (typeof Indicators)[number];
 
 export type AttributeName =
   | PrimaryAttributeName
@@ -1032,17 +1511,23 @@ export const Attributes = {
 export const MAX_INFUSIONS = 18;
 export const INFUSION_BONUS = 5;
 
-export const PROFESSIONS = [
-  { profession: 'Warrior', eliteSpecializations: ['Spellbreaker', 'Berserker', 'Bladesworn'] },
-  { profession: 'Revenant', eliteSpecializations: ['Herald', 'Renegade', 'Vindicator'] },
-  { profession: 'Guardian', eliteSpecializations: ['Dragonhunter', 'Firebrand', 'Willbender'] },
-  { profession: 'Ranger', eliteSpecializations: ['Druid', 'Soulbeast', 'Untamed'] },
-  { profession: 'Engineer', eliteSpecializations: ['Scrapper', 'Holosmith', 'Mechanist'] },
-  { profession: 'Elementalist', eliteSpecializations: ['Tempest', 'Weaver', 'Catalyst'] },
-  { profession: 'Mesmer', eliteSpecializations: ['Chronomancer', 'Mirage', 'Virtuoso'] },
-  { profession: 'Necromancer', eliteSpecializations: ['Scourge', 'Reaper', 'Harbinger'] },
-  { profession: 'Thief', eliteSpecializations: ['Daredevil', 'Deadeye', 'Specter'] },
-];
+export const SPECIALIZATIONS = {
+  Warrior: ['Spellbreaker', 'Berserker', 'Bladesworn'],
+  Revenant: ['Herald', 'Renegade', 'Vindicator'],
+  Guardian: ['Dragonhunter', 'Firebrand', 'Willbender'],
+  Ranger: ['Druid', 'Soulbeast', 'Untamed'],
+  Engineer: ['Scrapper', 'Holosmith', 'Mechanist'],
+  Elementalist: ['Tempest', 'Weaver', 'Catalyst'],
+  Mesmer: ['Chronomancer', 'Mirage', 'Virtuoso'],
+  Necromancer: ['Scourge', 'Reaper', 'Harbinger'],
+  Thief: ['Daredevil', 'Deadeye', 'Specter'],
+} as const;
+
+export const PROFESSIONS = objectKeys(SPECIALIZATIONS);
+
+export type ProfessionOrSpecializationName =
+  | keyof typeof SPECIALIZATIONS
+  | (typeof SPECIALIZATIONS)[keyof typeof SPECIALIZATIONS][number];
 
 export const GEAR_SLOTS = [
   {
@@ -1116,7 +1601,7 @@ export const INFUSION_IDS = {
 
 export type InfusionName = keyof typeof INFUSION_IDS;
 
-export const infusionIds = {
+export const agonyInfusionIds: Record<string, { id: number; cost?: number }> = {
   '+1 Agony Infusion': { id: 49424, cost: 7 },
   '+2 Agony Infusion': { id: 49425, cost: 164 },
   '+3 Agony Infusion': { id: 49426, cost: 478 },
@@ -1141,7 +1626,9 @@ export const infusionIds = {
   '+22 Agony Infusion': { id: 49445 },
   '+23 Agony Infusion': { id: 49446 },
   '+24 Agony Infusion': { id: 49447 },
+};
 
+export const statInfusionIds = {
   '+9 Stat Infusion': {
     'Power': { id: 37131 },
     'Precision': { id: 37132 },

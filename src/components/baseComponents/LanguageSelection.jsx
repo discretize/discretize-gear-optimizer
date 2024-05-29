@@ -1,5 +1,4 @@
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
-import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 const LANGUAGES = [
@@ -17,22 +16,20 @@ const LanguageSelection = () => {
   };
 
   return (
-    <>
-      <FormControl sx={{ minWidth: 150 }} size="small" variant="standard">
-        <FormLabel id="filter-button-group">Language</FormLabel>
+    <FormControl sx={{ minWidth: 150 }} size="small" variant="standard">
+      <FormLabel id="filter-button-group">Language</FormLabel>
 
-        <RadioGroup
-          aria-labelledby="language-select-label"
-          value={language}
-          onChange={onChangeLanguage}
-          color="primary"
-        >
-          {LANGUAGES.map(({ value, label }) => (
-            <FormControlLabel key={value} value={value} control={<Radio />} label={label} />
-          ))}
-        </RadioGroup>
-      </FormControl>
-    </>
+      <RadioGroup
+        aria-labelledby="language-select-label"
+        value={language}
+        onChange={onChangeLanguage}
+        color="primary"
+      >
+        {LANGUAGES.map(({ value, label }) => (
+          <FormControlLabel key={value} value={value} control={<Radio />} label={label} />
+        ))}
+      </RadioGroup>
+    </FormControl>
   );
 };
 

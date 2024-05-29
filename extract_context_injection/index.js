@@ -1,6 +1,6 @@
-const babelTypes = require('@babel/types');
+import babelTypes from '@babel/types';
 
-module.exports = function () {
+export default function () {
   return {
     visitor: {
       Program(path, state) {
@@ -32,4 +32,4 @@ module.exports = function () {
       },
     },
   };
-};
+}

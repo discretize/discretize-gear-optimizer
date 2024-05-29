@@ -1,45 +1,68 @@
-name: Check PR
+name: 'Test: All CI Tests'
 
 on:
-  workflow_dispatch:
   pull_request:
     types: [opened, reopened, synchronize, ready_for_review]
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 env:
-  NODE_VERSION: 16
+  NODE_VERSION: 18
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  testAll:
+  test:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v2
+      - name: Set up PNPM
+        uses: pnpm/action-setup@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Cache dependencies
-        id: node-modules-cache
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+          cache: pnpm
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: pnpm install
 
-      - name: Test modifiers
-        run: yarn testModifiers
+      - name: Cache Rust Output
+        id: rust-output-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            wasm_module/pkg
+            wasm_module/target
+          key: rust-output-${{ env.NODE_VERSION }}-${{ hashFiles('wasm_module', '**/pnpm-lock.yaml') }}
+          restore-keys: rust-output-
+      - name: Cache Rust Dependencies
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: wasm_module
+        if: steps.rust-output-cache.outputs.cache-hit != 'true'
+      - name: Compile Rust
+        run: pnpm wasm
+        if: steps.rust-output-cache.outputs.cache-hit != 'true'
 
-      - name: Test presets
-        run: yarn testPresets
+      - name: Test modifier and preset data
+        run: pnpm testData
+
+      - name: Validate modifier and preset data types
+        run: pnpm validateDataTypes
 
       - name: Lint with ESLint
-        run: yarn eslint
+        run: pnpm eslint
 
       - name: Format with prettier
-        run: yarn prettierCheck
+        run: pnpm prettierCheck
+
+      - name: Typecheck with tsc
+        run: pnpm typeCheck

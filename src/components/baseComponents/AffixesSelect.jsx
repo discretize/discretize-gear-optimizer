@@ -79,7 +79,11 @@ const AffixesSelect = ({ name, multiple, onChange, value: affixes }) => {
         </React.Fragment>
       )}
       renderOption={({ className, ...prop }, option) => (
-        <li {...prop} className={classNames({ [classes.option]: multiple, [className]: true })}>
+        <li
+          {...prop}
+          className={classNames({ [classes.option]: multiple, [className]: true })}
+          key={option.label}
+        >
           {multiple && (
             <Box sx={{ width: 32 }}>
               {affixes.find((affix) => affix === option.label) && (
@@ -87,7 +91,7 @@ const AffixesSelect = ({ name, multiple, onChange, value: affixes }) => {
               )}
             </Box>
           )}
-          {option.label === 'Custom' ? (
+          {option.label === 'Custom' || /[a-z][A-Z]/.test(option.label) ? (
             <Item
               id={mistBandId}
               disableIcon
@@ -116,13 +120,13 @@ const AffixesSelect = ({ name, multiple, onChange, value: affixes }) => {
       renderTags={(value, getTagProps) =>
         value.map((option, index) => (
           <Chip
-            key={option.label}
             variant="outlined"
             label={
               // i18next-extract-mark-context-next-line {{affix}}
               t('affix', { context: option.label })
             }
             {...getTagProps({ index })}
+            key={option.label}
           />
         ))
       }

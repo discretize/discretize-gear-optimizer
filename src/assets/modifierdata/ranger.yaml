@@ -1,12 +1,26 @@
 - section: Skills
   items:
 
+    - id: pet-dps
+      text: ''
+      subText: Total Flat Pet Damage (no modifiers)
+      amountData:
+        label: 'dps'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Flat DPS: 1
+      temporaryBuff: true
+
     - id: signet-of-stone
       text: Signet of Stone
       modifiers:
         attributes:
           Toughness: [180, buff]
       gw2id: 12500
+      temporaryBuff: false
 
     - id: signet-of-the-wild
       text: Signet of the Wild
@@ -14,93 +28,164 @@
         attributes:
           Ferocity: [180, buff]
       gw2id: 12491
+      temporaryBuff: false
 
-    # .63 * 690.5 * 1.25 = 543.8
+    - id: vulture-stance
+      text: Vulture Stance
+      amountData:
+        label: 'hit/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Poison Coefficient: 4
+      gw2id: 40498
+      temporaryBuff: true
+
+    # pve: .95 * 690.5 * 1.25 = 820.0
+    # wvw: .63 * 690.5 * 1.25 = 543.8
     - id: one-wolf-pack-sic-em
       text: One Wolf Pack
       subText: sic em
       amountData:
         label: 'hit/s'
         default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
         attributes:
+          Power Coefficient: 820
+      wvwModifiers:
+        attributes:
           Power Coefficient: 543.8
       gw2id: 45717
+      temporaryBuff: true
 
-    # .63 * 690.5 = 435.0
+    # pve: .95 * 690.5 = 655.0
+    # wvw: .63 * 690.5 = 435.0
     - id: one-wolf-pack-no-sic-em
       text: One Wolf Pack
       subText: no sic em
       amountData:
         label: 'hit/s'
         default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
         attributes:
+          Power Coefficient: 655
+      wvwModifiers:
+        attributes:
           Power Coefficient: 435
       gw2id: 45717
+      temporaryBuff: true
 
-    # .63 * 690.5 * 1.25 = 543.8
+    # pve: .95 * 690.5 * 1.25 = 820.0
+    # wvw: .63 * 690.5 * 1.25 = 543.8
     - id: one-wolf-pack-sic-em-sharpened
       text: One Wolf Pack
       subText: sic em, sharpened edges
       amountData:
         label: 'hit/s'
         default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
+        attributes:
+          Power Coefficient: 820
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 100%}
+      wvwModifiers:
         attributes:
           Power Coefficient: 543.8
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 100%}
       gw2id: 45717
+      temporaryBuff: true
 
-    # .63 * 690.5 = 435.0
+    # pve: .95 * 690.5 = 655.0
+    # wvw: .63 * 690.5 = 435.0
     - id: one-wolf-pack-no-sic-em-sharpened
       text: One Wolf Pack
       subText: no sic em, sharpened edges
       amountData:
         label: 'hit/s'
         default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
+        attributes:
+          Power Coefficient: 655
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 100%}
+      wvwModifiers:
         attributes:
           Power Coefficient: 435
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 100%}
       gw2id: 45717
+      temporaryBuff: true
+
+    - id: force-of-nature
+      text: Force of Nature
+      subText: Force of Nature
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add] #unconfirmed
+        attributes:
+          Outgoing Healing: 10%
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [25%, add] #unconfirmed
+        attributes:
+          Outgoing Healing: 25%
+      temporaryBuff: true
 
 - section: Marksmanship
   id: 8
+  note: Farsighted currently breaks air and hydromancy sigil simulation, and possibly some other effects.
   items:
 
     - id: farsighted
       text: Farsighted
-      subText: melee
+      subText: melee, not accurate
       modifiers:
         damage:
-          Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [10%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 1000
       defaultEnabled: true
 
     - id: farsighted-2
       text: Farsighted
-      subText: ranged
+      subText: ranged, not accurate
       modifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Outgoing Strike Damage: [25%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [15%, mult]
       gw2id: 1000
+      defaultEnabled: false
 
     - id: predators-onslaught
       text: Predator's Onslaught
+      subText: impaired/defiant
       amountData:
-        label: '% impaired'
+        label: '% uptime'
         default: 100
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Outgoing Strike Damage: [15%, mult]
       gw2id: 996
       defaultEnabled: true
 
@@ -114,18 +199,23 @@
       amountData:
         label: 'hit/s'
         default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 100%}
+      wvwModifiers:
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 33%}
       gw2id: 1069
       defaultEnabled: false
+      temporaryBuff: true
 
     - id: hidden-barbs
       text: Hidden Barbs
       modifiers:
         damage:
-          Bleeding Damage: [33%, unknown]
+          Outgoing Bleeding Damage: [33%, mult] # unconfirmed
       gw2id: 1846
       defaultEnabled: true
 
@@ -134,22 +224,30 @@
       subText: 100% flanking
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [15%, mult]
+        attributes:
+          Critical Chance: 10%
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [10%, mult]
         attributes:
           Critical Chance: 10%
       minor: true
       gw2id: 1068
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: light-on-your-feet
       text: Light on your Feet
       subText: 100% uptime
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
         attributes:
           Condition Duration: 10%
       gw2id: 1912
+      defaultEnabled: false
+      temporaryBuff: true
 
     - id: vicious-quarry
       text: Vicious Quarry
@@ -157,9 +255,38 @@
       modifiers:
         attributes:
           Ferocity: [250, buff]
+          Critical Chance: 15%
+      wvwModifiers:
+        attributes:
+          Ferocity: [250, buff]
           Critical Chance: 10%
       gw2id: 1888
       defaultEnabled: true
+      temporaryBuff: true
+
+    - id: striders-strength
+      text: Strider's Strength
+      subText: base
+      modifiers:
+        attributes:
+          Power: [120, buff] # buff unconfirmed
+      gw2id: 1700
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: striders-strength-sword
+      text: Strider's Strength
+      subText: with sword
+      amountData:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Power: [120, buff] # buff unconfirmed
+      gw2id: 1700
+      defaultEnabled: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
 - section: Wilderness Survival
   id: 33
@@ -190,6 +317,7 @@
           Expertise: {Vitality: 4%}
       gw2id: 1099
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: ambidexterity
       text: Ambidexterity
@@ -199,6 +327,7 @@
           Condition Damage: [120, buff]
       gw2id: 1101
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: ambidexterity-2
       text: Ambidexterity
@@ -212,12 +341,42 @@
           Condition Damage: [120, buff]
       gw2id: 1101
       defaultEnabled: true
+      temporaryBuff: activeOutOfCombat # sometimes...
+
+    - id: survival-instincts-high
+      text: Survival Instincts
+      subText: high health
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, unknown]
+          Damage Reduction: [10%, unknown]
+      gw2id: 2032
+      defaultEnabled: true
+
+    - id: carnivore
+      text: Carnivore
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 3255
+          Siphon Coefficient: 0.05
+      wvwModifiers:
+        attributes:
+          Siphon Base Coefficient: 586
+          Siphon Coefficient: 0.05
+      gw2id: 1094
+      defaultEnabled: true
+      temporaryBuff: true
 
     - id: poison-master
       text: Poison Master
       modifiers:
         damage:
-          Poison Damage: [25%, unknown]
+          Outgoing Poison Damage: [25%, mult] # unconfirmed
       gw2id: 1701
       defaultEnabled: true
 
@@ -229,21 +388,22 @@
       text: Bountiful Hunter
       amountData:
         label: 'boons'
-        default: 8
+        default: 10
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [1%, mult]
+          Outgoing Strike Damage: [1%, mult]
       gw2id: 1062
       defaultEnabled: true
 
-    - id: instinctive-reaction
-      text: Instinctive Reaction
+    - id: wellspring
+      text: Wellspring
       modifiers:
         conversion:
           Healing Power: {Power: 7%}
       gw2id: 978
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: lingering-magic
       text: Lingering Magic
@@ -256,6 +416,7 @@
       minor: true
       gw2id: 1059
       defaultEnabled: true
+      temporaryBuff: false
 
 - section: Beastmastery
   id: 32
@@ -269,6 +430,7 @@
           Ferocity: [120, buff]
       gw2id: 1066
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: honed-axes-axe
       text: Honed Axes
@@ -282,6 +444,7 @@
           Ferocity: [120, buff]
       gw2id: 1066
       defaultEnabled: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
 - section: Druid
   id: 5
@@ -290,22 +453,34 @@
 
     - id: natural-mender
       text: Natural Mender
-      amountData:
-        label: 'stacks'
-        default: 10
-        quantityEntered: 1
       modifiers:
         attributes:
-          Outgoing Healing: 2%
+          Outgoing Healing: 20%
       wvwModifiers:
         attributes:
-          Outgoing Healing: 1%
+          Outgoing Healing: 15%
       minor: true
       gw2id: 1992
       defaultEnabled: true
+      temporaryBuff: false
+
+    - id: natural-balance
+      text: Natural Balance
+      subText: 100% uptime
+      modifiers:
+        damage:
+          Outgoing Condition Damage: [10%, add] # unconfirmed
+        attributes:
+          Condition Duration: 10%
+          Concentration: [300, unknown]
+      gw2id: 2056
+      defaultEnabled: true
+      temporaryBuff: true
 
 - section: Soulbeast
   id: 55
+  note: >-
+    "Sic 'Em!" currently breaks air and hydromancy sigil simulation, and possibly some other effects.
   items:
 
     - id: furious-strength
@@ -316,13 +491,28 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, add]
+          Outgoing Strike Damage: [10%, add]
       wvwModifiers:
         damage:
-          Strike Damage: [7%, add]
+          Outgoing Strike Damage: [7%, add]
       minor: true
       gw2id: 2156
       defaultEnabled: true
+
+    - id: predators-cunning
+      text: Predator's Cunning
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 170
+          Siphon Coefficient: 0.006
+      gw2id: 2161
+      defaultEnabled: true
+      temporaryBuff: true
 
     - id: twice-as-vicious
       text: Twice as Vicious
@@ -332,12 +522,12 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, add]
-          Condition Damage: [10%, add]
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
       wvwModifiers:
         damage:
-          Strike Damage: [5%, add]
-          Condition Damage: [5%, add]
+          Outgoing Strike Damage: [5%, add]
+          Outgoing Condition Damage: [5%, add]
       minor: true
       gw2id: 2127
       defaultEnabled: true
@@ -347,11 +537,12 @@
       subText: 100% uptime
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
         attributes:
           Condition Duration: 10%
       gw2id: 2143
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: archetype-stout
       subText: Archetype Stout (Tough/Vit)
@@ -364,6 +555,8 @@
           Toughness: [200, buff]
           Vitality: [100, buff]
       minor: true
+      defaultEnabled: false
+      temporaryBuff: false
 
     - id: archetype-deadly
       subText: Archetype Deadly (ConDmg/Prec)
@@ -376,6 +569,8 @@
           Condition Damage: [200, buff]
           Precision: [100, buff]
       minor: true
+      defaultEnabled: false
+      temporaryBuff: false
 
     - id: archetype-versatile
       subText: Archetype Versatile (Vit/Conc)
@@ -388,6 +583,8 @@
           Vitality: [200, buff]
           Concentration: [225, buff]
       minor: true
+      defaultEnabled: false
+      temporaryBuff: false
 
     - id: archetype-ferocious
       subText: Archetype Ferocious (Pwr/Feroc)
@@ -400,6 +597,8 @@
           Power: [100, buff]
           Ferocity: [100, buff]
       minor: true
+      defaultEnabled: false
+      temporaryBuff: false
 
     - id: archetype-supportive
       subText: Archetype Supportive (Vit/Heal)
@@ -412,6 +611,8 @@
           Vitality: [100, buff]
           Outgoing Healing: 25%
       minor: true
+      defaultEnabled: false
+      temporaryBuff: false
 
     - id: pack-alpha-merged
       subText: merged
@@ -431,14 +632,17 @@
           Vitality: [75, buff]
       minor: true
       gw2id: 1900
+      defaultEnabled: false
+      temporaryBuff: false
 
     - id: loud-whistle-merged
       subText: merged
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       minor: true
       gw2id: 974
+      defaultEnabled: false
 
     - id: pets-prowess-merged
       subText: merged
@@ -450,6 +654,8 @@
           Ferocity: [150, buff]
       minor: true
       gw2id: 1065
+      defaultEnabled: false
+      temporaryBuff: false
 
     - id: honed-axes-merged
       subText: merged, base
@@ -458,6 +664,8 @@
           Ferocity: [120, buff]
       minor: true
       gw2id: 1066
+      defaultEnabled: false
+      temporaryBuff: false
 
 - section: Untamed
   id: 72
@@ -468,20 +676,25 @@
       text: Natural Fortitude
       modifiers:
         attributes:
-          Vitality: [240, unknown]
+          Vitality: [240, buff]
       minor: true
       gw2id: 2286
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: vow-of-the-untamed-you
       text: Vow of the Untamed
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       subText: player unleashed
       modifiers:
         damage:
-          All Damage: [25%, unknown]
+          Outgoing Strike Damage: [25%, unknown]
       wvwModifiers:
         damage:
-          All Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, unknown]
       minor: true
       gw2id: 2269
       defaultEnabled: true
@@ -497,6 +710,7 @@
           Damage Reduction: [10%, unknown]
       minor: true
       gw2id: 2269
+      defaultEnabled: false
 
     - id: ferocious-symbiosis
       text: Ferocious Symbiosis
@@ -506,6 +720,9 @@
         quantityEntered: 1
       modifiers:
         damage:
-          All Damage: [3%, unknown]
+          Outgoing Strike Damage: [5%, unknown]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [3%, unknown]
       gw2id: 2274
       defaultEnabled: true

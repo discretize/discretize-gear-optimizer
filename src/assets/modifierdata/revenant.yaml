@@ -1,12 +1,165 @@
 - section: Skills
   items:
 
+    - id: battle-scars
+      text: Battle Scars
+      subText: Battle Scars
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 117
+          Siphon Coefficient: 0.006
+      wvwModifiers:
+        attributes:
+          Siphon Base Coefficient: 58
+          Siphon Coefficient: 0.003
+      temporaryBuff: true
+
+    - id: facet-of-nature-assassin
+      text: Facet of Nature—Assassin
+      subText: Facet of Nature—Assassin
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 53
+          Siphon Coefficient: 0.0666
+      temporaryBuff: true
+
+    - id: facet-of-darkness-draconic-echo
+      text: Facet of Darkness
+      subText: draconic echo passive, 100% uptime
+      modifiers:
+        attributes:
+          Critical Chance: 10%
+      wvwModifiers:
+        attributes:
+          Critical Chance: 5%
+      gw2id: 28379
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: facet-of-elements-draconic-echo
+      text: Facet of Elements
+      subText: draconic echo passive
+      amountData:
+        label: '% uptime'
+        default: 20
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Condition Damage: [10%, add] #unconfirmed
+      wvwModifiers:
+        damage:
+          Outgoing Condition Damage: [5%, add] #unconfirmed
+      gw2id: 27014
+
+    - id: facet-of-strength-draconic-echo
+      text: Facet of Strength
+      subText: draconic echo passive
+      amountData:
+        label: '% uptime'
+        default: 20
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, unknown]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [5%, unknown]
+      gw2id: 26644
+
+    - id: facet-of-chaos-draconic-echo
+      text: Facet of Chaos (Draconic Echo)
+      subText: draconic echo passive, 100% uptime
+      modifiers:
+        damage:
+          Damage Reduction: [10%, unknown]
+      wvwModifiers:
+        damage:
+          Damage Reduction: [5%, unknown]
+      gw2id: 27760
+      defaultEnabled: false
+
+    - id: facet-of-nature-draconic-echo
+      text: Facet of Nature (Draconic Echo)
+      subText: draconic echo passive, 100% uptime
+      modifiers:
+        attributes:
+          Boon Duration: 10%
+      wvwModifiers:
+        attributes:
+          Boon Duration: 5%
+      gw2id: 29371
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: burst-of-strength
+      text: Burst of Strength
+      subText: damage buff only
+      amountData:
+        label: '% uptime'
+        default: 39
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [15%, add]
+          Outgoing Condition Damage: [15%, add] #unconfirmed
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [7%, add]
+      gw2id: 28113
+
     - id: vengeful-hammers
       text: Vengeful Hammers
       modifiers:
         damage:
-          Damage Reduction: [20%, unknown]
+          Damage Reduction: [20%, mult]
       gw2id: 26557
+
+    - id: soulcleaves-summit
+      text: Soulcleave's Summit
+      subText: siphon only
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 325
+          Siphon Coefficient: 0.1
+      wvwModifiers:
+        attributes:
+          Siphon Base Coefficient: 325
+          Siphon Coefficient: 0.04
+      gw2id: 45773
+      temporaryBuff: true
+
+    - id: enchanted-daggers
+      text: Enchanted Daggers
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 6168
+          Siphon Coefficient: 0.36
+      wvwModifiers:
+        attributes:
+          Siphon Base Coefficient: 5148
+          Siphon Coefficient: 0.3
+      gw2id: 26937
+      temporaryBuff: true
 
 - section: Corruption
   id: 14
@@ -16,7 +169,7 @@
       text: Acolyte of Torment
       modifiers:
         damage:
-          Torment Damage: [10%, unknown]
+          Outgoing Torment Damage: [10%, mult]
       gw2id: 1793
       defaultEnabled: true
 
@@ -28,16 +181,17 @@
           Condition Damage: [120, buff]
       gw2id: 1801
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: demonic-resistance
       text: Demonic Resistance
       subText: 100% resistance
       modifiers:
         damage:
-          Damage Reduction: [20%, unknown]
+          Damage Reduction: [20%, mult]
       wvwModifiers:
         damage:
-          Damage Reduction: [10%, unknown]
+          Damage Reduction: [10%, mult]
       gw2id: 1726
       defaultEnabled: true
 
@@ -51,6 +205,7 @@
           Condition Duration: 7%
       gw2id: 1714
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: yearning-empowerment
       text: Yearning Empowerment
@@ -60,6 +215,7 @@
           Condition Duration: 10%
       gw2id: 1744
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Retribution
   id: 9
@@ -70,8 +226,9 @@
       subText: ranged
       modifiers:
         damage:
-          Damage Reduction: [10%, unknown]
+          Damage Reduction: [10%, mult]
       gw2id: 1728
+      defaultEnabled: false
 
     - id: dwarven-battle-training
       text: Dwarven Battle Training
@@ -81,7 +238,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1740
       defaultEnabled: true
 
@@ -91,7 +248,7 @@
       minor: true
       modifiers:
         damage:
-          Damage Reduction: [10%, unknown]
+          Damage Reduction: [10%, mult]
       gw2id: 1713
       defaultEnabled: true
 
@@ -103,7 +260,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          All Damage: [10%, add]
+          Outgoing All Damage: [10%, add]
       gw2id: 1779
       defaultEnabled: true
 
@@ -117,6 +274,7 @@
           Power: {Toughness: 4%}
       gw2id: 1770
       defaultEnabled: true
+      temporaryBuff: false
 
 - section: Invocation
   id: 3
@@ -130,7 +288,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [7%, mult]
+          Outgoing Strike Damage: [10%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [7%, mult]
       gw2id: 1761
       defaultEnabled: true
 
@@ -143,7 +304,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          All Damage: [7%, add]
+          Outgoing All Damage: [10%, add]
+      wvwModifiers:
+        damage:
+          Outgoing All Damage: [7%, add]
       gw2id: 1758
       defaultEnabled: true
 
@@ -152,13 +316,16 @@
       subText: 100% fury
       modifiers:
         attributes:
+          Critical Chance: 25%
+      wvwModifiers:
+        attributes:
           Critical Chance: 20%
       gw2id: 1719
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Devastation
   id: 15
-  note: Battle scars is not currently simulated.
   items:
 
     - id: unsuspecting-strikes
@@ -169,10 +336,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [20%, mult]
+          Outgoing Strike Damage: [20%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1767
       defaultEnabled: true
 
@@ -182,7 +349,7 @@
       minor: true
       modifiers:
         damage:
-          All Damage: [5%, add]
+          Outgoing All Damage: [5%, add]
       gw2id: 1724
       defaultEnabled: true
 
@@ -196,10 +363,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          All Damage: [2.5%, add]
+          Outgoing All Damage: [2.5%, add]
       wvwModifiers:
         damage:
-          All Damage: [5%, add]
+          Outgoing All Damage: [5%, add]
       gw2id: 1724
       defaultEnabled: true
 
@@ -215,6 +382,7 @@
           Condition Damage: [-250, buff]
       gw2id: 1765
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: targeted-destruction
       text: Targeted Destruction
@@ -225,7 +393,7 @@
       minor: true
       modifiers:
         damage:
-          Strike Damage: [12.5%, mult]
+          Outgoing Strike Damage: [12.5%, mult]
       gw2id: 1792
       defaultEnabled: true
 
@@ -237,28 +405,13 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [20%, mult]
+          Outgoing Strike Damage: [20%, mult]
       gw2id: 1800
       defaultEnabled: true
 
 - section: Salvation
   id: 12
   items:
-
-    - id: tranquil-balance
-      text: Tranquil Balance
-      amountData:
-        label: '% scholar'
-        default: 100
-        quantityEntered: 100
-      modifiers:
-        attributes:
-          Outgoing Healing: 20%
-      wvwModifiers:
-        attributes:
-          Outgoing Healing: 7%
-      gw2id: 1822
-      defaultEnabled: true
 
     - id: life-attunement
       text: Life Attunement
@@ -275,6 +428,7 @@
           Concentration: {Healing Power: 4%}
       gw2id: 1821
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: invoking-harmony
       text: Invoking Harmony
@@ -288,36 +442,31 @@
       wvwModifiers:
         attributes:
           Outgoing Healing: 10%
-      gw2id: 1818
+      gw2id: 1823
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: serene-rejuvenation
       text: Serene Rejuvenation
       minor: true
       modifiers:
         attributes:
-          Outgoing Healing: 15%
+          Outgoing Healing: 20%
       wvwModifiers:
         attributes:
-          Outgoing Healing: 10%
+          Outgoing Healing: 15%
       gw2id: 1814
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: unyielding-devotion
       text: Unyielding Devotion
       subText: 100%
       modifiers:
         damage:
-          Damage Reduction: [15%, unknown]
+          Damage Reduction: [15%, mult]
       gw2id: 1825
-
-    - id: selfless-amplification
-      text: Selfless Amplification
-      modifiers:
-        conversion:
-          Outgoing Healing: {Healing Power: 0.015%}
-      gw2id: 1820
-      defaultEnabled: true
+      defaultEnabled: false
 
 - section: Herald
   id: 52
@@ -331,6 +480,7 @@
           Maximum Health: 10%
       gw2id: 1737
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: hardening-persistence
       text: Hardening Persistence
@@ -341,8 +491,18 @@
         disableBlacklist: true
       modifiers:
         damage:
-          Damage Reduction: [1.5%, unknown]
+          Damage Reduction: [1.5%, mult]
       gw2id: 1730
+      defaultEnabled: false
+
+    - id: elevated-compassion
+      text: Elevated Compassion
+      modifiers:
+        conversion:
+          Concentration: {Power: 13%}
+      gw2id: 1746
+      defaultEnabled: true
+      temporaryBuff: false
 
     - id: reinforced-potency-base
       text: Reinforced Potency
@@ -350,23 +510,27 @@
       minor: true
       modifiers:
         attributes:
-          Concentration: [120, unknown]
+          Concentration: [240, converted]
       wvwModifiers:
         attributes:
-          Concentration: [60, unknown]
+          Concentration: [60, converted]
       gw2id: 1788
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: reinforced-potency-boons
       text: Reinforced Potency
       minor: true
       amountData:
         label: 'boons'
-        default: 8
+        default: 10
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [1%, unknown]
+          Outgoing Strike Damage: [1.5%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [1%, mult]
       gw2id: 1788
       defaultEnabled: true
 
@@ -379,7 +543,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [13%, add] # add according to wiki
+          Outgoing Strike Damage: [20%, add] # add according to wiki
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [13%, add] # add according to wiki
       gw2id: 1803
       defaultEnabled: true
 
@@ -392,10 +559,10 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [4%, add] # add according to wiki
+          Outgoing Strike Damage: [7%, add] # add according to wiki
       wvwModifiers:
         damage:
-          Strike Damage: [3%, add]
+          Outgoing Strike Damage: [3%, add]
       gw2id: 1803
       defaultEnabled: true
 
@@ -412,11 +579,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          All Damage: [2%, add]
-      wvwModifiers:
-        damage:
-          Strike Damage: [1%, add]
-          Condition Damage: [2%, add]
+          Outgoing All Damage: [2%, add]
       gw2id: 2181
       defaultEnabled: true
 
@@ -428,12 +591,13 @@
           Bleeding Duration: 25%
       gw2id: 2079
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: heartpiercer
       text: Heartpiercer
       modifiers:
         damage:
-          Bleeding Damage: [25%, unknown]
+          Outgoing Bleeding Damage: [25%, mult]
       gw2id: 2092
       defaultEnabled: true
 
@@ -446,6 +610,7 @@
           Critical Chance: 33%
       gw2id: 2142
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: lasting-legacy
       text: Lasting Legacy
@@ -455,7 +620,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          All Damage: [1%, add]
+          Outgoing All Damage: [1%, add]
       gw2id: 2100
       defaultEnabled: true
 
@@ -471,7 +636,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, add]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 2258
       defaultEnabled: true
 
@@ -485,9 +650,10 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Power: [240, unknown]
+          Power: [240, converted]
       gw2id: 2229
       defaultEnabled: true
+      temporaryBuff: activeOutOfCombat
 
     - id: empire-divided-below
       text: Empire Divided
@@ -499,9 +665,10 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Healing Power: [240, unknown]
+          Healing Power: [240, converted]
       gw2id: 2229
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: forerunner-of-death
       text: Forerunner of Death
@@ -511,6 +678,9 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [25%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [15%, add]
       gw2id: 2257
       defaultEnabled: true

@@ -23,15 +23,14 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-// first disables the delimiting line above!
-const Section = ({ first, title, helpText, extraInfo, content }) => {
+const SectionInfo = ({ title, children }) => {
   const { t } = useTranslation();
   const expert = useSelector(getExpertMode);
   const { classes } = useStyles();
 
   const [expandedClick, setExpandedClick] = React.useState(!expert);
 
-  const SectionInfo = ({ children }) => (
+  return (
     <>
       <Typography variant="h5">{title}</Typography>{' '}
       {children && (
@@ -56,7 +55,10 @@ const Section = ({ first, title, helpText, extraInfo, content }) => {
       )}
     </>
   );
+};
 
+// first disables the delimiting line above!
+const Section = ({ first, title, helpText, extraInfo, content }) => {
   return (
     <Grid item container spacing={2} mb={2} sx={{ borderColor: 'primary.main' }}>
       {!first && (
@@ -65,7 +67,7 @@ const Section = ({ first, title, helpText, extraInfo, content }) => {
         </Grid>
       )}
       <Grid item xs={12} sm={3}>
-        <SectionInfo>{helpText}</SectionInfo>
+        <SectionInfo title={title}>{helpText}</SectionInfo>
         {extraInfo}
       </Grid>
 

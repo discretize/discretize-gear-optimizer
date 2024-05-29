@@ -1,5 +1,4 @@
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
-import React from 'react';
 
 const Bonuses = ({ data, title }) => {
   return (
@@ -12,7 +11,7 @@ const Bonuses = ({ data, title }) => {
               <TableCell>
                 <Typography sx={{ fontSize: '18px', color: '#AAAAAA' }}>{attribute}</Typography>
               </TableCell>
-              <TableCell>{data[attribute]}</TableCell>
+              <TableCell align="right">{data[attribute]}</TableCell>
             </TableRow>
           ))}
         </TableBody>

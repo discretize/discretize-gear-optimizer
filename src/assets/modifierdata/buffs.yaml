@@ -11,19 +11,24 @@
           Power: [30, buff]
           Condition Damage: [30, buff]
       type: Boon
+      temporaryBuff: true
 
     - id: fury
       text: Fury
       modifiers:
         attributes:
+          Critical Chance: 25%
+      wvwModifiers:
+        attributes:
           Critical Chance: 20%
       type: Boon
+      temporaryBuff: true
 
     - id: protection
       text: Protection
       modifiers:
         damage:
-          Damage Reduction: [33%, unknown]
+          Damage Reduction: [33%, mult]
       type: Boon
 
     - id: vulnerability
@@ -34,91 +39,13 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [1%, target]
-          Condition Damage: [1%, target]
-          Phantasm Damage: [1%, target]
+          Outgoing Strike Damage: [1%, target]
+          Outgoing Condition Damage: [1%, target]
+          Outgoing Phantasm Damage: [1%, target]
       type: Condition
-
-- section: Warrior buffs
-  items:
-    - id: bannerOfStrength
-      text: Banner of Strength
-      modifiers:
-        attributes:
-          Power: [100, buff]
-          Condition Damage: [100, buff]
-      type: Skill
-      gw2id: 14405
-
-    - id: bannerOfDiscipline
-      text: Banner of Discipline
-      modifiers:
-        attributes:
-          Precision: [100, buff]
-          Ferocity: [100, buff]
-      type: Skill
-      gw2id: 14407
-
-    - id: bannerOfTactics
-      text: Banner of Tactics
-      modifiers:
-        attributes:
-          Healing Power: [100, buff]
-          Boon Duration: 10%
-      type: Skill
-      gw2id: 14408
-
-    - id: bannerOfDefense
-      text: Banner of Defense
-      modifiers:
-        attributes:
-          Toughness: [100, buff]
-          Vitality: [100, buff]
-      type: Skill
-      gw2id: 14528
-
-    - id: empowerAllies
-      text: Empower Allies
-      modifiers:
-        attributes:
-          Power: [100, buff]
-      type: Trait
-      gw2id: 1482
 
 - section: Other buffs
   items:
-    - id: spotter
-      text: Spotter
-      modifiers:
-        attributes:
-          Precision: [100, buff]
-      type: Trait
-      gw2id: 1016
-
-    - id: frostSpirit
-      text: Frost Spirit
-      modifiers:
-        damage:
-          Strike Damage: [5%, add]
-      type: Skill
-      gw2id: 12497
-
-    - id: pinpointDistribution
-      text: Pinpoint Distribution
-      modifiers:
-        attributes:
-          Condition Damage: [100, buff]
-      type: Trait
-      gw2id: 1984
-
-    - id: strengthInNumbers
-      text: Strength in Numbers
-      modifiers:
-        attributes:
-          Toughness: [100, buff]
-      type: Trait
-      gw2id: 584
-
     - id: jade-bot-base
       text: Jade Bot
       subText: (select both boxes)
@@ -126,6 +53,7 @@
         attributes:
           Vitality: [85, converted]
       type: Text
+      temporaryBuff: false
 
     - id: jade-bot-per-tier
       text: Jade Bot Tier
@@ -137,58 +65,20 @@
         attributes:
           Vitality: [15, converted]
       type: Text
+      temporaryBuff: false
 
-- section: Guardian - Perfect Inscriptions (100% uptime)
-  items:
-    - id: baneSignet
-      text: Bane Signet
+    - id: reinforced-armor
+      text: Reinforced Armor
       modifiers:
-        attributes:
-          Power: [216, buff]
-      type: Skill
-      gw2id: 9093
-
-    - id: signetOfJudgement
-      text: Signet of Judgement
-      modifiers:
-        damage:
-          Damage Reduction: [12%, unknown]
-      type: Skill
-      gw2id: 9150
-
-    - id: signetOfMercy
-      text: Signet of Mercy
-      modifiers:
-        attributes:
-          Boon Duration: 10%
-      type: Skill
-      gw2id: 9163
-
-    - id: signetOfWrath
-      text: Signet of Wrath
-      modifiers:
-        attributes:
-          Condition Damage: [216, buff]
-      type: Skill
-      gw2id: 9151
-
-- section: Revenant buffs
-  items:
-    - id: assassinsPresence
-      text: Assassin's Presence
-      modifiers:
-        attributes:
-          Ferocity: [150, buff]
-      type: Trait
-      gw2id: 1786
-
-    - id: riteDwarf
-      text: Rite of the Great Dwarf
-      modifiers:
-        damage:
-          Damage Reduction: [50%, unknown]
-      type: Skill
-      gw2id: 27975
+        conversion:
+          Vitality: {Vitality: 5%} # tested: https://discord.com/channels/380901000200060929/380903574282174466/1025093797304090685
+          Armor: {Armor: 5%}
+      wvwModifiers:
+        conversion:
+          Vitality: {Vitality: 1%}
+          Armor: {Armor: 1%}
+      type: Text
+      temporaryBuff: false
 
 - section: Effects
   items:
@@ -200,9 +90,9 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, target]
-          Condition Damage: [20%, target]
-          Phantasm Damage: [10%, target]
+          Outgoing Strike Damage: [10%, target]
+          Outgoing Condition Damage: [20%, target]
+          Outgoing Phantasm Damage: [10%, target]
       type: CommonEffect
 
     - id: lightArmor
@@ -210,5 +100,24 @@
       subText: 1910 vs 2597
       modifiers:
         damage:
-          Strike Damage: [35.9686%, mult]
+          Outgoing Strike Damage: [35.9686%, mult]
+          Outgoing Phantasm Damage: [35.9686%, mult]
+      type: Text
+
+    - id: lightArmor2
+      text: Low Boss Armor (HT)
+      subText: 2141 vs 2597
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [21.2985%, mult]
+          Outgoing Phantasm Damage: [21.2985%, mult]
+      type: Text
+
+    - id: lightArmor3
+      text: Low Boss Armor (Qadim)
+      subText: 2293 vs 2597 # tested by remagic
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [13.2577%, mult]
+          Outgoing Phantasm Damage: [13.2577%, mult]
       type: Text

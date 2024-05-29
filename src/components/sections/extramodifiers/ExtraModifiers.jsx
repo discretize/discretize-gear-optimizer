@@ -8,13 +8,13 @@ import {
   Typography,
 } from '@mui/material';
 import yaml from 'js-yaml';
-import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { exampleModifiers, exampleModifiersJson } from '../../../assets/modifierdata/metadata';
 import {
   changeExtraModifiers,
   changeExtraModifiersError,
+  changeExtraModifiersText,
   getExtraModifiersError,
   getExtraModifiersTextBox,
 } from '../../../state/slices/extraModifiers';
@@ -48,10 +48,10 @@ const ExtraModifiers = () => {
 
   const handleChange = (e) => {
     const val = e.target.value;
-    dispatch(changeExtraModifiers({ key: 'textBox', value: val }));
+    dispatch(changeExtraModifiersText(val));
 
     const { data, error } = parseInput(val);
-    dispatch(changeExtraModifiers({ key: 'extraModifiers', value: data }));
+    dispatch(changeExtraModifiers(data));
     dispatch(changeExtraModifiersError(error ? t('Invalid Format.') : ''));
   };
   return (

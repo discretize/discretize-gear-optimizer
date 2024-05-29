@@ -1,0 +1,41 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    labels: [ ]
+    schedule:
+      interval: weekly
+    groups:
+      github-actions:
+        patterns:
+          - '*'
+
+  - package-ecosystem: npm
+    directory: /
+    labels: [ ]
+    schedule:
+      interval: weekly
+    ignore:
+      - dependency-name: eslint-plugin-jsx-a11y
+    groups:
+      npm-dependencies:
+        patterns:
+          - '*'
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: cargo
+    directory: /wasm_module
+    labels: [ ]
+    schedule:
+      interval: weekly
+    allow:
+      - dependency-type: all
+    groups:
+      cargo-dependencies:
+        patterns:
+          - '*'
+        update-types:
+          - minor
+          - patch

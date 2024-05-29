@@ -4,18 +4,22 @@
     "es6": true,
     "jquery": true
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "@jambit/eslint-plugin-typed-redux-saga"],
   "extends": [
-    "react-app",
     "airbnb/whitespace",
     "airbnb/hooks",
+    "plugin:react/jsx-runtime",
     "plugin:jsdoc/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/stylistic",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
-  "ignorePatterns": ["/plugins/*"],
+  "ignorePatterns": ["/plugins/*", "src/assets/typevalidation/output", "wasm_module/"],
   "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
     "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
@@ -35,6 +39,8 @@
       { "argsIgnorePattern": "^e$|^theme$|^_", "varsIgnorePattern": "^e$|^theme$|^_" }
     ],
     "lines-between-class-members": ["warn", "always", { "exceptAfterSingleLine": true }],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "off",
 
     // temp
     "react/prop-types": "off",
@@ -72,6 +78,8 @@
       }
     ],
 
+    "react/function-component-definition": "off",
+
     // typescript:
     "react/jsx-filename-extension": ["warn", { "extensions": [".jsx", ".tsx"] }],
     "import/extensions": [
@@ -79,9 +87,6 @@
       "ignorePackages",
       { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }
     ],
-    // Replace base rules with typescript-aware rules
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
     // Being explicit about types is sometimes good
     "@typescript-eslint/no-inferrable-types": "off",
     // We want to enable these eventually
@@ -104,6 +109,13 @@
         "@typescript-eslint/no-var-requires": "off",
         "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/no-use-before-define": "off"
+      }
+    },
+    {
+      "files": ["*.ts"],
+      "rules": {
+        "@jambit/typed-redux-saga/use-typed-effects": "error",
+        "@jambit/typed-redux-saga/delegate-effects": "error"
       }
     }
   ]

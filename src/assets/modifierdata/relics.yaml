@@ -1,0 +1,399 @@
+- section: Power Relics
+  items:
+
+    - id: thief-relic
+      text: Relic of the Thief
+      amountData:
+        label: 'stacks'
+        default: 5
+        quantityEntered: 5
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [5%, unknown]
+      gw2id: 100916
+
+    - id: fireworks-relic
+      text: Relic of Fireworks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [7%, unknown]
+      gw2id: 100947
+
+    - id: brawler-relic
+      text: Relic of the Brawler
+      amountData:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, unknown]
+      gw2id: 100527
+
+    - id: weaver-relic
+      text: Relic of the Weaver
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, unknown]
+      gw2id: 100194
+
+    - id: deadeye-relic
+      text: Relic of the Deadeye
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, unknown]
+      gw2id: 100924
+
+    - id: citadel-relic
+      text: 'Relic of the Citadel: not yet implemented'
+      subText: 'Relic of the Citadel: not yet implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+    # 1.0 coefficient, 690.5 strength, 7 hits
+    - id: cerus-relic
+      text: Relic of Cerus
+      subText: with quickness (7 hits)
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Power Coefficient: 4833.5
+      gw2id: 100074
+      temporaryBuff: true
+
+    - id: cerus-relic-10
+      text: Relic of Cerus
+      subText: 10 hits
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Power Coefficient: 6905
+      gw2id: 100074
+      temporaryBuff: true
+
+    # - id: dagda-relic
+    #   text: 'Relic of Dagda: not yet implemented'
+    #   subText: 'Relic of Dagda: not yet implemented'
+    #   modifiers: {}
+    #   # gw2id intentionally omitted
+
+    # - id: wizards-tower-relic
+    #   text: "Relic of the Wizard's Tower: not yet implemented"
+    #   subText: "Relic of the Wizard's Tower: not yet implemented"
+    #   modifiers: {}
+    #   # gw2id intentionally omitted
+
+- section: Hybrid Relics
+  items:
+
+    - id: dragonhunter-relic
+      text: Relic of the Dragonhunter
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, unknown]
+        attributes:
+          # this is additive but uncapped; see https://github.com/discretize/discretize-gear-optimizer/pull/677
+          Condition Duration Uncapped: 10%
+      gw2id: 100090
+      temporaryBuff: true
+
+    - id: isgarren-relic
+      text: Relic of Isgarren
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, unknown]
+        attributes:
+          # this is additive but uncapped; see https://github.com/discretize/discretize-gear-optimizer/pull/677
+          Condition Duration Uncapped: 10%
+      gw2id: 99997
+      temporaryBuff: true
+
+    - id: relic-of-nourys
+      text: Relic of Nourys
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [25%, add] # tested by crone
+          Outgoing Condition Damage: [25%, add] # tested by crone
+          Damage Reduction: [15%, unknown]
+      gw2id: 101191
+
+    - id: peitha-relic
+      text: 'Relic of Peitha: not yet implemented'
+      subText: 'Relic of Peitha: not yet implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+- section: Condition Relics
+  items:
+
+    - id: aristocracy-relic
+      text: Relic of the Aristocracy
+      subText: 5 stacks
+      modifiers:
+        attributes:
+          Condition Duration: 15%
+      gw2id: 100849
+      temporaryBuff: true
+
+    - id: scourge-relic
+      text: Relic of the Scourge
+      subText: 10 stacks
+      modifiers:
+        attributes:
+          Condition Duration: 15%
+      gw2id: 100368
+      temporaryBuff: true
+
+    - id: fractal-relic
+      text: Relic of the Fractal
+      amountData:
+        label: '/10s'
+        default: 0.49
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Torment Coefficient: 24
+          Burning Coefficient: 16
+      wvwModifiers:
+        attributes:
+          Torment Coefficient: 12
+          Burning Coefficient: 4
+      gw2id: 100153
+      temporaryBuff: true
+
+    - id: akeem-relic
+      text: Relic of Akeem
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Torment Coefficient: 20
+          Confusion Coefficient: 20
+      wvwModifiers:
+        attributes:
+          Torment Coefficient: 10
+          Confusion Coefficient: 10
+      gw2id: 100432
+      temporaryBuff: true
+
+    - id: vass-relic
+      text: Relic of Vass
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Poison Coefficient: 15
+      wvwModifiers:
+        attributes:
+          Poison Coefficient: 9
+      gw2id: 100775
+      temporaryBuff: true
+
+    - id: sunless-relic
+      text: 'Relic of the Sunless: not yet implemented'
+      subText: 'Relic of the Sunless: not yet implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+    - id: afflicted-relic
+      text: 'Relic of the Afllicted: not yet implemented'
+      subText: 'Relic of the Afllicted: not yet implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+    # 0.9 coefficient, 690.5 strength
+    - id: nightmare-relic
+      text: Relic of the Nightmare
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Power Coefficient: 621.45
+          Poison Coefficient: 24
+      gw2id: 100579
+      temporaryBuff: true
+
+    - id: mirage-relic
+      text: Relic of the Mirage
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Torment Coefficient: 12
+      gw2id: 100158
+      temporaryBuff: true
+
+    # 0.5 coefficient, 690.5 strength
+    - id: krait-relic
+      text: Relic of the Krait
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Power Coefficient: 345.25
+          Bleeding Coefficient: 8
+          Poison Coefficient: 8
+          Torment Coefficient: 8
+      gw2id: 100230
+      temporaryBuff: true
+
+    - id: demon-queen-relic
+      text: Relic of the Demon Queen
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Poison Coefficient: 6
+      wvwModifiers:
+        attributes:
+          Poison Coefficient: 3
+      gw2id: 101166
+      temporaryBuff: true
+
+- section: Support Relics
+  items:
+
+    - id: herald-relic
+      text: Relic of the Herald
+      subText: 10 stacks
+      modifiers:
+        attributes:
+          Concentration: [250, unknown]
+      gw2id: 100219
+      temporaryBuff: true
+
+    - id: firebrand-relic
+      text: Relic of the Firebrand
+      subText: after final mantra
+      modifiers:
+        attributes:
+          Boon Duration: 20%
+      gw2id: 100453
+      temporaryBuff: true
+
+    - id: midnight-king-relic
+      text: 'Relic of the Midnight King: not implemented'
+      subText: 'Relic of the Midnight King: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+    - id: pack-relic
+      text: 'Relic of the Pack: not implemented'
+      subText: 'Relic of the Pack: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+    - id: zephyrite-relic
+      text: 'Relic of the Zephyrite: not implemented'
+      subText: 'Relic of the Zephyrite: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+- section: Heal Relics
+  items:
+
+    - id: monk-relic
+      text: Relic of the Monk
+      amountData:
+        label: 'stacks'
+        default: 10
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Outgoing Healing: 10%
+      gw2id: 100031
+      temporaryBuff: true
+
+    - id: karakosa-relic
+      text: 'Relic of Karakosa: not implemented'
+      subText: 'Relic of Karakosa: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+    - id: flock-relic
+      text: 'Relic of the Flock: not implemented'
+      subText: 'Relic of the Flock: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+    - id: dwayna-relic
+      text: 'Relic of Dwayna: not implemented'
+      subText: 'Relic of Dwayna: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+    - id: lyhr-relic
+      text: 'Relic of Lyhr: not implemented'
+      subText: 'Relic of Lyhr: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+    - id: mercy-relic
+      text: 'Relic of Mercy: not implemented'
+      subText: 'Relic of Mercy: not implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
+
+- section: Placeholder Items
+  items:
+
+    - id: no-item-relic
+      text: No Item (doesn't give any stats)
+      subText: No Item (doesn't give any stats)
+      modifiers: {}
+      # gw2id intentionally omitted

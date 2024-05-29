@@ -1,6 +1,4 @@
-import { HelperIcon } from '@discretize/react-discretize-components';
 import {
-  Box,
   Checkbox,
   Table,
   TableBody,
@@ -8,14 +6,16 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Typography,
 } from '@mui/material';
-import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { getForcedSlots } from '../../../state/slices/forcedSlots';
-import { changeExclusion, getExclusionData, getPriority } from '../../../state/slices/priorities';
+import {
+  changeExclusion,
+  getAffixes,
+  getExclusionData,
+  getWeaponType,
+} from '../../../state/slices/priorities';
 import { GEAR_SLOTS, WeaponTypes } from '../../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({
@@ -33,9 +33,8 @@ const ExcludedSlots = () => {
 
   const dispatch = useDispatch();
   const forcedSlots = useSelector(getForcedSlots);
-  const dualWielded = useSelector(getPriority('weaponType'));
-  const { t } = useTranslation();
-  const affixes = useSelector(getPriority('affixes'));
+  const dualWielded = useSelector(getWeaponType);
+  const affixes = useSelector(getAffixes);
   const exclusions = useSelector(getExclusionData);
 
   let SLOTS = GEAR_SLOTS;
@@ -48,20 +47,10 @@ const ExcludedSlots = () => {
   };
 
   return (
-    <Box mt={3}>
-      <Typography fontWeight={700} mb={0.5}>
-        {t('Per-Slot Exclusions')}{' '}
-        <HelperIcon
-          text={t(
-            'Allows you to exclude an affix from being chosen for any gear slot. Example: select the amulet/ritualist checkbox to prevent ritualist from being assigned to the amulet slot.',
-          )}
-          size="small"
-        />
-      </Typography>
-
-      <TableContainer>
-        <Table className={classes.tableCollapse}>
-          <TableHead>
+    <TableContainer>
+      <Table className={classes.tableCollapse}>
+        <TableHead>
+          <TableRow>
             <TableCell padding="none" />
             {SLOTS.map((slot, index) => (
               // eslint-disable-next-line react/no-array-index-key
@@ -69,29 +58,29 @@ const ExcludedSlots = () => {
                 {slot.short}
               </TableCell>
             ))}
-          </TableHead>
-          <TableBody>
-            {affixes.map((affix) => (
-              <TableRow key={affix}>
-                <TableCell padding="none">{affix}</TableCell>
-                {SLOTS.map((slot, index) => (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <TableCell padding="none" sx={{ padding: 0.3 }} key={index}>
-                    <Checkbox
-                      size="small"
-                      classes={{ root: classes.checkbox }}
-                      checked={Boolean(exclusions?.[affix]?.[index])}
-                      disabled={forcedSlots[index] !== null}
-                      onChange={handleChange(index, affix)}
-                    />
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Box>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {affixes.map((affix) => (
+            <TableRow key={affix}>
+              <TableCell padding="none">{affix}</TableCell>
+              {SLOTS.map((slot, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <TableCell padding="none" sx={{ padding: 0.3 }} key={index}>
+                  <Checkbox
+                    size="small"
+                    classes={{ root: classes.checkbox }}
+                    checked={Boolean(exclusions?.[affix]?.[index])}
+                    disabled={forcedSlots[index] !== null}
+                    onChange={handleChange(index, affix)}
+                  />
+                </TableCell>
+              ))}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };
 export default ExcludedSlots;

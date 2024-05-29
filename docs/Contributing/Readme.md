@@ -20,25 +20,31 @@ This is optional if you just want to contribute to the optimizer's database and 
 
 ### Building the Site
 
-This project requires [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com/). We recommend installing Node using a version manager like NVM so you can easily switch to the correct version for different projects ([here are some methods to do so](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)).
+This project requires [Node.js](https://nodejs.org/) and [PNPM 8](https://pnpm.io/).
 
 Setting up your editor with [EditorConfig](https://editorconfig.org/), [ESLint](https://eslint.org/), and [Prettier](https://prettier.io/) integrations is also recommended.
 
 After cloning the repository, install its dependencies with:
 
 ```sh
-yarn install
+pnpm install
+```
+
+If you want your development build's experimental Rust-based multicore mode to function (optional), compile the Rust code to Webassembly by [installing Rust](https://www.rust-lang.org/learn/get-started) and running:
+
+```sh
+pnpm wasm
 ```
 
 To start the vite development server, which will build the site on your computer and update with your changes in real time, use:
 
 ```sh
-yarn develop
+pnpm develop
 ```
 
-### Pull Requests
+Note that the Rust/Webassembly code will not update in real time; the `pnpm wasm` command must be rerun to compile any changes to it.
 
-Be sure to base your development work and pull requests on the `staging` branch - this isn't the default!
+### Pull Requests
 
 Feel free to open PRs for unfinished work as [draft PRs](https://github.blog/2019-02-14-introducing-draft-pull-requests/)!
 
@@ -48,19 +54,13 @@ Make sure your commit messages follow the [Conventional Commits specification](h
 
 ## Project Information
 
-### Repository:
-
-Discretize projects do development work on the `staging` branch and periodically merge changes into the `main` branch.
-
-At present, this project is built directly off `staging` while in beta; the plan is to integrate `main` into the discretize.eu website, which will benefit from a slower release cycle.
-
 ### Hosting:
 
-The optimizer is currently hosted on [Github Pages](https://pages.github.com/). Merging into the `main` branch of this repository will automatically deploy to Github Pages using the [gh-pages](https://www.npmjs.com/package/gh-pages) package in a Github action, unless the description of the head commit (the merge commit, if you are merging a PR) contains `[skip ci]`.
+The optimizer is currently hosted on [Cloudflare Pages](https://pages.cloudflare.com/). This build can be accessed at [optimizer.discretize.eu](https://optimizer.discretize.eu/). For users that cannot access Cloudflare, there is also a mirror hosted on [Github Pages](https://pages.github.com/) at [discretize.github.io/discretize-gear-optimizer](https://discretize.github.io/discretize-gear-optimizer/).
 
-For the optimizer staging environment we are using [Cloudflare Pages](https://pages.cloudflare.com/). Commiting to the `staging` branch will automatically deploy to Cloudflare pages using the github action found in `../../.github/workflows/staging-cf.yml`. This build can be accessed at [discretize-optimizer.pages.dev](https://discretize-optimizer.pages.dev/).
+Commiting to the `main` branch will automatically deploy to both hosts using the github action found in `../../.github/workflows/build-deploy.yml` unless the description of the head commit (the merge commit, if you are merging a PR) contains `[skip ci]`.
 
-Opening a pullrequest will deploy a preview version to Cloudflare pages as well (action in `../../.github/workflows/previews-cf.yml`). A bot will notify about the deployment in the pullrequest. Every commit in a pullrequest will rebuild the preview. If you want to skip deploying a preview build, use `skip ci` in the commit description.
+Opening a pull request will deploy a preview version to Cloudflare pages as well (action in `../../.github/workflows/previews-cf.yml`). A bot will notify about the deployment in the pullrequest. Every commit in a pullrequest will rebuild the preview. If you want to skip deploying a preview build, use `skip ci` in the commit description.
 
 Previews can be disabled with a [no previews] comment anywhere in the PR description body, and can be force-enabled in draft PRs with a [draft previews] comment.
 
@@ -73,14 +73,14 @@ The site is built using [Vite](https://vitejs.dev/), which generates static site
 To start the Vite development server, which will build the site on your computer and update with your changes in real time, use:
 
 ```sh
-yarn dev
+pnpm dev
 ```
 
-Note that this builds in development mode, with verbose error messages but reduced performance. To build the site in production mode to test actual performance, you can run `yarn build` and then `yarn serve`, or shortcut both steps using `yarn buildserve`.
+Note that this builds in development mode, with verbose error messages but reduced performance. To build the site in production mode to test actual performance, you can run `pnpm build` and then `pnpm serve`, or shortcut both steps using `pnpm buildserve`.
 
-To test changes to builds quickly in production mode, you can run `yarn build --watch` in one terminal window and `yarn serve` in another.
+To test changes to builds quickly in production mode, you can run `pnpm build --watch` in one terminal window and `pnpm serve` in another.
 
-To test the Cloudflare functions used to shorten shared state links, use `yarn cfdev` in place of `yarn dev` or `yarn cfbuild` and `yarn cfserve` in place of `yarn build` and `yarn serve`. This will use Cloudflare's Wrangler CLI to simulate the real server using a proxy. The data generated in this local environment is stored in `.mf/kv/SHORT_LINKS/`.
+To test the Cloudflare functions used to shorten shared state links, use `pnpm cfdev` in place of `pnpm dev` or `pnpm cfbuild` and `pnpm cfserve` in place of `pnpm build` and `pnpm serve`. This will use Cloudflare's Wrangler CLI to simulate the real server using a proxy. The data generated in this local environment is stored in `.mf/kv/SHORT_LINKS/`.
 
 For more options, run `npx vite --help`.
 

@@ -20,7 +20,7 @@
       text: Force Signet
       modifiers:
         damage:
-          Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, add] # tested by Crone
       gw2id: 63253
 
     - id: force-signet-traited
@@ -28,14 +28,14 @@
       subText: traited
       modifiers:
         damage:
-          Strike Damage: [12%, unknown]
+          Outgoing Strike Damage: [12%, add] # tested by Crone
       gw2id: 63253
 
     - id: superconducting-signet
       text: Superconducting Signet
       modifiers:
         damage:
-          Condition Damage: [10%, unknown]
+          Outgoing Condition Damage: [10%, add] #unconfirmed
       gw2id: 63113
 
     - id: superconducting-signet-traited
@@ -43,7 +43,7 @@
       subText: traited
       modifiers:
         damage:
-          Condition Damage: [12%, unknown]
+          Outgoing Condition Damage: [12%, add] #unconfirmed
       gw2id: 63113
 
 - section: Explosives
@@ -58,7 +58,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1882
       defaultEnabled: true
 
@@ -73,6 +73,7 @@
           Ferocity: [20, buff]
       gw2id: 1892
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: blast-shield
       text: Blast Shield
@@ -81,6 +82,7 @@
           Vitality: {Power: 10%}
       gw2id: 1944
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: shaped-charge
       text: Shaped Charge
@@ -91,7 +93,7 @@
         quantityEntered: 25
       modifiers:
         damage:
-          Strike Damage: [12.5%, mult]
+          Outgoing Strike Damage: [12.5%, mult]
       gw2id: 429
       defaultEnabled: true
 
@@ -100,7 +102,10 @@
       subText: 100%
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [15%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1947
       defaultEnabled: true
 
@@ -115,12 +120,17 @@
       amountData:
         label: 'hit/s'
         default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 100%}
+      wvwModifiers:
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 33%}
       gw2id: 515
       defaultEnabled: false
+      temporaryBuff: true
 
     - id: chemical-rounds
       text: Chemical Rounds
@@ -129,50 +139,66 @@
           Condition Damage: [120, buff]
       gw2id: 1878
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: high-caliber
       text: High Caliber
+      subText: 100% melee
       modifiers:
         attributes:
           Critical Chance: 15%
       gw2id: 1914
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: hematic-focus
       text: Hematic Focus
       modifiers:
         attributes:
+          Critical Chance: 15%
+      wvwModifiers:
+        attributes:
           Critical Chance: 10%
       minor: true
       gw2id: 536
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: thermal-vision
       text: Thermal Vision
+      subText: base
       modifiers:
-        damage:
-          Condition Damage: [5%, add]
         attributes:
           Expertise: [150, converted]
       wvwModifiers:
-        damage:
-          Condition Damage: [5%, add]
         attributes:
           Expertise: [60, converted]
+      gw2id: 2006
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: thermal-vision-buff
+      text: Thermal Vision
+      subText: buff
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Condition Damage: [5%, add]
       gw2id: 2006
       defaultEnabled: true
 
     - id: no-scope
       text: No Scope
-      amountData:
-        label: '% melee'
-        default: 100
-        quantityEntered: 100
+      subText: 100% fury
       modifiers:
         attributes:
           Ferocity: [150, buff]
       gw2id: 1923
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: serrated-steel
       text: Serrated Steel
@@ -185,6 +211,7 @@
       minor: true
       gw2id: 516
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: modified-ammunition
       text: Modified Ammunition
@@ -194,7 +221,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [2%, mult]
+          Outgoing Strike Damage: [2%, mult]
       gw2id: 526
       defaultEnabled: true
 
@@ -208,6 +235,7 @@
           Burning Duration: 10%
       gw2id: 433
       defaultEnabled: true
+      temporaryBuff: false
 
 - section: Inventions
   id: 47
@@ -223,12 +251,14 @@
 
     - id: energy-amplifier
       text: Energy Amplifier
+      subText: 100% regeneration
       modifiers:
         attributes:
           Healing Power: [250, buff]
       minor: true
       gw2id: 519
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Alchemy
   id: 29
@@ -244,6 +274,8 @@
         attributes:
           Outgoing Healing: 7%
       gw2id: 521
+      defaultEnabled: false
+      temporaryBuff: true
 
     - id: compounding-chemicals
       text: Compounding Chemicals
@@ -256,12 +288,13 @@
       minor: true
       gw2id: 413
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: iron-blooded
       text: Iron Blooded
       amountData:
         label: 'boons'
-        default: 8
+        default: 10
         quantityEntered: 1
         disableBlacklist: true
       modifiers:
@@ -274,6 +307,19 @@
   id: 21
   items:
 
+    - id: takedown-round
+      text: Takedown Round
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, mult] # tested by Crone
+      gw2id: 1832
+      defaultEnabled: true
+
     - id: excessive-energy
       text: Excessive Energy
       amountData:
@@ -282,7 +328,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, add]
+          Outgoing Strike Damage: [10%, add]
       minor: true
       gw2id: 1936
       defaultEnabled: true
@@ -299,15 +345,13 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 1860
       defaultEnabled: true
 
     - id: impact-savant
       text: Impact Savant
-      modifiers:
-        attributes:
-          Vitality: [-180, buff]
+      modifiers: {}
       minor: true
       gw2id: 1877
       defaultEnabled: true
@@ -316,9 +360,13 @@
       text: Kinetic Accelerators
       modifiers:
         conversion:
+          Concentration: {Power: 13%}
+      wvwModifiers:
+        conversion:
           Concentration: {Power: 10%}
       gw2id: 2052
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: applied-force
       text: Applied Force
@@ -328,10 +376,13 @@
         quantityEntered: 25
       modifiers:
         attributes:
+          Power: [750, buff]
+      wvwModifiers:
+        attributes:
           Power: [375, buff]
-          Condition Damage: [-375, buff]
       gw2id: 1849
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Holosmith
   id: 57
@@ -344,12 +395,14 @@
         quantityEntered: 150
       modifiers:
         damage:
-          Strike Damage: [22.5%, mult] # 0.15 per 1 heat
+          Outgoing Strike Damage: [22.5%, mult] # 0.15 per 1 heat
       minor: true
       gw2id: 2122
       defaultEnabled: true
 
+  # mechanist damage is no longer accurate (even on condi)
+  # see: https://wiki.guildwars2.com/wiki/Game_updates/2023-02-14#Mechanist
 - section: Mechanist
   id: 70
-  note: Mech condition damage is only accurate with the conductive alloys trait. Mech power damage is not currently accurate at all. Use this optimizer with condi DPS mechanist only.
+  note: Damage dealt by the mechanist mech is not currently simulated accurately. It inherits some, but not all, player stats and bonuses.
   items: []

@@ -1,5 +1,4 @@
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
-import React from 'react';
 import { Trans } from 'react-i18next';
 
 const AffixesStats = ({ data }) => {
@@ -22,7 +21,7 @@ const AffixesStats = ({ data }) => {
                   {indicator}{' '}
                 </Typography>
               </TableCell>
-              <TableCell>{data[indicator]}</TableCell>
+              <TableCell align="right">{data[indicator].toFixed?.(2) ?? data[indicator]}</TableCell>
             </TableRow>
           ))}
         </TableBody>

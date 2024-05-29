@@ -2,13 +2,15 @@
 
 The Discretize Gear Optimizer helps find the strongest equipment setups for PvE builds in [Guild Wars 2](https://www.guildwars2.com/). Its core was originally created by [ManuelHaag](https://github.com/ManuelHaag), and it has been been extended and integrated into a new React-based UI by [gw2princeps](https://github.com/gw2princeps), [marcustyphoon](https://github.com/marcustyphoon), and contributors from the Discretize community!
 
+Special thanks to hundreds of players across the GW2 theorycrafting community whose research and testing form our understanding of the combat system and are reflected across this code.
+
 To learn about how the math works and its limitations, see [How It Works](<How It Works.md>)!
 
 ## Usage
 
-The stable version of the optimizer is hosted at [optimizer.discretize.eu](https://optimizer.discretize.eu/).
+The optimizer is hosted publicly at [optimizer.discretize.eu](https://optimizer.discretize.eu/). Development branches that are not from forks can be previewed using the automatic Cloudflare preview links in the branch thread.
 
-The staging version may be found at [discretize-optimizer.pages.dev](https://discretize-optimizer.pages.dev).
+There is a mirror of the optimizer at [discretize.github.io/discretize-gear-optimizer](https://discretize.github.io/discretize-gear-optimizer/) if the primary host cannot be accessed.
 
 If you have an idea for a feature or improvement or find a bug, create a new issue in the Issues tab of this repository, or send us a message in our [Discord server](https://discord.gg/UDT2W6an2R)!
 
@@ -21,9 +23,9 @@ If you have an idea for a feature or improvement or find a bug, create a new iss
 - Provide a specific toughness range, such as to become or avoid becoming the tank on raid bosses with toughness-based tanking.
 - Calculate the relative performance difference between setups. Estimate the value of stat infusions, buffs, or certain build changes! (Some limitations apply, see [How It Works](<How It Works.md>).)
 
-Supports all 9 classes and all 18 current elite specs (plus End of Dragons elite specs as we receive information about them), including power and condi builds with distribution information derived from game logs.
+Supports all 9 classes and 26 of the 27 current elite specs, including power and condi builds with distribution information derived from game logs.
 
-Work in progress game mechanics: Mesmer illusions, reaper shroud
+Not-yet-implemented game mechanics include mechanist mech simulation and ranger pet damage.
 
 ## Development and Contributing
 

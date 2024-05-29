@@ -7,7 +7,15 @@ list:
         "extras": {
           "Runes": {
             "scholar": {},
-            "eagle": {}
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {}
           },
           "Sigil1": {
             "force": {}
@@ -19,7 +27,9 @@ list:
             "slaying-potion": {}
           },
           "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
           }
         }
       }
@@ -29,9 +39,16 @@ list:
       {
         "extras": {
           "Runes": {
-            "thief": {},
             "scholar": {},
-            "eagle": {}
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {}
           },
           "Sigil1": {
             "force": {}
@@ -45,20 +62,30 @@ list:
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {}
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
           }
         },
         "lifestealAmount": ""
       }
 
-  - name: Power (Raid, furious)
+  - name: Power (Raid, fireworks)
     value: |-
       {
         "extras": {
           "Runes": {
-            "thief": {},
             "scholar": {},
-            "eagle": {}
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "fireworks-relic": {
+              "amount": "100"
+            }
           },
           "Sigil1": {
             "force": {}
@@ -73,36 +100,160 @@ list:
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {}
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
           }
         },
         "lifestealAmount": ""
       }
 
-  - name: Power (Raid, capped)
-    hidden: true
+  - name: Power (Raid, furious)
     value: |-
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {}
           },
           "Sigil1": {
             "force": {}
           },
           "Sigil2": {
-            "impact/night/slaying-only-3": {}
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
           },
           "Enhancement": {
-            "superior-sharpening-stone": {}
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
           },
           "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
           }
         },
         "lifestealAmount": ""
       }
 
+  - name: Power (Raid, air)
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "air": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+
+  # just reduced lifesteal frequency
+  - name: Bladesworn
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": "3.1"
+      }
+
+  # air-only approximation of air/hydro split
+  - name: Power Berserker
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "air": {
+              "amount": "4.1"
+            }
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
 
   - name: Power Boon (Raid)
     value: |-
@@ -110,11 +261,22 @@ list:
         "extras": {
           "Runes": {
             "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
             "eagle": {},
-            "thief": {}
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "leadership": {}
+          },
+          "Relics": {
+            "thief-relic": {}
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-only-3": {},
@@ -123,6 +285,7 @@ list:
           },
           "Enhancement": {
             "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {},
             "holographic-super-cheese": {},
             "potent-lucent-oil": {}
           },
@@ -136,15 +299,60 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power Boon (Fractal)
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "leadership": {}
+          },
+          "Relics": {
+            "thief-relic": {}
+          },
+          "Sigil1": {
+            "force": {},
+            "accuracy": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {},
+            "accuracy": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  # no item sigil represents use of water sigil
   - name: Heal
     value: |-
       {
         "extras": {
           "Runes": {
-            "monk": {}
+            "monk": {},
+            "water": {}
           },
+          "Relics": {},
           "Sigil1": {
-            "concentration": {}
+            "concentration": {},
+            "no-item-sigil": {}
           },
           "Sigil2": {
             "transference": {}
@@ -158,13 +366,23 @@ list:
         }
       }
 
-  - name: Alacrity Mirage (Raid)
+  - name: Alacrity Staff Mirage
     profession: Mirage
     value: |-
       {
         "extras": {
           "Runes": {
-            "nightmare": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {},
+            "leadership": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
           },
           "Sigil1": {
             "bursting": {}
@@ -187,7 +405,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "nightmare": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": "0.475"
+            }
           },
           "Sigil1": {
             "bursting": {}
@@ -200,10 +429,11 @@ list:
             "cilantro-and-cured-meat-flatbread": {},
             "salsa-topped-veggie-flatbread": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
-  - name: Condi Chrono STM
+  - name: Boon Condi Chrono
     profession: Chronomancer
     value: |-
       {
@@ -214,16 +444,20 @@ list:
           "Sigil2": {
             "mischief-ineptitude": {
               "amount": "0.9"
-            }
+            },
+            "concentration": {}
           },
           "Runes": {
             "perplexity": {}
           },
+          "Relics": {},
           "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "spherified-cilantro-oyster-soup": {}
           },
           "Enhancement": {
-            "toxic-focusing-crystal": {}
+            "toxic-focusing-crystal": {},
+            "master-tuning-crystal": {}
           }
         }
       }
@@ -244,16 +478,18 @@ list:
           "Runes": {
             "perplexity": {}
           },
+          "Relics": {},
           "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {}
           },
           "Enhancement": {
-            "toxic-focusing-crystal": {}
+            "toxic-focusing-crystal": {},
+            "master-tuning-crystal": {}
           }
         }
       }
 
-  - name: Condi Virtuoso
+  - name: Condi Virtuoso Dueling
     profession: Virtuoso
     value: |-
       {
@@ -270,17 +506,22 @@ list:
           "Runes": {
             "krait": {}
           },
+          "Relics": {
+            "aristocracy-relic": {}
+          },
           "Nourishment": {
             "plate-of-kimchi-pancakes": {},
-            "fancy-potato-and-leek-soup": {}
+            "fancy-potato-and-leek-soup": {},
+            "spherified-cilantro-oyster-soup": {}
           },
           "Enhancement": {
-            "writ-of-masterful-accuracy": {}
+            "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
-  - name: Condi Virtuoso (chaos)
+  - name: Condi Virtuoso Chaos
     profession: Virtuoso
     value: |-
       {
@@ -296,13 +537,14 @@ list:
           "Runes": {
             "krait": {}
           },
+          "Relics": {},
           "Nourishment": {
             "spherified-cilantro-oyster-soup": {},
             "fancy-potato-and-leek-soup": {},
             "truffle-risotto": {}
           },
           "Enhancement": {
-            "writ-of-masterful-malice": {}
+            "toxic-focusing-crystal": {}
           }
         },
         "lifestealAmount": ""
@@ -315,9 +557,17 @@ list:
         "extras": {
           "Runes": {
             "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
             "eagle": {},
-            "thief": {}
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -344,8 +594,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "thief": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -367,8 +624,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "thief": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -390,8 +654,17 @@ list:
       {
         "extras": {
           "Runes": {
-            "thief": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "leadership": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -399,7 +672,8 @@ list:
             "accuracy": {}
           },
           "Enhancement": {
-            "furious-sharpening-stone": {}
+            "furious-sharpening-stone": {},
+            "superior-sharpening-stone": {}
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
@@ -418,19 +692,32 @@ list:
             "bursting": {}
           },
           "Sigil2": {
-            "geomancy-torment-cwb": {}
+            "air-earth-cwb": {}
           },
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
             "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
             "flame-legion-2": {}
           },
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Nourishment": {
-            "fishy-rice-bowl": {}
+            "fishy-rice-bowl": {},
+            "cilantro-and-cured-meat-flatbread": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Alacrity Willbender
@@ -445,10 +732,22 @@ list:
             "geomancy-torment-cwb-alac": {}
           },
           "Runes": {
-            "flame-legion-2": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {},
+            "leadership": {}
           },
+          "Relics": {},
           "Nourishment": {
             "fishy-rice-bowl": {},
+            "cilantro-and-cured-meat-flatbread": {},
             "spherified-cilantro-oyster-soup": {}
           },
           "Enhancement": {
@@ -459,119 +758,40 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: CFB w/ Quickness (balthazar)
+  - name: Condi Firebrand
     profession: Firebrand
     value: |-
       {
         "extras": {
           "Runes": {
-            "balthazar": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
           "Sigil2": {
-            "geomancy-torment-cfb5-virtues": {}
-          },
-          "Enhancement": {
-            "toxic-maintenance-oil": {}
-          },
-          "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
-          }
-        }
-      }
-
-  - name: CFB w/ Quickness (renegade)
-    profession: Firebrand
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "renegade": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
-            "smoldering": {}
-          },
-          "Enhancement": {
-            "toxic-maintenance-oil": {}
-          },
-          "Nourishment": {
-            "fishy-rice-bowl": {}
-          }
-        }
-      }
-
-  - name: CFB DPS (5 page, balthazar)
-    profession: Firebrand
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "balthazar": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
-            "geomancy-torment-cfb5-virtues": {}
-          },
-          "Enhancement": {
-            "toxic-focusing-crystal": {}
-          },
-          "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
-          }
-        }
-      }
-
-  - name: CFB DPS (8 page, balthazar)
-    profession: Firebrand
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "balthazar": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
-            "geomancy-torment-cfb8-virtues": {}
-          },
-          "Enhancement": {
-            "toxic-focusing-crystal": {}
-          },
-          "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
-          }
-        }
-      }
-
-  - name: CFB DPS (renegade)
-    profession: Firebrand
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "renegade": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
+            "geomancy-torment-cfb5-virtues": {},
             "smoldering": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           },
           "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {},
             "fishy-rice-bowl": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Quickbrand
@@ -586,68 +806,78 @@ list:
             "smoldering": {}
           },
           "Runes": {
-            "firebrand-firebrand": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {},
+            "firebrand": {}
           },
+          "Relics": {},
           "Nourishment": {
             "fishy-rice-bowl": {}
           },
           "Enhancement": {
-            "toxic-focusing-crystal": {}
+            "toxic-focusing-crystal": {},
+            "magnanimous-tuning-crystal": {},
+            "toxic-maintenance-oil": {},
+            "magnanimous-maintenance-oil": {}
           }
         }
       }
-
-  # - name: Condi Quickbrand 35%
-  #   profession: Firebrand
-  #   value: |-
-  #     {
-  #       "Runes": {
-  #           "balthazar": {}
-  #       },
-  #       "Sigil1": {
-  #           "bursting": {}
-  #       },
-  #       "Sigil2": {
-  #           "geomancy-torment-cfb5-virtues": {}
-  #       },
-  #       "Enhancement": {
-  #           "toxic-maintenance-oil": {}
-  #       },
-  #       "Nourishment": {
-  #           "spherified-cilantro-oyster-soup": {}
-  #       }
-  #     }
 
   - name: Hybrid FB Traveler
     profession: Firebrand
     value: |-
       {
         "extras": {
-          "Runes": {
-            "traveler": {}
-          },
+          "Runes": {},
+          "Relics": {},
           "Sigil1": {
-            "bursting": {}
+            "bursting": {},
+            "concentration": {}
           },
           "Sigil2": {
             "smoldering": {}
           },
           "Enhancement": {
-            "master-tuning-crystal": {}
+            "master-tuning-crystal": {},
+            "magnanimous-maintenance-oil": {}
           },
           "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "spherified-cilantro-oyster-soup": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
-  - name: Condi Bers
+  - name: Condi Berserker
     profession: Berserker
     value: |-
       {
         "extras": {
           "Runes": {
-            "renegade": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
           },
           "Sigil1": {},
           "Sigil2": {},
@@ -659,31 +889,37 @@ list:
             "salsa-topped-veggie-flatbread": {},
             "cilantro-and-cured-meat-flatbread": {}
           }
-        }
+        },
+        "lifestealAmount": "3.7"
       }
 
-  # - name: Flame Legion Power Weaver (Raid)
-  #   profession: Weaver
-  #   value: |-
-  #     {
-  #       "extras": {
-  #         "Runes": {
-  #           "flame-legion": {}
-  #         },
-  #         "Sigil1": {
-  #           "force": {}
-  #         },
-  #         "Sigil2": {
-  #           "impact/night/slaying-only-3": {}
-  #         },
-  #         "Enhancement": {
-  #           "superior-sharpening-stone": {}
-  #         },
-  #         "Nourishment": {
-  #           "cilantro-lime-sous-vide-steak": {}
-  #         }
-  #       }
-  #     }
+  - name: Condi Quickness Bers
+    profession: Berserker
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "firebrand": {},
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
+          },
+          "Sigil1": {},
+          "Sigil2": {},
+          "Enhancement": {
+            "toxic-maintenance-oil": {},
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        }
+      }
 
   - name: Condi Weaver Sword
     profession: Weaver
@@ -691,8 +927,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "elementalist": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
@@ -716,8 +962,18 @@ list:
             "bursting": {}
           },
           "Runes": {
-            "elementalist": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Nourishment": {
             "salsa-topped-veggie-flatbread": {}
           },
@@ -727,14 +983,97 @@ list:
         }
       }
 
+  # Torment procs chosen to make log get 0 stacks
+  - name: Condi Weaver Scepter
+    profession: Weaver
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
+          },
+          "Sigil1": {
+            "earth": {}
+          },
+          "Sigil2": {
+            "smoldering": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Condi Weaver
+    profession: Weaver
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
+          },
+          "Relics": {},
+          "Sigil1": {
+            "earth": {}
+          },
+          "Sigil2": {
+            "torment": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Hybrid Weaver (Fractal)
     profession: Weaver
     value: |-
       {
         "extras": {
           "Runes": {
-            "flame-legion": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {
             "impact/night/slaying-both": {}
           },
@@ -756,8 +1095,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "flame-legion": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -773,46 +1122,83 @@ list:
         }
       }
 
+  - name: Alacrity Hybrid Tempest
+    profession: Tempest
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {},
+            "leadership": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": "0.4"
+            }
+          },
+          "Sigil1": {
+            "bursting": {},
+            "smoldering": {}
+          },
+          "Sigil2": {
+            "torment": {
+              "amount": ""
+            },
+            "concentration": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {},
+            "toxic-maintenance-oil": {}
+          },
+          "Nourishment": {
+            "spherified-cilantro-oyster-soup": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Tempest
     profession: Tempest
     value: |-
       {
         "extras": {
           "Runes": {
-            "elementalist": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
           "Sigil2": {
-            "smoldering": {}
+            "smoldering": {},
+            "earth": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           },
           "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
-          }
-        }
-      }
-
-  - name: '[beta1] Condi Catalyst'
-    profession: Catalyst
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "nightmare": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {},
-          "Enhancement": {
-            "toxic-focusing-crystal": {}
-          },
-          "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
+            "salsa-topped-veggie-flatbread": {},
+            "plate-of-kimchi-pancakes": {},
+            "cilantro-and-cured-meat-flatbread": {}
           }
         }
       }
@@ -824,9 +1210,17 @@ list:
         "extras": {
           "Runes": {
             "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
             "eagle": {},
-            "thief": {}
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -845,28 +1239,132 @@ list:
         },
         "lifestealAmount": ""
       }
+
+  - name: Condi Quickness Untamed
+    profession: Untamed
+    value: |-
+      {
+        "extras": {
+          "Sigil1": {
+            "malice": {}
+          },
+          "Sigil2": {
+            "earth": {},
+            "bursting": {}
+          },
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
+            "afflicted": {},
+            "thorns": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
+          },
+          "Nourishment": {
+            "plate-of-kimchi-pancakes": {},
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {},
+            "bowl-of-kimchi-tofu-stew": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {},
+            "magnanimous-tuning-crystal": {},
+            "master-tuning-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Quickness Untamed (Raid)
+    profession: Untamed
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "firebrand": {}
+          },
+          "Relics": {
+            "thief-relic": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "air": {
+              "amount": ""
+            },
+            "accuracy": {},
+            "impact/night/slaying-only-3": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "potent-lucent-oil": {},
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Slb
     profession: Soulbeast
     value: |-
       {
         "extras": {
           "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
+            "bursting": {},
             "earth": {}
           },
+          "Sigil2": {
+            "agony": {},
+            "earth": {},
+            "malice": {}
+          },
           "Runes": {
-            "krait": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
+            "afflicted": {},
+            "thorns": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
-            "bowl-of-kimchi-tofu-stew": {}
+            "salsa-topped-veggie-flatbread": {},
+            "bowl-of-kimchi-tofu-stew": {},
+            "plate-of-kimchi-pancakes": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Hybrid Slb
@@ -875,66 +1373,67 @@ list:
       {
         "extras": {
           "Sigil1": {
+            "earth": {}
+          },
+          "Sigil2": {
             "bursting": {}
           },
-          "Sigil2": {},
           "Runes": {
-            "krait": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "plate-of-kimchi-pancakes": {},
-            "spherified-cilantro-oyster-soup": {},
-            "salsa-topped-veggie-flatbread": {}
+            "spherified-cilantro-oyster-soup": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
-
-  # - name: Pure Shortbow Slb BM
-  #   profession: Soulbeast
-  #   value: |-
-  #     {
-  #       "extras": {
-  #         "Sigil1": {
-  #           "bursting": {}
-  #         },
-  #         "Sigil2": {
-  #           "earth": {}
-  #         },
-  #         "Runes": {
-  #           "krait": {}
-  #         },
-  #         "Nourishment": {
-  #           "salsa-topped-veggie-flatbread": {}
-  #         },
-  #         "Enhancement": {
-  #           "toxic-focusing-crystal": {}
-  #         }
-  #       }
-  #     }
 
   - name: Condi Druid
     profession: Druid
     value: |-
       {
         "extras": {
-          "Runes": {
-            "lich": {}
-          },
           "Sigil1": {
+            "agony": {},
+            "bursting": {},
             "malice": {}
           },
           "Sigil2": {},
-          "Enhancement": {
-            "toxic-maintenance-oil": {}
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "krait": {},
+            "afflicted": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
           },
           "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "salsa-topped-veggie-flatbread": {},
+            "plate-of-kimchi-pancakes": {},
+            "bowl-of-kimchi-tofu-stew": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Power Holo (Raid)
@@ -943,7 +1442,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "fireworks-relic": {
+              "amount": "92.6"
+            }
           },
           "Sigil1": {
             "force": {}
@@ -969,16 +1479,30 @@ list:
       {
         "extras": {
           "Runes": {
-            "renegade": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
           },
           "Sigil1": {
-            "malice": {}
+            "malice": {},
+            "earth": {}
           },
           "Sigil2": {
             "bursting": {}
           },
           "Enhancement": {
-            "master-tuning-crystal": {}
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {}
@@ -992,8 +1516,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1012,32 +1543,41 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Quickness Scrapper (Raid)
+  - name: Condi Quickness Scrapper
     profession: Scrapper
     value: |-
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {},
+            "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {
-            "force": {}
+            "bursting": {}
           },
           "Sigil2": {
-            "impact/night/slaying-only-3": {},
-            "accuracy": {},
-            "concentration": {}
+            "malice": {}
           },
           "Enhancement": {
-            "superior-sharpening-stone": {}
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
           },
           "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {},
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {},
             "spherified-cilantro-oyster-soup": {}
           }
-        },
-        "lifestealAmount": ""
+        }
       }
 
   - name: Condi Alac Ren
@@ -1048,7 +1588,17 @@ list:
           "Sigil1": {},
           "Sigil2": {},
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
             "leadership": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
           },
           "Nourishment": {
             "meaty-asparagus-skewer": {},
@@ -1057,9 +1607,12 @@ list:
             "cilantro-and-cured-meat-flatbread": {}
           },
           "Enhancement": {
-            "toxic-maintenance-oil": {}
+            "toxic-maintenance-oil": {},
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Ren
@@ -1070,8 +1623,15 @@ list:
           "Sigil1": {},
           "Sigil2": {},
           "Runes": {
-            "nightmare": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "meaty-asparagus-skewer": {}
@@ -1079,7 +1639,86 @@ list:
           "Enhancement": {
             "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": "4.4"
+      }
+
+  - name: Power Quickness Herald (Raid)
+    profession: Herald
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "firebrand": {}
+          },
+          "Relics": {
+            "thief-relic": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "air": {
+              "amount": ""
+            },
+            "accuracy": {},
+            "impact/night/slaying-only-3": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "potent-lucent-oil": {},
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Quickness Herald (Fractal)
+    profession: Herald
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "firebrand": {}
+          },
+          "Relics": {},
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Power Alac Ren (Raid)
@@ -1088,16 +1727,27 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "leadership": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
           "Sigil2": {
+            "air": {},
             "concentration": {}
           },
           "Enhancement": {
-            "writ-of-masterful-strength": {},
+            "superior-sharpening-stone": {},
             "holographic-super-cheese": {},
             "potent-lucent-oil": {}
           },
@@ -1110,23 +1760,33 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Herald
+  - name: Condi Quickness Herald
     profession: Herald
     value: |-
       {
         "extras": {
           "Runes": {
-            "nightmare": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
             "master-tuning-crystal": {}
           },
           "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {},
             "salsa-topped-veggie-flatbread": {}
           }
-        }
+        },
+        "lifestealAmount": "3.6"
       }
 
   - name: DPS Vindicator (Fractal)
@@ -1135,7 +1795,16 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {}
           },
           "Sigil1": {
             "force": {}
@@ -1147,7 +1816,8 @@ list:
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {}
           }
-        }
+        },
+        "lifestealAmount": "4.18"
       }
 
   - name: DPS Vindicator (Raid)
@@ -1156,19 +1826,33 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {}
           },
           "Sigil1": {
             "force": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "air": {
+              "amount": 3.1
+            }
+          },
           "Enhancement": {
             "superior-sharpening-stone": {}
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {}
           }
-        }
+        },
+        "lifestealAmount": "4.18"
       }
 
   - name: Power Alacrity Mechanist (Fractal, inaccurate)
@@ -1180,6 +1864,7 @@ list:
           "Runes": {
             "strength": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1191,10 +1876,10 @@ list:
             "cilantro-lime-sous-vide-steak": {}
           }
         },
-        "lifestealAmount": ""
+        "lifestealAmount": "0"
       }
 
-  - name: Power Alacrity Mechanist (Raid, inaccurate)
+  - name: Power Alacrity Mechanist (Raid, air, inaccurate)
     profession: Mechanist
     value: |-
       {
@@ -1202,18 +1887,48 @@ list:
           "Runes": {
             "strength": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
           "Sigil2": {},
           "Enhancement": {
-            "superior-sharpening-stone": {}
+            "superior-sharpening-stone": {},
+            "potent-lucent-oil": {},
+            "holographic-super-cheese": {}
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {}
           }
         },
-        "lifestealAmount": ""
+        "lifestealAmount": "0"
+      }
+
+  - name: Power Alacrity Mechanist (Raid, concentration, inaccurate)
+    profession: Mechanist
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "strength": {}
+          },
+          "Relics": {},
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "concentration": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "potent-lucent-oil": {},
+            "holographic-super-cheese": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {}
+          }
+        },
+        "lifestealAmount": "0"
       }
 
   - name: Condi Mechanist
@@ -1222,10 +1937,22 @@ list:
       {
         "extras": {
           "Runes": {
-            "elementalist": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
           },
           "Sigil1": {
-            "bursting": {}
+            "geomancy": {}
           },
           "Sigil2": {
             "earth": {}
@@ -1240,37 +1967,22 @@ list:
         "lifestealAmount": "3.4"
       }
 
-  - name: Condi Alac Mechanist (inaccurate)
-    profession: Mechanist
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "aristocracy": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
-            "malice": {}
-          },
-          "Enhancement": {
-            "toxic-maintenance-oil": {}
-          },
-          "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
   - name: DPS Scourge
     profession: Scourge
     value: |-
       {
         "extras": {
           "Runes": {
-            "nightmare": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
           },
           "Sigil1": {
             "bursting": {}
@@ -1284,6 +1996,7 @@ list:
             "master-tuning-crystal": {}
           },
           "Nourishment": {
+            "meaty-asparagus-skewer": {},
             "cilantro-and-cured-meat-flatbread": {}
           }
         },
@@ -1298,13 +2011,18 @@ list:
           "Runes": {
             "krait": {}
           },
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
             "toxic-focusing-crystal": {}
           },
           "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "plate-of-kimchi-pancakes": {},
+            "truffle-risotto": {}
           }
         }
       }
@@ -1316,17 +2034,28 @@ list:
         "extras": {
           "Sigil1": {
             "bursting": {},
-            "demons": {}
+            "demons": {},
+            "malice": {}
           },
           "Sigil2": {
             "geomancy-torment-harb": {},
+            "earth-torment-harb": {},
             "torment": {
               "amount": "1.85"
             }
           },
           "Runes": {
+            "trapper": {},
             "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {},
             "tormenting": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
           },
           "Nourishment": {
             "meaty-asparagus-skewer": {},
@@ -1355,8 +2084,18 @@ list:
             "geomancy-torment-cwb-alac": {}
           },
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
             "tormenting": {},
-            "nightmare": {}
+            "firebrand": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
@@ -1364,7 +2103,8 @@ list:
             "meaty-asparagus-skewer": {}
           },
           "Enhancement": {
-            "master-tuning-crystal": {}
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
           }
         },
         "lifestealAmount": ""
@@ -1376,8 +2116,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "nightmare": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
+            "afflicted": {},
+            "thorns": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1391,13 +2141,59 @@ list:
         }
       }
 
-  - name: Staff Daredevil (Raid)
+  - name: Power Deadeye (Raid)
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "deadeye-relic": {
+              "amount": "90.5"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Staff Daredevil
     profession: Daredevil
     value: |-
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {}
           },
           "Sigil1": {
             "force": {}
@@ -1422,9 +2218,18 @@ list:
       {
         "extras": {
           "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
             "eagle": {},
-            "thief": {}
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1456,9 +2261,18 @@ list:
             "doom": {}
           },
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
             "afflicted": {},
-            "krait-no-elite": {}
+            "thorns": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "plate-of-kimchi-pancakes": {},
@@ -1477,8 +2291,19 @@ list:
       {
         "extras": {
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
+            "afflicted": {},
+            "thorns": {},
             "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {
             "concentration": {}
           },
@@ -1494,22 +2319,34 @@ list:
         }
       }
 
-  - name: DPS Specter
+  - name: DPS Specter SC/D
     profession: Specter
     value: |-
       {
         "extras": {
           "Sigil1": {
+            "torment": {
+              "amount": "1.72"
+            },
             "bursting": {}
           },
           "Sigil2": {
             "doom": {
-              "amount": "0.93"
-            }
+              "amount": "0.89"
+            },
+            "bursting": {}
           },
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {},
             "tormenting": {}
           },
+          "Relics": {},
           "Nourishment": {
             "bowl-of-kimchi-tofu-stew": {},
             "cilantro-and-cured-meat-flatbread": {}
@@ -1518,34 +2355,99 @@ list:
             "toxic-focusing-crystal": {},
             "master-tuning-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": "3.5"
       }
 
-  # credit to Boz in SC discord for the scavenging idea!
-  - name: Alacrity Specter
+  - name: Condi Barrier Specter SC/D
     profession: Specter
     value: |-
       {
         "extras": {
           "Sigil1": {
+            "bursting": {},
             "demons": {},
-            "concentration": {}
+            "torment": {
+              "amount": "1.52"
+            }
           },
           "Sigil2": {
             "doom": {
-              "amount": "0.93"
+              "amount": "0.89"
             }
           },
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
             "renegade": {},
-            "scavenging": {}
+            "tormenting": {}
           },
+          "Relics": {},
           "Nourishment": {
-            "salsa-eggs-benedict": {},
+            "bowl-of-kimchi-tofu-stew": {},
+            "cilantro-and-cured-meat-flatbread": {},
             "meaty-asparagus-skewer": {}
           },
           "Enhancement": {
-            "toxic-maintenance-oil": {}
+            "magnanimous-tuning-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": "3.5"
       }
+
+  - name: Alacrity Specter SC/D
+    profession: Specter
+    value: |-
+      {
+        "extras": {
+          "Sigil1": {
+            "doom": {
+              "amount": "0.79"
+            },
+            "bursting": {},
+            "concentration": {},
+            "torment": {
+              "amount": "1.52"
+            },
+            "demons": {}
+          },
+          "Sigil2": {
+            "doom": {
+              "amount": "0.79"
+            },
+            "bursting": {},
+            "concentration": {},
+            "torment": {
+              "amount": "1.52"
+            },
+            "demons": {}
+          },
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "tormenting": {},
+            "leadership": {}
+          },
+          "Relics": {},
+          "Nourishment": {
+            "salsa-eggs-benedict": {},
+            "meaty-asparagus-skewer": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          },
+          "Enhancement": {
+            "toxic-maintenance-oil": {},
+            "magnanimous-tuning-crystal": {}
+          }
+        },
+        "lifestealAmount": "2.6"
+      }
+

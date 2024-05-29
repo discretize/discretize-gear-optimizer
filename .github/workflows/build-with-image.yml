@@ -1,0 +1,69 @@
+name: 'Self-hosted Deploy: Cloudflare and Github Pages'
+
+on:
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  PAGES_PROJECT_NAME: discretize-optimizer
+
+concurrency:
+  group: 'deploy'
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: [self-hosted]
+    
+    container: 
+      image: ghcr.io/${{ github.repository }}-build:main
+      credentials: 
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      deployments: write
+      pages: write
+      id-token: write
+      packages: read
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: pnpm install
+      
+      - name: Compile WASM
+        run: pnpm wasm
+        env: 
+          PATH: /home/discretize/.cargo/bin/:/usr/local/bin:/usr/bin:/bin
+
+      - name: Build
+        run: pnpm build-all
+
+      - name: Deploy to Cloudflare
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CI_CF_PAGES }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: ${{ env.PAGES_PROJECT_NAME }}
+          directory: dist-cf
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          wranglerVersion: '3'
+
+      - name: Setup Github Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist-gh'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

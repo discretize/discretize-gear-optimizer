@@ -13,8 +13,8 @@ import { makeStyles } from 'tss-react/mui';
 import {
   getCompareByPercent,
   getDisplayAttributes,
-  getFilteredList,
   getFilterMode,
+  getFilteredLists,
   getList,
   getSaved,
   getSelectedCharacter,
@@ -31,6 +31,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   shortTable: {
     maxHeight: 440,
+    overflowY: 'scroll',
   },
   tallTable: {
     maxHeight: '90vh',
@@ -83,47 +84,33 @@ const StickyHeadTable = () => {
   const [managerOpen, setManagerOpen] = React.useState(false);
 
   const selectedCharacter = useSelector(getSelectedCharacter);
-  const normalList = useSelector(getList) || emptyArray;
-  const rawFilteredList = useSelector(getFilteredList) || emptyArray;
+  const normalList = useSelector(getList);
+  const filteredLists = useSelector(getFilteredLists);
   const saved = useSelector(getSaved) || emptyArray;
   const compareByPercent = useSelector(getCompareByPercent);
   const filterMode = useSelector(getFilterMode);
   const tallTable = useSelector(getTallTable);
 
-  const list = React.useMemo(() => {
-    if (filterMode === 'None') {
-      return normalList;
-    }
-    if (filterMode === 'Combinations') {
-      return rawFilteredList.slice(0, 100);
-    }
-    if (filterMode === 'Sigils') {
-      return rawFilteredList.filter((character, i) => {
-        const isWorse = rawFilteredList.slice(0, i).some((prevChar) => {
-          const sameSigils =
-            prevChar.settings.extrasCombination.Sigil1 ===
-              character.settings.extrasCombination.Sigil1 &&
-            prevChar.settings.extrasCombination.Sigil2 ===
-              character.settings.extrasCombination.Sigil2;
-          return sameSigils && prevChar.results.value > character.results.value;
-        });
-        return !isWorse;
-      });
-    }
-    return rawFilteredList.filter((character, i) => {
-      const isWorse = rawFilteredList.slice(0, i).some((prevChar) => {
-        const sameExtra =
-          prevChar.settings.extrasCombination[filterMode] ===
-          character.settings.extrasCombination[filterMode];
-        return sameExtra && prevChar.results.value > character.results.value;
-      });
-      return !isWorse;
-    });
-  }, [filterMode, normalList, rawFilteredList]);
+  const list = {
+    None: normalList,
+    ...filteredLists,
+  }[filterMode];
 
   let mostCommonAffix = null;
+  let mostCommonRarity = null;
   if (/* status !== RUNNING && */ list[0]) {
     mostCommonAffix = mode(list[0].gear);
+    const [exo, asc] = Object.entries(
+      list[0].settings.cachedFormState.priorities?.exotics?.data || {},
+    ).reduce(
+      (sum, [, value]) => {
+        sum[0] += value.filter((isExotic) => isExotic).length;
+        sum[1] += value.filter((isExotic) => !isExotic).length;
+        return sum;
+      },
+      [0, 0],
+    );
+    mostCommonRarity = exo > asc ? 'exotic' : 'ascended';
   }
 
   const firstCharacter = list[0];
@@ -145,7 +132,7 @@ const StickyHeadTable = () => {
     // ...or if the user saved a build, then ran the same profession with a different extra
     const variations = new Set();
     [...list.slice(0, 1), ...saved]
-      .filter((character) => character.settings.profession !== firstCharacter?.settings?.profession)
+      .filter((character) => character.settings.profession === firstCharacter?.settings?.profession)
       .forEach((character) => variations.add(character.settings.extrasCombination[type]));
     return variations.size > 1;
   };
@@ -154,6 +141,7 @@ const StickyHeadTable = () => {
   const displaySigil1 = shouldDisplay('Sigil1');
   const displaySigil2 = shouldDisplay('Sigil2');
   const displayRunes = shouldDisplay('Runes');
+  const displayRelics = shouldDisplay('Relics');
   const displayNourishment = shouldDisplay('Nourishment');
   const displayEnhancement = shouldDisplay('Enhancement');
   const displayExtras = React.useMemo(
@@ -161,10 +149,18 @@ const StickyHeadTable = () => {
       Sigil1: displaySigil1,
       Sigil2: displaySigil2,
       Runes: displayRunes,
+      Relics: displayRelics,
       Nourishment: displayNourishment,
       Enhancement: displayEnhancement,
     }),
-    [displaySigil1, displaySigil2, displayRunes, displayNourishment, displayEnhancement],
+    [
+      displaySigil1,
+      displaySigil2,
+      displayRunes,
+      displayRelics,
+      displayNourishment,
+      displayEnhancement,
+    ],
   );
 
   const displayAttributes = useSelector(getDisplayAttributes);
@@ -205,9 +201,10 @@ const StickyHeadTable = () => {
                   <ResultTableRow
                     character={character}
                     key={character.id}
-                    selected={character === selectedCharacter}
+                    selected={character.id === selectedCharacter?.id}
                     saved={saved.includes(character)}
                     mostCommonAffix={mostCommonAffix}
+                    mostCommonRarity={mostCommonRarity}
                     underlineClass={underline ? classes.underline : null}
                     selectedValue={selectedValue}
                     compareByPercent={compareByPercent}
@@ -264,9 +261,10 @@ const StickyHeadTable = () => {
                     savedSection
                     character={character}
                     key={character.id}
-                    selected={character === selectedCharacter}
+                    selected={character.id === selectedCharacter?.id}
                     saved={saved.includes(character)}
                     mostCommonAffix={mostCommonAffix}
+                    mostCommonRarity={mostCommonRarity}
                     underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
                     selectedValue={selectedValue}
                     compareByPercent={compareByPercent}

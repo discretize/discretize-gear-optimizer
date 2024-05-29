@@ -5,7 +5,20 @@ list:
       {
       }
 
+  - name: Realistic
+    value: >-
+      {
+        "might": true,
+        "fury": true,
+        "protection": true,
+        "vulnerability": true,
+        "jade-bot-base": true,
+        "jade-bot-per-tier": true,
+        "reinforced-armor": true
+      }
+
   - name: Condi
+    hidden: true
     value: >-
       {
         "might": true,
@@ -14,10 +27,12 @@ list:
         "vulnerability": true,
         "assassinsPresence": true,
         "jade-bot-base": true,
-        "jade-bot-per-tier": true
+        "jade-bot-per-tier": true,
+        "reinforced-armor": true
       }
 
   - name: Power (no spotter)
+    hidden: true
     value: >-
       {
         "might": true,
@@ -27,10 +42,12 @@ list:
         "frostSpirit": true,
         "assassinsPresence": true,
         "jade-bot-base": true,
-        "jade-bot-per-tier": true
+        "jade-bot-per-tier": true,
+        "reinforced-armor": true
       }
 
   - name: Power (spotter)
+    hidden: true
     value: >-
       {
         "might": true,
@@ -41,10 +58,12 @@ list:
         "frostSpirit": true,
         "assassinsPresence": true,
         "jade-bot-base": true,
-        "jade-bot-per-tier": true
+        "jade-bot-per-tier": true,
+        "reinforced-armor": true
       }
 
   - name: Benchmark
+    hidden: true
     value: >-
       {
         "might": true,
@@ -57,5 +76,6 @@ list:
         "frostSpirit": true,
         "spotter": true,
         "jade-bot-base": true,
-        "jade-bot-per-tier": true
+        "jade-bot-per-tier": true,
+        "reinforced-armor": true
       }

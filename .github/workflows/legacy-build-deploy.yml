@@ -1,4 +1,4 @@
-name: '[Old] build and deploy'
+name: '[Legacy] Deploy: AWS'
 
 on:
   push:
@@ -16,12 +16,12 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
 
       - name: Setup NodeJS
-        uses: actions/setup-node@v2-beta
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
 
@@ -30,7 +30,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}

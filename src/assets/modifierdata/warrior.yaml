@@ -7,6 +7,7 @@
         attributes:
           Power: [180, buff]
       gw2id: 14404
+      temporaryBuff: false
 
     - id: signet-of-fury
       text: Signet of Fury
@@ -14,6 +15,7 @@
         attributes:
           Precision: [180, buff]
       gw2id: 14410
+      temporaryBuff: false
 
     - id: dolyak-signet
       text: Dolyak Signet
@@ -21,6 +23,7 @@
         attributes:
           Toughness: [180, buff]
       gw2id: 14413
+      temporaryBuff: false
 
 - section: Strength
   id: 4
@@ -31,10 +34,10 @@
       subText: passive
       modifiers:
         damage:
-          Strike Damage: [5%, add]
+          Outgoing Strike Damage: [5%, add]
       wvwModifiers:
         damage:
-          Strike Damage: [3%, add]
+          Outgoing Strike Damage: [3%, add]
       gw2id: 1444
       defaultEnabled: true
 
@@ -47,11 +50,12 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, add]
+          Outgoing Strike Damage: [10%, add]
       wvwModifiers:
         damage:
-          Strike Damage: [7%, add]
+          Outgoing Strike Damage: [7%, add]
       gw2id: 1444
+      defaultEnabled: false
 
     - id: forceful-greatsword
       text: Forceful Greatsword
@@ -61,6 +65,7 @@
           Power: [120, converted] # from sheet by Bekko
       gw2id: 1338
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: forceful-greatsword-2
       text: Forceful Greatsword
@@ -73,6 +78,8 @@
         attributes:
           Power: [120, converted] # from sheet by Bekko
       gw2id: 1338
+      defaultEnabled: false
+      temporaryBuff: true # assume the user is on a dual-wield set
 
     - id: great-fortitude
       text: Great Fortitude
@@ -82,6 +89,18 @@
           Ferocity: {Power: 10%}
       gw2id: 1449
       defaultEnabled: true
+      temporaryBuff: false
+
+    - id: pinnacle-of-strength-crit
+      text: Pinnacle Of Strength
+      subText: passive
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 5%
+      gw2id: 1453
+      defaultEnabled: true
+      temporaryBuff: false
 
     - id: pinnacle-of-strength
       text: Pinnacle Of Strength
@@ -95,22 +114,35 @@
           Power: [250, buff] # confirmed from bench hero panel
       gw2id: 1453
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: berserkers-power
       text: Berserker's Power
       amountData:
         label: 'stacks'
-        default: 3
+        default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [7%, add]
+          Outgoing Strike Damage: [5.25%, add]
       gw2id: 1437
       defaultEnabled: true
 
 - section: Arms
   id: 36
   items:
+
+    - id: furious-burst
+      text: Furious Burst
+      subText: 100% fury
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 5%
+      gw2id: 1342
+      defaultEnabled: true
+      temporaryBuff: true
 
     - id: wounding-precision
       text: Wounding Precision
@@ -122,6 +154,7 @@
           Expertise: {Precision: 4%}
       gw2id: 1455
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: signet-mastery
       text: Signet Mastery
@@ -134,9 +167,11 @@
           Ferocity: [500, converted]
       gw2id: 1344
       defaultEnabled: true
+      temporaryBuff: true
 
-    - id: deep-strikes
-      text: Deep Strikes
+    - id: deep-strikes-fury
+      text: Deep Strikes (Fury)
+      subText: with fury
       minor: true
       amountData:
         label: '% fury'
@@ -147,23 +182,64 @@
           Condition Damage: [180, converted] # from sheet by Bekko
       gw2id: 1343
       defaultEnabled: true
+      temporaryBuff: true
+
+    - id: deep-strikes-bleeding
+      text: Deep Strikes (Bleeding)
+      subText: 'with bleeding (100% uptime)'
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 5%
+      wvwModifiers:
+        attributes:
+          Critical Chance: 10%
+      gw2id: 1343
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: unsuspecting-foe-full
+      text: Unsuspecting Foe
+      subText: 100% uptime # variable crit chance would be inaccurate
+      modifiers:
+        attributes:
+          Critical Chance: 25%
+      gw2id: 1315
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: burst-precision
+      text: Burst Precision
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Ferocity: [150, unknown]
+      gw2id: 1336
+      defaultEnabled: true
+      temporaryBuff: true
 
     - id: blade-master
       text: Blademaster
-      subText: base
+      subText: 'base, intended: 120 expertise'
       modifiers:
         attributes:
           Expertise: [120, converted] # confirmed from bench hero panel
       gw2id: 1333
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: blade-master-base-bugged
       text: Blademaster
-      subText: base, BUGGED VERSION
+      subText: 'base, bugged: 160 expertise'
       modifiers:
         attributes:
           Expertise: [160, converted]
       gw2id: 1333
+      defaultEnabled: false
+      temporaryBuff: false
 
     - id: blade-master-2
       text: Blademaster
@@ -177,6 +253,7 @@
           Condition Damage: [120, converted] # from sheet by Bekko
       gw2id: 1333
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: bloodlust
       text: Bloodlust
@@ -190,6 +267,7 @@
           Bleeding Duration: 15%
       gw2id: 1337
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: bloodlust-on-crit
       text: Bloodlust
@@ -198,37 +276,38 @@
       amountData:
         label: 'hit/s'
         default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 100%}
+      wvwModifiers:
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 33%}
       gw2id: 1337
       defaultEnabled: false
+      temporaryBuff: true
 
     - id: furious
       text: Furious
+      subText: not automatically adjusted with crit chance!
       amountData:
         label: 'stacks'
         default: 21
         quantityEntered: 25
       modifiers:
         attributes:
+          Condition Damage: [375, buff]
+      wvwModifiers:
+        attributes:
           Condition Damage: [250, buff]
       gw2id: 1346
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Defense
   id: 22
   items:
-
-    - id: thick-skin
-      text: Thick Skin
-      subText: 100% scholar
-      minor: true
-      modifiers:
-        damage:
-          Damage Reduction: [5%, unknown]
-      gw2id: 1350
 
     - id: cull-the-weak
       text: Cull the Weak
@@ -238,19 +317,24 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [7%, mult]
+          Outgoing Strike Damage: [7%, mult]
       gw2id: 1372
       defaultEnabled: true
 
-    - id: armored-attack
-      text: Armored Attack
+    - id: merciless-hammer
+      text: Merciless Hammer
+      subText: 'against defiant foes'
+      amountData:
+        label: '% hammer/mace skills'
+        default: 30 # approximated from october hammer qspb log
+        quantityEntered: 30
       modifiers:
-        conversion:
-          Power: {Toughness: 10%}
-      gw2id: 1379
+        damage:
+          Outgoing Strike Damage: [20%, unknown]
+      gw2id: 1367
       defaultEnabled: true
 
     - id: hardened-armor
@@ -261,6 +345,18 @@
         damage:
           Damage Reduction: [10%, unknown]
       gw2id: 1380
+      defaultEnabled: true
+
+    - id: stalwart-strength
+      text: Stalwart Strength
+      amountData:
+        label: '% stability uptime'
+        default: 100 # approximated from october hammer qspb log
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, unknown]
+      gw2id: 1708
       defaultEnabled: true
 
 - section: Tactics
@@ -275,10 +371,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [7%, mult]
+          Outgoing Strike Damage: [7%, mult]
       gw2id: 1469
       defaultEnabled: true
 
@@ -292,17 +388,18 @@
           Concentration: [60, buff]
       gw2id: 1471
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: empowered
       text: Empowered
       amountData:
         label: 'boons'
-        default: 8
+        default: 10
         quantityEntered: 1
       minor: true
       modifiers:
         damage:
-          Strike Damage: [1%, mult]
+          Outgoing Strike Damage: [1%, mult]
       gw2id: 1485
       defaultEnabled: true
 
@@ -314,7 +411,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [25%, mult]
+          Outgoing Strike Damage: [25%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [7%, mult]
       gw2id: 1486
       defaultEnabled: true
 
@@ -325,6 +425,7 @@
           Healing Power: {Power: 13%}
       gw2id: 1470
       defaultEnabled: true
+      temporaryBuff: false
 
 - section: Discipline
   id: 51
@@ -338,32 +439,24 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, add]
+          Outgoing Strike Damage: [10%, add]
       wvwModifiers:
         damage:
-          Strike Damage: [3%, add]
+          Outgoing Strike Damage: [3%, add]
       gw2id: 1413
       defaultEnabled: true
 
-    - id: double-standards-str
-      text: Doubled Standards
-      subText: +50 Pwr/Cond
+    - id: stalwart-focus
+      text: Stalwart Focus
       modifiers:
         attributes:
-          Power: [50, buff]
-          Condition Damage: [50, buff]
-      gw2id: 1484
-      defaultEnabled: true
-
-    - id: double-standards-disc
-      text: Doubled Standards
-      subText: +50 Prec/Fero
-      modifiers:
+          Outgoing Healing: 15%
+      wvwModifiers:
         attributes:
-          Precision: [50, buff]
-          Ferocity: [50, buff]
-      gw2id: 1484
+          Outgoing Healing: 10%
+      gw2id: 1381
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: axe-mastery-one
       text: Axe Mastery
@@ -373,6 +466,7 @@
           Ferocity: [120, converted] # confirmed from bench hero panel
       gw2id: 1369
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: axe-mastery-axe
       text: Axe Mastery
@@ -386,19 +480,39 @@
           Ferocity: [120, converted] # confirmed from bench hero panel
       gw2id: 1369
       defaultEnabled: true
+      temporaryBuff: activeOutOfCombat # assume the user is on a dual-wield set
 
 - section: Berserker
   id: 18
   items:
+
+    - id: smash-brawler-full
+      text: Smash Brawler
+      subText: 100% uptime # variable crit chance would be inaccurate
+      modifiers:
+        attributes:
+          Critical Chance: 15%
+      wvwModifiers:
+        attributes:
+          Critical Chance: 5%
+      gw2id: 2049
+      defaultEnabled: true
+      temporaryBuff: true
 
     - id: blood-reaction-base
       text: Blood Reaction
       subText: base
       modifiers:
         conversion:
-          Ferocity: {Precision: 7%}
+          Ferocity: {Precision: 12%}
+          Condition Damage: {Power: 15%}
+      wvwModifiers:
+        conversion:
+          Ferocity: {Precision: 5%}
+          Condition Damage: {Power: 10%}
       gw2id: 2011
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: blood-reaction-with
       text: Blood Reaction
@@ -409,31 +523,15 @@
         quantityEntered: 100
       modifiers:
         conversion:
-          Ferocity: {Precision: 7%}
+          Ferocity: {Precision: 12%}
+          Condition Damage: {Power: 15%}
+      wvwModifiers:
+        conversion:
+          Ferocity: {Precision: 5%}
+          Condition Damage: {Power: 10%}
       gw2id: 2011
       defaultEnabled: true
-
-    - id: heat-the-soul
-      text: Heat the Soul
-      subText: base
-      modifiers:
-        attributes:
-          Condition Damage: [120, converted] # from sheet by Bekko
-      gw2id: 2042
-      defaultEnabled: true
-
-    - id: heat-the-soul-with
-      text: Heat the Soul
-      subText: with torch
-      amountData:
-        label: '% uptime'
-        default: 50
-        quantityEntered: 100
-      modifiers:
-        attributes:
-          Condition Damage: [120, converted] # from sheet by Bekko
-      gw2id: 2042
-      defaultEnabled: true
+      temporaryBuff: true
 
     - id: fatal-frenzy-power-condi
       text: Fatal Frenzy
@@ -447,18 +545,13 @@
         attributes:
           Power: [300, buff]
           Condition Damage: [300, buff]
-      gw2id: 2046
-      defaultEnabled: true
-
-    - id: fatal-frenzy-toughness
-      text: Fatal Frenzy
-      subText: toughness during berserk
-      minor: true
-      modifiers:
+      wvwModifiers:
         attributes:
-          Toughness: [-300, buff]
+          Power: [150, buff]
+          Condition Damage: [300, buff]
       gw2id: 2046
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: bloody-roar
       text: Bloody Roar
@@ -468,10 +561,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [20%, mult]
+          Outgoing Strike Damage: [15%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1928
       defaultEnabled: true
 
@@ -485,15 +578,7 @@
           Burning Duration: 10%
       gw2id: 2038
       defaultEnabled: true
-
-    - id: eternal-champion
-      text: Eternal Champion
-      subText: toughness during berserk
-      modifiers:
-        attributes:
-          Toughness: [300, buff]
-      gw2id: 2043
-      defaultEnabled: true
+      temporaryBuff: false
 
 - section: Spellbreaker
   id: 61
@@ -504,7 +589,10 @@
       subText: base
       modifiers:
         damage:
-          Critical Damage: [7%, unknown]
+          Outgoing Critical Damage: [7.5%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Critical Damage: [7%, mult]
       gw2id: 2107
       defaultEnabled: true
 
@@ -517,7 +605,12 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Critical Damage: [7%, unknown]
+          # increases base version to 15%: 1.15/1.075 = 1.06976744186. see GitHub PR #612.
+          Outgoing Critical Damage: [6.976744186%, mult]
+      wvwModifiers:
+        damage:
+          # increases base version to 14%: 1.14/1.07 = 1.06542056075. see GitHub PR #612.
+          Outgoing Critical Damage: [6.542056075%, mult]
       gw2id: 2107
       defaultEnabled: true
 
@@ -526,12 +619,13 @@
       subText: mainhand dagger; boonless
       amountData:
         label: '% uptime'
-        default: 100
-        quantityEntered: 100
+        default: 50
+        quantityEntered: 50
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 2095
+      defaultEnabled: false
 
     - id: attackers-insight
       text: Attacker's Insight
@@ -550,11 +644,12 @@
           Precision: [250, buff]
       wvwModifiers:
         attributes:
-          Ferocity: [175, buff]
-          Power: [175, buff]
-          Precision: [175, buff]
+          Ferocity: [150, buff]
+          Power: [150, buff]
+          Precision: [150, buff]
       gw2id: 2130
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: magebane-tether
       text: Magebane Tether
@@ -564,7 +659,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [15%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 2060
       defaultEnabled: true
 
@@ -580,7 +678,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          All Damage: [1%, unknown]
+          Outgoing Strike Damage: [1%, add] # tested by ReMagic
       gw2id: 2302
       defaultEnabled: true
 
@@ -596,3 +694,4 @@
           Ferocity: [250, unknown]
       gw2id: 2236
       defaultEnabled: true
+      temporaryBuff: true

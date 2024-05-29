@@ -9,8 +9,9 @@ const stats = [
   'Concentration',
   'Healing Power',
   'Agony Resistance',
+  'Armor',
 ] as const;
-export type StatName = typeof stats[number];
+export type StatName = (typeof stats)[number];
 
 // added during the "buff" phase, so these cannot be "converted"
 export const alternateStats = [
@@ -33,7 +34,7 @@ export const boons = [
   'Swiftness',
   'Vigor',
 ] as const;
-export type BoonName = typeof boons[number];
+export type BoonName = (typeof boons)[number];
 
 const boonDurations = boons.map((boon) => `${boon} Duration`) as `${BoonName} Duration`[];
 
@@ -60,7 +61,7 @@ export const damagingConditions = [
   'Poison',
   'Torment',
 ] as const;
-export type DamagingConditionName = typeof damagingConditions[number];
+export type DamagingConditionName = (typeof damagingConditions)[number];
 
 const conditionDurations = damagingConditions.map(
   (condition) => `${condition} Duration`,
@@ -71,14 +72,15 @@ const conditionCoefficients = damagingConditions.map(
 ) as `${DamagingConditionName} Coefficient`[];
 
 const conditionDamages = damagingConditions.map(
-  (condition) => `${condition} Damage`,
-) as `${DamagingConditionName} Damage`[];
+  (condition) => `Outgoing ${condition} Damage`,
+) as `Outgoing ${DamagingConditionName} Damage`[];
 
 export const percents = [
   'Critical Chance',
   'Boon Duration',
   ...boonDurations,
   'Condition Duration',
+  'Condition Duration Uncapped',
   ...conditionDurations,
   'Maximum Health',
   'Outgoing Healing',
@@ -89,44 +91,50 @@ export const percents = [
 
 const coefficients = [
   'Power Coefficient',
+  'NonCrit Power Coefficient',
+  'Power2 Coefficient',
   ...conditionCoefficients,
   'Flat DPS',
+  'Siphon Coefficient',
   'Siphon Base Coefficient',
 ] as const;
 
 export const allDamageKeys = [
-  'Strike Damage',
-  'Condition Damage',
-  'All Damage',
+  'Outgoing Strike Damage',
+  'Outgoing Condition Damage',
+  'Outgoing All Damage',
   'Damage Reduction',
   // 'Condition Damage Reduction',
-  'Critical Damage',
+  'Outgoing Critical Damage',
   ...conditionDamages,
-  'Alternative Damage',
-  'Phantasm Damage',
+  'Outgoing Alternative Damage',
+  'Outgoing Alternative Critical Damage',
+  'Outgoing Phantasm Damage',
+  'Outgoing Phantasm Critical Damage',
+  'Outgoing Siphon Damage',
 ] as const;
-export type DamageKey = typeof allDamageKeys[number];
+export type DamageKey = (typeof allDamageKeys)[number];
 
 export const allDamageModes = ['add', 'mult', 'target', 'unknown'] as const;
-export type DamageMode = typeof allDamageModes[number];
+export type DamageMode = (typeof allDamageModes)[number];
 
-export const allAttributePointKeys = [...stats, ...alternateStats];
-type AttributePointKey = typeof allAttributePointKeys[number];
+export const allAttributePointKeys = [...stats, ...alternateStats] as const;
+export type AttributePointKey = (typeof allAttributePointKeys)[number];
 
 export const allAttributePointModes = ['buff', 'converted', 'unknown'] as const;
-export type AttributePointMode = typeof allAttributePointModes[number];
+export type AttributePointMode = (typeof allAttributePointModes)[number];
 
 export const allAttributeCoefficientKeys = coefficients;
-export type AttributeCoefficientKey = typeof allAttributeCoefficientKeys[number];
+export type AttributeCoefficientKey = (typeof allAttributeCoefficientKeys)[number];
 export const allAttributePercentKeys = percents;
-export type AttributePercentKey = typeof allAttributePercentKeys[number];
+export type AttributePercentKey = (typeof allAttributePercentKeys)[number];
 
 export type AttributeKey = AttributePointKey | AttributeCoefficientKey | AttributePercentKey;
 
 export const allConversionSourceKeys = stats;
-export type ConversionSourceKey = typeof allConversionSourceKeys[number];
+export type ConversionSourceKey = (typeof allConversionSourceKeys)[number];
 export const allConversionDestinationKeys = [...stats, ...percents, ...coefficients] as const;
-export type ConversionDestinationKey = typeof allConversionDestinationKeys[number];
+export type ConversionDestinationKey = (typeof allConversionDestinationKeys)[number];
 
 export const allConversionAfterBuffsSourceKeys = [
   ...stats,
@@ -134,18 +142,18 @@ export const allConversionAfterBuffsSourceKeys = [
   'Clone Critical Chance',
   'Phantasm Critical Chance',
 ] as const;
-export type ConversionAfterBuffsSourceKey = typeof allConversionAfterBuffsSourceKeys[number];
+export type ConversionAfterBuffsSourceKey = (typeof allConversionAfterBuffsSourceKeys)[number];
 export const allConversionAfterBuffsDestinationKeys = [
   ...stats,
   ...percents,
   ...coefficients,
 ] as const;
 export type ConversionAfterBuffsDestinationKey =
-  typeof allConversionAfterBuffsDestinationKeys[number];
+  (typeof allConversionAfterBuffsDestinationKeys)[number];
 
 // these values don't behave well if scaled up and down,
 // so disallow them in modifiers with an amount key
-export const damageKeysBlacklist = ['Damage Reduction', 'Condition Damage Reduction'] as const;
+export const damageKeysBlacklist = [] as const;
 export const attributePointKeysBlacklist = [
   'Precision',
   'Toughness',
@@ -180,10 +188,10 @@ export const exampleItem = `
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
-          All Damage: [20%, add]
-          Critical Damage: [20%, unknown]
-          Burning Damage: [33%, unknown]
+          Outgoing Strike Damage: [10%, mult]
+          Outgoing All Damage: [20%, add]
+          Outgoing Critical Damage: [20%, unknown]
+          Outgoing Burning Damage: [33%, unknown]
         attributes:
           Ferocity: [100, converted]
           Healing Power: [30, buff]
@@ -201,10 +209,10 @@ export const exampleItem = `
       defaultEnabled: true`;
 
 export const exampleModifiers = `damage:
-  Strike Damage: [10%, mult]
-  All Damage: [20%, add]
-  Critical Damage: [20%, unknown]
-  Burning Damage: [33%, unknown]
+  Outgoing Strike Damage: [10%, mult]
+  Outgoing All Damage: [20%, add]
+  Outgoing Critical Damage: [20%, unknown]
+  Outgoing Burning Damage: [33%, unknown]
 attributes:
   Ferocity: [100, converted]
   Healing Power: [30, buff]
@@ -220,10 +228,10 @@ conversion:
 
 export const exampleModifiersJson = `{
   "damage": {
-    "Strike Damage": [ "10%", "mult" ],
-    "All Damage": [ "20%", "add" ],
-    "Critical Damage": [ "20%", "unknown" ],
-    "Burning Damage": [ "33%", "unknown" ]
+    "Outgoing Strike Damage": [ "10%", "mult" ],
+    "Outgoing All Damage": [ "20%", "add" ],
+    "Outgoing Critical Damage": [ "20%", "unknown" ],
+    "Outgoing Burning Damage": [ "33%", "unknown" ]
   },
   "attributes": {
     "Ferocity": [ 100, "converted" ],
@@ -243,18 +251,17 @@ export const exampleModifiersJson = `{
 
 export type Percent = string;
 
-export type DamageValue = [Percent, DamageMode, Percent?, DamageMode?];
+export type DamageValue = [Percent, DamageMode] | [Percent, DamageMode, Percent, DamageMode];
 export type DamageModifiers = Partial<Record<DamageKey, DamageValue>>;
 
-export type AttributeModifiers = {
-  [Key in AttributeKey]?: Key extends AttributePointKey
-    ? [number, AttributePointMode, number?, AttributePointMode?]
-    : Key extends AttributeCoefficientKey
-    ? number
-    : Key extends AttributePercentKey
-    ? Percent
-    : never;
-};
+export type AttributeModifiers = Partial<
+  Record<
+    AttributePointKey,
+    [number, AttributePointMode] | [number, AttributePointMode, number, AttributePointMode]
+  > &
+    Record<AttributePercentKey, Percent> &
+    Record<AttributeCoefficientKey, number>
+>;
 
 export type ConversionValue = Partial<Record<ConversionSourceKey, Percent>>;
 export type ConversionModifers = Partial<Record<ConversionDestinationKey, ConversionValue>>;
@@ -275,20 +282,26 @@ export interface AmountData {
   label: string;
   default: number;
   quantityEntered: number;
+  defaultInput?: string;
   disableBlacklist?: boolean;
 }
 
 export interface ModifierItem {
   id: string;
   text?: string;
+  textOverride?: string;
   subText?: string;
   minor?: boolean;
   amountData?: AmountData;
   hasLifesteal?: boolean;
   modifiers: Modifiers;
+  wvwModifiers?: Modifiers;
   gw2id?: number;
+  displayIds?: number[];
+  priceIds?: number[];
   defaultEnabled?: boolean;
   type?: string;
+  temporaryBuff?: true | false | 'activeOutOfCombat';
 }
 
 export interface Section {

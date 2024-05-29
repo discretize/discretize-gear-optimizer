@@ -1,7 +1,9 @@
-import { TextField, Typography } from '@mui/material';
+import { Alert, Button, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { mapValues, parseDistribution } from '../../../utils/usefulFunctions';
+import { useDispatch } from 'react-redux';
+import { changeAllDistributionNew } from '../../../state/slices/distribution';
+import { mapValues, parseDistribution, parseNumber } from '../../../utils/usefulFunctions';
 
 const initial = {
   Power: 0,
@@ -27,13 +29,33 @@ const fixPoison = (input) =>
     }),
   );
 
+const apiUrls = [
+  {
+    siteName: 'dps.report',
+    subString: 'dps.report',
+    performFetch: (permalink) => fetch(`https://dps.report/getJson?permalink=${permalink}`),
+    loadingStatus: 'loading, please wait.',
+  },
+  {
+    siteName: 'gw2wingman',
+    subString: 'gw2wingman.nevermindcreations.de',
+    performFetch: (permalink) =>
+      fetch(`https://gw2wingman.nevermindcreations.de/api/getFullJson/${permalink}`, {
+        cache: 'force-cache',
+      }),
+    loadingStatus: 'loading, please wait. this may take a long time!',
+  },
+];
+
 const TemplateHelper = ({ character }) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   const [input, setInput] = React.useState(initial);
 
   const [url, setUrl] = React.useState('');
   const [urlResult, setUrlResult] = React.useState('');
+  const [probablyGolem, setProbablyGolem] = React.useState(false);
 
   React.useEffect(() => {
     async function fetchData() {
@@ -42,24 +64,38 @@ const TemplateHelper = ({ character }) => {
         try {
           const permalink = url.split('/').slice(-1);
           if (!permalink) return;
-          console.log('loading data from dps.report...');
-          const response = await fetch(`https://dps.report/getJson?permalink=${permalink}`);
+
+          const { siteName, performFetch, loadingStatus } =
+            apiUrls.find(({ subString }) => url.includes(subString)) ?? {};
+          if (!siteName) {
+            setUrlResult('unknown url!');
+            return;
+          }
+          if (loadingStatus) setUrlResult(loadingStatus);
+
+          console.log(`loading data from ${siteName}...`);
+          const response = await performFetch(permalink);
           const data = await response.json();
-          console.log('got data from dps.report: ', data);
+          console.log(`got data from ${siteName}: `, data);
 
           if (data.error || !Array.isArray(data?.players)) {
             setUrlResult(JSON.stringify(data, null, 2));
             return;
           }
 
-          const playerData = data.players.find((player) => player.name === data.recordedBy);
+          const playerData =
+            data.players.length > 1
+              ? data.players.find((player) => player.name === data.recordedBy)
+              : data.players[0];
 
           if (!playerData) {
             setUrlResult('no player data!');
             return;
           }
 
-          const duration = (data.phases?.[0]?.end - data.phases?.[0]?.start) / 1000;
+          const end = data.phases?.[0]?.end ?? 0;
+          const start = data.phases?.[0]?.start ?? 0;
+          const duration = (end - start) / 1000;
 
           let sum = 0;
           const powerDPS = playerData.dpsTargets?.[0]?.[0]?.powerDps;
@@ -73,14 +109,50 @@ const TemplateHelper = ({ character }) => {
             Confusion: 861,
           };
 
+          const damageDist = playerData.targetDamageDist?.[0]?.[0] ?? [];
+
           const conditionData = mapValues(conditionIds, (id) => {
-            const damage = playerData.targetDamageDist?.[0]?.[0]?.find(
-              (entry) => entry?.id === id,
-            )?.totalDamage;
+            const damage = damageDist.find((entry) => entry?.id === id)?.totalDamage;
             const dps = roundTwo((damage ?? 0) / duration);
             sum += dps;
             return dps;
           });
+
+          const nonConditionBuffEntries = Object.entries(data.buffMap)
+            .map(([buffId, { name }]) => [Number(buffId.replace('b', '')), name])
+            .filter(([id]) => Object.values(conditionIds).includes(id) === false);
+
+          const nonConditionDataEntries = nonConditionBuffEntries
+            .map(([id, name]) => {
+              const { totalDamage, connectedHits } =
+                damageDist.find((entry) => entry?.id === id) ?? {};
+
+              if (!totalDamage) return;
+
+              const dps = roundTwo((totalDamage ?? 0) / duration);
+              const hitsPerSecond = roundTwo(connectedHits / duration);
+
+              return [`${name} "Power" DPS (${hitsPerSecond} hit/sec)`, dps];
+            })
+            .filter(Boolean);
+
+          const possibleLifestealDamageSum = nonConditionDataEntries.reduce(
+            (prev, [_, dps]) => prev + dps,
+            0,
+          );
+
+          const powerDPSWithoutLifesteal = powerDPS - possibleLifestealDamageSum;
+
+          const nonConditionDataSection = nonConditionDataEntries.length
+            ? [
+                '   -- lifesteal effects must be subtracted from power DPS! --',
+                '      (not all of these are lifesteal; double check this!)',
+                '\n',
+                [`Power DPS raw`, powerDPS],
+                ...nonConditionDataEntries,
+                [`Power DPS minus buff damage`, powerDPSWithoutLifesteal],
+              ]
+            : ['      (no lifesteal effects detected)'];
 
           const totalDPS = playerData.dpsTargets?.[0]?.[0]?.dps;
 
@@ -99,17 +171,17 @@ const TemplateHelper = ({ character }) => {
           };
 
           for (const { name, totalTargetDamage, targetDamageDist } of minions) {
-            console.log(name);
             let type = 'Minion';
             if (name === 'Clone') type = 'Clone';
             if (name?.startsWith('Illusionary')) type = 'Phantasm';
 
-            minionCounts[type].names.add(name);
-
             for (const skill of targetDamageDist?.[0]?.[0] ?? []) {
               const { indirectDamage, connectedHits: minionHits, crit: minionCrits } = skill;
               if (indirectDamage) continue;
-              console.log(minionCrits, minionHits);
+              if (!minionHits && !minionCrits) continue;
+
+              minionCounts[type].names.add(name);
+
               minionCounts[type].minionHits += minionHits ?? 0;
               minionCounts[type].minionCrits += minionCrits ?? 0;
             }
@@ -159,11 +231,24 @@ const TemplateHelper = ({ character }) => {
             ['Sum', sum],
             ['Total dps (log)', totalDPS],
             '\n',
-            ['Power DPS (player only)', powerDPSPlayer],
+            ...nonConditionDataSection,
+            '\n',
+            ['Power DPS (including minions, no "lifesteal")', powerDPSWithoutLifesteal],
+            ...Object.entries(conditionData).map(([key, value]) => [`${key} DPS`, value]),
+            '\n',
+            '   -- minion damage split --',
+            '\n',
+            [
+              'Power DPS (player only, no "lifesteal")',
+              powerDPSPlayer - possibleLifestealDamageSum,
+            ],
+            ['Power DPS (player only, including "lifesteal")', powerDPSPlayer],
             ...minionDamageData,
-            ['Power DPS Sum', splitDamageTotal],
+            ['Power DPS Sum (should match total)', splitDamageTotal],
             '\n',
             ['Clone+Phantasm DPS', clonePhantasmDamageSum],
+            '\n',
+            '   -- hit per second counts --',
             '\n',
             [
               `95% Player crittable hits per second (${crits}/${hits}: ${critPercent.toFixed(
@@ -184,7 +269,8 @@ const TemplateHelper = ({ character }) => {
             })
             .join('\n');
 
-          setInput({ Power: powerDPS, Power2: 0, ...conditionData });
+          setInput({ Power: powerDPSWithoutLifesteal, Power2: 0, ...conditionData });
+          setProbablyGolem(data.players.length === 1);
           setUrlResult(resultAreaText);
         } catch (e) {
           console.error(e);
@@ -203,11 +289,22 @@ const TemplateHelper = ({ character }) => {
   const { cachedFormState } = character.settings;
   const { coefficientHelper } = character.results;
 
+  // warn user if log might be golem and they didn't zero the boss section
+  const confusionValue = data.find(({ key }) => key === 'Confusion').value;
+  const tormentValue = data.find(({ key }) => key === 'Torment').value;
+
+  const parseBoss = (val) => parseNumber(val, 0, false).value;
+  const attackRate = parseBoss(character.settings?.cachedFormState?.boss?.attackRate);
+  const movementUptime = parseBoss(character.settings?.cachedFormState?.boss?.movementUptime);
+
+  const warnAboutAttackRate = probablyGolem && confusionValue !== 0 && attackRate !== 0;
+  const warnAboutMovementUptime = probablyGolem && tormentValue !== 0 && movementUptime !== 0;
+
   // reverse engineer coefficient needed to reach target damage
   // DPS = slope * coefficient + intercept
   // coefficient = (DPS - intercept) / slope
   const calculateRequiredCoefficient = (key, targetDPS = 0) => {
-    const { slope, intercept } = coefficientHelper[key];
+    const { slope = 0, intercept = 0 } = coefficientHelper[key] ?? {};
     if (targetDPS === intercept) return 0;
     return (targetDPS - intercept) / slope;
   };
@@ -273,8 +370,17 @@ const TemplateHelper = ({ character }) => {
 
       <br />
 
+      {(warnAboutAttackRate || warnAboutMovementUptime) && (
+        <Alert severity="warning" sx={{ marginBottom: 2 }}>
+          Is this a stationary golem log? If so, your attack rate or movement uptime are probably
+          set incorrectly! Adjust them and rerun the calculation if so.
+        </Alert>
+      )}
+
       <Typography variant="caption">
-        <Trans>or, enter a dps.report URL to attempt to to fetch the data automatically:</Trans>
+        <Trans>
+          or, enter a dps.report or gw2wingman URL to attempt to to fetch the data automatically:
+        </Trans>
       </Typography>
       <br />
       <TextField
@@ -315,7 +421,11 @@ const TemplateHelper = ({ character }) => {
         {indent(formattedDistribution, 6)}
       </pre>
 
-      <Typography variant="h6">
+      <Button variant="contained" onClick={() => dispatch(changeAllDistributionNew(values2))}>
+        copy to coefficients section
+      </Button>
+
+      <Typography variant="h6" style={{ marginTop: '2rem' }}>
         <Trans>Trait Template</Trans>
       </Typography>
 

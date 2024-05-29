@@ -1,6 +1,5 @@
 import { Skill } from '@discretize/gw2-ui-new';
 import { Box, Typography } from '@mui/material';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSkills, setSkillAmount, toggleSkill } from '../../../state/slices/skills';
@@ -37,7 +36,7 @@ const Skills = ({ data }) => {
             checked={enabled}
             label={
               <Box display="flex">
-                <Skill id={gw2id} disableLink />
+                {gw2id && <Skill id={gw2id} disableLink />}
                 {subText && (
                   <Typography sx={{ fontWeight: 200, marginLeft: 1 }}>
                     {
@@ -60,7 +59,7 @@ const Skills = ({ data }) => {
               handleAmountChange={handleAmountChange(id)}
               value={amount}
               disabled={!enabled}
-              maxWidth={38}
+              maxWidth={amountData?.label === 'dps' ? 58 : 38}
             />
           </Box>
         ) : null}

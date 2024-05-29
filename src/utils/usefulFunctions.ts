@@ -1,7 +1,4 @@
-import type { ProfessionName } from './gw2-data';
-import { Classes, Defense } from './gw2-data';
-
-function firstUppercase(text: string | undefined | null): string {
+export function firstUppercase(text: string | undefined | null): string {
   if (typeof text === 'undefined' || text === null || text === '') return '';
 
   const toUpper = (str: string) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
@@ -12,14 +9,16 @@ function firstUppercase(text: string | undefined | null): string {
  * Parses a string to a number, treating non-parsable strings like empty inputs but indicating an
  * error so text boxes can display the error validation state
  */
-function parseNumber<Default>(
-  text: string | null | undefined,
+export function parseNumber<Default>(
+  input: number | string | null | undefined,
   defaultValue: Default,
   integerMode: boolean, // if true, parse as integer instead of float
 ): { value: number | Default; error: boolean } {
-  if (text === '' || text === null || text === undefined) {
+  if (input === '' || input === null || input === undefined) {
     return { value: defaultValue, error: false };
   }
+  const text = String(input).replace('%', '');
+
   const value = integerMode ? parseInt(text, 10) : parseFloat(text);
 
   // this covers quirks like parseFloat('1hello') being 1
@@ -31,35 +30,36 @@ function parseNumber<Default>(
   return { value, error: false };
 }
 
-export const parseAmount = (text: string) => parseNumber(text, null, false);
-export const parseAr = (text: string) => parseNumber(text, 0, true);
-export const parseInfusionCount = (text: string) => parseNumber(text, 18, true);
-export const parseDistribution = (text: string) => parseNumber(text, 0, false);
-export const parsePriority = (text: string) => parseNumber(text, null, false);
-export const parseBoss = (text: string) => parseNumber(text, null, false);
+export const parseAmount = (text: number | string | null | undefined) =>
+  parseNumber(text, null, false);
+export const parseAr = (text: number | string | null | undefined) => parseNumber(text, 0, true);
+export const parseInfusionCount = (text: number | string | null | undefined) =>
+  parseNumber(text, 18, true);
+export const parseDistribution = (text: number | string | null | undefined) =>
+  parseNumber(text, 0, false);
+export const parsePriority = (text: number | string | null | undefined) =>
+  parseNumber(text, null, false);
+export const parseBoss = (text: number | string | null | undefined) =>
+  parseNumber(text, null, false);
 
-export const getWeight = (profession: ProfessionName) => {
-  // Calculate weight class
-  const { defense } = Classes[firstUppercase(profession) as ProfessionName];
-  if (defense === Defense.HEAVY) {
-    return 'Heavy';
-  }
-  if (defense === Defense.MEDIUM) {
-    return 'Medium';
-  }
-  return 'Light';
-};
+export const objectEntries = Object.entries as <Type extends object>(
+  value: Type,
+) => [keyof Type, Type[keyof Type]][];
+
+export const objectKeys = Object.keys as <Type extends object>(value: Type) => (keyof Type)[];
 
 /*
  * Like Array.prototype.map(), but for key-value objects.
  * Creates a new key-value object containing the key-value pairs of the input object, except the
  * values are transformed by the input function.
  */
-export function mapValues<In, Out>(
-  obj: Record<string, In>,
+export function mapValues<Key extends string, In, Out>(
+  obj: Record<Key, In>,
   callbackFn: (v: In) => Out,
-): Record<string, Out> {
-  return Object.fromEntries(Object.entries(obj).map(([key, value]) => [key, callbackFn(value)]));
+) {
+  return Object.fromEntries(
+    objectEntries(obj).map(([key, value]) => [key, callbackFn(value)]),
+  ) as Record<Key, Out>;
 }
 
 /*
@@ -104,3 +104,6 @@ export function enumArrayIncludes<T extends readonly string[]>(
 ): value is T[number] {
   return arr.includes(value);
 }
+
+export const pick = (object: Record<string, any>, keysToPick: string[]) =>
+  Object.fromEntries(keysToPick.filter((key) => key in object).map((key) => [key, object[key]]));

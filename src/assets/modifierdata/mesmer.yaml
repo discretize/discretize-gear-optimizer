@@ -7,6 +7,7 @@
         attributes:
           Condition Damage: [180, buff]
       gw2id: 10232
+      temporaryBuff: false
 
     - id: signet-of-midnight
       text: Signet of Midnight
@@ -14,6 +15,7 @@
         attributes:
           Expertise: [180, buff]
       gw2id: 10234
+      temporaryBuff: false
 
 - section: Domination
   id: 10
@@ -23,7 +25,7 @@
       text: Empowered Illusions
       modifiers:
         damage:
-          Phantasm Damage: [15%, unknown]
+          Outgoing Phantasm Damage: [15%, unknown]
       gw2id: 682
       defaultEnabled: true
 
@@ -36,7 +38,7 @@
         quantityEntered: 25
       modifiers:
         damage:
-          Strike Damage: [12.5%, mult]
+          Outgoing Strike Damage: [12.5%, mult]
       gw2id: 1941
       defaultEnabled: true
 
@@ -48,10 +50,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 713
       defaultEnabled: true
 
@@ -63,8 +65,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, mult]
-          Phantasm Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, mult]
+          Outgoing Phantasm Damage: [15%, unknown]
       gw2id: 681
       defaultEnabled: true
 
@@ -77,17 +79,39 @@
       subText: normal
       modifiers:
         attributes:
+          Phantasm Critical Chance: 25%
+      wvwModifiers:
+        attributes:
           Phantasm Critical Chance: 20%
       gw2id: 701
+      defaultEnabled: false
+      temporaryBuff: false
 
     - id: phantasmal-fury-virtuoso
       text: Phantasmal Fury
       subText: virtuoso
       modifiers:
         attributes:
+          Phantasm Critical Chance: 40%
+      wvwModifiers:
+        attributes:
+          Phantasm Critical Chance: 35%
+      gw2id: 701
+      defaultEnabled: false
+      temporaryBuff: false
+
+    - id: phantasmal-fury-virtuoso-bugged
+      text: Phantasmal Fury
+      subText: 'virtuoso (bugged version)'
+      modifiers:
+        attributes:
+          Phantasm Critical Chance: 35%
+      wvwModifiers:
+        attributes:
           Phantasm Critical Chance: 30%
       gw2id: 701
       defaultEnabled: false
+      temporaryBuff: false
 
     - id: sharper-images-phantasm
       text: Sharper Images
@@ -96,12 +120,14 @@
       amountData:
         label: 'hit/s'
         default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
         conversionAfterBuffs:
           Bleeding Coefficient: {Phantasm Critical Chance: 500%}
       gw2id: 710
       defaultEnabled: false
+      temporaryBuff: true
 
     - id: sharper-images-clone
       text: Sharper Images
@@ -110,12 +136,14 @@
       amountData:
         label: 'hit/s'
         default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
         conversionAfterBuffs:
           Bleeding Coefficient: {Clone Critical Chance: 500%}
       gw2id: 710
       defaultEnabled: false
+      temporaryBuff: true
 
     - id: fencers-finesse
       text: Fencer's Finesse
@@ -128,13 +156,14 @@
           Ferocity: [150, buff]
       gw2id: 708
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: superiority-complex-base
       text: Superiority Complex
       subText: base
       modifiers:
         damage:
-          Critical Damage: [15%, unknown]
+          Outgoing Critical Damage: [15%, mult]
       gw2id: 692
       defaultEnabled: true
 
@@ -147,7 +176,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Critical Damage: [10%, unknown]
+          # increases base version to 25%: 1.25/1.15 = 1.08695652174. see GitHub PR #612.
+          Outgoing Critical Damage: [8.695652174%, mult]
       gw2id: 692
       defaultEnabled: true
 
@@ -155,32 +185,19 @@
   id: 45
   items:
 
-    - id: illusionary-defense
-      text: Illusionary Defense
-      amountData:
-        label: 'stacks'
-        default: 5
-        quantityEntered: 1
-        disableBlacklist: true
-      modifiers:
-        damage:
-          Damage Reduction: [5%, unknown]
-      wvwModifiers:
-        damage:
-          Damage Reduction: [2%, unknown]
-      gw2id: 675
-      defaultEnabled: true
-
     - id: illusionary-membrane
       text: Illusionary Membrane
       minor: true
       amountData:
-        label: '% regeneration'
+        label: '% chaos aura'
         default: 100
         quantityEntered: 100
       modifiers:
         damage:
-          Condition Damage: [10%, add]
+          Outgoing Condition Damage: [7%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Condition Damage: [10%, add]
       gw2id: 667
       defaultEnabled: true
 
@@ -192,6 +209,7 @@
           Condition Damage: [120, buff]
       gw2id: 669
       defaultEnabled: true
+      temporaryBuff: false
 
     # no configurable amount; causes scaled boon duration with toxic oil
     - id: chaotic-potency-2
@@ -205,6 +223,8 @@
         attributes:
           Condition Damage: [120, converted] # tested by marcus
       gw2id: 669
+      defaultEnabled: false
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: chaotic-persistence
       text: Chaotic Persistence
@@ -217,19 +237,20 @@
           # converted: https://discord.com/channels/380901000200060929/875327743334707251/911570311177207818
       gw2id: 1865
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Inspiration
   id: 23
   items:
 
-    - id: healing-prism
-      text: Healing Prism
+    - id: illusionary-inspiration
+      text: Illusionary Inspiration
       modifiers:
-        conversion:
-          Healing Power: {Power: 13%}
-      minor: true
-      gw2id: 1915
+        attributes:
+          Outgoing Healing: 15%
+      gw2id: 1866
       defaultEnabled: true
+      temporaryBuff: false
 
 - section: Illusions
   id: 24
@@ -244,9 +265,8 @@
         quantityEntered: 5
       modifiers:
         damage:
-          Strike Damage: [10%, add]
-        attributes:
-          Condition Damage: [150, buff]
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
       minor: true
       gw2id: 723
       defaultEnabled: true
@@ -259,13 +279,22 @@
         quantityEntered: 25
       modifiers:
         damage:
-          Phantasm Damage: [25%, unknown]
+          Outgoing Phantasm Damage: [25%, unknown]
       gw2id: 733
       defaultEnabled: true
 
+    - id: malicious-sorcery
+      text: Malicious Sorcery
+      modifiers:
+        attributes:
+          Confusion Duration: 25%
+      gw2id: 753
+      defaultEnabled: true
+      temporaryBuff: false
+
 - section: Chronomancer
   id: 40
-  note: Be sure to change the power coefficient value below when adding or removing traits without checkboxes like improved alacrity.
+  note: Be sure to change the power coefficient value below when adding or removing traits that change your rotation like improved alacrity.
   items:
 
     - id: danger-time
@@ -278,12 +307,25 @@
           Clone Critical Chance: 15%
       gw2id: 2009
       defaultEnabled: true
+      temporaryBuff: true
+
+    - id: improved-alacrity
+      text: Improved Alacrity
+      subText: critical damage bonus only
+      modifiers:
+        damage:
+          Outgoing Critical Damage: [10%, unknown]
+      gw2id: 1978
+      defaultEnabled: true
 
     - id: chronophantasma
       text: Chronophantasma
       modifiers:
         damage:
-          Phantasm Damage: [75%, mult]
+          Outgoing Phantasm Damage: [100%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Phantasm Damage: [50%, mult]
       gw2id: 1890
       defaultEnabled: true
 
@@ -303,6 +345,7 @@
       minor: true
       gw2id: 2069
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Virtuoso
   id: 66
@@ -316,10 +359,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult] # tested by Snappy Joe
+          Outgoing Strike Damage: [10%, mult] # tested by Snappy Joe
       wvwModifiers:
         damage:
-          Strike Damage: [7%, mult]
+          Outgoing Strike Damage: [7%, mult]
       gw2id: 2208
       defaultEnabled: true
 
@@ -329,13 +372,20 @@
       amountData:
         label: 'hit/s'
         default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
         conversionAfterBuffs:
-          Bleeding Coefficient: {Critical Chance: 500%}
+          Bleeding Coefficient: {Critical Chance: 450%}
+      wvwModifiers:
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 300%}
       gw2id: 2202
       defaultEnabled: false
+      temporaryBuff: true
 
+    # does not affect lifesteal despite "all text" description
+    # https://discord.com/channels/380901000200060929/1017105862357176341/1017167619478003792
     - id: deadly-blades
       text: Deadly Blades
       minor: true
@@ -345,7 +395,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          All Damage: [5%, unknown]
+          Outgoing Strike Damage: [5%, unknown]
+          Outgoing Condition Damage: [5%, add] #unconfirmed
       gw2id: 2204
       defaultEnabled: true
 
@@ -357,23 +408,37 @@
           Expertise: [150, unknown]
       gw2id: 2207
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: quiet-intensity
+      text: Quiet Intensity
+      subText: base
+      minor: true
+      modifiers:
+        conversion:
+          Ferocity: {Vitality: 10%}
+      gw2id: 2193
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: quiet-intensity-fury
       text: Quiet Intensity
       subText: 100% fury
       minor: true
       modifiers:
-        conversion:
-          Ferocity: {Vitality: 7%}
+        attributes:
+          Critical Chance: 15%
+      wvwModifiers:
         attributes:
           Critical Chance: 10%
       gw2id: 2193
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: bloodsong
       text: Bloodsong
       modifiers:
         damage:
-          Bleeding Damage: [25%, unknown]
+          Outgoing Bleeding Damage: [25%, mult] # unconfirmed
       gw2id: 2223
       defaultEnabled: true

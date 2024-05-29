@@ -3,11 +3,14 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  changeAffixes,
   changeExclusion,
   changeExclusionsEnabled,
-  changePriority,
+  changeExoticsEnabled,
+  changePriorities,
+  getAffixes,
   getExclusionsEnabled,
-  getPriority,
+  getExoticsEnabled,
 } from '../../../state/slices/priorities';
 import data from '../../../utils/data';
 import Presets from '../../baseComponents/Presets';
@@ -18,30 +21,43 @@ const AffixesSection = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
-  const affixes = useSelector(getPriority('affixes'));
+  const affixes = useSelector(getAffixes);
   const exclusionsEnabled = useSelector(getExclusionsEnabled);
+  const exoticsEnabled = useSelector(getExoticsEnabled);
 
   const handleTemplateClickPriorities = React.useCallback(
     (value) => {
       if (!value) return;
       const state = JSON.parse(value.value);
-      Object.keys(state).forEach((key) => dispatch(changePriority({ key, value: state[key] })));
+      dispatch(changePriorities(state));
     },
     [dispatch],
   );
 
   const handleRitualist = () => {
     dispatch(changeExclusionsEnabled(true));
-    [6, 7, 8, 9, 10, 11].forEach((index) =>
-      dispatch(changeExclusion({ affix: 'Ritualist', index, value: true })),
-    );
+    const backSlot = 11;
+    const trinketSlots = [6, 7, 8, 9, 10];
 
-    dispatch(
-      changePriority({
-        key: 'affixes',
-        value: affixes.includes('Celestial') ? affixes : [...affixes, 'Celestial'],
-      }),
-    );
+    dispatch(changeAffixes(affixes.includes('Celestial') ? affixes : [...affixes, 'Celestial']));
+
+    // exotic ritualist is usually better than cele;
+    // this option disabled until exotics disable infusions correctly
+
+    // dispatch(changeExoticsEnabled(true));
+
+    for (let index = 0; index < 14; index++) {
+      if (index === backSlot) {
+        dispatch(changeExclusion({ affix: 'Ritualist', index, value: true }));
+        dispatch(changeExclusion({ affix: 'Celestial', index, value: false }));
+      } else if (trinketSlots.includes(index)) {
+        // dispatch(changeExotic({ affix: 'Ritualist', index, value: trinketSlots.includes(index) }));
+        dispatch(changeExclusion({ affix: 'Ritualist', index, value: true }));
+        dispatch(changeExclusion({ affix: 'Celestial', index, value: false }));
+      } else {
+        dispatch(changeExclusion({ affix: 'Celestial', index, value: true }));
+      }
+    }
   };
 
   const chipStyle = {
@@ -92,6 +108,17 @@ const AffixesSection = () => {
               label={t('Auto-disable ritualist trinkets')}
             />
           ) : null}
+          <FormControlLabel
+            control={
+              <Switch
+                checked={exoticsEnabled}
+                onChange={(e) => dispatch(changeExoticsEnabled(e.target.checked))}
+                name="checked"
+                color="primary"
+              />
+            }
+            label={t('Show rarity controls')}
+          />
         </>
       }
     />

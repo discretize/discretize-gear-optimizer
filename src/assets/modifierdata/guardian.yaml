@@ -11,6 +11,7 @@
         attributes:
           Power: [180, buff]
       gw2id: 9093
+      temporaryBuff: activeOutOfCombat
 
     - id: bane-signet-2
       text: Bane Signet
@@ -23,6 +24,7 @@
         attributes:
           Power: [216, buff]
       gw2id: 9093
+      temporaryBuff: activeOutOfCombat
 
     - id: signet-of-judgement
       text: Signet of Judgement
@@ -45,6 +47,7 @@
         attributes:
           Concentration: [120, buff]
       gw2id: 9163
+      temporaryBuff: false
 
     - id: signet-of-mercy-2
       text: Signet of Mercy
@@ -53,6 +56,7 @@
         attributes:
           Concentration: [150, buff]
       gw2id: 9163
+      temporaryBuff: false
 
     - id: signet-of-wrath
       text: Signet of Wrath
@@ -64,6 +68,7 @@
         attributes:
           Condition Damage: [180, buff]
       gw2id: 9151
+      temporaryBuff: activeOutOfCombat
 
     - id: signet-of-wrath-2
       text: Signet of Wrath
@@ -76,6 +81,7 @@
         attributes:
           Condition Damage: [216, buff]
       gw2id: 9151
+      temporaryBuff: activeOutOfCombat
 
     # 0.7 coefficient, 690.5(?) strength, 18 proc/120s traited
     # burning: 4s
@@ -84,7 +90,7 @@
     # passive burning : 1/3 * 2.4 = 0.8
     - id: mantra-of-flame
       text: Mantra of Flame
-      subText: (With passive + permeating + amplified)
+      subText: (with passive + permeating + amplified)
       amountData:
         label: '/10s'
         default: 1.5
@@ -92,14 +98,19 @@
       modifiers:
         attributes:
           Power Coefficient: 483.3
+          Burning Coefficient: 14.4
+      wvwModifiers:
+        attributes:
+          Power Coefficient: 483.3
           Burning Coefficient: 4.8
       gw2id: 46148
+      temporaryBuff: true
 
     # 0.7 coefficient, 690.5(?) strength, 18 proc/120s traited
     # burning: 4s
     - id: mantra-of-flame-base
       text: Mantra of Flame
-      subText: (No passive)
+      subText: (no passive)
       amountData:
         label: '/10s'
         default: 1.5
@@ -107,8 +118,13 @@
       modifiers:
         attributes:
           Power Coefficient: 483.3
+          Burning Coefficient: 12
+      wvwModifiers:
+        attributes:
+          Power Coefficient: 483.3
           Burning Coefficient: 4
       gw2id: 46148
+      temporaryBuff: true
 
 - section: Zeal
   id: 42
@@ -118,7 +134,7 @@
       text: Fiery Wrath
       modifiers:
         damage:
-          Strike Damage: [7%, mult]
+          Outgoing Strike Damage: [7%, mult]
       gw2id: 634
       defaultEnabled: true
 
@@ -127,7 +143,7 @@
       minor: true
       modifiers:
         damage:
-          Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 646
       defaultEnabled: true
 
@@ -139,6 +155,7 @@
           Power: [120, buff] #confirmed by Cat
       gw2id: 653
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: zealous-blade-gs
       text: Zealous Blade
@@ -152,6 +169,7 @@
           Power: [120, converted] #confirmed by Cat
       gw2id: 653
       defaultEnabled: true
+      temporaryBuff: true # assume the user is on a dual-wield set
 
     - id: kindled-zeal
       text: Kindled Zeal
@@ -160,13 +178,14 @@
           Condition Damage: {Power: 10%}
       gw2id: 1556
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: symbolic-avenger
       text: Symbolic Avenger
       subText: 5x
       modifiers:
         damage:
-          Strike Damage: [10%, add]
+          Outgoing Strike Damage: [10%, add]
       gw2id: 2017
       defaultEnabled: true
 
@@ -182,6 +201,7 @@
           Precision: [80, buff] # confirmed from bench hero panel
       gw2id: 566
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: right-hand-strength-1h
       text: Right-Hand Strength
@@ -195,6 +215,7 @@
           Power: [80, converted] # found by Cat
       gw2id: 566
       defaultEnabled: true
+      temporaryBuff: activeOutOfCombat # assume the user is on a dual-wield set
 
     - id: radiant-fire
       text: Radiant Fire
@@ -206,6 +227,7 @@
           Burning Duration: 7%
       gw2id: 567
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: retribution
       text: Retribution
@@ -215,12 +237,13 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, add]
+          Outgoing Strike Damage: [10%, add]
       gw2id: 565
       defaultEnabled: true
 
     - id: radiant-power
       text: Radiant Power
+      subText: 100% burning enemy
       minor: true
       modifiers:
         attributes:
@@ -228,12 +251,16 @@
           Ferocity: [150, buff]
       gw2id: 568
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: amplified-wrath
       text: Amplified Wrath
       modifiers:
         damage:
-          Burning Damage: [15%, unknown]
+          Outgoing Burning Damage: [10%, mult] # unconfirmed
+      wvwModifiers:
+        damage:
+          Outgoing Burning Damage: [15%, mult] # unconfirmed
       gw2id: 1686
       defaultEnabled: true
 
@@ -245,6 +272,7 @@
           Critical Chance: 25%
       gw2id: 1683
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Valor
   id: 13
@@ -258,13 +286,14 @@
           Toughness: [240, buff]
       gw2id: 580
       defaultEnabled: true
+      temporaryBuff: activeOutOfCombat # assume the user is on a dual-wield set
 
 - section: Honor
   id: 49
   items:
 
-    - id: invigorating-bulwark
-      text: Invigorating Bulwark
+    - id: invigorated-bulwark
+      text: Invigorated Bulwark
       amountData:
         label: 'stacks'
         default: 5
@@ -277,6 +306,7 @@
           Outgoing Healing: 10%
       gw2id: 1899
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: honorable-staff
       text: Honorable Staff
@@ -289,6 +319,7 @@
           Concentration: [60, buff] # tested by Stephan
       gw2id: 557
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: honorable-staff-2
       text: Honorable Staff
@@ -301,6 +332,7 @@
           Concentration: [60, converted] # tested by Stephan
       gw2id: 557
       defaultEnabled: true
+      temporaryBuff: true # assume the user is on a dual-wield set
 
     - id: force-of-will
       text: Force of Will
@@ -316,6 +348,7 @@
           Outgoing Healing: {Vitality: 0.005%}
       gw2id: 1682
       defaultEnabled: true
+      temporaryBuff: false
 
 - section: Virtues
   id: 46
@@ -325,28 +358,42 @@
       text: Inspired Virtue
       amountData:
         label: 'boons'
-        default: 8
+        default: 10
         quantityEntered: 1
       minor: true
       modifiers:
         damage:
-          Strike Damage: [1%, mult]
+          Outgoing Strike Damage: [1%, mult]
       gw2id: 621
+      defaultEnabled: true
+
+    - id: unscathed-contender-health
+      text: Unscathed Contender
+      subText: with scholar
+      amountData:
+        label: '% scholar'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [7%, mult]
+      gw2id: 624
       defaultEnabled: true
 
     - id: unscathed-contender
       text: Unscathed Contender
+      subText: with aegis
       amountData:
         label: '% aegis'
         default: 100
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [20%, add]
+          Outgoing Strike Damage: [7%, add]
       gw2id: 624
       defaultEnabled: true
 
-    - id: virtue-of-retribution
+    - id: virtue-of-resolution
       text: Virtue of Resolution
       minor: true
       modifiers:
@@ -354,6 +401,7 @@
           Resolution Duration: 25%
       gw2id: 604
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: inspiring-virtue
       text: Inspiring Virtue
@@ -363,28 +411,42 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, add]
+          Outgoing Strike Damage: [10%, add]
       gw2id: 603
       defaultEnabled: true
 
     - id: power-of-the-virtuous
       text: Power of the Virtuous
+      subText: conversion only
       minor: true
       modifiers:
+        conversion:
+          Condition Damage: {Vitality: 7%}
+      wvwModifiers:
         conversion:
           Condition Damage: {Vitality: 13%}
       gw2id: 620
       defaultEnabled: true
+      temporaryBuff: false
 
 - section: Dragonhunter
   id: 27
   items:
+    - id: defenders-dogma
+      text: Defender's Dogma
+      minor: true
+      modifiers:
+        attributes:
+          Vitality: [180, converted]
+      gw2id: 1896
+      defaultEnabled: true
+      temporaryBuff: false
 
     - id: zealots-aggression
       text: Zealot's Aggression
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1835
       defaultEnabled: true
 
@@ -394,7 +456,7 @@
       minor: true
       modifiers:
         damage:
-          Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 1926
       defaultEnabled: true
 
@@ -404,8 +466,9 @@
       minor: true
       modifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Outgoing Strike Damage: [15%, mult]
       gw2id: 1926
+      defaultEnabled: false
 
     - id: hunters-fortification
       text: Hunter's Fortification
@@ -416,11 +479,53 @@
       gw2id: 1908
       defaultEnabled: true
 
-    - id: big-game-hunter
-      text: Big Game Hunter
+    - id: heavy-light-defiant
+      text: Heavy Light
+      subText: against defiant foes, base
       modifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Outgoing Strike Damage: [10%, unknown]
+      gw2id: 1963
+      defaultEnabled: true
+
+    - id: heavy-light-defiant-disabled
+      text: Heavy Light
+      subText: against defiant foes, bonus
+      amountData:
+        label: '% disabled'
+        default: 0
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [5%, unknown] # sure hope this is additive...?
+      gw2id: 1963
+      defaultEnabled: true
+
+    - id: heavy-light-disabled
+      text: Heavy Light
+      subText: against non-defiant foes, bonus
+      amountData:
+        label: '% disabled'
+        default: 0
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [15%, unknown]
+      gw2id: 1963
+      defaultEnabled: false
+
+    - id: big-game-hunter
+      text: Big Game Hunter
+      amountData:
+        label: '% uptime'
+        default: 75
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [20%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [15%, mult]
       gw2id: 1955
       defaultEnabled: true
 
@@ -448,6 +553,7 @@
           Vitality: [150, converted]
       gw2id: 2148
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Willbender
   id: 65
@@ -460,6 +566,7 @@
           Condition Damage: [120, unknown]
       gw2id: 2191
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: power-for-power
       text: Power for Power
@@ -467,13 +574,17 @@
         attributes:
           Power: [120, unknown]
       gw2id: 2190
+      defaultEnabled: true
+      temporaryBuff: false
 
     - id: conceited-curate
       text: Conceited Curate
       modifiers:
         attributes:
-          Healing Power: [120, unknown]
+          Vitality: [180, converted]
       gw2id: 2187
+      defaultEnabled: true
+      temporaryBuff: false
 
     - id: lethal-tempo
       text: Lethal Tempo
@@ -484,12 +595,12 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [1%, add] # as per Cat
-          Condition Damage: [1%, add] # ???
+          Outgoing Strike Damage: [2%, add] # as per Cat
+          Outgoing Condition Damage: [2%, add] # ???
       wvwModifiers:
         damage:
-          Strike Damage: [3%, add] # as per Cat
-          Condition Damage: [3%, add] # ???
+          Outgoing Strike Damage: [3%, add] # as per Cat
+          Outgoing Condition Damage: [3%, add] # ???
       gw2id: 2189
       defaultEnabled: true
 
@@ -502,12 +613,12 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [2%, add] # as per Cat
-          Condition Damage: [2%, add] # ???
+          Outgoing Strike Damage: [3%, add] # as per Cat
+          Outgoing Condition Damage: [3%, add] # ???
       wvwModifiers:
         damage:
-          Strike Damage: [4%, add] # as per Cat
-          Condition Damage: [4%, add] # ???
+          Outgoing Strike Damage: [2%, add] # as per Cat
+          Outgoing Condition Damage: [2%, add] # ???
       gw2id: 2201
       defaultEnabled: true
 
@@ -516,5 +627,19 @@
       subText: bugged 10% chill mod
       modifiers:
         damage:
-          Strike Damage: [10%, mult] # as per Cat
+          Outgoing Strike Damage: [10%, mult] # as per Cat
       gw2id: 2201
+      defaultEnabled: false
+
+    - id: deathless-courage
+      text: Deathless Courage
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Damage Reduction: [50%, unknown]
+      gw2id: 2198
+      defaultEnabled: true

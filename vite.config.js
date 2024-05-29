@@ -1,10 +1,16 @@
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
+import preserveDirectives from 'rollup-preserve-directives';
 import { defineConfig } from 'vite';
+import { comlink } from 'vite-plugin-comlink';
+import wasm from 'vite-plugin-wasm';
 import yamlImporter from './plugins/YAMLImporter';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    port: 3000,
+  },
   build: {
     rollupOptions: {
       input: {
@@ -12,7 +18,14 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         build: resolve(__dirname, 'build/index.html'),
       },
+      plugins: [preserveDirectives()],
     },
+    target: 'es2020',
+    sourcemap: true,
   },
-  plugins: [react(), yamlImporter()],
+  plugins: [comlink(), react(), yamlImporter(), wasm()],
+  worker: {
+    format: 'iife',
+    plugins: () => [comlink(), yamlImporter(), wasm()],
+  },
 });

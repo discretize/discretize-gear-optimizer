@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProfession } from '../../../state/slices/controlsSlice';
 import { changeAllDistributions } from '../../../state/slices/distribution';
 import data from '../../../utils/data';
-import { PROFESSIONS } from '../../../utils/gw2-data';
+import { SPECIALIZATIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import DamageDistribution from './DamageDistribution';
@@ -18,7 +18,7 @@ const DistributionSection = () => {
 
   let distributionPresets;
   if (profession) {
-    const { eliteSpecializations } = PROFESSIONS.find((entry) => entry.profession === profession);
+    const eliteSpecializations = SPECIALIZATIONS[profession];
     distributionPresets = data.presetDistribution.list.filter((preset) => {
       if (preset.name === 'None') return false;
       return (
@@ -43,15 +43,13 @@ const DistributionSection = () => {
       title={t('Skill Coefficients')}
       content={<DamageDistribution />}
       extraInfo={
-        <>
-          {profession !== '' && (
-            <Presets
-              data={distributionPresets}
-              handleClick={onTemplateClickDistribution}
-              presetCategory="distribution"
-            />
-          )}
-        </>
+        profession !== '' && (
+          <Presets
+            data={distributionPresets}
+            handleClick={onTemplateClickDistribution}
+            presetCategory="distribution"
+          />
+        )
       }
       helpText={
         <>

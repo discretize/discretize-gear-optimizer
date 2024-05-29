@@ -14,7 +14,6 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
@@ -96,7 +95,7 @@ export default function ResultTableSettings() {
             <TextField {...params} variant="standard" label={t('Show Attributes')} margin="dense" />
           )}
           renderOption={(props, option, { selected }) => (
-            <li {...props}>
+            <li {...props} key={option}>
               <Box sx={{ width: 28 }}>{selected && <CheckIcon sx={{ fontSize: '1rem' }} />}</Box>
               <Attribute name={option} disableLink />
             </li>
@@ -132,6 +131,7 @@ export default function ResultTableSettings() {
               ['Combinations', t('All Combinations')],
               ['Sigils', t('Sigils')],
               ['Runes', t('Runes')],
+              ['Relics', t('Relics')],
               ['Nourishment', t('Food')],
               ['Enhancement', t('Utility')],
             ].map(([value, label]) => (
@@ -147,8 +147,8 @@ export default function ResultTableSettings() {
 
           <FormHelperText>
             <Trans>
-              Displays only the top result for each rune, sigil, food, or utility option or each
-              combination of all of the above (up to 100 results).
+              Displays only the top result for each rune, relic, sigil, food, or utility option or
+              each combination of all of the above (up to 100 results).
             </Trans>
           </FormHelperText>
         </FormControl>

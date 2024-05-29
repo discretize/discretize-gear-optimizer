@@ -1,6 +1,5 @@
 import { Attribute } from '@discretize/gw2-ui-new';
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
-import React from 'react';
 
 const AffixesStats = ({ data, title }) => {
   return (
@@ -13,7 +12,7 @@ const AffixesStats = ({ data, title }) => {
               <TableCell>
                 <Attribute name={attribute} style={{ fontSize: '20px', color: '#AAAAAA' }} />
               </TableCell>
-              <TableCell>{data[attribute]}</TableCell>
+              <TableCell align="right">{data[attribute]}</TableCell>
             </TableRow>
           ))}
         </TableBody>

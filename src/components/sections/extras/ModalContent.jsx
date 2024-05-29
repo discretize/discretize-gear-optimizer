@@ -13,10 +13,11 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import { placeholderItem } from '../../../assets/modifierdata';
 import { changeExtraIds, getExtrasIds } from '../../../state/slices/extras';
 import Label from '../../baseComponents/Label';
 
@@ -74,7 +75,7 @@ export const joinWith = (array, separator) =>
   array.flatMap((element) => [element, separator]).slice(0, -1);
 
 function ModalContent(props) {
-  const { type, modifierData, modifierDataById: data, priceData } = props;
+  const { type, modifierData, modifierDataById: data, priceData, showAttributes } = props;
 
   const { classes } = useStyles();
   const { t } = useTranslation();
@@ -97,10 +98,16 @@ function ModalContent(props) {
     [data, modifierData],
   );
 
+  const searchTerms = search.split(',').map((term) => term.trim().toLowerCase());
+
   const filteredItems = Object.entries(grouped).map(([label, options]) => {
-    const searched = options.filter(
-      ({ text, gw2id }) =>
-        text.toLowerCase().includes(search.toLowerCase()) || `${gw2id}`.includes(search),
+    const searched = options.filter(({ text, gw2id, modifiers = {} }) =>
+      searchTerms.some(
+        (term) =>
+          text.toLowerCase().includes(term) ||
+          `${gw2id}`.includes(term) ||
+          JSON.stringify(modifiers).toLowerCase().includes(term),
+      ),
     );
     return [label, searched];
   });
@@ -122,6 +129,23 @@ function ModalContent(props) {
     const tmp = filteredItems.flatMap((array) => array[1]).map(({ id }) => id);
     dispatch(changeExtraIds({ type, ids: [...currentIds, ...tmp] }));
   }, [filteredItems, dispatch, currentIds, type]);
+
+  const toggleAllInSection = React.useCallback(
+    (sectionLabel) => {
+      const idsInSection = filteredItems
+        .find(([label]) => label === sectionLabel)[1]
+        .map(({ id }) => id);
+      const allSelected = idsInSection.every((id) => currentIds.includes(id));
+
+      if (allSelected) {
+        const filtered = currentIds.filter((id) => !idsInSection.includes(id));
+        dispatch(changeExtraIds({ type, ids: filtered }));
+      } else {
+        dispatch(changeExtraIds({ type, ids: [...currentIds, ...idsInSection] }));
+      }
+    },
+    [filteredItems, dispatch, currentIds, type],
+  );
 
   const unselectAllVisible = React.useCallback(() => {
     const tmp = filteredItems.flatMap((array) => array[1]).map(({ id }) => id);
@@ -190,53 +214,79 @@ function ModalContent(props) {
       {filteredItems.map(([label, options]) => {
         if (options.length === 0) return null;
         return (
-          <div>
+          <div key={label}>
             <FormControl sx={{ margin: 1, width: '100%' }} component="fieldset" variant="standard">
-              <FormLabel component="legend">
+              <FormLabel
+                component="legend"
+                sx={(theme) => ({
+                  '&:hover': {
+                    color: theme.palette.primary.main,
+                  },
+                })}
+                onClick={() => toggleAllInSection(label)}
+              >
                 {
                   // i18next-extract-mark-context-next-line {{extraSection}}
                   t('extraSection', { context: label })
                 }
               </FormLabel>
               <FormGroup>
-                {options.map(({ id, gw2id, displayIds, subText, textOverride }) => (
-                  <Box
-                    sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
-                  >
-                    <FormControlLabel
-                      key={id}
-                      control={
-                        <Checkbox
-                          name={id}
-                          checked={currentIds.includes(id)}
-                          onChange={handleCheckboxChange}
-                        />
-                      }
-                      label={
-                        <>
-                          {displayIds ? (
-                            joinWith(
-                              displayIds.map((displayId) => (
+                {options.map(
+                  ({ id, gw2id, displayIds, subText, textOverride, modifiers, amountData }) => (
+                    <Fragment key={id}>
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                        }}
+                      >
+                        <FormControlLabel
+                          key={id}
+                          control={
+                            <Checkbox
+                              name={id}
+                              checked={currentIds.includes(id)}
+                              onChange={handleCheckboxChange}
+                            />
+                          }
+                          label={
+                            <>
+                              {displayIds ? (
+                                joinWith(
+                                  displayIds.map((displayId) => (
+                                    <Item
+                                      id={displayId ?? placeholderItem}
+                                      key={displayId ?? placeholderItem}
+                                      disableLink
+                                      text={textOverride ?? formatApiText}
+                                      disableText={!displayId}
+                                      disableTooltip={!displayId}
+                                    />
+                                  )),
+                                  ' / ',
+                                )
+                              ) : (
                                 <Item
-                                  id={displayId}
+                                  id={gw2id ?? placeholderItem}
                                   disableLink
                                   text={textOverride ?? formatApiText}
+                                  disableText={!gw2id}
+                                  disableTooltip={!gw2id}
                                 />
-                              )),
-                              ' / ',
-                            )
-                          ) : (
-                            <Item id={gw2id} disableLink text={textOverride ?? formatApiText} />
-                          )}
-                          {subText && (
-                            <Typography variant="caption" sx={{ marginLeft: 1, fontWeight: 200 }}>
-                              {
-                                // i18next-extract-mark-context-next-line {{extraSubText}}
-                                t('extraSubText', { context: subText })
-                              }
-                            </Typography>
-                          )}
-                          {/* {priceIds && (
+                              )}
+                              {subText && (
+                                <Typography
+                                  variant="caption"
+                                  sx={{ marginLeft: 1, fontWeight: 200 }}
+                                >
+                                  {
+                                    // i18next-extract-mark-context-next-line {{extraSubText}}
+                                    t('extraSubText', { context: subText })
+                                  }
+                                </Typography>
+                              )}
+                              {/* {priceIds && (
                             <span style={{ fontSize: '0.6em' }}>
                               <br />
                               {priceIds.map((id) => (
@@ -244,21 +294,83 @@ function ModalContent(props) {
                               ))}
                             </span>
                           )} */}
-                        </>
-                      }
-                    />
-                    {priceData[id] !== undefined ? (
-                      <Typography variant="body2">
-                        {priceData[id].cheapestId ? (
-                          <>
-                            <Item id={priceData[id].cheapestId} disableText />{' '}
-                          </>
+                            </>
+                          }
+                        />
+                        {priceData[id] !== undefined ? (
+                          <Typography variant="body2">
+                            {priceData[id].cheapestId ? (
+                              <>
+                                <Item id={priceData[id].cheapestId} disableText />{' '}
+                              </>
+                            ) : null}
+                            <Coin value={priceData[id].price} />
+                          </Typography>
                         ) : null}
-                        <Coin value={priceData[id].price} />
-                      </Typography>
-                    ) : null}
-                  </Box>
-                ))}
+                      </Box>
+                      {showAttributes && (
+                        <Typography
+                          variant="caption"
+                          sx={{ marginLeft: 5, fontWeight: 200, maxWidth: 500, whiteSpace: 'wrap' }}
+                        >
+                          {
+                            /* eslint-disable no-nested-ternary */
+                            [
+                              modifiers?.attributes
+                                ? ` ${Object.entries(modifiers?.attributes)
+                                    .map(
+                                      ([key, value]) =>
+                                        `${
+                                          amountData
+                                            ? ''
+                                            : Array.isArray(value) && value.length === 2
+                                              ? value[0]
+                                              : value
+                                        } ${key}`,
+                                    )
+                                    .join(', ')}`
+                                : '',
+                              modifiers?.damage
+                                ? ` ${Object.entries(modifiers?.damage)
+                                    .map(
+                                      ([key, value]) =>
+                                        `${
+                                          amountData
+                                            ? ''
+                                            : Array.isArray(value) && value.length === 2
+                                              ? value[0]
+                                              : value
+                                        } ${key}`,
+                                    )
+                                    .join(', ')}`
+                                : '',
+                              modifiers?.conversion
+                                ? ` ${Object.entries(modifiers?.conversion)
+                                    .map(
+                                      ([key, value]) =>
+                                        `${Object.entries(value)
+                                          .map(
+                                            ([source, amount]) =>
+                                              `${amountData ? '' : amount} ${source}`,
+                                          )
+                                          .join(' and ')} to ${key}`,
+                                    )
+                                    .join(', ')}`
+                                : '',
+                              modifiers?.conversionAfterBuffs
+                                ? ` ${Object.entries(modifiers?.conversionAfterBuffs)
+                                    .map(([key]) => `Conversion to ${key}`)
+                                    .join(', ')}`
+                                : '',
+                            ]
+                              .filter(Boolean)
+                              .join(', ') + (amountData ? ` ${t('(varies)')}` : '')
+                          }
+                        </Typography>
+                      )}
+                    </Fragment>
+                  ),
+                )}
               </FormGroup>
             </FormControl>
           </div>

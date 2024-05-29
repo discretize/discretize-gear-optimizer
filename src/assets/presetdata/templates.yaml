@@ -4,56 +4,168 @@ list:
   - class: Mesmer
     builds:
 
-      - name: Power Chrono DT Focus
-        id: pchrono-dt-focus
-        specialization: Chronomancer
+      - name: Condi Virtuoso Dueling
+        id: cvirt
+        specialization: Virtuoso
+        boonType: Condi
+        priority: Condi DPS Rampager
+        distribution: Condi Virtuoso Dueling
+        traits: Condi Virtuoso Dueling
+        extras: Condi Virtuoso Dueling
+        weaponType: Dual wield
+        outdated: false
+
+      # - name: Condi Virtuoso (sharpening sorrow)
+      #   id: cvirt-sorrow
+      #   specialization: Virtuoso
+      #   boonType: Condi
+      #   priority: Condi DPS Rampager
+      #   distribution: Condi Virtuoso (sharpening sorrow)
+      #   traits: Condi Virtuoso (sharpening sorrow)
+      #   extras: Condi Virtuoso Dueling
+      #   weaponType: Dual wield
+
+      - name: Condi Virtuoso Chaos
+        id: cvirt-chaos
+        specialization: Virtuoso
+        boonType: Condi
+        priority: Condi DPS Rampager
+        distribution: Condi Virtuoso Chaos
+        traits: Condi Virtuoso Chaos
+        extras: Condi Virtuoso Chaos
+        weaponType: Dual wield
+        outdated: true
+
+      - name: Power Virtuoso GS
+        id: pvirt-gs
+        specialization: Virtuoso
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Chrono DT Focus
-        traits: Power Chrono DT Focus
+        distribution: Power Virtuoso GS
+        traits: Power Virtuoso
         fractal:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid, furious)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Power Chrono IA Focus
-        id: pchrono-ia-focus
+      - name: Boon Power Chrono GS
+        id: pchrono-boon-gs
+        specialization: Chronomancer
+        boonType: Power
+        priority: Power DPS
+        distribution: Boon Power Chrono GS
+        traits: Boon Power Chrono GS
+        fractal:
+          extras: Power Boon (Fractal)
+        raid:
+          extras: Power Boon (Raid)
+        weaponType: Two-handed
+        outdated: false
+
+      - name: Boon Condi Chrono
+        id: condi-chrono-stm
+        specialization: Chronomancer
+        boonType: Condi
+        priority: Boon Condi Chrono 10%
+        distribution: Boon Condi Chrono
+        traits: Boon Condi Chrono
+        extras: Boon Condi Chrono
+        weaponType: Dual wield
+        outdated: true
+
+      # - name: Alacrity Power Chrono GS
+      #   id: pchrono-alac-gs
+      #   specialization: Chronomancer
+      #   boonType: Power
+      #   priority: Boon Power Chrono 0%
+      #   distribution: Alacrity Power Chrono GS
+      #   traits: Alacrity Power Chrono GS
+      #   fractal:
+      #     extras: Power Boon (Fractal)
+      #   raid:
+      #     extras: Power Boon (Raid)
+      #   weaponType: Two-handed
+      #   outdated: true
+
+      - name: Power Chrono IA GS
+        id: pchrono-ia-gs
         specialization: Chronomancer
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Chrono IA Focus
-        traits: Power Chrono IA Focus
+        distribution: Power Chrono IA GS
+        traits: Power Chrono IA GS
         fractal:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid, furious)
         weaponType: Two-handed
+        outdated: false
 
-      - name: Power Quickness Chrono
-        id: pchrono-stm-gs
-        specialization: Chronomancer
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Power Quickness Chrono
-        traits: Power Quickness Chrono
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid, furious)
-        weaponType: Two-handed
+      # - name: Power Chrono DT Focus
+      #   id: pchrono-dt-focus
+      #   specialization: Chronomancer
+      #   boonType: Power
+      #   priority: Power DPS (no dragon)
+      #   distribution: Power Chrono DT Focus
+      #   traits: Power Chrono DT Focus
+      #   fractal:
+      #     extras: Power (Fractal)
+      #   raid:
+      #     extras: Power (Raid, furious)
+      #   weaponType: Two-handed
+      #   outdated: true
 
-      - name: Staff Alacrity Mirage
+      # - name: Power Chrono IA Focus
+      #   id: pchrono-ia-focus
+      #   specialization: Chronomancer
+      #   boonType: Power
+      #   priority: Power DPS (no dragon)
+      #   distribution: Power Chrono IA Focus
+      #   traits: Power Chrono IA Focus
+      #   fractal:
+      #     extras: Power (Fractal)
+      #   raid:
+      #     extras: Power (Raid, furious)
+      #   weaponType: Two-handed
+      #   outdated: true
+
+
+      - name: Alacrity Staff Mirage
         id: alacmirage
         specialization: Mirage
         boonType: Condi
-        priority: Condi Alacrity Mirage 27%
-        distribution: Staff Mirage
-        traits: Staff Mirage
-        extras: Alacrity Mirage (Raid)
+        priority: Condi Alacrity Mirage 0%
+        distribution: Alacrity Staff Mirage
+        traits: Alacrity Staff Mirage
+        extras: Alacrity Staff Mirage
         weaponType: Two-handed
+        outdated: true
 
-      - name: Axe Mirage
+      # - name: Alacrity Staff / Axe Mirage
+      #   id: alac-staxe-mirage
+      #   specialization: Mirage
+      #   boonType: Condi
+      #   priority: Condi Alacrity Mirage 0%
+      #   distribution: Alacrity Staff / Axe Mirage
+      #   traits: Alacrity Staff / Axe Mirage
+      #   extras: Alacrity Staff Mirage
+      #   weaponType: Two-handed
+      #   outdated: true
+
+      - name: Condi Staff / Axe Mirage
+        id: condi-staxe-mirage
+        specialization: Mirage
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Staff / Axe Mirage
+        traits: Condi Staff / Axe Mirage
+        extras: DPS Mirage (Raid)
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Condi Axe Mirage
         id: axe-mirage-deception-torch
         specialization: Mirage
         boonType: Condi
@@ -62,156 +174,59 @@ list:
         traits: Axe Mirage
         extras: DPS Mirage (Raid)
         weaponType: Dual wield
+        outdated: true
 
-      - name: Condi Chrono STM
-        id: condi-chrono-stm
+      - name: Heal Boon Chrono
+        id: heal-boon-chrono
         specialization: Chronomancer
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Chrono STM
-        traits: Condi Chrono STM
-        extras: Condi Chrono STM
-        weaponType: Dual wield
-
-      - name: Power Virtuoso GS
-        id: pvirt-gs
-        specialization: Virtuoso
         boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Power Virtuoso GS
         fractal:
-          traits: Power Virtuoso
-          extras: Power (Fractal)
+          priority: Heal (Fractal)
         raid:
-          traits: Power Virtuoso
-          extras: Power (Raid, furious)
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Chrono
+        extras: Heal
         weaponType: Two-handed
-
-      - name: Condi Virtuoso
-        id: cvirt
-        specialization: Virtuoso
-        boonType: Condi
-        priority: Condi DPS Rampager
-        distribution: Condi Virtuoso
-        traits: Condi Virtuoso
-        extras: Condi Virtuoso
-        weaponType: Dual wield
-
-      - name: Condi Virtuoso (sharpening sorrow)
-        id: cvirt-sorrow
-        specialization: Virtuoso
-        boonType: Condi
-        priority: Condi DPS Rampager
-        distribution: Condi Virtuoso (sharpening sorrow)
-        traits: Condi Virtuoso (sharpening sorrow)
-        extras: Condi Virtuoso
-        weaponType: Dual wield
-
-      - name: Condi Virtuoso (chaos)
-        id: cvirt-chaos
-        specialization: Virtuoso
-        boonType: Condi
-        priority: Condi DPS Rampager
-        distribution: Condi Virtuoso (chaos)
-        traits: Condi Virtuoso (chaos)
-        extras: Condi Virtuoso (chaos)
-        weaponType: Dual wield
+        outdated: false
 
   - class: Guardian
     builds:
 
-      - name: DH Radiance w/ PI
-        id: dh-radiance-pi
-        specialization: Dragonhunter
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: DH Radiance
-        traits: DH Radiance w/ PI
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid, furious)
-        weaponType: Two-handed
+      # - name: Quickness Condi Firebrand 40%
+      #   id: cqfb-firebrand-40
+      #   specialization: Firebrand
+      #   boonType: Condi
+      #   priority: Condi Quickbrand 40%
+      #   distribution: Condi Quickbrand (LL, Allies, Approx.)
+      #   traits: Condi Quickbrand LL
+      #   extras: Condi Quickbrand
+      #   weaponType: Dual wield
+      #   outdated: true
 
-      - name: DH Radiance
-        id: dh-radiance
-        specialization: Dragonhunter
-        boonType: Power
-        priority: Power DPS
-        distribution: DH Radiance
-        traits: DH Radiance
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid, capped)
-        weaponType: Two-handed
+      # - name: Quickness Condi Firebrand 49%
+      #   id: cqfb-firebrand-49
+      #   specialization: Firebrand
+      #   boonType: Condi
+      #   priority: Condi Quickbrand 49
+      #   distribution: Condi Quickbrand (WT, Allies)
+      #   traits: Condi Quickbrand WT
+      #   extras: Condi Quickbrand
+      #   weaponType: Dual wield
+      #   outdated: true
 
-      - name: DH Virtues
-        id: dh-virtues
-        specialization: Dragonhunter
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: DH Virtues
-        traits: DH Virtues
-        fractal:
-          extras: DH Virtues (Fractal)
-        raid:
-          extras: Power (Raid, furious)
-        weaponType: Two-handed
+      - name: Quickness Condi Firebrand 77%
+        id: cqfb-firebrand-77
+        specialization: Firebrand
+        boonType: Condi
+        priority: Condi Quickbrand 77%
+        distribution: Condi Quickbrand (WT, Allies)
+        traits: Condi Quickbrand WT
+        extras: Condi Quickbrand
+        weaponType: Dual wield
+        outdated: true
 
-      - name: Core Guardian
-        id: core-guard
-        specialization: Guardian
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Core Guardian
-        traits: Core Guardian
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid, capped)
-        weaponType: Two-handed
-
-      - name: Power Willbender Virtues
-        id: pwb-virtues
-        specialization: Willbender
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Power Willbender Virtues
-        traits: Power Willbender Virtues
-        fractal:
-          extras: Power Willbender Virtues (Fractal)
-        raid:
-          extras: Power (Raid, furious)
-        weaponType: Two-handed
-
-      - name: Power Willbender Radiance
-        id: pwb-radiance
-        specialization: Willbender
-        boonType: Power
-        priority: Power DPS
-        distribution: Power Willbender Radiance
-        traits: Power Willbender Radiance
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid, capped)
-        weaponType: Two-handed
-
-      - name: Power Alacrity Willbender
-        id: pwb-alac
-        specialization: Willbender
-        boonType: Power
-        priority: Power Alacrity Willbender 14%
-        distribution: Power Alacrity Willbender
-        traits: Power Alacrity Willbender
-        fractal:
-          extras: Power Willbender Virtues (Fractal)
-        raid:
-          extras: Power Alacrity Willbender (Raid)
-        weaponType: Two-handed
-
-      - name: Power Quickbrand
+      - name: Quickness Power Firebrand
         id: pqfb
         specialization: Firebrand
         boonType: Power
@@ -223,36 +238,7 @@ list:
         raid:
           extras: Power Quickbrand (Raid)
         weaponType: Two-handed
-
-      - name: Condi Willbender Sword
-        id: cwb-sw
-        specialization: Willbender
-        boonType: Condi
-        priority: Hybrid DPS
-        distribution: Condi Willbender Sword
-        traits: Condi Willbender
-        extras: Condi Willbender
-        weaponType: Dual wield
-
-      - name: Condi Willbender GS
-        id: cwb-gs
-        specialization: Willbender
-        boonType: Condi
-        priority: Hybrid DPS
-        distribution: Condi Willbender GS
-        traits: Condi Willbender
-        extras: Condi Willbender
-        weaponType: Two-handed
-
-      - name: Condi Alacrity Willbender
-        id: cwb-alac
-        specialization: Willbender
-        boonType: Condi
-        priority: Condi Alacrity Willbender 14%
-        distribution: Condi Alacrity Willbender
-        traits: Condi Alacrity Willbender
-        extras: Condi Alacrity Willbender
-        weaponType: Dual wield
+        outdated: true
 
       # - name: CFB w/ Quickness (balthazar)
       #   id: cqfb-balth
@@ -272,55 +258,144 @@ list:
       #   traits: Condi Quickbrand
       #   extras: CFB w/ Quickness (renegade)
 
-      - name: CFB DPS 5 page (balthazar)
+      - name: Condi Firebrand
         id: cfb-geo
         specialization: Firebrand
         boonType: Condi
         priority: Condi DPS
-        distribution: CFB (5 page RF, allies)
-        traits: CFB DPS 5 page
-        extras: CFB DPS (5 page, balthazar)
+        distribution: CFB (5 Page RF, Allies)
+        traits: CFB DPS 5 Page
+        extras: Condi Firebrand
         weaponType: Dual wield
+        outdated: true
 
-      - name: CFB DPS 5 page (renegade)
-        id: cfb-smoldering
-        specialization: Firebrand
-        boonType: Condi
-        priority: Condi DPS
-        distribution: CFB (5 page RF, allies)
-        traits: CFB DPS 5 page
-        extras: CFB DPS (renegade)
-        weaponType: Dual wield
+      # - name: Condi Firebrand 8 Page
+      #   id: cfb-8-balth
+      #   specialization: Firebrand
+      #   boonType: Condi
+      #   priority: Condi DPS
+      #   distribution: CFB (8 Page, Allies)
+      #   traits: CFB DPS 8 Page
+      #   extras: CFB DPS (8 Page, Balthazar)
+      #   weaponType: Dual wield
+      #   outdated: true
 
-      - name: CFB DPS 8 page (balthazar)
-        id: cfb-8-balth
-        specialization: Firebrand
-        boonType: Condi
-        priority: Condi DPS
-        distribution: CFB (8 page, allies)
-        traits: CFB DPS 8 page
-        extras: CFB DPS (8 page, balthazar)
-        weaponType: Dual wield
+      - name: Power DH Virtues
+        id: dh-virtues
+        specialization: Dragonhunter
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: DH Virtues
+        traits: DH Virtues
+        fractal:
+          extras: DH Virtues (Fractal)
+        raid:
+          extras: Power (Raid, furious)
+        weaponType: Two-handed
+        outdated: true
 
-      - name: CFB DPS 8 page (renegade)
-        id: cfb-8-ren
-        specialization: Firebrand
-        boonType: Condi
-        priority: Condi DPS
-        distribution: CFB (8 page, allies)
-        traits: CFB DPS 8 page
-        extras: CFB DPS (renegade)
-        weaponType: Dual wield
+      - name: Power DH Radiance
+        id: dh-radiance
+        specialization: Dragonhunter
+        boonType: Power
+        priority: Power DPS
+        distribution: DH Radiance
+        traits: DH Radiance
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
+        weaponType: Two-handed
+        outdated: true
 
-      - name: Condi Quickbrand 49%
-        id: cqfb-firebrand-49
-        specialization: Firebrand
+      - name: Alacrity Power Willbender
+        id: pwb-alac
+        specialization: Willbender
+        boonType: Power
+        priority: Power Alacrity Willbender 14%
+        distribution: Power Alacrity Willbender
+        traits: Power Alacrity Willbender
+        fractal:
+          extras: Power Willbender Virtues (Fractal)
+        raid:
+          extras: Power Alacrity Willbender (Raid)
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Alacrity Condi Willbender
+        id: cwb-alac
+        specialization: Willbender
         boonType: Condi
-        priority: Condi Quickbrand 49
-        distribution: Condi Quickbrand (allies)
-        traits: Condi Quickbrand
-        extras: Condi Quickbrand
+        priority: Condi Alacrity Willbender 14%
+        distribution: Condi Alacrity Willbender
+        traits: Condi Alacrity Willbender
+        extras: Condi Alacrity Willbender
         weaponType: Dual wield
+        outdated: true
+
+      - name: Condi Willbender Sword (approx.)
+        id: cwb-sw
+        specialization: Willbender
+        boonType: Condi
+        priority: Hybrid DPS
+        distribution: Condi Willbender Sword
+        traits: Condi Willbender
+        extras: Condi Willbender
+        weaponType: Dual wield
+        outdated: true
+
+      - name: Condi Willbender GS
+        id: cwb-gs
+        specialization: Willbender
+        boonType: Condi
+        priority: Hybrid DPS
+        distribution: Condi Willbender GS
+        traits: Condi Willbender
+        extras: Condi Willbender
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Power Willbender Virtues
+        id: pwb-virtues
+        specialization: Willbender
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Willbender Virtues
+        traits: Power Willbender Virtues
+        fractal:
+          extras: Power Willbender Virtues (Fractal)
+        raid:
+          extras: Power (Raid, furious)
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Power Willbender Radiance
+        id: pwb-radiance
+        specialization: Willbender
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Willbender Radiance
+        traits: Power Willbender Radiance
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Power Core Guardian
+        id: core-guard
+        specialization: Guardian
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Core Guardian
+        traits: Core Guardian
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
+        weaponType: Two-handed
+        outdated: true
 
       # - name: Condi Quickbrand Celestial 35%
       #   id: cqfb-cele-35
@@ -331,7 +406,7 @@ list:
       #   traits: Condi Quickbrand
       #   extras: Condi Quickbrand 35%
 
-      - name: Hybrid FB Virtues (outdated)
+      - name: Hybrid FB Virtues
         id: hycfb-virtues-leadership
         specialization: Firebrand
         boonType: Condi
@@ -340,107 +415,194 @@ list:
         traits: Hybrid FB Virtues
         extras: Hybrid FB Traveler
         weaponType: Two-handed
+        outdated: true
 
-      - name: Hybrid FB Honor (outdated)
-        id: hycfb-honor-leadership
+      - name: Hybrid FB Honor
+        id: hycfb-honor
         specialization: Firebrand
         boonType: Condi
-        priority: Condi Hybrid Firebrand 40%
-        distribution: Hybrid FB Honor
+        priority: Condi Hybrid Firebrand 78%
+        distribution: Hybrid FB (Honor, Allies)
         traits: Hybrid FB Honor
         extras: Hybrid FB Traveler
         weaponType: Two-handed
+        outdated: true
 
-      - name: Healbrand
+      - name: Heal Alacrity Willbender
+        id: heal-willbender
+        specialization: Willbender
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Alacrity Willbender
+        extras: Heal
+        weaponType: Two-handed
+        outdated: false
+
+      - name: Heal Quickness Firebrand
         id: hb
         specialization: Firebrand
         boonType: Power
-        priority: Heal
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
         distribution: None
         traits: Healbrand
         extras: Heal
         weaponType: Two-handed
+        outdated: false
 
   - class: Warrior
     builds:
 
-      - name: Power Banner Bers
-        id: pbers
-        specialization: Berserker
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Power Banner Bers Strength
-        traits: Power Banner Bers Strength
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid)
-        weaponType: Dual wield
-
-      - name: Condi Banner Bers
-        id: cbers
-        specialization: Berserker
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Banner Bers
-        traits: Condi Bers
-        extras: Condi Bers
-        weaponType: Two-handed
-
-      - name: Banner Bladesworn
-        id: bls-bs
+      - name: Alacrity Power Bladesworn
+        id: bls-alac
         specialization: Bladesworn
         boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Bladesworn
-        traits: Banner Bladesworn
+        priority: Power DPS
+        distribution: Power Alacrity Bladesworn
+        traits: Alacrity Bladesworn
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Bladesworn
         weaponType: Dual wield
+        outdated: true
 
-      - name: DPS Bladesworn
+      - name: Power Bladesworn (Approx.)
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Bladesworn
-        traits: DPS Bladesworn
+        distribution: DPS Bladesworn Tactics
+        traits: DPS Bladesworn Tactics
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Bladesworn
         weaponType: Dual wield
+        outdated: false
 
-      - name: Might Bladesworn
-        id: bls-might
-        specialization: Bladesworn
+      - name: Quickness Condi Berserker
+        id: cbers
+        specialization: Berserker
+        boonType: Condi
+        priority: Condi Quickness Berserker 44.7%
+        distribution: Condi Quickness Bers
+        traits: Condi Quickness Berserker
+        extras: Condi Quickness Bers
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Condi Berserker
+        id: cbers-dps
+        specialization: Berserker
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Berserker
+        traits: Condi Berserker
+        extras: Condi Berserker
+        weaponType: Two-handed
+        outdated: false
+
+      - name: Quickness Power Berserker
+        id: pbers-quick
+        specialization: Berserker
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Bladesworn
-        traits: Might Bladesworn
+        distribution: Power Quickness Berserker
+        traits: Power Quickness Berserker
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
-        weaponType: Dual wield
+          extras: Power Berserker
+        weaponType: Two-handed
+        outdated: false
 
-      - name: Power Banner SPB (approx.)
-        id: spb-bs
+      - name: Power Berserker
+        id: pbers
+        specialization: Berserker
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Berserker
+        traits: Power Berserker
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Berserker
+        weaponType: Two-handed
+        outdated: false
+
+      - name: Power Spellbreaker GS
+        id: spb-power-gs
         specialization: Spellbreaker
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Banner Spellbreaker
-        traits: Power Banner SPB
+        distribution: Power Spellbreaker GS
+        traits: Power Spellbreaker GS
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Power Spellbreaker Hammer
+        id: spb-power-hammer
+        specialization: Spellbreaker
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Spellbreaker Hammer
+        traits: Power Spellbreaker Hammer
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
+        weaponType: Two-handed
+        outdated: false
+
+  - class: Elementalist
+    builds:
+
+      - name: Alacrity Hybrid Tempest
+        id: ctemp-alac
+        specialization: Tempest
+        boonType: Condi
+        priority: Alacrity Hybrid Tempest 28%
+        distribution: Alacrity Hybrid Tempest
+        traits: Alacrity Hybrid Tempest
+        extras: Alacrity Hybrid Tempest
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Condi Tempest
+        id: ctemp
+        specialization: Tempest
+        boonType: Condi
+        priority: Condi Tempest
+        distribution: Condi Tempest
+        traits: Condi Tempest
+        extras: Condi Tempest
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Power Tempest
+        id: ptemp
+        specialization: Tempest
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Tempest
+        traits: Power Tempest
         fractal:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
         weaponType: Dual wield
-
-  - class: Elementalist
-    builds:
+        outdated: true
 
       - name: Power Weaver
         id: pwea
@@ -453,8 +615,31 @@ list:
           extras: Power (Fractal)
         raid:
           traits: Power Weaver Raid
-          extras: Power (Raid)
+          extras: Power (Raid, fireworks)
         weaponType: Dual wield
+        outdated: false
+
+      - name: Condi Weaver Staff
+        id: cwea-staff
+        specialization: Weaver
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Weaver Staff (Large)
+        traits: Condi Weaver Staff
+        extras: Condi Weaver
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Condi Weaver Scepter
+        id: cwea-scepter
+        specialization: Weaver
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Weaver Scepter
+        traits: Condi Weaver Scepter
+        extras: Condi Weaver Scepter
+        weaponType: Dual wield
+        outdated: false
 
       - name: Condi Weaver Sword
         id: cwea-sw
@@ -465,6 +650,7 @@ list:
         traits: Condi Weaver Sword
         extras: Condi Weaver Sword
         weaponType: Dual wield
+        outdated: true
 
       - name: Condi Weaver Dagger
         id: cwea-dg
@@ -475,6 +661,7 @@ list:
         traits: Condi Weaver Dagger
         extras: Condi Weaver Dagger
         weaponType: Dual wield
+        outdated: true
 
       - name: Hybrid Weaver
         id: hwea
@@ -488,39 +675,21 @@ list:
         raid:
           extras: Hybrid Weaver (Raid)
         weaponType: Dual wield
+        outdated: true
 
-      - name: Condi Tempest
-        id: ctemp
-        specialization: Tempest
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Tempest
-        traits: Condi Tempest
-        extras: Condi Tempest
-        weaponType: Dual wield
-
-      - name: Power Tempest (approx.)
-        id: ptemp
-        specialization: Tempest
+      - name: Quickness Power Catalyst
+        id: power-cat-quick
+        specialization: Catalyst
         boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Power Tempest
-        traits: Power Tempest
+        priority: Power Quickness Catalyst 8.3%
+        distribution: Power Catalyst
+        traits: Power Quickness Catalyst
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
-        weaponType: Dual wield
-
-      - name: Heal Tempest
-        id: healtemp
-        specialization: Tempest
-        boonType: Power
-        priority: Heal
-        distribution: None
-        traits: Heal Tempest
-        extras: Heal
-        weaponType: Dual wield
+          extras: Power Quickness Catalyst (Raid)
+        weaponType: Two-handed
+        outdated: true
 
       - name: Power Catalyst
         id: power-cat
@@ -534,191 +703,212 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Power Quickness Catalyst
-        id: power-cat-quick
-        specialization: Catalyst
+      - name: Heal Alacrity Tempest
+        id: healtemp
+        specialization: Tempest
         boonType: Power
-        priority: Power Quickness Catalyst 38%
-        distribution: Power Catalyst
-        traits: Power Quickness Catalyst
         fractal:
-          extras: Power (Fractal)
+          priority: Heal (Fractal)
         raid:
-          extras: Power Quickness Catalyst (Raid)
-        weaponType: Two-handed
-
-      - name: '[beta1] Condi Catalyst'
-        id: condi-cat
-        specialization: Catalyst
-        boonType: Condi
-        priority: Condi DPS
-        distribution: '[beta1] Condi Catalyst'
-        traits: '[beta1] Condi Catalyst'
-        extras: '[beta1] Condi Catalyst'
-        weaponType: Two-handed
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Tempest
+        extras: Heal
+        weaponType: Dual wield
+        outdated: false
 
   - class: Ranger
     builds:
 
-      # - name: Power Slb Marks (allies)
-      #   id: pslb-marks-allies
-      #   specialization: Soulbeast
-      #   boonType: Power
-      #   priority: Power DPS
-      #   distribution: Power Slb
-      #   traits: Power Slb Marks (allies)
-      #   fractal:
-      #     extras: Power (Fractal)
-      #   raid:
-      #     extras: Power (Raid)
-      #   weaponType: Two-handed
+      - name: Quickness Condi Untamed
+        id: condi-quickness-untamed
+        specialization: Untamed
+        boonType: Condi
+        priority: Condi Quickness Untamed 30%
+        distribution: Condi Quickness Untamed
+        traits: Condi Quickness Untamed
+        extras: Condi Quickness Untamed
+        weaponType: Two-handed
+        outdated: true
 
-      - name: Power Slb Marks
-        id: pslb-marks
-        specialization: Soulbeast
+      - name: Quickness Power Untamed
+        id: quickness-power-untamed
+        specialization: Untamed
+        boonType: Power
+        priority: Power Quickness Untamed 40%
+        distribution: 100% Power
+        traits: Quickness Power Untamed
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Quickness Untamed (Raid)
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Power Untamed
+        id: power-untamed
+        specialization: Untamed
         boonType: Power
         priority: Power DPS
-        distribution: Power Slb
-        traits: Power Slb Marks
+        distribution: 100% Power
+        traits: Power Untamed
         fractal:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      # - name: Power Slb Skirm (allies)
-      #   id: pslb-skirm-allies
-      #   specialization: Soulbeast
-      #   boonType: Power
-      #   priority: Power DPS
-      #   distribution: Power Slb
-      #   traits: Power Slb Skirm (allies)
-      #   fractal:
-      #     extras: Power (Fractal)
-      #   raid:
-      #     extras: Power (Raid, capped)
-      #   weaponType: Two-handed
-
-      - name: Power Slb Skirm
-        id: pslb-skirm
+      - name: Power Soulbeast
+        id: pslb
         specialization: Soulbeast
         boonType: Power
         priority: Power DPS
-        distribution: Power Slb
-        traits: Power Slb Skirm
+        distribution: Power Soulbeast
+        traits: Power Soulbeast
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid, capped)
+          extras: Power (Raid, fireworks)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Condi Slb SB (allies)
-        id: cslb-sb-allies
-        specialization: Soulbeast
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Slb (D/T SB)
-        traits: Condi Slb SB (allies)
-        extras: Condi Slb
-        weaponType: Two-handed
-
-      - name: Condi Slb SB
-        id: cslb-sb
-        specialization: Soulbeast
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Slb (D/T SB)
-        traits: Condi Slb SB
-        extras: Condi Slb
-        weaponType: Two-handed
-
-      - name: Condi Slb D/T A/D (allies)
-        id: cslb-dtad-allies
-        specialization: Soulbeast
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Slb (D/T A/D)
-        traits: Condi Slb D/T A/D (allies)
-        extras: Condi Slb
-        weaponType: Dual wield
-
-      - name: Condi Slb D/T A/D
-        id: cslb-dtad
-        specialization: Soulbeast
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Slb (D/T A/D)
-        traits: Condi Slb D/T A/D
-        extras: Condi Slb
-        weaponType: Dual wield
-
-      - name: Hybrid Slb (allies)
-        id: hslb-allies
-        specialization: Soulbeast
-        boonType: Condi
-        priority: Hybrid DPS
-        distribution: Hybrid Slb (A/T D/A)
-        traits: Hybrid Slb (allies)
-        extras: Hybrid Slb
-        weaponType: Dual wield
-
-      - name: Hybrid Slb
+      - name: Hybrid Soulbeast LotP (Approx.)
         id: hslb
         specialization: Soulbeast
         boonType: Condi
         priority: Hybrid DPS
-        distribution: Hybrid Slb (A/T D/A)
-        traits: Hybrid Slb
+        distribution: Hybrid Slb A/T D/A (LotP)
+        traits: Hybrid Slb LotP
         extras: Hybrid Slb
         weaponType: Dual wield
+        outdated: true
 
-      # - name: Pure Shortbow Slb BM
-      #   id: sbsbsb-BM
+      # - name: Condi Soulbeast D/T SB
+      #   id: cslb-sb
       #   specialization: Soulbeast
       #   boonType: Condi
       #   priority: Condi DPS
-      #   distribution: Pure Shortbow Slb BM
-      #   traits: Pure Shortbow Slb BM
-      #   extras: Pure Shortbow Slb BM
+      #   distribution: Condi Slb (D/T SB)
+      #   traits: Condi Slb SB
+      #   extras: Condi Slb
+      #   weaponType: Two-handed
+      #   outdated: true
+
+      # - name: Condi Soulbeast D/T A/D
+      #   id: cslb-dtad
+      #   specialization: Soulbeast
+      #   boonType: Condi
+      #   priority: Condi DPS
+      #   distribution: Condi Slb (D/T A/D)
+      #   traits: Condi Slb D/T A/D
+
+      - name: Condi Soulbeast D/D SB
+        id: cslb-ddsb
+        specialization: Soulbeast
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Slb D/D SB
+        traits: Condi Slb D/D SB
+        extras: Condi Slb
+        weaponType: Dual wield
+        outdated: false
 
       - name: Condi Druid
         id: condidruid
         specialization: Druid
-        boonType: Power
-        priority: Condi Hybrid Druid 52%
-        distribution: None
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Druid
         traits: Condi Druid
         extras: Condi Druid
         weaponType: Two-handed
+        outdated: false
 
-      - name: Heal Druid
+      - name: Heal Alacrity Druid
         id: druid
         specialization: Druid
         boonType: Power
-        priority: Heal
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
         distribution: None
         traits: Heal Druid
         extras: Heal
         weaponType: Two-handed
+        outdated: false
 
   - class: Revenant
     builds:
 
-      - name: Vindicator
-        id: vindi
-        specialization: Vindicator
+      - name: Quickness Power Herald
+        id: herald-quick
+        specialization: Herald
         boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: DPS Vindicator
-        traits: DPS Vindicator
+        priority: Power DPS
+        distribution: Power Quickness Herald
+        traits: Power Quickness Herald
         fractal:
-          extras: DPS Vindicator (Fractal)
+          extras: Power Quickness Herald (Fractal)
         raid:
-          extras: DPS Vindicator (Raid)
+          extras: Power Quickness Herald (Raid)
         weaponType: Two-handed
+        outdated: false
 
-      - name: Condi DPS Ren Invo
+      - name: Quickness Condi Herald
+        id: cherald-quick
+        specialization: Herald
+        boonType: Condi
+        priority: Condi Quickness Herald 0%
+        distribution: Condi Quickness Herald
+        traits: Condi Quickness Herald
+        extras: Condi Quickness Herald
+        weaponType: Dual wield
+        outdated: true
+
+      - name: Power Herald FP
+        id: herald
+        specialization: Herald
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Herald FP
+        traits: Power Herald FP
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid, air)
+        weaponType: Dual wield
+        outdated: true
+
+      - name: Alacrity Condi Renegade Invo (Approx.)
+        id: cren-alac-invo
+        specialization: Renegade
+        boonType: Condi
+        priority: Condi Alacrity Renegade 37.5%
+        distribution: Condi Alac Invocation
+        traits: Condi Alac Ren Invo
+        extras: Condi Alac Ren
+        weaponType: Two-handed
+        outdated: false
+
+      - name: Alacrity Power Renegade
+        id: pren
+        specialization: Renegade
+        boonType: Power
+        priority: Power Alacrity Renegade 37.5%
+        distribution: Alacrity Renegade
+        traits: Power Alac Ren
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Alac Ren (Raid)
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Condi Renegade Invo
         id: cren-invo
         specialization: Renegade
         boonType: Condi
@@ -727,88 +917,76 @@ list:
         traits: Condi DPS Ren Invo
         extras: Condi Ren
         weaponType: Two-handed
+        outdated: true
 
-      - name: Condi Alac Ren Invo
-        id: cren-alac-invo
-        specialization: Renegade
-        boonType: Condi
-        priority: Condi Alacrity Renegade 78%
-        distribution: Condi Alac Invocation
-        traits: Condi Alac Ren Invo
-        extras: Condi Alac Ren
-        weaponType: Two-handed
-
-      - name: Power Alac Ren
-        id: pren
-        specialization: Renegade
+      - name: Power Vindicator (Approx.)
+        id: vindi
+        specialization: Vindicator
         boonType: Power
-        priority: Power Boon
-        distribution: Alacrity Renegade
-        traits: Power Alac Ren
+        priority: Power DPS
+        distribution: DPS Vindicator
+        traits: DPS Vindicator
         fractal:
-          extras: Power (Fractal)
+          extras: DPS Vindicator (Fractal)
         raid:
-          extras: Power Alac Ren (Raid)
+          extras: DPS Vindicator (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Power Herald DE (outdated)
-        id: herald
-        specialization: Herald
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Power Herald DE
-        traits: Power Herald DE
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid)
-        weaponType: Dual wield
-
-      - name: Condi Herald (outdated)
-        id: cherald
-        specialization: Herald
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Herald
-        traits: Condi Herald
-        extras: Condi Herald
-        weaponType: Dual wield
-
-      - name: Heal Ren
+      - name: Heal Alacrity Renegade
         id: healren
         specialization: Renegade
         boonType: Power
-        priority: Heal
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
         distribution: None
         traits: Heal Ren
         extras: Heal
         weaponType: Two-handed
+        outdated: false
+
+      - name: Heal Quickness Herald
+        id: heal-herald
+        specialization: Herald
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Herald
+        extras: Heal
+        weaponType: Two-handed
+        outdated: false
 
   - class: Engineer
     builds:
-
-      - name: Power Holo ECSU
-        id: pholo-ecsu
-        specialization: Holosmith
+      - name: Quickness Power Scrapper
+        id: pqscrap
+        specialization: Scrapper
         boonType: Power
         priority: Power DPS
-        distribution: Power Holo ECSU
-        traits: Power Holo ECSU
+        distribution: Quickness Power Scrapper
+        traits: Quickness Power Scrapper
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power Holo (Raid)
-        weaponType: Dual wield
+          extras: Power (Raid)
+        weaponType: Two-handed
+        outdated: true
 
-      - name: Condi Holo
-        id: cholo
-        specialization: Holosmith
+      - name: Quickness Condi Scrapper
+        id: cqscrap
+        specialization: Scrapper
         boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Holo
-        traits: Condi Holo
-        extras: Condi Holo
-        weaponType: Dual wield
+        priority: Condi Quickness Scrapper 28.7%
+        distribution: Quickness Condi Scrapper
+        traits: Quickness Condi Scrapper
+        extras: Condi Quickness Scrapper
+        weaponType: Two-handed
+        outdated: true
 
       - name: Power Scrapper
         id: pscrap
@@ -822,35 +1000,52 @@ list:
         raid:
           extras: Power Scrapper (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: Quickness Scrapper
-        id: qscrap
-        specialization: Scrapper
+      - name: Power Holo ECSU
+        id: pholo-ecsu
+        specialization: Holosmith
         boonType: Power
-        priority: Power Quickness Scrapper 33.3%
-        distribution: Quickness Scrapper
-        traits: Quickness Scrapper
+        priority: Power DPS
+        distribution: Power Holo ECSU
+        traits: Power Holo ECSU
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Quickness Scrapper (Raid)
-        weaponType: Two-handed
-
-      - name: Heal Scrapper
-        id: healscrapper
-        specialization: Scrapper
-        boonType: Power
-        priority: Heal
-        distribution: None
-        traits: Heal Scrapper
-        extras: Heal
+          extras: Power Holo (Raid)
         weaponType: Dual wield
+        outdated: false
 
-      # - name: Power Alac Mechanist (inaccurate)
+      - name: Power Holo PBM
+        id: pholo-pbm
+        specialization: Holosmith
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Holo PBM
+        traits: Power Holo PBM
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Holo (Raid)
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Condi Holo (Approx.)
+        id: cholo
+        specialization: Holosmith
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Holo
+        traits: Condi Holo
+        extras: Condi Holo
+        weaponType: Dual wield
+        outdated: true
+
+      # - name: Alacrity Power Mech (inaccurate)
       #   id: mech-alac-power
       #   specialization: Mechanist
       #   boonType: Condi
-      #   priority: Power Alacrity Mechanist 40%
+      #   priority: Power Alacrity Mechanist 55%
       #   distribution: Power Alacrity Mechanist (inaccurate)
       #   traits: Power Alacrity Mechanist (inaccurate)
       #   fractal:
@@ -858,28 +1053,59 @@ list:
       #   raid:
       #     extras: Power Alacrity Mechanist (Raid, inaccurate)
       #   weaponType: Dual wield
+      #   outdated: true
 
-      - name: Condi Mechanist J-Drive (approx.)
-        id: cmech-sig-mace
+      - name: Alacrity Power Mech Air (No Simulation)
+        id: mech-alac-power
         specialization: Mechanist
         boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Mechanist J-Drive Mace (approx.)
-        traits: Condi Mechanist J-Drive
-        extras: Condi Mechanist
+        priority: Power Alacrity Mechanist 55%
+        distribution: No Simulation
+        traits: Power Alacrity Mechanist (inaccurate)
+        fractal:
+          extras: Power Alacrity Mechanist (Fractal, inaccurate)
+        raid:
+          extras: Power Alacrity Mechanist (Raid, air, inaccurate)
         weaponType: Dual wield
+        outdated: true
 
-      - name: Condi Mechanist Jade Dynamo (approx.)
-        id: cmech-dynamo-pistol
+      - name: Alacrity Power Mech Concentration (No Simulation)
+        id: mech-alac-power-conc
         specialization: Mechanist
         boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Mechanist Jade Dynamo Pistol (approx.)
-        traits: Condi Mechanist Jade Dynamo
-        extras: Condi Mechanist
+        priority: Power Alacrity Mechanist 55%
+        distribution: No Simulation
+        traits: Power Alacrity Mechanist (inaccurate)
+        fractal:
+          extras: Power Alacrity Mechanist (Fractal, inaccurate)
+        raid:
+          extras: Power Alacrity Mechanist (Raid, concentration, inaccurate)
         weaponType: Dual wield
+        outdated: true
 
-      # - name: Condi Alac Mechanist (inaccurate)
+      # - name: Condi Mech J-Drive (Approx.)
+      #   id: cmech-sig-mace
+      #   specialization: Mechanist
+      #   boonType: Condi
+      #   priority: Condi DPS
+      #   distribution: Condi Mechanist J-Drive (approx.)
+      #   traits: Condi Mechanist J-Drive
+      #   extras: Condi Mechanist
+      #   weaponType: Dual wield
+      #   outdated: false
+
+      # - name: Condi Mech Jade Dynamo (Approx.)
+      #   id: cmech-dynamo-pistol
+      #   specialization: Mechanist
+      #   boonType: Condi
+      #   priority: Condi DPS
+      #   distribution: Condi Mechanist Jade Dynamo Pistol (approx.)
+      #   traits: Condi Mechanist Jade Dynamo
+      #   extras: Condi Mechanist
+      #   weaponType: Dual wield
+      #   outdated: true
+
+      # - name: Condi Alac Mech (inaccurate)
       #   id: cmech-alac-condi
       #   specialization: Mechanist
       #   boonType: Condi
@@ -888,21 +1114,87 @@ list:
       #   traits: Condi Alac Mechanist (inaccurate)
       #   extras: Condi Alac Mechanist (inaccurate)
       #   weaponType: Dual wield
+      #   outdated: true
 
-      - name: Heal Mechanist
+      - name: Heal Quickness Scrapper
+        id: healscrapper
+        specialization: Scrapper
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Scrapper
+        extras: Heal
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Heal Alacrity Mech
         id: healmech
         specialization: Mechanist
         boonType: Power
-        priority: Heal
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
         distribution: None
         traits: Heal Mechanist
         extras: Heal
         weaponType: Dual wield
+        outdated: false
 
   - class: Necromancer
     builds:
 
-      - name: DPS Scourge
+      - name: Quickness Harbinger
+        id: qharb
+        specialization: Harbinger
+        boonType: Condi
+        priority: Condi Quickness Harbinger 12.8%
+        distribution: Quickness Harbinger
+        traits: Quickness Harbinger
+        extras: Quickness Harbinger
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Quickness Power Harbinger
+        id: qharb-power
+        specialization: Harbinger
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Quickness Power Harbinger (Approx.)
+        traits: Quickness Power Harbinger
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid, furious)
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Condi Harbinger
+        id: charb
+        specialization: Harbinger
+        boonType: Condi
+        priority: Condi DPS
+        distribution: DPS Harbinger
+        traits: DPS Harbinger
+        extras: DPS Harbinger
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Alacrity Condi Scourge
+        id: scourge-alac
+        specialization: Scourge
+        boonType: Condi
+        priority: Condi Alacrity Scourge 28.8%
+        distribution: Condi Alacrity Scourge
+        traits: Condi Alacrity Scourge
+        extras: DPS Scourge
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Condi Scourge
         id: scourge
         specialization: Scourge
         boonType: Condi
@@ -911,6 +1203,7 @@ list:
         traits: DPS Scourge
         extras: DPS Scourge
         weaponType: Dual wield
+        outdated: false
 
       - name: Power Reaper
         id: preaper
@@ -922,8 +1215,9 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid, capped)
+          extras: Power (Raid, fireworks)
         weaponType: Two-handed
+        outdated: false
 
       - name: Condi Reaper
         id: creaper
@@ -934,62 +1228,90 @@ list:
         traits: Condi Reaper
         extras: Condi Reaper
         weaponType: Two-handed
+        outdated: false
 
-      - name: DPS Harbinger
-        id: charb
-        specialization: Harbinger
-        boonType: Condi
-        priority: Condi DPS
-        distribution: DPS Harbinger
-        traits: DPS Harbinger
-        extras: DPS Harbinger
+      - name: Heal Alacrity Scourge
+        id: healscourge
+        specialization: Scourge
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Scourge
+        extras: Heal
         weaponType: Dual wield
-
-      - name: Quickness Harbinger
-        id: qharb
-        specialization: Harbinger
-        boonType: Condi
-        priority: Condi Quickness Harbinger 23%
-        distribution: Quickness Harbinger
-        traits: Quickness Harbinger
-        extras: Quickness Harbinger
-        weaponType: Dual wield
+        outdated: false
 
   - class: Thief
     builds:
 
-      - name: Condi Deadeye
-        id: cded
-        specialization: Deadeye
+      - name: Alacrity Specter SC/D 57%
+        id: specter-alac
+        specialization: Specter
+        boonType: Condi
+        priority: Condi Alacrity Specter 57%
+        distribution: Alacrity Specter SC/D (allies)
+        traits: Alacrity Specter SC/D
+        extras: Alacrity Specter SC/D
+        weaponType: Dual wield
+        outdated: true
+
+      - name: Alacrity Specter SC/D 60%
+        id: specter-alac-60
+        specialization: Specter
+        boonType: Condi
+        priority: Condi Alacrity Specter 60%
+        distribution: Alacrity Specter SC/D (allies)
+        traits: Alacrity Specter SC/D
+        extras: Alacrity Specter SC/D
+        weaponType: Dual wield
+        outdated: true
+
+      - name: Condi Specter SC/D
+        id: specter
+        specialization: Specter
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Deadeye
-        traits: Condi Deadeye
-        extras: Condi Deadeye
+        distribution: DPS Specter SC/D (Allies)
+        traits: DPS Specter SC/D
+        extras: DPS Specter SC/D
         weaponType: Dual wield
+        outdated: true
 
-      - name: Staff Daredevil
-        id: staffdd
+      - name: Condi Barrier "Carrion" Specter SC/D
+        id: specter-carrion
+        specialization: Specter
+        boonType: Condi
+        priority: Condi Barrier Specter
+        distribution: DPS Barrier Specter SC/D (Allies)
+        traits: DPS Specter SC/D
+        extras: Condi Barrier Specter SC/D
+        weaponType: Dual wield
+        outdated: true
+
+      - name: Boon Condi Daredevil (no log)
+        id: boondd-condi
         specialization: Daredevil
-        boonType: Power
-        priority: Power DPS
-        distribution: Staff Daredevil
-        traits: Staff Daredevil
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Staff Daredevil (Raid)
-        weaponType: Two-handed
+        boonType: Condi
+        priority: Condi Boon Daredevil 62%
+        distribution: None
+        traits: Condi Boon Daredevil
+        extras: Condi Boon Daredevil
+        weaponType: Dual wield
+        outdated: true
 
-      - name: Power Boon Daredevil
+      - name: Boon Power Daredevil
         id: boondd-power
         specialization: Daredevil
         boonType: Power
         priority: Power Boon Daredevil 99.7%
-        distribution: Staff Daredevil
+        distribution: Power Staff Daredevil
         traits: Power Boon Daredevil
         extras: Power Boon Daredevil
         weaponType: Two-handed
+        outdated: true
 
       - name: Condi Daredevil
         id: cdd
@@ -1000,46 +1322,96 @@ list:
         traits: Condi Daredevil
         extras: Condi Daredevil
         weaponType: Dual wield
+        outdated: true
 
-      - name: Condi Boon Daredevil
-        id: boondd-condi
+      - name: Power Staff Daredevil (Approx.)
+        id: staffdd
         specialization: Daredevil
-        boonType: Condi
-        priority: Condi Boon Daredevil 62%
-        distribution: None
-        traits: Condi Boon Daredevil
-        extras: Condi Boon Daredevil
-        weaponType: Dual wield
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Staff Daredevil
+        traits: Power Staff Daredevil
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Staff Daredevil
+        weaponType: Two-handed
+        outdated: false
 
-      - name: Rifle Deadeye
-        id: rifleded
+      - name: Condi Deadeye
+        id: cded
+        specialization: Deadeye
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Deadeye
+        traits: Condi Deadeye
+        extras: Condi Deadeye
+        weaponType: Dual wield
+        outdated: true
+
+      - name: Power Deadeye M7
+        id: pded-m7
         specialization: Deadeye
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Rifle Deadeye
-        traits: Rifle Deadeye
+        distribution: Power Deadeye M7
+        traits: Power Deadeye M7
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Deadeye (Raid)
+        weaponType: Two-handed
+        outdated: true
+
+      - name: Power Deadeye Daggers BQoBK
+        id: pded-daggers-bqobk
+        specialization: Deadeye
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Deadeye Daggers BQoBK
+        traits: Power Deadeye Daggers BQoBK
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
+        weaponType: Dual wield
+        outdated: true
+
+      - name: Rifle Deadeye Premeditation
+        id: rifleded-premed
+        specialization: Deadeye
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Rifle Deadeye Premeditation
+        traits: Rifle Deadeye Premeditation
         fractal:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
+        outdated: true
 
-      - name: DPS Specter
-        id: specter
-        specialization: Specter
-        boonType: Condi
-        priority: Condi DPS
-        distribution: DPS Specter (allies)
-        traits: DPS Specter
-        extras: DPS Specter
-        weaponType: Dual wield
+      - name: Rifle Deadeye Silent Scope
+        id: rifleded-silent
+        specialization: Deadeye
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Rifle Deadeye Silent Scope
+        traits: Rifle Deadeye Silent Scope
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
+        weaponType: Two-handed
+        outdated: true
 
-      - name: Alacrity Specter
-        id: specter-alac
+      - name: Heal Alacrity Specter
+        id: heal-specter
         specialization: Specter
-        boonType: Condi
-        priority: Condi Alacrity Specter 57%
-        distribution: Alacrity Specter (allies)
-        traits: Alacrity Specter
-        extras: Alacrity Specter
+        boonType: Power
+        priority: Heal Specter 88%
+        distribution: None
+        traits: Heal Specter
+        extras: Heal
         weaponType: Dual wield
+        outdated: false
