@@ -212,7 +212,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
 
           <TextField
             size="small"
-            label={t('Paste build to import')}
+            label={t('Paste build JSON to import')}
             variant="standard"
             value={importText}
             onChange={handleImportTextChange}
@@ -258,7 +258,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
                     <Gear gear={character.gear} infusions={character.infusions} />
                   </TableCell>
                   <TableCell sx={{ textAlign: 'right', width: 155.53 }}>
-                    <Tooltip title={t('Save locally')}>
+                    <Tooltip title={t('Save to persistent storage')}>
                       <IconButton onClick={handleSaveLocally(character)}>
                         <SaveIcon fontSize="small" />
                       </IconButton>
@@ -354,7 +354,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
           disabled={!marked.filter(Boolean).length}
           sx={{ mt: 1 }}
         >
-          Download {marked.filter(Boolean).length} saved
+          Download {marked.filter(Boolean).length} selected
         </Button>
       </DialogContent>
       <DialogActions>
