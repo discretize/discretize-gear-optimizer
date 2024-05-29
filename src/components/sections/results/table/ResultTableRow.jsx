@@ -71,7 +71,7 @@ const ResultTableRow = ({
       <TableCell scope="row" align="center" padding="none">
         <SavedComponent
           sx={
-            saved
+            savedSection
               ? {
                   opacity: '0.3',
                   '&:hover': {
@@ -79,13 +79,15 @@ const ResultTableRow = ({
                     color: 'red',
                   },
                 }
-              : {
-                  opacity: '0.2',
-                  '&:hover': {
-                    opacity: '1',
-                    color: 'star',
-                  },
-                }
+              : saved
+                ? { color: 'star' }
+                : {
+                    opacity: '0.2',
+                    '&:hover': {
+                      opacity: '1',
+                      color: 'star',
+                    },
+                  }
           }
           onClick={(e) => {
             if (savedSection) dispatch(removeFromSaved(character));
