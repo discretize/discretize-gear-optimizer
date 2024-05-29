@@ -348,8 +348,13 @@ export default function SavedResultManager({ isOpen, setOpen }) {
           </Table>
         </TableContainer>
 
-        <Button variant="outlined" onClick={handleDownload} sx={{ mt: 1 }}>
-          Download {marked.filter((a) => a).length} saved
+        <Button
+          variant="outlined"
+          onClick={handleDownload}
+          disabled={!marked.filter(Boolean).length}
+          sx={{ mt: 1 }}
+        >
+          Download {marked.filter(Boolean).length} saved
         </Button>
       </DialogContent>
       <DialogActions>
