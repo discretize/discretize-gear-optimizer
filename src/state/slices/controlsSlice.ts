@@ -192,11 +192,8 @@ export const controlSlice = createSlice({
       if (filteredLists) state.filteredLists = filteredLists;
     },
     toggleSaved: (state, action: PayloadAction<Character>) => {
-      // required to use reference equality check with immer.js
-      const originalSaved = original(state.saved)!;
-
-      if (originalSaved.includes(action.payload)) {
-        state.saved = originalSaved.filter((character) => character !== action.payload);
+      if (state.saved.some(({ id }) => action.payload.id === id)) {
+        state.saved = state.saved.filter((character) => character.id !== action.payload.id);
       } else {
         state.saved.push(action.payload);
       }
@@ -205,8 +202,7 @@ export const controlSlice = createSlice({
       state.saved.push(action.payload);
     },
     removeFromSaved: (state, action: PayloadAction<Character>) => {
-      const originalSaved = original(state.saved)!;
-      state.saved = originalSaved.filter((character) => character !== action.payload);
+      state.saved = state.saved.filter((character) => character.id !== action.payload.id);
     },
     changeCompareByPercent: (state, action: PayloadAction<boolean>) => {
       state.compareByPercent = action.payload;

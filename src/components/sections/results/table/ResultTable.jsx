@@ -202,7 +202,7 @@ const StickyHeadTable = () => {
                     character={character}
                     key={character.id}
                     selected={character.id === selectedCharacter?.id}
-                    saved={saved.includes(character)}
+                    saved={saved.some(({ id }) => character.id === id)}
                     mostCommonAffix={mostCommonAffix}
                     mostCommonRarity={mostCommonRarity}
                     underlineClass={underline ? classes.underline : null}
@@ -262,7 +262,7 @@ const StickyHeadTable = () => {
                     character={character}
                     key={character.id}
                     selected={character.id === selectedCharacter?.id}
-                    saved={saved.includes(character)}
+                    saved={saved.some(({ id }) => character.id === id)}
                     mostCommonAffix={mostCommonAffix}
                     mostCommonRarity={mostCommonRarity}
                     underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
