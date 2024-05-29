@@ -58,8 +58,6 @@ const ResultTableRow = ({
     return resultArray.map((element, i) => <Fragment key={i}>{element}</Fragment>);
   };
 
-  const SavedComponent = savedSection ? CloseIcon : StarRoundedIcon;
-
   return (
     <TableRow
       selected={selected}
@@ -69,18 +67,27 @@ const ResultTableRow = ({
       className={underlineClass}
     >
       <TableCell scope="row" align="center" padding="none">
-        <SavedComponent
-          sx={
-            savedSection
-              ? {
-                  opacity: '0.3',
-                  '&:hover': {
-                    opacity: '0.8',
-                    color: 'red',
-                  },
-                }
-              : saved
-                ? { color: 'star' }
+        {savedSection ? (
+          <CloseIcon
+            sx={{
+              opacity: '0.3',
+              '&:hover': {
+                opacity: '0.8',
+                color: 'red',
+              },
+            }}
+            onClick={(e) => {
+              if (savedSection) dispatch(removeFromSaved(character));
+              e.stopPropagation();
+            }}
+          />
+        ) : (
+          <StarRoundedIcon
+            sx={
+              saved
+                ? {
+                    color: 'star',
+                  }
                 : {
                     opacity: '0.2',
                     '&:hover': {
@@ -88,13 +95,13 @@ const ResultTableRow = ({
                       color: 'star',
                     },
                   }
-          }
-          onClick={(e) => {
-            if (savedSection) dispatch(removeFromSaved(character));
-            else dispatch(toggleSaved(character));
-            e.stopPropagation();
-          }}
-        />
+            }
+            onClick={(e) => {
+              dispatch(toggleSaved(character));
+              e.stopPropagation();
+            }}
+          />
+        )}
       </TableCell>
       <TableCell scope="row">
         {savedSection && (
