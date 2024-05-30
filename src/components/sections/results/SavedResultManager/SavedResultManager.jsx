@@ -124,11 +124,11 @@ export default function SavedResultManager({ isOpen, setOpen }) {
   }, [stored]);
 
   const handleClose = () => setOpen(false);
-  const handleSaveLocally = (character) => () => {
+  const handleSaveLocally = (character, name) => () => {
     if (!stored.some(({ character: { id } }) => character.id === id)) {
       setStored([
         {
-          name: selectedTemplate || character.settings.specialization,
+          name: name || selectedTemplate || character.settings.specialization,
           character,
           checked: false,
         },
@@ -164,10 +164,13 @@ export default function SavedResultManager({ isOpen, setOpen }) {
     try {
       const parsed = JSON.parse(importText);
       const toImport = (Array.isArray(parsed) ? parsed : [parsed]).filter(
-        (importable) => typeof importable?.character === 'object',
+        (importable) =>
+          typeof importable?.character === 'object' && typeof importable?.name === 'string',
       );
       if (toImport.length) {
-        toImport.forEach((importable) => dispatch(addToSaved(importable.character)));
+        toImport.forEach((importable) =>
+          dispatch(handleSaveLocally(importable.character, importable.name)),
+        );
         setImportText('');
       }
     } catch (e) {
@@ -211,28 +214,13 @@ export default function SavedResultManager({ isOpen, setOpen }) {
       </DialogTitle>
 
       <DialogContent sx={{ padding: 2 }} dividers>
-        <Box display="flex" alignItems="center" mb={1}>
-          <Typography fontWeight={200} flexGrow={1}>
-            <Trans>Temporary saved builds</Trans>{' '}
-            <HelperIcon
-              text={t('These builds will be deleted after you leave or refresh this page.')}
-              size="small"
-            />
-          </Typography>
-
-          <TextField
+        <Typography fontWeight={200}>
+          <Trans>Temporary saved builds</Trans>{' '}
+          <HelperIcon
+            text={t('These builds will be deleted after you leave or refresh this page.')}
             size="small"
-            label={t('Paste build JSON to import')}
-            variant="standard"
-            value={importText}
-            onChange={handleImportTextChange}
           />
-          <Tooltip title={t('Import')}>
-            <IconButton onClick={handleImport}>
-              <InputIcon fontSize="small" />
-            </IconButton>
-          </Tooltip>
-        </Box>
+        </Typography>
 
         <TableContainer className={classes.container}>
           <Table className={classes.table}>
@@ -286,15 +274,30 @@ export default function SavedResultManager({ isOpen, setOpen }) {
           </Table>
         </TableContainer>
 
-        <Typography fontWeight={200} marginTop={2}>
-          <Trans>Persistently saved builds</Trans>
-          <HelperIcon
-            text={t(
-              "These builds will remain saved in your browser's local storage. Clearing your cache or application data will remove your builds.",
-            )}
+        <Box display="flex" alignItems="center" mb={1}>
+          <Typography fontWeight={200} marginTop={2} flexGrow={1}>
+            <Trans>Persistently saved builds</Trans>
+            <HelperIcon
+              text={t(
+                "These builds will remain saved in your browser's local storage. Clearing your cache or application data will remove your builds.",
+              )}
+              size="small"
+            />
+          </Typography>
+
+          <TextField
             size="small"
+            label={t('Paste build JSON to import')}
+            variant="standard"
+            value={importText}
+            onChange={handleImportTextChange}
           />
-        </Typography>
+          <Tooltip title={t('Import')}>
+            <IconButton onClick={handleImport}>
+              <InputIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
+        </Box>
 
         <TableContainer className={classes.container}>
           <Table className={classes.table}>
