@@ -256,7 +256,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
                     <Gear gear={character.gear} infusions={character.infusions} />
                   </TableCell>
                   <TableCell sx={{ textAlign: 'right', width: 155.53 }}>
-                    <Tooltip title={t('Save to persistent storage')}>
+                    <Tooltip title={t('Save to persistent build storage')}>
                       <IconButton onClick={handleSaveLocally(character)}>
                         <SaveIcon fontSize="small" />
                       </IconButton>
@@ -276,7 +276,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
 
         <Box display="flex" alignItems="center" mb={1}>
           <Typography fontWeight={200} marginTop={2} flexGrow={1}>
-            <Trans>Persistently saved builds</Trans>
+            <Trans>Persistent build storage</Trans>{' '}
             <HelperIcon
               text={t(
                 "These builds will remain saved in your browser's local storage. Clearing your cache or application data will remove your builds.",
