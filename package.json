@@ -41,6 +41,9 @@
     "wasm-build-data": "tsx generateRustMappings.ts",
     "wasmCheck": "cd wasm_module && cargo check --all-targets"
   },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged"
+  },
   "resolutions": {
     "eslint-plugin-jsx-a11y": "^6.5.1 <6.8.0"
   },
@@ -109,8 +112,10 @@
     "eslint-plugin-jsx-a11y": "^6.5.1 <6.8.0",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.2",
+    "lint-staged": "^15.2.5",
     "prettier": "^3.2.5",
     "rollup-preserve-directives": "^1.1.1",
+    "simple-git-hooks": "^2.11.1",
     "tsx": "^4.11.0",
     "typescript": "^5.4.5",
     "typia": "^6.0.4",
