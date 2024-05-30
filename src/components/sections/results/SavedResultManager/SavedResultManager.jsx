@@ -125,14 +125,16 @@ export default function SavedResultManager({ isOpen, setOpen }) {
 
   const handleClose = () => setOpen(false);
   const handleSaveLocally = (character) => () => {
-    setStored([
-      {
-        name: selectedTemplate || character.settings.specialization,
-        character,
-        checked: false,
-      },
-      ...stored,
-    ]);
+    if (!stored.some(({ character: { id } }) => character.id === id)) {
+      setStored([
+        {
+          name: selectedTemplate || character.settings.specialization,
+          character,
+          checked: false,
+        },
+        ...stored,
+      ]);
+    }
   };
   const handleNameChange = (index) => (event) => {
     setStored(
@@ -149,7 +151,9 @@ export default function SavedResultManager({ isOpen, setOpen }) {
     dispatch(removeFromSaved(character));
   };
   const handleCopyToTemporary = (character) => () => {
-    dispatch(addToSaved(character));
+    if (!temporarySaved.some(({ id }) => character.id === id)) {
+      dispatch(addToSaved(character));
+    }
   };
   const handleSelectedChange = (index) => (event) => {
     setStored(
