@@ -287,7 +287,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
 
           <TextField
             size="small"
-            label={t('Paste build JSON to import')}
+            label={t('Paste build data to import')}
             variant="standard"
             value={importText}
             onChange={handleImportTextChange}
@@ -337,7 +337,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
                     <Gear gear={character.gear} infusions={character.infusions} />
                   </TableCell>
                   <TableCell sx={{ textAlign: 'right' }}>
-                    <Tooltip title={t('Copy JSON to clipboard')}>
+                    <Tooltip title={t('Copy data to clipboard')}>
                       <IconButton onClick={handleCopy({ name, character })}>
                         <ContentCopyIcon fontSize="small" />
                       </IconButton>
