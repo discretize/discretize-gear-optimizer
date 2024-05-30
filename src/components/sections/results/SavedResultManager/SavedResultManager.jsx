@@ -170,8 +170,9 @@ export default function SavedResultManager({ isOpen, setOpen }) {
     }
   };
   const handleDownload = () => {
+    const data = JSON.stringify(selected.map(({ name, character }) => ({ name, character })));
     // https://gist.github.com/alexreiling/64a99f3b064ca0ad53db0ab153e6ee49
-    const dataStr = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(selected))}`;
+    const dataStr = `data:text/json;charset=utf-8,${encodeURIComponent(data)}`;
     const downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute('href', dataStr);
     downloadAnchorNode.setAttribute('download', `GearOptimizerBuilds.json`);
