@@ -293,7 +293,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
           <Table className={classes.table}>
             <TableBody>
               {stored.map(({ name, character, checked }, index) => (
-                <TableRow>
+                <TableRow key={character.id}>
                   <TableCell>
                     <Checkbox checked={checked} onChange={handleSelectedChange(index)} />
                   </TableCell>
