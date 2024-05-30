@@ -874,7 +874,11 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
@@ -895,6 +899,7 @@ list:
       {
         "extras": {
           "Runes": {
+            "firebrand": {},
             "trapper": {},
             "nightmare": {},
             "tempest": {}
@@ -905,7 +910,8 @@ list:
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
-            "toxic-maintenance-oil": {}
+            "toxic-maintenance-oil": {},
+            "master-tuning-crystal": {}
           },
           "Nourishment": {
             "salsa-topped-veggie-flatbread": {},
@@ -2313,7 +2319,7 @@ list:
         }
       }
 
-  - name: DPS Specter
+  - name: DPS Specter SC/D
     profession: Specter
     value: |-
       {
@@ -2353,7 +2359,7 @@ list:
         "lifestealAmount": "3.5"
       }
 
-  - name: Condi Barrier Specter
+  - name: Condi Barrier Specter SC/D
     profession: Specter
     value: |-
       {
@@ -2393,7 +2399,7 @@ list:
         "lifestealAmount": "3.5"
       }
 
-  - name: Alacrity Specter
+  - name: Alacrity Specter SC/D
     profession: Specter
     value: |-
       {

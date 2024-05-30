@@ -29,12 +29,25 @@ list:
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 3931, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3871, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Baseraver
-        url: https://www.youtube.com/watch?v=SE8Nx35aXuw
-        log: https://dps.report/Pypi-20231003-192433_golem
+      - author: Linsi
+        url: https://www.youtube.com/watch?v=nI-Y6GsZvUQ
+        log: https://dps.report/fLGV-20240202-220024_golem
+
+  # Uses air/hydro sigils, somewhat taken into consideration by giving air a
+  # proc rate high enough to match air+hydro damage
+  - name: Power Quickness Berserker
+    profession: Berserker
+    value: >-
+      {
+        "values2": { "Power": 3829, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Linsi
+        url: https://www.youtube.com/watch?v=HzFEwIXT5Nw
+        log: https://dps.report/LLcD-20240203-030534_golem
 
   - name: Power Spellbreaker GS
     profession: Spellbreaker
@@ -51,36 +64,36 @@ list:
     profession: Spellbreaker
     value: >-
       {
-        "values2": { "Power": 2221, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2329, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'DaniDomum'
-        url: https://www.youtube.com/watch?v=cLXtPAzTzKw
-        log: https://dps.report/hj0c-20221204-150307_golem
+      - author: Baseraver
+        url: https://www.youtube.com/watch?v=nmG8osqWv_s
+        log: https://dps.report/MloE-20240205-165918_golem
 
-  # includes geo/earth + doom/torment
+  # includes sigils
   - name: Condi Quickness Bers
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 2104, "Power2": 0, "Burning": 10.29, "Bleeding": 15.77, "Poisoned": 1.93, "Torment": 1.16, "Confusion": 0 }
+        "values2": { "Power": 2438, "Power2": 0, "Burning": 8.82, "Bleeding": 14.13, "Poisoned": 2.1, "Torment": 3.64, "Confusion": 0 }
       }
     credit:
-      - author: 'Costa Primo'
-        url: https://www.youtube.com/watch?v=h1BlQAMiKsY
-        log: https://dps.report/44iU-20230416-120753_golem
+      - author: 'Saint Mighty'
+        url: https://www.youtube.com/watch?v=hHBBZwsdN7k
+        log: https://dps.report/tNb1-20231014-165434_golem
 
-  # Sundering leap for higher potential number
+  # includes sigils
   - name: Condi Berserker
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 2102, "Power2": 0, "Burning": 12.16, "Bleeding": 13.19, "Poisoned": 2.17, "Torment": 1.22, "Confusion": 0 }
+        "values2": { "Power": 2470, "Power2": 0, "Burning": 8.29, "Bleeding": 13.67, "Poisoned": 2.15, "Torment": 5.11, "Confusion": 0 }
       }
     credit:
       - author: 'Costa Primo'
-        url: https://www.youtube.com/watch?v=u0oIU0DSspE
-        log: https://dps.report/aSwf-20230216-210051_golem
+        url: https://www.youtube.com/watch?v=Cg52M5WGU5o
+        log: https://dps.report/RzZh-20231014-102529_golem
 
   - name: Power Alacrity Bladesworn
     profession: Bladesworn
@@ -731,17 +744,16 @@ list:
         url: https://www.youtube.com/watch?v=v6AARzsY6iA
         log: https://dps.report/P7Qz-20231003-143924_golem
 
-  # Slightly higher log than video received from Cody
   - name: Power Holo ECSU
     profession: Holosmith
     value: >-
       {
-        "values2": { "Power": 3551, "Power2": 0, "Burning": 2.94, "Bleeding": 9.02, "Poisoned": 2.82, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3890, "Power2": 0, "Burning": 5.41, "Bleeding": 9.82, "Poisoned": 2.39, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Cody
-        url: https://www.youtube.com/watch?v=iKpNrLWJchU
-        log: https://dps.report/C8rh-20230112-212337_golem
+        url: https://www.youtube.com/watch?v=F6A09H0W0B4
+        log: https://dps.report/j9eE-20240324-171603_golem
 
   - name: Condi Holo
     profession: Holosmith
@@ -1014,7 +1026,7 @@ list:
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 1589, "Power2": 1520, "Burning": 0.13, "Bleeding": 2.44, "Poisoned": 2.14, "Torment": 9.49, "Confusion": 0.13 }
+        "values2": { "Power": 1589, "Power2": 1382, "Burning": 0.13, "Bleeding": 2.44, "Poisoned": 2.14, "Torment": 9.49, "Confusion": 0.13 }
       }
     credit:
       - author: '[CnD] Aphrodite Lady'
@@ -1112,7 +1124,7 @@ list:
         log: https://dps.report/OK9l-20230214-214155_golem
 
   # 1.72 torment proc rate (from evtc tool applied to previous log)
-  - name: DPS Specter (Allies)
+  - name: DPS Specter SC/D (Allies)
     profession: Specter
     value: >-
       {
@@ -1126,7 +1138,7 @@ list:
   # https://optimizer.discretize.eu/?s=wpWaF0plv1
   # bugged log: has leeching venoms
   # 1.52 torment proc rate (from evtc tool)
-  - name: DPS Barrier Specter (Allies)
+  - name: DPS Barrier Specter SC/D (Allies)
     profession: Specter
     value: >-
       {
@@ -1138,7 +1150,7 @@ list:
         log: https://dps.report/pfgp-20220827-121511_golem
 
   # 1.52 torment proc rate (from evtc tool on carrion spec, which has the same critchance)
-  - name: Alacrity Specter (allies)
+  - name: Alacrity Specter SC/D (allies)
     profession: Specter
     value: >-
       {

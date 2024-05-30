@@ -1,5 +1,4 @@
 import { Checkbox, FormControlLabel } from '@mui/material';
-import React from 'react';
 
 const CheckboxComponent = ({ className, checked, value, label, onChange, ...rest }) => (
   <FormControlLabel

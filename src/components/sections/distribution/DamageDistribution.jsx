@@ -11,8 +11,8 @@ import {
   getTextBoxes,
 } from '../../../state/slices/distribution';
 import { parseDistribution } from '../../../utils/usefulFunctions';
-import useAlternativeDamage from '../../baseComponents/useAlternativeDamage';
 import TemplateInfo from '../../TemplateInfo';
+import useAlternativeDamage from '../../baseComponents/useAlternativeDamage';
 
 const Attribute = React.memo(AttributeRaw);
 const Condition = React.memo(ConditionRaw);

@@ -11,8 +11,8 @@ import {
   Indicators,
   PrimaryAttributes,
   SecondaryAttributes,
-  WeaponTypes,
   WeaponHandednessType,
+  WeaponTypes,
   damagingConditions,
 } from '../../utils/gw2-data';
 import { objectKeys } from '../../utils/usefulFunctions';
@@ -55,6 +55,7 @@ const attributes = [
   'Phantasm Critical Chance',
   'Phantasm Critical Damage',
   'Phantasm Effective Power',
+  'Siphon Coefficient',
   'Siphon Base Coefficient',
   'Siphon DPS',
 
@@ -64,7 +65,6 @@ const attributes = [
   'Damage Reduction',
   'Power Coefficient',
   'NonCrit Power Coefficient',
-  'NonCrit Effective Power',
   'Power2 DPS',
   'Power2 Coefficient',
   'Flat DPS',
@@ -85,8 +85,9 @@ const attributes = [
   'Outgoing Alternative Critical Damage',
   'Outgoing Phantasm Damage',
   'Outgoing Phantasm Critical Damage',
-
   'Outgoing All Damage',
+
+  'Player Critical Damage',
 ] as const;
 
 type AttributeName = (typeof attributes)[number];

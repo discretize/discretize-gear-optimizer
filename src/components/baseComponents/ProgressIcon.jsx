@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { getProgress } from '../../state/slices/controlsSlice';
 import CircularProgressWithLabel from './CircularProgressWithLabel';

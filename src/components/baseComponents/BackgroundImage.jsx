@@ -1,5 +1,4 @@
 import { useMediaQuery, useTheme } from '@mui/material';
-import React from 'react';
 import fractalImg from '../../assets/images/background/fractals.jpg';
 import raidImg from '../../assets/images/background/raids.jpg';
 import wvwImg from '../../assets/images/background/wvw.jpg';

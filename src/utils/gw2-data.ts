@@ -1070,6 +1070,8 @@ export type WeaponHandednessType = keyof typeof Slots;
 
 export type SlotsEntry = (typeof Slots)['Dual wield'];
 
+export const maxSlotsLength = Math.max(...Object.values(Slots).map((arr) => arr.length));
+
 // used for forcing slots to a certain affix
 export const ForcedSlots = [
   'helm', // 0
@@ -1153,6 +1155,7 @@ export const Classes = {
         WEAPONS.HAMMER,
         WEAPONS.LONGBOW,
         WEAPONS.RIFLE,
+        WEAPONS.STAFF,
       ],
       offHand: [
         WEAPONS.AXE,
@@ -1177,8 +1180,9 @@ export const Classes = {
         WEAPONS.SCEPTER,
         WEAPONS.GREATSWORD,
         WEAPONS.STAFF,
+        WEAPONS.SWORD,
       ],
-      offHand: [WEAPONS.FOCUS, WEAPONS.WARHORN, WEAPONS.TORCH, WEAPONS.DAGGER],
+      offHand: [WEAPONS.FOCUS, WEAPONS.WARHORN, WEAPONS.TORCH, WEAPONS.DAGGER, WEAPONS.SWORD],
     },
   },
   Revenant: {
@@ -1192,6 +1196,7 @@ export const Classes = {
         WEAPONS.HAMMER,
         WEAPONS.SHORTBOW,
         WEAPONS.STAFF,
+        WEAPONS.SCEPTER,
       ],
       offHand: [WEAPONS.AXE, WEAPONS.SWORD, WEAPONS.SHIELD],
     },
@@ -1200,7 +1205,14 @@ export const Classes = {
     health: Health.MEDIUM,
     defense: Defense.MEDIUM,
     weapons: {
-      mainHand: [WEAPONS.MACE, WEAPONS.PISTOL, WEAPONS.SWORD, WEAPONS.RIFLE, WEAPONS.HAMMER],
+      mainHand: [
+        WEAPONS.MACE,
+        WEAPONS.PISTOL,
+        WEAPONS.SWORD,
+        WEAPONS.RIFLE,
+        WEAPONS.HAMMER,
+        WEAPONS.SHORTBOW,
+      ],
       offHand: [WEAPONS.PISTOL, WEAPONS.SHIELD],
     },
   },
@@ -1217,8 +1229,9 @@ export const Classes = {
         WEAPONS.LONGBOW,
         WEAPONS.SHORTBOW,
         WEAPONS.STAFF,
+        WEAPONS.MACE,
       ],
-      offHand: [WEAPONS.AXE, WEAPONS.DAGGER, WEAPONS.TORCH, WEAPONS.WARHORN],
+      offHand: [WEAPONS.AXE, WEAPONS.DAGGER, WEAPONS.TORCH, WEAPONS.WARHORN, WEAPONS.MACE],
     },
   },
   Mesmer: {
@@ -1232,6 +1245,7 @@ export const Classes = {
         WEAPONS.SCEPTER,
         WEAPONS.GREATSWORD,
         WEAPONS.STAFF,
+        WEAPONS.RIFLE,
       ],
       offHand: [WEAPONS.PISTOL, WEAPONS.SWORD, WEAPONS.FOCUS, WEAPONS.SHIELD, WEAPONS.TORCH],
     },
@@ -1249,8 +1263,9 @@ export const Classes = {
         WEAPONS.HAMMER,
         WEAPONS.LONGBOW,
         WEAPONS.STAFF,
+        WEAPONS.PISTOL,
       ],
-      offHand: [WEAPONS.FOCUS, WEAPONS.SHIELD, WEAPONS.SWORD, WEAPONS.TORCH],
+      offHand: [WEAPONS.FOCUS, WEAPONS.SHIELD, WEAPONS.SWORD, WEAPONS.TORCH, WEAPONS.PISTOL],
     },
   },
   Thief: {
@@ -1265,6 +1280,7 @@ export const Classes = {
         WEAPONS.RIFLE,
         WEAPONS.SHORTBOW,
         WEAPONS.STAFF,
+        WEAPONS.AXE,
       ],
       offHand: [WEAPONS.DAGGER, WEAPONS.PISTOL],
     },
@@ -1273,7 +1289,14 @@ export const Classes = {
     health: Health.LOW,
     defense: Defense.LIGHT,
     weapons: {
-      mainHand: [WEAPONS.DAGGER, WEAPONS.HAMMER, WEAPONS.SWORD, WEAPONS.SCEPTER, WEAPONS.STAFF],
+      mainHand: [
+        WEAPONS.DAGGER,
+        WEAPONS.HAMMER,
+        WEAPONS.SWORD,
+        WEAPONS.SCEPTER,
+        WEAPONS.STAFF,
+        WEAPONS.PISTOL,
+      ],
       offHand: [WEAPONS.FOCUS, WEAPONS.DAGGER, WEAPONS.WARHORN],
     },
   },

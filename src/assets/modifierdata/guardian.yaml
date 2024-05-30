@@ -11,6 +11,7 @@
         attributes:
           Power: [180, buff]
       gw2id: 9093
+      temporaryBuff: activeOutOfCombat
 
     - id: bane-signet-2
       text: Bane Signet
@@ -23,6 +24,7 @@
         attributes:
           Power: [216, buff]
       gw2id: 9093
+      temporaryBuff: activeOutOfCombat
 
     - id: signet-of-judgement
       text: Signet of Judgement
@@ -45,6 +47,7 @@
         attributes:
           Concentration: [120, buff]
       gw2id: 9163
+      temporaryBuff: false
 
     - id: signet-of-mercy-2
       text: Signet of Mercy
@@ -53,6 +56,7 @@
         attributes:
           Concentration: [150, buff]
       gw2id: 9163
+      temporaryBuff: false
 
     - id: signet-of-wrath
       text: Signet of Wrath
@@ -64,6 +68,7 @@
         attributes:
           Condition Damage: [180, buff]
       gw2id: 9151
+      temporaryBuff: activeOutOfCombat
 
     - id: signet-of-wrath-2
       text: Signet of Wrath
@@ -76,6 +81,7 @@
         attributes:
           Condition Damage: [216, buff]
       gw2id: 9151
+      temporaryBuff: activeOutOfCombat
 
     # 0.7 coefficient, 690.5(?) strength, 18 proc/120s traited
     # burning: 4s
@@ -98,6 +104,7 @@
           Power Coefficient: 483.3
           Burning Coefficient: 4.8
       gw2id: 46148
+      temporaryBuff: true
 
     # 0.7 coefficient, 690.5(?) strength, 18 proc/120s traited
     # burning: 4s
@@ -117,6 +124,7 @@
           Power Coefficient: 483.3
           Burning Coefficient: 4
       gw2id: 46148
+      temporaryBuff: true
 
 - section: Zeal
   id: 42
@@ -147,6 +155,7 @@
           Power: [120, buff] #confirmed by Cat
       gw2id: 653
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: zealous-blade-gs
       text: Zealous Blade
@@ -160,6 +169,7 @@
           Power: [120, converted] #confirmed by Cat
       gw2id: 653
       defaultEnabled: true
+      temporaryBuff: true # assume the user is on a dual-wield set
 
     - id: kindled-zeal
       text: Kindled Zeal
@@ -168,6 +178,7 @@
           Condition Damage: {Power: 10%}
       gw2id: 1556
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: symbolic-avenger
       text: Symbolic Avenger
@@ -190,6 +201,7 @@
           Precision: [80, buff] # confirmed from bench hero panel
       gw2id: 566
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: right-hand-strength-1h
       text: Right-Hand Strength
@@ -203,6 +215,7 @@
           Power: [80, converted] # found by Cat
       gw2id: 566
       defaultEnabled: true
+      temporaryBuff: activeOutOfCombat # assume the user is on a dual-wield set
 
     - id: radiant-fire
       text: Radiant Fire
@@ -214,6 +227,7 @@
           Burning Duration: 7%
       gw2id: 567
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: retribution
       text: Retribution
@@ -237,15 +251,16 @@
           Ferocity: [150, buff]
       gw2id: 568
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: amplified-wrath
       text: Amplified Wrath
       modifiers:
         damage:
-          Outgoing Burning Damage: [10%, unknown]
+          Outgoing Burning Damage: [10%, mult] # unconfirmed
       wvwModifiers:
         damage:
-          Outgoing Burning Damage: [15%, unknown]
+          Outgoing Burning Damage: [15%, mult] # unconfirmed
       gw2id: 1686
       defaultEnabled: true
 
@@ -257,6 +272,7 @@
           Critical Chance: 25%
       gw2id: 1683
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Valor
   id: 13
@@ -270,6 +286,7 @@
           Toughness: [240, buff]
       gw2id: 580
       defaultEnabled: true
+      temporaryBuff: activeOutOfCombat # assume the user is on a dual-wield set
 
 - section: Honor
   id: 49
@@ -289,6 +306,7 @@
           Outgoing Healing: 10%
       gw2id: 1899
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: honorable-staff
       text: Honorable Staff
@@ -301,6 +319,7 @@
           Concentration: [60, buff] # tested by Stephan
       gw2id: 557
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: honorable-staff-2
       text: Honorable Staff
@@ -313,6 +332,7 @@
           Concentration: [60, converted] # tested by Stephan
       gw2id: 557
       defaultEnabled: true
+      temporaryBuff: true # assume the user is on a dual-wield set
 
     - id: force-of-will
       text: Force of Will
@@ -328,6 +348,7 @@
           Outgoing Healing: {Vitality: 0.005%}
       gw2id: 1682
       defaultEnabled: true
+      temporaryBuff: false
 
 - section: Virtues
   id: 46
@@ -380,6 +401,7 @@
           Resolution Duration: 25%
       gw2id: 604
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: inspiring-virtue
       text: Inspiring Virtue
@@ -405,6 +427,7 @@
           Condition Damage: {Vitality: 13%}
       gw2id: 620
       defaultEnabled: true
+      temporaryBuff: false
 
 - section: Dragonhunter
   id: 27
@@ -417,6 +440,7 @@
           Vitality: [180, converted]
       gw2id: 1896
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: zealots-aggression
       text: Zealot's Aggression
@@ -529,6 +553,7 @@
           Vitality: [150, converted]
       gw2id: 2148
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Willbender
   id: 65
@@ -541,6 +566,7 @@
           Condition Damage: [120, unknown]
       gw2id: 2191
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: power-for-power
       text: Power for Power
@@ -549,6 +575,7 @@
           Power: [120, unknown]
       gw2id: 2190
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: conceited-curate
       text: Conceited Curate
@@ -557,6 +584,7 @@
           Vitality: [180, converted]
       gw2id: 2187
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: lethal-tempo
       text: Lethal Tempo
@@ -602,3 +630,16 @@
           Outgoing Strike Damage: [10%, mult] # as per Cat
       gw2id: 2201
       defaultEnabled: false
+
+    - id: deathless-courage
+      text: Deathless Courage
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Damage Reduction: [50%, unknown]
+      gw2id: 2198
+      defaultEnabled: true

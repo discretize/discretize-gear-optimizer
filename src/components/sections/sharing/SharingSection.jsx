@@ -1,7 +1,6 @@
 import ShareIcon from '@mui/icons-material/Share';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import { IconButton, Typography } from '@mui/material';
-import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
@@ -31,10 +30,17 @@ const SharingSection = () => {
             <Trans>Share settings.</Trans>
           </Typography>{' '}
           <Typography variant="caption">
-            <Trans>
-              Includes the current selected options on this page only. Does not include result
-              builds in the table above
-            </Trans>
+            {character ? (
+              <Trans>
+                Includes the current options on this page and the currently selected character. Does
+                not include every result in the table.
+              </Trans>
+            ) : (
+              <Trans>
+                Includes the current selected options on this page. Does not include every result in
+                the table.
+              </Trans>
+            )}
           </Typography>
           <br />
           <BuildShareModal title={t('Build Share Settings')} character={character}>

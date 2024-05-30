@@ -7,6 +7,7 @@
         attributes:
           Condition Damage: [180, buff]
       gw2id: 10232
+      temporaryBuff: false
 
     - id: signet-of-midnight
       text: Signet of Midnight
@@ -14,6 +15,7 @@
         attributes:
           Expertise: [180, buff]
       gw2id: 10234
+      temporaryBuff: false
 
 - section: Domination
   id: 10
@@ -83,6 +85,7 @@
           Phantasm Critical Chance: 20%
       gw2id: 701
       defaultEnabled: false
+      temporaryBuff: false
 
     - id: phantasmal-fury-virtuoso
       text: Phantasmal Fury
@@ -95,6 +98,7 @@
           Phantasm Critical Chance: 35%
       gw2id: 701
       defaultEnabled: false
+      temporaryBuff: false
 
     - id: phantasmal-fury-virtuoso-bugged
       text: Phantasmal Fury
@@ -107,6 +111,7 @@
           Phantasm Critical Chance: 30%
       gw2id: 701
       defaultEnabled: false
+      temporaryBuff: false
 
     - id: sharper-images-phantasm
       text: Sharper Images
@@ -122,6 +127,7 @@
           Bleeding Coefficient: {Phantasm Critical Chance: 500%}
       gw2id: 710
       defaultEnabled: false
+      temporaryBuff: true
 
     - id: sharper-images-clone
       text: Sharper Images
@@ -137,6 +143,7 @@
           Bleeding Coefficient: {Clone Critical Chance: 500%}
       gw2id: 710
       defaultEnabled: false
+      temporaryBuff: true
 
     - id: fencers-finesse
       text: Fencer's Finesse
@@ -149,6 +156,7 @@
           Ferocity: [150, buff]
       gw2id: 708
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: superiority-complex-base
       text: Superiority Complex
@@ -201,6 +209,7 @@
           Condition Damage: [120, buff]
       gw2id: 669
       defaultEnabled: true
+      temporaryBuff: false
 
     # no configurable amount; causes scaled boon duration with toxic oil
     - id: chaotic-potency-2
@@ -215,6 +224,7 @@
           Condition Damage: [120, converted] # tested by marcus
       gw2id: 669
       defaultEnabled: false
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: chaotic-persistence
       text: Chaotic Persistence
@@ -227,6 +237,7 @@
           # converted: https://discord.com/channels/380901000200060929/875327743334707251/911570311177207818
       gw2id: 1865
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Inspiration
   id: 23
@@ -239,6 +250,7 @@
           Outgoing Healing: 15%
       gw2id: 1866
       defaultEnabled: true
+      temporaryBuff: false
 
 - section: Illusions
   id: 24
@@ -278,6 +290,7 @@
           Confusion Duration: 25%
       gw2id: 753
       defaultEnabled: true
+      temporaryBuff: false
 
 - section: Chronomancer
   id: 40
@@ -294,6 +307,7 @@
           Clone Critical Chance: 15%
       gw2id: 2009
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: improved-alacrity
       text: Improved Alacrity
@@ -331,6 +345,7 @@
       minor: true
       gw2id: 2069
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Virtuoso
   id: 66
@@ -367,6 +382,7 @@
           Bleeding Coefficient: {Critical Chance: 300%}
       gw2id: 2202
       defaultEnabled: false
+      temporaryBuff: true
 
     # does not affect lifesteal despite "all text" description
     # https://discord.com/channels/380901000200060929/1017105862357176341/1017167619478003792
@@ -392,28 +408,37 @@
           Expertise: [150, unknown]
       gw2id: 2207
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: quiet-intensity
       text: Quiet Intensity
-      subText: 100% fury
+      subText: base
       minor: true
       modifiers:
         conversion:
           Ferocity: {Vitality: 10%}
+      gw2id: 2193
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: quiet-intensity-fury
+      text: Quiet Intensity
+      subText: 100% fury
+      minor: true
+      modifiers:
         attributes:
           Critical Chance: 15%
       wvwModifiers:
-        conversion:
-          Ferocity: {Vitality: 10%}
         attributes:
           Critical Chance: 10%
       gw2id: 2193
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: bloodsong
       text: Bloodsong
       modifiers:
         damage:
-          Outgoing Bleeding Damage: [25%, unknown]
+          Outgoing Bleeding Damage: [25%, mult] # unconfirmed
       gw2id: 2223
       defaultEnabled: true

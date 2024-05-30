@@ -1,5 +1,4 @@
 import { Autocomplete, InputAdornment, TextField, Typography } from '@mui/material';
-import React from 'react';
 import { parseAmount } from '../../utils/usefulFunctions';
 
 const AmountInput = ({

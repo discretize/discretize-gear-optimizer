@@ -7,19 +7,19 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import { getForcedSlots } from '../../../state/slices/forcedSlots';
 import {
-  changeExotic,
   changeAllExotic,
-  getUsedExoticsData,
-  getExclusionData,
+  changeExotic,
   getAffixes,
+  getExclusionData,
+  getExoticsData,
   getWeaponType,
 } from '../../../state/slices/priorities';
-import { getForcedSlots } from '../../../state/slices/forcedSlots';
 import { GEAR_SLOTS, WeaponTypes } from '../../../utils/gw2-data';
+import { pick } from '../../../utils/usefulFunctions';
 
 const useStyles = makeStyles()((theme) => ({
   tableCollapse: {
@@ -39,7 +39,9 @@ const ExoticSlots = () => {
   const excludedSlots = useSelector(getExclusionData);
   const dualWielded = useSelector(getWeaponType);
   const affixes = useSelector(getAffixes);
-  const exotics = useSelector(getUsedExoticsData);
+  const exoticsData = useSelector(getExoticsData);
+
+  const exotics = pick(exoticsData, affixes);
 
   let SLOTS = GEAR_SLOTS;
   if (dualWielded !== WeaponTypes.dualWield) {
@@ -59,20 +61,22 @@ const ExoticSlots = () => {
     <TableContainer>
       <Table className={classes.tableCollapse}>
         <TableHead>
-          <TableCell padding="none">
-            <Checkbox
-              size="small"
-              classes={{ root: classes.checkbox }}
-              checked={allExoticsChecked}
-              indeterminate={someExoticsChecked}
-              onChange={handleChangeAll}
-            />
-          </TableCell>
-          {SLOTS.map(({ short }) => (
-            <TableCell padding="none" key={`header ${short}`}>
-              {short}
+          <TableRow>
+            <TableCell padding="none">
+              <Checkbox
+                size="small"
+                classes={{ root: classes.checkbox }}
+                checked={allExoticsChecked}
+                indeterminate={someExoticsChecked}
+                onChange={handleChangeAll}
+              />
             </TableCell>
-          ))}
+            {SLOTS.map(({ short }) => (
+              <TableCell padding="none" key={`header ${short}`}>
+                {short}
+              </TableCell>
+            ))}
+          </TableRow>
         </TableHead>
         <TableBody>
           {affixes.map((affix) => (

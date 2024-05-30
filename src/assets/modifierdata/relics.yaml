@@ -17,6 +17,7 @@
       amountData:
         label: '% uptime'
         default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
@@ -39,6 +40,7 @@
       amountData:
         label: '% uptime'
         default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
@@ -50,6 +52,7 @@
       amountData:
         label: '% uptime'
         default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
@@ -69,11 +72,13 @@
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
           Power Coefficient: 4833.5
       gw2id: 100074
+      temporaryBuff: true
 
     - id: cerus-relic-10
       text: Relic of Cerus
@@ -81,11 +86,13 @@
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
           Power Coefficient: 6905
       gw2id: 100074
+      temporaryBuff: true
 
     # - id: dagda-relic
     #   text: 'Relic of Dagda: not yet implemented'
@@ -107,6 +114,7 @@
       amountData:
         label: '% uptime'
         default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
@@ -115,6 +123,7 @@
           # this is additive but uncapped; see https://github.com/discretize/discretize-gear-optimizer/pull/677
           Condition Duration Uncapped: 10%
       gw2id: 100090
+      temporaryBuff: true
 
     - id: isgarren-relic
       text: Relic of Isgarren
@@ -129,12 +138,14 @@
           # this is additive but uncapped; see https://github.com/discretize/discretize-gear-optimizer/pull/677
           Condition Duration Uncapped: 10%
       gw2id: 99997
+      temporaryBuff: true
 
     - id: relic-of-nourys
       text: Relic of Nourys
       amountData:
         label: '% uptime'
         default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
@@ -159,6 +170,7 @@
         attributes:
           Condition Duration: 15%
       gw2id: 100849
+      temporaryBuff: true
 
     - id: scourge-relic
       text: Relic of the Scourge
@@ -167,6 +179,7 @@
         attributes:
           Condition Duration: 15%
       gw2id: 100368
+      temporaryBuff: true
 
     - id: fractal-relic
       text: Relic of the Fractal
@@ -183,12 +196,14 @@
           Torment Coefficient: 12
           Burning Coefficient: 4
       gw2id: 100153
+      temporaryBuff: true
 
     - id: akeem-relic
       text: Relic of Akeem
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
@@ -199,12 +214,14 @@
           Torment Coefficient: 10
           Confusion Coefficient: 10
       gw2id: 100432
+      temporaryBuff: true
 
     - id: vass-relic
       text: Relic of Vass
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
@@ -213,6 +230,7 @@
         attributes:
           Poison Coefficient: 9
       gw2id: 100775
+      temporaryBuff: true
 
     - id: sunless-relic
       text: 'Relic of the Sunless: not yet implemented'
@@ -232,23 +250,27 @@
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
           Power Coefficient: 621.45
           Poison Coefficient: 24
       gw2id: 100579
+      temporaryBuff: true
 
     - id: mirage-relic
       text: Relic of the Mirage
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
           Torment Coefficient: 12
       gw2id: 100158
+      temporaryBuff: true
 
     # 0.5 coefficient, 690.5 strength
     - id: krait-relic
@@ -256,6 +278,7 @@
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
@@ -264,12 +287,14 @@
           Poison Coefficient: 8
           Torment Coefficient: 8
       gw2id: 100230
+      temporaryBuff: true
 
     - id: demon-queen-relic
       text: Relic of the Demon Queen
       amountData:
         label: '/10s'
         default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
@@ -278,6 +303,7 @@
         attributes:
           Poison Coefficient: 3
       gw2id: 101166
+      temporaryBuff: true
 
 - section: Support Relics
   items:
@@ -289,6 +315,7 @@
         attributes:
           Concentration: [250, unknown]
       gw2id: 100219
+      temporaryBuff: true
 
     - id: firebrand-relic
       text: Relic of the Firebrand
@@ -297,6 +324,7 @@
         attributes:
           Boon Duration: 20%
       gw2id: 100453
+      temporaryBuff: true
 
     - id: midnight-king-relic
       text: 'Relic of the Midnight King: not implemented'
@@ -329,6 +357,7 @@
         attributes:
           Outgoing Healing: 10%
       gw2id: 100031
+      temporaryBuff: true
 
     - id: karakosa-relic
       text: 'Relic of Karakosa: not implemented'

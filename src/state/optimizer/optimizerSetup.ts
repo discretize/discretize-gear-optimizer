@@ -112,6 +112,7 @@ export interface AppliedModifier {
   modifiers: YamlModifiers;
   wvwModifiers?: YamlModifiers;
   amountData?: AmountData;
+  temporaryBuff?: true | false | 'activeOutOfCombat';
 }
 
 // todo: move these; they should be synchronized with ../../assets/modifierdata/metadata.js and
@@ -177,6 +178,7 @@ export interface CachedFormState {
   extras: Record<string, any>;
   buffs: Record<string, any>;
   priorities: Record<string, any>;
+  boss: Record<string, any>;
 }
 
 // interface OptimizerInput {
@@ -259,6 +261,7 @@ export function createSettingsPerCalculation(
     extras: state.form.extras,
     buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
     priorities: state.form.priorities,
+    boss: state.form.boss,
   };
 
   const profession = getProfession(reduxState);
@@ -582,6 +585,7 @@ export function createSettingsPerCalculation(
 export function createSettingsPerCombination(
   reduxState: RootState,
   extrasModifiers: AppliedModifier[],
+  simulateUnbuffed = false,
 ): OptimizerCoreSettingsPerCombination {
   const sharedModifiers = [
     ...(getBuffsModifiers(reduxState) || []),
@@ -612,23 +616,27 @@ export function createSettingsPerCombination(
 
   /* Base Attributes */
 
-  const settings_baseAttributes: OptimizerCoreSettings['baseAttributes'] = {};
-  settings_baseAttributes.Health = Classes[profession].health;
-  settings_baseAttributes.Armor = Classes[profession].defense;
+  const settings_baseAttributes: OptimizerCoreSettings['baseAttributes'] = {
+    'Power': 1000,
+    'Precision': 1000,
+    'Toughness': 1000,
+    'Vitality': 1000,
 
-  for (const attribute of Attributes.PRIMARY) {
-    settings_baseAttributes[attribute] = 1000;
-  }
+    'Ferocity': 0,
+    'Condition Damage': 0,
+    'Expertise': 0,
+    'Concentration': 0,
+    'Healing Power': 0,
+    'Agony Resistance': 0,
 
-  for (const attribute of Attributes.SECONDARY) {
-    settings_baseAttributes[attribute] = 0;
-  }
-
-  settings_baseAttributes['Condition Duration'] = 0;
-  settings_baseAttributes['Condition Duration Uncapped'] = 0;
-  settings_baseAttributes['Boon Duration'] = 0;
-  settings_baseAttributes['Critical Chance'] = 0.05;
-  settings_baseAttributes['Critical Damage'] = 1.5;
+    'Critical Chance': 0.05,
+    'Critical Damage': 1.5,
+    'Condition Duration': 0,
+    'Condition Duration Uncapped': 0,
+    'Boon Duration': 0,
+    'Health': Classes[profession].health,
+    'Armor': Classes[profession].defense,
+  };
 
   if (profession === 'Mesmer') {
     settings_baseAttributes['Clone Critical Chance'] = 0.05;
@@ -711,9 +719,18 @@ export function createSettingsPerCombination(
       // data: {
       modifiers,
       wvwModifiers,
-      amountData,
+      amountData: realAmountData,
+      temporaryBuff,
       // },
     } = item;
+
+    // unbuffed mode: remove temporary buffs that will not affect the hero panel out of combat
+    if (simulateUnbuffed && temporaryBuff === true) {
+      continue;
+    }
+    // unbuffed mode: ignore amounts when *not* removing active-out-of-combat buffs, e.g. signet passive effects
+    const amountData =
+      simulateUnbuffed && temporaryBuff === 'activeOutOfCombat' ? undefined : realAmountData;
 
     const {
       damage = {},
@@ -747,6 +764,7 @@ export function createSettingsPerCombination(
           case 'Outgoing Torment Damage':
           case 'Outgoing Alternative Damage':
           case 'Outgoing Phantasm Damage':
+          case 'Outgoing Siphon Damage':
             dmgBuff(attribute, scaledAmount, addOrMult);
             break;
           case 'Outgoing All Damage':
@@ -896,6 +914,7 @@ export function createSettingsPerCombination(
       mult: allDmgMult.mult[attribute],
       add: allDmgMult.add[attribute],
       target: allDmgMult.target[attribute],
+      total: damageMultiplier[attribute],
     };
   });
 
@@ -947,9 +966,15 @@ function createSettings(
   extrasCombination: ExtrasCombination,
   extrasModifiers: AppliedModifier[],
 ): OptimizerCoreSettings {
+  const settingsPerCalculation = createSettingsPerCalculation(reduxState);
+  const settingsPerCombination = createSettingsPerCombination(reduxState, extrasModifiers);
+  const unbuffedSettings = createSettingsPerCombination(reduxState, extrasModifiers, true);
+
   return {
-    ...createSettingsPerCalculation(reduxState),
-    ...createSettingsPerCombination(reduxState, extrasModifiers),
+    ...settingsPerCalculation,
+    ...settingsPerCombination,
+    unbuffedBaseAttributes: unbuffedSettings.baseAttributes,
+    unbuffedModifiers: unbuffedSettings.modifiers,
     extrasCombination,
   };
 }

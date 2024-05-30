@@ -14,7 +14,6 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
@@ -96,7 +95,7 @@ export default function ResultTableSettings() {
             <TextField {...params} variant="standard" label={t('Show Attributes')} margin="dense" />
           )}
           renderOption={(props, option, { selected }) => (
-            <li {...props}>
+            <li {...props} key={option}>
               <Box sx={{ width: 28 }}>{selected && <CheckIcon sx={{ fontSize: '1rem' }} />}</Box>
               <Attribute name={option} disableLink />
             </li>

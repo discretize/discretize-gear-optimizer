@@ -1,4 +1,5 @@
-import {
+import type {
+  Attributes,
   Character,
   OptimizerCoreMinimalSettings,
   OptimizerCoreSettings,
@@ -12,7 +13,7 @@ import { getSkillsModifiers } from '../slices/skills';
 import { getTraitsModifiers } from '../slices/traits';
 import type { RootState } from '../store';
 import type { Combination, ResultData, Settings } from './optimizerSetup';
-import { getAffixName, getAttributeName } from './utils';
+import { getAffixName, getAttributeId, getAttributeName } from './utils';
 
 export interface ResultProperties {
   cachedFormState: OptimizerCoreSettings['cachedFormState'];
@@ -44,6 +45,7 @@ export const getResultProperties: (
       extras: state.form.extras,
       buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
       priorities: state.form.priorities,
+      boss: state.form.boss,
     },
     sharedModifiers,
     allExtrasData: resultData,
@@ -115,9 +117,9 @@ export function enhanceResults(
     };
 
     const indicators = {
-      Damage: character.attributes[54][1],
-      Survivability: character.attributes[55][1],
-      Healing: character.attributes[56][1],
+      Damage: character.attributes[getAttributeId('Damage')][1],
+      Survivability: character.attributes[getAttributeId('Survivability')][1],
+      Healing: character.attributes[getAttributeId('Healing')][1],
     };
 
     const charResults = {
@@ -131,19 +133,19 @@ export function enhanceResults(
         character.results.effectiveNegativeValues,
       ),
       damageBreakdown: convAttr(
-        ['Power', 'Power2', 'Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'],
+        ['Power', 'Power2', 'Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment', 'Siphon'],
         character.results.damageBreakdown,
       ),
       effectiveDamageDistribution: convAttr(
-        ['Power', 'Power2', 'Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'],
+        ['Power', 'Power2', 'Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment', 'Siphon'],
         character.results.effectiveDamageDistribution,
       ),
       indicators,
     };
 
     resultList.push({
-      baseAttributes: arrayToObject(character.base_attributes),
-      attributes: arrayToObject(character.attributes),
+      baseAttributes: arrayToObject(character.base_attributes) as Attributes,
+      attributes: arrayToObject(character.attributes) as Attributes,
       gear: character.gear.map(getAffixName).slice(0, slots),
       gearStats: arrayToObject(
         character.gear_stats
@@ -152,6 +154,7 @@ export function enhanceResults(
           })
           .filter(([_, stat]: [any, number]) => stat > 0),
       ),
+      infusions: {},
       id: `${index}_${character.combination_id}_${Math.random()}`,
       settings: characterSettings,
       results: charResults,

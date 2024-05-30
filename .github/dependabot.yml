@@ -21,6 +21,9 @@ updates:
       npm-dependencies:
         patterns:
           - '*'
+        update-types:
+          - minor
+          - patch
 
   - package-ecosystem: cargo
     directory: /wasm_module
@@ -33,3 +36,6 @@ updates:
       cargo-dependencies:
         patterns:
           - '*'
+        update-types:
+          - minor
+          - patch

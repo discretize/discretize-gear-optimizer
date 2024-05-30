@@ -9,12 +9,15 @@ import type {
   AffixName,
   ConditionName,
   DamagingConditionName,
+  DerivedAttributeName,
   IndicatorName,
   InfusionName,
+  PrimaryAttributeName,
   ProfessionName,
+  SecondaryAttributeName,
   WeaponHandednessType,
 } from '../../utils/gw2-data';
-import { Attributes, conditionData, conditionDataWvW, INFUSION_BONUS } from '../../utils/gw2-data';
+import { Attributes, INFUSION_BONUS, conditionData, conditionDataWvW } from '../../utils/gw2-data';
 import { enumArrayIncludes, objectKeys } from '../../utils/usefulFunctions';
 import type { ExtrasCombination, ShouldDisplayExtras } from '../slices/extras';
 import type { GameMode } from '../slices/userSettings';
@@ -151,9 +154,15 @@ export interface OptimizerCoreSettingsPerCalculation {
   cachedFormState: CachedFormState;
 }
 
+export type Attributes = Record<
+  PrimaryAttributeName | SecondaryAttributeName | DerivedAttributeName,
+  number
+> &
+  Record<string, number>;
+
 // settings that **do** vary based on extras combination
 export interface OptimizerCoreSettingsPerCombination {
-  baseAttributes: Record<AttributeName, number>;
+  baseAttributes: Attributes;
   modifiers: Modifiers;
   disableCondiResultCache: boolean;
   relevantConditions: DamagingConditionName[];
@@ -161,7 +170,11 @@ export interface OptimizerCoreSettingsPerCombination {
 }
 
 export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &
-  OptimizerCoreSettingsPerCombination & { extrasCombination: ExtrasCombination };
+  OptimizerCoreSettingsPerCombination & {
+    unbuffedBaseAttributes?: Attributes;
+    unbuffedModifiers?: Modifiers;
+    extrasCombination: ExtrasCombination;
+  };
 
 export type OptimizerCoreMinimalSettings = Pick<
   OptimizerCoreSettings,
@@ -178,25 +191,31 @@ export type OptimizerCoreMinimalSettings = Pick<
 >;
 export type Gear = AffixName[];
 export type GearStats = Record<AttributeName, number>;
-export interface Character {
+export interface CharacterUnprocessed {
   id?: string;
   settings: OptimizerCoreMinimalSettings;
-  attributes: Record<AttributeName, number>;
+  attributes?: Attributes;
   gear: Gear;
   gearStats: GearStats;
   valid: boolean;
-  baseAttributes: OptimizerCoreSettings['baseAttributes'];
-  infusions?: Partial<Record<InfusionName, number>>;
+  baseAttributes: Attributes;
+  infusions: Partial<Record<InfusionName, number>>;
   results?: Record<string, any>;
 }
+export interface Character extends CharacterUnprocessed {
+  attributes: Attributes;
+}
+
 export type AttributeName = string; // TODO: replace with AttributeName from gw2-data
 
 export type CalculateGenerator = ReturnType<OptimizerCore['calculate']>;
 
+export const UPDATE_MS = 90;
+
 export class OptimizerCore {
   settings: OptimizerCoreSettings;
   minimalSettings: OptimizerCoreMinimalSettings;
-  applyInfusionsFunction: (this: OptimizerCore, character: Character) => void;
+  applyInfusionsFunction: (this: OptimizerCore, gear: Gear, gearStats: GearStats) => void;
   condiResultCache = new Map();
   worstScore: number = 0;
   list: Character[] = [];
@@ -269,21 +288,19 @@ export class OptimizerCore {
     calculationStatsQueue.push({});
 
     let iterationTimer = Date.now();
-    const UPDATE_MS = 90;
     let cycles = 0;
     this.isChanged = true;
     while (calculationQueue.length > 0) {
       cycles++;
 
-      // pause to update UI at around 15 frames per second
+      // pause to update UI
       if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
         yield {
           isChanged: this.isChanged,
           calculationRuns,
-          newList: this.isChanged ? this.list.slice() : null,
+          newList: this.list,
         };
         this.isChanged = false;
-        // UPDATE_MS = 55;
         iterationTimer = Date.now();
       }
 
@@ -318,7 +335,9 @@ export class OptimizerCore {
 
       if (nextSlot >= settings.slots) {
         calculationRuns++;
-        this.testCharacter(gear, gearStats);
+
+        // this.applyInfusionsFunction is aliased to the correct applyInfusions[mode] function during setup
+        this.applyInfusionsFunction(gear, gearStats);
         continue;
       }
 
@@ -354,98 +373,87 @@ export class OptimizerCore {
     return {
       isChanged: this.isChanged,
       calculationRuns,
-      newList: this.isChanged ? this.list.slice() : null,
+      newList: this.list,
     };
   }
 
-  testCharacter(gear: Gear | undefined, gearStats: GearStats) {
-    const { settings } = this;
-
-    if (!gear) {
-      return;
-    }
-
-    const character: Character = {
+  createCharacter(
+    gear: Gear,
+    gearStats: GearStats,
+    infusions: Character['infusions'],
+    baseAttributes = this.settings.baseAttributes,
+  ) {
+    const character: CharacterUnprocessed = {
       gear, // passed by reference
+      infusions, // passed by reference
       settings: this.minimalSettings, // passed by reference
       gearStats, // passed by reference
-      attributes: {},
+      attributes: undefined,
       valid: true,
-      baseAttributes: { ...settings.baseAttributes },
+      baseAttributes: { ...baseAttributes },
     };
 
-    // apply gear
-    // eslint-disable-next-line guard-for-in
-    for (const stat in gearStats) {
-      character.baseAttributes[stat] += gearStats[stat];
+    // apply gear and infusions
+    for (const [stat, value] of Object.entries(gearStats)) {
+      character.baseAttributes[stat] += value;
+    }
+    for (const [stat, count] of Object.entries(infusions)) {
+      character.baseAttributes[stat] += count * INFUSION_BONUS;
     }
 
-    // this.applyInfusionsFunction is aliased to the correct applyInfusions[mode] function during setup
-    this.applyInfusionsFunction(character);
+    return character;
   }
 
   // Applies no infusions
-  applyInfusionsNone(character: Character) {
+  applyInfusionsNone(gear: Gear, gearStats: GearStats) {
+    const character = this.createCharacter(gear, gearStats, {});
     this.updateAttributesFast(character);
     this.insertCharacter(character);
   }
 
   // Just applies the primary infusion
-  applyInfusionsPrimary(character: Character) {
+  applyInfusionsPrimary(gear: Gear, gearStats: GearStats) {
     const { settings } = this;
-    character.infusions = { [settings.primaryInfusion]: settings.primaryMaxInfusions };
-    this.addBaseStats(
-      character,
-      settings.primaryInfusion,
-      settings.primaryMaxInfusions * INFUSION_BONUS,
-    );
+
+    const character = this.createCharacter(gear, gearStats, {
+      [settings.primaryInfusion]: settings.primaryMaxInfusions,
+    });
+
     this.updateAttributesFast(character);
     this.insertCharacter(character);
   }
 
   // Just applies the maximum number of primary/secondary infusions, since the total is ≤18
-  applyInfusionsFew(character: Character) {
+  applyInfusionsFew(gear: Gear, gearStats: GearStats) {
     const { settings } = this;
 
-    character.infusions = {
+    const character = this.createCharacter(gear, gearStats, {
       [settings.primaryInfusion]: settings.primaryMaxInfusions,
       [settings.secondaryInfusion]: settings.secondaryMaxInfusions,
-    };
-    this.addBaseStats(
-      character,
-      settings.primaryInfusion,
-      settings.primaryMaxInfusions * INFUSION_BONUS,
-    );
-    this.addBaseStats(
-      character,
-      settings.secondaryInfusion,
-      settings.secondaryMaxInfusions * INFUSION_BONUS,
-    );
+    });
     this.updateAttributesFast(character);
     this.insertCharacter(character);
   }
 
   // Inserts every valid combination of 18 infusions
-  applyInfusionsSecondary(character: Character) {
+  applyInfusionsSecondary(gear: Gear, gearStats: GearStats) {
     const { settings } = this;
 
-    if (!this.worstScore || this.testInfusionUsefulness(character)) {
+    const test = this.createCharacter(gear, gearStats, {});
+    if (!this.worstScore || this.testInfusionUsefulness(test)) {
       let previousResult;
 
       let primaryCount = settings.primaryMaxInfusions;
       let secondaryCount = settings.maxInfusions - primaryCount;
       while (secondaryCount <= settings.secondaryMaxInfusions) {
-        const temp = this.clone(character);
-        this.addBaseStats(temp, settings.primaryInfusion, primaryCount * INFUSION_BONUS);
-        this.addBaseStats(temp, settings.secondaryInfusion, secondaryCount * INFUSION_BONUS);
-        this.updateAttributesFast(temp);
-        if (temp.valid && temp.attributes[settings.rankby] !== previousResult) {
-          temp.infusions = {
-            [settings.primaryInfusion]: primaryCount,
-            [settings.secondaryInfusion]: secondaryCount,
-          };
-          this.insertCharacter(temp);
-          previousResult = temp.attributes[settings.rankby];
+        const character = this.createCharacter(gear, gearStats, {
+          [settings.primaryInfusion]: primaryCount,
+          [settings.secondaryInfusion]: secondaryCount,
+        });
+        this.updateAttributesFast(character);
+        if (character.valid && character.attributes[settings.rankby] !== previousResult) {
+          this.insertCharacter(character);
+          previousResult = character.attributes[settings.rankby];
         }
 
         primaryCount--;
@@ -455,26 +463,24 @@ export class OptimizerCore {
   }
 
   // Tests every valid combination of 18 infusions and inserts the best result
-  applyInfusionsSecondaryNoDuplicates(character: Character) {
+  applyInfusionsSecondaryNoDuplicates(gear: Gear, gearStats: GearStats) {
     const { settings } = this;
 
-    if (!this.worstScore || this.testInfusionUsefulness(character)) {
+    const test = this.createCharacter(gear, gearStats, {});
+    if (!this.worstScore || this.testInfusionUsefulness(test)) {
       let best = null;
 
       let primaryCount = settings.primaryMaxInfusions;
       let secondaryCount = settings.maxInfusions - primaryCount;
       while (secondaryCount <= settings.secondaryMaxInfusions) {
-        const temp = this.clone(character);
-        this.addBaseStats(temp, settings.primaryInfusion, primaryCount * INFUSION_BONUS);
-        this.addBaseStats(temp, settings.secondaryInfusion, secondaryCount * INFUSION_BONUS);
-        this.updateAttributesFast(temp);
-        if (temp.valid) {
-          temp.infusions = {
-            [settings.primaryInfusion]: primaryCount,
-            [settings.secondaryInfusion]: secondaryCount,
-          };
-          if (!best || characterLT(best, temp, settings.rankby) > 0) {
-            best = temp;
+        const character = this.createCharacter(gear, gearStats, {
+          [settings.primaryInfusion]: primaryCount,
+          [settings.secondaryInfusion]: secondaryCount,
+        });
+        this.updateAttributesFast(character);
+        if (character.valid) {
+          if (!best || characterLT(best, character, settings.rankby) > 0) {
+            best = character;
           }
         }
 
@@ -488,7 +494,7 @@ export class OptimizerCore {
     }
   }
 
-  testInfusionUsefulness(character: Character) {
+  testInfusionUsefulness(character: CharacterUnprocessed) {
     const { settings } = this;
     const temp = this.clone(character);
     this.addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
@@ -541,7 +547,7 @@ export class OptimizerCore {
     this.isChanged = true;
   }
 
-  addBaseStats(character: Character, stat: AttributeName, amount: number) {
+  addBaseStats(character: CharacterUnprocessed, stat: AttributeName, amount: number) {
     character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
   }
 
@@ -552,11 +558,16 @@ export class OptimizerCore {
    * @param {object} character
    * @param {boolean} [noRounding] - does not round conversions if true
    */
-  updateAttributes(character: Character, noRounding = false) {
-    const { damageMultiplier } = this.settings.modifiers;
+  updateAttributes(
+    character: CharacterUnprocessed,
+    noRounding = false,
+  ): asserts character is Character {
+    const { modifiers } = this.settings;
+    const { damageMultiplier } = modifiers;
+
     character.valid = true;
 
-    this.calcStats(character, noRounding);
+    this.calcStats(character, modifiers, noRounding);
 
     const powerDamageScore = this.calcPower(character, damageMultiplier);
     const condiDamageScore = this.calcCondi(character, damageMultiplier, Attributes.CONDITION);
@@ -575,17 +586,21 @@ export class OptimizerCore {
    * @param {object} character
    * @param {boolean} [skipValidation] - skips the validation check if true
    */
-  updateAttributesFast(character: Character, skipValidation = false): boolean {
+  updateAttributesFast(
+    character: CharacterUnprocessed,
+    skipValidation = false,
+  ): asserts character is Character {
     const { settings } = this;
-    const { damageMultiplier } = settings.modifiers;
+    const { modifiers } = this.settings;
+    const { damageMultiplier } = modifiers;
     character.valid = true;
 
-    this.calcStats(character);
+    this.calcStats(character, modifiers);
 
     const { attributes } = character;
 
     if (!skipValidation && this.checkInvalid(character)) {
-      return false;
+      return;
     }
 
     if (settings.rankby === 'Damage' || settings.minDamage) {
@@ -613,14 +628,16 @@ export class OptimizerCore {
       this.calcSurvivability(character, damageMultiplier);
     }
 
-    if (!skipValidation && this.checkInvalidIndicators(character)) {
-      return false;
+    if (!skipValidation) {
+      this.checkInvalidIndicators(character);
     }
-
-    return true;
   }
 
-  calcStats(character: Character, noRounding = false) {
+  calcStats(
+    character: CharacterUnprocessed,
+    modifiers: Modifiers,
+    noRounding = false,
+  ): asserts character is Character {
     const { settings } = this;
 
     const round = noRounding ? (val: number) => val : roundEven;
@@ -628,7 +645,7 @@ export class OptimizerCore {
     character.attributes = { ...character.baseAttributes };
     const { attributes, baseAttributes } = character;
 
-    for (const [attribute, conversion] of settings.modifiers['convert']) {
+    for (const [attribute, conversion] of modifiers['convert']) {
       const maybeRound = enumArrayIncludes(allAttributePointKeys, attribute)
         ? round
         : (val: number) => val;
@@ -637,7 +654,7 @@ export class OptimizerCore {
       }
     }
 
-    for (const [attribute, bonus] of settings.modifiers['buff']) {
+    for (const [attribute, bonus] of modifiers['buff']) {
       attributes[attribute] = (attributes[attribute] || 0) + bonus;
     }
 
@@ -645,19 +662,24 @@ export class OptimizerCore {
     attributes['Critical Damage'] += attributes['Ferocity'] / 15 / 100;
 
     attributes['Boon Duration'] += attributes['Concentration'] / 15 / 100;
+    attributes['Condition Duration'] += attributes['Expertise'] / 15 / 100;
 
     attributes['Health'] = round(
       (attributes['Health'] + attributes['Vitality'] * 10) *
         (1 + (attributes['Maximum Health'] || 0)),
     );
 
+    attributes['Armor'] += attributes['Toughness'];
+
     // clones/phantasms/shroud
 
     if (settings.profession === 'Mesmer') {
+      // mesmer illusions: special bonuses are INSTEAD OF player attributes
       attributes['Clone Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
       attributes['Phantasm Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
       attributes['Phantasm Critical Damage'] += attributes['Ferocity'] / 15 / 100;
     } else if (attributes['Power2 Coefficient']) {
+      // necromancer shroud: special bonuses are IN ADDITION TO player attributes
       attributes['Alternative Power'] =
         (attributes['Alternative Power'] ?? 0) + attributes['Power'];
       attributes['Alternative Critical Chance'] =
@@ -670,7 +692,7 @@ export class OptimizerCore {
         (attributes['Alternative Ferocity'] ?? 0) / 15 / 100;
     }
 
-    for (const [attribute, conversion] of settings.modifiers['convertAfterBuffs']) {
+    for (const [attribute, conversion] of modifiers['convertAfterBuffs']) {
       const maybeRound = enumArrayIncludes(allAttributePointKeys, attribute)
         ? round
         : (val: number) => val;
@@ -741,53 +763,59 @@ export class OptimizerCore {
     const critDmg = attributes['Critical Damage'] * damageMultiplier['Outgoing Critical Damage'];
     const critChance = clamp(attributes['Critical Chance'], 0, 1);
 
-    attributes['Effective Power'] =
-      attributes['Power'] *
-      (1 + critChance * (critDmg - 1)) *
-      damageMultiplier['Outgoing Strike Damage'];
+    // this should really just overwrite the 'Critical Damage' value, but we use
+    // it for "the critical damage stat in the hero panel," which includes
+    // ferocity but excludes "critical hits do more damage" modifiers
+    if (damageMultiplier['Outgoing Critical Damage'] !== 1) {
+      attributes['Player Critical Damage'] = critDmg;
+    }
 
-    attributes['NonCrit Effective Power'] =
-      attributes['Power'] * damageMultiplier['Outgoing Strike Damage'];
+    attributes['Effective Power'] = attributes['Power'] * (1 + critChance * (critDmg - 1));
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
     let powerDamage =
-      ((attributes['Power Coefficient'] || 0) / 2597) * attributes['Effective Power'] +
+      ((attributes['Power Coefficient'] || 0) / 2597) *
+        attributes['Effective Power'] *
+        damageMultiplier['Outgoing Strike Damage'] +
       ((attributes['NonCrit Power Coefficient'] || 0) / 2597) *
-        attributes['NonCrit Effective Power'];
+        attributes['Power'] *
+        damageMultiplier['Outgoing Strike Damage'];
 
     attributes['Power DPS'] = powerDamage;
 
     if (attributes['Power2 Coefficient']) {
       if (settings.profession === 'Mesmer') {
-        const phantasmCritDmg =
-          attributes['Phantasm Critical Damage'] *
+        // mesmer illusions: special bonuses are INSTEAD OF player attributes
+        attributes['Phantasm Critical Damage'] *=
           damageMultiplier['Outgoing Phantasm Critical Damage'];
         const phantasmCritChance = clamp(attributes['Phantasm Critical Chance'], 0, 1);
 
         attributes['Phantasm Effective Power'] =
           attributes['Power'] *
-          (1 + phantasmCritChance * (phantasmCritDmg - 1)) *
-          damageMultiplier['Outgoing Phantasm Damage'];
+          (1 + phantasmCritChance * (attributes['Phantasm Critical Damage'] - 1));
 
         const phantasmPowerDamage =
-          ((attributes['Power2 Coefficient'] || 0) / 2597) * attributes['Phantasm Effective Power'];
+          ((attributes['Power2 Coefficient'] || 0) / 2597) *
+          attributes['Phantasm Effective Power'] *
+          damageMultiplier['Outgoing Phantasm Damage'];
         attributes['Power2 DPS'] = phantasmPowerDamage;
         powerDamage += phantasmPowerDamage;
       } else {
-        const alternativeCritDmg =
-          attributes['Alternative Critical Damage'] *
+        // necromancer shroud: special bonuses are IN ADDITION TO player attributes
+        attributes['Alternative Critical Damage'] *=
+          damageMultiplier['Outgoing Critical Damage'] *
           damageMultiplier['Outgoing Alternative Critical Damage'];
         const alternativeCritChance = clamp(attributes['Alternative Critical Chance'], 0, 1);
 
         attributes['Alternative Effective Power'] =
           attributes['Alternative Power'] *
-          (1 + alternativeCritChance * (alternativeCritDmg - 1)) *
-          damageMultiplier['Outgoing Strike Damage'] *
-          damageMultiplier['Outgoing Alternative Damage'];
+          (1 + alternativeCritChance * (attributes['Alternative Critical Damage'] - 1));
 
         const alternativePowerDamage =
           ((attributes['Power2 Coefficient'] || 0) / 2597) *
-          attributes['Alternative Effective Power'];
+          attributes['Alternative Effective Power'] *
+          damageMultiplier['Outgoing Strike Damage'] *
+          damageMultiplier['Outgoing Alternative Damage'];
         attributes['Power2 DPS'] = alternativePowerDamage;
         powerDamage += alternativePowerDamage;
       }
@@ -796,7 +824,9 @@ export class OptimizerCore {
     }
 
     const siphonDamage =
-      (attributes['Siphon Base Coefficient'] || 0) * damageMultiplier['Outgoing Siphon Damage'];
+      ((attributes['Siphon Base Coefficient'] || 0) +
+        (attributes['Siphon Coefficient'] || 0) * attributes['Power']) *
+      damageMultiplier['Outgoing Siphon Damage'];
     attributes['Siphon DPS'] = siphonDamage;
 
     return powerDamage + siphonDamage;
@@ -813,7 +843,6 @@ export class OptimizerCore {
     const { settings } = this;
     const { attributes } = character;
 
-    attributes['Condition Duration'] += attributes['Expertise'] / 15 / 100;
     let condiDamageScore = 0;
     for (const condition of relevantConditions) {
       const cdmg = attributes['Condition Damage'];
@@ -855,8 +884,6 @@ export class OptimizerCore {
 
   calcSurvivability(character: Character, damageMultiplier: DamageMultiplier) {
     const { attributes } = character;
-
-    attributes['Armor'] += attributes['Toughness'];
 
     attributes['Effective Health'] =
       attributes['Health'] * attributes['Armor'] * (1 / damageMultiplier['Incoming Strike Damage']);
@@ -925,7 +952,7 @@ export class OptimizerCore {
 
     // effective damage distribution
     results.effectiveDamageDistribution = {};
-    for (const key of Object.keys(settings.distribution)) {
+    for (const key of [...Object.keys(settings.distribution), 'Siphon']) {
       if (attributes[`${key} DPS`] === undefined) continue;
 
       const damage = attributes[`${key} DPS`] / attributes['Damage'];
@@ -934,7 +961,7 @@ export class OptimizerCore {
 
     // damage indicator breakdown
     results.damageBreakdown = {};
-    for (const key of Object.keys(settings.distribution)) {
+    for (const key of [...Object.keys(settings.distribution), 'Siphon']) {
       if (attributes[`${key} DPS`] === undefined) continue;
 
       results.damageBreakdown[`${key}`] = attributes[`${key} DPS`];
@@ -965,6 +992,18 @@ export class OptimizerCore {
         intercept: withZero[`${key} DPS`],
       };
     }
+
+    // out of combat hero panel simulation (overrides both baseAttributes and modifiers)
+    if (settings.unbuffedBaseAttributes && settings.unbuffedModifiers) {
+      const temp = this.createCharacter(
+        character.gear,
+        character.gearStats,
+        character.infusions,
+        settings.unbuffedBaseAttributes,
+      );
+      this.calcStats(temp, settings.unbuffedModifiers);
+      results.unbuffedAttributes = temp.attributes;
+    }
   }
 
   /**
@@ -975,7 +1014,7 @@ export class OptimizerCore {
    * @param {object} character
    * @returns {object} character
    */
-  clone(character: Character): Character {
+  clone(character: CharacterUnprocessed): CharacterUnprocessed {
     return {
       settings: character.settings, // passed by reference
       attributes: character.attributes, // passed by reference

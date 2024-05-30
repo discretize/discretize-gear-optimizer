@@ -3,12 +3,14 @@ import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import { Typography } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import React from 'react';
+import React, { Fragment } from 'react';
+import isEqual from 'react-fast-compare';
 import { useDispatch } from 'react-redux';
 import { allExtrasModifiersById, placeholderItem } from '../../../../assets/modifierdata';
 import { percents } from '../../../../assets/modifierdata/metadata';
 import { changeSelectedCharacter, toggleSaved } from '../../../../state/slices/controlsSlice';
 import { extrasTypes } from '../../../../state/slices/extras';
+import { maxSlotsLength } from '../../../../utils/gw2-data';
 
 const roundTwo = (num) => Math.round(num * 100) / 100;
 
@@ -38,6 +40,18 @@ const ResultTableRow = ({
     : '';
   const exoticRarity = (affix, index) =>
     character.settings.cachedFormState.priorities?.exotics.data?.[affix]?.[index];
+
+  const emptyCell = <TableCell align="center" padding="none" />;
+  const padCellArray = (minLength, array) => {
+    const resultArray =
+      array.length < minLength
+        ? [...array, ...Array(minLength - array.length).fill(emptyCell)]
+        : array;
+
+    // eslint-disable-next-line react/no-array-index-key
+    return resultArray.map((element, i) => <Fragment key={i}>{element}</Fragment>);
+  };
+
   return (
     <TableRow
       selected={selected}
@@ -75,72 +89,71 @@ const ResultTableRow = ({
           </Typography>
         ) : null}
       </TableCell>
-      {character.gear.map((affix, index) => {
-        let textDecoration;
-        if (exoticRarity(affix, index) && mostCommonRarity !== 'exotic')
-          textDecoration = 'underline dotted #ffa405';
-        if (!exoticRarity(affix, index) && mostCommonRarity !== 'ascended')
-          textDecoration = 'underline dotted #fb3e8d';
+      {padCellArray(
+        maxSlotsLength,
+        character.gear.map((affix, index) => {
+          let textDecoration;
+          if (exoticRarity(affix, index) && mostCommonRarity !== 'exotic')
+            textDecoration = 'underline dotted #ffa405';
+          if (!exoticRarity(affix, index) && mostCommonRarity !== 'ascended')
+            textDecoration = 'underline dotted #fb3e8d';
 
-        const affixFragments = affix.split(/(?=[A-Z])/).filter((fragment) => fragment !== 'And');
-        const multiWordAffix = affixFragments.length > 1;
+          const affixFragments = affix.split(/(?=[A-Z])/).filter((fragment) => fragment !== 'And');
+          const multiWordAffix = affixFragments.length > 1;
 
-        const shortAffix = affixFragments
-          .map((fragment) => fragment.slice(0, multiWordAffix ? 3 : 4))
-          .join('');
+          const shortAffix = affixFragments
+            .map((fragment) => fragment.slice(0, multiWordAffix ? 3 : 4))
+            .join('');
 
-        return (
-          // eslint-disable-next-line react/no-array-index-key
-          <TableCell align="center" key={affix + index} padding="none">
-            <Typography
-              style={{
-                fontWeight: 300,
-                fontSize: '1rem',
-                textDecoration,
-                color: mostCommonAffix && mostCommonAffix !== affix ? '#00cccc' : 'inherit',
-              }}
-            >
-              {shortAffix}
-            </Typography>
-          </TableCell>
-        );
-      })}
-      {character.infusions
-        ? Object.values(character.infusions).map((element, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <TableCell align="center" key={`infu${index}`} padding="none">
-              {element}
-            </TableCell>
-          ))
-        : null}
-      {extrasTypes
-        .filter((type) => displayExtras[type])
-        .map((key, index) => {
-          const extra = character.settings.extrasCombination[key];
-          const id = allExtrasModifiersById[extra]?.gw2id;
           return (
-            // eslint-disable-next-line react/no-array-index-key
-            <TableCell align="center" key={`extras${index}`} padding="none">
-              {extra ? (
-                <Item
-                  id={id ?? placeholderItem}
-                  disableText
-                  disableLink
-                  disableTooltip={!id}
-                  style={{ fontSize: 23 }}
-                />
-              ) : null}
+            <TableCell align="center" padding="none">
+              <Typography
+                style={{
+                  fontWeight: 300,
+                  fontSize: '1rem',
+                  textDecoration,
+                  color: mostCommonAffix && mostCommonAffix !== affix ? '#00cccc' : 'inherit',
+                }}
+              >
+                {shortAffix}
+              </Typography>
             </TableCell>
           );
-        })}
+        }),
+      )}
+      {padCellArray(
+        2,
+        Object.values(character.infusions ?? {}).map((element) => (
+          <TableCell align="center" padding="none">
+            {element}
+          </TableCell>
+        )),
+      )}
+      {padCellArray(
+        extrasTypes.length,
+        extrasTypes
+          .filter((type) => displayExtras[type])
+          .map((key) => {
+            const extra = character.settings.extrasCombination[key];
+            const id = allExtrasModifiersById[extra]?.gw2id;
+            return (
+              <TableCell align="center" padding="none">
+                {extra ? (
+                  <Item
+                    id={id ?? placeholderItem}
+                    disableText
+                    disableLink
+                    disableTooltip={!id}
+                    style={{ fontSize: 23 }}
+                  />
+                ) : null}
+              </TableCell>
+            );
+          }),
+      )}
 
-      {displayAttributes.map((attribute, index) => (
-        <TableCell
-          // eslint-disable-next-line react/no-array-index-key
-          key={`attrs${index}`}
-          align="center"
-          padding="none"
-        >
+      {displayAttributes.map((attribute) => (
+        <TableCell align="center" padding="none">
           <Typography variant="caption">
             {roundTwo(
               (character.attributes[attribute] ?? 0) * (percents.includes(attribute) ? 100 : 1),
@@ -152,4 +165,4 @@ const ResultTableRow = ({
   );
 };
 
-export default React.memo(ResultTableRow);
+export default React.memo(ResultTableRow, isEqual);

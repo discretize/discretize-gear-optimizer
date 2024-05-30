@@ -1,6 +1,5 @@
 import { Paper } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
-import React from 'react';
 
 const theme = createTheme({
   palette: {
@@ -198,9 +197,6 @@ export default createTheme(theme, {
         root: {
           paddingTop: '11px',
           paddingBottom: '11px',
-          '& > *:first-child': {
-            paddingLeft: 0,
-          },
         },
         dense: {
           paddingTop: '8px',
@@ -213,7 +209,6 @@ export default createTheme(theme, {
         root: {
           marginTop: 0,
           marginBottom: 0,
-          padding: '0 16px',
         },
       },
     },

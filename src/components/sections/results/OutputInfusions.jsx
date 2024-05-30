@@ -1,6 +1,5 @@
 import { Item } from '@discretize/gw2-ui-new';
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
-import React from 'react';
 import { Trans } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
 import { INFUSION_IDS } from '../../../utils/gw2-data';
@@ -14,6 +13,10 @@ const useStyles = makeStyles()((theme) => ({
 
 const OutputInfusions = ({ data }) => {
   const { classes } = useStyles();
+
+  if (!Object.entries(data).length) {
+    return;
+  }
 
   return (
     <>

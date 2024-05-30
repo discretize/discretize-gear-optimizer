@@ -333,6 +333,10 @@ fn calc_stats(
         Attribute::BoonDuration,
         attributes.get_a(Attribute::Concentration) / 15.0 / 100.0,
     );
+    attributes.add_a(
+        Attribute::ConditionDuration,
+        attributes.get_a(Attribute::Expertise) / 15.0 / 100.0,
+    );
     attributes.set_a(
         Attribute::Health,
         round(
@@ -341,8 +345,11 @@ fn calc_stats(
         ),
     );
 
+    attributes.add_a(Attribute::Armor, attributes.get_a(Attribute::Toughness));
+
     // clones/phantasms/shroud
     if settings.profession.eq("Mesmer") {
+        // mesmer illusions: special bonuses are INSTEAD OF player attributes
         attributes.add_a(
             Attribute::CloneCriticalChance,
             (attributes.get_a(Attribute::Precision) - 1000.0) / 21.0 / 100.0,
@@ -356,6 +363,7 @@ fn calc_stats(
             attributes.get_a(Attribute::Ferocity) / 15.0 / 100.0,
         );
     } else if attributes.get_a(Attribute::Power2Coefficient) > 0.0 {
+        // necromancer shroud: special bonuses are IN ADDITION TO player attributes
         attributes.set_a(
             Attribute::AltPower,
             attributes.get_a(Attribute::AltPower) + attributes.get_a(Attribute::Power),
@@ -437,31 +445,37 @@ pub fn calc_power(
         * mods.get_dmg_multiplier(Attribute::OutgoingCriticalDamage);
     let crit_chance = clamp(attributes.get_a(Attribute::CriticalChance), 0.0, 1.0);
 
+    // this should really just overwrite the 'Critical Damage' value, but we use
+    // it for "the critical damage stat in the hero panel," which includes
+    // ferocity but excludes "critical hits do more damage" modifiers
+    if mods.get_dmg_multiplier(Attribute::OutgoingCriticalDamage) != 1.0 {
+        attributes.set_a(Attribute::PlayerCriticalDamage, crit_dmg);
+    }
+
     attributes.set_a(
         Attribute::EffectivePower,
-        attributes.get_a(Attribute::Power)
-            * (1.0 + crit_chance * (crit_dmg - 1.0))
-            * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage),
-    );
-    attributes.set_a(
-        Attribute::NonCritEffectivePower,
-        attributes.get_a(Attribute::Power)
-            * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage),
+        attributes.get_a(Attribute::Power) * (1.0 + crit_chance * (crit_dmg - 1.0)),
     );
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
     let mut power_damage = (attributes.get_a(Attribute::PowerCoefficient) / 2597.0)
         * attributes.get_a(Attribute::EffectivePower)
+        * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage)
         + (attributes.get_a(Attribute::NonCritPowerCoefficient) / 2597.0)
-            * attributes.get_a(Attribute::NonCritEffectivePower);
+            * attributes.get_a(Attribute::Power)
+            * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage);
     // this is nowhere read again?
     attributes.set_a(Attribute::PowerDPS, power_damage);
 
     if attributes.get_a(Attribute::Power2Coefficient) > 0.0 {
         // do stuff
         if settings.profession.eq("Mesmer") {
-            let phantasm_crit_dmg = attributes.get_a(Attribute::PhantasmCriticalDamage)
-                * mods.get_dmg_multiplier(Attribute::OutgoingPhantasmCriticalDamage);
+            // mesmer illusions: special bonuses are INSTEAD OF player attributes
+            attributes.set_a(
+                Attribute::PhantasmCriticalDamage,
+                attributes.get_a(Attribute::PhantasmCriticalDamage)
+                    * mods.get_dmg_multiplier(Attribute::OutgoingPhantasmCriticalDamage),
+            );
             let phantasm_crit_chance = clamp(
                 attributes.get_a(Attribute::PhantasmCriticalChance),
                 0.0,
@@ -471,29 +485,37 @@ pub fn calc_power(
             attributes.set_a(
                 Attribute::PhantasmEffectivePower,
                 attributes.get_a(Attribute::Power)
-                    * (1.0 + phantasm_crit_chance * (phantasm_crit_dmg - 1.0))
-                    * mods.get_dmg_multiplier(Attribute::OutgoingPhantasmDamage),
+                    * (1.0
+                        + phantasm_crit_chance
+                            * (attributes.get_a(Attribute::PhantasmCriticalDamage) - 1.0)),
             );
 
             let phantasm_power_damage = (attributes.get_a(Attribute::Power2Coefficient) / 2597.0)
-                * attributes.get_a(Attribute::PhantasmEffectivePower);
+                * attributes.get_a(Attribute::PhantasmEffectivePower)
+                * mods.get_dmg_multiplier(Attribute::OutgoingPhantasmDamage);
             attributes.set_a(Attribute::Power2DPS, phantasm_power_damage);
             power_damage += phantasm_power_damage;
         } else {
-            let alt_crit_dmg = attributes.get_a(Attribute::AltCriticalDamage)
-                * mods.get_dmg_multiplier(Attribute::OutgoingAltCriticalDamage);
+            // necromancer shroud: special bonuses are IN ADDITION TO player attributes
+            attributes.set_a(
+                Attribute::AltCriticalDamage,
+                attributes.get_a(Attribute::AltCriticalDamage)
+                    * mods.get_dmg_multiplier(Attribute::OutgoingCriticalDamage)
+                    * mods.get_dmg_multiplier(Attribute::OutgoingAltCriticalDamage),
+            );
             let alt_crit_chance = clamp(attributes.get_a(Attribute::AltCriticalChance), 0.0, 1.0);
 
             attributes.set_a(
                 Attribute::AltEffectivePower,
                 attributes.get_a(Attribute::AltPower)
-                    * (1.0 + alt_crit_chance * (alt_crit_dmg - 1.0))
-                    * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage)
-                    * mods.get_dmg_multiplier(Attribute::OutgoingAltDamage),
+                    * (1.0
+                        + alt_crit_chance * (attributes.get_a(Attribute::AltCriticalDamage) - 1.0)),
             );
 
             let alt_power_damage = (attributes.get_a(Attribute::Power2Coefficient) / 2597.0)
-                * attributes.get_a(Attribute::AltEffectivePower);
+                * attributes.get_a(Attribute::AltEffectivePower)
+                * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage)
+                * mods.get_dmg_multiplier(Attribute::OutgoingAltDamage);
             attributes.set_a(Attribute::Power2DPS, alt_power_damage);
             power_damage += alt_power_damage;
         }
@@ -501,7 +523,8 @@ pub fn calc_power(
         attributes.set_a(Attribute::Power2DPS, 0.0);
     }
 
-    let siphon_damage = attributes.get_a(Attribute::SiphonBaseCoefficient)
+    let siphon_damage = (attributes.get_a(Attribute::SiphonBaseCoefficient)
+        + attributes.get_a(Attribute::SiphonCoefficient) * attributes.get_a(Attribute::Power))
         * mods.get_dmg_multiplier(Attribute::OutgoingSiphonDamage);
 
     attributes.set_a(Attribute::SiphonDPS, siphon_damage);
@@ -535,11 +558,6 @@ pub fn calc_condi(
 ) -> f32 {
     let attributes = &mut character.attributes;
     let mods = &combination.modifiers;
-
-    attributes.add_a(
-        Attribute::ConditionDuration,
-        attributes.get_a(Attribute::Expertise) / 15.0 / 100.0,
-    );
 
     let mut condi_damage_score = 0.0;
     // iterate over all (relevant) conditions
@@ -598,8 +616,6 @@ pub fn calc_condi(
 fn calc_survivability(character: &mut Character, combination: &Combination) {
     let attributes = &mut character.attributes;
     let mods = &combination.modifiers;
-
-    attributes.add_a(Attribute::Armor, attributes.get_a(Attribute::Toughness));
 
     attributes.set_a(
         Attribute::EffectiveHealth,

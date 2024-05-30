@@ -4,7 +4,7 @@ import pako from 'pako';
 import { all, put, select, takeLeading } from 'redux-saga/effects';
 import { PARAMS } from '../../utils/queryParam';
 // import { changeBuildPage } from '../slices/buildPage';
-import { changeAll } from '../slices/controlsSlice';
+import { changeAll, emptyFilteredLists } from '../slices/controlsSlice';
 import SagaTypes from './sagaTypes';
 
 const lib = JsonUrl('lzma');
@@ -27,7 +27,7 @@ const modifyState = (optimizerState) => {
   //   });
   // }
 
-  const { selectedCharacter, list, filteredList, saved } = optimizerState.control;
+  const { selectedCharacter, list, saved } = optimizerState.control;
 
   // remove appliedModifiers from selected character
   let modifiedSelectedCharacter = null;
@@ -40,13 +40,15 @@ const modifyState = (optimizerState) => {
 
   // remove all list entries that are not selected character
   const modifiedList =
-    selectedCharacter && list.includes(selectedCharacter) ? [modifiedSelectedCharacter] : [];
-  const modifiedFilteredList =
-    selectedCharacter && filteredList.includes(selectedCharacter)
+    selectedCharacter && list.some(({ id }) => selectedCharacter.id === id)
       ? [modifiedSelectedCharacter]
       : [];
   const modifiedSaved =
-    selectedCharacter && saved.includes(selectedCharacter) ? [modifiedSelectedCharacter] : [];
+    selectedCharacter && saved.some(({ id }) => selectedCharacter.id === id)
+      ? [modifiedSelectedCharacter]
+      : [];
+
+  const filteredLists = emptyFilteredLists;
 
   const exportData = {
     // listSettings,
@@ -55,7 +57,7 @@ const modifyState = (optimizerState) => {
       control: {
         ...optimizerState.control,
         list: modifiedList,
-        filteredList: modifiedFilteredList,
+        filteredLists,
         saved: modifiedSaved,
         selectedCharacter: modifiedSelectedCharacter,
       },

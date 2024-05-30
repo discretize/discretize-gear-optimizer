@@ -12,6 +12,7 @@
         attributes:
           Power: [180, buff]
       gw2id: 13046
+      temporaryBuff: activeOutOfCombat
 
     - id: assassins-signet-active
       text: Assassin's Signet
@@ -24,6 +25,7 @@
         attributes:
           Power: [540, buff]
       gw2id: 13046
+      temporaryBuff: true
 
     - id: signet-of-agility
       text: Signet of Agility
@@ -31,6 +33,7 @@
         attributes:
           Precision: [180, buff]
       gw2id: 13062
+      temporaryBuff: false
 
 - section: Deadly Arts
   id: 28
@@ -44,6 +47,7 @@
           Power: [80, converted]
       gw2id: 1245
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: dagger-training-dagger
       text: Dagger Training
@@ -57,6 +61,7 @@
           Power: [80, converted]
       gw2id: 1245
       defaultEnabled: false
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: deadly-ambition
       text: Deadly Ambition
@@ -68,6 +73,7 @@
           Condition Damage: [120, converted]
       gw2id: 1164
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: revealed-training-base
       text: Revealed Training
@@ -77,6 +83,7 @@
           Power: [80, buff]
       gw2id: 1704
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: revealed-training-revealed
       text: Revealed Training
@@ -89,6 +96,7 @@
           Power: [120, buff]
       gw2id: 1704
       defaultEnabled: false
+      temporaryBuff: true
 
     - id: exposed-weakness
       text: Exposed Weakness
@@ -107,16 +115,17 @@
       text: Potent Poison
       modifiers:
         damage:
-          Outgoing Poison Damage: [33%, unknown]
+          Outgoing Poison Damage: [33%, mult] # unconfirmed
         attributes:
           Poison Duration: 33%
       wvwModifiers:
         damage:
-          Outgoing Poison Damage: [20%, unknown]
+          Outgoing Poison Damage: [20%, mult] # unconfirmed
         attributes:
           Poison Duration: 5%
       gw2id: 1291
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: executioner
       text: Executioner
@@ -136,19 +145,32 @@
 
     - id: keen-observer
       text: Keen Observer
+      subText: base
       minor: true
       modifiers:
         attributes:
-          Critical Chance: 15%
+          Critical Chance: 10%
       wvwModifiers:
         attributes:
-          Critical Chance: 10%
+          Critical Chance: 5%
       gw2id: 1281
       defaultEnabled: true
+      temporaryBuff: false
+
+    - id: keen-observer-scholar
+      text: Keen Observer
+      subText: high health
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 5%
+      gw2id: 1281
+      defaultEnabled: true
+      temporaryBuff: true # active out of combat, but does not show up in hero panel
 
     - id: twin-fangs-scholar
       text: Twin Fangs
-      subText: 100% scholar (check both)
+      subText: high health (check both)
       modifiers:
         damage:
           Outgoing Critical Damage: [7%, unknown]
@@ -163,6 +185,7 @@
           Critical Chance: 7%
       gw2id: 1268
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: practiced-tolerance
       text: Practiced Tolerance
@@ -174,6 +197,7 @@
           Ferocity: {Precision: 15%}
       gw2id: 1272
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: ferocious-strikes
       text: Ferocious Strikes
@@ -202,10 +226,65 @@
           Ferocity: [300, buff]
       gw2id: 1904
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Shadow Arts
   id: 20
-  items: []
+  items:
+
+    - id: leeching-venoms
+      text: Leeching Venoms
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 320
+          Siphon Coefficient: 0.033
+      wvwModifiers:
+        attributes:
+          Siphon Base Coefficient: 160
+          Siphon Coefficient: 0.0165
+      gw2id: 1130
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: cloaked-in-shadow
+      text: Cloaked in Shadow
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 130
+          Siphon Coefficient: 0.04
+      gw2id: 1300
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: shadow-siphoning
+      text: Shadow Siphoning
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 412
+          Siphon Coefficient: 0.01
+      wvwModifiers:
+        attributes:
+          Siphon Base Coefficient: 288
+          Siphon Coefficient: 0.07
+      minor: true
+      gw2id: 1705
+      defaultEnabled: true
+      temporaryBuff: true
 
 - section: Acrobatics
   id: 54
@@ -236,6 +315,7 @@
           Expertise: [150, converted]
       gw2id: 1232
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: lead-attacks
       text: Lead Attacks
@@ -254,7 +334,7 @@
       text: Deadly Ambush
       modifiers:
         damage:
-          Outgoing Bleeding Damage: [25%, unknown]
+          Outgoing Bleeding Damage: [25%, mult] # unconfirmed
       gw2id: 1706
       defaultEnabled: true
 
@@ -272,6 +352,7 @@
           Vitality: {Power: 7%}
       gw2id: 1933
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: weakening-strikes
       text: Weakening Strikes
@@ -296,6 +377,7 @@
           Power: [120, converted]
       gw2id: 1884
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: staff-master-staff
       text: Staff Master
@@ -305,16 +387,17 @@
           Power: [120, converted]
       gw2id: 1884
       defaultEnabled: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: havoc-specialist
       text: Havoc Specialist
       amountData:
-        label: 'missing bars'
-        default: 3
-        quantityEntered: 1
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [15%, unknown]
       gw2id: 1893
       defaultEnabled: true
 
@@ -363,6 +446,7 @@
           Precision: [120, converted]
       gw2id: 2118
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: silent-scope-rifle
       text: Silent Scope
@@ -372,6 +456,7 @@
           Precision: [120, converted]
       gw2id: 2118
       defaultEnabled: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: premeditation-base
       text: Premeditation
@@ -384,6 +469,7 @@
           Concentration: [60, buff]
       gw2id: 2160
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: premeditation
       text: Premeditation
@@ -423,6 +509,7 @@
           Precision: [200, buff]
       gw2id: 2093
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Specter
   id: 71
@@ -438,6 +525,7 @@
           Condition Damage: [90, unknown]
       gw2id: 2284
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: second-opinion-scepter
       text: Second Opinion
@@ -451,6 +539,7 @@
           Condition Damage: [90, unknown]
       gw2id: 2284
       defaultEnabled: true
+      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: dark-sentry
       text: Dark Sentry
@@ -463,6 +552,22 @@
           Outgoing Healing: 10%
       gw2id: 2272
       defaultEnabled: true
+      temporaryBuff: false
+
+    - id: larcenous-torment
+      text: Larcenous Torment
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 99
+          Siphon Coefficient: 0.005
+      gw2id: 2290
+      defaultEnabled: true
+      temporaryBuff: true
 
     - id: strength-of-shadows-base
       text: Strength of Shadows
@@ -471,11 +576,12 @@
         conversion:
           Expertise: {Vitality: 13%}
         damage:
-          Outgoing Torment Damage: [20%, add] # unconfirmed
+          Outgoing Torment Damage: [20%, mult] # unconfirmed
       wvwModifiers:
         conversion:
           Expertise: {Vitality: 13%}
         damage:
-          Outgoing Torment Damage: [25%, add] # unconfirmed
+          Outgoing Torment Damage: [25%, mult] # unconfirmed
       gw2id: 2264
       defaultEnabled: true
+      temporaryBuff: false

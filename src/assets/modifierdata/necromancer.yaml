@@ -3,6 +3,7 @@
 
     - id: signet-of-spite
       text: Signet of Spite
+      subText: passive
       amountData:
         label: '% uptime'
         default: 100
@@ -11,16 +12,53 @@
         attributes:
           Power: [180, buff]
       gw2id: 10622
+      temporaryBuff: activeOutOfCombat
 
-    # additional 270 - 180 = 90 power while in shroud
-    - id: signet-of-spite-traited
-      text: Signet of Spite
-      subText: traited, 100%
+    - id: signet-of-vampirism
+      text: Signet of Vampirism
+      subText: passive
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
-          Power: [180, buff]
-          Alternative Power: [90, buff]
-      gw2id: 10622
+          Siphon Base Coefficient: 151
+          Siphon Coefficient: 0.022
+      gw2id: 21762
+      temporaryBuff: activeOutOfCombat
+
+    - id: locust-swarm
+      text: Locust Swarm
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 1170
+          Siphon Coefficient: 0.8
+      gw2id: 10557
+      temporaryBuff: true
+
+    - id: soul-grasp
+      text: Soul Grasp
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 660
+          Siphon Coefficient: 2
+      wvwModifiers:
+        attributes:
+          Siphon Base Coefficient: 248
+          Siphon Coefficient: 0.75
+      gw2id: 55050
+      temporaryBuff: true
 
 - section: Spite
   id: 53
@@ -50,6 +88,25 @@
           Condition Damage: [-250, buff]
       gw2id: 829
       defaultEnabled: true
+      temporaryBuff: true
+
+    # - id: signets-of-suffering
+    #   text: Signets of Suffering
+    #   amountData:
+    #     label: 'proc/s'
+    #     default: 0
+    #     defaultInput: ???
+    #     quantityEntered: 1
+    #   modifiers:
+    #     attributes:
+    #       Siphon Base Coefficient: ???
+    #       Siphon Coefficient: ???
+    #   wvwModifiers:
+    #     attributes:
+    #       Siphon Base Coefficient: ???
+    #       Siphon Coefficient: ???
+    #   gw2id: 909
+    #   defaultEnabled: true
 
     - id: close-to-death
       text: Close to Death
@@ -77,6 +134,7 @@
           Bleeding Duration: 20%
       gw2id: 802
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: barbed-precision-on-crit
       text: Barbed Precision
@@ -95,6 +153,7 @@
           Bleeding Coefficient: {Critical Chance: 33%}
       gw2id: 802
       defaultEnabled: false
+      temporaryBuff: true
 
     - id: furious-demise
       text: Furious Demise
@@ -104,6 +163,7 @@
           Precision: [180, buff] # unconverted (except by Target the Weak), tested by Marcus and Jezereal
       gw2id: 803
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: target-the-weak-base
       text: Target the Weak
@@ -116,6 +176,7 @@
           Condition Damage: [23, buff] # conversion of 180 precision from Furious Demise; see https://wiki.guildwars2.com/wiki/Game_updates/2021-08-17#Necromancer
       gw2id: 810
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: target-the-weak
       text: Target the Weak
@@ -131,6 +192,7 @@
           Critical Chance: 20%
       gw2id: 810
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: lingering-curse
       text: Lingering Curse
@@ -140,6 +202,7 @@
           Condition Damage: [200, buff]
       gw2id: 801
       defaultEnabled: true
+      temporaryBuff: false
 
 - section: Death Magic
   id: 2
@@ -159,12 +222,13 @@
         attributes:
           Toughness: [20, buff]
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: putrid-defense
       text: Putrid Defense
       modifiers:
         damage:
-          Outgoing Poison Damage: [15%, unknown]
+          Outgoing Poison Damage: [15%, mult] # unconfirmed
       gw2id: 857
       defaultEnabled: true
 
@@ -180,10 +244,44 @@
           Condition Damage: [10, buff] # unverified
       gw2id: 855
       defaultEnabled: true
+      temporaryBuff: true
 
 - section: Blood Magic
   id: 19
   items:
+
+    # includes the value of all 5 vampiric mark stacks
+    - id: blood-bond
+      text: Blood Bond
+      amountData:
+        label: '/10s'
+        default: 0.75 # 13.3 second interval seems reasonable with alacrity?
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 1235
+          Siphon Coefficient: 0.42
+      gw2id: 1876
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: vampiric
+      text: Vampiric
+      subText: self only
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 38
+          Siphon Coefficient: 0.003
+      gw2id: 783
+      minor: true
+      defaultEnabled: true
+      temporaryBuff: true
+
     - id: life-from-death
       text: Life from Death
       modifiers:
@@ -191,6 +289,39 @@
           Outgoing Healing: 10%
       gw2id: 789
       defaultEnabled: true
+      temporaryBuff: false
+
+    - id: vampiric-presence
+      text: Vampiric Presence
+      subText: not in shroud
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 65
+          Siphon Coefficient: 0.0333
+      gw2id: 1844
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: vampiric-presence-shroud
+      text: Vampiric Presence
+      subText: in shroud
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 129
+          Siphon Coefficient: 0.0666
+      gw2id: 1844
+      defaultEnabled: true
+      temporaryBuff: true
 
 - section: Soul Reaping
   id: 50
@@ -217,6 +348,7 @@
           Vitality: [180, converted]
       gw2id: 861
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: death-perception
       text: Death Perception
@@ -227,6 +359,7 @@
           Outgoing Alternative Critical Damage: [15%, unknown]
       gw2id: 893
       defaultEnabled: true
+      temporaryBuff: false
 
 - section: Scourge
   id: 60
@@ -237,16 +370,17 @@
       text: Fell Beacon
       modifiers:
         damage:
-          Outgoing Burning Damage: [10%, add] # unconfirmed
+          Outgoing Burning Damage: [10%, mult] # unconfirmed
         conversion:
           Expertise: {Condition Damage: 7%}
       wvwModifiers:
         damage:
-          Outgoing Burning Damage: [10%, add] # unconfirmed
+          Outgoing Burning Damage: [10%, mult] # unconfirmed
         conversion:
           Expertise: {Condition Damage: 4%}
       gw2id: 2074
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: sand-sage-active
       text: Sand Sage
@@ -262,6 +396,7 @@
           Expertise: [150, converted]
       gw2id: 2121
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: sand-sage-1x-old
       text: Sand Sage
@@ -277,6 +412,7 @@
           Expertise: [45, converted]
       gw2id: 2121
       defaultEnabled: false
+      temporaryBuff: true
 
     - id: sand-sage-2x-old
       text: Sand Sage
@@ -292,6 +428,7 @@
           Expertise: [90, converted]
       gw2id: 2121
       defaultEnabled: false
+      temporaryBuff: true
 
     - id: sand-sage-3x-old
       text: Sand Sage
@@ -307,6 +444,7 @@
           Expertise: [135, converted]
       gw2id: 2121
       defaultEnabled: false
+      temporaryBuff: true
 
     - id: blood-as-sand-active
       text: Blood as Sand
@@ -365,16 +503,48 @@
       subText: torment only
       modifiers:
         damage:
-          Outgoing Torment Damage: [33%, add] # unconfirmed
+          Outgoing Torment Damage: [33%, mult] # unconfirmed
       wvwModifiers:
         damage:
-          Outgoing Torment Damage: [33%, add] # unconfirmed
+          Outgoing Torment Damage: [33%, mult] # unconfirmed
       gw2id: 2164
       defaultEnabled: true
 
 - section: Reaper
   id: 34
   items:
+
+    - id: augury-of-death
+      text: Augury of Death
+      subText: melee
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 344
+          Siphon Coefficient: 0.025
+      gw2id: 1974
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: augury-of-death-ranged
+      text: Augury of Death
+      subText: not melee
+      amountData:
+        label: 'proc/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 172
+          Siphon Coefficient: 0.0125
+      gw2id: 1974
+      defaultEnabled: true
+      temporaryBuff: true
 
     - id: soul-eater
       text: Soul Eater
@@ -396,6 +566,7 @@
           Critical Chance: 50%
       gw2id: 2031
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: cold-shoulder
       text: Cold Shoulder
@@ -420,6 +591,7 @@
           Alternative Ferocity: [300, buff]
       gw2id: 2021
       defaultEnabled: true
+      temporaryBuff: false
 
 - section: Harbinger
   id: 64
@@ -429,6 +601,9 @@
       text: Wicked Corruption
       subText: base
       modifiers:
+        damage:
+          Outgoing Critical Damage: [12.5%, unknown]
+      wvwModifiers:
         damage:
           Outgoing Critical Damage: [10%, unknown]
       gw2id: 2188
@@ -441,6 +616,9 @@
         default: 11.6
         quantityEntered: 1
       modifiers:
+        damage:
+          Outgoing Strike Damage: [1%, add] # tested by ReMagic
+      wvwModifiers:
         damage:
           Outgoing Strike Damage: [0.5%, add] # tested by ReMagic
       gw2id: 2188
@@ -471,6 +649,7 @@
           Vitality: [240, converted]
       gw2id: 2186
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: alchemic-vigor-bugged
       text: Alchemic Vigor
@@ -484,6 +663,7 @@
           Vitality: [360, converted, -120, buff]
       gw2id: 2186
       defaultEnabled: false
+      temporaryBuff: false
 
     - id: implacable-foe
       text: Implacable Foe
@@ -492,6 +672,7 @@
           Ferocity: {Vitality: 13%}
       gw2id: 2192
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: twisted-medicine
       text: Twisted Medicine
@@ -500,6 +681,7 @@
           Concentration: {Vitality: 13%}
       gw2id: 2220
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: dark-gunslinger
       text: Dark Gunslinger
@@ -508,14 +690,17 @@
           Expertise: {Vitality: 13%}
       gw2id: 2209
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: cascading-corruption
       text: Cascading Corruption
+      subText: power bonus only
       modifiers:
         attributes:
           Power: [240, converted] # tested by Jezereal
       gw2id: 2218
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: doom-approaches
       text: Doom Approaches
@@ -524,3 +709,4 @@
           Condition Damage: [240, converted] # tested by Jezereal
       gw2id: 2203
       defaultEnabled: true
+      temporaryBuff: false

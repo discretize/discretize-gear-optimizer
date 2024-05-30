@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
+import { freeze } from '@reduxjs/toolkit';
 import { call, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga';
-import { calculate } from '../optimizer/optimizer';
+import type { Character } from '../optimizer/optimizerCore';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
 import {
+  ExtraFilterMode,
   changeError,
-  changeFilteredList,
-  changeList,
   changeProgress,
   changeSelectedCharacter,
   changeStatus,
@@ -13,77 +13,80 @@ import {
   getStatus,
   updateResults,
 } from '../slices/controlsSlice';
-import SagaTypes from './sagaTypes';
 import type { RootState } from '../store';
-import type { Character } from '../optimizer/optimizerCore';
+import SagaTypes from './sagaTypes';
 
-const delay = (ms: number) =>
-  new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
+const worker = new ComlinkWorker<typeof import('../optimizer/optimizer')>(
+  new URL('../optimizer/optimizer.ts', import.meta.url),
+  {
+    type: 'module',
+  },
+);
 
 function* runCalc() {
   const reduxState: RootState = yield* select();
   const state = reduxState.optimizer;
 
   let currentList: Character[] = [];
-  let currentFilteredList: Character[] = [];
-  let currentPercent: number;
+  let currentFilteredLists: Record<ExtraFilterMode, Character[]> = {
+    Combinations: [],
+    Sigils: [],
+    Runes: [],
+    Relics: [],
+    Nourishment: [],
+    Enhancement: [],
+  };
+  let currentPercent = 0;
   try {
     yield* put(changeStatus(RUNNING));
     yield* put(changeProgress(0));
-    yield delay(0);
 
     const originalSelectedCharacter = yield* select(getSelectedCharacter);
-
-    const resultGenerator = calculate(reduxState);
 
     let elapsed = 0;
     let timer = performance.now();
 
-    // render list updates on a trailing throttle
-    // back-to-back(to-back) list updates will only be rendered once
-    let listRenderCounter = 3;
-    const listThrottle = 3;
+    yield worker.setup(reduxState);
+
+    let nextPromise = worker.next();
 
     while (true) {
-      const result = yield* call(() => resultGenerator.next());
-      if (result.done) {
-        const { percent, list, filteredList } = result.value;
-        currentList = list;
-        currentFilteredList = filteredList;
-        currentPercent = percent;
-        break;
-      }
-      const { percent, isChanged, list, filteredList } = result.value;
-      currentList = list;
-      currentFilteredList = filteredList;
+      // eslint-disable-next-line no-loop-func
+      const result = yield* call(() => nextPromise);
+
+      const { percent, isChanged, list, filteredLists } = result.value;
       currentPercent = percent;
 
       if (isChanged) {
-        if (listRenderCounter > listThrottle) {
-          listRenderCounter = 0;
-        }
+        // shallow freeze as a performance optimization; immer freezes recursively instead by default
+        freeze(list, false);
+        freeze(filteredLists, false);
+
+        currentList = list;
+        currentFilteredLists = filteredLists;
       }
-      if (listRenderCounter === listThrottle) {
-        yield delay(0);
+
+      if (result.done) {
         yield* put(
           updateResults({
             list: currentList,
-            filteredList: currentFilteredList,
+            filteredLists: currentFilteredLists,
             progress: currentPercent,
           }),
         );
-      } else {
-        yield* put(
-          updateResults({
-            progress: currentPercent,
-          }),
-        );
+        break;
       }
-      listRenderCounter++;
 
-      yield delay(0);
+      // concurrency: send next request to worker thread before rendering current on main thread
+      nextPromise = worker.next();
+
+      yield* put(
+        updateResults({
+          list: currentList,
+          filteredLists: currentFilteredLists,
+          progress: currentPercent,
+        }),
+      );
 
       // check if calculation stopped
       const status = yield* select(getStatus);
@@ -99,11 +102,6 @@ function* runCalc() {
         yield* put(changeStatus(RUNNING));
       }
     }
-
-    yield delay(0);
-    yield* put(changeList(currentList));
-    yield* put(changeFilteredList(currentFilteredList));
-    yield* put(changeProgress(currentPercent));
 
     elapsed += performance.now() - timer;
     console.log(`Finished calculation in ${elapsed} ms`);
@@ -121,7 +119,10 @@ function* runCalc() {
 
     // automatically select the top result unless the user clicked one during the calculation
     const selectedCharacter = yield* select(getSelectedCharacter);
-    if (currentList && (!selectedCharacter || selectedCharacter === originalSelectedCharacter)) {
+    if (
+      currentList &&
+      (!selectedCharacter || selectedCharacter.id === originalSelectedCharacter?.id)
+    ) {
       yield* put(changeSelectedCharacter(currentList[0]));
     }
 

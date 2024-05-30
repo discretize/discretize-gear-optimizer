@@ -3,7 +3,7 @@ use serde_repr::{Deserialize_repr, Serialize_repr};
 use std::fmt;
 
 // align to 64 bytes = 2 attributes per cache line
-pub const ATTRIBUTE_COUNT: usize = 104;
+pub const ATTRIBUTE_COUNT: usize = 108;
 
 #[derive(Debug, Sequence, Serialize_repr, Deserialize_repr, Default, Clone, Copy)]
 #[repr(u8)]
@@ -100,6 +100,7 @@ pub enum Attribute {
     PhantasmCriticalChance,
     PhantasmCriticalDamage,
     PhantasmEffectivePower,
+    SiphonCoefficient,
     SiphonBaseCoefficient,
     SiphonDPS,
 
@@ -109,7 +110,6 @@ pub enum Attribute {
     DamageReduction,
     PowerCoefficient,
     NonCritPowerCoefficient,
-    NonCritEffectivePower,
     Power2DPS,
     Power2Coefficient,
     FlatDPS,
@@ -130,8 +130,10 @@ pub enum Attribute {
     OutgoingAltCriticalDamage,
     OutgoingPhantasmDamage,
     OutgoingPhantasmCriticalDamage,
-
     OutgoingAllDamage,
+
+    // display only
+    PlayerCriticalDamage,
 
     #[default]
     None = 255,
@@ -236,6 +238,7 @@ impl Attribute {
             Attribute::CloneCriticalChance => "Clone Critical Chance",
             Attribute::PhantasmCriticalChance => "Phantasm Critical Chance",
             Attribute::PhantasmCriticalDamage => "Phantasm Critical Damage",
+            Attribute::SiphonCoefficient => "Siphon Coefficient",
             Attribute::SiphonBaseCoefficient => "Siphon Base Coefficient",
             Attribute::SiphonDPS => "Siphon DPS",
             Attribute::MaxHealth => "Max Health",
@@ -243,7 +246,6 @@ impl Attribute {
             Attribute::DamageReduction => "Damage Reduction",
             Attribute::PowerCoefficient => "Power Coefficient",
             Attribute::NonCritPowerCoefficient => "Non Crit Power Coefficient",
-            Attribute::NonCritEffectivePower => "Non Crit Effective Power",
             Attribute::Power2DPS => "Power2 DPS",
             Attribute::Power2Coefficient => "Power2 Coefficient",
             Attribute::FlatDPS => "Flat DPS",
@@ -278,8 +280,9 @@ impl Attribute {
             Attribute::OutgoingAltCriticalDamage => "Outgoing Alt Critical Damage",
             Attribute::OutgoingPhantasmDamage => "Outgoing Phantasm Damage",
             Attribute::OutgoingPhantasmCriticalDamage => "Outgoing Phantasm Critical Damage",
-
             Attribute::OutgoingAllDamage => "Outgoing All Damage",
+
+            Attribute::PlayerCriticalDamage => "Player Critical Damage",
         }
     }
 

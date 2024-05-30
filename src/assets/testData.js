@@ -28,10 +28,10 @@ import {
   allConversionSourceKeys,
   allDamageKeys,
   allDamageModes,
+  alternateStats,
   attributePercentKeysBlacklist,
   attributePointKeysBlacklist,
   damageKeysBlacklist,
-  alternateStats,
 } from './modifierdata/metadata';
 
 // causes the script to fail if condition is false, but does not stop execution
@@ -130,6 +130,8 @@ const testModifiers = async () => {
           hasLifesteal,
           displayIds,
           priceIds,
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          temporaryBuff,
           ...otherKeys
         } = item;
 
@@ -332,6 +334,22 @@ function parseDamage(damage, id, amountData) {
       gentleAssert(
         key !== 'Outgoing Condition Damage' || mode === 'add' || mode === 'target',
         `set mode add for condition damage in ${id} and comment that it's unconfirmed (remove this test if anyone finds a multiplicative one!)`,
+      );
+
+      // so far (mid 2023), only one specific +condition damage output bonus can be used at a time
+      // the mode for these only applies to multiple, so it has no effect
+      // to avoid confusion let's call it mult until proven otherwise
+      gentleAssert(
+        ![
+          'Outgoing Burning Damage',
+          'Outgoing Bleeding Damage',
+          'Outgoing Confusion Damage',
+          'Outgoing Poison Damage',
+          'Outgoing Torment Damage',
+        ].includes(key) ||
+          mode === 'mult' ||
+          mode === 'target',
+        `set mode mult for ${key} in ${id} and comment that it's unconfirmed (remove this test if anyone tests multiple at once!)`,
       );
 
       gentleAssert(

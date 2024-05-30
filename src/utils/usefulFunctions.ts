@@ -9,7 +9,7 @@ export function firstUppercase(text: string | undefined | null): string {
  * Parses a string to a number, treating non-parsable strings like empty inputs but indicating an
  * error so text boxes can display the error validation state
  */
-function parseNumber<Default>(
+export function parseNumber<Default>(
   input: number | string | null | undefined,
   defaultValue: Default,
   integerMode: boolean, // if true, parse as integer instead of float
@@ -104,3 +104,6 @@ export function enumArrayIncludes<T extends readonly string[]>(
 ): value is T[number] {
   return arr.includes(value);
 }
+
+export const pick = (object: Record<string, any>, keysToPick: string[]) =>
+  Object.fromEntries(keysToPick.filter((key) => key in object).map((key) => [key, object[key]]));

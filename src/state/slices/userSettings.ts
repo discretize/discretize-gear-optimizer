@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { PARAMS, setQueryParm, useQueryParam } from '../../utils/queryParam';
-import { changeAll } from './controlsSlice';
 import type { RootState } from '../store';
+import { changeAll } from './controlsSlice';
 
 export type GameMode = 'fractals' | 'raids' | 'wvw';
 

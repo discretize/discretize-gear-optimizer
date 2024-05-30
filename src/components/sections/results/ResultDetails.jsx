@@ -11,8 +11,11 @@ import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
 import Bonuses from './Bonuses';
+import ConditionDetails from './ConditionDetails';
 import EffectiveGainLoss from './EffectiveGainLoss';
 import Indicators from './Indicators';
+import MultiplierBreakdown from './MultiplierBreakdown';
+import OtherAttributes from './OtherAttributes';
 import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
 import ResultCharacter from './ResultCharacter';
@@ -31,24 +34,6 @@ const ResultDetails = () => {
     return null;
   }
 
-  // eslint-disable-next-line no-console
-  console.log('Selected Character Data:', character);
-
-  // Replace the names to match gw2-ui names
-  const damageBreakdown = Object.keys(character.results.effectiveDamageDistribution).map(
-    (damageType) => ({
-      name: damageType === 'Poison' ? 'Poisoned' : damageType.replace('Damage', '').trim(),
-      value: character.results.damageBreakdown[damageType],
-    }),
-  );
-
-  const effectiveDistribution = Object.keys(character.results.effectiveDamageDistribution).map(
-    (damageType) => ({
-      name: damageType === 'Poison' ? 'Poisoned' : damageType.replace('Damage', '').trim(),
-      value: character.results.effectiveDamageDistribution[damageType],
-    }),
-  );
-
   let assumedBuffs = buffModifiers
     .flatMap((buff) => buff.items)
     .filter((buff) => character.settings.cachedFormState.buffs.buffs[buff.id]);
@@ -58,6 +43,7 @@ const ResultDetails = () => {
   const bonuses = {};
   Object.entries({
     'Outgoing Healing': t('Outgoing Healing'),
+    'Player Critical Damage': t('Player Critical Damage'),
     'Clone Critical Chance': t('Clone Critical Chance'),
     'Phantasm Critical Chance': t('Phantasm Critical Chance'),
     'Phantasm Critical Damage': t('Phantasm Critical Damage'),
@@ -79,25 +65,19 @@ const ResultDetails = () => {
           <SpecialDurations data={character.attributes} />
           {Object.keys(bonuses).length ? <Bonuses data={bonuses} title={t('Bonuses')} /> : null}
           <Indicators data={character.results.indicators} />
-          <AffixesStats data={character.gearStats} title={t('Stats from affixes')} />
+          <AffixesStats data={character.gearStats} title={t('Stats from Affixes')} />
           {character.infusions && <OutputInfusions data={character.infusions} />}
         </Grid>
 
         <Grid item xs={12} sm={6} md={4}>
-          <OutputDistribution title={t('Damage Breakdown')} data={damageBreakdown} />
-          <OutputDistribution title={t('Effective Distribution')} data={effectiveDistribution} />
+          <OutputDistribution character={character} />
+          <ConditionDetails character={character} />
+          <OtherAttributes character={character} />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <EffectiveGainLoss
-            data={character.results.effectivePositiveValues}
-            title={t('Damage increase from +5 of attribute')}
-          />
-          <EffectiveGainLoss
-            data={character.results.effectiveNegativeValues}
-            title={t('Damage loss from -5 of attribute')}
-          />
+          <EffectiveGainLoss character={character} />
+          <MultiplierBreakdown character={character} />
         </Grid>
-        <Grid item xs={12} sm={6} md={4} />
       </Grid>
       <AppliedModifiers character={character} />
       <TemplateHelperSections character={character} />
