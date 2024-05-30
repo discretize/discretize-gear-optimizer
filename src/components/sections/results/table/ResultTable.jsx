@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import classNames from 'classnames';
 import React from 'react';
-import { Trans, useTranslation } from 'react-i18next';
+import { Trans } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import {
@@ -78,7 +78,6 @@ const emptyArray = [];
 
 const StickyHeadTable = () => {
   const { classes } = useStyles();
-  const { t } = useTranslation();
 
   const [managerOpen, setManagerOpen] = React.useState(false);
 
