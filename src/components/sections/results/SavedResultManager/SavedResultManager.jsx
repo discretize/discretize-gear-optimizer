@@ -109,15 +109,18 @@ export default function SavedResultManager({ isOpen, setOpen }) {
   const { classes } = useStyles();
   const dispatch = useDispatch();
 
-  const [stored, setStored] = React.useState(getAll());
-  const [marked, setMarked] = React.useState(new Array(stored.length).fill(false));
+  const [stored, setStored] = React.useState(() =>
+    getAll().map(({ name, character }) => ({ name, character, checked: false })),
+  );
+  const selected = stored.filter(({ checked }) => checked);
+
   const [importText, setImportText] = React.useState('');
 
   const temporarySaved = useSelector(getSaved);
   const selectedTemplate = useSelector(getSelectedTemplate);
 
   React.useEffect(() => {
-    save(stored);
+    save(stored.map(({ name, character }) => ({ name, character })));
   }, [stored]);
 
   const handleClose = () => setOpen(false);
@@ -126,14 +129,15 @@ export default function SavedResultManager({ isOpen, setOpen }) {
       {
         name: selectedTemplate || character.settings.specialization,
         character,
+        checked: false,
       },
       ...stored,
     ]);
   };
   const handleNameChange = (index) => (event) => {
-    const newStored = [...stored];
-    newStored[index].name = event.target.value;
-    setStored(newStored);
+    setStored(
+      stored.map((entry, i) => (i === index ? { ...entry, name: event.target.value } : entry)),
+    );
   };
   const handleCopy = (character) => () => {
     navigator.clipboard.writeText(JSON.stringify(character, null, 2));
@@ -147,10 +151,10 @@ export default function SavedResultManager({ isOpen, setOpen }) {
   const handleCopyToTemporary = (character) => () => {
     dispatch(addToSaved(character));
   };
-  const handleMarkChange = (index) => (event) => {
-    const newChecked = [...marked];
-    newChecked[index] = event.target.checked;
-    setMarked(newChecked);
+  const handleSelectedChange = (index) => (event) => {
+    setStored(
+      stored.map((entry, i) => (i === index ? { ...entry, checked: event.target.checked } : entry)),
+    );
   };
   const handleImport = () => {
     try {
@@ -167,7 +171,6 @@ export default function SavedResultManager({ isOpen, setOpen }) {
   };
   const handleDownload = () => {
     // https://gist.github.com/alexreiling/64a99f3b064ca0ad53db0ab153e6ee49
-    const selected = stored.filter((_, index) => marked[index]);
     const dataStr = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(selected))}`;
     const downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute('href', dataStr);
@@ -289,10 +292,10 @@ export default function SavedResultManager({ isOpen, setOpen }) {
         <TableContainer className={classes.container}>
           <Table className={classes.table}>
             <TableBody>
-              {stored.map(({ name, character }, index) => (
-                <TableRow key={`${name}${index.toString()}`}>
+              {stored.map(({ name, character, checked }, index) => (
+                <TableRow>
                   <TableCell>
-                    <Checkbox value={marked[index]} onChange={handleMarkChange(index)} />
+                    <Checkbox checked={checked} onChange={handleSelectedChange(index)} />
                   </TableCell>
                   <TableCell>
                     <Profession
@@ -351,10 +354,10 @@ export default function SavedResultManager({ isOpen, setOpen }) {
         <Button
           variant="outlined"
           onClick={handleDownload}
-          disabled={!marked.filter(Boolean).length}
+          disabled={selected.length === 0}
           sx={{ mt: 1 }}
         >
-          Download {marked.filter(Boolean).length} selected
+          Download {selected.length} selected
         </Button>
       </DialogContent>
       <DialogActions>
