@@ -29,6 +29,7 @@
     "prettierCheck": "prettier --check .",
     "eslint": "eslint --ignore-path .gitignore --max-warnings 0 \"**/*.{js,jsx,ts,tsx}\"",
     "typeCheck": "tsc --noEmit",
+    "checkStaged": "concurrently -g -c auto pnpm:testData pnpm:validateDataTypes lint-staged",
     "checkAll": "concurrently -g -c auto pnpm:testData pnpm:validateDataTypes pnpm:eslint pnpm:prettierCheck pnpm:typeCheck",
     "updateMappings": "node updateMappings.js",
     "testData": "tsx ./src/assets/testData.js",
@@ -42,7 +43,7 @@
     "wasmCheck": "cd wasm_module && cargo check --all-targets"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm exec lint-staged"
+    "pre-commit": "pnpm checkStaged"
   },
   "resolutions": {
     "eslint-plugin-jsx-a11y": "^6.5.1 <6.8.0"
