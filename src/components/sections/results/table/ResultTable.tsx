@@ -1,12 +1,11 @@
-import { HelperIcon } from '@discretize/react-discretize-components';
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import SaveAsIcon from '@mui/icons-material/SaveAs';
 import { Box, IconButton, Typography } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import React from 'react';
-import { Trans, useTranslation } from 'react-i18next';
+import { Trans } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import type { Character } from '../../../../state/optimizer/optimizerCore';
@@ -71,7 +70,6 @@ const emptyList: Character[] = [];
 
 const StickyHeadTable = () => {
   const { classes, cx } = useStyles();
-  const { t } = useTranslation();
 
   const [managerOpen, setManagerOpen] = React.useState(false);
 
@@ -217,15 +215,11 @@ const StickyHeadTable = () => {
 
       <Box className={classes.tablehead} sx={{ display: 'flex', alignItems: 'center' }}>
         <Typography sx={{ flexGrow: 1, ml: 2, fontWeight: 600, fontFamily: 'Raleway' }}>
-          <Trans>Saved Results</Trans>{' '}
-          <HelperIcon
-            text={t('Click the star icon to save a result for comparison.')}
-            fontSize="1rem"
-          />
+          <Trans>Pinned Results</Trans>{' '}
         </Typography>
 
         <IconButton size="small" sx={{ margin: 1 }} onClick={() => setManagerOpen(true)}>
-          <ManageAccountsIcon />
+          <SaveAsIcon />
         </IconButton>
         <SavedResultManager isOpen={managerOpen} setOpen={setManagerOpen} />
       </Box>

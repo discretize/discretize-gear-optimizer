@@ -1,6 +1,6 @@
 import { Item, Profession } from '@discretize/gw2-ui-new';
 import CloseIcon from '@mui/icons-material/Close';
-import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import PushPinIcon from '@mui/icons-material/PushPin';
 import { Typography } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
@@ -100,17 +100,17 @@ const ResultTableRow = ({
             }}
           />
         ) : (
-          <StarRoundedIcon
+          <PushPinIcon
             sx={
               saved
                 ? {
-                    color: 'star',
+                    color: 'primary.main',
                   }
                 : {
                     opacity: '0.2',
                     '&:hover': {
                       opacity: '1',
-                      color: 'star',
+                      color: 'primary.main',
                     },
                   }
             }
