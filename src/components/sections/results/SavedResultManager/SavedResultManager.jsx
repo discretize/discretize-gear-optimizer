@@ -158,15 +158,17 @@ export default function SavedResultManager({ isOpen, setOpen }) {
   };
   const handleImport = () => {
     try {
-      const toImport = JSON.parse(importText);
-      if (Array.isArray(toImport))
+      const parsed = JSON.parse(importText);
+      const toImport = (Array.isArray(parsed) ? parsed : [parsed]).filter(
+        (importable) => typeof importable?.character === 'object',
+      );
+      if (toImport.length) {
         toImport.forEach((importable) => dispatch(addToSaved(importable.character)));
-      else dispatch(addToSaved(toImport.character));
+        setImportText('');
+      }
     } catch (e) {
       console.warn('Error while importing build!');
       // TODO add snackbar
-    } finally {
-      setImportText('');
     }
   };
   const handleDownload = () => {
