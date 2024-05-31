@@ -39,7 +39,9 @@
     "cleanupLocale": "node cleanupLocale.js",
     "wasm": "wasm-pack build ./wasm_module --target web --release",
     "wasm-build-data": "tsx generateRustMappings.ts",
-    "wasmCheck": "cd wasm_module && cargo check --all-targets"
+    "wasmCheck": "cd wasm_module && cargo check --all-targets",
+    "enable-hooks": "husky",
+    "disable-hooks": "git config --unset core.hooksPath"
   },
   "resolutions": {
     "eslint-plugin-jsx-a11y": "^6.5.1 <6.8.0"
@@ -109,6 +111,8 @@
     "eslint-plugin-jsx-a11y": "^6.5.1 <6.8.0",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.2",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.5",
     "prettier": "^3.2.5",
     "rollup-preserve-directives": "^1.1.1",
     "tsx": "^4.11.0",
