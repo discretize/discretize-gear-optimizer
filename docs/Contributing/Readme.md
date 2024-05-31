@@ -44,6 +44,14 @@ pnpm develop
 
 Note that the Rust/Webassembly code will not update in real time; the `pnpm wasm` command must be rerun to compile any changes to it.
 
+*Optional: To install a pre-commit hook that will lint and format your code before you commit it, use:*
+
+```sh
+pnpm exec simple-git-hooks
+```
+
+*Note that this does not currently perform typescript type checking. This command must be run manually whenever the git hook code is changed.*
+
 ### Pull Requests
 
 Feel free to open PRs for unfinished work as [draft PRs](https://github.blog/2019-02-14-introducing-draft-pull-requests/)!
