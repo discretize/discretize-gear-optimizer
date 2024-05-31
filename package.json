@@ -39,7 +39,8 @@
     "cleanupLocale": "node cleanupLocale.js",
     "wasm": "wasm-pack build ./wasm_module --target web --release",
     "wasm-build-data": "tsx generateRustMappings.ts",
-    "wasmCheck": "cd wasm_module && cargo check --all-targets"
+    "wasmCheck": "cd wasm_module && cargo check --all-targets",
+    "prepare": "simple-git-hooks"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm exec lint-staged"
