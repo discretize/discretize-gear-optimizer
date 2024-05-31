@@ -29,6 +29,8 @@
     "prettierCheck": "prettier --check .",
     "eslint": "eslint --ignore-path .gitignore --max-warnings 0 \"**/*.{js,jsx,ts,tsx}\"",
     "typeCheck": "tsc --noEmit",
+    "lint-staged": "lint-staged",
+    "checkStaged": "concurrently -g -c auto pnpm:testData pnpm:validateDataTypes pnpm:lint-staged",
     "checkAll": "concurrently -g -c auto pnpm:testData pnpm:validateDataTypes pnpm:eslint pnpm:prettierCheck pnpm:typeCheck",
     "updateMappings": "node updateMappings.js",
     "testData": "tsx ./src/assets/testData.js",
