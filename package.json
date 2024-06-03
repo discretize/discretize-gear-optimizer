@@ -48,7 +48,7 @@
     "@discretize/globals": "^0.0.2",
     "@discretize/gw2-ui-new": "^0.1.5",
     "@discretize/object-compression": "^1.0.3",
-    "@discretize/react-discretize-components": "^2.6.1",
+    "@discretize/react-discretize-components": "^3.0.0",
     "@discretize/typeface-menomonia": "^0.1.3",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
