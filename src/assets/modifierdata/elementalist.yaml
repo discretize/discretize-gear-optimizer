@@ -424,8 +424,22 @@
       gw2id: 363
       defaultEnabled: true
 
+    - id: flow-like-water-low
+      text: Flow like Water
+      subText: 'low health'
+      amountData:
+        label: '% uptime'
+        default: 0
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [5%, mult] # unconfirmed
+      gw2id: 349
+      defaultEnabled: false
+
     - id: flow-like-water
       text: Flow like Water
+      subText: 'high health'
       amountData:
         label: '% uptime'
         default: 100
@@ -433,9 +447,6 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, mult]
-      wvwModifiers:
-        damage:
-          Outgoing Strike Damage: [5%, mult]
       gw2id: 349
       defaultEnabled: true
 
