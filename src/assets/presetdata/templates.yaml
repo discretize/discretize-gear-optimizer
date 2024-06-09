@@ -566,7 +566,7 @@ list:
         traits: Alacrity Hybrid Tempest
         extras: Alacrity Hybrid Tempest
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Tempest
         id: ctemp
@@ -628,7 +628,7 @@ list:
         traits: Condi Weaver Scepter
         extras: Condi Weaver Scepter
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Weaver Sword
         id: cwea-sw
