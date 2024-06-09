@@ -460,6 +460,15 @@
       defaultEnabled: true
       temporaryBuff: false
 
+    - id: soothing-power
+      text: Soothing Power
+      modifiers:
+        attributes:
+          Vitality: [300, converted]
+      gw2id: 2028
+      defaultEnabled: true
+      temporaryBuff: false
+
 - section: Arcane
   id: 37
   items:
