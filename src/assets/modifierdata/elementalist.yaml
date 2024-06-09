@@ -520,24 +520,10 @@
       subText: base amount
       modifiers:
         attributes:
-          Concentration: [120, buff]
+          Concentration: [240, buff]
       wvwModifiers:
         attributes:
-          Concentration: [60, buff] #it would be an additional 60 if above 90% hp. But i dont want to asume that in a wvw setting, so i go with the lower one in case i want to optimize for boon duration
-      minor: true
-      gw2id: 1938
-      defaultEnabled: true
-      temporaryBuff: false
-
-    - id: gathered-focus-2
-      text: Gathered Focus
-      subText: above 90% bonus
-      modifiers:
-        attributes:
-          Concentration: [120, buff]
-      wvwModifiers:
-        attributes:
-          Concentration: [60, buff] #it would be an additional 60 if above 90% hp. But i dont want to asume that in a wvw setting, so i go with the lower one in case i want to optimize for boon duration
+          Concentration: [120, buff] #it would be an additional 60 if above 90% hp. But i dont want to asume that in a wvw setting, so i go with the lower one in case i want to optimize for boon duration
       minor: true
       gw2id: 1938
       defaultEnabled: true
