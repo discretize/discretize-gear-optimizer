@@ -128,15 +128,17 @@ list:
         url: https://www.youtube.com/watch?v=7-nqp2Ths3s
         log: https://dps.report/GQ29-20230504-221813_golem
 
-  # https://www.youtube.com/watch?v=iaMQVvspJFE
-  # 12 boons; thief rune, accuracy
   - name: DH Virtues
     profession: Dragonhunter
     value: >-
       {
-        "values2": { "Power": 3320, "Power2": 0, "Burning": 2.15, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3967, "Power2": 0, "Burning": 2.8, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: Derm
+        url: https://www.youtube.com/watch?v=S3qr1eATkAU
+        log: https://dps.report/nQ3s-20231011-073653_golem
+
 
   # https://www.youtube.com/watch?v=G3CngDG-cMg
   # 12 boons

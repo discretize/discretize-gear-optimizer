@@ -588,6 +588,46 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: DH Virtues (Raid)
+    profession: Dragonhunter
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {},
+            "dragonhunter-relic": {
+              "amount": "73.6"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: DH Virtues (Fractal)
     profession: Dragonhunter
     value: |-
@@ -602,7 +642,12 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {},
+            "dragonhunter-relic": {
+              "amount": "73.6"
+            }
+          },
           "Sigil1": {
             "force": {}
           },

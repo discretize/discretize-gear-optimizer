@@ -290,9 +290,9 @@ list:
         fractal:
           extras: DH Virtues (Fractal)
         raid:
-          extras: Power (Raid, furious)
+          extras: DH Virtues (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Power DH Radiance
         id: dh-radiance
