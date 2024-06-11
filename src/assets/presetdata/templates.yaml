@@ -263,22 +263,11 @@ list:
         specialization: Firebrand
         boonType: Condi
         priority: Condi DPS
-        distribution: CFB (5 Page RF, Allies)
+        distribution: Condi Firebrand
         traits: CFB DPS 5 Page
         extras: Condi Firebrand
         weaponType: Dual wield
-        outdated: true
-
-      # - name: Condi Firebrand 8 Page
-      #   id: cfb-8-balth
-      #   specialization: Firebrand
-      #   boonType: Condi
-      #   priority: Condi DPS
-      #   distribution: CFB (8 Page, Allies)
-      #   traits: CFB DPS 8 Page
-      #   extras: CFB DPS (8 Page, Balthazar)
-      #   weaponType: Dual wield
-      #   outdated: true
+        outdated: false
 
       - name: Power DH Virtues
         id: dh-virtues

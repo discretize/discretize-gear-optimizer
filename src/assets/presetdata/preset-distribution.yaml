@@ -184,52 +184,27 @@ list:
         url: https://www.youtube.com/watch?v=mCOEGlJkRJ0
         log: https://dps.report/z2Zl-20220316-172733_golem
 
-  - name: CFB (5 Page RF, Allies)
+  - name: Condi Firebrand
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2018, "Power2": 0, "Burning": 13.3, "Bleeding": 15.23, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1784, "Power2": 0, "Burning": 14.49, "Bleeding": 12.08, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Ostro
-        url: https://www.youtube.com/watch?v=4DihK7D0Eiw
-        log: https://dps.report/47hd-20230702-053624_golem
+      - author: Iskarel
+        url: https://www.youtube.com/watch?v=9BT5TBoaWEk
+        log: https://dps.report/bXp7-20240321-001338_golem
 
-  - name: CFB (5 Page RF, No Allies)
+  - name: Condi Firebrand (No Allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2020, "Power2": 0, "Burning": 11.78, "Bleeding": 15.69, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1775, "Power2": 0, "Burning": 13.39, "Bleeding": 12.05, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Ostro
-        url: https://www.youtube.com/watch?v=vpSB7NTAYqc
-        log: https://dps.report/JnVl-20230704-153526_golem
-
-  # 12 boons
-  # sinister amulet ring acc acc back
-  # NO JADE BOT (in arc log, probably - seems bugged)
-  - name: CFB (8 Page, Allies)
-    profession: Firebrand
-    value: >-
-      {
-        "values2": { "Power": 2094, "Power2": 0, "Burning": 16.32, "Bleeding": 2.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=_GFennqOKVg
-        log: https://dps.report/G0dp-20220303-132136_golem
-
-  # burn 26304
-  - name: CFB (8 page, no allies)
-    profession: Firebrand
-    value: >-
-      {
-        "values2": { "Power": 2094, "Power2": 0, "Burning": 13.88, "Bleeding": 2.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=_GFennqOKVg
+      - author: Iskarel
+        url: https://www.youtube.com/watch?v=9BT5TBoaWEk
+        log: https://dps.report/CdPR-20240321-151620_golem
 
   - name: Condi Quickbrand (WT, Allies)
     profession: Firebrand
