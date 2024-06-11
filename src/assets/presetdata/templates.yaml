@@ -866,8 +866,8 @@ list:
         distribution: Condi Quickness Herald
         traits: Condi Quickness Herald
         extras: Condi Quickness Herald
-        weaponType: Dual wield
-        outdated: true
+        weaponType: Two-handed
+        outdated: false
 
       - name: Power Herald FP
         id: herald

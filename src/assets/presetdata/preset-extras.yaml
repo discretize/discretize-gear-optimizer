@@ -1775,7 +1775,11 @@ list:
             "weaver": {},
             "firebrand": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
