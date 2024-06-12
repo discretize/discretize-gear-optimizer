@@ -159,6 +159,17 @@ list:
       }
     noCreditOkay: true
 
+  - name: Condi Willbender
+    profession: Willbender
+    value: >-
+      {
+        "values2": { "Power": 2043, "Power2": 0, "Burning": 16.4, "Bleeding": 6.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Incera
+        url: https://www.youtube.com/watch?v=BrQ8MZhnvRI
+        log: https://dps.report/nqi8-20240420-175827_golem
+
   - name: Condi Willbender Sword
     profession: Willbender
     value: >-

@@ -737,7 +737,9 @@ list:
             "bursting": {}
           },
           "Sigil2": {
-            "air-earth-cwb": {}
+            "air": {
+              "amount": ""
+            }
           },
           "Runes": {
             "trapper": {},
@@ -752,7 +754,9 @@ list:
             "flame-legion-2": {}
           },
           "Relics": {
-            "fractal-relic": {}
+            "fractal-relic": {
+              "amount": "0.48"
+            }
           },
           "Nourishment": {
             "fishy-rice-bowl": {},
