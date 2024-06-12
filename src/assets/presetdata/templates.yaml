@@ -215,16 +215,16 @@ list:
       #   weaponType: Dual wield
       #   outdated: true
 
-      - name: Quickness Condi Firebrand 77%
-        id: cqfb-firebrand-77
+      - name: Quickness Condi Firebrand 40%
+        id: cqfb-firebrand-40
         specialization: Firebrand
         boonType: Condi
-        priority: Condi Quickbrand 77%
+        priority: Condi Quickbrand 40%
         distribution: Condi Quickbrand (WT, Allies)
         traits: Condi Quickbrand WT
         extras: Condi Quickbrand
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Quickness Power Firebrand
         id: pqfb

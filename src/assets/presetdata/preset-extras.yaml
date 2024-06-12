@@ -867,9 +867,15 @@ list:
             "flame-legion-2": {},
             "firebrand": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": "0.41"
+            }
+          },
           "Nourishment": {
-            "fishy-rice-bowl": {}
+            "fishy-rice-bowl": {},
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {},
@@ -877,7 +883,8 @@ list:
             "toxic-maintenance-oil": {},
             "magnanimous-maintenance-oil": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Hybrid FB Traveler

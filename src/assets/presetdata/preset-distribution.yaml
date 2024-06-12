@@ -210,23 +210,23 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 1807, "Power2": 0, "Burning": 12.91, "Bleeding": 13.76, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1397, "Power2": 0, "Burning": 14.23, "Bleeding": 6.07, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Ostro
-        url: https://www.youtube.com/watch?v=1FpisomEybw
-        log: https://dps.report/oWmb-20230710-230617_golem
+      - author: Iskarel
+        url: https://www.youtube.com/watch?v=jv6BRBFb_H8
+        log: https://dps.report/manG-20240324-193028_golem
 
   - name: Condi Quickbrand (WT, No Allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 1912, "Power2": 0, "Burning": 11.52, "Bleeding": 14, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1391, "Power2": 0, "Burning": 13.51, "Bleeding": 5.83, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Ostro
-        url: https://www.youtube.com/watch?v=1FpisomEybw
-        log: https://dps.report/xiiO-20230710-235809_golem
+      - author: Iskarel
+        url: https://www.youtube.com/watch?v=jv6BRBFb_H8
+        log: https://dps.report/OeKr-20240324-194950_golem
 
   # Solo log adjusted upwards to match with-allies dps (no log for the with allies bench)
   - name: Condi Quickbrand (LL, Allies, Approx.)
