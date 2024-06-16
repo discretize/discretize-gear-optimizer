@@ -128,15 +128,17 @@ list:
         url: https://www.youtube.com/watch?v=7-nqp2Ths3s
         log: https://dps.report/GQ29-20230504-221813_golem
 
-  # https://www.youtube.com/watch?v=iaMQVvspJFE
-  # 12 boons; thief rune, accuracy
   - name: DH Virtues
     profession: Dragonhunter
     value: >-
       {
-        "values2": { "Power": 3320, "Power2": 0, "Burning": 2.15, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3967, "Power2": 0, "Burning": 2.8, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: Derm
+        url: https://www.youtube.com/watch?v=S3qr1eATkAU
+        log: https://dps.report/nQ3s-20231011-073653_golem
+
 
   # https://www.youtube.com/watch?v=G3CngDG-cMg
   # 12 boons
@@ -156,6 +158,17 @@ list:
         "values2": { "Power": 3390, "Power2": 0, "Burning": 1.1, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
+
+  - name: Condi Willbender
+    profession: Willbender
+    value: >-
+      {
+        "values2": { "Power": 2043, "Power2": 0, "Burning": 16.4, "Bleeding": 6.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Incera
+        url: https://www.youtube.com/watch?v=BrQ8MZhnvRI
+        log: https://dps.report/nqi8-20240420-175827_golem
 
   - name: Condi Willbender Sword
     profession: Willbender
@@ -182,74 +195,49 @@ list:
         url: https://www.youtube.com/watch?v=mCOEGlJkRJ0
         log: https://dps.report/z2Zl-20220316-172733_golem
 
-  - name: CFB (5 Page RF, Allies)
+  - name: Condi Firebrand
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2018, "Power2": 0, "Burning": 13.3, "Bleeding": 15.23, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1784, "Power2": 0, "Burning": 14.49, "Bleeding": 12.08, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Ostro
-        url: https://www.youtube.com/watch?v=4DihK7D0Eiw
-        log: https://dps.report/47hd-20230702-053624_golem
+      - author: Iskarel
+        url: https://www.youtube.com/watch?v=9BT5TBoaWEk
+        log: https://dps.report/bXp7-20240321-001338_golem
 
-  - name: CFB (5 Page RF, No Allies)
+  - name: Condi Firebrand (No Allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2020, "Power2": 0, "Burning": 11.78, "Bleeding": 15.69, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1775, "Power2": 0, "Burning": 13.39, "Bleeding": 12.05, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Ostro
-        url: https://www.youtube.com/watch?v=vpSB7NTAYqc
-        log: https://dps.report/JnVl-20230704-153526_golem
-
-  # 12 boons
-  # sinister amulet ring acc acc back
-  # NO JADE BOT (in arc log, probably - seems bugged)
-  - name: CFB (8 Page, Allies)
-    profession: Firebrand
-    value: >-
-      {
-        "values2": { "Power": 2094, "Power2": 0, "Burning": 16.32, "Bleeding": 2.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=_GFennqOKVg
-        log: https://dps.report/G0dp-20220303-132136_golem
-
-  # burn 26304
-  - name: CFB (8 page, no allies)
-    profession: Firebrand
-    value: >-
-      {
-        "values2": { "Power": 2094, "Power2": 0, "Burning": 13.88, "Bleeding": 2.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=_GFennqOKVg
+      - author: Iskarel
+        url: https://www.youtube.com/watch?v=9BT5TBoaWEk
+        log: https://dps.report/CdPR-20240321-151620_golem
 
   - name: Condi Quickbrand (WT, Allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 1807, "Power2": 0, "Burning": 12.91, "Bleeding": 13.76, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1397, "Power2": 0, "Burning": 14.23, "Bleeding": 6.07, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Ostro
-        url: https://www.youtube.com/watch?v=1FpisomEybw
-        log: https://dps.report/oWmb-20230710-230617_golem
+      - author: Iskarel
+        url: https://www.youtube.com/watch?v=jv6BRBFb_H8
+        log: https://dps.report/manG-20240324-193028_golem
 
   - name: Condi Quickbrand (WT, No Allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 1912, "Power2": 0, "Burning": 11.52, "Bleeding": 14, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1391, "Power2": 0, "Burning": 13.51, "Bleeding": 5.83, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Ostro
-        url: https://www.youtube.com/watch?v=1FpisomEybw
-        log: https://dps.report/xiiO-20230710-235809_golem
+      - author: Iskarel
+        url: https://www.youtube.com/watch?v=jv6BRBFb_H8
+        log: https://dps.report/OeKr-20240324-194950_golem
 
   # Solo log adjusted upwards to match with-allies dps (no log for the with allies bench)
   - name: Condi Quickbrand (LL, Allies, Approx.)
@@ -597,24 +585,24 @@ list:
     profession: Herald
     value: >-
       {
-        "values2": { "Power": 1672, "Power2": 0, "Burning": 5.53, "Bleeding": 2.27, "Poisoned": 6.95, "Torment": 18.39, "Confusion": 0 }
+        "values2": { "Power": 2148, "Power2": 0, "Burning": 4.75, "Bleeding": 6.5, "Poisoned": 4.9, "Torment": 15.63, "Confusion": 0 }
       }
     credit:
-      - author: 'Umbra'
-        url: https://www.youtube.com/watch?v=I3ROr28p7hA
-        log: https://dps.report/lEMC-20230722-015455_golem
+      - author: Botinator
+        url: https://www.youtube.com/watch?v=PT0N2cvLPcQ
+        log: https://dps.report/azH7-20240601-133340_golem
 
   # force air force air
   - name: DPS Vindicator
     profession: Vindicator
     value: >-
       {
-        "values2": { "Power": 3529, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 2.96, "Confusion": 0 }
+        "values2": { "Power": 3673, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 2.96, "Confusion": 0 }
       }
     credit:
       - author: beng / L3m0n
-        url: https://www.youtube.com/watch?v=-8rAXPpSk2c
-        log: https://dps.report/Szip-20231004-161928_golem
+        url: https://www.youtube.com/watch?v=tu56q1WZlOU
+        log: https://dps.report/RlrB-20240222-163421_golem
 
   - name: Condi Quickness Untamed
     profession: Untamed

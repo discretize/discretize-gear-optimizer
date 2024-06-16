@@ -794,7 +794,7 @@ list:
             },
             "virtue-of-resolution": {},
             "inspiring-virtue": {
-              "amount": ""
+              "amount": "67"
             },
             "power-of-the-virtuous": {}
           },
@@ -818,7 +818,7 @@ list:
               "amount": ""
             },
             "big-game-hunter": {
-              "amount": ""
+              "amount": "89"
             }
           }
         ]
@@ -1024,7 +1024,7 @@ list:
             },
             "virtue-of-resolution": {},
             "inspiring-virtue": {
-              "amount": "90.4"
+              "amount": "95.4"
             },
             "power-of-the-virtuous": {}
           },
@@ -4427,7 +4427,7 @@ list:
       {
         "skills": {
           "burst-of-strength": {
-            "amount": "86.1"
+            "amount": "89.2"
           }
         }
       }
@@ -4566,7 +4566,7 @@ list:
           ],
           [
             2258,
-            2255,
+            2259,
             2257
           ]
         ],
