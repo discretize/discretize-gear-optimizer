@@ -45,9 +45,6 @@
     "enable-hooks": "husky",
     "disable-hooks": "git config --unset core.hooksPath"
   },
-  "resolutions": {
-    "eslint-plugin-jsx-a11y": "^6.5.1 <6.8.0"
-  },
   "dependencies": {
     "@discretize/globals": "^0.0.2",
     "@discretize/gw2-ui-new": "^0.1.5",
@@ -110,7 +107,7 @@
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsdoc": "^48.2.12",
-    "eslint-plugin-jsx-a11y": "^6.5.1 <6.10.0",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "husky": "^9.0.11",
