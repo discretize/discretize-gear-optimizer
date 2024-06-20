@@ -15,8 +15,6 @@ updates:
     labels: [ ]
     schedule:
       interval: weekly
-    ignore:
-      - dependency-name: eslint-plugin-jsx-a11y
     groups:
       npm-dependencies:
         patterns:
