@@ -9,10 +9,10 @@
     "watch": "gulp watch"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.14.7",
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
     "browser-sync": "^3.0.2",
-    "cssnano": "^6.0.3",
+    "cssnano": "^6.1.2",
     "del": "^v6.1.1",
     "eslint": "^8.2.0",
     "eslint-config-airbnb-base": "15.0.0",
@@ -28,9 +28,9 @@
     "gulp-sass": "^5.0.0",
     "gulp-uglify": "^3.0.0",
     "js-yaml": "^4.1.0",
-    "postcss": "^8.1.4",
+    "postcss": "^8.4.38",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "sass": "^1.70.0"
+    "sass": "^1.77.6"
   },
   "engines": {
     "node": "18"
