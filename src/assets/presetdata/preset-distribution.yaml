@@ -1149,3 +1149,13 @@ list:
         url: https://www.youtube.com/watch?v=m24fDZee1bc
         log: https://dps.report/KKWN-20220902-160446_golem
 
+  - name: Alacrity Specter D/D (allies)
+    profession: Specter
+    value: >-
+      {
+        "values2": { "Power": 2467, "Power2": 0, "Burning": 0, "Bleeding": 21.02, "Poisoned": 13.38, "Torment": 6.37, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Iskarel'
+        url: https://www.youtube.com/watch?v=ziK2tPRR0Vw
+        log: https://dps.report/CVSb-20240512-132756_golem

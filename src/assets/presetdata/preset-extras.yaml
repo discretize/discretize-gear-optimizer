@@ -2463,32 +2463,37 @@ list:
         "lifestealAmount": "3.5"
       }
 
-  - name: Alacrity Specter SC/D
+  - name: Alacrity Specter
     profession: Specter
     value: |-
       {
         "extras": {
           "Sigil1": {
-            "doom": {
-              "amount": "0.79"
-            },
-            "bursting": {},
-            "concentration": {},
             "torment": {
               "amount": "1.52"
             },
-            "demons": {}
+            "bursting": {},
+            "concentration": {},
+            "demons": {},
+            "agony": {}
           },
           "Sigil2": {
-            "doom": {
-              "amount": "0.79"
+            "geomancy-doom-alac-specter": {
+              "amount": "0.89"
             },
-            "bursting": {},
-            "concentration": {},
+            "geomancy": {
+              "amount": "0.89"
+            },
+            "doom": {
+              "amount": "0.89"
+            },
             "torment": {
               "amount": "1.52"
             },
-            "demons": {}
+            "bursting": {},
+            "concentration": {},
+            "demons": {},
+            "agony": {}
           },
           "Runes": {
             "trapper": {},
@@ -2501,10 +2506,15 @@ list:
             "tormenting": {},
             "leadership": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": "0.47"
+            }
+          },
           "Nourishment": {
             "salsa-eggs-benedict": {},
             "meaty-asparagus-skewer": {},
+            "plate-of-kimchi-pancakes": {},
             "cilantro-and-cured-meat-flatbread": {}
           },
           "Enhancement": {

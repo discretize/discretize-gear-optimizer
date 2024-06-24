@@ -1243,20 +1243,20 @@ list:
         priority: Condi Alacrity Specter 57%
         distribution: Alacrity Specter SC/D (allies)
         traits: Alacrity Specter SC/D
-        extras: Alacrity Specter SC/D
+        extras: Alacrity Specter
         weaponType: Dual wield
         outdated: true
 
-      - name: Alacrity Specter SC/D 60%
-        id: specter-alac-60
+      - name: Alacrity Specter D/D
+        id: specter-alac-dd
         specialization: Specter
         boonType: Condi
-        priority: Condi Alacrity Specter 60%
-        distribution: Alacrity Specter SC/D (allies)
-        traits: Alacrity Specter SC/D
-        extras: Alacrity Specter SC/D
+        priority: Condi Alacrity Specter 42%
+        distribution: Alacrity Specter D/D (allies)
+        traits: Alacrity Specter D/D
+        extras: Alacrity Specter
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Specter SC/D
         id: specter
