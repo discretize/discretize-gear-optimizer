@@ -1116,12 +1116,12 @@ list:
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 2620, "Power2": 0, "Burning": 0, "Bleeding": 2.58, "Poisoned": 15.96, "Torment": 20.48, "Confusion": 0 }
+        "values2": { "Power": 2437, "Power2": 0, "Burning": 0, "Bleeding": 2.53, "Poisoned": 14.31, "Torment": 16.75, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
-        url: https://www.youtube.com/watch?v=pg7GEcnZ2Kw
-        log: https://dps.report/iBWl-20230720-182745_golem
+        url: https://www.youtube.com/watch?v=5mBLfyDqmSo
+        log: https://dps.report/dxtA-20240624-182549_golem
 
   # https://optimizer.discretize.eu/?s=wpWaF0plv1
   # bugged log: has leeching venoms

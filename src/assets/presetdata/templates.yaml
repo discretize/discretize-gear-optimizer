@@ -1267,7 +1267,7 @@ list:
         traits: DPS Specter SC/D
         extras: DPS Specter SC/D
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Barrier "Carrion" Specter SC/D
         id: specter-carrion

@@ -2410,10 +2410,16 @@ list:
             "renegade": {},
             "tormenting": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": "0.39"
+            }
+          },
           "Nourishment": {
             "bowl-of-kimchi-tofu-stew": {},
-            "cilantro-and-cured-meat-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "meaty-asparagus-skewer": {},
+            "plate-of-kimchi-pancakes": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {},
