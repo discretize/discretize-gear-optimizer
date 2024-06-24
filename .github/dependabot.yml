@@ -5,7 +5,7 @@ updates:
     labels: [ ]
     schedule:
       interval: monthly
-      time: 17:00
+      time: '17:00'
     groups:
       github-actions:
         patterns:
@@ -16,7 +16,7 @@ updates:
     labels: [ ]
     schedule:
       interval: monthly
-      time: 17:00
+      time: '17:00'
     groups:
       npm-dependencies:
         patterns:
@@ -30,7 +30,7 @@ updates:
     labels: [ ]
     schedule:
       interval: monthly
-      time: 17:00
+      time: '17:00'
     allow:
       - dependency-type: all
     groups:
