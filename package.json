@@ -45,6 +45,9 @@
     "enable-hooks": "husky",
     "disable-hooks": "git config --unset core.hooksPath"
   },
+  "resolutions": {
+    "axios@0.26.1": "^0.28.1"
+  },
   "dependencies": {
     "@discretize/globals": "^0.0.2",
     "@discretize/gw2-ui-new": "^0.1.5",
