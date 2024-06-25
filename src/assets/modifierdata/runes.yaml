@@ -911,5 +911,6 @@
     - id: no-item-rune
       text: No Item (doesn't give any stats)
       subText: No Item (doesn't give any stats)
+      textOverride: No Item (doesn't give any stats)
       modifiers: {}
       # gw2id intentionally omitted
