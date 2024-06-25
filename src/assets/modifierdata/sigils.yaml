@@ -444,6 +444,28 @@
       priceIds: []
       temporaryBuff: true
 
+    # geo and doom are vaguely procced at the same frequency with all the
+    # shroud usage (and specter has no fancy traits) so this implementation
+    # just mashes the two together
+    - id: geomancy-doom-alac-specter
+      text: 'Geo + Doom Alac Specter'
+      textOverride: 'Geo + Doom Alac Specter'
+      amountData:
+        label: '/10s'
+        default: 1
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          # Geo sigil
+          Power Coefficient: 172.625
+          Bleeding Coefficient: 24
+          # Doom sigil
+          Poison Coefficient: 24
+      gw2id: 24605
+      priceIds: []
+      temporaryBuff: true
+
+
 - section: Stacking Sigils
   items:
 

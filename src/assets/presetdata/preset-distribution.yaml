@@ -1116,12 +1116,12 @@ list:
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 2620, "Power2": 0, "Burning": 0, "Bleeding": 2.58, "Poisoned": 15.96, "Torment": 20.48, "Confusion": 0 }
+        "values2": { "Power": 2437, "Power2": 0, "Burning": 0, "Bleeding": 2.53, "Poisoned": 14.31, "Torment": 16.75, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
-        url: https://www.youtube.com/watch?v=pg7GEcnZ2Kw
-        log: https://dps.report/iBWl-20230720-182745_golem
+        url: https://www.youtube.com/watch?v=5mBLfyDqmSo
+        log: https://dps.report/dxtA-20240624-182549_golem
 
   # https://optimizer.discretize.eu/?s=wpWaF0plv1
   # bugged log: has leeching venoms
@@ -1149,3 +1149,13 @@ list:
         url: https://www.youtube.com/watch?v=m24fDZee1bc
         log: https://dps.report/KKWN-20220902-160446_golem
 
+  - name: Alacrity Specter D/D (allies)
+    profession: Specter
+    value: >-
+      {
+        "values2": { "Power": 2467, "Power2": 0, "Burning": 0, "Bleeding": 21.02, "Poisoned": 13.38, "Torment": 6.37, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Iskarel'
+        url: https://www.youtube.com/watch?v=ziK2tPRR0Vw
+        log: https://dps.report/CVSb-20240512-132756_golem
