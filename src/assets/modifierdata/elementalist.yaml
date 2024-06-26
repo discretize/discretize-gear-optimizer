@@ -464,7 +464,7 @@
       text: Soothing Power
       modifiers:
         attributes:
-          Vitality: [300, converted]
+          Vitality: [300, buff]
       gw2id: 2028
       defaultEnabled: true
       temporaryBuff: false
