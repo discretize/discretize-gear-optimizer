@@ -14,7 +14,7 @@
     "@babel/preset-env": "^7.24.7",
     "browser-sync": "^3.0.2",
     "cssnano": "^7.0.3",
-    "del": "^v6.1.1",
+    "del": "^6.1.1",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-config-prettier": "9.1.0",
