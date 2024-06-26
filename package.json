@@ -6,7 +6,8 @@
     "build": "gulp build",
     "deploy": "aws s3 sync dist s3://discretize-old --delete",
     "postdeploy": "aws cloudfront create-invalidation --distribution-id E22O3UGN9AHU0U --paths '/*'",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "lint": "eslint --ignore-path .gitignore ."
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",

@@ -5,7 +5,9 @@
         "jquery": true
     },
     "ignorePatterns": [
-        "gulpfile.js"
+        "gulpfile.js",
+        "src/js/vendor",
+        "src/js/discretize.js"
     ],
     "extends": ["airbnb-base/whitespace", "plugin:unicorn/recommended", "prettier"],
     "rules": {
@@ -30,6 +32,8 @@
         "unicorn/prefer-spread": "off",
         "unicorn/no-null": "off",
         "unicorn/consistent-destructuring": "off",
-        "unicorn/no-new-array": "off"
+        "unicorn/no-new-array": "off",
+        "unicorn/switch-case-braces": "off",
+        "unicorn/prefer-at": "off"
     }
 }

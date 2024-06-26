@@ -333,7 +333,7 @@ import {
     // the next time the DOM updates after this is after ≥1 iteration loop;
     // if the calculation is really really fast the main UI won't even flicker 😎
     jQueryList.children().css('visibility', 'hidden');
-    await new Promise((resolve) => setTimeout(resolve, 0));
+    await new Promise((resolve) => { setTimeout(resolve, 0); });
 
     jQueryList.empty();
     lockUI(true);
@@ -408,7 +408,7 @@ import {
         }
 
         // pause to let UI update and register a stop button press
-        await new Promise((resolve) => setTimeout(resolve, 0));
+        await new Promise((resolve) => { setTimeout(resolve, 0); });
 
         if (STOP_SIGNAL) {
           updateProgressBar(
