@@ -605,7 +605,8 @@
       text: All for One
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:

@@ -439,7 +439,8 @@
       text: Infinite Forge
       amountData:
         label: '% strike damage from blade skills'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
