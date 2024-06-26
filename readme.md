@@ -21,12 +21,12 @@ We use Github actions for continuous integration and deployment. Any push to the
 
 ## 👨‍💻 Developing
 
-This project requires node 18! Please make sure to select the correct version of node via nvm or a comparable software before running `yarn install`
+This project requires node 18 and pnpm 8! Please make sure to select the correct version of node via nvm or a comparable software before running `pnpm install`
 
 ```sh
 git clone git@github.com:ManuelHaag/discretize-old.git
 cd discretize-old
-yarn install
+pnpm install
 ```
 
 To start the browsersync server to see your changes live whenever you save, use:
