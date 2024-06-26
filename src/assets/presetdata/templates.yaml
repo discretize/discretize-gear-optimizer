@@ -224,7 +224,7 @@ list:
         traits: Condi Quickbrand WT
         extras: Condi Quickbrand
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Quickness Power Firebrand
         id: pqfb
@@ -267,7 +267,7 @@ list:
         traits: CFB DPS 5 Page
         extras: Condi Firebrand
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power DH Virtues
         id: dh-virtues
