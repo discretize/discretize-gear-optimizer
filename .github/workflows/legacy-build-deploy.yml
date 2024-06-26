@@ -15,19 +15,21 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
 
     steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: 'recursive'
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup NodeJS
+      - name: Set up PNPM
+        uses: pnpm/action-setup@v4
+      - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install
 
-      - run: yarn install --frozen-lockfile
-
-      - run: yarn build
+      - name: Build
+        run: pnpm build
 
       - run: yarn deploy
         env:
