@@ -26,7 +26,6 @@ This project requires node 18! Please make sure to select the correct version of
 ```sh
 git clone git@github.com:ManuelHaag/discretize-old.git
 cd discretize-old
-git submodule update --init --recursive
 yarn install
 ```
 
