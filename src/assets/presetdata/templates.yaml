@@ -814,7 +814,7 @@ list:
         traits: Condi Druid
         extras: Condi Druid
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Heal Alacrity Druid
         id: druid
