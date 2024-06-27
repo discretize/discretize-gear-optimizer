@@ -197,7 +197,6 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
         assumedBuffs={{ value: assumedBuffs }}
         imageElement={
           <img
-            style={{ width: '100%' }}
             src={`${
               import.meta.env.BASE_URL
             }images/professions/${specialization.toLowerCase()}.png`}
