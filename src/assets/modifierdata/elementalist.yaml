@@ -424,8 +424,22 @@
       gw2id: 363
       defaultEnabled: true
 
+    - id: flow-like-water-low
+      text: Flow like Water
+      subText: 'low health'
+      amountData:
+        label: '% uptime'
+        default: 0
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [5%, mult] # unconfirmed
+      gw2id: 349
+      defaultEnabled: false
+
     - id: flow-like-water
       text: Flow like Water
+      subText: 'high health'
       amountData:
         label: '% uptime'
         default: 100
@@ -433,9 +447,6 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, mult]
-      wvwModifiers:
-        damage:
-          Outgoing Strike Damage: [5%, mult]
       gw2id: 349
       defaultEnabled: true
 
@@ -446,6 +457,15 @@
           Outgoing Healing: 20%
       minor: true
       gw2id: 1676
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: soothing-power
+      text: Soothing Power
+      modifiers:
+        attributes:
+          Vitality: [300, buff]
+      gw2id: 2028
       defaultEnabled: true
       temporaryBuff: false
 
@@ -500,24 +520,10 @@
       subText: base amount
       modifiers:
         attributes:
-          Concentration: [120, buff]
+          Concentration: [240, buff]
       wvwModifiers:
         attributes:
-          Concentration: [60, buff] #it would be an additional 60 if above 90% hp. But i dont want to asume that in a wvw setting, so i go with the lower one in case i want to optimize for boon duration
-      minor: true
-      gw2id: 1938
-      defaultEnabled: true
-      temporaryBuff: false
-
-    - id: gathered-focus-2
-      text: Gathered Focus
-      subText: above 90% bonus
-      modifiers:
-        attributes:
-          Concentration: [120, buff]
-      wvwModifiers:
-        attributes:
-          Concentration: [60, buff] #it would be an additional 60 if above 90% hp. But i dont want to asume that in a wvw setting, so i go with the lower one in case i want to optimize for boon duration
+          Concentration: [120, buff] #it would be an additional 60 if above 90% hp. But i dont want to asume that in a wvw setting, so i go with the lower one in case i want to optimize for boon duration
       minor: true
       gw2id: 1938
       defaultEnabled: true

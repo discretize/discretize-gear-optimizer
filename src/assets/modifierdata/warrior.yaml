@@ -482,6 +482,45 @@
       defaultEnabled: true
       temporaryBuff: activeOutOfCombat # assume the user is on a dual-wield set
 
+    - id: heightened-focus-2
+      text: Heightened Focus
+      subText: 2x
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Outgoing Healing: 10%
+      gw2id: 1317
+      defaultEnabled: false
+
+    - id: heightened-focus-3
+      text: Heightened Focus
+      subText: 3x
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Outgoing Healing: 15%
+      gw2id: 1317
+      defaultEnabled: false
+
+    - id: heightened-focus-4
+      text: Heightened Focus
+      subText: 4x
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Outgoing Healing: 20%
+      gw2id: 1317
+      defaultEnabled: false
+
 - section: Berserker
   id: 18
   items:

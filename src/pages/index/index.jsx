@@ -26,7 +26,7 @@ const IndexPage = () => {
 
   const ALERTS = [
     <Trans>
-      Core game changes are updated for the March 19th game patch, but preset coefficients and trait
+      Core game changes are updated for the June 25th game patch, but preset coefficients and trait
       selections may not yet be completely updated. Most gear results will be correctly optimized,
       but DPS estimates and comparisons may be wrong.
       <br />
