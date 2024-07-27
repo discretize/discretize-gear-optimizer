@@ -56,7 +56,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     if (!existingValueBuffer) {
       // no duplicate, insert value
       console.log(`writing new key: ${key}`);
-      await KV.put(key, dataBuffer);
+      await KV.put(key, dataBuffer, { metadata: { timestamp: Date.now() } });
     } else {
       // duplicate detected.
       // checks if the saved buffer in KV is equals with what was transmitted in the request
@@ -67,7 +67,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         // this should probably never happen unless developing?
         key = await generate_rand(KV, 0);
         console.warn(`current key has mismatched data! writing new key: ${key}`);
-        await KV.put(key, dataBuffer);
+        await KV.put(key, dataBuffer, { metadata: { timestamp: Date.now() } });
       }
     }
 
