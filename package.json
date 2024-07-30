@@ -71,7 +71,7 @@
     "react-dom": "^18.3.1",
     "react-error-boundary": "^4.0.13",
     "react-fast-compare": "^3.2.2",
-    "react-i18next": "^14.1.2",
+    "react-i18next": "^15.0.0",
     "react-redux": "^9.1.2",
     "redux": "^5.0.1",
     "redux-saga": "^1.1.3",
