@@ -32,7 +32,7 @@ async function generate_rand(KV_NAMESPACE: KVNamespace, i: number) {
     } else {
       return random_data;
     }
-  } catch (e) {
+  } catch {
     return generate_rand(KV_NAMESPACE, i + 1);
   }
 }

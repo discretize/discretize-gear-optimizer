@@ -75,7 +75,7 @@ const testModifiers = async () => {
     let data;
     try {
       data = yaml.load(fileData.toString());
-    } catch (e) {
+    } catch {
       gentleAssert(false, `err: ${fileName} is invalid YAML`);
       continue;
     }
@@ -513,7 +513,7 @@ const testPresets = async () => {
   try {
     templates = yaml.load(fileData);
     gentleAssert(templates, `err: templates.yaml is missing`);
-  } catch (e) {
+  } catch {
     gentleAssert(false, `err: templates.yaml is invalid YAML`);
     return;
   }
@@ -525,7 +525,7 @@ const testPresets = async () => {
       const fileData = await fs.readFile(`${presetDirectory}${fileName}.yaml`);
       data[type] = yaml.load(fileData).list;
       gentleAssert(data[type], `err: ${fileName}.yaml is missing`);
-    } catch (e) {
+    } catch {
       gentleAssert(false, `err: ${fileName}.yaml is invalid YAML`);
       return;
     }
@@ -537,7 +537,7 @@ const testPresets = async () => {
   try {
     credit = yaml.load(creditData);
     gentleAssert(templates, `err: credit.yaml is missing`);
-  } catch (e) {
+  } catch {
     gentleAssert(false, `err: credit.yaml is invalid YAML`);
     return;
   }
@@ -560,7 +560,7 @@ const testPresets = async () => {
         } else {
           JSON.parse(entry.value);
         }
-      } catch (e) {
+      } catch {
         gentleAssert(false, `err: the ${entry.name} ${type} entry is invalid JSON`);
       }
       if (type === 'distribution') {
