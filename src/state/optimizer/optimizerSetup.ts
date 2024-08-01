@@ -741,7 +741,7 @@ export function createSettingsPerCombination(
       conversionAfterBuffs = {},
       // note,
       // ...otherModifiers
-    } = isWvW ? wvwModifiers ?? modifiers : modifiers;
+    } = isWvW ? (wvwModifiers ?? modifiers) : modifiers;
 
     const { value: amountInput } = parseAmount(amountText);
 
