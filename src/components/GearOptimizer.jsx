@@ -22,6 +22,8 @@ import SharingSection from './sections/sharing/SharingSection';
 import SkillsSection from './sections/skills/SkillsSection';
 import TraitsSection from './sections/traits/TraitsSection';
 
+console.log('test 1');
+
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  */
