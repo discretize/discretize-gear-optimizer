@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  PAGES_PROJECT_NAME: discretize-optimizer
+  PAGES_PROJECT_NAME: optimizer
 
 concurrency:
   group: 'deploy'
