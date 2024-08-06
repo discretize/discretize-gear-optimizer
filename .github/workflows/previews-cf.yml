@@ -5,6 +5,7 @@ on:
   
 env:
   PAGES_PROJECT_NAME: optimizer
+  PAGES_PROJECT_URL_SLUG: discretize-gear-optimizer
   NODE_VERSION: 18
   
 jobs:
@@ -96,6 +97,6 @@ jobs:
             | ----------------------- | - |
             | **Last commit:**        | ${{ github.event.pull_request.head.sha || github.event.workflow_run.head_sha || github.sha }} |
             | **Preview URL**:        | ${{ steps.pages-action.outputs.url }} |
-            | **Branch Preview URL**: | https://${{ github.head_ref || github.ref_name }}.${{ env.PAGES_PROJECT_NAME }}.pages.dev |
+            | **Branch Preview URL**: | https://${{ github.head_ref || github.ref_name }}.${{ env.PAGES_PROJECT_URL_SLUG }}.pages.dev |
           comment_tag: deployment
           mode: upsert
