@@ -17,7 +17,7 @@ jobs:
       - name: Check that secrets exist
         id: check-secret-step
         run: |
-          if [ "${{ secrets.CF_GLOBAL_APIKEY }}" != '' ]; then
+          if [ "${{ secrets.CI_CF_PAGES }}" != '' ]; then
             echo "exists=true" >> $GITHUB_OUTPUT;
           else
             echo "exists=false" >> $GITHUB_OUTPUT;
