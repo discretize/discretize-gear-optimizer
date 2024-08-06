@@ -601,6 +601,19 @@
       gw2id: 2092
       defaultEnabled: true
 
+    - id: all-for-one
+      text: All for One
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add] # https://discord.com/channels/380901000200060929/380904097592901635/1255204952398102549
+      gw2id: 2108
+      defaultEnabled: true
+
     - id: brutal-momentum
       text: Brutal Momentum
       subText: full endurance

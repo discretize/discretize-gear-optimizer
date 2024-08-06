@@ -224,6 +224,17 @@
       gw2id: 24711
       temporaryBuff: false
 
+    # 100 stat total
+
+    - id: warrior
+      text: Superior Rune of the Warrior
+      modifiers:
+        attributes:
+          Power: [100, converted]
+          Vitality: [300, converted]
+      gw2id: 24821
+      temporaryBuff: false
+
 - section: Support Runes
   items:
 
@@ -911,5 +922,6 @@
     - id: no-item-rune
       text: No Item (doesn't give any stats)
       subText: No Item (doesn't give any stats)
+      textOverride: No Item (doesn't give any stats)
       modifiers: {}
       # gw2id intentionally omitted

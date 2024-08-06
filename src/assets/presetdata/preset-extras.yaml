@@ -588,6 +588,46 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: DH Virtues (Raid)
+    profession: Dragonhunter
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {},
+            "dragonhunter-relic": {
+              "amount": "73.6"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: DH Virtues (Fractal)
     profession: Dragonhunter
     value: |-
@@ -602,7 +642,12 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {},
+            "dragonhunter-relic": {
+              "amount": "73.6"
+            }
+          },
           "Sigil1": {
             "force": {}
           },
@@ -692,7 +737,9 @@ list:
             "bursting": {}
           },
           "Sigil2": {
-            "air-earth-cwb": {}
+            "air": {
+              "amount": ""
+            }
           },
           "Runes": {
             "trapper": {},
@@ -707,7 +754,9 @@ list:
             "flame-legion-2": {}
           },
           "Relics": {
-            "fractal-relic": {}
+            "fractal-relic": {
+              "amount": "0.48"
+            }
           },
           "Nourishment": {
             "fishy-rice-bowl": {},
@@ -775,7 +824,11 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
           "Sigil1": {
             "bursting": {}
           },
@@ -818,9 +871,15 @@ list:
             "flame-legion-2": {},
             "firebrand": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": "0.41"
+            }
+          },
           "Nourishment": {
-            "fishy-rice-bowl": {}
+            "fishy-rice-bowl": {},
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {},
@@ -828,7 +887,8 @@ list:
             "toxic-maintenance-oil": {},
             "magnanimous-maintenance-oil": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Hybrid FB Traveler
@@ -1775,7 +1835,11 @@ list:
             "weaver": {},
             "firebrand": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
@@ -2346,10 +2410,16 @@ list:
             "renegade": {},
             "tormenting": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": "0.39"
+            }
+          },
           "Nourishment": {
             "bowl-of-kimchi-tofu-stew": {},
-            "cilantro-and-cured-meat-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "meaty-asparagus-skewer": {},
+            "plate-of-kimchi-pancakes": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {},
@@ -2399,32 +2469,37 @@ list:
         "lifestealAmount": "3.5"
       }
 
-  - name: Alacrity Specter SC/D
+  - name: Alacrity Specter
     profession: Specter
     value: |-
       {
         "extras": {
           "Sigil1": {
-            "doom": {
-              "amount": "0.79"
-            },
-            "bursting": {},
-            "concentration": {},
             "torment": {
               "amount": "1.52"
             },
-            "demons": {}
+            "bursting": {},
+            "concentration": {},
+            "demons": {},
+            "agony": {}
           },
           "Sigil2": {
-            "doom": {
-              "amount": "0.79"
+            "geomancy-doom-alac-specter": {
+              "amount": "0.89"
             },
-            "bursting": {},
-            "concentration": {},
+            "geomancy": {
+              "amount": "0.89"
+            },
+            "doom": {
+              "amount": "0.89"
+            },
             "torment": {
               "amount": "1.52"
             },
-            "demons": {}
+            "bursting": {},
+            "concentration": {},
+            "demons": {},
+            "agony": {}
           },
           "Runes": {
             "trapper": {},
@@ -2437,10 +2512,15 @@ list:
             "tormenting": {},
             "leadership": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": "0.47"
+            }
+          },
           "Nourishment": {
             "salsa-eggs-benedict": {},
             "meaty-asparagus-skewer": {},
+            "plate-of-kimchi-pancakes": {},
             "cilantro-and-cured-meat-flatbread": {}
           },
           "Enhancement": {

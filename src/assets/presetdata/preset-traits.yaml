@@ -794,7 +794,7 @@ list:
             },
             "virtue-of-resolution": {},
             "inspiring-virtue": {
-              "amount": ""
+              "amount": "67"
             },
             "power-of-the-virtuous": {}
           },
@@ -818,7 +818,7 @@ list:
               "amount": ""
             },
             "big-game-hunter": {
-              "amount": ""
+              "amount": "89"
             }
           }
         ]
@@ -1024,7 +1024,7 @@ list:
             },
             "virtue-of-resolution": {},
             "inspiring-virtue": {
-              "amount": "90.4"
+              "amount": "95.4"
             },
             "power-of-the-virtuous": {}
           },
@@ -4427,7 +4427,7 @@ list:
       {
         "skills": {
           "burst-of-strength": {
-            "amount": "86.1"
+            "amount": "89.2"
           }
         }
       }
@@ -4566,7 +4566,7 @@ list:
           ],
           [
             2258,
-            2255,
+            2259,
             2257
           ]
         ],
@@ -6655,7 +6655,7 @@ list:
           {
             "preparedness": {},
             "lead-attacks": {
-              "amount": "13.4"
+              "amount": "13.5"
             },
             "deadly-ambush": {}
           },
@@ -6730,6 +6730,69 @@ list:
             "second-opinion-scepter": {
               "amount": ""
             },
+            "dark-sentry": {},
+            "larcenous-torment": {},
+            "strength-of-shadows-base": {},
+            "strength-of-shadows-condis": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Alacrity Specter D/D
+    profession: Specter
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "44",
+          "71"
+        ],
+        "selectedTraits": [
+          [
+            1164,
+            1292,
+            1291
+          ],
+          [
+            1163,
+            1277,
+            1706
+          ],
+          [
+            2284,
+            2288,
+            2289
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": {},
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "preparedness": {},
+            "lead-attacks": {
+              "amount": "10.5"
+            },
+            "deadly-ambush": {}
+          },
+          {
+            "second-opinion-base": {},
             "dark-sentry": {},
             "larcenous-torment": {},
             "strength-of-shadows-base": {},

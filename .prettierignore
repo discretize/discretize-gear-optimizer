@@ -1,3 +1,5 @@
+*.md
+*.json
 *.yaml
 *.yml
 src/utils/mapping/

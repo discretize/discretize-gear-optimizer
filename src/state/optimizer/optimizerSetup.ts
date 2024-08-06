@@ -414,7 +414,9 @@ export function createSettingsPerCalculation(
     settings_slots.length,
   ).fill(affixes);
 
-  forcedSlots.forEach((forcedAffix, index) => {
+  settings_affixesArray.forEach((_, index) => {
+    const forcedAffix = forcedSlots[index];
+
     if (forcedAffix || Object.values(exclusions).some((arr) => arr[index])) {
       if (forcedAffix) {
         settings_affixesArray[index] = [forcedAffix];
@@ -739,7 +741,7 @@ export function createSettingsPerCombination(
       conversionAfterBuffs = {},
       // note,
       // ...otherModifiers
-    } = isWvW ? wvwModifiers ?? modifiers : modifiers;
+    } = isWvW ? (wvwModifiers ?? modifiers) : modifiers;
 
     const { value: amountInput } = parseAmount(amountText);
 

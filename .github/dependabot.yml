@@ -4,7 +4,8 @@ updates:
     directory: /
     labels: [ ]
     schedule:
-      interval: weekly
+      interval: monthly
+      time: '17:00'
     groups:
       github-actions:
         patterns:
@@ -14,9 +15,8 @@ updates:
     directory: /
     labels: [ ]
     schedule:
-      interval: weekly
-    ignore:
-      - dependency-name: eslint-plugin-jsx-a11y
+      interval: monthly
+      time: '17:00'
     groups:
       npm-dependencies:
         patterns:
@@ -29,7 +29,8 @@ updates:
     directory: /wasm_module
     labels: [ ]
     schedule:
-      interval: weekly
+      interval: monthly
+      time: '17:00'
     allow:
       - dependency-type: all
     groups:

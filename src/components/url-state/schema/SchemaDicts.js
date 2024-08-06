@@ -185,6 +185,7 @@ export const runesDict = [
   'lyssa',
   'adventurer',
   'daredevil',
+  'warrior',
 ];
 
 export const relicsDict = [
@@ -273,6 +274,7 @@ export const sigilDict = [
   'blood-sigil',
   'draining-sigil',
   'leeching-sigil',
+  'geomancy-doom-alac-specter',
 ];
 
 export const enhancementDict = [

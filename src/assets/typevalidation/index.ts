@@ -30,7 +30,7 @@ const testModifiers = async () => {
     let data;
     try {
       data = yaml.load(fileData.toString());
-    } catch (e) {
+    } catch {
       gentleAssert(false, `err: ${fileName} is invalid YAML`);
       continue;
     }

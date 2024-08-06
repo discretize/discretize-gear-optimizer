@@ -13,7 +13,7 @@ list:
         traits: Condi Virtuoso Dueling
         extras: Condi Virtuoso Dueling
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       # - name: Condi Virtuoso (sharpening sorrow)
       #   id: cvirt-sorrow
@@ -215,11 +215,11 @@ list:
       #   weaponType: Dual wield
       #   outdated: true
 
-      - name: Quickness Condi Firebrand 77%
-        id: cqfb-firebrand-77
+      - name: Quickness Condi Firebrand 40%
+        id: cqfb-firebrand-40
         specialization: Firebrand
         boonType: Condi
-        priority: Condi Quickbrand 77%
+        priority: Condi Quickbrand 40%
         distribution: Condi Quickbrand (WT, Allies)
         traits: Condi Quickbrand WT
         extras: Condi Quickbrand
@@ -263,22 +263,11 @@ list:
         specialization: Firebrand
         boonType: Condi
         priority: Condi DPS
-        distribution: CFB (5 Page RF, Allies)
+        distribution: Condi Firebrand
         traits: CFB DPS 5 Page
         extras: Condi Firebrand
         weaponType: Dual wield
         outdated: true
-
-      # - name: Condi Firebrand 8 Page
-      #   id: cfb-8-balth
-      #   specialization: Firebrand
-      #   boonType: Condi
-      #   priority: Condi DPS
-      #   distribution: CFB (8 Page, Allies)
-      #   traits: CFB DPS 8 Page
-      #   extras: CFB DPS (8 Page, Balthazar)
-      #   weaponType: Dual wield
-      #   outdated: true
 
       - name: Power DH Virtues
         id: dh-virtues
@@ -290,9 +279,9 @@ list:
         fractal:
           extras: DH Virtues (Fractal)
         raid:
-          extras: Power (Raid, furious)
+          extras: DH Virtues (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Power DH Radiance
         id: dh-radiance
@@ -333,12 +322,12 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Willbender Sword (approx.)
+      - name: Condi Willbender
         id: cwb-sw
         specialization: Willbender
         boonType: Condi
         priority: Hybrid DPS
-        distribution: Condi Willbender Sword
+        distribution: Condi Willbender
         traits: Condi Willbender
         extras: Condi Willbender
         weaponType: Dual wield
@@ -577,7 +566,7 @@ list:
         traits: Alacrity Hybrid Tempest
         extras: Alacrity Hybrid Tempest
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Tempest
         id: ctemp
@@ -639,7 +628,7 @@ list:
         traits: Condi Weaver Scepter
         extras: Condi Weaver Scepter
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Weaver Sword
         id: cwea-sw
@@ -825,7 +814,7 @@ list:
         traits: Condi Druid
         extras: Condi Druid
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Heal Alacrity Druid
         id: druid
@@ -866,8 +855,8 @@ list:
         distribution: Condi Quickness Herald
         traits: Condi Quickness Herald
         extras: Condi Quickness Herald
-        weaponType: Dual wield
-        outdated: true
+        weaponType: Two-handed
+        outdated: false
 
       - name: Power Herald FP
         id: herald
@@ -919,7 +908,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Power Vindicator (Approx.)
+      - name: Power Vindicator
         id: vindi
         specialization: Vindicator
         boonType: Power
@@ -931,7 +920,7 @@ list:
         raid:
           extras: DPS Vindicator (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Heal Alacrity Renegade
         id: healren
@@ -1014,7 +1003,7 @@ list:
         raid:
           extras: Power Holo (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Holo PBM
         id: pholo-pbm
@@ -1254,20 +1243,20 @@ list:
         priority: Condi Alacrity Specter 57%
         distribution: Alacrity Specter SC/D (allies)
         traits: Alacrity Specter SC/D
-        extras: Alacrity Specter SC/D
+        extras: Alacrity Specter
         weaponType: Dual wield
         outdated: true
 
-      - name: Alacrity Specter SC/D 60%
-        id: specter-alac-60
+      - name: Alacrity Specter D/D
+        id: specter-alac-dd
         specialization: Specter
         boonType: Condi
-        priority: Condi Alacrity Specter 60%
-        distribution: Alacrity Specter SC/D (allies)
-        traits: Alacrity Specter SC/D
-        extras: Alacrity Specter SC/D
+        priority: Condi Alacrity Specter 42%
+        distribution: Alacrity Specter D/D (allies)
+        traits: Alacrity Specter D/D
+        extras: Alacrity Specter
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Specter SC/D
         id: specter
@@ -1278,7 +1267,7 @@ list:
         traits: DPS Specter SC/D
         extras: DPS Specter SC/D
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Barrier "Carrion" Specter SC/D
         id: specter-carrion

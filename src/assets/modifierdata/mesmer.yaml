@@ -435,6 +435,19 @@
       defaultEnabled: true
       temporaryBuff: true
 
+    - id: infinite-forge
+      text: Infinite Forge
+      amountData:
+        label: '% strike damage from blade skills'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, mult] # unconfirmed
+      gw2id: 2206
+      defaultEnabled: true
+
     - id: bloodsong
       text: Bloodsong
       modifiers:

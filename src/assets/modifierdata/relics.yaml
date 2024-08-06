@@ -62,6 +62,7 @@
     - id: citadel-relic
       text: 'Relic of the Citadel: not yet implemented'
       subText: 'Relic of the Citadel: not yet implemented'
+      textOverride: 'Relic of the Citadel: not yet implemented'
       modifiers: {}
       # gw2id intentionally omitted
 
@@ -157,6 +158,7 @@
     - id: peitha-relic
       text: 'Relic of Peitha: not yet implemented'
       subText: 'Relic of Peitha: not yet implemented'
+      textOverride: 'Relic of Peitha: not yet implemented'
       modifiers: {}
       # gw2id intentionally omitted
 
@@ -235,12 +237,14 @@
     - id: sunless-relic
       text: 'Relic of the Sunless: not yet implemented'
       subText: 'Relic of the Sunless: not yet implemented'
+      textOverride: 'Relic of the Sunless: not yet implemented'
       modifiers: {}
       # gw2id intentionally omitted
 
     - id: afflicted-relic
       text: 'Relic of the Afllicted: not yet implemented'
       subText: 'Relic of the Afllicted: not yet implemented'
+      textOverride: 'Relic of the Afllicted: not yet implemented'
       modifiers: {}
       # gw2id intentionally omitted
 
@@ -329,18 +333,21 @@
     - id: midnight-king-relic
       text: 'Relic of the Midnight King: not implemented'
       subText: 'Relic of the Midnight King: not implemented'
+      textOverride: 'Relic of the Midnight King: not implemented'
       modifiers: {}
       # gw2id intentionally omitted
 
     - id: pack-relic
       text: 'Relic of the Pack: not implemented'
       subText: 'Relic of the Pack: not implemented'
+      textOverride: 'Relic of the Pack: not implemented'
       modifiers: {}
       # gw2id intentionally omitted
 
     - id: zephyrite-relic
       text: 'Relic of the Zephyrite: not implemented'
       subText: 'Relic of the Zephyrite: not implemented'
+      textOverride: 'Relic of the Zephyrite: not implemented'
       modifiers: {}
       # gw2id intentionally omitted
 
@@ -362,30 +369,35 @@
     - id: karakosa-relic
       text: 'Relic of Karakosa: not implemented'
       subText: 'Relic of Karakosa: not implemented'
+      textOverride: 'Relic of Karakosa: not implemented'
       modifiers: {}
       # gw2id intentionally omitted
 
     - id: flock-relic
       text: 'Relic of the Flock: not implemented'
       subText: 'Relic of the Flock: not implemented'
+      textOverride: 'Relic of the Flock: not implemented'
       modifiers: {}
       # gw2id intentionally omitted
 
     - id: dwayna-relic
       text: 'Relic of Dwayna: not implemented'
       subText: 'Relic of Dwayna: not implemented'
+      textOverride: 'Relic of Dwayna: not implemented'
       modifiers: {}
       # gw2id intentionally omitted
 
     - id: lyhr-relic
       text: 'Relic of Lyhr: not implemented'
       subText: 'Relic of Lyhr: not implemented'
+      textOverride: 'Relic of Lyhr: not implemented'
       modifiers: {}
       # gw2id intentionally omitted
 
     - id: mercy-relic
       text: 'Relic of Mercy: not implemented'
       subText: 'Relic of Mercy: not implemented'
+      textOverride: 'Relic of Mercy: not implemented'
       modifiers: {}
       # gw2id intentionally omitted
 
@@ -395,5 +407,6 @@
     - id: no-item-relic
       text: No Item (doesn't give any stats)
       subText: No Item (doesn't give any stats)
+      textOverride: No Item (doesn't give any stats)
       modifiers: {}
       # gw2id intentionally omitted

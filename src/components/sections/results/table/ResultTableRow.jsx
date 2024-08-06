@@ -164,7 +164,7 @@ const ResultTableRow = ({
           .filter((type) => displayExtras[type])
           .map((key) => {
             const extra = character.settings.extrasCombination[key];
-            const id = allExtrasModifiersById[extra]?.gw2id;
+            const { gw2id: id, textOverride } = allExtrasModifiersById[extra] ?? {};
             return (
               <TableCell align="center" padding="none">
                 {extra ? (
@@ -172,7 +172,13 @@ const ResultTableRow = ({
                     id={id ?? placeholderItem}
                     disableText
                     disableLink
-                    disableTooltip={!id}
+                    {...(textOverride
+                      ? {
+                          tooltipProps: {
+                            content: textOverride,
+                          },
+                        }
+                      : {})}
                     style={{ fontSize: 23 }}
                   />
                 ) : null}
