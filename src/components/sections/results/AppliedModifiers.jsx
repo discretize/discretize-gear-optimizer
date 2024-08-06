@@ -65,7 +65,7 @@ const AppliedModifiers = ({ character }) => {
                   </TableCell>
                   <TableCell>
                     {isWvW && wvwModifiers ? 'WvW: ' : ''}
-                    {JSON.stringify(isWvW ? wvwModifiers ?? modifiers : modifiers)}
+                    {JSON.stringify(isWvW ? (wvwModifiers ?? modifiers) : modifiers)}
                   </TableCell>
                 </TableRow>
               );

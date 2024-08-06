@@ -11,7 +11,7 @@ function getLocalStorageState(): object {
     if (stored) {
       return JSON.parse(stored) as object;
     }
-  } catch (e) {
+  } catch {
     return {};
   }
   return {};

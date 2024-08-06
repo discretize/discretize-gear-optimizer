@@ -240,9 +240,11 @@ const Navbar = () => {
               {...bindMenu(popupState[index])}
               anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
               transformOrigin={{ vertical: 'top', horizontal: 'left' }}
-              PaperProps={{
-                style: {
-                  maxHeight: 'calc(100vh - 340px)',
+              slotProps={{
+                paper: {
+                  style: {
+                    maxHeight: 'calc(100vh - 340px)',
+                  },
                 },
               }}
             >

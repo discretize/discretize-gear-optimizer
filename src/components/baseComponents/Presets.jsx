@@ -32,7 +32,7 @@ const Presets = ({
             <TextField {...params} label={t('Presets')} variant="standard" />
           )}
           renderOption={(props, preset) => (
-            <li {...props}>
+            <li {...props} key={preset.name}>
               {preset.profession ? (
                 <Profession
                   disableLink

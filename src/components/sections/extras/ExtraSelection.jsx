@@ -197,9 +197,16 @@ export default function ExtraSelection(props) {
                               <Item
                                 key={id ?? placeholderItem}
                                 id={id ?? placeholderItem}
-                                text={textOverride ?? formatApiText}
+                                text={formatApiText}
                                 disableText={!id}
-                                disableTooltip={!id}
+                                {...(textOverride
+                                  ? {
+                                      text: textOverride,
+                                      tooltipProps: {
+                                        content: textOverride,
+                                      },
+                                    }
+                                  : {})}
                               />
                             )),
                             ' / ',
@@ -207,9 +214,16 @@ export default function ExtraSelection(props) {
                         ) : (
                           <Item
                             id={gw2id ?? placeholderItem}
-                            text={textOverride ?? formatApiText}
+                            text={formatApiText}
                             disableText={!gw2id}
-                            disableTooltip={!gw2id}
+                            {...(textOverride
+                              ? {
+                                  text: textOverride,
+                                  tooltipProps: {
+                                    content: textOverride,
+                                  },
+                                }
+                              : {})}
                           />
                         )}
                       </Box>

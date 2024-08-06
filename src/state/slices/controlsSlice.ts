@@ -192,11 +192,8 @@ export const controlSlice = createSlice({
       if (filteredLists) state.filteredLists = filteredLists;
     },
     toggleSaved: (state, action: PayloadAction<Character>) => {
-      // required to use reference equality check with immer.js
-      const originalSaved = original(state.saved)!;
-
-      if (originalSaved.includes(action.payload)) {
-        state.saved = originalSaved.filter((character) => character !== action.payload);
+      if (state.saved.some(({ id }) => action.payload.id === id)) {
+        state.saved = state.saved.filter((character) => character.id !== action.payload.id);
       } else {
         state.saved.push(action.payload);
       }

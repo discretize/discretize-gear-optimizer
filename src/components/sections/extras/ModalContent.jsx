@@ -259,9 +259,16 @@ function ModalContent(props) {
                                       id={displayId ?? placeholderItem}
                                       key={displayId ?? placeholderItem}
                                       disableLink
-                                      text={textOverride ?? formatApiText}
+                                      text={formatApiText}
                                       disableText={!displayId}
-                                      disableTooltip={!displayId}
+                                      {...(textOverride
+                                        ? {
+                                            text: textOverride,
+                                            tooltipProps: {
+                                              content: textOverride,
+                                            },
+                                          }
+                                        : {})}
                                     />
                                   )),
                                   ' / ',
@@ -270,9 +277,16 @@ function ModalContent(props) {
                                 <Item
                                   id={gw2id ?? placeholderItem}
                                   disableLink
-                                  text={textOverride ?? formatApiText}
+                                  text={formatApiText}
                                   disableText={!gw2id}
-                                  disableTooltip={!gw2id}
+                                  {...(textOverride
+                                    ? {
+                                        text: textOverride,
+                                        tooltipProps: {
+                                          content: textOverride,
+                                        },
+                                      }
+                                    : {})}
                                 />
                               )}
                               {subText && (
