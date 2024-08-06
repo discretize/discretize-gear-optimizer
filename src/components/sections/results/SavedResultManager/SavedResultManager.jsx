@@ -173,7 +173,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
         );
         setImportText('');
       }
-    } catch (e) {
+    } catch {
       console.warn('Error while importing build!');
       // TODO add snackbar
     }

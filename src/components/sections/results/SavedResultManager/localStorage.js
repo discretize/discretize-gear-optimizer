@@ -5,7 +5,7 @@ export function getAll() {
   let stored = [];
   try {
     stored = JSON.parse(localStorage.getItem(KEY) || '[]');
-  } catch (e) {
+  } catch {
     console.warn('There was a problem loading the saved characters from your disk!');
   }
   return stored;
