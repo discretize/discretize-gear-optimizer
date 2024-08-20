@@ -26,12 +26,11 @@ const IndexPage = () => {
 
   const ALERTS = [
     <Trans>
-      Core game changes are updated for the June 25th game patch, but preset coefficients and trait
-      selections may not yet be completely updated. Most gear results will be correctly optimized,
-      but DPS estimates and comparisons may be wrong.
+      🎉 Janthir Wilds has been released! 🎉
       <br />
       <br />
-      Templates not marked as Outdated are up to date.
+      Core game changes are updated for the Janthir Wilds game patch, but new relics and spear
+      builds are a work in progress.
     </Trans>,
     <Trans>
       The gear optimizer is still being developed! Please report issues or suggest improvements in
