@@ -46,7 +46,7 @@ const testModifiers = async () => {
 
 (async () => {
   console.log('testing modifier data:');
-  await testModifiers().catch((e) => gentleAssert(false, e.message));
+  await testModifiers().catch((e: Error) => gentleAssert(false, e.message));
 
   console.log('');
 

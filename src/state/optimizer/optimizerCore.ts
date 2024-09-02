@@ -216,7 +216,7 @@ export class OptimizerCore {
   settings: OptimizerCoreSettings;
   minimalSettings: OptimizerCoreMinimalSettings;
   applyInfusionsFunction: (this: OptimizerCore, gear: Gear, gearStats: GearStats) => void;
-  condiResultCache = new Map();
+  condiResultCache = new Map<number, number>();
   worstScore: number = 0;
   list: Character[] = [];
   isChanged = true;
