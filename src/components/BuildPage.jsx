@@ -74,7 +74,7 @@ const BuildPage = () => {
   // eslint-disable-next-line react/no-unstable-nested-components
   function Traits({ id, selected: selectedTraits }) {
     return (
-      <Box display="flex" mb={1}>
+      <Box sx={{ display: 'flex', mb: 1 }}>
         <Paper elevation={0} className={classes.traitlineRoot}>
           <Typography variant="body1" className={classes.traitlineText}>
             {traitLookup[id]}

@@ -35,15 +35,20 @@ const IndexPage = () => {
     <Trans>
       The gear optimizer is still being developed! Please report issues or suggest improvements in
       the Discretize{' '}
-      <Link href="https://discord.gg/Qdt7nFY" color="textPrimary" target="_blank" rel="noopener">
+      <Link
+        href="https://discord.gg/Qdt7nFY"
+        target="_blank"
+        rel="noopener"
+        sx={{ color: 'textPrimary' }}
+      >
         Discord
       </Link>{' '}
       or on{' '}
       <Link
         href="https://github.com/discretize/discretize-gear-optimizer"
-        color="textPrimary"
         target="_blank"
         rel="noopener"
+        sx={{ color: 'textPrimary' }}
       >
         <GitHubIcon fontSize="small" /> Github
       </Link>

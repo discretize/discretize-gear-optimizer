@@ -22,7 +22,12 @@ const ForcedSlots = () => {
   };
 
   return (
-    <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" spacing={1}>
+    <Grid
+      container
+      direction="row"
+      spacing={1}
+      sx={{ justifyContent: 'flex-start', alignItems: 'flex-start' }}
+    >
       {SLOTS.map((slot, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <Grid item xs={6} sm={4} md={2} key={index}>

@@ -111,7 +111,12 @@ const Infusions = () => {
   return (
     <Grid container spacing={4}>
       {gameMode === 'fractals' && (
-        <Grid container item spacing={2} alignItems="center" justifyContent="flex-start">
+        <Grid
+          container
+          item
+          spacing={2}
+          sx={{ alignItems: 'center', justifyContent: 'flex-start' }}
+        >
           <Grid item xs={12} sm>
             <CheckboxComponent
               value={omnipotion}
@@ -153,9 +158,8 @@ const Infusions = () => {
         container
         item
         spacing={2}
-        justifyContent="flex-start"
         direction="row"
-        alignItems="center"
+        sx={{ justifyContent: 'flex-start', alignItems: 'center' }}
       >
         <Grid item xs={12}>
           {input('# Stat Infusions', 'maxInfusions', maxInfusions)}

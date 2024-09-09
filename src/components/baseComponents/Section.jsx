@@ -60,7 +60,7 @@ const SectionInfo = ({ title, children }) => {
 // first disables the delimiting line above!
 const Section = ({ first, title, helpText, extraInfo, content }) => {
   return (
-    <Grid item container spacing={2} mb={2} sx={{ borderColor: 'primary.main' }}>
+    <Grid item container spacing={2} sx={{ mb: 2, borderColor: 'primary.main' }}>
       {!first && (
         <Grid item xs={12}>
           <Divider />

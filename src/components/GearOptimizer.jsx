@@ -41,7 +41,7 @@ const GearOptimizer = () => {
       <NavBar />
       <Box>
         {profession === '' && (
-          <Typography mb={1}>
+          <Typography sx={{ mb: 1 }}>
             <ExpandLessIcon />
             <i>{expertMode ? classOrBuildText : classText}</i> <ExpandLessIcon />
           </Typography>
@@ -95,9 +95,9 @@ const GearOptimizer = () => {
           <Controls />
 
           <ResultTable />
-          <Box m={3} />
+          <Box sx={{ m: 3 }} />
           <ResultDetails />
-          <Box m={3} />
+          <Box sx={{ m: 3 }} />
 
           <SharingSection />
         </div>

@@ -152,9 +152,7 @@ const Traits = () => {
               <Box
                 key={id}
                 style={visible ? {} : hiddenCss}
-                justifyContent="space-between"
-                display="flex"
-                maxWidth="648px"
+                sx={{ justifyContent: 'space-between', display: 'flex', maxWidth: '648px' }}
               >
                 <Box>
                   <CheckboxComponent
@@ -194,7 +192,7 @@ const Traits = () => {
           })
         }
         {note ? (
-          <Box sx={{ p: 1 }} maxWidth="648px">
+          <Box sx={{ maxWidth: '648px', p: 1 }}>
             <Info icon={<WarningAmberIcon />}>
               {
                 // i18next-extract-mark-context-next-line {{traitNote}}
@@ -214,7 +212,7 @@ const Traits = () => {
   return (
     <>
       {classNote ? (
-        <Box sx={{ p: 1 }} maxWidth="648px">
+        <Box sx={{ maxWidth: '648px', p: 1 }}>
           <Info icon={<WarningAmberIcon />}>
             {
               // i18next-extract-mark-context-next-line {{traitNote}}

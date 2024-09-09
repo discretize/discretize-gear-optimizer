@@ -99,8 +99,8 @@ const Buffs = () => {
                   );
 
                 return (
-                  <Box justifyContent="space-between" display="flex" key={id}>
-                    <Box display="flex">
+                  <Box key={id} sx={{ justifyContent: 'space-between', display: 'flex' }}>
+                    <Box sx={{ display: 'flex' }}>
                       <CheckboxComponent
                         key={id}
                         value={id}
@@ -110,7 +110,7 @@ const Buffs = () => {
                       />
                     </Box>
                     {amountData ? (
-                      <Box display="flex">
+                      <Box sx={{ display: 'flex' }}>
                         <AmountInput
                           placeholder={amountData.default}
                           endLabel={amountData.label}

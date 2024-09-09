@@ -262,7 +262,7 @@ const Priorities = () => {
 
   return (
     <>
-      <Grid container m={1}>
+      <Grid container sx={{ m: 1 }}>
         {optimizeForControl}
         {weaponTypeControl}
       </Grid>

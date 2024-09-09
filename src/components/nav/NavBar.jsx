@@ -111,8 +111,8 @@ const Navbar = () => {
 
   const stickyRight = () => {
     return (
-      <Box display="flex" alignItems="center" gap={1}>
-        <Box display="flex" flexDirection="column" alignItems="center">
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Tooltip content={`${t('Selected Game Mode')}: ${selectedGameModeText}`}>
             <IconButton size="small" onClick={handleModeCycle}>
               <img style={{ width: '40px' }} src={gameModeImage} alt={selectedGameModeText} />
@@ -151,7 +151,7 @@ const Navbar = () => {
 
     return (
       <Toolbar>
-        <Box flexGrow={1}>
+        <Box sx={{ flexGrow: 1 }}>
           <IconButton
             {...{
               edge: 'start',
@@ -219,7 +219,7 @@ const Navbar = () => {
   ];
   const displayDesktop = () => (
     <Toolbar>
-      <Box flexGrow={1}>
+      <Box sx={{ flexGrow: 1 }}>
         {PROFESSIONS.map((prof, index) => (
           <React.Fragment key={prof}>
             <Button
@@ -272,7 +272,7 @@ const Navbar = () => {
       </Box>
 
       {showSelectedTemplate && (selectedSpecialization || selectedTemplateName) && (
-        <Box flexGrow={1}>
+        <Box sx={{ flexGrow: 1 }}>
           <Typography>
             <Trans>Selected</Trans>:{' '}
           </Typography>

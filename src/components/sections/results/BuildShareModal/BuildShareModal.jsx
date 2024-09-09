@@ -73,14 +73,14 @@ const BuildShareModal = ({ children, title, character }) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <Box display="flex" justifyContent="space-between" mb={1}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
               {title && (
-                <Box alignSelf="center">
+                <Box sx={{ alignSelf: 'center' }}>
                   <Typography>{title}</Typography>
                 </Box>
               )}
 
-              <Box alignSelf="center">
+              <Box sx={{ alignSelf: 'center' }}>
                 <IconButton onClick={handleClose}>
                   <CloseIcon className={classes.closeIcon} />
                 </IconButton>

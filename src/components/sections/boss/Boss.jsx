@@ -76,7 +76,7 @@ const Boss = () => {
 
   return (
     <>
-      <Box display="flex" flexWrap="wrap">
+      <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
         <Box sx={{ width: 195 }}>
           <AmountInput
             label={
@@ -93,11 +93,14 @@ const Boss = () => {
           />
         </Box>
         <Box
-          mx={3}
-          mb={4}
-          flexGrow={1}
-          alignSelf="center"
-          sx={{ minWidth: 200, md: { marginLeft: 2 } }}
+          sx={{
+            mx: 3,
+            mb: 4,
+            flexGrow: 1,
+            alignSelf: 'center',
+            minWidth: 200,
+            md: { marginLeft: 2 },
+          }}
         >
           <Slider
             value={movementUptime}
@@ -111,7 +114,7 @@ const Boss = () => {
           />
         </Box>
       </Box>
-      <Box display="flex" flexWrap="wrap">
+      <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
         <Box sx={{ width: 195 }}>
           <AmountInput
             label={
@@ -133,11 +136,14 @@ const Boss = () => {
           />
         </Box>
         <Box
-          mx={3}
-          mb={4}
-          flexGrow={1}
-          alignSelf="center"
-          sx={{ minWidth: 200, md: { marginLeft: 2 } }}
+          sx={{
+            mx: 3,
+            mb: 4,
+            flexGrow: 1,
+            alignSelf: 'center',
+            minWidth: 200,
+            md: { marginLeft: 2 },
+          }}
         >
           <Slider
             value={attackRate}

@@ -194,8 +194,8 @@ function ModalContent(props) {
           ),
         }}
       />
-      <Box display="flex">
-        <Box flexGrow={1} />
+      <Box sx={{ display: 'flex' }}>
+        <Box sx={{ flexGrow: 1 }} />
         <Button
           sx={{ textTransform: 'unset' }}
           startIcon={<SelectAllIcon />}

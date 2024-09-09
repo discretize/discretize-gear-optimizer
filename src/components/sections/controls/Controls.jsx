@@ -113,7 +113,7 @@ const ControlsBox = () => {
   }
 
   return (
-    <Box display="flex" flexWrap="wrap">
+    <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
       <Box>
         <Button
           variant="outlined"
@@ -147,7 +147,7 @@ const ControlsBox = () => {
           </Typography>
         </Button>
       </Box>
-      <Box flexGrow={1}>
+      <Box sx={{ flexGrow: 1 }}>
         {status === STOPPED ? (
           <Button
             variant="outlined"
@@ -163,12 +163,12 @@ const ControlsBox = () => {
         ) : null}
       </Box>
 
-      <Box alignSelf="center" display="flex" m={1} maxWidth={300}>
+      <Box sx={{ alignSelf: 'center', display: 'flex', m: 1, maxWidth: 300 }}>
         <Typography variant="caption" className={classes.errorText}>
           {error}
         </Typography>
       </Box>
-      <Box alignSelf="center">
+      <Box sx={{ alignSelf: 'center' }}>
         <Chip
           sx={{ marginRight: 1 }}
           label={

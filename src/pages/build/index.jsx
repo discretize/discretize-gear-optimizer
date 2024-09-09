@@ -19,11 +19,11 @@ const IndexPage = () => {
     <APILanguageProvider value={language}>
       <BackgroundImage gameMode={gameMode} />
       <Layout>
-        <Box display="flex" gap={1} alignItems="center" pb={2}>
+        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', pb: 2 }}>
           <Typography variant="h3">
             <Trans>Shared Build</Trans>
           </Typography>
-          <Box flexGrow={1}>
+          <Box sx={{ flexGrow: 1 }}>
             <Chip label={GAME_MODES(t).find((mode) => mode.value === gameMode)?.label} />
           </Box>
 
