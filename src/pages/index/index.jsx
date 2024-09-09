@@ -100,7 +100,7 @@ const IndexPage = () => {
 
         {multicore && (
           <Alert severity="error" sx={{ marginBottom: 2 }}>
-            <Typography variant="body2" paragraph>
+            <Typography variant="body2" sx={{ marginBottom: '16px' }}>
               You have selected the experimental multicore mode. This mode is still in development
               and may cause issues. Please report any issues in the Discretize{' '}
               <Link href="https://discord.gg/Qdt7nFY" target="_blank" rel="noopener">
@@ -113,7 +113,7 @@ const IndexPage = () => {
               .
             </Typography>
 
-            <Typography variant="body2" paragraph>
+            <Typography variant="body2" sx={{ marginBottom: '16px' }}>
               A number of features are incomplete / broken in this mode. Other than those enumerated
               here, the optimizer should work as expected.
             </Typography>

@@ -47,7 +47,7 @@ const SectionInfo = ({ title, children }) => {
             <LiveHelpIcon sx={{ marginRight: 1 }} /> <Typography>{t('Help')}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography variant="caption" paragraph sx={{ mb: 0 }}>
+            <Typography variant="caption" sx={{ mb: 0 }}>
               {children}
             </Typography>
           </AccordionDetails>
