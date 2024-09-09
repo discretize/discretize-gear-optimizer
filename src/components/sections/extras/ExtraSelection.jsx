@@ -32,7 +32,8 @@ import {
 import { chunkArray } from '../../../utils/usefulFunctions';
 import AmountInput from '../../baseComponents/AmountInput';
 import Label from '../../baseComponents/Label';
-import ModalContent, { formatApiText, joinWith } from './helpers';
+import ModalContent from './ModalContent';
+import { formatApiText, joinWith } from './helpers';
 
 // const roundPrice = (num) => Math.round(num / 100) * 100;
 const roundPrice = (num) => Math.round(num / 10) * 10;
