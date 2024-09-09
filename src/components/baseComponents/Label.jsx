@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()((theme) => ({
@@ -18,8 +17,8 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 function Label({ className, children }) {
-  const { classes } = useStyles();
-  return <span className={classNames(classes.root, className)}>{children}</span>;
+  const { classes, cx } = useStyles();
+  return <span className={cx(classes.root, className)}>{children}</span>;
 }
 
 export default Label;

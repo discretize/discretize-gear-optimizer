@@ -2,7 +2,6 @@ import { Attribute, ConsumableEffect, Item } from '@discretize/gw2-ui-new';
 import { HelperIcon } from '@discretize/react-discretize-components';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import classNames from 'classnames';
 import React, { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { extrasTypes } from '../../../../state/slices/extras';
@@ -23,6 +22,7 @@ const extrasLabels = {
 
 const ResultTableHeaderRow = ({
   classes,
+  cx,
   weaponType = 'Two-handed',
   infusions = {},
   rankBy = 'Damage',
@@ -31,9 +31,7 @@ const ResultTableHeaderRow = ({
 }) => {
   const { t } = useTranslation();
 
-  const emptyCell = (
-    <TableCell className={classNames(classes.tablehead)} align="center" padding="none" />
-  );
+  const emptyCell = <TableCell className={cx(classes.tablehead)} align="center" padding="none" />;
   const padCellArray = (minLength, array) => {
     const resultArray =
       array.length < minLength
@@ -61,7 +59,7 @@ const ResultTableHeaderRow = ({
         maxSlotsLength,
         Slots[weaponType].map((slot) => (
           <TableCell
-            className={classNames(classes.tablehead, classes.gearColumn)}
+            className={cx(classes.tablehead, classes.gearColumn)}
             align="center"
             padding="none"
           >
@@ -73,7 +71,7 @@ const ResultTableHeaderRow = ({
         2,
         Object.keys(infusions).map((type) => (
           <TableCell
-            className={classNames(classes.tablehead, classes.infusionColumn)}
+            className={cx(classes.tablehead, classes.infusionColumn)}
             align="center"
             padding="none"
           >
@@ -88,7 +86,7 @@ const ResultTableHeaderRow = ({
           .filter((type) => displayExtras[type])
           .map((type) => (
             <TableCell
-              className={classNames(classes.tablehead, classes.extrasColumn)}
+              className={cx(classes.tablehead, classes.extrasColumn)}
               align="center"
               padding="none"
             >
@@ -99,7 +97,7 @@ const ResultTableHeaderRow = ({
 
       {displayAttributes.map((attribute) => (
         <TableCell
-          className={classNames(classes.tablehead, classes.attributesColumn)}
+          className={cx(classes.tablehead, classes.attributesColumn)}
           align="center"
           padding="none"
         >

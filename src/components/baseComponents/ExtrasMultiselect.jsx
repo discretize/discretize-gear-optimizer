@@ -3,7 +3,6 @@ import { Item } from '@discretize/gw2-ui-new';
 import CheckIcon from '@mui/icons-material/Check';
 import { Box, Chip, Divider, ListItemText, TextField, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
-import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,7 +36,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 const ExtrasSelect = ({ type, label, modifierData, modifierDataById: data }) => {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
   const dispatch = useDispatch();
   const { t } = useTranslation();
   // const { language } = useI18next();
@@ -82,7 +81,7 @@ const ExtrasSelect = ({ type, label, modifierData, modifierDataById: data }) => 
         );
       }}
       renderOption={({ className, ...prop }, id) => (
-        <li {...prop} className={classNames(classes.option, className)}>
+        <li {...prop} className={cx(classes.option, className)}>
           <Box sx={{ width: 32 }}>
             {currentIds.includes(id) && <CheckIcon sx={{ fontSize: '1rem' }} />}
           </Box>

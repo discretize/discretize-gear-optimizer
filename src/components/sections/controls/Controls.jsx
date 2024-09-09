@@ -5,7 +5,6 @@ import EqualizerRoundedIcon from '@mui/icons-material/EqualizerRounded';
 import ErrorIcon from '@mui/icons-material/Error';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import { Box, Button, Chip, Typography } from '@mui/material';
-import classNames from 'classnames';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector, useStore } from 'react-redux';
@@ -43,7 +42,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 const ControlsBox = () => {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const store = useStore();
@@ -141,7 +140,7 @@ const ControlsBox = () => {
           onClick={onStopCalculate}
           disabled={status !== RUNNING}
         >
-          <Cancel className={classNames(classes.icon)} />
+          <Cancel className={cx(classes.icon)} />
           <Typography style={{ marginLeft: 8 }}>
             <Trans>Stop</Trans>
           </Typography>

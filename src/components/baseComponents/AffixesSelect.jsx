@@ -2,7 +2,6 @@ import { CreateItem, Item } from '@discretize/gw2-ui-new';
 import CheckIcon from '@mui/icons-material/Check';
 import { Box, Chip, Divider, TextField, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
-import classNames from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
@@ -45,7 +44,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 const AffixesSelect = ({ name, multiple, onChange, value: affixes }) => {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
 
   const { t } = useTranslation();
 
@@ -81,7 +80,7 @@ const AffixesSelect = ({ name, multiple, onChange, value: affixes }) => {
       renderOption={({ className, ...prop }, option) => (
         <li
           {...prop}
-          className={classNames({ [classes.option]: multiple, [className]: true })}
+          className={cx({ [classes.option]: multiple, [className]: true })}
           key={option.label}
         >
           {multiple && (
