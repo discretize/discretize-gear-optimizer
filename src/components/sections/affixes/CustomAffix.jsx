@@ -19,7 +19,7 @@ import {
   getCustomAffixText,
 } from '../../../state/slices/priorities';
 
-export const exampleAffix = `type: quadruple
+const exampleAffix = `type: quadruple
 bonuses:
   major:
     - Power
@@ -28,7 +28,7 @@ bonuses:
     - Precision
     - Vitality`;
 
-export const exampleAffixJson = `{
+const exampleAffixJson = `{
   "type": "quadruple",
   "bonuses": {
     "major": ["Power", "Ferocity"],
