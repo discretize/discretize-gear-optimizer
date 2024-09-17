@@ -1,6 +1,6 @@
 import { Boon, CommonEffect, Condition, Skill, Trait } from '@discretize/gw2-ui-new';
 import { firstUppercase } from '@discretize/react-discretize-components';
-import { Box, FormControl, FormGroup, FormLabel, Grid, Typography } from '@mui/material';
+import { Box, FormControl, FormGroup, FormLabel, Grid2 as Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
@@ -59,7 +59,7 @@ const Buffs = () => {
   return (
     <Grid container spacing={4}>
       {buffModifiers.map((section) => (
-        <Grid key={section.section} item xs={12} sm={6} md={4}>
+        <Grid key={section.section} size={{ xs: 12, sm: 6, md: 4 }}>
           <FormControl component="fieldset" className={classes.formControl}>
             <FormLabel component="legend">
               {

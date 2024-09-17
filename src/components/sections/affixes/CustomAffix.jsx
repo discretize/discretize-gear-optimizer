@@ -3,7 +3,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Grid,
+  Grid2 as Grid,
   TextField,
   Typography,
 } from '@mui/material';
@@ -96,11 +96,11 @@ const CustomAffix = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Grid container>
-            <Grid item xs={6}>
+            <Grid size={6}>
               <Typography>YAML</Typography>
               <pre style={{ overflow: 'auto hidden' }}>{exampleAffix}</pre>
             </Grid>
-            <Grid item xs={6}>
+            <Grid size={6}>
               <Typography>JSON</Typography>
               <pre style={{ overflow: 'auto hidden' }}>{exampleAffixJson}</pre>
             </Grid>

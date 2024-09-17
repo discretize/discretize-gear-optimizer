@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Grid2 as Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeForcedSlot, getForcedSlots } from '../../../state/slices/forcedSlots';
@@ -30,7 +30,7 @@ const ForcedSlots = () => {
     >
       {SLOTS.map((slot, index) => (
         // eslint-disable-next-line react/no-array-index-key
-        <Grid item xs={6} sm={4} md={2} key={index}>
+        <Grid key={index} size={{ xs: 6, sm: 4, md: 2 }}>
           <AffixesSelect
             // i18next-extract-mark-context-next-line {{slotName}}
             name={t('slotName', { context: slot.name })}

@@ -1,5 +1,5 @@
 import { TextDivider } from '@discretize/react-discretize-components';
-import { Grid } from '@mui/material';
+import { Grid2 as Grid } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -61,7 +61,7 @@ const ResultDetails = () => {
 
       <ResultCharacter character={character} assumedBuffs={assumedBuffs} />
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
           <SpecialDurations data={character.attributes} />
           {Object.keys(bonuses).length ? <Bonuses data={bonuses} title={t('Bonuses')} /> : null}
           <Indicators data={character.results.indicators} />
@@ -69,12 +69,12 @@ const ResultDetails = () => {
           {character.infusions && <OutputInfusions data={character.infusions} />}
         </Grid>
 
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
           <OutputDistribution character={character} />
           <ConditionDetails character={character} />
           <OtherAttributes character={character} />
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
           <EffectiveGainLoss character={character} />
           <MultiplierBreakdown character={character} />
         </Grid>

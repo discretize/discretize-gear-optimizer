@@ -157,12 +157,14 @@ function ModalContent(props) {
         inputRef={searchRef}
         value={search}
         onChange={handleSearchChange}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <Label>{t('Ctrl+k')}</Label>
-            </InputAdornment>
-          ),
+        slotProps={{
+          input: {
+            endAdornment: (
+              <InputAdornment position="end">
+                <Label>{t('Ctrl+k')}</Label>
+              </InputAdornment>
+            ),
+          },
         }}
       />
       <Box sx={{ display: 'flex' }}>
