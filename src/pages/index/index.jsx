@@ -26,25 +26,29 @@ const IndexPage = () => {
 
   const ALERTS = [
     <Trans>
-      Core game changes are updated for the June 25th game patch, but preset coefficients and trait
-      selections may not yet be completely updated. Most gear results will be correctly optimized,
-      but DPS estimates and comparisons may be wrong.
+      🎉 Janthir Wilds has been released! 🎉
       <br />
       <br />
-      Templates not marked as Outdated are up to date.
+      Core game changes are updated for the Janthir Wilds game patch, but new relics and spear
+      builds are a work in progress.
     </Trans>,
     <Trans>
       The gear optimizer is still being developed! Please report issues or suggest improvements in
       the Discretize{' '}
-      <Link href="https://discord.gg/Qdt7nFY" color="textPrimary" target="_blank" rel="noopener">
+      <Link
+        href="https://discord.gg/Qdt7nFY"
+        target="_blank"
+        rel="noopener"
+        sx={{ color: 'textPrimary' }}
+      >
         Discord
       </Link>{' '}
       or on{' '}
       <Link
         href="https://github.com/discretize/discretize-gear-optimizer"
-        color="textPrimary"
         target="_blank"
         rel="noopener"
+        sx={{ color: 'textPrimary' }}
       >
         <GitHubIcon fontSize="small" /> Github
       </Link>
@@ -96,7 +100,7 @@ const IndexPage = () => {
 
         {multicore && (
           <Alert severity="error" sx={{ marginBottom: 2 }}>
-            <Typography variant="body2" paragraph>
+            <Typography variant="body2" sx={{ marginBottom: '16px' }}>
               You have selected the experimental multicore mode. This mode is still in development
               and may cause issues. Please report any issues in the Discretize{' '}
               <Link href="https://discord.gg/Qdt7nFY" target="_blank" rel="noopener">
@@ -109,7 +113,7 @@ const IndexPage = () => {
               .
             </Typography>
 
-            <Typography variant="body2" paragraph>
+            <Typography variant="body2" sx={{ marginBottom: '16px' }}>
               A number of features are incomplete / broken in this mode. Other than those enumerated
               here, the optimizer should work as expected.
             </Typography>

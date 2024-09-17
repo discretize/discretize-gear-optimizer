@@ -1,6 +1,6 @@
 import { Attribute, Item } from '@discretize/gw2-ui-new';
 import { HelperIcon } from '@discretize/react-discretize-components';
-import { FormControl, Grid, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import { FormControl, Grid2 as Grid, Input, InputLabel, MenuItem, Select } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -111,8 +111,13 @@ const Infusions = () => {
   return (
     <Grid container spacing={4}>
       {gameMode === 'fractals' && (
-        <Grid container item spacing={2} alignItems="center" justifyContent="flex-start">
-          <Grid item xs={12} sm>
+        <Grid
+          container
+          size={12}
+          spacing={2}
+          sx={{ alignItems: 'center', justifyContent: 'flex-start' }}
+        >
+          <Grid size={{ xs: 12, sm: 'grow' }}>
             <CheckboxComponent
               value={omnipotion}
               checked={omnipotion}
@@ -132,7 +137,7 @@ const Infusions = () => {
             />
           </Grid>
 
-          <Grid item xs={12} sm>
+          <Grid size={{ xs: 12, sm: 'grow' }}>
             <AmountInput
               className={classes.formControl}
               useAutoComplete
@@ -151,29 +156,26 @@ const Infusions = () => {
       )}
       <Grid
         container
-        item
+        size={12}
         spacing={2}
-        justifyContent="flex-start"
         direction="row"
-        alignItems="center"
+        sx={{ justifyContent: 'flex-start', alignItems: 'center' }}
       >
-        <Grid item xs={12}>
-          {input('# Stat Infusions', 'maxInfusions', maxInfusions)}
-        </Grid>
+        <Grid size={12}>{input('# Stat Infusions', 'maxInfusions', maxInfusions)}</Grid>
 
-        <Grid item xs={12}>
+        <Grid size={12}>
           {dropdown(t('Infusion Type #1'), 'primaryInfusion', primaryInfusion)}
           {input(t('Max #'), 'primaryMaxInfusions', primaryMaxInfusions, classes.formControl2)}
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid size={12}>
           {dropdown(t('Infusion Type #2'), 'secondaryInfusion', secondaryInfusion)}
           {input(t('Max #'), 'secondaryMaxInfusions', secondaryMaxInfusions, classes.formControl2)}
         </Grid>
       </Grid>
 
       {gameMode === 'fractals' && (
-        <Grid item xs={12}>
+        <Grid size={12}>
           <InfusionHelper />
         </Grid>
       )}

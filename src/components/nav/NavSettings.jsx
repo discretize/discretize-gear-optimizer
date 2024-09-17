@@ -188,7 +188,9 @@ export default function NavSettings({
             size="small"
             value={hwThreads}
             onChange={changeHwThreadsHandler}
-            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+            slotProps={{
+              htmlInput: { inputMode: 'numeric', pattern: '[0-9]*' },
+            }}
           />
           {/*
           <FormControlLabel

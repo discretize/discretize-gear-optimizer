@@ -52,7 +52,6 @@
   "Copy data to clipboard": "Copy data to clipboard",
   "Copy from selected character": "Copy from selected character",
   "Copy selected sigils to both slots": "Copy selected sigils to both slots",
-  "Core game changes are updated for the June 25th game patch, but preset coefficients and trait selections may not yet be completely updated. Most gear results will be correctly optimized, but DPS estimates and comparisons may be wrong.<br/><br/>Templates not marked as Outdated are up to date.": "Core game changes are updated for the June 25th game patch, but preset coefficients and trait selections may not yet be completely updated. Most gear results will be correctly optimized, but DPS estimates and comparisons may be wrong.<br/><br/>Templates not marked as Outdated are up to date.",
   "Create build templates that can be used for the gear optimizer.": "Create build templates that can be used for the gear optimizer.",
   "Create templates for the discretize.eu website. Please check the discretize-guides repo for more information.": "Create templates for the discretize.eu website. Please check the discretize-guides repo for more information.",
   "Ctrl+d": "Ctrl+d",
@@ -992,5 +991,6 @@
   "traitSubText_with shield": "with shield",
   "traitSubText_with staff": "with staff",
   "traitSubText_with sword": "with sword",
-  "traitSubText_with torch/dagger": "with torch/dagger"
+  "traitSubText_with torch/dagger": "with torch/dagger",
+  "🎉 Janthir Wilds has been released! 🎉<br/><br/>Core game changes are updated for the Janthir Wilds game patch, but new relics and spear builds are a work in progress.": "🎉 Janthir Wilds has been released! 🎉<br/><br/>Core game changes are updated for the Janthir Wilds game patch, but new relics and spear builds are a work in progress."
 }

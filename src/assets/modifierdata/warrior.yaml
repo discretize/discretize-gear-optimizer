@@ -494,6 +494,7 @@
           Outgoing Healing: 10%
       gw2id: 1317
       defaultEnabled: false
+      temporaryBuff: true
 
     - id: heightened-focus-3
       text: Heightened Focus
@@ -507,6 +508,7 @@
           Outgoing Healing: 15%
       gw2id: 1317
       defaultEnabled: false
+      temporaryBuff: true
 
     - id: heightened-focus-4
       text: Heightened Focus
@@ -520,6 +522,7 @@
           Outgoing Healing: 20%
       gw2id: 1317
       defaultEnabled: false
+      temporaryBuff: true
 
 - section: Berserker
   id: 18

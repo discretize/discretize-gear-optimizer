@@ -2,7 +2,7 @@ import { Box, Container } from '@mui/material';
 
 const Layout = ({ children, ContainerProps, disableContainer = false }) =>
   disableContainer ? (
-    <Box p={2}>{children}</Box>
+    <Box sx={{ p: 2 }}>{children}</Box>
   ) : (
     <Container disableGutters maxWidth="lg" {...ContainerProps}>
       <Box

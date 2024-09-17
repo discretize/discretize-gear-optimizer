@@ -29,13 +29,13 @@ const Skills = ({ data }) => {
     const enabled = Boolean(skillState[id]);
     const amount = skillState[id]?.amount || '';
     return (
-      <Box key={id} justifyContent="space-between" display="flex" maxWidth="648px">
+      <Box key={id} sx={{ justifyContent: 'space-between', display: 'flex', maxWidth: '648px' }}>
         <Box>
           <CheckboxComponent
             value={id}
             checked={enabled}
             label={
-              <Box display="flex">
+              <Box sx={{ display: 'flex' }}>
                 {gw2id && <Skill id={gw2id} disableLink />}
                 {subText && (
                   <Typography sx={{ fontWeight: 200, marginLeft: 1 }}>

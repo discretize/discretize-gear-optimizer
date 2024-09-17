@@ -24,6 +24,18 @@
           Outgoing Strike Damage: [7%, unknown]
       gw2id: 100947
 
+    - id: claw-relic
+      text: Relic of the Claw
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [7%, unknown]
+      gw2id: 103574
+
     - id: brawler-relic
       text: Relic of the Brawler
       amountData:

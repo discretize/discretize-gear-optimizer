@@ -78,7 +78,7 @@ const DamageDistribution = () => {
       if (!alternativeDamageEnabled) style = { opacity: 0.5 };
     }
     return (
-      <Box display="flex" flexWrap="wrap" key={`distriNew_${dist.name}`} style={style}>
+      <Box key={`distriNew_${dist.name}`} style={style} sx={{ display: 'flex', flexWrap: 'wrap' }}>
         <Box>
           <FormControl mb={1} className={classes.textbox} variant="standard">
             <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
@@ -118,11 +118,14 @@ const DamageDistribution = () => {
           </FormControl>
         </Box>
         <Box
-          flexGrow={1}
-          alignSelf="center"
-          mx={3}
-          mb={4}
-          sx={{ minWidth: 200, md: { marginLeft: 2 } }}
+          sx={{
+            flexGrow: 1,
+            alignSelf: 'center',
+            mx: 3,
+            mb: 4,
+            minWidth: 200,
+            md: { marginLeft: 2 },
+          }}
         >
           <Slider
             value={distributionNew[dist.name]}

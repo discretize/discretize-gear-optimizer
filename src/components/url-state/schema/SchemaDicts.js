@@ -226,6 +226,7 @@ export const relicsDict = [
   'dwayna-relic',
   'lyhr-relic',
   'mercy-relic',
+  'claw-relic',
 ];
 
 export const sigilDict = [

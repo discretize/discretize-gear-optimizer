@@ -1,5 +1,5 @@
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid2 as Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getProfession } from '../state/slices/controlsSlice';
@@ -41,7 +41,7 @@ const GearOptimizer = () => {
       <NavBar />
       <Box>
         {profession === '' && (
-          <Typography mb={1}>
+          <Typography sx={{ mb: 1 }}>
             <ExpandLessIcon />
             <i>{expertMode ? classOrBuildText : classText}</i> <ExpandLessIcon />
           </Typography>
@@ -95,9 +95,9 @@ const GearOptimizer = () => {
           <Controls />
 
           <ResultTable />
-          <Box m={3} />
+          <Box sx={{ m: 3 }} />
           <ResultDetails />
-          <Box m={3} />
+          <Box sx={{ m: 3 }} />
 
           <SharingSection />
         </div>

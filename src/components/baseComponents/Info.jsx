@@ -5,7 +5,7 @@ export default function Info({ children, direction = 'row', variant = 'caption',
     <Paper sx={{ mt: 0.5, mb: 1 }} elevation={0}>
       <Box sx={{ p: 1, display: 'flex', flexDirection: direction }}>
         <Box sx={{ mr: 1 }}>{icon}</Box>
-        <Typography variant={variant} paragraph sx={{ mb: 0 }}>
+        <Typography variant={variant} sx={{ mb: 0 }}>
           {children}
         </Typography>
       </Box>

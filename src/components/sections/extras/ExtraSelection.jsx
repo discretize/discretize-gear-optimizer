@@ -32,7 +32,8 @@ import {
 import { chunkArray } from '../../../utils/usefulFunctions';
 import AmountInput from '../../baseComponents/AmountInput';
 import Label from '../../baseComponents/Label';
-import ModalContent, { formatApiText, joinWith } from './ModalContent';
+import ModalContent from './ModalContent';
+import { formatApiText, joinWith } from './helpers';
 
 // const roundPrice = (num) => Math.round(num / 100) * 100;
 const roundPrice = (num) => Math.round(num / 10) * 10;
@@ -162,8 +163,8 @@ export default function ExtraSelection(props) {
 
   return (
     <APILanguageProvider value={extrasOverrideLanguage}>
-      <Box display="flex" alignItems="flex-end" mb={1}>
-        <Typography component="span" flexGrow={1}>
+      <Box sx={{ display: 'flex', alignItems: 'flex-end', mb: 1 }}>
+        <Typography component="span" sx={{ flexGrow: 1 }}>
           {label}
         </Typography>
         <Button variant="contained" size="small" startIcon={<AddIcon />} onClick={handleOpen}>
@@ -189,7 +190,7 @@ export default function ExtraSelection(props) {
               >
                 <ListItemText
                   primary={
-                    <Box display="flex">
+                    <Box sx={{ display: 'flex' }}>
                       <Box>
                         {displayIds ? (
                           joinWith(
@@ -234,7 +235,7 @@ export default function ExtraSelection(props) {
                         </Typography>
                       )}
 
-                      <Box flexGrow={1} />
+                      <Box sx={{ flexGrow: 1 }} />
                       {amountData && (
                         <AmountInput
                           placeholder={amountData.default}
@@ -269,7 +270,7 @@ export default function ExtraSelection(props) {
         PaperProps={{ elevation: 4 }}
       >
         <DialogTitle id="scroll-dialog-title" display="flex">
-          <Typography flexGrow={1} component="span" alignSelf="center">
+          <Typography component="span" sx={{ flexGrow: 1, alignSelf: 'center' }}>
             {label}
           </Typography>
           <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">

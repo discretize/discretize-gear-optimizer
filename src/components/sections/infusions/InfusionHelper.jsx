@@ -208,7 +208,7 @@ const InfusionHelper = () => {
           }
           onChange={(e) => dispatch(changeSingularity(e.target.checked))}
         />
-        <Box mb={2}>
+        <Box sx={{ mb: 2 }}>
           <CheckboxComponent
             value={tear}
             checked={tear}
@@ -265,7 +265,7 @@ const InfusionHelper = () => {
           onChange={handleSlotsChange}
           aria-labelledby="total-infusion-slots"
         />
-        <Box mb={2}>
+        <Box sx={{ mb: 2 }}>
           <CheckboxComponent
             value={freeWvW}
             checked={freeWvW}

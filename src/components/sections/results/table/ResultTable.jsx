@@ -5,7 +5,6 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-import classNames from 'classnames';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -78,7 +77,7 @@ const mode = (array) => {
 const emptyArray = [];
 
 const StickyHeadTable = () => {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
   const { t } = useTranslation();
 
   const [managerOpen, setManagerOpen] = React.useState(false);
@@ -167,17 +166,15 @@ const StickyHeadTable = () => {
 
   return (
     <>
-      <Box boxShadow={8} mb={3}>
+      <Box sx={{ boxShadow: 8, mb: 3 }}>
         <TableContainer
-          className={classNames(
-            classes.container,
-            tallTable ? classes.tallTable : classes.shortTable,
-          )}
+          className={cx(classes.container, tallTable ? classes.tallTable : classes.shortTable)}
         >
           <Table stickyHeader aria-label="sticky table" className={classes.tableCollapse}>
             <TableHead>
               <ResultTableHeaderRow
                 classes={classes}
+                cx={cx}
                 weaponType={weaponType}
                 infusions={infusions}
                 rankBy={rankBy}
@@ -232,17 +229,15 @@ const StickyHeadTable = () => {
         </IconButton>
         <SavedResultManager isOpen={managerOpen} setOpen={setManagerOpen} />
       </Box>
-      <Box boxShadow={8} mb={3}>
+      <Box sx={{ boxShadow: 8, mb: 3 }}>
         <TableContainer
-          className={classNames(
-            classes.container,
-            tallTable ? classes.tallTable : classes.shortTable,
-          )}
+          className={cx(classes.container, tallTable ? classes.tallTable : classes.shortTable)}
         >
           <Table stickyHeader aria-label="saved results table" className={classes.tableCollapse}>
             <TableHead style={{ visibility: 'collapse' }}>
               <ResultTableHeaderRow
                 classes={classes}
+                cx={cx}
                 weaponType={weaponType}
                 infusions={infusions}
                 rankBy={rankBy}

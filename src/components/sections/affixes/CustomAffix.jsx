@@ -3,7 +3,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Grid,
+  Grid2 as Grid,
   TextField,
   Typography,
 } from '@mui/material';
@@ -19,7 +19,7 @@ import {
   getCustomAffixText,
 } from '../../../state/slices/priorities';
 
-export const exampleAffix = `type: quadruple
+const exampleAffix = `type: quadruple
 bonuses:
   major:
     - Power
@@ -28,7 +28,7 @@ bonuses:
     - Precision
     - Vitality`;
 
-export const exampleAffixJson = `{
+const exampleAffixJson = `{
   "type": "quadruple",
   "bonuses": {
     "major": ["Power", "Ferocity"],
@@ -96,11 +96,11 @@ const CustomAffix = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Grid container>
-            <Grid item xs={6}>
+            <Grid size={6}>
               <Typography>YAML</Typography>
               <pre style={{ overflow: 'auto hidden' }}>{exampleAffix}</pre>
             </Grid>
-            <Grid item xs={6}>
+            <Grid size={6}>
               <Typography>JSON</Typography>
               <pre style={{ overflow: 'auto hidden' }}>{exampleAffixJson}</pre>
             </Grid>

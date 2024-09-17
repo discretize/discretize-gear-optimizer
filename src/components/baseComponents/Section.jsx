@@ -5,7 +5,7 @@ import {
   AccordionDetails,
   AccordionSummary,
   Divider,
-  Grid,
+  Grid2 as Grid,
   Typography,
 } from '@mui/material';
 import React from 'react';
@@ -47,7 +47,7 @@ const SectionInfo = ({ title, children }) => {
             <LiveHelpIcon sx={{ marginRight: 1 }} /> <Typography>{t('Help')}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography variant="caption" paragraph sx={{ mb: 0 }}>
+            <Typography variant="caption" sx={{ mb: 0 }}>
               {children}
             </Typography>
           </AccordionDetails>
@@ -60,20 +60,18 @@ const SectionInfo = ({ title, children }) => {
 // first disables the delimiting line above!
 const Section = ({ first, title, helpText, extraInfo, content }) => {
   return (
-    <Grid item container spacing={2} mb={2} sx={{ borderColor: 'primary.main' }}>
+    <Grid container size={12} spacing={2} sx={{ mb: 2, borderColor: 'primary.main' }}>
       {!first && (
-        <Grid item xs={12}>
+        <Grid size={12}>
           <Divider />
         </Grid>
       )}
-      <Grid item xs={12} sm={3}>
+      <Grid size={{ xs: 12, sm: 3 }}>
         <SectionInfo title={title}>{helpText}</SectionInfo>
         {extraInfo}
       </Grid>
 
-      <Grid item xs={12} sm={9}>
-        {content}
-      </Grid>
+      <Grid size={{ xs: 12, sm: 9 }}>{content}</Grid>
     </Grid>
   );
 };

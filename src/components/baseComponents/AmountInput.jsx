@@ -28,13 +28,17 @@ const AmountInput = ({
             error={error}
             label={label}
             variant="standard"
-            InputProps={{
-              ...params.InputProps,
-              endAdornment: (
-                <InputAdornment disablePointerEvents position="end" disableTypography>
-                  <Typography sx={{ fontSize: '0.9rem', color: '#b1b1b5' }}>{endLabel}</Typography>
-                </InputAdornment>
-              ),
+            slotProps={{
+              input: {
+                ...params.InputProps,
+                endAdornment: (
+                  <InputAdornment disablePointerEvents position="end" disableTypography>
+                    <Typography sx={{ fontSize: '0.9rem', color: '#b1b1b5' }}>
+                      {endLabel}
+                    </Typography>
+                  </InputAdornment>
+                ),
+              },
             }}
             style={maxWidth ? { maxWidth } : null}
           />
@@ -56,13 +60,15 @@ const AmountInput = ({
       variant="standard"
       size="small"
       sx={{ height: 26 }}
-      InputProps={{
-        endAdornment: (
-          <InputAdornment disablePointerEvents position="end" disableTypography>
-            <Typography sx={{ fontSize: '0.9rem', color: '#b1b1b5' }}>{endLabel}</Typography>
-          </InputAdornment>
-        ),
-        inputProps: { style: maxWidth ? { maxWidth } : null },
+      slotProps={{
+        input: {
+          endAdornment: (
+            <InputAdornment disablePointerEvents position="end" disableTypography>
+              <Typography sx={{ fontSize: '0.9rem', color: '#b1b1b5' }}>{endLabel}</Typography>
+            </InputAdornment>
+          ),
+          inputProps: { style: maxWidth ? { maxWidth } : null },
+        },
       }}
       onChange={handleAmountChange}
       disabled={disabled}

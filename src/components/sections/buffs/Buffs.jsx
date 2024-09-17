@@ -1,7 +1,6 @@
 import { Boon, CommonEffect, Condition, Skill, Trait } from '@discretize/gw2-ui-new';
 import { firstUppercase } from '@discretize/react-discretize-components';
-import { Box, FormControl, FormGroup, FormLabel, Grid, Typography } from '@mui/material';
-import classNames from 'classnames';
+import { Box, FormControl, FormGroup, FormLabel, Grid2 as Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
@@ -31,7 +30,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 const Buffs = () => {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
 
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -60,7 +59,7 @@ const Buffs = () => {
   return (
     <Grid container spacing={4}>
       {buffModifiers.map((section) => (
-        <Grid key={section.section} item xs={12} sm={6} md={4}>
+        <Grid key={section.section} size={{ xs: 12, sm: 6, md: 4 }}>
           <FormControl component="fieldset" className={classes.formControl}>
             <FormLabel component="legend">
               {
@@ -83,7 +82,7 @@ const Buffs = () => {
                       <Typography
                         variant="body2"
                         component="div"
-                        className={classNames(classes.note, subText && classes.hasSubText)}
+                        className={cx(classes.note, subText && classes.hasSubText)}
                       >
                         {
                           // i18next-extract-mark-context-next-line {{buffText}}
@@ -99,8 +98,8 @@ const Buffs = () => {
                   );
 
                 return (
-                  <Box justifyContent="space-between" display="flex" key={id}>
-                    <Box display="flex">
+                  <Box key={id} sx={{ justifyContent: 'space-between', display: 'flex' }}>
+                    <Box sx={{ display: 'flex' }}>
                       <CheckboxComponent
                         key={id}
                         value={id}
@@ -110,7 +109,7 @@ const Buffs = () => {
                       />
                     </Box>
                     {amountData ? (
-                      <Box display="flex">
+                      <Box sx={{ display: 'flex' }}>
                         <AmountInput
                           placeholder={amountData.default}
                           endLabel={amountData.label}

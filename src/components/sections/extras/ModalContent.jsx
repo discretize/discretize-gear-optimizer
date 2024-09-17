@@ -20,6 +20,7 @@ import { makeStyles } from 'tss-react/mui';
 import { placeholderItem } from '../../../assets/modifierdata';
 import { changeExtraIds, getExtrasIds } from '../../../state/slices/extras';
 import Label from '../../baseComponents/Label';
+import { formatApiText, joinWith } from './helpers';
 
 const useStyles = makeStyles()((theme) => ({
   root: {
@@ -43,36 +44,6 @@ function groupBy(xs, key) {
     return rv;
   }, {});
 }
-
-const firstUppercase = (str) => str.charAt(0).toUpperCase() + str.slice(1);
-
-export const formatApiText = (apiText) =>
-  firstUppercase(
-    apiText
-      .replace(/^Superior Sigil /, 'Sigil ')
-      .replace(/^Überlegenes Sigill /, 'Sigill ')
-      .replace(/^Sello superior /, 'Sello ')
-
-      .replace(/^Superior Rune /, 'Rune ')
-      .replace(/^Überlegene Rune /, 'Rune ')
-      .replace(/^Runa superior /, 'Runa ')
-
-      .replaceAll('"', '')
-      .replace(/^Plate of /, '')
-      .replace(/^Bowl of /, '')
-      .replace(/^Slice of /, '')
-      .replace(/^Scoop of /, '')
-      .replace(/ Squash Soup$/, '')
-
-      // .replace(/^Schüssel mit /, '')
-      // .replace(/^Teller mit /, '')
-
-      .replace(/^Plato de /, '')
-      .replace(/^Cuenco de /, ''),
-  );
-
-export const joinWith = (array, separator) =>
-  array.flatMap((element) => [element, separator]).slice(0, -1);
 
 function ModalContent(props) {
   const { type, modifierData, modifierDataById: data, priceData, showAttributes } = props;
@@ -186,16 +157,18 @@ function ModalContent(props) {
         inputRef={searchRef}
         value={search}
         onChange={handleSearchChange}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <Label>{t('Ctrl+k')}</Label>
-            </InputAdornment>
-          ),
+        slotProps={{
+          input: {
+            endAdornment: (
+              <InputAdornment position="end">
+                <Label>{t('Ctrl+k')}</Label>
+              </InputAdornment>
+            ),
+          },
         }}
       />
-      <Box display="flex">
-        <Box flexGrow={1} />
+      <Box sx={{ display: 'flex' }}>
+        <Box sx={{ flexGrow: 1 }} />
         <Button
           sx={{ textTransform: 'unset' }}
           startIcon={<SelectAllIcon />}

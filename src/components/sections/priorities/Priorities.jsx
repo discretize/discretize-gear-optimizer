@@ -4,7 +4,7 @@ import {
   FormControl,
   FormControlLabel,
   FormLabel,
-  Grid,
+  Grid2 as Grid,
   Input,
   InputLabel,
   Radio,
@@ -68,7 +68,7 @@ const Priorities = () => {
   const showWarning = profession !== 'Warrior' && minCritChanceValue && minCritChanceValue >= 99.9;
 
   const optimizeForControl = (
-    <Grid item xs={6}>
+    <Grid size={6}>
       <FormControl component="fieldset">
         <FormLabel component="legend">
           <Trans>Optimize for:</Trans>{' '}
@@ -100,7 +100,7 @@ const Priorities = () => {
   );
 
   const weaponTypeControl = (
-    <Grid item xs={6}>
+    <Grid size={6}>
       <FormControl component="fieldset">
         <FormLabel component="legend">
           <Trans>Weapon type:</Trans>{' '}
@@ -150,7 +150,7 @@ const Priorities = () => {
     },
   ].map(({ type, label, value }) => {
     return (
-      <Grid key={`resultConstraints${type}`} item xs={6} md={4} className={classes.box}>
+      <Grid key={`resultConstraints${type}`} className={classes.box} size={{ xs: 6, md: 4 }}>
         <FormControl className={classes.formControl} variant="standard">
           <InputLabel htmlFor={`${type}-input-with-icon-adornment`}>{label}</InputLabel>
           <Input
@@ -242,7 +242,7 @@ const Priorities = () => {
     },
   ].map(({ type, label, value }) => {
     return (
-      <Grid key={`statsConstraints${type}`} item xs={6} md={4} className={classes.box}>
+      <Grid key={`statsConstraints${type}`} className={classes.box} size={{ xs: 6, md: 4 }}>
         <FormControl className={classes.formControl} variant="standard">
           <InputLabel htmlFor={`${type}-input-with-icon-adornment`}>{label}</InputLabel>
           <Input
@@ -262,7 +262,7 @@ const Priorities = () => {
 
   return (
     <>
-      <Grid container m={1}>
+      <Grid container sx={{ m: 1 }}>
         {optimizeForControl}
         {weaponTypeControl}
       </Grid>

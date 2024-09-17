@@ -67,7 +67,7 @@ export default function NavAccordion({ handleTemplateSelect }) {
       </MuiAccordionSummary>
       <MuiAccordionDetails classes={{ root: classes.accordionDetailsRoot }}>
         {prof.builds.map((build) => (
-          <Box mb={1} key={`templateBuildMobile_${build.name}`}>
+          <Box key={`templateBuildMobile_${build.name}`} sx={{ mb: 1 }}>
             <Chip
               variant="outlined"
               label={<Profession name={build.specialization} text={build.name} disableLink />}

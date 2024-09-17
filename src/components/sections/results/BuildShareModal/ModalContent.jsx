@@ -73,7 +73,7 @@ export default function ModalContent({ character, buttons }) {
   return (
     <>
       <Typography>{t('Select weapons:')}</Typography>
-      <Box mb={1}>
+      <Box sx={{ mb: 1 }}>
         <Select
           variant="standard"
           value={mainhand1}
@@ -110,10 +110,10 @@ export default function ModalContent({ character, buttons }) {
           </Select>
         )}
       </Box>
-      <Box alignSelf="center">
+      <Box sx={{ alignSelf: 'center' }}>
         <Icon name="WeaponSwap" />
       </Box>
-      <Box mb={2}>
+      <Box sx={{ mb: 2 }}>
         <Select
           variant="standard"
           value={mainhand2}
@@ -153,7 +153,7 @@ export default function ModalContent({ character, buttons }) {
 
       <Typography>{t('Select skills:')}</Typography>
 
-      <Box mb={2}>
+      <Box sx={{ mb: 2 }}>
         {isLoading && <Progress />}
         {state.error && <Error name="ERROR" message={state.error} />}
         {state.skills && (

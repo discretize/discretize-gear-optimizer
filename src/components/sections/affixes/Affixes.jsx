@@ -28,7 +28,7 @@ export default function Affixes() {
   return (
     <Stack spacing={7}>
       <Box>
-        <Typography fontWeight={700} mb={0.5}>
+        <Typography sx={{ fontWeight: 700, mb: 0.5 }}>
           {t('Desired Affixes')}{' '}
           <HelperIcon
             text={t(
@@ -47,7 +47,7 @@ export default function Affixes() {
       </Box>
       {exclusionsEnabled && (
         <Box>
-          <Typography fontWeight={700} mb={0.5}>
+          <Typography sx={{ fontWeight: 700, mb: 0.5 }}>
             {t('Per-Slot Exclusions')}{' '}
             <HelperIcon
               text={t(
@@ -61,7 +61,7 @@ export default function Affixes() {
       )}
       {exoticsEnabled && (
         <Box>
-          <Typography fontWeight={700} mb={0.5}>
+          <Typography sx={{ fontWeight: 700, mb: 0.5 }}>
             {t('Use exotic rarity')}{' '}
             <HelperIcon
               text={t('Allows you to use exotic rarity instead of ascended for any gear slot.')}
@@ -86,7 +86,7 @@ export default function Affixes() {
       )}
       {customSelected && (
         <Box>
-          <Typography fontWeight={700}>
+          <Typography sx={{ fontWeight: 700 }}>
             {t('Custom Affix Data')}{' '}
             <HelperIcon
               text={t('Specify any attributes to simulate with the "custom" affix type.')}

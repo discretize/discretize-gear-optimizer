@@ -222,6 +222,9 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [2%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [1.5%, mult]
       gw2id: 526
       defaultEnabled: true
 
