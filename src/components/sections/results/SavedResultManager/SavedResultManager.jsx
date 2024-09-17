@@ -58,21 +58,21 @@ function Gear({ gear, infusions }) {
     <Gw2Tooltip
       content={
         <>
-          <Typography color="primary" variant="body2">
+          <Typography variant="body2" sx={{ color: 'primary' }}>
             <Trans>Armor</Trans>:
           </Typography>
           {gear.slice(0, 6).map((affix) => `${affix.slice(0, 4)} `)}
-          <Typography color="primary" variant="body2">
+          <Typography variant="body2" sx={{ color: 'primary' }}>
             <Trans>Trinkets</Trans>:
           </Typography>
           {gear.slice(6, 12).map((affix) => `${affix.slice(0, 4)} `)}
-          <Typography color="primary" variant="body2">
+          <Typography variant="body2" sx={{ color: 'primary' }}>
             <Trans>Weapons</Trans>:
           </Typography>
           {gear.slice(12).map((affix) => `${affix.slice(0, 4)} `)}
           {infusions && (
             <>
-              <Typography color="primary" variant="body2">
+              <Typography variant="body2" sx={{ color: 'primary' }}>
                 <Trans>Infusions</Trans>:
               </Typography>
               {Object.entries(infusions).map(([name, count]) => (
@@ -205,7 +205,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
       PaperProps={{ elevation: 4 }}
     >
       <DialogTitle id="scroll-dialog-title" display="flex">
-        <Typography flexGrow={1} component="span" alignSelf="center">
+        <Typography component="span" sx={{ flexGrow: 1, alignSelf: 'center' }}>
           <Trans>Saved Results Manager</Trans>
         </Typography>
         <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
@@ -214,7 +214,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
       </DialogTitle>
 
       <DialogContent sx={{ padding: 2 }} dividers>
-        <Typography fontWeight={200}>
+        <Typography sx={{ fontWeight: 200 }}>
           <Trans>Temporary saved builds</Trans>{' '}
           <HelperIcon
             text={t('These builds will be deleted after you leave or refresh this page.')}
@@ -274,8 +274,8 @@ export default function SavedResultManager({ isOpen, setOpen }) {
           </Table>
         </TableContainer>
 
-        <Box display="flex" alignItems="center" mb={1}>
-          <Typography fontWeight={200} marginTop={2} flexGrow={1}>
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+          <Typography sx={{ fontWeight: 200, marginTop: 2, flexGrow: 1 }}>
             <Trans>Persistent build storage</Trans>{' '}
             <HelperIcon
               text={t(

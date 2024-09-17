@@ -215,8 +215,8 @@ const StickyHeadTable = () => {
         </TableContainer>
       </Box>
 
-      <Box display="flex" alignItems="center" className={classes.tablehead}>
-        <Typography flexGrow={1} ml={2} fontWeight={600} fontFamily="Raleway">
+      <Box className={classes.tablehead} sx={{ display: 'flex', alignItems: 'center' }}>
+        <Typography sx={{ flexGrow: 1, ml: 2, fontWeight: 600, fontFamily: 'Raleway' }}>
           <Trans>Saved Results</Trans>{' '}
           <HelperIcon
             text={t('Click the star icon to save a result for comparison.')}
