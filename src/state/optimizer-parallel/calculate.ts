@@ -1,4 +1,4 @@
-import { RUNNING } from '../optimizer/status';
+import { RUNNING, STOPPED } from '../optimizer/status';
 import {
   changeFilteredLists,
   changeList,
@@ -23,6 +23,15 @@ const createWorker = (): WorkerWrapper => ({
   worker: new Worker(new URL('./worker/worker.ts', import.meta.url), { type: 'module' }),
 });
 
+const terminateActiveWorkers = () => {
+  createdWorkers.forEach((workerObj, i) => {
+    if (workerObj.status !== 'idle') {
+      workerObj.worker.terminate();
+      createdWorkers[i] = createWorker();
+    }
+  });
+};
+
 export default function calculate(reduxState: RootState, dispatch: AppDispatch): WorkerWrapper[] {
   const selectedMaxThreads = reduxState.optimizer.control.hwThreads;
 
@@ -45,6 +54,8 @@ export default function calculate(reduxState: RootState, dispatch: AppDispatch):
 
   const withHeuristics = getHeuristics(reduxState);
   const settings = createSettings(reduxState);
+
+  terminateActiveWorkers();
 
   console.log(`Creating ${selectedMaxThreads} threads`);
   // create all threads. later on we may or may not use them depending on the presented problem
@@ -78,4 +89,9 @@ export default function calculate(reduxState: RootState, dispatch: AppDispatch):
   }
 
   return workers;
+}
+
+export function stopCalculation(dispatch: AppDispatch) {
+  terminateActiveWorkers();
+  dispatch(changeStatus(STOPPED));
 }
