@@ -1,4 +1,4 @@
-import { Character } from '../../optimizer/optimizerCore';
+import { Character, characterLT } from '../../optimizer/optimizerCore';
 import { ERROR, SUCCESS } from '../../optimizer/status';
 import {
   addToList,
@@ -94,7 +94,7 @@ export default function runCalcNormal(
         });
         const sortedResults = results
           .flat(1)
-          .sort((a, b) => b.attributes[b.settings.rankby] - a.attributes[a.settings.rankby])
+          .sort((a, b) => characterLT(a, b, settings.rankby))
           .slice(0, maxResults);
 
         console.log('All workers finished');

@@ -5,7 +5,7 @@ import {
   ProfessionName,
   ProfessionOrSpecializationName,
 } from '../../utils/gw2-data';
-import { Character } from '../optimizer/optimizerCore';
+import { Character, characterLT } from '../optimizer/optimizerCore';
 import { OptimizerStatus, RUNNING, WAITING } from '../optimizer/status';
 import type { RootState } from '../store';
 
@@ -169,9 +169,7 @@ export const controlSlice = createSlice({
       // insert all characters of payload such that the order of the list is kept
       // slice to 100 characters
       const newList = [...state.list, ...action.payload.data];
-      newList.sort(
-        (a, b) => b.attributes[action.payload.rankby] - a.attributes[action.payload.rankby],
-      );
+      newList.sort((a, b) => characterLT(a, b, action.payload.rankby));
 
       return { ...state, list: newList.slice(0, 100) };
     },
