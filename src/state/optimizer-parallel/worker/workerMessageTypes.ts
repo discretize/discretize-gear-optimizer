@@ -52,7 +52,6 @@ export interface ProgressMessage {
   new: number;
   total: number;
   results: Character[];
-  combinations: Combination[];
 }
 export interface ErrorMessage {
   type: typeof ERROR;

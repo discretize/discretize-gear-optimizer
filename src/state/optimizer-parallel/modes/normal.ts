@@ -26,81 +26,6 @@ const PROGRESS_UPDATE_INTERVALL = 2000000;
 let currentProgress = 0;
 let results: Character[][] = [];
 
-function onMessage(
-  e: MessageEvent<MessageType>,
-  dispatch: AppDispatch,
-  index: number,
-  workers: WorkerWrapper[],
-  maxResults: number,
-  numThreads: number,
-  settings: Settings,
-  resultData: ResultData[],
-  reduxState: RootState,
-) {
-  let message = e.data;
-  if (typeof e.data === 'string') {
-    message = JSON.parse(e.data) as any;
-  }
-
-  if (isFinishMessage(message)) {
-    results.push(message.data);
-    workers[index].status = 'finished';
-
-    // check if all workers finished
-    if (workers.slice(0, numThreads).every(({ status }) => status === 'finished')) {
-      workers.forEach((workerObj) => {
-        workerObj.status = 'idle';
-      });
-      const sortedResults = results
-        .flat(1)
-        .sort((a, b) => b.attributes[b.settings.rankby] - a.attributes[a.settings.rankby])
-        .slice(0, maxResults);
-
-      console.log('All workers finished');
-      console.log('Results', sortedResults);
-
-      if (!dispatch) {
-        throw new Error('Dispatch not set');
-      }
-
-      dispatch(changeStatus(SUCCESS));
-      dispatch(changeList(sortedResults));
-      dispatch(changeSelectedCharacter(sortedResults[0]));
-    }
-  } else if (isProgressMessage(message)) {
-    currentProgress += message.new;
-
-    // eslint-disable-next-line no-case-declarations
-    const progress = Math.round((currentProgress / message.total) * 100);
-    // dispatch as a percentage of total combinations
-    console.log('Progress', currentProgress, '/', message.total, '=', progress, '%');
-    console.log('Results', message.results);
-    dispatch(changeProgress(progress));
-
-    // only update the list for the first thread that sends an update
-    if (currentProgress % (numThreads * PROGRESS_UPDATE_INTERVALL) === 0) {
-      // update result table
-      if (message.results.length > 0)
-        dispatch(
-          addToList({
-            rankby: settings.rankby,
-            data: enhanceResults(
-              message.results,
-              settings,
-              message.combinations,
-              getResultProperties(reduxState, resultData),
-            ),
-          }),
-        );
-    }
-  } else if (isErrorMessage(message)) {
-    console.error('Error', message.data);
-    dispatch(changeStatus(ERROR));
-  } else {
-    console.error('Unknown message', message);
-  }
-}
-
 /**
  * Performs the calculation in normal mode. This means that the calculation is split into chunks of work
  * based on the affix tree structure. Each chunk is then calculated by a separate thread.
@@ -144,23 +69,78 @@ export default function runCalcNormal(
   const chunks = splitCombinations(affixcombinations, effectiveThreads);
 
   const maxResults = settings?.maxResults;
+
+  function onMessage(e: MessageEvent<MessageType>, index: number) {
+    let message = e.data;
+    if (typeof e.data === 'string') {
+      message = JSON.parse(e.data) as any;
+    }
+
+    if (isFinishMessage(message)) {
+      results.push(message.data);
+      workers[index].status = 'finished';
+
+      // check if all workers finished
+      if (workers.slice(0, effectiveThreads).every(({ status }) => status === 'finished')) {
+        workers.forEach((workerObj) => {
+          workerObj.status = 'idle';
+        });
+        const sortedResults = results
+          .flat(1)
+          .sort((a, b) => b.attributes[b.settings.rankby] - a.attributes[a.settings.rankby])
+          .slice(0, maxResults);
+
+        console.log('All workers finished');
+        console.log('Results', sortedResults);
+
+        if (!dispatch) {
+          throw new Error('Dispatch not set');
+        }
+
+        dispatch(changeStatus(SUCCESS));
+        dispatch(changeList(sortedResults));
+        dispatch(changeSelectedCharacter(sortedResults[0]));
+      }
+    } else if (isProgressMessage(message)) {
+      currentProgress += message.new;
+
+      // eslint-disable-next-line no-case-declarations
+      const progress = Math.round((currentProgress / message.total) * 100);
+      // dispatch as a percentage of total combinations
+      console.log('Progress', currentProgress, '/', message.total, '=', progress, '%');
+      console.log('Raw Results', message.results);
+      dispatch(changeProgress(progress));
+
+      // only update the list for the first thread that sends an update
+      if (currentProgress % (effectiveThreads * PROGRESS_UPDATE_INTERVALL) === 0) {
+        // update result table
+        if (message.results.length > 0)
+          dispatch(
+            addToList({
+              rankby: settings.rankby,
+              data: enhanceResults(
+                message.results,
+                settings,
+                combinations,
+                getResultProperties(reduxState, resultData),
+              ),
+            }),
+          );
+      }
+    } else if (isErrorMessage(message)) {
+      console.error('Error', message.data);
+      dispatch(changeStatus(ERROR));
+    } else {
+      console.error('Unknown message', message);
+    }
+  }
+
   // attach listener
   workers.forEach(({ worker }, index) => {
     if (index >= effectiveThreads) {
       return;
     }
-    worker.onmessage = (e: MessageEvent<MessageType>) =>
-      onMessage(
-        e,
-        dispatch,
-        index,
-        workers,
-        maxResults,
-        effectiveThreads,
-        settings,
-        resultData,
-        reduxState,
-      );
+    worker.onmessage = (e: MessageEvent<MessageType>) => onMessage(e, index);
   });
 
   currentProgress = 0;
