@@ -26,6 +26,8 @@ const PROGRESS_UPDATE_INTERVALL = 2000000;
 let currentProgress = 0;
 let results: Character[][] = [];
 
+let temp: Combination[] = [];
+
 function onMessage(
   e: MessageEvent<MessageType>,
   dispatch: AppDispatch,
@@ -74,7 +76,7 @@ function onMessage(
     const progress = Math.round((currentProgress / message.total) * 100);
     // dispatch as a percentage of total combinations
     console.log('Progress', currentProgress, '/', message.total, '=', progress, '%');
-    console.log('Results', message.results);
+    console.log('Raw Results', message.results);
     dispatch(changeProgress(progress));
 
     // only update the list for the first thread that sends an update
@@ -87,7 +89,7 @@ function onMessage(
             data: enhanceResults(
               message.results,
               settings,
-              message.combinations,
+              temp,
               getResultProperties(reduxState, resultData),
             ),
           }),
@@ -130,6 +132,7 @@ export default function runCalcNormal(
   maxThreads: number,
   withHeuristics: boolean,
 ) {
+  temp = combinations;
   const affixArray = settings?.affixesArray;
   if (!affixArray) {
     console.error('No affixes found');
