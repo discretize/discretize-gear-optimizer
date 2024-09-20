@@ -17,7 +17,6 @@ import {
 } from '../../slices/extras';
 import { RootState } from '../../store';
 import { Combination, Settings, createCombination } from '../optimizerSetup';
-import { ResultProperties, enhanceResults } from '../results';
 import { descendSubtreeDFS } from '../tree';
 import { combinationsToWorkerString, getAffixId, settingsToWorkerString } from '../utils';
 import {
@@ -36,8 +35,8 @@ onmessage = (e: MessageEvent<MessageType>) => {
   console.log('worker received message', e.data);
 
   if (isStartMessage(e.data)) {
-    const { chunks, settings, combinations, resultProperties, withHeuristics } = e.data;
-    start(chunks, settings, combinations, resultProperties, withHeuristics);
+    const { chunks, settings, combinations, withHeuristics } = e.data;
+    start(chunks, settings, combinations, withHeuristics);
   } else if (isStartHeuristicsMessage(e.data)) {
     const { chunks, extrasIds, reduxState, settings } = e.data;
     start_heuristics(chunks, extrasIds, reduxState, settings);
@@ -48,7 +47,6 @@ async function start(
   chunks: string[][],
   settings: Settings,
   combinations: Combination[],
-  resultProperties: ResultProperties,
   withHeurisics: boolean,
 ) {
   let now = performance.now();
@@ -76,7 +74,7 @@ async function start(
 
     const message: FinishedMessage = {
       type: FINISHED,
-      data: enhanceResults(JSON.parse(data || '[]'), settings, combinations, resultProperties),
+      results: JSON.parse(data || '[]') as any[],
     };
     postMessage(message);
   } catch (e) {

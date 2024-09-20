@@ -77,7 +77,14 @@ export default function runCalcNormal(
     }
 
     if (isFinishMessage(message)) {
-      results.push(message.data);
+      results.push(
+        enhanceResults(
+          message.results,
+          settings,
+          combinations,
+          getResultProperties(reduxState, resultData),
+        ),
+      );
       workers[index].status = 'finished';
 
       // check if all workers finished
@@ -155,7 +162,6 @@ export default function runCalcNormal(
       chunks: chunks[index],
       settings,
       combinations,
-      resultProperties: getResultProperties(reduxState, resultData),
       withHeuristics,
     };
     workerObj.status = 'running';
