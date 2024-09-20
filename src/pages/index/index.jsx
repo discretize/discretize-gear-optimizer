@@ -129,6 +129,9 @@ const IndexPage = () => {
                 <b>Displaying the best result for each combination.</b> This is not possible due to
                 the Rust implementation not calculating every combination.
               </li>
+              <li>
+                <b>Coefficient Calculation from Logs.</b>
+              </li>
             </Typography>
           </Alert>
         )}
