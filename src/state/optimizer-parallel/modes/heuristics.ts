@@ -67,6 +67,7 @@ export default function runCalcHeuristics(
       reduxState,
       settings,
     };
+    workerObj.status = 'running_heuristics';
     workerObj.worker.postMessage(message);
   });
 }

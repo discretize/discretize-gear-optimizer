@@ -48,6 +48,9 @@ function onMessage(
 
     // check if all workers finished
     if (workers.slice(0, numThreads).every(({ status }) => status === 'finished')) {
+      workers.forEach((workerObj) => {
+        workerObj.status = 'idle';
+      });
       const sortedResults = results
         .flat(1)
         .sort((a, b) => b.attributes[b.settings.rankby] - a.attributes[a.settings.rankby])
@@ -163,7 +166,7 @@ export default function runCalcNormal(
   currentProgress = 0;
   results = [];
   // start workers
-  workers.forEach(({ worker }, index) => {
+  workers.forEach((workerObj, index) => {
     if (index >= effectiveThreads) {
       return;
     }
@@ -175,6 +178,7 @@ export default function runCalcNormal(
       resultProperties: getResultProperties(reduxState, resultData),
       withHeuristics,
     };
-    worker.postMessage(message);
+    workerObj.status = 'running';
+    workerObj.worker.postMessage(message);
   });
 }

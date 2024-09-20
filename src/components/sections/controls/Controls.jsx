@@ -5,12 +5,10 @@ import EqualizerRoundedIcon from '@mui/icons-material/EqualizerRounded';
 import ErrorIcon from '@mui/icons-material/Error';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import { Box, Button, Chip, Typography } from '@mui/material';
-import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import calculate from '../../../state/optimizer-parallel/calculate';
-import { RESUME, STOP } from '../../../state/optimizer-parallel/worker/workerMessageTypes';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import SagaTypes from '../../../state/sagas/sagaTypes';
 import {
@@ -46,7 +44,6 @@ const ControlsBox = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const store = useStore();
-  const [workers, setWorkers] = React.useState(null);
 
   const status = useSelector(getStatus);
   const error = useSelector(getError);
@@ -73,8 +70,7 @@ const ControlsBox = () => {
       dispatch(changeError(''));
       dispatch({ type: SagaTypes.Start });
     } else {
-      const workersNew = calculate(store.getState(), dispatch);
-      setWorkers(workersNew);
+      calculate(store.getState(), dispatch);
     }
   };
 
@@ -82,7 +78,8 @@ const ControlsBox = () => {
     if (!multicore) {
       dispatch({ type: SagaTypes.Resume });
     } else {
-      workers.forEach(({ worker }) => worker.postMessage({ type: RESUME }));
+      // not currently implemented: stop/resume in multicore rust mode
+      // workers.forEach(({ worker }) => worker.postMessage({ type: RESUME }));
     }
   };
 
@@ -90,7 +87,8 @@ const ControlsBox = () => {
     if (!multicore) {
       dispatch({ type: SagaTypes.Stop });
     } else {
-      workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
+      // not currently implemented: stop/resume in multicore rust mode
+      // workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
     }
   };
 

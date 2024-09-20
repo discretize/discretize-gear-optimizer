@@ -12,12 +12,16 @@ import runCalcNormal from './modes/normal';
 import { createSettings, setupNormal } from './optimizerSetup';
 
 export interface WorkerWrapper {
-  status: 'created' | 'running' | 'stopped' | 'finished' | 'error' | 'finished_heuristics';
-  workerId: number;
+  status: 'idle' | 'running' | 'finished' | 'running_heuristics' | 'finished_heuristics';
   worker: globalThis.Worker;
 }
 
-const createdWorkers: globalThis.Worker[] = [];
+const createdWorkers: WorkerWrapper[] = [];
+
+const createWorker = (): WorkerWrapper => ({
+  status: 'idle',
+  worker: new Worker(new URL('./worker/worker.ts', import.meta.url), { type: 'module' }),
+});
 
 export default function calculate(reduxState: RootState, dispatch: AppDispatch): WorkerWrapper[] {
   const selectedMaxThreads = reduxState.optimizer.control.hwThreads;
@@ -45,14 +49,8 @@ export default function calculate(reduxState: RootState, dispatch: AppDispatch):
   console.log(`Creating ${selectedMaxThreads} threads`);
   // create all threads. later on we may or may not use them depending on the presented problem
   const workers: WorkerWrapper[] = [...Array(selectedMaxThreads)].map((_, index) => {
-    createdWorkers[index] ??= new Worker(new URL('./worker/worker.ts', import.meta.url), {
-      type: 'module',
-    });
-    return {
-      status: 'created',
-      workerId: index,
-      worker: createdWorkers[index],
-    };
+    createdWorkers[index] ??= createWorker();
+    return createdWorkers[index];
   });
 
   // select calculation mode - at the moment there are only two modes
