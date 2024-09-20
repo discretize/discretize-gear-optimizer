@@ -1,7 +1,6 @@
 import { Character, characterLT } from '../../optimizer/optimizerCore';
 import { ERROR, SUCCESS } from '../../optimizer/status';
 import {
-  addToList,
   changeList,
   changeProgress,
   changeSelectedCharacter,
@@ -22,7 +21,7 @@ import {
   isProgressMessage,
 } from '../worker/workerMessageTypes';
 
-const PROGRESS_UPDATE_INTERVALL = 2000000;
+const PROGRESS_UPDATE_INTERVALL = 1000000;
 let currentProgress = 0;
 let results: Character[][] = [];
 
@@ -69,6 +68,8 @@ export default function runCalcNormal(
   const chunks = splitCombinations(affixcombinations, effectiveThreads);
 
   const maxResults = settings?.maxResults;
+
+  let list: Character[] = [];
 
   function onMessage(e: MessageEvent<MessageType>, index: number) {
     let message = e.data;
@@ -118,21 +119,23 @@ export default function runCalcNormal(
       console.log('Raw Results', message.results);
       dispatch(changeProgress(progress));
 
-      // only update the list for the first thread that sends an update
-      if (currentProgress % (effectiveThreads * PROGRESS_UPDATE_INTERVALL) === 0) {
-        // update result table
-        if (message.results.length > 0)
-          dispatch(
-            addToList({
-              rankby: settings.rankby,
-              data: enhanceResults(
-                message.results,
-                settings,
-                combinations,
-                getResultProperties(reduxState, resultData),
-              ),
-            }),
-          );
+      if (message.results.length > 0) {
+        list = list
+          .concat(
+            enhanceResults(
+              message.results,
+              settings,
+              combinations,
+              getResultProperties(reduxState, resultData),
+            ),
+          )
+          .sort((a, b) => characterLT(a, b, settings.rankby))
+          .slice(0, maxResults);
+
+        // only render the table for the first thread that sends an update
+        if (currentProgress % (effectiveThreads * PROGRESS_UPDATE_INTERVALL) === 0) {
+          dispatch(changeList(list));
+        }
       }
     } else if (isErrorMessage(message)) {
       console.error('Error', message.data);

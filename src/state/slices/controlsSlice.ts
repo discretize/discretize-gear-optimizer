@@ -1,11 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { PayloadAction, createSelector, createSlice, original } from '@reduxjs/toolkit';
-import {
-  IndicatorName,
-  ProfessionName,
-  ProfessionOrSpecializationName,
-} from '../../utils/gw2-data';
-import { Character, characterLT } from '../optimizer/optimizerCore';
+import { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
+import { Character } from '../optimizer/optimizerCore';
 import { OptimizerStatus, RUNNING, WAITING } from '../optimizer/status';
 import type { RootState } from '../store';
 
@@ -165,14 +161,6 @@ export const controlSlice = createSlice({
     changeList: (state, action: PayloadAction<Character[]>) => {
       return { ...state, list: action.payload };
     },
-    addToList: (state, action: PayloadAction<{ rankby: IndicatorName; data: Character[] }>) => {
-      // insert all characters of payload such that the order of the list is kept
-      // slice to 100 characters
-      const newList = [...state.list, ...action.payload.data];
-      newList.sort((a, b) => characterLT(a, b, action.payload.rankby));
-
-      return { ...state, list: newList.slice(0, 100) };
-    },
     changeFilteredLists: (state, action: PayloadAction<Record<ExtraFilterMode, Character[]>>) => {
       return { ...state, ...action.payload };
     },
@@ -274,7 +262,6 @@ export const {
   changeHwThreads,
   changeMulticore,
   changeHeuristics,
-  addToList,
 } = controlSlice.actions;
 
 export default controlSlice.reducer;
