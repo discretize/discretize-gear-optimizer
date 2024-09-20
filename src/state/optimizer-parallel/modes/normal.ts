@@ -69,8 +69,6 @@ export default function runCalcNormal(
 
   const maxResults = settings?.maxResults;
 
-  let list: Character[] = [];
-
   function onMessage(e: MessageEvent<MessageType>, index: number) {
     let message = e.data;
     if (typeof e.data === 'string') {
@@ -78,13 +76,11 @@ export default function runCalcNormal(
     }
 
     if (isFinishMessage(message)) {
-      results.push(
-        enhanceResults(
-          message.results,
-          settings,
-          combinations,
-          getResultProperties(reduxState, resultData),
-        ),
+      results[index] = enhanceResults(
+        message.results,
+        settings,
+        combinations,
+        getResultProperties(reduxState, resultData),
       );
       workers[index].status = 'finished';
 
@@ -120,21 +116,21 @@ export default function runCalcNormal(
       dispatch(changeProgress(progress));
 
       if (message.results.length > 0) {
-        list = list
-          .concat(
-            enhanceResults(
-              message.results,
-              settings,
-              combinations,
-              getResultProperties(reduxState, resultData),
-            ),
-          )
+        results[index] = enhanceResults(
+          message.results,
+          settings,
+          combinations,
+          getResultProperties(reduxState, resultData),
+        );
+
+        const sortedResults = results
+          .flat(1)
           .sort((a, b) => characterLT(a, b, settings.rankby))
           .slice(0, maxResults);
 
         // only render the table for the first thread that sends an update
         if (currentProgress % (effectiveThreads * PROGRESS_UPDATE_INTERVALL) === 0) {
-          dispatch(changeList(list));
+          dispatch(changeList(sortedResults));
         }
       }
     } else if (isErrorMessage(message)) {
@@ -150,6 +146,7 @@ export default function runCalcNormal(
     if (index >= effectiveThreads) {
       return;
     }
+    results[index] = [];
     worker.onmessage = (e: MessageEvent<MessageType>) => onMessage(e, index);
   });
 
