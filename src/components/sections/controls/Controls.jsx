@@ -8,7 +8,10 @@ import { Box, Button, Chip, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import calculate from '../../../state/optimizer-parallel/calculate';
+import {
+  calculateParallel,
+  stopCalculationParallel,
+} from '../../../state/optimizer-parallel/calculate';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import SagaTypes from '../../../state/sagas/sagaTypes';
 import {
@@ -70,7 +73,7 @@ const ControlsBox = () => {
       dispatch(changeError(''));
       dispatch({ type: SagaTypes.Start });
     } else {
-      calculate(store.getState(), dispatch);
+      calculateParallel(store.getState(), dispatch);
     }
   };
 
@@ -78,7 +81,7 @@ const ControlsBox = () => {
     if (!multicore) {
       dispatch({ type: SagaTypes.Resume });
     } else {
-      // not currently implemented: stop/resume in multicore rust mode
+      // not currently implemented: pause/resume in multicore rust mode
       // workers.forEach(({ worker }) => worker.postMessage({ type: RESUME }));
     }
   };
@@ -87,8 +90,8 @@ const ControlsBox = () => {
     if (!multicore) {
       dispatch({ type: SagaTypes.Stop });
     } else {
-      // not currently implemented: stop/resume in multicore rust mode
       // workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
+      stopCalculationParallel(dispatch);
     }
   };
 
@@ -145,7 +148,7 @@ const ControlsBox = () => {
         </Button>
       </Box>
       <Box sx={{ flexGrow: 1 }}>
-        {status === STOPPED ? (
+        {status === STOPPED && !multicore ? (
           <Button
             variant="outlined"
             color="primary"
