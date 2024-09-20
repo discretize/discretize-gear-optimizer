@@ -53,7 +53,7 @@ async function start(
 ) {
   let now = performance.now();
   // await wasm module initialization
-  await init();
+  await init({});
 
   console.log('Wasm module initialized in', performance.now() - now, 'ms');
 
