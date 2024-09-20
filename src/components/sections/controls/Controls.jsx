@@ -8,7 +8,10 @@ import { Box, Button, Chip, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import calculate, { stopCalculation } from '../../../state/optimizer-parallel/calculate';
+import {
+  calculateParallel,
+  stopCalculationParallel,
+} from '../../../state/optimizer-parallel/calculate';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import SagaTypes from '../../../state/sagas/sagaTypes';
 import {
@@ -70,7 +73,7 @@ const ControlsBox = () => {
       dispatch(changeError(''));
       dispatch({ type: SagaTypes.Start });
     } else {
-      calculate(store.getState(), dispatch);
+      calculateParallel(store.getState(), dispatch);
     }
   };
 
@@ -88,7 +91,7 @@ const ControlsBox = () => {
       dispatch({ type: SagaTypes.Stop });
     } else {
       // workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
-      stopCalculation(dispatch);
+      stopCalculationParallel(dispatch);
     }
   };
 

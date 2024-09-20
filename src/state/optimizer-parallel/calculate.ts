@@ -32,7 +32,7 @@ const terminateActiveWorkers = () => {
   });
 };
 
-export default function calculate(reduxState: RootState, dispatch: AppDispatch): WorkerWrapper[] {
+export function calculateParallel(reduxState: RootState, dispatch: AppDispatch): WorkerWrapper[] {
   const selectedMaxThreads = reduxState.optimizer.control.hwThreads;
 
   dispatch(changeStatus(RUNNING));
@@ -91,7 +91,7 @@ export default function calculate(reduxState: RootState, dispatch: AppDispatch):
   return workers;
 }
 
-export function stopCalculation(dispatch: AppDispatch) {
+export function stopCalculationParallel(dispatch: AppDispatch) {
   terminateActiveWorkers();
   dispatch(changeStatus(STOPPED));
 }
