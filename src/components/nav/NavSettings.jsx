@@ -200,15 +200,13 @@ export default function NavSettings({
               htmlInput: { inputMode: 'numeric', pattern: '[0-9]*' },
             }}
           />
-          {/*
           <FormControlLabel
             control={<Checkbox />}
             label={t('Enable heuristics')}
-            sx={{ mb: 3 }}
+            sx={{ mb: 3, display: 'none' }}
             checked={enableHeuristics}
             onChange={changeHeuristicsHandler}
           />
-          */}
         </>
       )}
     </Settings>

@@ -60,7 +60,8 @@ export default function runCalcHeuristics(
             resultData,
             settings,
             maxThreads,
-            true,
+            // note: change this back to true to enable per-thread combination heuristics
+            false,
           );
         }
       }
