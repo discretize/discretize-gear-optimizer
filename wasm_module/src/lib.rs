@@ -48,7 +48,7 @@ pub fn calculate(
     // workerglobal.set_onmessage(Some(on_message_callback.as_ref().unchecked_ref()));
 
     // calculate the result (maxResult best characters) for the given chunks
-    let mut result = start(&chunks, &settings, &combinations, Some(&workerglobal));
+    let mut result = start(&chunks, &settings, &combinations, None, Some(&workerglobal));
     result.on_complete(&settings, &combinations);
 
     // parse to string
@@ -79,16 +79,12 @@ pub fn calculate_with_heuristics(
 
     // receive list of combinationIds
     let picked_combination_ids = start_with_heuristics(&settings, &combinations);
-    // transform into combination structs
-    let mut picked_combinations = vec![];
-    for id in picked_combination_ids {
-        picked_combinations.push(combinations.get(id as usize).unwrap().clone());
-    }
 
     let mut result = start(
         &chunks,
         &settings,
-        &picked_combinations,
+        &combinations,
+        Some(&picked_combination_ids),
         Some(&workerglobal),
     );
     result.on_complete(&settings, &combinations);
