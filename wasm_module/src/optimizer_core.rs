@@ -140,7 +140,7 @@ pub fn start_with_heuristics(settings: &Settings, combinations: &Vec<Combination
         })
         .collect();
 
-    console::log_1(&JsValue::from_str(&format!(
+    console::info_1(&JsValue::from_str(&format!(
         "Finished heuristics. Picked {} combinations",
         picked_combinations.len()
     )));
