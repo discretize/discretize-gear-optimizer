@@ -49,8 +49,8 @@ export function calculateParallel(reduxState: RootState, dispatch: AppDispatch):
   );
   dispatch(changeProgress(0));
 
-  console.log('Parallel Optimizer');
-  console.log('State', reduxState);
+  console.info('Parallel Optimizer');
+  console.info('State', reduxState);
 
   const withHeuristics = getHeuristics(reduxState);
   const settings = createSettings(reduxState);

@@ -47,6 +47,11 @@ export default function runCalcHeuristics(
 
         if (allFinished) {
           console.log("All workers finished heuristics, let's start the real calculation");
+          console.log(
+            'Heuristics chosen combinations:',
+            resultData.map(({ extrasCombination }) => extrasCombination),
+          );
+
           runCalcNormal(
             reduxState,
             dispatch,
@@ -62,6 +67,7 @@ export default function runCalcHeuristics(
     };
     const message: StartHeuristicsMessage = {
       type: START_HEURISTICS,
+      index,
       chunks: chunks[index],
       extrasIds,
       reduxState,

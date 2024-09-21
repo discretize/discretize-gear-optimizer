@@ -24,6 +24,7 @@ export type MessageType =
 
 export interface StartMessage {
   type: typeof START;
+  index: number;
   chunks: string[][];
   combinations: Combination[];
   settings: Settings;
@@ -31,6 +32,7 @@ export interface StartMessage {
 }
 export interface StartHeuristicsMessage {
   type: typeof START_HEURISTICS;
+  index: number;
   chunks: string[][];
   extrasIds: string[][];
   reduxState: RootState;

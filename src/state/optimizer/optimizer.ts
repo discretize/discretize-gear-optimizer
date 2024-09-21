@@ -82,11 +82,12 @@ export function* calculate(reduxState: RootState) {
       done,
     } = combination.calculation.next();
 
-    console.log(`option ${currentIndex} progress: ${calculationRuns} / ${runsAfterThisSlot[0]}`);
     combination.calculationRuns = calculationRuns ?? 0;
 
     const globalCalculationRuns = combinations.reduce((prev, cur) => prev + cur.calculationRuns, 0);
-    console.log(`total progress: ${globalCalculationRuns} / ${globalCalculationTotal}`);
+    console.log(
+      `option ${currentIndex} progress: ${calculationRuns} / ${runsAfterThisSlot[0]}. total progress: ${globalCalculationRuns} / ${globalCalculationTotal}`,
+    );
 
     combination.list = newList;
     combination.done = Boolean(done);

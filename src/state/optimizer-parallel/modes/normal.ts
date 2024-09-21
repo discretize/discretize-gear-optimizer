@@ -112,7 +112,7 @@ export default function runCalcNormal(
       const progress = Math.round((currentProgress / message.total) * 100);
       // dispatch as a percentage of total combinations
       console.log('Progress', currentProgress, '/', message.total, '=', progress, '%');
-      console.log('Raw Results', message.results);
+      console.info(index, 'Raw Results', message.results);
       dispatch(changeProgress(progress));
 
       if (message.results.length > 0) {
@@ -159,6 +159,7 @@ export default function runCalcNormal(
     }
     const message: StartMessage = {
       type: START,
+      index,
       chunks: chunks[index],
       settings,
       combinations,

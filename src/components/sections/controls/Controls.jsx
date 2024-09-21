@@ -67,7 +67,7 @@ const ControlsBox = () => {
       return;
     }
 
-    console.log('calculate');
+    console.log('Starting Calculation');
 
     if (!multicore) {
       dispatch(changeError(''));
