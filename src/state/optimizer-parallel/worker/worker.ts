@@ -89,7 +89,6 @@ async function start(
     postMessage(message);
   }
 }
-const bestList: [Combination, ExtrasCombinationEntry][] = [];
 
 /**
  * Runs heuristics to figure out which extras combinations are likely good.
@@ -128,6 +127,8 @@ async function start_heuristics(
   // store combinations here; we batch process them
   let currentChunkList: [Combination, ExtrasCombinationEntry][] = [];
 
+  const bestList: [Combination, ExtrasCombinationEntry][] = [];
+
   // callback that is called for every leaf of the extras combination tree
   // we calculate the attributes and modifiers of the combination here
   const callback = async (leaf: string[]) => {
@@ -158,7 +159,7 @@ async function start_heuristics(
     if (currentChunkList.length === 100000) {
       // batch process
       console.log(index, 'Calculating batch of ', currentChunkList.length, ' extras combinations');
-      calcWasmHeuristics(settings, currentChunkList);
+      bestList.push(...calcWasmHeuristics(settings, currentChunkList));
       // reset chunk list
       currentChunkList = [];
       console.log(index, 'Finished run');
@@ -171,10 +172,11 @@ async function start_heuristics(
 
   // often, there will be extras combinations left since descendSubtreeDFS batches calls to the wasm heuristics calculator
   if (currentChunkList.length > 0) {
-    calcWasmHeuristics(settings, currentChunkList);
+    bestList.push(...calcWasmHeuristics(settings, currentChunkList));
   }
 
   console.log(index, 'Heuristics Wasm calculation finished in', performance.now() - now, 'ms');
+  console.info(index, 'Result:', bestList);
 
   const message: FinishedHeuristicsMessage = {
     type: FINISHED_HEURISTICS,
@@ -192,7 +194,5 @@ function calcWasmHeuristics(settings: Settings, chunks: [Combination, ExtrasComb
   // find combinations for the ids
   const res = combinationIds.map((id) => chunks[id]);
 
-  bestList.push(...res);
-
-  console.info(index, 'current best list', bestList);
+  return res;
 }
