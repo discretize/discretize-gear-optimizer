@@ -26,6 +26,7 @@ pub fn start(
     chunks: &Vec<Vec<Affix>>,
     settings: &Settings,
     combinations: &Vec<Combination>,
+    picked_combination_ids: Option<&Vec<u32>>,
     workerglobal: Option<&DedicatedWorkerGlobalScope>,
 ) -> Result {
     let rankby = settings.rankby;
@@ -48,6 +49,10 @@ pub fn start(
 
         // iterate over all combinations
         for i in 0..combinations.len() {
+            if picked_combination_ids.is_some_and(|ids| ids.contains(&(i as u32)) == false) {
+                continue;
+            }
+
             let combination = &combinations[i];
             character.clear();
             character.combination_id = i as u32;
