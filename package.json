@@ -62,6 +62,7 @@
     "axios": "^1.7.7",
     "comlink": "^4.4.1",
     "i18next": "^23.14.0",
+    "js-combinatorics": "^2.1.2",
     "js-yaml": "^4.1.0",
     "json-url": "^3.1.0",
     "material-ui-popup-state": "^5.3.1",

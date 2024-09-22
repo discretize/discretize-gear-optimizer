@@ -47,6 +47,9 @@ dependencies:
   i18next:
     specifier: ^23.14.0
     version: 23.14.0
+  js-combinatorics:
+    specifier: ^2.1.2
+    version: 2.1.2
   js-yaml:
     specifier: ^4.1.0
     version: 4.1.0
@@ -4491,6 +4494,10 @@ packages:
       reflect.getprototypeof: 1.0.6
       set-function-name: 2.0.2
     dev: true
+
+  /js-combinatorics@2.1.2:
+    resolution: {integrity: sha512-/1AY2bYwxajoaKjPzvgQ80U7lcucU71ubzFPVgZGmzbDGn3R18ZQUZfD69+4Idg4JfNcq6trwD6I+dRfVnr/tg==}
+    dev: false
 
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}

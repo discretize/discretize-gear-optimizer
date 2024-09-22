@@ -11,6 +11,7 @@ import {
   UPDATE_MS,
 } from './optimizerCore';
 import { ExtrasCombinationEntry, setupCombinations } from './optimizerSetup';
+import './combinatorics';
 
 interface Combination extends ExtrasCombinationEntry {
   settings: OptimizerCoreSettings;
