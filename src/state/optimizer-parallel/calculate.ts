@@ -1,4 +1,4 @@
-import { RUNNING, STOPPED } from '../optimizer/status';
+import { STOPPED } from '../optimizer/status';
 import {
   changeFilteredLists,
   changeList,
@@ -35,7 +35,6 @@ const terminateActiveWorkers = () => {
 export function calculateParallel(reduxState: RootState, dispatch: AppDispatch): WorkerWrapper[] {
   const selectedMaxThreads = reduxState.optimizer.control.hwThreads;
 
-  dispatch(changeStatus(RUNNING));
   dispatch(changeList([]));
   dispatch(
     changeFilteredLists({

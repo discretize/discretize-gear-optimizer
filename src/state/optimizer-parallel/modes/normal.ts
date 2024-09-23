@@ -1,5 +1,5 @@
 import { Character, characterLT } from '../../optimizer/optimizerCore';
-import { ERROR, SUCCESS } from '../../optimizer/status';
+import { ERROR, RUNNING, SUCCESS } from '../../optimizer/status';
 import {
   changeList,
   changeProgress,
@@ -54,6 +54,8 @@ export default function runCalcNormal(
   maxThreads: number,
   withHeuristics: boolean,
 ) {
+  dispatch(changeStatus(RUNNING));
+
   const affixArray = settings?.affixesArray;
   if (!affixArray) {
     console.error('No affixes found');

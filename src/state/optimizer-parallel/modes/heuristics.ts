@@ -1,3 +1,5 @@
+import { RUNNING_HEURISTICS } from '../../optimizer/status';
+import { changeStatus } from '../../slices/controlsSlice';
 import type { AppDispatch, RootState } from '../../store';
 import type { WorkerWrapper } from '../calculate';
 import { Combination, ResultData, Settings } from '../optimizerSetup';
@@ -17,6 +19,8 @@ export default function runCalcHeuristics(
   settings: Settings,
   maxThreads: number,
 ) {
+  dispatch(changeStatus(RUNNING_HEURISTICS));
+
   const extrasIds = getExtrasIdsCombinations(reduxState);
   // for a particular problem it might not be possible to split work efficiently into effectiveThreads chunks
   const effectiveThreads = Math.min(maxThreads, getTotalCombinations(extrasIds, 1));

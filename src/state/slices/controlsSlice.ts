@@ -2,7 +2,7 @@
 import { PayloadAction, createSelector, createSlice, original } from '@reduxjs/toolkit';
 import { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
 import { Character } from '../optimizer/optimizerCore';
-import { OptimizerStatus, RUNNING, WAITING } from '../optimizer/status';
+import { OptimizerStatus, RUNNING, RUNNING_HEURISTICS, WAITING } from '../optimizer/status';
 import type { RootState } from '../store';
 
 const roundThree = (num: number) => Math.round(num * 1000) / 1000;
@@ -239,9 +239,12 @@ export const getError = (state: RootState) => state.optimizer.control.error;
 export const getMulticore = (state: RootState) => state.optimizer.control.multicore;
 export const getHeuristics = (state: RootState) => state.optimizer.control.heuristics;
 
-export const getPageTitle = createSelector(getStatus, getProgress, (status, progress) =>
-  status === RUNNING ? `${progress}% - Discretize Gear Optimizer` : 'Discretize Gear Optimizer',
-);
+export const getPageTitle = createSelector(getStatus, getProgress, (status, progress) => {
+  if (status === RUNNING) return `${progress}% - Discretize Gear Optimizer`;
+  if (status === RUNNING_HEURISTICS) return `0% (${progress}%) - Discretize Gear Optimizer`;
+
+  return 'Discretize Gear Optimizer';
+});
 
 export const {
   changeAll,

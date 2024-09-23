@@ -12,7 +12,14 @@ import {
   calculateParallel,
   stopCalculationParallel,
 } from '../../../state/optimizer-parallel/calculate';
-import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../../../state/optimizer/status';
+import {
+  ERROR,
+  RUNNING,
+  RUNNING_HEURISTICS,
+  STOPPED,
+  SUCCESS,
+  WAITING,
+} from '../../../state/optimizer/status';
 import SagaTypes from '../../../state/sagas/sagaTypes';
 import {
   changeError,
@@ -103,6 +110,7 @@ const ControlsBox = () => {
       break;
     case WAITING:
     case RUNNING:
+    case RUNNING_HEURISTICS:
       icon = <HourglassEmptyIcon fontSize="small" classes={{ root: classes.chipIcon }} />;
       break;
     case ERROR:
@@ -121,9 +129,9 @@ const ControlsBox = () => {
           className={classes.button}
           onClick={onStartCalculate}
           classes={{ label: classes.label }}
-          disabled={status === RUNNING || profession === ''}
+          disabled={[RUNNING, RUNNING_HEURISTICS].includes(status) || profession === ''}
         >
-          {status === RUNNING ? (
+          {[RUNNING, RUNNING_HEURISTICS].includes(status) ? (
             <ProgressIcon className={classes.icon} />
           ) : (
             <EqualizerRoundedIcon className={classes.icon} />
@@ -139,7 +147,7 @@ const ControlsBox = () => {
           color="primary"
           className={classes.button}
           onClick={onStopCalculate}
-          disabled={status !== RUNNING}
+          disabled={![RUNNING, RUNNING_HEURISTICS].includes(status)}
         >
           <Cancel className={cx(classes.icon)} />
           <Typography style={{ marginLeft: 8 }}>
@@ -176,7 +184,11 @@ const ControlsBox = () => {
               <Trans>Status:</Trans> {firstUppercase(status)} {icon}
             </>
           }
-          color={[SUCCESS, WAITING, RUNNING].includes(status) ? 'primary' : 'secondary'}
+          color={
+            [SUCCESS, WAITING, RUNNING, RUNNING_HEURISTICS].includes(status)
+              ? 'primary'
+              : 'secondary'
+          }
         />
         <ResultTableSettings />
       </Box>
