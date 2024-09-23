@@ -223,6 +223,8 @@ export function setupCombinations(
     ...combination,
   }));
 
+  console.log('settings per calculation', createSettingsPerCalculation(reduxState));
+
   const data: [ExtrasCombinationEntry, OptimizerCoreSettings][] = combinations.map(
     ({ extrasCombination, extrasModifiers }) => {
       console.log('Input option:', { extrasCombination, extrasModifiers });
