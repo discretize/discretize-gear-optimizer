@@ -61,7 +61,8 @@ export function* calculate(reduxState: RootState) {
    */
 
   const { rankby, runsAfterThisSlot } = combinations[0].core.settings;
-  const globalCalculationTotal = runsAfterThisSlot[0] * combinations.length;
+  const calculationTotal = runsAfterThisSlot[0];
+  const globalCalculationTotal = calculationTotal * combinations.length;
 
   let i = 0;
 
@@ -86,7 +87,7 @@ export function* calculate(reduxState: RootState) {
 
     const globalCalculationRuns = combinations.reduce((prev, cur) => prev + cur.calculationRuns, 0);
     console.log(
-      `option ${currentIndex} progress: ${calculationRuns} / ${runsAfterThisSlot[0]}. total progress: ${globalCalculationRuns} / ${globalCalculationTotal}`,
+      `option ${currentIndex} progress: ${calculationRuns} / ${calculationTotal}. total progress: ${globalCalculationRuns} / ${globalCalculationTotal}`,
     );
 
     combination.list = newList;
