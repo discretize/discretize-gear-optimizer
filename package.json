@@ -12,7 +12,7 @@
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.4",
-    "browser-sync": "^3.0.2",
+    "browser-sync": "^3.0.3",
     "cssnano": "^7.0.6",
     "del": "^6.1.1",
     "eslint": "^8.57.1",
@@ -31,7 +31,7 @@
     "js-yaml": "^4.1.0",
     "postcss": "^8.4.47",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "sass": "^1.78.0"
+    "sass": "^1.79.3"
   },
   "engines": {
     "node": "18",
