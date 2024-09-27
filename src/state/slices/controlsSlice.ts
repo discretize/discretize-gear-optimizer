@@ -107,7 +107,7 @@ const initialState: {
   list: [],
   filteredLists: emptyFilteredLists,
   saved: [],
-  compareByPercent: false,
+  compareByPercent: true,
   tallTable: false,
   filterMode: 'None',
   displayAttributes: [],
