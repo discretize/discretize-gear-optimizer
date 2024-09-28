@@ -35,6 +35,26 @@ type Result =
       filteredLists: undefined;
     };
 
+const findExtraBestResults = (
+  combinationBestResults: Character[],
+  ...extrasTypes: ExtrasType[]
+) => {
+  const result: Character[] = [];
+  combinationBestResults.forEach((character) => {
+    const isWorse = result.some((prevChar) => {
+      const sameExtra = extrasTypes.every(
+        (extra) =>
+          prevChar.settings.extrasCombination[extra] ===
+          character.settings.extrasCombination[extra],
+      );
+
+      return sameExtra && prevChar.results!.value > character.results!.value;
+    });
+    if (!isWorse) result.push(character);
+  });
+  return result;
+};
+
 export function* calculate(reduxState: RootState) {
   /**
    * set up input
@@ -116,30 +136,13 @@ export function* calculate(reduxState: RootState) {
         .filter(Boolean)
         .sort((a, b) => characterLT(a, b, rankby));
 
-      const findExtraBestResults = (...extrasTypes: ExtrasType[]) => {
-        const result: Character[] = [];
-        combinationBestResults.forEach((character) => {
-          const isWorse = result.some((prevChar) => {
-            const sameExtra = extrasTypes.every(
-              (extra) =>
-                prevChar.settings.extrasCombination[extra] ===
-                character.settings.extrasCombination[extra],
-            );
-
-            return sameExtra && prevChar.results!.value > character.results!.value;
-          });
-          if (!isWorse) result.push(character);
-        });
-        return result;
-      };
-
       const filteredLists: Record<ExtraFilterMode, Character[]> = {
         Combinations: combinationBestResults.slice(0, 100),
-        Sigils: findExtraBestResults('Sigil1', 'Sigil2'),
-        Runes: findExtraBestResults('Runes'),
-        Relics: findExtraBestResults('Relics'),
-        Nourishment: findExtraBestResults('Nourishment'),
-        Enhancement: findExtraBestResults('Enhancement'),
+        Sigils: findExtraBestResults(combinationBestResults, 'Sigil1', 'Sigil2'),
+        Runes: findExtraBestResults(combinationBestResults, 'Runes'),
+        Relics: findExtraBestResults(combinationBestResults, 'Relics'),
+        Nourishment: findExtraBestResults(combinationBestResults, 'Nourishment'),
+        Enhancement: findExtraBestResults(combinationBestResults, 'Enhancement'),
       };
 
       return {
