@@ -1,12 +1,8 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { PayloadAction, createSelector, createSlice, original } from '@reduxjs/toolkit';
-import {
-  IndicatorName,
-  ProfessionName,
-  ProfessionOrSpecializationName,
-} from '../../utils/gw2-data';
+import { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
 import { Character } from '../optimizer/optimizerCore';
-import { OptimizerStatus, RUNNING, WAITING } from '../optimizer/status';
+import { OptimizerStatus, RUNNING, RUNNING_HEURISTICS, WAITING } from '../optimizer/status';
 import type { RootState } from '../store';
 
 const roundThree = (num: number) => Math.round(num * 1000) / 1000;
@@ -94,6 +90,7 @@ const initialState: {
   filteredLists: Record<ExtraFilterMode, Character[]>;
   saved: Character[];
   compareByPercent: boolean;
+  highlightDiffering: boolean;
   tallTable: boolean;
   filterMode: FilterMode;
   displayAttributes: DisplayAttributes;
@@ -111,7 +108,8 @@ const initialState: {
   list: [],
   filteredLists: emptyFilteredLists,
   saved: [],
-  compareByPercent: false,
+  compareByPercent: true,
+  highlightDiffering: false,
   tallTable: false,
   filterMode: 'None',
   displayAttributes: [],
@@ -165,16 +163,6 @@ export const controlSlice = createSlice({
     changeList: (state, action: PayloadAction<Character[]>) => {
       return { ...state, list: action.payload };
     },
-    addToList: (state, action: PayloadAction<{ rankby: IndicatorName; data: Character[] }>) => {
-      // insert all characters of payload such that the order of the list is kept
-      // slice to 100 characters
-      const newList = [...state.list, ...action.payload.data];
-      newList.sort(
-        (a, b) => b.attributes[action.payload.rankby] - a.attributes[action.payload.rankby],
-      );
-
-      return { ...state, list: newList.slice(0, 100) };
-    },
     changeFilteredLists: (state, action: PayloadAction<Record<ExtraFilterMode, Character[]>>) => {
       return { ...state, ...action.payload };
     },
@@ -206,6 +194,9 @@ export const controlSlice = createSlice({
     },
     changeCompareByPercent: (state, action: PayloadAction<boolean>) => {
       state.compareByPercent = action.payload;
+    },
+    changeHighlightDiffering: (state, action: PayloadAction<boolean>) => {
+      state.highlightDiffering = action.payload;
     },
     changeFilterMode: (state, action: PayloadAction<FilterMode>) => {
       state.filterMode = action.payload;
@@ -251,6 +242,8 @@ export const getList = (state: RootState) => state.optimizer.control.list;
 export const getFilteredLists = (state: RootState) => state.optimizer.control.filteredLists;
 export const getSaved = (state: RootState) => state.optimizer.control.saved;
 export const getCompareByPercent = (state: RootState) => state.optimizer.control.compareByPercent;
+export const getHighlightDiffering = (state: RootState) =>
+  state.optimizer.control.highlightDiffering;
 export const getFilterMode = (state: RootState) => state.optimizer.control.filterMode;
 export const getDisplayAttributes = (state: RootState) => state.optimizer.control.displayAttributes;
 export const getTallTable = (state: RootState) => state.optimizer.control.tallTable;
@@ -259,9 +252,12 @@ export const getError = (state: RootState) => state.optimizer.control.error;
 export const getMulticore = (state: RootState) => state.optimizer.control.multicore;
 export const getHeuristics = (state: RootState) => state.optimizer.control.heuristics;
 
-export const getPageTitle = createSelector(getStatus, getProgress, (status, progress) =>
-  status === RUNNING ? `${progress}% - Discretize Gear Optimizer` : 'Discretize Gear Optimizer',
-);
+export const getPageTitle = createSelector(getStatus, getProgress, (status, progress) => {
+  if (status === RUNNING) return `${progress}% - Discretize Gear Optimizer`;
+  if (status === RUNNING_HEURISTICS) return `0% (${progress}%) - Discretize Gear Optimizer`;
+
+  return 'Discretize Gear Optimizer';
+});
 
 export const {
   changeAll,
@@ -278,13 +274,13 @@ export const {
   addToSaved,
   removeFromSaved,
   changeCompareByPercent,
+  changeHighlightDiffering,
   setBuildTemplate,
   changeSelectedCharacter,
   changeError,
   changeHwThreads,
   changeMulticore,
   changeHeuristics,
-  addToList,
 } = controlSlice.actions;
 
 export default controlSlice.reducer;

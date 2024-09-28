@@ -61,7 +61,7 @@ const arrayToObject = <T>(array: [string | number, T][]): Record<string | number
 };
 
 export function enhanceResults(
-  results: any, // from wasm, by "shape" a Character[], but with c-like enum indices instead of strings for attribtues and such
+  results: any[], // from wasm, by "shape" a Character[], but with c-like enum indices instead of strings for attribtues and such
   settings: Settings,
   combinations: Combination[],
   resultProperties: ResultProperties,

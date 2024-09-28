@@ -17,7 +17,6 @@ import {
 } from '../../slices/extras';
 import { RootState } from '../../store';
 import { Combination, Settings, createCombination } from '../optimizerSetup';
-import { ResultProperties, enhanceResults } from '../results';
 import { descendSubtreeDFS } from '../tree';
 import { combinationsToWorkerString, getAffixId, settingsToWorkerString } from '../utils';
 import {
@@ -32,14 +31,18 @@ import {
   isStartMessage,
 } from './workerMessageTypes';
 
+let index = 0;
+
 onmessage = (e: MessageEvent<MessageType>) => {
-  console.log('worker received message', e.data);
+  console.info('worker received message', e.data);
 
   if (isStartMessage(e.data)) {
-    const { chunks, settings, combinations, resultProperties, withHeuristics } = e.data;
-    start(chunks, settings, combinations, resultProperties, withHeuristics);
+    const { chunks, settings, combinations, withHeuristics, index: threadIndex } = e.data;
+    index = threadIndex;
+    start(chunks, settings, combinations, withHeuristics);
   } else if (isStartHeuristicsMessage(e.data)) {
-    const { chunks, extrasIds, reduxState, settings } = e.data;
+    const { chunks, extrasIds, reduxState, settings, index: threadIndex } = e.data;
+    index = threadIndex;
     start_heuristics(chunks, extrasIds, reduxState, settings);
   }
 };
@@ -48,14 +51,13 @@ async function start(
   chunks: string[][],
   settings: Settings,
   combinations: Combination[],
-  resultProperties: ResultProperties,
   withHeurisics: boolean,
 ) {
   let now = performance.now();
   // await wasm module initialization
-  await init();
+  await init({});
 
-  console.log('Wasm module initialized in', performance.now() - now, 'ms');
+  console.info(index, 'Wasm module initialized in', performance.now() - now, 'ms');
 
   now = performance.now();
 
@@ -72,11 +74,11 @@ async function start(
       combinationsToWorkerString(combinations),
     );
 
-    console.log('Wasm calculation finished in', performance.now() - now, 'ms');
+    console.log(index, 'Wasm calculation thread finished in', performance.now() - now, 'ms');
 
     const message: FinishedMessage = {
       type: FINISHED,
-      data: enhanceResults(JSON.parse(data || '[]'), settings, combinations, resultProperties),
+      results: JSON.parse(data || '[]') as any[],
     };
     postMessage(message);
   } catch (e) {
@@ -87,7 +89,6 @@ async function start(
     postMessage(message);
   }
 }
-const bestList: [Combination, ExtrasCombinationEntry][] = [];
 
 /**
  * Runs heuristics to figure out which extras combinations are likely good.
@@ -104,7 +105,7 @@ async function start_heuristics(
   reduxState: RootState,
   settings: Settings,
 ) {
-  await init();
+  await init({});
 
   const data = getExtrasData(reduxState);
   const lifestealAmount = getLifestealAmount(reduxState);
@@ -125,6 +126,8 @@ async function start_heuristics(
 
   // store combinations here; we batch process them
   let currentChunkList: [Combination, ExtrasCombinationEntry][] = [];
+
+  const bestList: [Combination, ExtrasCombinationEntry][] = [];
 
   // callback that is called for every leaf of the extras combination tree
   // we calculate the attributes and modifiers of the combination here
@@ -155,11 +158,11 @@ async function start_heuristics(
     }
     if (currentChunkList.length === 100000) {
       // batch process
-      console.log('Calculating batch of ', currentChunkList.length, ' extras combinations');
-      calcWasmHeuristics(settings, currentChunkList);
+      console.log(index, 'Calculating batch of ', currentChunkList.length, ' extras combinations');
+      bestList.push(...calcWasmHeuristics(settings, currentChunkList));
       // reset chunk list
       currentChunkList = [];
-      console.log('Finished run');
+      console.log(index, 'Finished run');
     }
   };
 
@@ -169,10 +172,11 @@ async function start_heuristics(
 
   // often, there will be extras combinations left since descendSubtreeDFS batches calls to the wasm heuristics calculator
   if (currentChunkList.length > 0) {
-    calcWasmHeuristics(settings, currentChunkList);
+    bestList.push(...calcWasmHeuristics(settings, currentChunkList));
   }
 
-  console.log('Heuristics Wasm calculation finished in', performance.now() - now, 'ms');
+  console.log(index, 'Heuristics Wasm calculation finished in', performance.now() - now, 'ms');
+  console.info(index, 'Result:', bestList);
 
   const message: FinishedHeuristicsMessage = {
     type: FINISHED_HEURISTICS,
@@ -190,7 +194,5 @@ function calcWasmHeuristics(settings: Settings, chunks: [Combination, ExtrasComb
   // find combinations for the ids
   const res = combinationIds.map((id) => chunks[id]);
 
-  bestList.push(...res);
-
-  console.log('current best list', bestList);
+  return res;
 }

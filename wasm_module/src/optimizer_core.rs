@@ -10,7 +10,7 @@ use crate::{
     result::Result,
     utils::{clamp, get_random_affix_combination, get_total_combinations, round_even},
 };
-use std::{cell::RefCell, collections::HashMap};
+use std::cell::RefCell;
 use wasm_bindgen::JsValue;
 use web_sys::{console, DedicatedWorkerGlobalScope};
 
@@ -26,6 +26,7 @@ pub fn start(
     chunks: &Vec<Vec<Affix>>,
     settings: &Settings,
     combinations: &Vec<Combination>,
+    picked_combination_ids: Option<&Vec<u32>>,
     workerglobal: Option<&DedicatedWorkerGlobalScope>,
 ) -> Result {
     let rankby = settings.rankby;
@@ -48,6 +49,10 @@ pub fn start(
 
         // iterate over all combinations
         for i in 0..combinations.len() {
+            if picked_combination_ids.is_some_and(|ids| ids.contains(&(i as u32)) == false) {
+                continue;
+            }
+
             let combination = &combinations[i];
             character.clear();
             character.combination_id = i as u32;
@@ -65,30 +70,12 @@ pub fn start(
             if *counter.borrow() % PROGRESS_UPDATE_INTERVALL == 0 {
                 result.on_complete(settings, combinations);
 
-                // get json value of best characters
-                let mut best_combinations: Vec<Combination> = vec![];
-                let mut combination_indices: HashMap<u32, usize> = HashMap::new();
-                let mut best_characters = result.best_characters.clone();
-
-                best_characters.iter_mut().for_each(|character| {
-                    let combination = combinations.get(character.combination_id as usize).unwrap();
-                    let current_id = character.combination_id;
-                    if let Some(comb_index) = combination_indices.get(&current_id) {
-                        character.combination_id = *comb_index as u32;
-                    } else {
-                        let comb_index = best_combinations.len();
-                        combination_indices.insert(current_id, comb_index);
-                        best_combinations.push(combination.clone());
-                        character.combination_id = comb_index as u32;
-                    }
-                });
-                let best_character_json = serde_json::to_string(&best_characters).unwrap();
-                let best_combinations_json = serde_json::to_string(&best_combinations).unwrap();
+                let best_character_json = serde_json::to_string(&result.best_characters).unwrap();
 
                 workerglobal.and_then(|w| {
                     w.post_message(&JsValue::from_str(&format!(
-                        "{{ \"type\": \"PROGRESS\", \"total\": {}, \"new\": {}, \"results\": {}, \"combinations\": {} }}",
-                        total_combinations, PROGRESS_UPDATE_INTERVALL,best_character_json, best_combinations_json
+                        "{{ \"type\": \"PROGRESS\", \"total\": {}, \"new\": {}, \"results\": {} }}",
+                        total_combinations, PROGRESS_UPDATE_INTERVALL, best_character_json,
                     )))
                     .ok()
                 });
@@ -158,7 +145,7 @@ pub fn start_with_heuristics(settings: &Settings, combinations: &Vec<Combination
         })
         .collect();
 
-    console::log_1(&JsValue::from_str(&format!(
+    console::info_1(&JsValue::from_str(&format!(
         "Finished heuristics. Picked {} combinations",
         picked_combinations.len()
     )));

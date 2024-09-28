@@ -5,13 +5,21 @@ import EqualizerRoundedIcon from '@mui/icons-material/EqualizerRounded';
 import ErrorIcon from '@mui/icons-material/Error';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import { Box, Button, Chip, Typography } from '@mui/material';
-import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import calculate from '../../../state/optimizer-parallel/calculate';
-import { RESUME, STOP } from '../../../state/optimizer-parallel/worker/workerMessageTypes';
-import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../../../state/optimizer/status';
+import {
+  calculateParallel,
+  stopCalculationParallel,
+} from '../../../state/optimizer-parallel/calculate';
+import {
+  ERROR,
+  RUNNING,
+  RUNNING_HEURISTICS,
+  STOPPED,
+  SUCCESS,
+  WAITING,
+} from '../../../state/optimizer/status';
 import SagaTypes from '../../../state/sagas/sagaTypes';
 import {
   changeError,
@@ -46,7 +54,6 @@ const ControlsBox = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const store = useStore();
-  const [workers, setWorkers] = React.useState(null);
 
   const status = useSelector(getStatus);
   const error = useSelector(getError);
@@ -67,14 +74,13 @@ const ControlsBox = () => {
       return;
     }
 
-    console.log('calculate');
+    console.log('Starting Calculation');
 
     if (!multicore) {
       dispatch(changeError(''));
       dispatch({ type: SagaTypes.Start });
     } else {
-      const workersNew = calculate(store.getState(), dispatch);
-      setWorkers(workersNew);
+      calculateParallel(store.getState(), dispatch);
     }
   };
 
@@ -82,7 +88,8 @@ const ControlsBox = () => {
     if (!multicore) {
       dispatch({ type: SagaTypes.Resume });
     } else {
-      workers.forEach(({ worker }) => worker.postMessage({ type: RESUME }));
+      // not currently implemented: pause/resume in multicore rust mode
+      // workers.forEach(({ worker }) => worker.postMessage({ type: RESUME }));
     }
   };
 
@@ -90,7 +97,8 @@ const ControlsBox = () => {
     if (!multicore) {
       dispatch({ type: SagaTypes.Stop });
     } else {
-      workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
+      // workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
+      stopCalculationParallel(dispatch);
     }
   };
 
@@ -102,6 +110,7 @@ const ControlsBox = () => {
       break;
     case WAITING:
     case RUNNING:
+    case RUNNING_HEURISTICS:
       icon = <HourglassEmptyIcon fontSize="small" classes={{ root: classes.chipIcon }} />;
       break;
     case ERROR:
@@ -120,9 +129,9 @@ const ControlsBox = () => {
           className={classes.button}
           onClick={onStartCalculate}
           classes={{ label: classes.label }}
-          disabled={status === RUNNING || profession === ''}
+          disabled={[RUNNING, RUNNING_HEURISTICS].includes(status) || profession === ''}
         >
-          {status === RUNNING ? (
+          {[RUNNING, RUNNING_HEURISTICS].includes(status) ? (
             <ProgressIcon className={classes.icon} />
           ) : (
             <EqualizerRoundedIcon className={classes.icon} />
@@ -138,7 +147,7 @@ const ControlsBox = () => {
           color="primary"
           className={classes.button}
           onClick={onStopCalculate}
-          disabled={status !== RUNNING}
+          disabled={![RUNNING, RUNNING_HEURISTICS].includes(status)}
         >
           <Cancel className={cx(classes.icon)} />
           <Typography style={{ marginLeft: 8 }}>
@@ -147,7 +156,7 @@ const ControlsBox = () => {
         </Button>
       </Box>
       <Box sx={{ flexGrow: 1 }}>
-        {status === STOPPED ? (
+        {status === STOPPED && !multicore ? (
           <Button
             variant="outlined"
             color="primary"
@@ -175,7 +184,11 @@ const ControlsBox = () => {
               <Trans>Status:</Trans> {firstUppercase(status)} {icon}
             </>
           }
-          color={[SUCCESS, WAITING, RUNNING].includes(status) ? 'primary' : 'secondary'}
+          color={
+            [SUCCESS, WAITING, RUNNING, RUNNING_HEURISTICS].includes(status)
+              ? 'primary'
+              : 'secondary'
+          }
         />
         <ResultTableSettings />
       </Box>

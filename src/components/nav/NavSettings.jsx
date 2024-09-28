@@ -14,6 +14,7 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import { stopCalculationParallel } from '../../state/optimizer-parallel/calculate';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import {
   changeHeuristics,
@@ -115,6 +116,13 @@ export default function NavSettings({
   };
 
   const changeMulticoreHandler = (e) => {
+    if (!enableMulticore) {
+      dispatch({ type: SagaTypes.Stop });
+    } else {
+      // workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
+      stopCalculationParallel(dispatch);
+    }
+
     const newMulticore = e.target.checked;
     dispatch(changeMulticore(newMulticore));
   };
@@ -192,15 +200,13 @@ export default function NavSettings({
               htmlInput: { inputMode: 'numeric', pattern: '[0-9]*' },
             }}
           />
-          {/*
           <FormControlLabel
             control={<Checkbox />}
             label={t('Enable heuristics')}
-            sx={{ mb: 3 }}
+            sx={{ mb: 3, display: 'none' }}
             checked={enableHeuristics}
             onChange={changeHeuristicsHandler}
           />
-          */}
         </>
       )}
     </Settings>

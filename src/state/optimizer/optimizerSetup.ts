@@ -223,6 +223,8 @@ export function setupCombinations(
     ...combination,
   }));
 
+  console.log('settings per calculation', createSettingsPerCalculation(reduxState));
+
   const data: [ExtrasCombinationEntry, OptimizerCoreSettings][] = combinations.map(
     ({ extrasCombination, extrasModifiers }) => {
       console.log('Input option:', { extrasCombination, extrasModifiers });
@@ -410,22 +412,22 @@ export function createSettingsPerCalculation(
 
   // affixesArray: valid affixes for each slot, taking forced slots into account
   // e.g. [[Berserker, Assassin], [Assassin], [Berserker, Assassin]...]
-  let settings_affixesArray: OptimizerCoreSettings['affixesArray'] = new Array(
+  const orderedAffixesArray: OptimizerCoreSettings['affixesArray'] = new Array(
     settings_slots.length,
   ).fill(affixes);
 
-  settings_affixesArray.forEach((_, index) => {
+  orderedAffixesArray.forEach((_, index) => {
     const forcedAffix = forcedSlots[index];
 
     if (forcedAffix || Object.values(exclusions).some((arr) => arr[index])) {
       if (forcedAffix) {
-        settings_affixesArray[index] = [forcedAffix];
+        orderedAffixesArray[index] = [forcedAffix];
       } else {
-        const filtered = settings_affixesArray[index].filter(
+        const filtered = orderedAffixesArray[index].filter(
           (affix) => !exclusions?.[affix]?.[index],
         );
         if (filtered.length) {
-          settings_affixesArray[index] = filtered;
+          orderedAffixesArray[index] = filtered;
         } else {
           // user excluded every possible affix; fallback to excluding nothing
         }
@@ -452,7 +454,7 @@ export function createSettingsPerCalculation(
   const slotSettingsIdentical = (slotNames: ForcedSlotName[]) => {
     const slotIndexes = slotNames.map((slotName) => ForcedSlots.indexOf(slotName));
 
-    const slotAffixesArrays = slotIndexes.map((index) => settings_affixesArray[index]);
+    const slotAffixesArrays = slotIndexes.map((index) => orderedAffixesArray[index]);
     const slotAffixesArraysIdentical = arrayEntriesDeepEqual(slotAffixesArrays);
 
     const slotRarities = slotIndexes.map((index) => Object.values(exotics).map((e) => e[index]));
@@ -473,7 +475,7 @@ export function createSettingsPerCalculation(
   // [vipe]           glov (forced to viper)
   // [grie vipe sini] legs
   // ...
-  settings_affixesArray = settings_affixesArray.map((affixOptions, slotindex) => {
+  const settings_affixesArray = orderedAffixesArray.map((affixOptions, slotindex) => {
     if (affixOptions.length === 1) {
       return affixOptions;
     }

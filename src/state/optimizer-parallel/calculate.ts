@@ -1,4 +1,4 @@
-import { RUNNING } from '../optimizer/status';
+import { STOPPED } from '../optimizer/status';
 import {
   changeFilteredLists,
   changeList,
@@ -12,17 +12,29 @@ import runCalcNormal from './modes/normal';
 import { createSettings, setupNormal } from './optimizerSetup';
 
 export interface WorkerWrapper {
-  status: 'created' | 'running' | 'stopped' | 'finished' | 'error' | 'finished_heuristics';
-  workerId: number;
+  status: 'idle' | 'running' | 'finished' | 'running_heuristics' | 'finished_heuristics';
   worker: globalThis.Worker;
 }
 
-const createdWorkers: globalThis.Worker[] = [];
+const createdWorkers: WorkerWrapper[] = [];
 
-export default function calculate(reduxState: RootState, dispatch: AppDispatch): WorkerWrapper[] {
+const createWorker = (): WorkerWrapper => ({
+  status: 'idle',
+  worker: new Worker(new URL('./worker/worker.ts', import.meta.url), { type: 'module' }),
+});
+
+const terminateActiveWorkers = () => {
+  createdWorkers.forEach((workerObj, i) => {
+    if (workerObj.status !== 'idle') {
+      workerObj.worker.terminate();
+      createdWorkers[i] = createWorker();
+    }
+  });
+};
+
+export function calculateParallel(reduxState: RootState, dispatch: AppDispatch): WorkerWrapper[] {
   const selectedMaxThreads = reduxState.optimizer.control.hwThreads;
 
-  dispatch(changeStatus(RUNNING));
   dispatch(changeList([]));
   dispatch(
     changeFilteredLists({
@@ -36,23 +48,19 @@ export default function calculate(reduxState: RootState, dispatch: AppDispatch):
   );
   dispatch(changeProgress(0));
 
-  console.log('Parallel Optimizer');
-  console.log('State', reduxState);
+  console.info('Parallel Optimizer');
+  console.info('State', reduxState);
 
   const withHeuristics = getHeuristics(reduxState);
   const settings = createSettings(reduxState);
 
+  terminateActiveWorkers();
+
   console.log(`Creating ${selectedMaxThreads} threads`);
   // create all threads. later on we may or may not use them depending on the presented problem
   const workers: WorkerWrapper[] = [...Array(selectedMaxThreads)].map((_, index) => {
-    createdWorkers[index] ??= new Worker(new URL('./worker/worker.ts', import.meta.url), {
-      type: 'module',
-    });
-    return {
-      status: 'created',
-      workerId: index,
-      worker: createdWorkers[index],
-    };
+    createdWorkers[index] ??= createWorker();
+    return createdWorkers[index];
   });
 
   // select calculation mode - at the moment there are only two modes
@@ -80,4 +88,9 @@ export default function calculate(reduxState: RootState, dispatch: AppDispatch):
   }
 
   return workers;
+}
+
+export function stopCalculationParallel(dispatch: AppDispatch) {
+  terminateActiveWorkers();
+  dispatch(changeStatus(STOPPED));
 }

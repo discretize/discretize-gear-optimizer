@@ -191,6 +191,20 @@ export type OptimizerCoreMinimalSettings = Pick<
 >;
 export type Gear = AffixName[];
 export type GearStats = Record<AttributeName, number>;
+interface CoefficientHelperValue {
+  slope: number;
+  intercept: number;
+}
+interface Results {
+  value: number;
+  indicators: Record<IndicatorName, number>;
+  effectivePositiveValues?: Record<string, number>;
+  effectiveNegativeValues?: Record<string, number>;
+  effectiveDamageDistribution?: Record<string, string | number>;
+  damageBreakdown?: Record<string, number>;
+  coefficientHelper?: Record<string, CoefficientHelperValue>;
+  unbuffedAttributes?: Attributes;
+}
 export interface CharacterUnprocessed {
   id?: string;
   settings: OptimizerCoreMinimalSettings;
@@ -200,7 +214,7 @@ export interface CharacterUnprocessed {
   valid: boolean;
   baseAttributes: Attributes;
   infusions: Partial<Record<InfusionName, number>>;
-  results?: Record<string, any>;
+  results?: Results;
 }
 export interface Character extends CharacterUnprocessed {
   attributes: Attributes;
@@ -381,7 +395,7 @@ export class OptimizerCore {
     gear: Gear,
     gearStats: GearStats,
     infusions: Character['infusions'],
-    baseAttributes = this.settings.baseAttributes,
+    overrides: Partial<Character> = {},
   ) {
     const character: CharacterUnprocessed = {
       gear, // passed by reference
@@ -390,7 +404,8 @@ export class OptimizerCore {
       gearStats, // passed by reference
       attributes: undefined,
       valid: true,
-      baseAttributes: { ...baseAttributes },
+      baseAttributes: { ...this.settings.baseAttributes },
+      ...overrides,
     };
 
     // apply gear and infusions
@@ -913,15 +928,13 @@ export class OptimizerCore {
 
   calcResults(character: Character) {
     const { settings } = this;
+    const { attributes } = character;
 
-    character.results = {};
-    const { attributes, results } = character;
+    const value = character.attributes[settings.rankby];
 
-    results.value = character.attributes[settings.rankby];
-
-    results.indicators = {};
+    const indicators = {} as Record<IndicatorName, number>;
     for (const attribute of Attributes.INDICATORS) {
-      results.indicators[attribute] = attributes[attribute];
+      indicators[attribute] = attributes[attribute];
     }
 
     // baseline for comparing adding/subtracting +5 infusions
@@ -929,48 +942,48 @@ export class OptimizerCore {
     this.updateAttributes(baseline, true);
 
     // effective gain from adding +5 infusions
-    results.effectivePositiveValues = {};
+    const effectivePositiveValues: Record<string, number> = {};
     for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
       const temp = this.clone(character);
       temp.baseAttributes[attribute] += 5;
 
       this.updateAttributes(temp, true);
-      results.effectivePositiveValues[attribute] =
+      effectivePositiveValues[attribute] =
         temp.attributes['Damage'] - baseline.attributes['Damage'];
     }
 
     // effective loss by not having +5 infusions
-    results.effectiveNegativeValues = {};
+    const effectiveNegativeValues: Record<string, number> = {};
     for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
       const temp = this.clone(character);
       temp.baseAttributes[attribute] = Math.max(temp.baseAttributes[attribute] - 5, 0);
 
       this.updateAttributes(temp, true);
-      results.effectiveNegativeValues[attribute] =
+      effectiveNegativeValues[attribute] =
         temp.attributes['Damage'] - baseline.attributes['Damage'];
     }
 
     // effective damage distribution
-    results.effectiveDamageDistribution = {};
+    const effectiveDamageDistribution: Record<string, string> = {};
     for (const key of [...Object.keys(settings.distribution), 'Siphon']) {
       if (attributes[`${key} DPS`] === undefined) continue;
 
       const damage = attributes[`${key} DPS`] / attributes['Damage'];
-      results.effectiveDamageDistribution[`${key}`] = `${(damage * 100).toFixed(1)}%`;
+      effectiveDamageDistribution[`${key}`] = `${(damage * 100).toFixed(1)}%`;
     }
 
     // damage indicator breakdown
-    results.damageBreakdown = {};
+    const damageBreakdown: Record<string, number> = {};
     for (const key of [...Object.keys(settings.distribution), 'Siphon']) {
       if (attributes[`${key} DPS`] === undefined) continue;
 
-      results.damageBreakdown[`${key}`] = attributes[`${key} DPS`];
+      damageBreakdown[`${key}`] = attributes[`${key} DPS`];
     }
 
     // template helper data
     // (finds the slope and intercept (y = mx + b) of each condition's DPS relative to input
     // coefficient; used to make templates easily)
-    results.coefficientHelper = {};
+    const coefficientHelper: Record<string, CoefficientHelperValue> = {};
 
     const attrsWithModifiedCoefficient = (newCoefficient: number) => {
       const newCharacter = this.clone(character);
@@ -987,23 +1000,32 @@ export class OptimizerCore {
     const withZero = attrsWithModifiedCoefficient(0);
 
     for (const key of Object.keys(settings.distribution)) {
-      results.coefficientHelper[key] = {
+      coefficientHelper[key] = {
         slope: withOne[`${key} DPS`] - withZero[`${key} DPS`],
         intercept: withZero[`${key} DPS`],
       };
     }
 
+    const results: Results = {
+      value,
+      indicators,
+      effectivePositiveValues,
+      effectiveNegativeValues,
+      effectiveDamageDistribution,
+      coefficientHelper,
+      damageBreakdown,
+    };
+
     // out of combat hero panel simulation (overrides both baseAttributes and modifiers)
     if (settings.unbuffedBaseAttributes && settings.unbuffedModifiers) {
-      const temp = this.createCharacter(
-        character.gear,
-        character.gearStats,
-        character.infusions,
-        settings.unbuffedBaseAttributes,
-      );
+      const temp = this.createCharacter(character.gear, character.gearStats, character.infusions, {
+        baseAttributes: { ...settings.unbuffedBaseAttributes },
+      });
       this.calcStats(temp, settings.unbuffedModifiers);
       results.unbuffedAttributes = temp.attributes;
     }
+
+    character.results = results;
   }
 
   /**

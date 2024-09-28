@@ -120,8 +120,7 @@ const IndexPage = () => {
 
             <Typography variant="body2" component="ul" sx={{ '& > li': { mb: 1 } }}>
               <li>
-                <b>Pausing / Resuming a calculation.</b> Once started, the only way to prematurely
-                terminate a calculation is to refresh the tab.
+                <b>Resuming a paused calculation.</b>
               </li>
               <li>
                 <b>Infusions.</b> They are not yet supported and are ignored in the calculation.
@@ -129,6 +128,9 @@ const IndexPage = () => {
               <li>
                 <b>Displaying the best result for each combination.</b> This is not possible due to
                 the Rust implementation not calculating every combination.
+              </li>
+              <li>
+                <b>Coefficient Calculation from Logs.</b>
               </li>
             </Typography>
           </Alert>

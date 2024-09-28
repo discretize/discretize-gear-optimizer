@@ -1,3 +1,5 @@
+import { RUNNING_HEURISTICS } from '../../optimizer/status';
+import { changeStatus } from '../../slices/controlsSlice';
 import type { AppDispatch, RootState } from '../../store';
 import type { WorkerWrapper } from '../calculate';
 import { Combination, ResultData, Settings } from '../optimizerSetup';
@@ -17,6 +19,8 @@ export default function runCalcHeuristics(
   settings: Settings,
   maxThreads: number,
 ) {
+  dispatch(changeStatus(RUNNING_HEURISTICS));
+
   const extrasIds = getExtrasIdsCombinations(reduxState);
   // for a particular problem it might not be possible to split work efficiently into effectiveThreads chunks
   const effectiveThreads = Math.min(maxThreads, getTotalCombinations(extrasIds, 1));
@@ -47,6 +51,11 @@ export default function runCalcHeuristics(
 
         if (allFinished) {
           console.log("All workers finished heuristics, let's start the real calculation");
+          console.log(
+            'Heuristics chosen combinations:',
+            resultData.map(({ extrasCombination }) => extrasCombination),
+          );
+
           runCalcNormal(
             reduxState,
             dispatch,
@@ -55,18 +64,21 @@ export default function runCalcHeuristics(
             resultData,
             settings,
             maxThreads,
-            true,
+            // note: change this back to true to enable per-thread combination heuristics
+            false,
           );
         }
       }
     };
     const message: StartHeuristicsMessage = {
       type: START_HEURISTICS,
+      index,
       chunks: chunks[index],
       extrasIds,
       reduxState,
       settings,
     };
+    workerObj.status = 'running_heuristics';
     workerObj.worker.postMessage(message);
   });
 }

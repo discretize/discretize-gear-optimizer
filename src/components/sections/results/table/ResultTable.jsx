@@ -14,6 +14,7 @@ import {
   getDisplayAttributes,
   getFilterMode,
   getFilteredLists,
+  getHighlightDiffering,
   getList,
   getSaved,
   getSelectedCharacter,
@@ -87,6 +88,7 @@ const StickyHeadTable = () => {
   const filteredLists = useSelector(getFilteredLists);
   const saved = useSelector(getSaved) || emptyArray;
   const compareByPercent = useSelector(getCompareByPercent);
+  const highlightDiffering = useSelector(getHighlightDiffering);
   const filterMode = useSelector(getFilterMode);
   const tallTable = useSelector(getTallTable);
 
@@ -111,6 +113,14 @@ const StickyHeadTable = () => {
     );
     mostCommonRarity = exo > asc ? 'exotic' : 'ascended';
   }
+
+  const unhighlightedAffixes = React.useMemo(
+    () =>
+      highlightDiffering
+        ? selectedCharacter && selectedCharacter.gear
+        : Array(14).fill(mostCommonAffix),
+    [highlightDiffering, mostCommonAffix, selectedCharacter],
+  );
 
   const firstCharacter = list[0];
   const weaponType = firstCharacter?.settings?.weaponType;
@@ -200,7 +210,7 @@ const StickyHeadTable = () => {
                     key={character.id}
                     selected={character.id === selectedCharacter?.id}
                     saved={saved.some(({ id }) => character.id === id)}
-                    mostCommonAffix={mostCommonAffix}
+                    unhighlightedAffixes={unhighlightedAffixes}
                     mostCommonRarity={mostCommonRarity}
                     underlineClass={underline ? classes.underline : null}
                     selectedValue={selectedValue}
@@ -258,7 +268,7 @@ const StickyHeadTable = () => {
                     key={character.id}
                     selected={character.id === selectedCharacter?.id}
                     saved={saved.some(({ id }) => character.id === id)}
-                    mostCommonAffix={mostCommonAffix}
+                    unhighlightedAffixes={unhighlightedAffixes}
                     mostCommonRarity={mostCommonRarity}
                     underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
                     selectedValue={selectedValue}

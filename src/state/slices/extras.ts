@@ -199,7 +199,7 @@ export const getExtrasCombinationsAndModifiers = (state: RootState) => {
     return true;
   });
 
-  console.log('extrasCombinations', extrasCombinations);
+  console.info('extrasCombinations', extrasCombinations);
 
   const getModifiers = (extrasCombination: ExtrasCombination) => {
     const allModifiers: AppliedModifier[] = objectEntries(extrasCombination)
