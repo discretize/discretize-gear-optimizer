@@ -395,7 +395,7 @@ export class OptimizerCore {
     gear: Gear,
     gearStats: GearStats,
     infusions: Character['infusions'],
-    baseAttributes = this.settings.baseAttributes,
+    overrides: Partial<Character> = {},
   ) {
     const character: CharacterUnprocessed = {
       gear, // passed by reference
@@ -404,7 +404,8 @@ export class OptimizerCore {
       gearStats, // passed by reference
       attributes: undefined,
       valid: true,
-      baseAttributes: { ...baseAttributes },
+      baseAttributes: { ...this.settings.baseAttributes },
+      ...overrides,
     };
 
     // apply gear and infusions
@@ -1017,12 +1018,9 @@ export class OptimizerCore {
 
     // out of combat hero panel simulation (overrides both baseAttributes and modifiers)
     if (settings.unbuffedBaseAttributes && settings.unbuffedModifiers) {
-      const temp = this.createCharacter(
-        character.gear,
-        character.gearStats,
-        character.infusions,
-        settings.unbuffedBaseAttributes,
-      );
+      const temp = this.createCharacter(character.gear, character.gearStats, character.infusions, {
+        baseAttributes: { ...settings.unbuffedBaseAttributes },
+      });
       this.calcStats(temp, settings.unbuffedModifiers);
       results.unbuffedAttributes = temp.attributes;
     }
