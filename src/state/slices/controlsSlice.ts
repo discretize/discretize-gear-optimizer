@@ -90,6 +90,7 @@ const initialState: {
   filteredLists: Record<ExtraFilterMode, Character[]>;
   saved: Character[];
   compareByPercent: boolean;
+  highlightDiffering: boolean;
   tallTable: boolean;
   filterMode: FilterMode;
   displayAttributes: DisplayAttributes;
@@ -108,6 +109,7 @@ const initialState: {
   filteredLists: emptyFilteredLists,
   saved: [],
   compareByPercent: true,
+  highlightDiffering: false,
   tallTable: false,
   filterMode: 'None',
   displayAttributes: [],
@@ -187,6 +189,9 @@ export const controlSlice = createSlice({
     changeCompareByPercent: (state, action: PayloadAction<boolean>) => {
       state.compareByPercent = action.payload;
     },
+    changeHighlightDiffering: (state, action: PayloadAction<boolean>) => {
+      state.highlightDiffering = action.payload;
+    },
     changeFilterMode: (state, action: PayloadAction<FilterMode>) => {
       state.filterMode = action.payload;
     },
@@ -231,6 +236,8 @@ export const getList = (state: RootState) => state.optimizer.control.list;
 export const getFilteredLists = (state: RootState) => state.optimizer.control.filteredLists;
 export const getSaved = (state: RootState) => state.optimizer.control.saved;
 export const getCompareByPercent = (state: RootState) => state.optimizer.control.compareByPercent;
+export const getHighlightDiffering = (state: RootState) =>
+  state.optimizer.control.highlightDiffering;
 export const getFilterMode = (state: RootState) => state.optimizer.control.filterMode;
 export const getDisplayAttributes = (state: RootState) => state.optimizer.control.displayAttributes;
 export const getTallTable = (state: RootState) => state.optimizer.control.tallTable;
@@ -259,6 +266,7 @@ export const {
   changeTallTable,
   toggleSaved,
   changeCompareByPercent,
+  changeHighlightDiffering,
   setBuildTemplate,
   changeSelectedCharacter,
   changeError,

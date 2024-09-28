@@ -1,4 +1,5 @@
 import { Attribute } from '@discretize/gw2-ui-new';
+import { HelperIcon } from '@discretize/react-discretize-components';
 import CheckIcon from '@mui/icons-material/Check';
 import {
   Autocomplete,
@@ -21,10 +22,12 @@ import {
   changeCompareByPercent,
   changeDisplayAttributes,
   changeFilterMode,
+  changeHighlightDiffering,
   changeTallTable,
   getCompareByPercent,
   getDisplayAttributes,
   getFilterMode,
+  getHighlightDiffering,
   getTallTable,
 } from '../../../state/slices/controlsSlice';
 import Settings from '../../baseComponents/Settings';
@@ -44,6 +47,8 @@ export default function ResultTableSettings() {
   const dispatch = useDispatch();
 
   const compareByPercent = useSelector(getCompareByPercent);
+  const highlightDiffering = useSelector(getHighlightDiffering);
+
   const tallTable = useSelector(getTallTable);
   const filterMode = useSelector(getFilterMode);
   const displayAttributes = useSelector(getDisplayAttributes);
@@ -80,6 +85,31 @@ export default function ResultTableSettings() {
             />
           }
           label={t('Increase table height')}
+          classes={{ label: classes.comparisonLabel }}
+        />
+      </Box>
+
+      <Box sx={{ mt: 1.5 }}>
+        <FormControlLabel
+          control={
+            <Switch
+              checked={highlightDiffering}
+              onChange={(e) => dispatch(changeHighlightDiffering(e.target.checked))}
+              name="checked"
+              color="primary"
+            />
+          }
+          label={
+            <>
+              {t('Highlight differing gear')}{' '}
+              <HelperIcon
+                text={t(
+                  'Colors gear slots by whether they are the same as or different than the currently selected build. Useful for creating multiple builds that share some equipment.',
+                )}
+                size="small"
+              />
+            </>
+          }
           classes={{ label: classes.comparisonLabel }}
         />
       </Box>
