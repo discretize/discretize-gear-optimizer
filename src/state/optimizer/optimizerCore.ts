@@ -229,7 +229,6 @@ export const UPDATE_MS = 90;
 export class OptimizerCore {
   settings: OptimizerCoreSettings;
   minimalSettings: OptimizerCoreMinimalSettings;
-  applyInfusionsFunction: (this: OptimizerCore, gear: Gear, gearStats: GearStats) => void;
   condiResultCache = new Map<number, number>();
   worstScore: number = 0;
   list: Character[] = [];
@@ -254,30 +253,6 @@ export class OptimizerCore {
       gameMode: settings.gameMode,
     };
     this.conditionData = settings.gameMode === 'wvw' ? conditionDataWvW : conditionData;
-
-    let applyInfusionsFunction: OptimizerCore['applyInfusionsFunction'];
-    switch (settings.infusionMode) {
-      case 'None':
-        applyInfusionsFunction = this.applyInfusionsNone;
-        break;
-      case 'Primary':
-        applyInfusionsFunction = this.applyInfusionsPrimary;
-        break;
-      case 'Few':
-        applyInfusionsFunction = this.applyInfusionsFew;
-        break;
-      case 'Secondary':
-        applyInfusionsFunction = this.applyInfusionsSecondary;
-        break;
-      case 'SecondaryNoDuplicates':
-        applyInfusionsFunction = this.applyInfusionsSecondaryNoDuplicates;
-        break;
-      default:
-        throw new Error(
-          `Error: optimizer selected invalid infusion calculation mode: ${settings.infusionMode}`,
-        );
-    }
-    this.applyInfusionsFunction = applyInfusionsFunction;
   }
 
   /**
@@ -350,8 +325,98 @@ export class OptimizerCore {
       if (nextSlot >= settings.slots) {
         calculationRuns++;
 
-        // this.applyInfusionsFunction is aliased to the correct applyInfusions[mode] function during setup
-        this.applyInfusionsFunction(gear, gearStats);
+        switch (settings.infusionMode) {
+          case 'None':
+            {
+              // Apply no infusions
+              const character = this.createCharacter(gear, gearStats, {});
+              this.updateAttributesFast(character);
+              this.insertCharacter(character);
+            }
+            break;
+          case 'Primary':
+            {
+              // Just apply the primary infusion
+              const character = this.createCharacter(gear, gearStats, {
+                [settings.primaryInfusion]: settings.primaryMaxInfusions,
+              });
+              this.updateAttributesFast(character);
+              this.insertCharacter(character);
+            }
+            break;
+          case 'Few':
+            {
+              // Just apply the maximum number of primary/secondary infusions, since the total is ≤18
+              const character = this.createCharacter(gear, gearStats, {
+                [settings.primaryInfusion]: settings.primaryMaxInfusions,
+                [settings.secondaryInfusion]: settings.secondaryMaxInfusions,
+              });
+              this.updateAttributesFast(character);
+              this.insertCharacter(character);
+            }
+            break;
+          case 'Secondary':
+            {
+              // Insert every valid combination of 18 infusions
+              const test = this.createCharacter(gear, gearStats, {});
+              if (!this.worstScore || this.testInfusionUsefulness(test)) {
+                let previousResult;
+
+                let primaryCount = settings.primaryMaxInfusions;
+                let secondaryCount = settings.maxInfusions - primaryCount;
+                while (secondaryCount <= settings.secondaryMaxInfusions) {
+                  const character = this.createCharacter(gear, gearStats, {
+                    [settings.primaryInfusion]: primaryCount,
+                    [settings.secondaryInfusion]: secondaryCount,
+                  });
+                  this.updateAttributesFast(character);
+                  if (character.valid && character.attributes[settings.rankby] !== previousResult) {
+                    this.insertCharacter(character);
+                    previousResult = character.attributes[settings.rankby];
+                  }
+
+                  primaryCount--;
+                  secondaryCount++;
+                }
+              }
+            }
+            break;
+          case 'SecondaryNoDuplicates':
+            {
+              // Test every valid combination of 18 infusions and inserts the best result
+              const test = this.createCharacter(gear, gearStats, {});
+              if (!this.worstScore || this.testInfusionUsefulness(test)) {
+                let best = null;
+
+                let primaryCount = settings.primaryMaxInfusions;
+                let secondaryCount = settings.maxInfusions - primaryCount;
+                while (secondaryCount <= settings.secondaryMaxInfusions) {
+                  const character = this.createCharacter(gear, gearStats, {
+                    [settings.primaryInfusion]: primaryCount,
+                    [settings.secondaryInfusion]: secondaryCount,
+                  });
+                  this.updateAttributesFast(character);
+                  if (character.valid) {
+                    if (!best || characterLT(best, character, settings.rankby) > 0) {
+                      best = character;
+                    }
+                  }
+
+                  primaryCount--;
+                  secondaryCount++;
+                }
+
+                if (best) {
+                  this.insertCharacter(best);
+                }
+              }
+            }
+            break;
+          default:
+            throw new Error(
+              `Error: optimizer selected invalid infusion calculation mode: ${settings.infusionMode}`,
+            );
+        }
         continue;
       }
 
@@ -416,96 +481,6 @@ export class OptimizerCore {
     }
 
     return character;
-  }
-
-  // Applies no infusions
-  applyInfusionsNone(gear: Gear, gearStats: GearStats) {
-    const character = this.createCharacter(gear, gearStats, {});
-    this.updateAttributesFast(character);
-    this.insertCharacter(character);
-  }
-
-  // Just applies the primary infusion
-  applyInfusionsPrimary(gear: Gear, gearStats: GearStats) {
-    const { settings } = this;
-
-    const character = this.createCharacter(gear, gearStats, {
-      [settings.primaryInfusion]: settings.primaryMaxInfusions,
-    });
-
-    this.updateAttributesFast(character);
-    this.insertCharacter(character);
-  }
-
-  // Just applies the maximum number of primary/secondary infusions, since the total is ≤18
-  applyInfusionsFew(gear: Gear, gearStats: GearStats) {
-    const { settings } = this;
-
-    const character = this.createCharacter(gear, gearStats, {
-      [settings.primaryInfusion]: settings.primaryMaxInfusions,
-      [settings.secondaryInfusion]: settings.secondaryMaxInfusions,
-    });
-    this.updateAttributesFast(character);
-    this.insertCharacter(character);
-  }
-
-  // Inserts every valid combination of 18 infusions
-  applyInfusionsSecondary(gear: Gear, gearStats: GearStats) {
-    const { settings } = this;
-
-    const test = this.createCharacter(gear, gearStats, {});
-    if (!this.worstScore || this.testInfusionUsefulness(test)) {
-      let previousResult;
-
-      let primaryCount = settings.primaryMaxInfusions;
-      let secondaryCount = settings.maxInfusions - primaryCount;
-      while (secondaryCount <= settings.secondaryMaxInfusions) {
-        const character = this.createCharacter(gear, gearStats, {
-          [settings.primaryInfusion]: primaryCount,
-          [settings.secondaryInfusion]: secondaryCount,
-        });
-        this.updateAttributesFast(character);
-        if (character.valid && character.attributes[settings.rankby] !== previousResult) {
-          this.insertCharacter(character);
-          previousResult = character.attributes[settings.rankby];
-        }
-
-        primaryCount--;
-        secondaryCount++;
-      }
-    }
-  }
-
-  // Tests every valid combination of 18 infusions and inserts the best result
-  applyInfusionsSecondaryNoDuplicates(gear: Gear, gearStats: GearStats) {
-    const { settings } = this;
-
-    const test = this.createCharacter(gear, gearStats, {});
-    if (!this.worstScore || this.testInfusionUsefulness(test)) {
-      let best = null;
-
-      let primaryCount = settings.primaryMaxInfusions;
-      let secondaryCount = settings.maxInfusions - primaryCount;
-      while (secondaryCount <= settings.secondaryMaxInfusions) {
-        const character = this.createCharacter(gear, gearStats, {
-          [settings.primaryInfusion]: primaryCount,
-          [settings.secondaryInfusion]: secondaryCount,
-        });
-        this.updateAttributesFast(character);
-        if (character.valid) {
-          if (!best || characterLT(best, character, settings.rankby) > 0) {
-            best = character;
-          }
-        }
-
-        primaryCount--;
-        secondaryCount++;
-      }
-
-      if (best) {
-        this.insertCharacter(best);
-      }
-    }
   }
 
   testInfusionUsefulness(character: CharacterUnprocessed) {
