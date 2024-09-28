@@ -18,7 +18,7 @@ const ResultTableRow = ({
   character,
   selected,
   saved = false,
-  mostCommonAffix,
+  unhighlightedAffixes,
   mostCommonRarity,
   underlineClass,
   selectedValue,
@@ -98,6 +98,11 @@ const ResultTableRow = ({
           if (!exoticRarity(affix, index) && mostCommonRarity !== 'ascended')
             textDecoration = 'underline dotted #fb3e8d';
 
+          const color =
+            unhighlightedAffixes?.[index] && unhighlightedAffixes?.[index] !== affix
+              ? '#00cccc'
+              : 'inherit';
+
           const affixFragments = affix.split(/(?=[A-Z])/).filter((fragment) => fragment !== 'And');
           const multiWordAffix = affixFragments.length > 1;
 
@@ -112,7 +117,7 @@ const ResultTableRow = ({
                   fontWeight: 300,
                   fontSize: '1rem',
                   textDecoration,
-                  color: mostCommonAffix && mostCommonAffix !== affix ? '#00cccc' : 'inherit',
+                  color,
                 }}
               >
                 {shortAffix}
