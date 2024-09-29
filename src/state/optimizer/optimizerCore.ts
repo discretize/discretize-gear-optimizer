@@ -937,53 +937,60 @@ export class OptimizerCore {
       indicators[attribute] = attributes[attribute];
     }
 
+    const results: Results = {
+      value,
+      indicators,
+    };
+
+    character.results = results;
+
     // baseline for comparing adding/subtracting +5 infusions
     const baseline = this.clone(character);
     this.updateAttributes(baseline, true);
 
     // effective gain from adding +5 infusions
-    const effectivePositiveValues: Record<string, number> = {};
+    results.effectivePositiveValues = {};
     for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
       const temp = this.clone(character);
       temp.baseAttributes[attribute] += 5;
 
       this.updateAttributes(temp, true);
-      effectivePositiveValues[attribute] =
+      results.effectivePositiveValues[attribute] =
         temp.attributes['Damage'] - baseline.attributes['Damage'];
     }
 
     // effective loss by not having +5 infusions
-    const effectiveNegativeValues: Record<string, number> = {};
+    results.effectiveNegativeValues = {};
     for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
       const temp = this.clone(character);
       temp.baseAttributes[attribute] = Math.max(temp.baseAttributes[attribute] - 5, 0);
 
       this.updateAttributes(temp, true);
-      effectiveNegativeValues[attribute] =
+      results.effectiveNegativeValues[attribute] =
         temp.attributes['Damage'] - baseline.attributes['Damage'];
     }
 
     // effective damage distribution
-    const effectiveDamageDistribution: Record<string, string> = {};
+    results.effectiveDamageDistribution = {};
     for (const key of [...Object.keys(settings.distribution), 'Siphon']) {
       if (attributes[`${key} DPS`] === undefined) continue;
 
       const damage = attributes[`${key} DPS`] / attributes['Damage'];
-      effectiveDamageDistribution[`${key}`] = `${(damage * 100).toFixed(1)}%`;
+      results.effectiveDamageDistribution[`${key}`] = `${(damage * 100).toFixed(1)}%`;
     }
 
     // damage indicator breakdown
-    const damageBreakdown: Record<string, number> = {};
+    results.damageBreakdown = {};
     for (const key of [...Object.keys(settings.distribution), 'Siphon']) {
       if (attributes[`${key} DPS`] === undefined) continue;
 
-      damageBreakdown[`${key}`] = attributes[`${key} DPS`];
+      results.damageBreakdown[`${key}`] = attributes[`${key} DPS`];
     }
 
     // template helper data
     // (finds the slope and intercept (y = mx + b) of each condition's DPS relative to input
     // coefficient; used to make templates easily)
-    const coefficientHelper: Record<string, CoefficientHelperValue> = {};
+    results.coefficientHelper = {};
 
     const attrsWithModifiedCoefficient = (newCoefficient: number) => {
       const newCharacter = this.clone(character);
@@ -1000,21 +1007,11 @@ export class OptimizerCore {
     const withZero = attrsWithModifiedCoefficient(0);
 
     for (const key of Object.keys(settings.distribution)) {
-      coefficientHelper[key] = {
+      results.coefficientHelper[key] = {
         slope: withOne[`${key} DPS`] - withZero[`${key} DPS`],
         intercept: withZero[`${key} DPS`],
       };
     }
-
-    const results: Results = {
-      value,
-      indicators,
-      effectivePositiveValues,
-      effectiveNegativeValues,
-      effectiveDamageDistribution,
-      coefficientHelper,
-      damageBreakdown,
-    };
 
     // out of combat hero panel simulation (overrides both baseAttributes and modifiers)
     if (settings.unbuffedBaseAttributes && settings.unbuffedModifiers) {
@@ -1024,8 +1021,6 @@ export class OptimizerCore {
       this.calcStats(temp, settings.unbuffedModifiers);
       results.unbuffedAttributes = temp.attributes;
     }
-
-    character.results = results;
   }
 
   /**
