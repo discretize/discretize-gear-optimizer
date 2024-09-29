@@ -513,24 +513,32 @@ export function createSettingsPerCalculation(
   // for heuristics
   // like affixes, but each entry is an array of stats given by using that affix in every availible slot
   // e.g. berserker with no forced affixes -> [[Power, 1381],[Precision, 961],[Ferocity, 961]]
-  const settings_heuristicsCorners = affixes.map((forcedAffix) => {
-    const statTotals: Record<AttributeName, number> = {};
-    settings_affixesArray.forEach((possibleAffixes, slotindex) => {
-      const affix = possibleAffixes.includes(forcedAffix) ? forcedAffix : possibleAffixes[0];
-
-      const item = exotics?.[affix]?.[slotindex]
-        ? settings_slots[slotindex].exo
-        : settings_slots[slotindex].asc;
-      const bonuses = objectEntries(item[Affix[affix].type]);
-      for (const [type, bonus] of bonuses) {
-        for (const stat of Affix[affix].bonuses[type] ?? []) {
-          statTotals[stat] = (statTotals[stat] || 0) + bonus;
+  let settings_heuristicsCorners: [AttributeName, number][][] | undefined;
+  try {
+    settings_heuristicsCorners = affixes.map((forcedAffix) => {
+      const statTotals: Record<AttributeName, number> = {};
+      settings_affixesArray.forEach((possibleAffixes, slotindex) => {
+        if (!possibleAffixes.includes(forcedAffix) && possibleAffixes.length !== 1) {
+          throw new Error();
         }
-      }
-    });
+        const affix = possibleAffixes.includes(forcedAffix) ? forcedAffix : possibleAffixes[0];
 
-    return Object.entries(statTotals);
-  });
+        const item = exotics?.[affix]?.[slotindex]
+          ? settings_slots[slotindex].exo
+          : settings_slots[slotindex].asc;
+        const bonuses = objectEntries(item[Affix[affix].type]);
+        for (const [type, bonus] of bonuses) {
+          for (const stat of Affix[affix].bonuses[type] ?? []) {
+            statTotals[stat] = (statTotals[stat] || 0) + bonus;
+          }
+        }
+      });
+
+      return Object.entries(statTotals);
+    });
+  } catch {
+    // silently disable heuristics where they will not be accurate
+  }
 
   // used to keep the progress counter in sync when skipping identical gear combinations.
   const settings_runsAfterThisSlot: OptimizerCoreSettings['runsAfterThisSlot'] = [];
