@@ -7,14 +7,16 @@ const AffixesStats = ({ data, title }) => {
       <Typography variant="h6">{title}</Typography>
       <Table padding="none">
         <TableBody>
-          {Object.keys(data).map((attribute) => (
-            <TableRow hover key={attribute}>
-              <TableCell>
-                <Attribute name={attribute} style={{ fontSize: '20px', color: '#AAAAAA' }} />
-              </TableCell>
-              <TableCell align="right">{data[attribute]}</TableCell>
-            </TableRow>
-          ))}
+          {Object.entries(data)
+            .filter(([_, value]) => value)
+            .map(([attribute, value]) => (
+              <TableRow hover key={attribute}>
+                <TableCell>
+                  <Attribute name={attribute} style={{ fontSize: '20px', color: '#AAAAAA' }} />
+                </TableCell>
+                <TableCell align="right">{value}</TableCell>
+              </TableRow>
+            ))}
         </TableBody>
       </Table>
     </>
