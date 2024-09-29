@@ -1,4 +1,5 @@
 import { Character, characterLT } from '../../optimizer/optimizerCore';
+import { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import { ERROR, RUNNING, SUCCESS } from '../../optimizer/status';
 import {
   changeList,
@@ -8,7 +9,7 @@ import {
 } from '../../slices/controlsSlice';
 import type { AppDispatch, RootState } from '../../store';
 import type { WorkerWrapper } from '../calculate';
-import { CombinationSettings, ResultData, CalculationSettings } from '../optimizerSetup';
+import { CalculationSettings, CombinationSettings } from '../optimizerSetup';
 import { enhanceResults, getResultProperties } from '../results';
 import { getLayerCombinations, getLayerNumber } from '../tree';
 import { getTotalCombinations, splitCombinations } from '../utils';
@@ -39,7 +40,7 @@ let results: Character[][] = [];
  * @param {AppDispatch} dispatch
  * @param {WorkerWrapper[]} workers
  * @param {CombinationSettings[]} combinations
- * @param {ResultData[]} resultData
+ * @param {ExtrasCombinationEntry[]} extrasCombinationEntries
  * @param {CalculationSettings} settings
  * @param {number} maxThreads
  * @param {boolean} withHeuristics
@@ -49,7 +50,7 @@ export default function runCalcNormal(
   dispatch: AppDispatch,
   workers: WorkerWrapper[],
   combinations: CombinationSettings[],
-  resultData: ResultData[],
+  extrasCombinationEntries: ExtrasCombinationEntry[],
   settings: CalculationSettings,
   maxThreads: number,
   withHeuristics: boolean,
@@ -82,7 +83,7 @@ export default function runCalcNormal(
         message.results,
         settings,
         combinations,
-        getResultProperties(reduxState, resultData),
+        getResultProperties(reduxState, extrasCombinationEntries),
       );
       workers[index].status = 'finished';
 
@@ -122,7 +123,7 @@ export default function runCalcNormal(
           message.results,
           settings,
           combinations,
-          getResultProperties(reduxState, resultData),
+          getResultProperties(reduxState, extrasCombinationEntries),
         );
 
         const sortedResults = results

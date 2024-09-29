@@ -68,7 +68,7 @@ export function calculateParallel(reduxState: RootState, dispatch: AppDispatch):
     runCalcHeuristics(reduxState, dispatch, workers, settings, selectedMaxThreads);
   } else {
     // get the extra combinations from the redux state
-    const { combinations, extrasCombinationEntries: resultData } = setupNormal(reduxState);
+    const { combinations, extrasCombinationEntries } = setupNormal(reduxState);
 
     if (combinations.length === 0) {
       console.error('No combinations found');
@@ -80,7 +80,7 @@ export function calculateParallel(reduxState: RootState, dispatch: AppDispatch):
       dispatch,
       workers,
       combinations,
-      resultData,
+      extrasCombinationEntries,
       settings,
       selectedMaxThreads,
       false,

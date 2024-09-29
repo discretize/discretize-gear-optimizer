@@ -5,7 +5,6 @@ import type {
 import {
   createSettingsPerCalculation,
   createSettingsPerCombination,
-  ExtrasCombinationEntry,
   type AppliedModifier,
 } from '../optimizer/optimizerSetup';
 import { getExtrasCombinationsAndModifiers } from '../slices/extras';
@@ -28,8 +27,6 @@ export type CalculationSettings = Omit<
 //     }[];
 //   };
 // };
-
-export type ResultData = ExtrasCombinationEntry;
 
 export function setupNormal(reduxState: RootState) {
   const extrasCombinationEntries = getExtrasCombinationsAndModifiers(reduxState);
