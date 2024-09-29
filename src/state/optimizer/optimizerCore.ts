@@ -546,17 +546,15 @@ export class OptimizerCore {
 
       if (position <= this.list.length - 1) {
         this.list.splice(position, 0, character);
-
-        if (this.list.length > settings.maxResults) {
-          this.list.length = settings.maxResults;
-        }
       } else {
         this.list.push(character);
       }
-
-      if (this.list.length === settings.maxResults) {
-        this.worstScore = this.list[this.list.length - 1].attributes[settings.rankby];
-      }
+    }
+    if (this.list.length > settings.maxResults) {
+      this.list.length = settings.maxResults;
+    }
+    if (this.list.length === settings.maxResults) {
+      this.worstScore = this.list[this.list.length - 1].attributes[settings.rankby];
     }
 
     this.isChanged = true;
