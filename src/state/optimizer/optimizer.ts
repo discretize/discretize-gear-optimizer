@@ -327,8 +327,6 @@ export function* calculateHeuristic(reduxState: RootState, targetCombinationCoun
       //     comb.heuristicDisabled = true;
       // });
 
-      console.log(combinations.map((comb) => comb.heuristicBestResult?.attributes[rankby]));
-
       console.timeEnd('heuristics');
 
       return yield* calculate(reduxState, combinations);
