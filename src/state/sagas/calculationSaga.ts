@@ -54,8 +54,8 @@ function* runCalc() {
       // eslint-disable-next-line no-loop-func
       const result = yield* call(() => nextPromise);
 
-      const { percent, isChanged, list, filteredLists } = result.value;
-      currentPercent = percent;
+      const { percent, heuristicsPercent, isChanged, list, filteredLists } = result.value;
+      currentPercent = heuristicsPercent ?? percent;
 
       if (isChanged) {
         // shallow freeze as a performance optimization; immer freezes recursively instead by default

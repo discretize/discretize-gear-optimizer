@@ -7,6 +7,7 @@
 import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
 import type {
   AffixName,
+  AffixNameOrCustom,
   ConditionName,
   DamagingConditionName,
   DerivedAttributeName,
@@ -21,6 +22,7 @@ import { Attributes, INFUSION_BONUS, conditionData, conditionDataWvW } from '../
 import { enumArrayIncludes, objectKeys } from '../../utils/usefulFunctions';
 import type { ExtrasCombination, ShouldDisplayExtras } from '../slices/extras';
 import type { GameMode } from '../slices/userSettings';
+import { iteratePartitions } from './combinatorics';
 import type {
   AppliedModifier,
   CachedFormState,
@@ -103,6 +105,8 @@ export const clamp = (input: number, min: number, max: number): number => {
   return input;
 };
 
+const roundOne = (num: number) => Math.round(num * 10) / 10;
+
 /*
  * ------------------------------------------------------------------------
  * Core Optimizer Logic
@@ -149,6 +153,9 @@ export interface OptimizerCoreSettingsPerCalculation {
   runsAfterThisSlot: number[];
   affixesArray: AffixName[][];
   affixStatsArray: [AttributeName, number][][][];
+
+  affixes: AffixNameOrCustom[];
+  heuristicsCorners?: [AttributeName, number][][];
 
   shouldDisplayExtras: ShouldDisplayExtras;
   cachedFormState: CachedFormState;
@@ -211,6 +218,7 @@ export interface CharacterUnprocessed {
   attributes?: Attributes;
   gear: Gear;
   gearStats: GearStats;
+  gearDescription?: string;
   valid: boolean;
   baseAttributes: Attributes;
   infusions: Partial<Record<InfusionName, number>>;
@@ -229,7 +237,13 @@ export const UPDATE_MS = 90;
 export class OptimizerCore {
   settings: OptimizerCoreSettings;
   minimalSettings: OptimizerCoreMinimalSettings;
-  applyInfusionsFunction: (this: OptimizerCore, gear: Gear, gearStats: GearStats) => void;
+  applyInfusionsFunction: (
+    this: OptimizerCore,
+    gear: Gear,
+    gearStats: GearStats,
+    overrides?: Partial<Character>,
+  ) => void;
+
   condiResultCache = new Map<number, number>();
   worstScore: number = 0;
   list: Character[] = [];
@@ -391,6 +405,76 @@ export class OptimizerCore {
     };
   }
 
+  /**
+   * A generator function that iterates synchronously through simulated builds, updating the list
+   * object with the best results. Yields periodically to allow UI to be updated or cancelled.
+   *
+   * Remember, a generator's next() function returns a plain object { value, done }.
+   *
+   * @param {number} split
+   *
+   * @yields {{done: boolean, value: {isChanged: boolean, percent: number}}} result
+   * yields {boolean} result.done - true if the calculation is finished
+   * yields {number} result.value.isChanged - true if this.list has been mutated
+   * yields {number} result.value.calculationRuns - the calculation progress
+   */
+  *calculateHeuristic(split: number) {
+    const { settings } = this;
+    const { affixes, heuristicsCorners } = settings;
+
+    if (!heuristicsCorners) {
+      return {
+        isChanged: true,
+        calculationRuns: 0,
+        newList: [],
+      };
+    }
+
+    let calculationRuns = 0;
+
+    let iterationTimer = Date.now();
+    let cycles = 0;
+    this.isChanged = true;
+
+    for (const partition of iteratePartitions(split, heuristicsCorners.length, true)) {
+      cycles++;
+
+      // pause to update UI
+      if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
+        yield {
+          isChanged: this.isChanged,
+          calculationRuns,
+          newList: this.list,
+        };
+        this.isChanged = false;
+        iterationTimer = Date.now();
+      }
+
+      const gearStats: GearStats = {};
+
+      partition.forEach((num, i) =>
+        heuristicsCorners[i].forEach(([stat, value]) => {
+          gearStats[stat] = (gearStats[stat] ?? 0) + (value * num) / split;
+        }),
+      );
+
+      const percentages = `Estimate: ${partition
+        .map((num, i) => `${roundOne((num / split) * 100)}% ${affixes[i]}`)
+        .join(', ')}`;
+
+      calculationRuns++;
+
+      // this.applyInfusionsFunction is aliased to the correct applyInfusions[mode] function during setup
+      this.applyInfusionsFunction([], gearStats, { gearDescription: percentages });
+    }
+
+    return {
+      isChanged: this.isChanged,
+      calculationRuns,
+      newList: this.list,
+    };
+  }
+
   createCharacter(
     gear: Gear,
     gearStats: GearStats,
@@ -420,51 +504,66 @@ export class OptimizerCore {
   }
 
   // Applies no infusions
-  applyInfusionsNone(gear: Gear, gearStats: GearStats) {
-    const character = this.createCharacter(gear, gearStats, {});
+  applyInfusionsNone(gear: Gear, gearStats: GearStats, overrides?: Partial<Character>) {
+    const character = this.createCharacter(gear, gearStats, {}, overrides);
     this.updateAttributesFast(character);
     this.insertCharacter(character);
   }
 
   // Just applies the primary infusion
-  applyInfusionsPrimary(gear: Gear, gearStats: GearStats) {
+  applyInfusionsPrimary(gear: Gear, gearStats: GearStats, overrides?: Partial<Character>) {
     const { settings } = this;
 
-    const character = this.createCharacter(gear, gearStats, {
-      [settings.primaryInfusion]: settings.primaryMaxInfusions,
-    });
+    const character = this.createCharacter(
+      gear,
+      gearStats,
+      {
+        [settings.primaryInfusion]: settings.primaryMaxInfusions,
+      },
+      overrides,
+    );
 
     this.updateAttributesFast(character);
     this.insertCharacter(character);
   }
 
   // Just applies the maximum number of primary/secondary infusions, since the total is ≤18
-  applyInfusionsFew(gear: Gear, gearStats: GearStats) {
+  applyInfusionsFew(gear: Gear, gearStats: GearStats, overrides?: Partial<Character>) {
     const { settings } = this;
 
-    const character = this.createCharacter(gear, gearStats, {
-      [settings.primaryInfusion]: settings.primaryMaxInfusions,
-      [settings.secondaryInfusion]: settings.secondaryMaxInfusions,
-    });
+    const character = this.createCharacter(
+      gear,
+      gearStats,
+      {
+        [settings.primaryInfusion]: settings.primaryMaxInfusions,
+        [settings.secondaryInfusion]: settings.secondaryMaxInfusions,
+      },
+      overrides,
+    );
     this.updateAttributesFast(character);
     this.insertCharacter(character);
   }
 
   // Inserts every valid combination of 18 infusions
-  applyInfusionsSecondary(gear: Gear, gearStats: GearStats) {
+  applyInfusionsSecondary(gear: Gear, gearStats: GearStats, overrides?: Partial<Character>) {
     const { settings } = this;
 
-    const test = this.createCharacter(gear, gearStats, {});
+    const test = this.createCharacter(gear, gearStats, {}, overrides);
     if (!this.worstScore || this.testInfusionUsefulness(test)) {
       let previousResult;
 
       let primaryCount = settings.primaryMaxInfusions;
       let secondaryCount = settings.maxInfusions - primaryCount;
       while (secondaryCount <= settings.secondaryMaxInfusions) {
-        const character = this.createCharacter(gear, gearStats, {
-          [settings.primaryInfusion]: primaryCount,
-          [settings.secondaryInfusion]: secondaryCount,
-        });
+        const character = this.createCharacter(
+          gear,
+          gearStats,
+          {
+            [settings.primaryInfusion]: primaryCount,
+            [settings.secondaryInfusion]: secondaryCount,
+          },
+          overrides,
+        );
         this.updateAttributesFast(character);
         if (character.valid && character.attributes[settings.rankby] !== previousResult) {
           this.insertCharacter(character);
@@ -478,20 +577,29 @@ export class OptimizerCore {
   }
 
   // Tests every valid combination of 18 infusions and inserts the best result
-  applyInfusionsSecondaryNoDuplicates(gear: Gear, gearStats: GearStats) {
+  applyInfusionsSecondaryNoDuplicates(
+    gear: Gear,
+    gearStats: GearStats,
+    overrides?: Partial<Character>,
+  ) {
     const { settings } = this;
 
-    const test = this.createCharacter(gear, gearStats, {});
+    const test = this.createCharacter(gear, gearStats, {}, overrides);
     if (!this.worstScore || this.testInfusionUsefulness(test)) {
       let best = null;
 
       let primaryCount = settings.primaryMaxInfusions;
       let secondaryCount = settings.maxInfusions - primaryCount;
       while (secondaryCount <= settings.secondaryMaxInfusions) {
-        const character = this.createCharacter(gear, gearStats, {
-          [settings.primaryInfusion]: primaryCount,
-          [settings.secondaryInfusion]: secondaryCount,
-        });
+        const character = this.createCharacter(
+          gear,
+          gearStats,
+          {
+            [settings.primaryInfusion]: primaryCount,
+            [settings.secondaryInfusion]: secondaryCount,
+          },
+          overrides,
+        );
         this.updateAttributesFast(character);
         if (character.valid) {
           if (!best || characterLT(best, character, settings.rankby) > 0) {
@@ -1044,7 +1152,14 @@ export class OptimizerCore {
 }
 
 // returns a positive value if B is better than A
-export function characterLT(a: Character, b: Character, rankby: string): number {
+export function characterLT(
+  a: Character | undefined,
+  b: Character | undefined,
+  rankby: string,
+): number {
+  if (!a && !b) return 0;
+  if (!a) return 1;
+  if (!b) return -1;
   // const { rankby } = this.settings;
 
   // if (!a.valid && b.valid) {
