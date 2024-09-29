@@ -215,7 +215,7 @@ export function* calculateHeuristic(reduxState: RootState) {
   const { rankby, affixes } = normalCombinations[0].core.settings;
 
   // don't do any heuristic stuff with few combinations/one affix
-  if (normalCombinations.length < targetCombinationCount || affixes.length < 2)
+  if (normalCombinations.length <= targetCombinationCount || affixes.length < 2)
     return yield* calculate(reduxState, normalCombinations);
 
   console.time('heuristics');
