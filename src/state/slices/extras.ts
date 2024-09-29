@@ -199,8 +199,6 @@ export const getExtrasCombinationsAndModifiers = (state: RootState) => {
     return true;
   });
 
-  console.info('extrasCombinations', extrasCombinations);
-
   const getModifiers = (extrasCombination: ExtrasCombination) => {
     const allModifiers: AppliedModifier[] = objectEntries(extrasCombination)
       .filter(([_, id]) => id)
@@ -221,6 +219,9 @@ export const getExtrasCombinationsAndModifiers = (state: RootState) => {
     extrasModifiers: getModifiers(extrasCombination),
   }));
 };
+
+export const getExtrasCombinationCount = (state: RootState) =>
+  getExtrasCombinationsAndModifiers(state).length;
 
 export const {
   changeExtraIds,

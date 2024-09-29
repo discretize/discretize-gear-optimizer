@@ -1,9 +1,10 @@
-import { Chip } from '@mui/material';
+import { TextDivider } from '@discretize/react-discretize-components';
+import { Chip, Grid2 as Grid, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProfession } from '../../../state/slices/controlsSlice';
-import { changeExtras, copySigils } from '../../../state/slices/extras';
+import { changeExtras, copySigils, getExtrasCombinationCount } from '../../../state/slices/extras';
 import data from '../../../utils/data';
 import { SPECIALIZATIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
@@ -14,6 +15,7 @@ const ExtrasSection = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
+  const combinationCount = useSelector(getExtrasCombinationCount);
 
   let extrasPresets;
   if (profession) {
@@ -71,6 +73,12 @@ const ExtrasSection = () => {
               presetCategory="extra"
             />
           )}
+          <Grid sx={{ mt: 3 }}>
+            <TextDivider text="Info" />
+            <Typography variant="body2" sx={{ textAlign: 'center' }}>
+              {combinationCount} selected combination{combinationCount > 1 ? 's' : ''}
+            </Typography>
+          </Grid>
         </>
       }
     />
