@@ -25,7 +25,7 @@ const OutputDistribution = ({ character }) => {
     Siphon: t('Life Siphon'),
   };
 
-  const { damageBreakdown } = character.results;
+  const { damageBreakdown = {} } = character.results;
 
   const data = Object.keys(damageBreakdown)
     .filter((damageType) => damageBreakdown[damageType])
