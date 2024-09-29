@@ -9,7 +9,7 @@ import {
 import type { AppDispatch, RootState } from '../store';
 import runCalcHeuristics from './modes/heuristics';
 import runCalcNormal from './modes/normal';
-import { createSettings, setupNormal } from './optimizerSetup';
+import { createCalculationSettings, setupNormal } from './optimizerSetup';
 
 export interface WorkerWrapper {
   status: 'idle' | 'running' | 'finished' | 'running_heuristics' | 'finished_heuristics';
@@ -52,7 +52,7 @@ export function calculateParallel(reduxState: RootState, dispatch: AppDispatch):
   console.info('State', reduxState);
 
   const withHeuristics = getHeuristics(reduxState);
-  const settings = createSettings(reduxState);
+  const settings = createCalculationSettings(reduxState);
 
   terminateActiveWorkers();
 
@@ -68,9 +68,9 @@ export function calculateParallel(reduxState: RootState, dispatch: AppDispatch):
     runCalcHeuristics(reduxState, dispatch, workers, settings, selectedMaxThreads);
   } else {
     // get the extra combinations from the redux state
-    const [_combinations, _resultData] = setupNormal(reduxState);
+    const { combinations, extrasCombinationEntries: resultData } = setupNormal(reduxState);
 
-    if (_combinations.length === 0) {
+    if (combinations.length === 0) {
       console.error('No combinations found');
       return [];
     }
@@ -79,8 +79,8 @@ export function calculateParallel(reduxState: RootState, dispatch: AppDispatch):
       reduxState,
       dispatch,
       workers,
-      _combinations,
-      _resultData,
+      combinations,
+      resultData,
       settings,
       selectedMaxThreads,
       false,

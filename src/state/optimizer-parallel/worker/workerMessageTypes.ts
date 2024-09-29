@@ -1,6 +1,6 @@
 import type { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import { RootState } from '../../store';
-import { Combination, Settings } from '../optimizerSetup';
+import { CombinationSettings, CalculationSettings } from '../optimizerSetup';
 
 // All messages exchanged between the main thread and the worker threads are typed here
 
@@ -26,8 +26,8 @@ export interface StartMessage {
   type: typeof START;
   index: number;
   chunks: string[][];
-  combinations: Combination[];
-  settings: Settings;
+  combinations: CombinationSettings[];
+  settings: CalculationSettings;
   withHeuristics: boolean;
 }
 export interface StartHeuristicsMessage {
@@ -36,7 +36,7 @@ export interface StartHeuristicsMessage {
   chunks: string[][];
   extrasIds: string[][];
   reduxState: RootState;
-  settings: Settings;
+  settings: CalculationSettings;
 }
 export interface FinishedMessage {
   type: typeof FINISHED;
@@ -44,7 +44,7 @@ export interface FinishedMessage {
 }
 export interface FinishedHeuristicsMessage {
   type: typeof FINISHED_HEURISTICS;
-  data: [Combination, ExtrasCombinationEntry][];
+  data: [CombinationSettings, ExtrasCombinationEntry][];
 }
 export interface ProgressMessage {
   type: typeof PROGRESS;

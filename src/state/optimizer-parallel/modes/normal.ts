@@ -8,7 +8,7 @@ import {
 } from '../../slices/controlsSlice';
 import type { AppDispatch, RootState } from '../../store';
 import type { WorkerWrapper } from '../calculate';
-import { Combination, ResultData, Settings } from '../optimizerSetup';
+import { CombinationSettings, ResultData, CalculationSettings } from '../optimizerSetup';
 import { enhanceResults, getResultProperties } from '../results';
 import { getLayerCombinations, getLayerNumber } from '../tree';
 import { getTotalCombinations, splitCombinations } from '../utils';
@@ -38,9 +38,9 @@ let results: Character[][] = [];
  * @param {RootState} reduxState
  * @param {AppDispatch} dispatch
  * @param {WorkerWrapper[]} workers
- * @param {Combination[]} combinations
+ * @param {CombinationSettings[]} combinations
  * @param {ResultData[]} resultData
- * @param {Settings} settings
+ * @param {CalculationSettings} settings
  * @param {number} maxThreads
  * @param {boolean} withHeuristics
  */
@@ -48,9 +48,9 @@ export default function runCalcNormal(
   reduxState: RootState,
   dispatch: AppDispatch,
   workers: WorkerWrapper[],
-  combinations: Combination[],
+  combinations: CombinationSettings[],
   resultData: ResultData[],
-  settings: Settings,
+  settings: CalculationSettings,
   maxThreads: number,
   withHeuristics: boolean,
 ) {

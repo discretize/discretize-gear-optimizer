@@ -16,7 +16,11 @@ import {
   type ExtrasCombination,
 } from '../../slices/extras';
 import { RootState } from '../../store';
-import { Combination, Settings, createCombination } from '../optimizerSetup';
+import {
+  CombinationSettings,
+  CalculationSettings,
+  createCombinationSettings,
+} from '../optimizerSetup';
 import { descendSubtreeDFS } from '../tree';
 import { combinationsToWorkerString, getAffixId, settingsToWorkerString } from '../utils';
 import {
@@ -49,8 +53,8 @@ onmessage = (e: MessageEvent<MessageType>) => {
 
 async function start(
   chunks: string[][],
-  settings: Settings,
-  combinations: Combination[],
+  settings: CalculationSettings,
+  combinations: CombinationSettings[],
   withHeurisics: boolean,
 ) {
   let now = performance.now();
@@ -97,13 +101,13 @@ async function start(
  * @param {string[][]} chunks array of subtrees to calculate (extras combinations tree)
  * @param {string[][]} extrasIds choices of extras for each extras slot
  * @param {RootState} reduxState
- * @param {Settings} settings
+ * @param {CalculationSettings} settings
  */
 async function start_heuristics(
   chunks: string[][],
   extrasIds: string[][],
   reduxState: RootState,
-  settings: Settings,
+  settings: CalculationSettings,
 ) {
   await init({});
 
@@ -125,9 +129,9 @@ async function start_heuristics(
   };
 
   // store combinations here; we batch process them
-  let currentChunkList: [Combination, ExtrasCombinationEntry][] = [];
+  let currentChunkList: [CombinationSettings, ExtrasCombinationEntry][] = [];
 
-  const bestList: [Combination, ExtrasCombinationEntry][] = [];
+  const bestList: [CombinationSettings, ExtrasCombinationEntry][] = [];
 
   // callback that is called for every leaf of the extras combination tree
   // we calculate the attributes and modifiers of the combination here
@@ -150,7 +154,10 @@ async function start_heuristics(
       extrasModifiers: getModifiers(extras),
     };
 
-    const combination = createCombination(extrasCombinationEntry.extrasModifiers, reduxState);
+    const combination = createCombinationSettings(
+      reduxState,
+      extrasCombinationEntry.extrasModifiers,
+    );
     currentChunkList.push([combination, extrasCombinationEntry]);
 
     if (currentChunkList.length % 10000 === 0) {
@@ -185,7 +192,10 @@ async function start_heuristics(
   postMessage(message);
 }
 
-function calcWasmHeuristics(settings: Settings, chunks: [Combination, ExtrasCombinationEntry][]) {
+function calcWasmHeuristics(
+  settings: CalculationSettings,
+  chunks: [CombinationSettings, ExtrasCombinationEntry][],
+) {
   const resStr = calculate_heuristics_only(
     settingsToWorkerString(settings),
     combinationsToWorkerString(chunks.map((chunk) => chunk[0])),

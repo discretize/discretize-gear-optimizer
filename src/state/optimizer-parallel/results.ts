@@ -12,7 +12,7 @@ import { getInfusionsModifiers } from '../slices/infusions';
 import { getSkillsModifiers } from '../slices/skills';
 import { getTraitsModifiers } from '../slices/traits';
 import type { RootState } from '../store';
-import type { Combination, ResultData, Settings } from './optimizerSetup';
+import type { CombinationSettings, ResultData, CalculationSettings } from './optimizerSetup';
 import { getAffixName, getAttributeId, getAttributeName } from './utils';
 
 export interface ResultProperties {
@@ -62,8 +62,8 @@ const arrayToObject = <T>(array: [string | number, T][]): Record<string | number
 
 export function enhanceResults(
   results: any[], // from wasm, by "shape" a Character[], but with c-like enum indices instead of strings for attribtues and such
-  settings: Settings,
-  combinations: Combination[],
+  settings: CalculationSettings,
+  combinations: CombinationSettings[],
   resultProperties: ResultProperties,
 ): Character[] {
   const resultList: Character[] = [];
