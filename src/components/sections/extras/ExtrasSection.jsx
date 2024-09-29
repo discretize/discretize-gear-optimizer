@@ -1,10 +1,30 @@
 import { TextDivider } from '@discretize/react-discretize-components';
-import { Chip, Grid2 as Grid, Typography } from '@mui/material';
+import {
+  Box,
+  Chip,
+  FormControlLabel,
+  InputAdornment,
+  Switch,
+  TextField,
+  Typography,
+} from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProfession } from '../../../state/slices/controlsSlice';
-import { changeExtras, copySigils, getExtrasCombinationCount } from '../../../state/slices/extras';
+import {
+  changeJsHeuristicsEnabled,
+  changeJsHeuristicsTarget,
+  getJsHeuristicsEnabled,
+  getJsHeuristicsTarget,
+  getProfession,
+} from '../../../state/slices/controlsSlice';
+import {
+  changeExtras,
+  copySigils,
+  getExtrasCombinationCount,
+  getJsHeuristicsDefault,
+  getParsedJsHeuristicsTarget,
+} from '../../../state/slices/extras';
 import data from '../../../utils/data';
 import { SPECIALIZATIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
@@ -16,6 +36,10 @@ const ExtrasSection = () => {
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
   const combinationCount = useSelector(getExtrasCombinationCount);
+  const jsHeuristicsEnabled = useSelector(getJsHeuristicsEnabled);
+  const jsHeuristicsTarget = useSelector(getJsHeuristicsTarget);
+  const jsHeuristicsDefault = useSelector(getJsHeuristicsDefault);
+  const { error: jsHeuristicsTargetError } = useSelector(getParsedJsHeuristicsTarget);
 
   let extrasPresets;
   if (profession) {
@@ -73,12 +97,71 @@ const ExtrasSection = () => {
               presetCategory="extra"
             />
           )}
-          <Grid sx={{ mt: 3 }}>
-            <TextDivider text="Info" />
-            <Typography variant="body2" sx={{ textAlign: 'center' }}>
-              {combinationCount} selected combination{combinationCount > 1 ? 's' : ''}
-            </Typography>
-          </Grid>
+          <Box sx={{ mt: 3, mx: 1, display: 'flex', flexDirection: 'column' }}>
+            <TextDivider text="Combinations" />
+
+            {jsHeuristicsEnabled ? (
+              <TextField
+                variant="standard"
+                size="small"
+                placeholder={String(Math.min(jsHeuristicsDefault, combinationCount))}
+                label={t('Total to calculate')}
+                slotProps={{
+                  input: {
+                    // used to always display the placeholder value instead of the label
+                    // eslint-disable-next-line react/jsx-no-useless-fragment
+                    startAdornment: <></>,
+                    endAdornment: (
+                      <InputAdornment disablePointerEvents position="end" disableTypography>
+                        <Typography sx={{ fontSize: '0.9rem', color: '#b1b1b5' }}>
+                          / {combinationCount}
+                        </Typography>
+                      </InputAdornment>
+                    ),
+                  },
+                }}
+                value={jsHeuristicsTarget}
+                error={jsHeuristicsTargetError}
+                onChange={(event) => dispatch(changeJsHeuristicsTarget(event.target.value))}
+              />
+            ) : (
+              <TextField
+                variant="standard"
+                size="small"
+                label={t('Total to calculate')}
+                slotProps={{
+                  input: {
+                    // must match above to fix weird animation on switch
+                    // eslint-disable-next-line react/jsx-no-useless-fragment
+                    startAdornment: <></>,
+                  },
+                }}
+                disabled
+                value={combinationCount}
+                onChange={() => {}}
+              />
+            )}
+
+            <FormControlLabel
+              control={
+                <Switch
+                  size="small"
+                  checked={jsHeuristicsEnabled}
+                  onChange={(e) => dispatch(changeJsHeuristicsEnabled(e.target.checked))}
+                  name="checked"
+                  color="primary"
+                />
+              }
+              slotProps={{
+                typography: {
+                  variant: 'body2',
+                  sx: { hyphens: 'auto' },
+                },
+              }}
+              sx={{ mt: 2 }}
+              label={t('Estimate best combinations')}
+            />
+          </Box>
         </>
       }
     />

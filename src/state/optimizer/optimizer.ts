@@ -185,12 +185,10 @@ interface HeuristicCombination extends Combination {
   heuristicCalculationRuns: number;
 }
 
-export function* calculateHeuristic(reduxState: RootState) {
+export function* calculateHeuristic(reduxState: RootState, targetCombinationCount: number) {
   // 28 closely matches a single shoulderpiece
   // 118 closely matches both a single shoulderpiece and a single back item, but is much slower
   const split = 28;
-
-  const targetCombinationCount = 10;
 
   /**
    * set up input
@@ -345,7 +343,13 @@ export function* calculateHeuristic(reduxState: RootState) {
 
 let generator: ReturnType<typeof calculate>;
 
-export const setup = (reduxState: RootState) => {
-  generator = calculateHeuristic(reduxState);
+export const setup = (
+  reduxState: RootState,
+  jsHeuristicsEnabled: boolean,
+  jsHeuristicsTarget: number,
+) => {
+  generator = jsHeuristicsEnabled
+    ? calculateHeuristic(reduxState, jsHeuristicsTarget)
+    : calculate(reduxState);
 };
 export const next = () => generator.next();

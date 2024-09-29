@@ -9,12 +9,14 @@ import {
   changeProgress,
   changeSelectedCharacter,
   changeStatus,
+  getJsHeuristicsEnabled,
   getSelectedCharacter,
   getStatus,
   updateResults,
 } from '../slices/controlsSlice';
 import type { RootState } from '../store';
 import SagaTypes from './sagaTypes';
+import { getParsedJsHeuristicsTarget } from '../slices/extras';
 
 const worker = new ComlinkWorker<typeof import('../optimizer/optimizer')>(
   new URL('../optimizer/optimizer.ts', import.meta.url),
@@ -42,11 +44,13 @@ function* runCalc() {
     yield* put(changeProgress(0));
 
     const originalSelectedCharacter = yield* select(getSelectedCharacter);
+    const jsHeuristicsEnabled = getJsHeuristicsEnabled(reduxState);
+    const { value: jsHeuristicsTarget } = getParsedJsHeuristicsTarget(reduxState);
 
     let elapsed = 0;
     let timer = performance.now();
 
-    yield worker.setup(reduxState);
+    yield worker.setup(reduxState, jsHeuristicsEnabled, jsHeuristicsTarget);
 
     let nextPromise = worker.next();
 

@@ -100,6 +100,8 @@ const initialState: {
   status: OptimizerStatus;
   profession: ProfessionName | '';
   selectedSpecialization: ProfessionOrSpecializationName | '';
+  jsHeuristicsEnabled: boolean;
+  jsHeuristicsTarget: string;
   multicore: boolean;
   hwThreads: number;
   heuristics: boolean;
@@ -119,6 +121,8 @@ const initialState: {
   status: WAITING,
   profession: '',
   selectedSpecialization: '',
+  jsHeuristicsEnabled: false,
+  jsHeuristicsTarget: '',
   multicore: false,
   hwThreads: navigator.hardwareConcurrency || 4, // 4 seems to be a sensible default
   heuristics: false,
@@ -213,6 +217,12 @@ export const controlSlice = createSlice({
     changeError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
     },
+    changeJsHeuristicsEnabled: (state, action: PayloadAction<boolean>) => {
+      state.jsHeuristicsEnabled = action.payload;
+    },
+    changeJsHeuristicsTarget: (state, action: PayloadAction<string>) => {
+      state.jsHeuristicsTarget = action.payload;
+    },
     changeHwThreads: (state, action: PayloadAction<number>) => {
       state.hwThreads = action.payload;
     },
@@ -243,6 +253,10 @@ export const getDisplayAttributes = (state: RootState) => state.optimizer.contro
 export const getTallTable = (state: RootState) => state.optimizer.control.tallTable;
 export const getSelectedCharacter = (state: RootState) => state.optimizer.control.selectedCharacter;
 export const getError = (state: RootState) => state.optimizer.control.error;
+export const getJsHeuristicsEnabled = (state: RootState) =>
+  state.optimizer.control.jsHeuristicsEnabled;
+export const getJsHeuristicsTarget = (state: RootState) =>
+  state.optimizer.control.jsHeuristicsTarget;
 export const getMulticore = (state: RootState) => state.optimizer.control.multicore;
 export const getHeuristics = (state: RootState) => state.optimizer.control.heuristics;
 
@@ -270,6 +284,8 @@ export const {
   setBuildTemplate,
   changeSelectedCharacter,
   changeError,
+  changeJsHeuristicsEnabled,
+  changeJsHeuristicsTarget,
   changeHwThreads,
   changeMulticore,
   changeHeuristics,
