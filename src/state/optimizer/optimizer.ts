@@ -228,7 +228,10 @@ export function* calculateHeuristic(reduxState: RootState) {
   const globalCalculationTotal = calculationTotal * normalCombinations.length;
 
   const combinations: HeuristicCombination[] = normalCombinations.map((comb) => {
-    const heuristicCore = new OptimizerCore(comb.settings);
+    const heuristicCore = new OptimizerCore({
+      ...comb.settings,
+      maxResults: 1,
+    });
 
     return {
       ...comb,

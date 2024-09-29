@@ -323,6 +323,7 @@ export class OptimizerCore {
 
       // pause to update UI
       if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
+        this.list.forEach(this.calcResults, this);
         yield {
           isChanged: this.isChanged,
           calculationRuns,
@@ -398,6 +399,7 @@ export class OptimizerCore {
       calculationStatsQueue.push(gearStats);
     }
 
+    this.list.forEach(this.calcResults, this);
     return {
       isChanged: this.isChanged,
       calculationRuns,
@@ -441,6 +443,7 @@ export class OptimizerCore {
 
       // pause to update UI
       if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
+        this.list.forEach(this.calcResults, this);
         yield {
           isChanged: this.isChanged,
           calculationRuns,
@@ -468,6 +471,7 @@ export class OptimizerCore {
       this.applyInfusionsFunction([], gearStats, { gearDescription: percentages });
     }
 
+    this.list.forEach(this.calcResults, this);
     return {
       isChanged: this.isChanged,
       calculationRuns,
@@ -637,7 +641,6 @@ export class OptimizerCore {
     }
 
     this.updateAttributes(character);
-    this.calcResults(character);
     character.id = `${this.uniqueIDCounter++} (${this.randomId})`;
 
     if (this.list.length === 0) {
@@ -1033,6 +1036,8 @@ export class OptimizerCore {
   }
 
   calcResults(character: Character) {
+    if (character.results) return;
+
     const { settings } = this;
     const { attributes } = character;
 
