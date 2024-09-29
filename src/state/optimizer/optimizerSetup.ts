@@ -212,18 +212,14 @@ export interface CachedFormState {
 //   customAffixData: any;
 // }
 
-export function setupCombinations(
-  reduxState: RootState,
-): [ExtrasCombinationEntry, OptimizerCoreSettings][] {
+export function setupCombinations(reduxState: RootState) {
   console.groupCollapsed('Debug Info:');
   console.log('Redux State:', reduxState.optimizer);
 
   const settingsPerCalculation = createSettingsPerCalculation(reduxState);
   console.log('settings per calculation', settingsPerCalculation);
 
-  const data: [ExtrasCombinationEntry, OptimizerCoreSettings][] = getExtrasCombinationsAndModifiers(
-    reduxState,
-  ).map((extrasCombinationEntry, i) => {
+  const data = getExtrasCombinationsAndModifiers(reduxState).map((extrasCombinationEntry, i) => {
     console.log(`combination ${i}:`, extrasCombinationEntry);
 
     const { extrasCombination, extrasModifiers } = extrasCombinationEntry;
@@ -239,7 +235,7 @@ export function setupCombinations(
       extrasCombination,
     };
 
-    return [extrasCombinationEntry, settings];
+    return { extrasCombinationEntry, settings };
   });
 
   console.groupEnd();

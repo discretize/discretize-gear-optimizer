@@ -61,7 +61,7 @@ export function* calculate(reduxState: RootState) {
    */
 
   const combinations: Combination[] = setupCombinations(reduxState).map(
-    ([extrasCombinationEntry, settings]) => {
+    ({ extrasCombinationEntry, settings }) => {
       const core = new OptimizerCore(settings);
       const calculation = core.calculate();
       return {
