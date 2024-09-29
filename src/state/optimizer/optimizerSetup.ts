@@ -218,23 +218,29 @@ export function setupCombinations(
   console.groupCollapsed('Debug Info:');
   console.log('Redux State:', reduxState.optimizer);
 
-  // do not mutate selector result; it may be reused if the same calculation is run twice
-  const combinations = getExtrasCombinationsAndModifiers(reduxState).map((combination) => ({
-    ...combination,
-  }));
+  const settingsPerCalculation = createSettingsPerCalculation(reduxState);
+  console.log('settings per calculation', settingsPerCalculation);
 
-  console.log('settings per calculation', createSettingsPerCalculation(reduxState));
+  const data: [ExtrasCombinationEntry, OptimizerCoreSettings][] = getExtrasCombinationsAndModifiers(
+    reduxState,
+  ).map((extrasCombinationEntry, i) => {
+    console.log(`combination ${i}:`, extrasCombinationEntry);
 
-  const data: [ExtrasCombinationEntry, OptimizerCoreSettings][] = combinations.map(
-    ({ extrasCombination, extrasModifiers }) => {
-      console.log('Input option:', { extrasCombination, extrasModifiers });
+    const { extrasCombination, extrasModifiers } = extrasCombinationEntry;
 
-      return [
-        { extrasCombination, extrasModifiers },
-        createSettings(reduxState, extrasCombination, extrasModifiers),
-      ];
-    },
-  );
+    const settingsPerCombination = createSettingsPerCombination(reduxState, extrasModifiers);
+    const unbuffedSettings = createSettingsPerCombination(reduxState, extrasModifiers, true);
+
+    const settings = {
+      ...settingsPerCalculation,
+      ...settingsPerCombination,
+      unbuffedBaseAttributes: unbuffedSettings.baseAttributes,
+      unbuffedModifiers: unbuffedSettings.modifiers,
+      extrasCombination,
+    };
+
+    return [extrasCombinationEntry, settings];
+  });
 
   console.groupEnd();
 
@@ -963,22 +969,4 @@ export function createSettingsPerCombination(
   };
 
   return settings;
-}
-
-function createSettings(
-  reduxState: RootState,
-  extrasCombination: ExtrasCombination,
-  extrasModifiers: AppliedModifier[],
-): OptimizerCoreSettings {
-  const settingsPerCalculation = createSettingsPerCalculation(reduxState);
-  const settingsPerCombination = createSettingsPerCombination(reduxState, extrasModifiers);
-  const unbuffedSettings = createSettingsPerCombination(reduxState, extrasModifiers, true);
-
-  return {
-    ...settingsPerCalculation,
-    ...settingsPerCombination,
-    unbuffedBaseAttributes: unbuffedSettings.baseAttributes,
-    unbuffedModifiers: unbuffedSettings.modifiers,
-    extrasCombination,
-  };
 }
