@@ -66,13 +66,17 @@ const findExtraBestResults = (
   return result;
 };
 
-export function* calculate(reduxState: RootState, inputCombinations?: Combination[]) {
+interface Overrides {
+  combinations?: Combination[];
+}
+
+export function* calculate(reduxState: RootState, overrides: Overrides = {}) {
   /**
    * set up input
    */
 
   const combinations =
-    inputCombinations ??
+    overrides.combinations ??
     setupCombinations(reduxState).map(({ extrasCombinationEntry, settings }): Combination => {
       const core = new OptimizerCore(settings);
       const calculation = core.calculate();
@@ -214,7 +218,7 @@ export function* calculateHeuristic(reduxState: RootState, targetCombinationCoun
 
   // don't do any heuristic stuff with few combinations/one affix
   if (normalCombinations.length <= targetCombinationCount || affixes.length < 2)
-    return yield* calculate(reduxState, normalCombinations);
+    return yield* calculate(reduxState, { combinations: normalCombinations });
 
   console.time('heuristics');
 
@@ -329,7 +333,7 @@ export function* calculateHeuristic(reduxState: RootState, targetCombinationCoun
 
       console.timeEnd('heuristics');
 
-      return yield* calculate(reduxState, combinations);
+      return yield* calculate(reduxState, { combinations });
     }
 
     if (Date.now() - iterationTimer > UPDATE_MS) {
