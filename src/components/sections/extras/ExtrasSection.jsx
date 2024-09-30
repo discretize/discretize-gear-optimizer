@@ -1,9 +1,11 @@
 import { TextDivider } from '@discretize/react-discretize-components';
+import InfoIcon from '@mui/icons-material/Info';
 import {
   Box,
   Chip,
   FormControlLabel,
   InputAdornment,
+  Link,
   Switch,
   TextField,
   Typography,
@@ -30,6 +32,7 @@ import { SPECIALIZATIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Extras from './Extras';
+import Info from '../../baseComponents/Info';
 
 const ExtrasSection = () => {
   const { t } = useTranslation();
@@ -158,9 +161,23 @@ const ExtrasSection = () => {
                   sx: { hyphens: 'auto' },
                 },
               }}
-              sx={{ mt: 2 }}
+              sx={{ mt: 2, mb: 1 }}
               label={t('Estimate best combinations')}
             />
+
+            {jsHeuristicsEnabled && (
+              <Info icon={<InfoIcon />}>
+                {t('Estimation may be incompatible with per-slot controls.')}{' '}
+                <Link
+                  href="https://github.com/discretize/discretize-gear-optimizer/discussions/805"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {t('Click here')}
+                </Link>{' '}
+                {t('for more information.')}
+              </Info>
+            )}
           </Box>
         </>
       }
