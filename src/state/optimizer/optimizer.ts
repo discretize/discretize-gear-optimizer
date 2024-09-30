@@ -123,7 +123,7 @@ export function* calculate(reduxState: RootState, overrides: Overrides = {}) {
 
     const globalCalculationRuns = combinations.reduce((prev, cur) => prev + cur.calculationRuns, 0);
     console.log(
-      `option ${currentIndex} progress: ${calculationRuns} / ${calculationTotal}. total progress: ${globalCalculationRuns} / ${globalCalculationTotal}`,
+      `option ${currentIndex} progress: ${calculationRuns} / ${calculationTotal}. total: ${globalCalculationRuns} / ${globalCalculationTotal}`,
     );
 
     combination.list = newList;
@@ -270,7 +270,7 @@ export function* calculateHeuristic(reduxState: RootState, targetCombinationCoun
       0,
     );
     console.log(
-      `option ${currentIndex} progress: ${calculationRuns} / ${calculationTotal}. total progress: ${globalCalculationRuns} / ${globalCalculationTotal}`,
+      `option ${currentIndex} heuristics progress: ${calculationRuns} / ${calculationTotal}. total: ${globalCalculationRuns} / ${globalCalculationTotal}`,
     );
 
     // eslint-disable-next-line prefer-destructuring
