@@ -313,7 +313,10 @@ export function* calculateHeuristic(reduxState: RootState, targetCombinationCoun
     };
 
     if (everyCombinationDone) {
-      // return createResult();
+      if (targetCombinationCount === 0) {
+        return createResult();
+      }
+
       combinations.sort((a, b) =>
         characterLT(a.heuristicBestResult, b.heuristicBestResult, rankby),
       );
