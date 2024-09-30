@@ -511,7 +511,7 @@ export function createSettingsPerCalculation(
     );
 
   // for heuristics
-  // like affixes, but each entry is an array of stats given by using that affix in every availible slot
+  // like affixes, but each entry is an array of stats given by using that affix in every available slot
   // e.g. berserker with no forced affixes -> [[Power, 1381],[Precision, 961],[Ferocity, 961]]
   let settings_jsHeuristicsData: [AttributeName, number][][] | undefined;
   try {
