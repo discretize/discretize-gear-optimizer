@@ -90,7 +90,7 @@ const ResultTableRow = ({
         ) : null}
       </TableCell>
       {character.gearDescription ? (
-        <TableCell align="center" padding="none" colSpan={14}>
+        <TableCell align="center" padding="none" colSpan={maxSlotsLength}>
           <Typography
             style={{
               fontWeight: 300,
