@@ -31,7 +31,6 @@ import {
   getExpertMode,
   getGameMode,
 } from '../../state/slices/userSettings';
-import { PARAMS, setQueryParm } from '../../utils/queryParam';
 import LanguageSelection from '../baseComponents/LanguageSelection';
 import Settings from '../baseComponents/Settings';
 import ReapplyTemplateDialog from './ReapplyTemplateDialog';
@@ -94,7 +93,6 @@ export default function NavSettings({
   };
   const changeGameModeHandler = (e) => {
     const newGameMode = e.target.value;
-    setQueryParm({ key: PARAMS.GAMEMODE, value: newGameMode });
     dispatch(changeGameMode(newGameMode));
 
     const isFractalsNew = newGameMode === 'fractals';

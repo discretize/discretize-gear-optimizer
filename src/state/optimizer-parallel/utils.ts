@@ -18,7 +18,7 @@ import {
 import { objectKeys } from '../../utils/usefulFunctions';
 import { getExtrasIds } from '../slices/extras';
 import type { RootState } from '../store';
-import { Combination, Settings } from './optimizerSetup';
+import { CombinationSettings, CalculationSettings } from './optimizerSetup';
 
 const attributes = [
   ...PrimaryAttributes,
@@ -124,7 +124,7 @@ export const getAffixName = (affixId: number) => {
   return Object.keys(Affix)[affixId];
 };
 
-export function settingsToWorkerString(settings: Settings): string {
+export function settingsToWorkerString(settings: CalculationSettings): string {
   // deep copy combinations
   const toReturn = JSON.parse(JSON.stringify(settings)) as any;
 
@@ -157,7 +157,7 @@ export function settingsToWorkerString(settings: Settings): string {
 
 // replace string values with their corresponding IDs.
 // in rust we use enums, which are i32 indexed, so we need to convert the strings to numbers
-export function combinationsToWorkerString(combinations: Combination[]): any {
+export function combinationsToWorkerString(combinations: CombinationSettings[]): any {
   // deep copy combinations
   const toReturn = combinations.map(combinationtoWasmFormat); // JSON.parse(JSON.stringify(combinations));
 
@@ -169,10 +169,10 @@ export function combinationsToWorkerString(combinations: Combination[]): any {
  * Result is not typed. Reason being, working with strings is not efficient, hence we have to convert
  * the strings to numbers.
  *
- * @param {Combination} combination the combination to convert
+ * @param {CombinationSettings} combination the combination to convert
  * @returns {any} the combination in the format expected by the wasm code
  */
-export function combinationtoWasmFormat(combination: Combination): any {
+export function combinationtoWasmFormat(combination: CombinationSettings): any {
   const toReturn = {
     modifiers: {
       buff: [],

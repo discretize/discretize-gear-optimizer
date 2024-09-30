@@ -1,10 +1,31 @@
+import { Box, CircularProgress, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
-import { getProgress } from '../../state/slices/controlsSlice';
-import CircularProgressWithLabel from './CircularProgressWithLabel';
+import { getHeuristicsProgress, getProgress } from '../../state/slices/controlsSlice';
 
 const ProgressIcon = ({ className }) => {
   const progress = useSelector(getProgress);
+  const heuristicsProgress = useSelector(getHeuristicsProgress);
 
-  return <CircularProgressWithLabel variant="determinate" value={progress} className={className} />;
+  return (
+    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+      <CircularProgress variant="determinate" value={progress} className={className} />{' '}
+      <Box
+        sx={{
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          position: 'absolute',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Typography variant="caption" color="textSecondary">
+          {heuristicsProgress ? `(${Math.round(heuristicsProgress)}%)` : `${Math.round(progress)}%`}
+        </Typography>
+      </Box>
+    </Box>
+  );
 };
 export default ProgressIcon;

@@ -118,42 +118,57 @@ const ResultTableRow = ({
           </Typography>
         ) : null}
       </TableCell>
-      {padCellArray(
-        maxSlotsLength,
-        character.gear.map((affix, index) => {
-          let textDecoration;
-          if (exoticRarity(affix, index) && mostCommonRarity !== 'exotic')
-            textDecoration = 'underline dotted #ffa405';
-          if (!exoticRarity(affix, index) && mostCommonRarity !== 'ascended')
-            textDecoration = 'underline dotted #fb3e8d';
+      {character.gearDescription ? (
+        <TableCell align="center" padding="none" colSpan={maxSlotsLength}>
+          <Typography
+            style={{
+              fontWeight: 300,
+              fontSize: '1rem',
+            }}
+          >
+            {character.gearDescription}
+          </Typography>
+        </TableCell>
+      ) : (
+        padCellArray(
+          maxSlotsLength,
+          character.gear.map((affix, index) => {
+            let textDecoration;
+            if (exoticRarity(affix, index) && mostCommonRarity !== 'exotic')
+              textDecoration = 'underline dotted #ffa405';
+            if (!exoticRarity(affix, index) && mostCommonRarity !== 'ascended')
+              textDecoration = 'underline dotted #fb3e8d';
 
-          const color =
-            unhighlightedAffixes?.[index] && unhighlightedAffixes?.[index] !== affix
-              ? '#00cccc'
-              : 'inherit';
+            const color =
+              unhighlightedAffixes?.[index] && unhighlightedAffixes?.[index] !== affix
+                ? '#00cccc'
+                : 'inherit';
 
-          const affixFragments = affix.split(/(?=[A-Z])/).filter((fragment) => fragment !== 'And');
-          const multiWordAffix = affixFragments.length > 1;
+            const affixFragments = affix
+              .split(/(?=[A-Z])/)
+              .filter((fragment) => fragment !== 'And');
+            const multiWordAffix = affixFragments.length > 1;
 
-          const shortAffix = affixFragments
-            .map((fragment) => fragment.slice(0, multiWordAffix ? 3 : 4))
-            .join('');
+            const shortAffix = affixFragments
+              .map((fragment) => fragment.slice(0, multiWordAffix ? 3 : 4))
+              .join('');
 
-          return (
-            <TableCell align="center" padding="none">
-              <Typography
-                style={{
-                  fontWeight: 300,
-                  fontSize: '1rem',
-                  textDecoration,
-                  color,
-                }}
-              >
-                {shortAffix}
-              </Typography>
-            </TableCell>
-          );
-        }),
+            return (
+              <TableCell align="center" padding="none">
+                <Typography
+                  style={{
+                    fontWeight: 300,
+                    fontSize: '1rem',
+                    textDecoration,
+                    color,
+                  }}
+                >
+                  {shortAffix}
+                </Typography>
+              </TableCell>
+            );
+          }),
+        )
       )}
       {padCellArray(
         2,

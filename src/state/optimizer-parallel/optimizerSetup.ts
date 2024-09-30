@@ -7,12 +7,12 @@ import {
   createSettingsPerCombination,
   type AppliedModifier,
 } from '../optimizer/optimizerSetup';
-import { getExtrasCombinationsAndModifiers, type ExtrasCombination } from '../slices/extras';
+import { getExtrasCombinationsAndModifiers } from '../slices/extras';
 import type { RootState } from '../store';
 
-export type Combination = Omit<OptimizerCoreSettingsPerCombination, 'appliedModifiers'>;
+export type CombinationSettings = Omit<OptimizerCoreSettingsPerCombination, 'appliedModifiers'>;
 
-export type Settings = Omit<
+export type CalculationSettings = Omit<
   OptimizerCoreSettingsPerCalculation,
   'runsAfterThisSlot' | 'cachedFormState'
 >;
@@ -28,125 +28,27 @@ export type Settings = Omit<
 //   };
 // };
 
-export interface ResultData {
-  extrasModifiers: AppliedModifier[];
-  extrasCombination: ExtrasCombination;
-}
-
-export function setupNormal(reduxState: RootState): [Combination[], ResultData[]] {
-  // do not mutate selector result; it may be reused if the same calculation is run twice
-  const extrasCombinationEntries = getExtrasCombinationsAndModifiers(reduxState).map(
-    (combination) => ({ ...combination }),
-  );
-
-  const resultData = extrasCombinationEntries.map((entry) => ({
-    extrasModifiers: entry.extrasModifiers,
-    extrasCombination: entry.extrasCombination,
-  }));
+export function setupNormal(reduxState: RootState) {
+  const extrasCombinationEntries = getExtrasCombinationsAndModifiers(reduxState);
 
   const combinations = extrasCombinationEntries.map(({ extrasModifiers }) =>
-    createCombination(extrasModifiers, reduxState),
+    createCombinationSettings(reduxState, extrasModifiers),
   );
 
-  return [combinations, resultData];
+  return { extrasCombinationEntries, combinations };
 }
 
-export function createCombination(
-  extrasModifiers: AppliedModifier[],
+export function createCombinationSettings(
   reduxState: RootState,
-): Combination {
-  const {
-    baseAttributes,
-    modifiers,
-    relevantConditions,
-    disableCondiResultCache,
-    // appliedModifiers,
-  } = createSettingsPerCombination(reduxState, extrasModifiers);
-
-  return {
-    baseAttributes,
-    modifiers,
-    relevantConditions,
-    disableCondiResultCache,
-  };
+  extrasModifiers: AppliedModifier[],
+): CombinationSettings {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { appliedModifiers, ...rest } = createSettingsPerCombination(reduxState, extrasModifiers);
+  return { ...rest };
 }
 
-export function createSettings(reduxState: RootState): Settings {
-  const {
-    profession,
-    weaponType,
-    forcedAffixes,
-    rankby,
-    minBoonDuration,
-    minHealingPower,
-    minToughness,
-    maxToughness,
-    minHealth,
-    minCritChance,
-    minDamage,
-    minHealing,
-    minSurvivability,
-    minOutgoingHealing,
-    minQuicknessDuration,
-    maxResults,
-    attackRate,
-    movementUptime,
-    specialization,
-    // cachedFormState,
-    shouldDisplayExtras,
-    distribution,
-    maxInfusions,
-    primaryInfusion,
-    primaryMaxInfusions,
-    secondaryInfusion,
-    secondaryMaxInfusions,
-    infusionMode,
-    slots,
-    affixesArray,
-    identicalArmor,
-    identicalRing,
-    identicalAcc,
-    identicalWep,
-    affixStatsArray,
-    // runsAfterThisSlot,
-    gameMode,
-  } = createSettingsPerCalculation(reduxState);
-
-  return {
-    profession,
-    weaponType,
-    forcedAffixes,
-    rankby,
-    minBoonDuration,
-    minHealingPower,
-    minToughness,
-    maxToughness,
-    minHealth,
-    minCritChance,
-    minDamage,
-    minHealing,
-    minSurvivability,
-    minOutgoingHealing,
-    minQuicknessDuration,
-    maxResults,
-    attackRate,
-    movementUptime,
-    specialization,
-    shouldDisplayExtras,
-    distribution,
-    maxInfusions,
-    primaryInfusion,
-    primaryMaxInfusions,
-    secondaryInfusion,
-    secondaryMaxInfusions,
-    infusionMode,
-    slots,
-    affixesArray,
-    identicalArmor,
-    identicalRing,
-    identicalAcc,
-    identicalWep,
-    affixStatsArray,
-    gameMode,
-  };
+export function createCalculationSettings(reduxState: RootState): CalculationSettings {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { cachedFormState, runsAfterThisSlot, ...rest } = createSettingsPerCalculation(reduxState);
+  return { ...rest };
 }

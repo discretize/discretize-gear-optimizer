@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { PayloadAction, createSelector, createSlice, original } from '@reduxjs/toolkit';
 import { allExtrasModifiersById } from '../../assets/modifierdata';
-import { mapValues, objectEntries } from '../../utils/usefulFunctions';
+import { mapValues, objectEntries, parseNumber } from '../../utils/usefulFunctions';
 import type { AppliedModifier } from '../optimizer/optimizerSetup';
 import type { RootState } from '../store';
-import { changeAll, setBuildTemplate } from './controlsSlice';
+import { changeAll, getJsHeuristicsTarget, setBuildTemplate } from './controlsSlice';
 
 export const extrasTypes = ['Sigil1', 'Sigil2', 'Runes', 'Relics', 'Nourishment', 'Enhancement'];
 
@@ -199,8 +199,6 @@ export const getExtrasCombinationsAndModifiers = (state: RootState) => {
     return true;
   });
 
-  console.info('extrasCombinations', extrasCombinations);
-
   const getModifiers = (extrasCombination: ExtrasCombination) => {
     const allModifiers: AppliedModifier[] = objectEntries(extrasCombination)
       .filter(([_, id]) => id)
@@ -221,6 +219,21 @@ export const getExtrasCombinationsAndModifiers = (state: RootState) => {
     extrasModifiers: getModifiers(extrasCombination),
   }));
 };
+
+export const getExtrasCombinationCount = (state: RootState) =>
+  getExtrasCombinationsAndModifiers(state).length;
+
+export const getJsHeuristicsDefault = (state: RootState) => {
+  const max = getExtrasCombinationCount(state);
+  return Math.max(Math.round(max / 10), 10);
+};
+
+export const getParsedJsHeuristicsTarget = createSelector(
+  getJsHeuristicsTarget,
+  getJsHeuristicsDefault,
+  (jsHeuristicsTarget, jsHeuristicsDefault) =>
+    parseNumber(jsHeuristicsTarget, jsHeuristicsDefault, true),
+);
 
 export const {
   changeExtraIds,

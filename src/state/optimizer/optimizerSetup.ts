@@ -212,29 +212,31 @@ export interface CachedFormState {
 //   customAffixData: any;
 // }
 
-export function setupCombinations(
-  reduxState: RootState,
-): [ExtrasCombinationEntry, OptimizerCoreSettings][] {
+export function setupCombinations(reduxState: RootState) {
   console.groupCollapsed('Debug Info:');
   console.log('Redux State:', reduxState.optimizer);
 
-  // do not mutate selector result; it may be reused if the same calculation is run twice
-  const combinations = getExtrasCombinationsAndModifiers(reduxState).map((combination) => ({
-    ...combination,
-  }));
+  const settingsPerCalculation = createSettingsPerCalculation(reduxState);
+  console.log('settings per calculation', settingsPerCalculation);
 
-  console.log('settings per calculation', createSettingsPerCalculation(reduxState));
+  const data = getExtrasCombinationsAndModifiers(reduxState).map((extrasCombinationEntry, i) => {
+    console.log(`combination ${i}:`, extrasCombinationEntry);
 
-  const data: [ExtrasCombinationEntry, OptimizerCoreSettings][] = combinations.map(
-    ({ extrasCombination, extrasModifiers }) => {
-      console.log('Input option:', { extrasCombination, extrasModifiers });
+    const { extrasCombination, extrasModifiers } = extrasCombinationEntry;
 
-      return [
-        { extrasCombination, extrasModifiers },
-        createSettings(reduxState, extrasCombination, extrasModifiers),
-      ];
-    },
-  );
+    const settingsPerCombination = createSettingsPerCombination(reduxState, extrasModifiers);
+    const unbuffedSettings = createSettingsPerCombination(reduxState, extrasModifiers, true);
+
+    const settings = {
+      ...settingsPerCalculation,
+      ...settingsPerCombination,
+      unbuffedBaseAttributes: unbuffedSettings.baseAttributes,
+      unbuffedModifiers: unbuffedSettings.modifiers,
+      extrasCombination,
+    };
+
+    return { extrasCombinationEntry, settings };
+  });
 
   console.groupEnd();
 
@@ -508,6 +510,36 @@ export function createSettingsPerCalculation(
       }),
     );
 
+  // for heuristics
+  // like affixes, but each entry is an array of stats given by using that affix in every available slot
+  // e.g. berserker with no forced affixes -> [[Power, 1381],[Precision, 961],[Ferocity, 961]]
+  let settings_jsHeuristicsData: [AttributeName, number][][] | undefined;
+  try {
+    settings_jsHeuristicsData = affixes.map((forcedAffix) => {
+      const statTotals: Record<AttributeName, number> = {};
+      settings_affixesArray.forEach((possibleAffixes, slotindex) => {
+        if (!possibleAffixes.includes(forcedAffix) && possibleAffixes.length !== 1) {
+          throw new Error();
+        }
+        const affix = possibleAffixes.includes(forcedAffix) ? forcedAffix : possibleAffixes[0];
+
+        const item = exotics?.[affix]?.[slotindex]
+          ? settings_slots[slotindex].exo
+          : settings_slots[slotindex].asc;
+        const bonuses = objectEntries(item[Affix[affix].type]);
+        for (const [type, bonus] of bonuses) {
+          for (const stat of Affix[affix].bonuses[type] ?? []) {
+            statTotals[stat] = (statTotals[stat] || 0) + bonus;
+          }
+        }
+      });
+
+      return Object.entries(statTotals);
+    });
+  } catch {
+    // silently disable heuristics where they will not be accurate
+  }
+
   // used to keep the progress counter in sync when skipping identical gear combinations.
   const settings_runsAfterThisSlot: OptimizerCoreSettings['runsAfterThisSlot'] = [];
   for (let index = 0; index < settings_affixesArray.length; index++) {
@@ -581,6 +613,8 @@ export function createSettingsPerCalculation(
     affixStatsArray: settings_affixStatsArray,
     runsAfterThisSlot: settings_runsAfterThisSlot,
     gameMode,
+    affixes,
+    jsHeuristicsData: settings_jsHeuristicsData,
   };
 
   return settings;
@@ -963,22 +997,4 @@ export function createSettingsPerCombination(
   };
 
   return settings;
-}
-
-function createSettings(
-  reduxState: RootState,
-  extrasCombination: ExtrasCombination,
-  extrasModifiers: AppliedModifier[],
-): OptimizerCoreSettings {
-  const settingsPerCalculation = createSettingsPerCalculation(reduxState);
-  const settingsPerCombination = createSettingsPerCombination(reduxState, extrasModifiers);
-  const unbuffedSettings = createSettingsPerCombination(reduxState, extrasModifiers, true);
-
-  return {
-    ...settingsPerCalculation,
-    ...settingsPerCombination,
-    unbuffedBaseAttributes: unbuffedSettings.baseAttributes,
-    unbuffedModifiers: unbuffedSettings.modifiers,
-    extrasCombination,
-  };
 }

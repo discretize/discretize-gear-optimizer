@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next';
 const EffectiveGainLoss = ({ character }) => {
   const { t } = useTranslation();
 
-  const positive = character.results.effectivePositiveValues;
-  const negative = character.results.effectiveNegativeValues;
+  const positive = character.results.effectivePositiveValues ?? {};
+  const negative = character.results.effectiveNegativeValues ?? {};
 
   return (
     <>

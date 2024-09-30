@@ -1,6 +1,5 @@
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
-import preserveDirectives from 'rollup-preserve-directives';
 import { defineConfig } from 'vite';
 import { comlink } from 'vite-plugin-comlink';
 import wasm from 'vite-plugin-wasm';
@@ -18,7 +17,6 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         build: resolve(__dirname, 'build/index.html'),
       },
-      plugins: [preserveDirectives()],
     },
     target: 'es2020',
     sourcemap: true,

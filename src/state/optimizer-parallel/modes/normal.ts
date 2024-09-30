@@ -1,4 +1,5 @@
 import { Character, characterLT } from '../../optimizer/optimizerCore';
+import { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import { ERROR, RUNNING, SUCCESS } from '../../optimizer/status';
 import {
   changeList,
@@ -8,7 +9,7 @@ import {
 } from '../../slices/controlsSlice';
 import type { AppDispatch, RootState } from '../../store';
 import type { WorkerWrapper } from '../calculate';
-import { Combination, ResultData, Settings } from '../optimizerSetup';
+import { CalculationSettings, CombinationSettings } from '../optimizerSetup';
 import { enhanceResults, getResultProperties } from '../results';
 import { getLayerCombinations, getLayerNumber } from '../tree';
 import { getTotalCombinations, splitCombinations } from '../utils';
@@ -38,9 +39,9 @@ let results: Character[][] = [];
  * @param {RootState} reduxState
  * @param {AppDispatch} dispatch
  * @param {WorkerWrapper[]} workers
- * @param {Combination[]} combinations
- * @param {ResultData[]} resultData
- * @param {Settings} settings
+ * @param {CombinationSettings[]} combinations
+ * @param {ExtrasCombinationEntry[]} extrasCombinationEntries
+ * @param {CalculationSettings} settings
  * @param {number} maxThreads
  * @param {boolean} withHeuristics
  */
@@ -48,9 +49,9 @@ export default function runCalcNormal(
   reduxState: RootState,
   dispatch: AppDispatch,
   workers: WorkerWrapper[],
-  combinations: Combination[],
-  resultData: ResultData[],
-  settings: Settings,
+  combinations: CombinationSettings[],
+  extrasCombinationEntries: ExtrasCombinationEntry[],
+  settings: CalculationSettings,
   maxThreads: number,
   withHeuristics: boolean,
 ) {
@@ -82,7 +83,7 @@ export default function runCalcNormal(
         message.results,
         settings,
         combinations,
-        getResultProperties(reduxState, resultData),
+        getResultProperties(reduxState, extrasCombinationEntries),
       );
       workers[index].status = 'finished';
 
@@ -122,7 +123,7 @@ export default function runCalcNormal(
           message.results,
           settings,
           combinations,
-          getResultProperties(reduxState, resultData),
+          getResultProperties(reduxState, extrasCombinationEntries),
         );
 
         const sortedResults = results

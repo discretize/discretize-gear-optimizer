@@ -7,6 +7,7 @@
 import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
 import type {
   AffixName,
+  AffixNameOrCustom,
   ConditionName,
   DamagingConditionName,
   DerivedAttributeName,
@@ -21,6 +22,7 @@ import { Attributes, INFUSION_BONUS, conditionData, conditionDataWvW } from '../
 import { enumArrayIncludes, objectKeys } from '../../utils/usefulFunctions';
 import type { ExtrasCombination, ShouldDisplayExtras } from '../slices/extras';
 import type { GameMode } from '../slices/userSettings';
+import { iteratePartitions } from './combinatorics';
 import type {
   AppliedModifier,
   CachedFormState,
@@ -103,6 +105,8 @@ export const clamp = (input: number, min: number, max: number): number => {
   return input;
 };
 
+const roundOne = (num: number) => Math.round(num * 10) / 10;
+
 /*
  * ------------------------------------------------------------------------
  * Core Optimizer Logic
@@ -149,6 +153,9 @@ export interface OptimizerCoreSettingsPerCalculation {
   runsAfterThisSlot: number[];
   affixesArray: AffixName[][];
   affixStatsArray: [AttributeName, number][][][];
+
+  affixes: AffixNameOrCustom[];
+  jsHeuristicsData?: [AttributeName, number][][];
 
   shouldDisplayExtras: ShouldDisplayExtras;
   cachedFormState: CachedFormState;
@@ -211,6 +218,7 @@ export interface CharacterUnprocessed {
   attributes?: Attributes;
   gear: Gear;
   gearStats: GearStats;
+  gearDescription?: string;
   valid: boolean;
   baseAttributes: Attributes;
   infusions: Partial<Record<InfusionName, number>>;
@@ -229,7 +237,13 @@ export const UPDATE_MS = 90;
 export class OptimizerCore {
   settings: OptimizerCoreSettings;
   minimalSettings: OptimizerCoreMinimalSettings;
-  applyInfusionsFunction: (this: OptimizerCore, gear: Gear, gearStats: GearStats) => void;
+  applyInfusionsFunction: (
+    this: OptimizerCore,
+    gear: Gear,
+    gearStats: GearStats,
+    overrides?: Partial<Character>,
+  ) => void;
+
   condiResultCache = new Map<number, number>();
   worstScore: number = 0;
   list: Character[] = [];
@@ -309,6 +323,7 @@ export class OptimizerCore {
 
       // pause to update UI
       if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
+        this.list.forEach(this.calcResults, this);
         yield {
           isChanged: this.isChanged,
           calculationRuns,
@@ -384,6 +399,79 @@ export class OptimizerCore {
       calculationStatsQueue.push(gearStats);
     }
 
+    this.list.forEach(this.calcResults, this);
+    return {
+      isChanged: this.isChanged,
+      calculationRuns,
+      newList: this.list,
+    };
+  }
+
+  /**
+   * A generator function that iterates synchronously through simulated builds, updating the list
+   * object with the best results. Yields periodically to allow UI to be updated or cancelled.
+   *
+   * Remember, a generator's next() function returns a plain object { value, done }.
+   *
+   * @param {number} split
+   *
+   * @yields {{done: boolean, value: {isChanged: boolean, percent: number}}} result
+   * yields {boolean} result.done - true if the calculation is finished
+   * yields {number} result.value.isChanged - true if this.list has been mutated
+   * yields {number} result.value.calculationRuns - the calculation progress
+   */
+  *calculateHeuristic(split: number) {
+    const { settings } = this;
+    const { affixes, jsHeuristicsData } = settings;
+
+    if (!jsHeuristicsData) {
+      return {
+        isChanged: true,
+        calculationRuns: 0,
+        newList: [],
+      };
+    }
+
+    let calculationRuns = 0;
+
+    let iterationTimer = Date.now();
+    let cycles = 0;
+    this.isChanged = true;
+
+    for (const partition of iteratePartitions(split, jsHeuristicsData.length, true)) {
+      cycles++;
+
+      // pause to update UI
+      if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
+        this.list.forEach(this.calcResults, this);
+        yield {
+          isChanged: this.isChanged,
+          calculationRuns,
+          newList: this.list,
+        };
+        this.isChanged = false;
+        iterationTimer = Date.now();
+      }
+
+      const gearStats: GearStats = {};
+
+      partition.forEach((num, i) =>
+        jsHeuristicsData[i].forEach(([stat, value]) => {
+          gearStats[stat] = (gearStats[stat] ?? 0) + (value * num) / split;
+        }),
+      );
+
+      const percentages = `Estimate: ${partition
+        .map((num, i) => `${roundOne((num / split) * 100)}% ${affixes[i]}`)
+        .join(', ')}`;
+
+      calculationRuns++;
+
+      // this.applyInfusionsFunction is aliased to the correct applyInfusions[mode] function during setup
+      this.applyInfusionsFunction([], gearStats, { gearDescription: percentages });
+    }
+
+    this.list.forEach(this.calcResults, this);
     return {
       isChanged: this.isChanged,
       calculationRuns,
@@ -420,51 +508,66 @@ export class OptimizerCore {
   }
 
   // Applies no infusions
-  applyInfusionsNone(gear: Gear, gearStats: GearStats) {
-    const character = this.createCharacter(gear, gearStats, {});
+  applyInfusionsNone(gear: Gear, gearStats: GearStats, overrides?: Partial<Character>) {
+    const character = this.createCharacter(gear, gearStats, {}, overrides);
     this.updateAttributesFast(character);
     this.insertCharacter(character);
   }
 
   // Just applies the primary infusion
-  applyInfusionsPrimary(gear: Gear, gearStats: GearStats) {
+  applyInfusionsPrimary(gear: Gear, gearStats: GearStats, overrides?: Partial<Character>) {
     const { settings } = this;
 
-    const character = this.createCharacter(gear, gearStats, {
-      [settings.primaryInfusion]: settings.primaryMaxInfusions,
-    });
+    const character = this.createCharacter(
+      gear,
+      gearStats,
+      {
+        [settings.primaryInfusion]: settings.primaryMaxInfusions,
+      },
+      overrides,
+    );
 
     this.updateAttributesFast(character);
     this.insertCharacter(character);
   }
 
   // Just applies the maximum number of primary/secondary infusions, since the total is ≤18
-  applyInfusionsFew(gear: Gear, gearStats: GearStats) {
+  applyInfusionsFew(gear: Gear, gearStats: GearStats, overrides?: Partial<Character>) {
     const { settings } = this;
 
-    const character = this.createCharacter(gear, gearStats, {
-      [settings.primaryInfusion]: settings.primaryMaxInfusions,
-      [settings.secondaryInfusion]: settings.secondaryMaxInfusions,
-    });
+    const character = this.createCharacter(
+      gear,
+      gearStats,
+      {
+        [settings.primaryInfusion]: settings.primaryMaxInfusions,
+        [settings.secondaryInfusion]: settings.secondaryMaxInfusions,
+      },
+      overrides,
+    );
     this.updateAttributesFast(character);
     this.insertCharacter(character);
   }
 
   // Inserts every valid combination of 18 infusions
-  applyInfusionsSecondary(gear: Gear, gearStats: GearStats) {
+  applyInfusionsSecondary(gear: Gear, gearStats: GearStats, overrides?: Partial<Character>) {
     const { settings } = this;
 
-    const test = this.createCharacter(gear, gearStats, {});
+    const test = this.createCharacter(gear, gearStats, {}, overrides);
     if (!this.worstScore || this.testInfusionUsefulness(test)) {
       let previousResult;
 
       let primaryCount = settings.primaryMaxInfusions;
       let secondaryCount = settings.maxInfusions - primaryCount;
       while (secondaryCount <= settings.secondaryMaxInfusions) {
-        const character = this.createCharacter(gear, gearStats, {
-          [settings.primaryInfusion]: primaryCount,
-          [settings.secondaryInfusion]: secondaryCount,
-        });
+        const character = this.createCharacter(
+          gear,
+          gearStats,
+          {
+            [settings.primaryInfusion]: primaryCount,
+            [settings.secondaryInfusion]: secondaryCount,
+          },
+          overrides,
+        );
         this.updateAttributesFast(character);
         if (character.valid && character.attributes[settings.rankby] !== previousResult) {
           this.insertCharacter(character);
@@ -478,20 +581,29 @@ export class OptimizerCore {
   }
 
   // Tests every valid combination of 18 infusions and inserts the best result
-  applyInfusionsSecondaryNoDuplicates(gear: Gear, gearStats: GearStats) {
+  applyInfusionsSecondaryNoDuplicates(
+    gear: Gear,
+    gearStats: GearStats,
+    overrides?: Partial<Character>,
+  ) {
     const { settings } = this;
 
-    const test = this.createCharacter(gear, gearStats, {});
+    const test = this.createCharacter(gear, gearStats, {}, overrides);
     if (!this.worstScore || this.testInfusionUsefulness(test)) {
       let best = null;
 
       let primaryCount = settings.primaryMaxInfusions;
       let secondaryCount = settings.maxInfusions - primaryCount;
       while (secondaryCount <= settings.secondaryMaxInfusions) {
-        const character = this.createCharacter(gear, gearStats, {
-          [settings.primaryInfusion]: primaryCount,
-          [settings.secondaryInfusion]: secondaryCount,
-        });
+        const character = this.createCharacter(
+          gear,
+          gearStats,
+          {
+            [settings.primaryInfusion]: primaryCount,
+            [settings.secondaryInfusion]: secondaryCount,
+          },
+          overrides,
+        );
         this.updateAttributesFast(character);
         if (character.valid) {
           if (!best || characterLT(best, character, settings.rankby) > 0) {
@@ -529,7 +641,6 @@ export class OptimizerCore {
     }
 
     this.updateAttributes(character);
-    this.calcResults(character);
     character.id = `${this.uniqueIDCounter++} (${this.randomId})`;
 
     if (this.list.length === 0) {
@@ -546,17 +657,15 @@ export class OptimizerCore {
 
       if (position <= this.list.length - 1) {
         this.list.splice(position, 0, character);
-
-        if (this.list.length > settings.maxResults) {
-          this.list.length = settings.maxResults;
-        }
       } else {
         this.list.push(character);
       }
-
-      if (this.list.length === settings.maxResults) {
-        this.worstScore = this.list[this.list.length - 1].attributes[settings.rankby];
-      }
+    }
+    if (this.list.length > settings.maxResults) {
+      this.list.length = settings.maxResults;
+    }
+    if (this.list.length === settings.maxResults) {
+      this.worstScore = this.list[this.list.length - 1].attributes[settings.rankby];
     }
 
     this.isChanged = true;
@@ -927,6 +1036,8 @@ export class OptimizerCore {
   }
 
   calcResults(character: Character) {
+    if (character.results) return;
+
     const { settings } = this;
     const { attributes } = character;
 
@@ -937,53 +1048,60 @@ export class OptimizerCore {
       indicators[attribute] = attributes[attribute];
     }
 
+    const results: Results = {
+      value,
+      indicators,
+    };
+
+    character.results = results;
+
     // baseline for comparing adding/subtracting +5 infusions
     const baseline = this.clone(character);
     this.updateAttributes(baseline, true);
 
     // effective gain from adding +5 infusions
-    const effectivePositiveValues: Record<string, number> = {};
+    results.effectivePositiveValues = {};
     for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
       const temp = this.clone(character);
       temp.baseAttributes[attribute] += 5;
 
       this.updateAttributes(temp, true);
-      effectivePositiveValues[attribute] =
+      results.effectivePositiveValues[attribute] =
         temp.attributes['Damage'] - baseline.attributes['Damage'];
     }
 
     // effective loss by not having +5 infusions
-    const effectiveNegativeValues: Record<string, number> = {};
+    results.effectiveNegativeValues = {};
     for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
       const temp = this.clone(character);
       temp.baseAttributes[attribute] = Math.max(temp.baseAttributes[attribute] - 5, 0);
 
       this.updateAttributes(temp, true);
-      effectiveNegativeValues[attribute] =
+      results.effectiveNegativeValues[attribute] =
         temp.attributes['Damage'] - baseline.attributes['Damage'];
     }
 
     // effective damage distribution
-    const effectiveDamageDistribution: Record<string, string> = {};
+    results.effectiveDamageDistribution = {};
     for (const key of [...Object.keys(settings.distribution), 'Siphon']) {
       if (attributes[`${key} DPS`] === undefined) continue;
 
       const damage = attributes[`${key} DPS`] / attributes['Damage'];
-      effectiveDamageDistribution[`${key}`] = `${(damage * 100).toFixed(1)}%`;
+      results.effectiveDamageDistribution[`${key}`] = `${(damage * 100).toFixed(1)}%`;
     }
 
     // damage indicator breakdown
-    const damageBreakdown: Record<string, number> = {};
+    results.damageBreakdown = {};
     for (const key of [...Object.keys(settings.distribution), 'Siphon']) {
       if (attributes[`${key} DPS`] === undefined) continue;
 
-      damageBreakdown[`${key}`] = attributes[`${key} DPS`];
+      results.damageBreakdown[`${key}`] = attributes[`${key} DPS`];
     }
 
     // template helper data
     // (finds the slope and intercept (y = mx + b) of each condition's DPS relative to input
     // coefficient; used to make templates easily)
-    const coefficientHelper: Record<string, CoefficientHelperValue> = {};
+    results.coefficientHelper = {};
 
     const attrsWithModifiedCoefficient = (newCoefficient: number) => {
       const newCharacter = this.clone(character);
@@ -1000,21 +1118,11 @@ export class OptimizerCore {
     const withZero = attrsWithModifiedCoefficient(0);
 
     for (const key of Object.keys(settings.distribution)) {
-      coefficientHelper[key] = {
+      results.coefficientHelper[key] = {
         slope: withOne[`${key} DPS`] - withZero[`${key} DPS`],
         intercept: withZero[`${key} DPS`],
       };
     }
-
-    const results: Results = {
-      value,
-      indicators,
-      effectivePositiveValues,
-      effectiveNegativeValues,
-      effectiveDamageDistribution,
-      coefficientHelper,
-      damageBreakdown,
-    };
 
     // out of combat hero panel simulation (overrides both baseAttributes and modifiers)
     if (settings.unbuffedBaseAttributes && settings.unbuffedModifiers) {
@@ -1024,8 +1132,6 @@ export class OptimizerCore {
       this.calcStats(temp, settings.unbuffedModifiers);
       results.unbuffedAttributes = temp.attributes;
     }
-
-    character.results = results;
   }
 
   /**
@@ -1051,7 +1157,14 @@ export class OptimizerCore {
 }
 
 // returns a positive value if B is better than A
-export function characterLT(a: Character, b: Character, rankby: string): number {
+export function characterLT(
+  a: Character | undefined,
+  b: Character | undefined,
+  rankby: string,
+): number {
+  if (!a && !b) return 0;
+  if (!a) return 1;
+  if (!b) return -1;
   // const { rankby } = this.settings;
 
   // if (!a.valid && b.valid) {

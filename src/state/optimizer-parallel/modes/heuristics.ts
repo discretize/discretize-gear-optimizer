@@ -1,8 +1,9 @@
+import { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import { RUNNING_HEURISTICS } from '../../optimizer/status';
 import { changeStatus } from '../../slices/controlsSlice';
 import type { AppDispatch, RootState } from '../../store';
 import type { WorkerWrapper } from '../calculate';
-import { Combination, ResultData, Settings } from '../optimizerSetup';
+import { CalculationSettings, CombinationSettings } from '../optimizerSetup';
 import { getLayerCombinations, getLayerNumber } from '../tree';
 import { getExtrasIdsCombinations, getTotalCombinations, splitCombinations } from '../utils';
 import {
@@ -16,7 +17,7 @@ export default function runCalcHeuristics(
   reduxState: RootState,
   dispatch: AppDispatch,
   workers: WorkerWrapper[],
-  settings: Settings,
+  settings: CalculationSettings,
   maxThreads: number,
 ) {
   dispatch(changeStatus(RUNNING_HEURISTICS));
@@ -29,8 +30,8 @@ export default function runCalcHeuristics(
   const layerCombinations = getLayerCombinations(extrasIds, layer);
   const chunks = splitCombinations(layerCombinations, effectiveThreads);
 
-  const combinations: Combination[] = [];
-  const resultData: ResultData[] = [];
+  const combinations: CombinationSettings[] = [];
+  const extrasCombinationEntries: ExtrasCombinationEntry[] = [];
 
   workers.forEach((workerObj, index) => {
     if (index >= effectiveThreads) {
@@ -45,15 +46,15 @@ export default function runCalcHeuristics(
           .slice(0, effectiveThreads)
           .every((locWorker) => locWorker.status === 'finished_heuristics');
         const combs = e.data.data.map((chunk) => chunk[0]);
-        const res = e.data.data.map((chunk) => chunk[1]);
+        const entries = e.data.data.map((chunk) => chunk[1]);
         combinations.push(...combs);
-        resultData.push(...res);
+        extrasCombinationEntries.push(...entries);
 
         if (allFinished) {
           console.log("All workers finished heuristics, let's start the real calculation");
           console.log(
             'Heuristics chosen combinations:',
-            resultData.map(({ extrasCombination }) => extrasCombination),
+            extrasCombinationEntries.map(({ extrasCombination }) => extrasCombination),
           );
 
           runCalcNormal(
@@ -61,7 +62,7 @@ export default function runCalcHeuristics(
             dispatch,
             workers,
             combinations,
-            resultData,
+            extrasCombinationEntries,
             settings,
             maxThreads,
             // note: change this back to true to enable per-thread combination heuristics

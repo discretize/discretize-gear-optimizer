@@ -4,30 +4,26 @@ import type {
   OptimizerCoreMinimalSettings,
   OptimizerCoreSettings,
 } from '../optimizer/optimizerCore';
-import type { AppliedModifier } from '../optimizer/optimizerSetup';
+import type { AppliedModifier, ExtrasCombinationEntry } from '../optimizer/optimizerSetup';
 import { getBuffsModifiers } from '../slices/buffs';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
-import type { ExtrasCombination } from '../slices/extras';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getSkillsModifiers } from '../slices/skills';
 import { getTraitsModifiers } from '../slices/traits';
 import type { RootState } from '../store';
-import type { Combination, ResultData, Settings } from './optimizerSetup';
+import type { CalculationSettings, CombinationSettings } from './optimizerSetup';
 import { getAffixName, getAttributeId, getAttributeName } from './utils';
 
 export interface ResultProperties {
   cachedFormState: OptimizerCoreSettings['cachedFormState'];
   sharedModifiers: AppliedModifier[];
-  allExtrasData: {
-    extrasModifiers: AppliedModifier[];
-    extrasCombination: ExtrasCombination;
-  }[];
+  extrasCombinationEntries: ExtrasCombinationEntry[];
 }
 
 export const getResultProperties: (
   reduxState: RootState,
-  resultData: ResultData[],
-) => ResultProperties = (reduxState: RootState, resultData) => {
+  extrasCombinationEntries: ExtrasCombinationEntry[],
+) => ResultProperties = (reduxState: RootState, extrasCombinationEntries) => {
   const state = reduxState.optimizer;
 
   const sharedModifiers = [
@@ -48,7 +44,7 @@ export const getResultProperties: (
       boss: state.form.boss,
     },
     sharedModifiers,
-    allExtrasData: resultData,
+    extrasCombinationEntries,
   };
 };
 
@@ -62,8 +58,8 @@ const arrayToObject = <T>(array: [string | number, T][]): Record<string | number
 
 export function enhanceResults(
   results: any[], // from wasm, by "shape" a Character[], but with c-like enum indices instead of strings for attribtues and such
-  settings: Settings,
-  combinations: Combination[],
+  settings: CalculationSettings,
+  combinations: CombinationSettings[],
   resultProperties: ResultProperties,
 ): Character[] {
   const resultList: Character[] = [];
@@ -95,12 +91,12 @@ export function enhanceResults(
     const { profession, specialization, weaponType, rankby, shouldDisplayExtras, gameMode, slots } =
       settings;
 
-    const { cachedFormState, sharedModifiers, allExtrasData } = resultProperties;
+    const { cachedFormState, sharedModifiers, extrasCombinationEntries } = resultProperties;
     const { modifiers } = combinations[character.combination_id];
 
     const appliedModifiers = [
       ...sharedModifiers,
-      ...allExtrasData[character.combination_id].extrasModifiers,
+      ...extrasCombinationEntries[character.combination_id].extrasModifiers,
     ];
 
     const characterSettings: OptimizerCoreMinimalSettings = {
@@ -111,7 +107,7 @@ export function enhanceResults(
       appliedModifiers,
       rankby,
       shouldDisplayExtras,
-      extrasCombination: allExtrasData[character.combination_id].extrasCombination,
+      extrasCombination: extrasCombinationEntries[character.combination_id].extrasCombination,
       modifiers,
       gameMode,
     };

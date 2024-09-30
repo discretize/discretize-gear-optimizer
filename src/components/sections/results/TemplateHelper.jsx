@@ -304,7 +304,7 @@ const TemplateHelper = ({ character }) => {
   // DPS = slope * coefficient + intercept
   // coefficient = (DPS - intercept) / slope
   const calculateRequiredCoefficient = (key, targetDPS = 0) => {
-    const { slope = 0, intercept = 0 } = coefficientHelper[key] ?? {};
+    const { slope = 0, intercept = 0 } = coefficientHelper?.[key] ?? {};
     if (targetDPS === intercept) return 0;
     return (targetDPS - intercept) / slope;
   };
