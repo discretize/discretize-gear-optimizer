@@ -321,18 +321,17 @@ export function* calculateHeuristic(reduxState: RootState, targetCombinationCoun
         characterLT(a.heuristicBestResult, b.heuristicBestResult, rankby),
       );
 
+      const bestResult = combinations[0].heuristicBestResult;
+
       combinations.slice(targetCombinationCount).forEach((comb) => {
-        comb.heuristicDisabled = true;
+        if (
+          bestResult &&
+          comb.heuristicBestResult &&
+          comb.heuristicBestResult.attributes[rankby] / bestResult.attributes[rankby] < 0.998
+        ) {
+          comb.heuristicDisabled = true;
+        }
       });
-      // const bestResult = combinations[0].heuristicBestResult;
-      // combinations.forEach((comb) => {
-      //   if (
-      //     bestResult &&
-      //     comb.heuristicBestResult &&
-      //     comb.heuristicBestResult.attributes[rankby] / bestResult.attributes[rankby] < 0.97
-      //   )
-      //     comb.heuristicDisabled = true;
-      // });
 
       console.timeEnd('heuristics');
 
