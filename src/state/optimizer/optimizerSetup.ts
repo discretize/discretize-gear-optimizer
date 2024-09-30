@@ -510,6 +510,36 @@ export function createSettingsPerCalculation(
       }),
     );
 
+  // for heuristics
+  // like affixes, but each entry is an array of stats given by using that affix in every available slot
+  // e.g. berserker with no forced affixes -> [[Power, 1381],[Precision, 961],[Ferocity, 961]]
+  let settings_jsHeuristicsData: [AttributeName, number][][] | undefined;
+  try {
+    settings_jsHeuristicsData = affixes.map((forcedAffix) => {
+      const statTotals: Record<AttributeName, number> = {};
+      settings_affixesArray.forEach((possibleAffixes, slotindex) => {
+        if (!possibleAffixes.includes(forcedAffix) && possibleAffixes.length !== 1) {
+          throw new Error();
+        }
+        const affix = possibleAffixes.includes(forcedAffix) ? forcedAffix : possibleAffixes[0];
+
+        const item = exotics?.[affix]?.[slotindex]
+          ? settings_slots[slotindex].exo
+          : settings_slots[slotindex].asc;
+        const bonuses = objectEntries(item[Affix[affix].type]);
+        for (const [type, bonus] of bonuses) {
+          for (const stat of Affix[affix].bonuses[type] ?? []) {
+            statTotals[stat] = (statTotals[stat] || 0) + bonus;
+          }
+        }
+      });
+
+      return Object.entries(statTotals);
+    });
+  } catch {
+    // silently disable heuristics where they will not be accurate
+  }
+
   // used to keep the progress counter in sync when skipping identical gear combinations.
   const settings_runsAfterThisSlot: OptimizerCoreSettings['runsAfterThisSlot'] = [];
   for (let index = 0; index < settings_affixesArray.length; index++) {
@@ -583,6 +613,8 @@ export function createSettingsPerCalculation(
     affixStatsArray: settings_affixStatsArray,
     runsAfterThisSlot: settings_runsAfterThisSlot,
     gameMode,
+    affixes,
+    jsHeuristicsData: settings_jsHeuristicsData,
   };
 
   return settings;

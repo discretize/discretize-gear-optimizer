@@ -95,11 +95,14 @@ const initialState: {
   filterMode: FilterMode;
   displayAttributes: DisplayAttributes;
   progress: number;
+  heuristicsProgress: number | undefined;
   selectedCharacter: Character | null;
   selectedTemplate: string;
   status: OptimizerStatus;
   profession: ProfessionName | '';
   selectedSpecialization: ProfessionOrSpecializationName | '';
+  jsHeuristicsEnabled: boolean;
+  jsHeuristicsTarget: string;
   multicore: boolean;
   hwThreads: number;
   heuristics: boolean;
@@ -114,11 +117,14 @@ const initialState: {
   filterMode: 'None',
   displayAttributes: [],
   progress: 0,
+  heuristicsProgress: undefined,
   selectedCharacter: null,
   selectedTemplate: '',
   status: WAITING,
   profession: '',
   selectedSpecialization: '',
+  jsHeuristicsEnabled: false,
+  jsHeuristicsTarget: '',
   multicore: false,
   hwThreads: navigator.hardwareConcurrency || 4, // 4 seems to be a sensible default
   heuristics: false,
@@ -172,10 +178,12 @@ export const controlSlice = createSlice({
         list?: Character[];
         filteredLists?: Record<ExtraFilterMode, Character[]>;
         progress: number;
+        heuristicsProgress?: number;
       }>,
     ) => {
-      const { list, filteredLists, progress } = action.payload;
+      const { list, filteredLists, progress, heuristicsProgress } = action.payload;
       state.progress = progress;
+      state.heuristicsProgress = heuristicsProgress;
       if (list) state.list = list;
       if (filteredLists) state.filteredLists = filteredLists;
     },
@@ -213,6 +221,12 @@ export const controlSlice = createSlice({
     changeError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
     },
+    changeJsHeuristicsEnabled: (state, action: PayloadAction<boolean>) => {
+      state.jsHeuristicsEnabled = action.payload;
+    },
+    changeJsHeuristicsTarget: (state, action: PayloadAction<string>) => {
+      state.jsHeuristicsTarget = action.payload;
+    },
     changeHwThreads: (state, action: PayloadAction<number>) => {
       state.hwThreads = action.payload;
     },
@@ -229,6 +243,8 @@ export const getProfession = (state: RootState) => state.optimizer.control.profe
 export const getSelectedTemplate = (state: RootState) => state.optimizer.control.selectedTemplate;
 export const getHwThreads = (state: RootState) => state.optimizer.control.hwThreads;
 export const getProgress = (state: RootState) => state.optimizer.control.progress;
+export const getHeuristicsProgress = (state: RootState) =>
+  state.optimizer.control.heuristicsProgress;
 export const getSelectedSpecialization = (state: RootState) =>
   state.optimizer.control.selectedSpecialization;
 export const getStatus = (state: RootState) => state.optimizer.control.status;
@@ -243,6 +259,10 @@ export const getDisplayAttributes = (state: RootState) => state.optimizer.contro
 export const getTallTable = (state: RootState) => state.optimizer.control.tallTable;
 export const getSelectedCharacter = (state: RootState) => state.optimizer.control.selectedCharacter;
 export const getError = (state: RootState) => state.optimizer.control.error;
+export const getJsHeuristicsEnabled = (state: RootState) =>
+  state.optimizer.control.jsHeuristicsEnabled;
+export const getJsHeuristicsTarget = (state: RootState) =>
+  state.optimizer.control.jsHeuristicsTarget;
 export const getMulticore = (state: RootState) => state.optimizer.control.multicore;
 export const getHeuristics = (state: RootState) => state.optimizer.control.heuristics;
 
@@ -270,6 +290,8 @@ export const {
   setBuildTemplate,
   changeSelectedCharacter,
   changeError,
+  changeJsHeuristicsEnabled,
+  changeJsHeuristicsTarget,
   changeHwThreads,
   changeMulticore,
   changeHeuristics,
