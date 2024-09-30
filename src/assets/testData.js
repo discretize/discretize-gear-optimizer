@@ -130,7 +130,6 @@ const testModifiers = async () => {
           hasLifesteal,
           displayIds,
           priceIds,
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           temporaryBuff,
           ...otherKeys
         } = item;
@@ -302,6 +301,19 @@ const testModifiers = async () => {
             parseConversionAfterBuffs(conversionAfterBuffs, id, amountData);
           }
         });
+
+        if (modifiers.attributes || modifiers.conversion || modifiers.conversionAfterBuffs) {
+          gentleAssert(
+            [true, false, 'activeOutOfCombat'].includes(temporaryBuff),
+            `err: ${id}'s temporaryBuff value is not true, false, or activeOutOfCombat!`,
+          );
+        }
+
+        /*
+        if (temporaryBuff === false && amountData) {
+          console.log(`${id} is set to be permanent and has amount data; are you sure?`);
+        }
+        */
       }
     }
   }
