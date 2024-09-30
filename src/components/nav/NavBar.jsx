@@ -33,7 +33,6 @@ import {
 import { changeGameMode, getExpertMode, getGameMode } from '../../state/slices/userSettings';
 import data from '../../utils/data';
 import { PROFESSIONS } from '../../utils/gw2-data';
-import { PARAMS, setQueryParm } from '../../utils/queryParam';
 import NavAccordion from './NavAccordion';
 import NavSettings from './NavSettings';
 import ReapplyTemplateDialog from './ReapplyTemplateDialog';
@@ -99,7 +98,6 @@ const Navbar = () => {
     // only cycles between raids and fractals
     const newGameMode = gamemode === 'raids' ? 'fractals' : 'raids';
 
-    setQueryParm({ key: PARAMS.GAMEMODE, value: newGameMode });
     dispatch(changeGameMode(newGameMode));
 
     const isFractalsNew = newGameMode === 'fractals';

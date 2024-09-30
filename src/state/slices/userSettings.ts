@@ -53,6 +53,7 @@ export const userSettingsSlice = createSlice({
     },
     changeGameMode: (state, action: PayloadAction<GameMode>) => {
       state.gameMode = action.payload;
+      setQueryParm({ key: PARAMS.GAMEMODE, value: action.payload });
     },
   },
 
