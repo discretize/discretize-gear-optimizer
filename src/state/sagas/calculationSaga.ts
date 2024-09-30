@@ -59,7 +59,7 @@ function* runCalc() {
       const result = yield* call(() => nextPromise);
 
       const { percent, heuristicsPercent, isChanged, list, filteredLists } = result.value;
-      currentPercent = heuristicsPercent ?? percent;
+      currentPercent = percent;
 
       if (isChanged) {
         // shallow freeze as a performance optimization; immer freezes recursively instead by default
@@ -76,6 +76,7 @@ function* runCalc() {
             list: currentList,
             filteredLists: currentFilteredLists,
             progress: currentPercent,
+            heuristicsProgress: heuristicsPercent,
           }),
         );
         break;
@@ -89,6 +90,7 @@ function* runCalc() {
           list: currentList,
           filteredLists: currentFilteredLists,
           progress: currentPercent,
+          heuristicsProgress: heuristicsPercent,
         }),
       );
 

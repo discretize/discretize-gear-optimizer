@@ -95,6 +95,7 @@ const initialState: {
   filterMode: FilterMode;
   displayAttributes: DisplayAttributes;
   progress: number;
+  heuristicsProgress: number | undefined;
   selectedCharacter: Character | null;
   selectedTemplate: string;
   status: OptimizerStatus;
@@ -116,6 +117,7 @@ const initialState: {
   filterMode: 'None',
   displayAttributes: [],
   progress: 0,
+  heuristicsProgress: undefined,
   selectedCharacter: null,
   selectedTemplate: '',
   status: WAITING,
@@ -176,10 +178,12 @@ export const controlSlice = createSlice({
         list?: Character[];
         filteredLists?: Record<ExtraFilterMode, Character[]>;
         progress: number;
+        heuristicsProgress?: number;
       }>,
     ) => {
-      const { list, filteredLists, progress } = action.payload;
+      const { list, filteredLists, progress, heuristicsProgress } = action.payload;
       state.progress = progress;
+      state.heuristicsProgress = heuristicsProgress;
       if (list) state.list = list;
       if (filteredLists) state.filteredLists = filteredLists;
     },
@@ -239,6 +243,8 @@ export const getProfession = (state: RootState) => state.optimizer.control.profe
 export const getSelectedTemplate = (state: RootState) => state.optimizer.control.selectedTemplate;
 export const getHwThreads = (state: RootState) => state.optimizer.control.hwThreads;
 export const getProgress = (state: RootState) => state.optimizer.control.progress;
+export const getHeuristicsProgress = (state: RootState) =>
+  state.optimizer.control.heuristicsProgress;
 export const getSelectedSpecialization = (state: RootState) =>
   state.optimizer.control.selectedSpecialization;
 export const getStatus = (state: RootState) => state.optimizer.control.status;
