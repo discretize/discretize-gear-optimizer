@@ -513,9 +513,9 @@ export function createSettingsPerCalculation(
   // for heuristics
   // like affixes, but each entry is an array of stats given by using that affix in every availible slot
   // e.g. berserker with no forced affixes -> [[Power, 1381],[Precision, 961],[Ferocity, 961]]
-  let settings_heuristicsCorners: [AttributeName, number][][] | undefined;
+  let settings_jsHeuristicsData: [AttributeName, number][][] | undefined;
   try {
-    settings_heuristicsCorners = affixes.map((forcedAffix) => {
+    settings_jsHeuristicsData = affixes.map((forcedAffix) => {
       const statTotals: Record<AttributeName, number> = {};
       settings_affixesArray.forEach((possibleAffixes, slotindex) => {
         if (!possibleAffixes.includes(forcedAffix) && possibleAffixes.length !== 1) {
@@ -614,7 +614,7 @@ export function createSettingsPerCalculation(
     runsAfterThisSlot: settings_runsAfterThisSlot,
     gameMode,
     affixes,
-    heuristicsCorners: settings_heuristicsCorners,
+    jsHeuristicsData: settings_jsHeuristicsData,
   };
 
   return settings;

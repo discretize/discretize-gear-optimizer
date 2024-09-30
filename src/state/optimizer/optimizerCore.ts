@@ -155,7 +155,7 @@ export interface OptimizerCoreSettingsPerCalculation {
   affixStatsArray: [AttributeName, number][][][];
 
   affixes: AffixNameOrCustom[];
-  heuristicsCorners?: [AttributeName, number][][];
+  jsHeuristicsData?: [AttributeName, number][][];
 
   shouldDisplayExtras: ShouldDisplayExtras;
   cachedFormState: CachedFormState;
@@ -422,9 +422,9 @@ export class OptimizerCore {
    */
   *calculateHeuristic(split: number) {
     const { settings } = this;
-    const { affixes, heuristicsCorners } = settings;
+    const { affixes, jsHeuristicsData } = settings;
 
-    if (!heuristicsCorners) {
+    if (!jsHeuristicsData) {
       return {
         isChanged: true,
         calculationRuns: 0,
@@ -438,7 +438,7 @@ export class OptimizerCore {
     let cycles = 0;
     this.isChanged = true;
 
-    for (const partition of iteratePartitions(split, heuristicsCorners.length, true)) {
+    for (const partition of iteratePartitions(split, jsHeuristicsData.length, true)) {
       cycles++;
 
       // pause to update UI
@@ -456,7 +456,7 @@ export class OptimizerCore {
       const gearStats: GearStats = {};
 
       partition.forEach((num, i) =>
-        heuristicsCorners[i].forEach(([stat, value]) => {
+        jsHeuristicsData[i].forEach(([stat, value]) => {
           gearStats[stat] = (gearStats[stat] ?? 0) + (value * num) / split;
         }),
       );
