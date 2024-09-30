@@ -20,6 +20,27 @@ import Section from '../../baseComponents/Section';
 import ModalContent from './BuildShareModal/ModalContent';
 import GW2Combat from './GW2Combat';
 import TemplateHelper from './TemplateHelper';
+import { pick } from '../../../utils/usefulFunctions';
+
+const attributeWhitelist = [
+  'Power',
+  'Toughness',
+  'Vitality',
+  'Precision',
+  'Ferocity',
+  'Condition Damage',
+  'Expertise',
+  'Concentration',
+  'Agony Resistance',
+  'Armor',
+  'Health',
+  'Critical Chance',
+  'Critical Damage',
+  'Healing Power',
+  'Condition Duration',
+  'Boon Duration',
+  'Magic Find',
+];
 
 // const indent = (str, amount) => str.replace(/^/gm, ' '.repeat(amount));
 function idToWeapon(id) {
@@ -181,7 +202,7 @@ const TemplateHelperSections = ({ character }) => {
       attributes: {
         profession,
         specialization,
-        data: attributes,
+        data: pick(attributes, attributeWhitelist),
       },
       armor,
       weapon: weapData,
@@ -200,7 +221,7 @@ const TemplateHelperSections = ({ character }) => {
       template.unbuffedAttributes = {
         profession,
         specialization,
-        data: unbuffedAttributes,
+        data: pick(unbuffedAttributes, attributeWhitelist),
         info: 'Simulated unbuffed attributes are not exact and may not match ingame hero panel! For example, soulbeast\'s "with axe" and "with torch/dagger" buffs are both included, simulating a scenario which doesn\'t occur in either weapon set on some builds. Use with caution.',
       };
     }
