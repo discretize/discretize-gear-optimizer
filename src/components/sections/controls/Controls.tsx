@@ -29,7 +29,8 @@ import {
   getProfession,
   getStatus,
 } from '../../../state/slices/controlsSlice';
-import { getAffixes, getWeaponType } from '../../../state/slices/priorities';
+import { getAffixes } from '../../../state/slices/priorities';
+import { type RootState } from '../../../state/store';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
 import ResultTableSettings from './ResultTableSettings';
 
@@ -58,18 +59,12 @@ const ControlsBox = () => {
   const status = useSelector(getStatus);
   const error = useSelector(getError);
   const affixes = useSelector(getAffixes);
-  const weaponType = useSelector(getWeaponType);
   const profession = useSelector(getProfession);
   const multicore = useSelector(getMulticore);
 
-  const onStartCalculate = (e) => {
+  const onStartCalculate = () => {
     if (affixes.length < 1) {
       dispatch(changeError(t('Select at least one affix in the priorities section!')));
-      dispatch(changeStatus(ERROR));
-      return;
-    }
-    if (weaponType === 'unset') {
-      dispatch(changeError(t('Select a weapon type in the priorities section!')));
       dispatch(changeStatus(ERROR));
       return;
     }
@@ -80,11 +75,11 @@ const ControlsBox = () => {
       dispatch(changeError(''));
       dispatch({ type: SagaTypes.Start });
     } else {
-      calculateParallel(store.getState(), dispatch);
+      calculateParallel(store.getState() as RootState, dispatch);
     }
   };
 
-  const onResumeCalculate = (e) => {
+  const onResumeCalculate = () => {
     if (!multicore) {
       dispatch({ type: SagaTypes.Resume });
     } else {
@@ -93,7 +88,7 @@ const ControlsBox = () => {
     }
   };
 
-  const onStopCalculate = (e) => {
+  const onStopCalculate = () => {
     if (!multicore) {
       dispatch({ type: SagaTypes.Stop });
     } else {
@@ -128,7 +123,6 @@ const ControlsBox = () => {
           color="primary"
           className={classes.button}
           onClick={onStartCalculate}
-          classes={{ label: classes.label }}
           disabled={[RUNNING, RUNNING_HEURISTICS].includes(status) || profession === ''}
         >
           {[RUNNING, RUNNING_HEURISTICS].includes(status) ? (

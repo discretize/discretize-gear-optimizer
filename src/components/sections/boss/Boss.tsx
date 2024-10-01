@@ -14,7 +14,7 @@ import { AmountInputAuto } from '../../baseComponents/AmountInput';
 
 const Condition = React.memo(ConditionRaw);
 
-const confusionOptionLabels = {
+const confusionOptionLabels: Record<string, string> = {
   '0.000': 'Golem',
   '0.133': 'Adina',
   '0.184': 'Deimos',
@@ -128,7 +128,7 @@ const Boss = () => {
             autoCompleteProps={{
               options: confusionOptions,
               renderOption: (props, option) => (
-                <li {...props}>{`${option}: ${confusionOptionLabels[option]}`}</li>
+                <li {...props}>{`${option}: ${confusionOptionLabels[option as string]}`}</li>
               ),
             }}
           />

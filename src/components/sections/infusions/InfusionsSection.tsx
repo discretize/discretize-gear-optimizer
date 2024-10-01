@@ -1,6 +1,7 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { type PresetInfusionsEntry } from '../../../assets/presetdata/metadata';
 import { changeInfusions } from '../../../state/slices/infusions';
 import { getGameMode } from '../../../state/slices/userSettings';
 import data from '../../../utils/data';
@@ -18,7 +19,7 @@ const InfusionsSection = () => {
   const infusionPresets = data.presetInfusions.list;
 
   const onTemplateClickInfusions = React.useCallback(
-    (value) => {
+    (value: PresetInfusionsEntry) => {
       if (!value) return;
 
       const newInfusions = JSON.parse(value.value);

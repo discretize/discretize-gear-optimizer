@@ -8,6 +8,7 @@ import { makeStyles } from 'tss-react/mui';
 import {
   changeAR,
   changeInfusion,
+  changeInfusionMax,
   changeOmnipotion,
   getAR,
   getMaxInfusions,
@@ -61,9 +62,16 @@ const Infusions = () => {
 
   const gameMode = useSelector(getGameMode);
 
-  const handleARChange = React.useCallback((_e, value) => dispatch(changeAR(value)), [dispatch]);
+  const handleARChange = React.useCallback(
+    (e: any, value: string) => dispatch(changeAR(value)),
+    [dispatch],
+  );
 
-  const dropdown = (name, varName, infusion) => {
+  const dropdown = (
+    name: string,
+    varName: 'primaryInfusion' | 'secondaryInfusion',
+    infusion: string,
+  ) => {
     return (
       <FormControl className={classes.formControl} variant="standard">
         <InputLabel id={`dropdown_${name}`}>{name}</InputLabel>
@@ -75,11 +83,13 @@ const Infusions = () => {
             dispatch(
               changeInfusion({
                 key: varName,
-                value: e.target.value,
+                value: e.target.value as keyof typeof INFUSION_IDS,
               }),
             )
           }
-          renderValue={(value) => <Item id={INFUSION_IDS[value]} disableLink />}
+          renderValue={(value) => (
+            <Item id={(INFUSION_IDS as Record<string, number>)[value]} disableLink />
+          )}
         >
           <MenuItem value="">{t('None')} </MenuItem>
           {Object.entries(INFUSION_IDS).map(([attribute, id]) => (
@@ -92,7 +102,12 @@ const Infusions = () => {
     );
   };
 
-  const input = (name, varName, value, className) => {
+  const input = (
+    name: string,
+    varName: 'primaryMaxInfusions' | 'secondaryMaxInfusions' | 'maxInfusions',
+    value: string,
+    className?: string,
+  ) => {
     const { error } = parseInfusionCount(value);
     return (
       <FormControl className={className} variant="standard">
@@ -100,7 +115,7 @@ const Infusions = () => {
         <Input
           id={`${varName}_input-with-icon-adornment`}
           value={value}
-          onChange={(e) => dispatch(changeInfusion({ key: varName, value: e.target.value }))}
+          onChange={(e) => dispatch(changeInfusionMax({ key: varName, value: e.target.value }))}
           autoComplete="off"
           error={error}
         />
@@ -129,7 +144,6 @@ const Infusions = () => {
                     text={t(
                       'Adds 150% of your Agony Resistance to Vitality, Toughness, and Concentration.',
                     )}
-                    size="small"
                   />
                 </>
               }
@@ -146,7 +160,9 @@ const Infusions = () => {
               endLabel={<Attribute name="Agony Resistance" disableLink disableText />}
               autoCompleteProps={{
                 options: arOptions,
-                renderOption: (props, option) => <li {...props}>{arOptionLabels[option]}</li>,
+                renderOption: (props, option) => (
+                  <li {...props}>{(arOptionLabels as Record<string, string>)[option as string]}</li>
+                ),
               }}
               value={ar}
             />

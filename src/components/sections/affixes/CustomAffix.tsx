@@ -36,8 +36,8 @@ const exampleAffixJson = `{
   }
 }`;
 
-function parseInput(str) {
-  let parsed = {};
+function parseInput(str: string) {
+  let parsed: unknown = {};
   let error = false;
 
   if (str) {
@@ -54,7 +54,7 @@ function parseInput(str) {
     }
   }
   if (error) parsed = {};
-  return { data: parsed, error };
+  return { data: parsed as object, error };
 }
 
 const CustomAffix = () => {
@@ -62,15 +62,6 @@ const CustomAffix = () => {
   const { t } = useTranslation();
   const errorMsg = useSelector(getCustomAffixError);
   const text = useSelector(getCustomAffixText);
-
-  const handleChange = (e) => {
-    const val = e.target.value;
-    dispatch(changeCustomAffixTextBox(val));
-
-    const { data, error } = parseInput(val);
-    dispatch(changeCustomAffix(data));
-    dispatch(changeCustomAffixError(error ? t('Invalid Format.') : ''));
-  };
 
   return (
     <>
@@ -86,7 +77,14 @@ const CustomAffix = () => {
         value={text}
         error={errorMsg !== ''}
         helperText={errorMsg}
-        onChange={handleChange}
+        onChange={(e) => {
+          const val = e.target.value;
+          dispatch(changeCustomAffixTextBox(val));
+
+          const { data, error } = parseInput(val);
+          dispatch(changeCustomAffix(data));
+          dispatch(changeCustomAffixError(error ? t('Invalid Format.') : ''));
+        }}
       />
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>

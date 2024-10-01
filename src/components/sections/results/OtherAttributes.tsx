@@ -1,17 +1,20 @@
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'react-i18next';
+import { type Character } from '../../../state/optimizer/optimizerCore';
 
-const roundOne = (num) => Math.round(num * 10) / 10;
+const roundOne = (num: number) => Math.round(num * 10) / 10;
 
-const OtherAttributes = ({ character }) => {
+const OtherAttributes = ({ character }: { character: Character }) => {
   const { t } = useTranslation();
 
   const { attributes } = character;
 
-  const entries = [
-    [t('Effective Power'), attributes['Effective Power']],
-    [t('Phantasm Effective Power'), attributes['Phantasm Effective Power']],
-  ].filter(([_key, value]) => value);
+  const entries = (
+    [
+      [t('Effective Power'), attributes['Effective Power']],
+      [t('Phantasm Effective Power'), attributes['Phantasm Effective Power']],
+    ] as const
+  ).filter(([_key, value]) => value);
 
   return (
     <>

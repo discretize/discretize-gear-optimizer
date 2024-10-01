@@ -19,8 +19,8 @@ import {
   getExtraModifiersTextBox,
 } from '../../../state/slices/extraModifiers';
 
-function parseInput(str) {
-  let parsed = [];
+function parseInput(str: string) {
+  let parsed: unknown = [];
   let error = false;
 
   if (str) {
@@ -46,14 +46,6 @@ const ExtraModifiers = () => {
   const errorMsg = useSelector(getExtraModifiersError);
   const text = useSelector(getExtraModifiersTextBox);
 
-  const handleChange = (e) => {
-    const val = e.target.value;
-    dispatch(changeExtraModifiersText(val));
-
-    const { data, error } = parseInput(val);
-    dispatch(changeExtraModifiers(data));
-    dispatch(changeExtraModifiersError(error ? t('Invalid Format.') : ''));
-  };
   return (
     <>
       <TextField
@@ -68,7 +60,14 @@ const ExtraModifiers = () => {
         value={text}
         error={errorMsg !== ''}
         helperText={errorMsg}
-        onChange={handleChange}
+        onChange={(e) => {
+          const val = e.target.value;
+          dispatch(changeExtraModifiersText(val));
+
+          const { data, error } = parseInput(val);
+          dispatch(changeExtraModifiers(data));
+          dispatch(changeExtraModifiersError(error ? t('Invalid Format.') : ''));
+        }}
       />
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>

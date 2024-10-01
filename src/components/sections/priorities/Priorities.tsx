@@ -42,7 +42,7 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const OPTIMIZATION_GOALS = ['Damage', 'Survivability', 'Healing'];
+const OPTIMIZATION_GOALS = ['Damage', 'Survivability', 'Healing'] as const;
 
 const Priorities = () => {
   const { classes } = useStyles();
@@ -76,14 +76,15 @@ const Priorities = () => {
             text={t(
               "What to optimize the results for. 'Damage' includes power and condition damage according to the distribution below.",
             )}
-            size="small"
           />
         </FormLabel>
         <RadioGroup
           aria-label="optimizeFor"
           name="optimizeFor"
           value={optimizeFor}
-          onChange={(event) => dispatch(changeOptimizeFor(event.target.value))}
+          onChange={(event) =>
+            dispatch(changeOptimizeFor(event.target.value as (typeof OPTIMIZATION_GOALS)[number]))
+          }
         >
           {OPTIMIZATION_GOALS.map((goal) => (
             <FormControlLabel
@@ -108,14 +109,19 @@ const Priorities = () => {
             text={t(
               "Select 'Dual wield' if you're using weapons in both hands or 'Two-handed' when using a two-handed weapon.",
             )}
-            size="small"
           />
         </FormLabel>
         <RadioGroup
           aria-label="weaponType"
           name="weaponType"
           value={weaponType}
-          onChange={(event) => dispatch(changeWeaponType(event.target.value))}
+          onChange={(event) =>
+            dispatch(
+              changeWeaponType(
+                event.target.value as (typeof WeaponTypes)[keyof typeof WeaponTypes],
+              ),
+            )
+          }
         >
           <FormControlLabel
             value={WeaponTypes.dualWield}
@@ -132,23 +138,25 @@ const Priorities = () => {
     </Grid>
   );
 
-  const resultConstraints = [
-    {
-      type: 'minDamage',
-      value: minDamage,
-      label: [<Trans key="rc_1">Min.</Trans>, ' ', t('Damage')],
-    },
-    {
-      type: 'minHealing',
-      value: minHealing,
-      label: [<Trans key="rc_2">Min.</Trans>, ' ', t('Healing')],
-    },
-    {
-      type: 'minSurvivability',
-      value: minSurvivability,
-      label: [<Trans key="rc_3">Min.</Trans>, ' ', t('Survivability')],
-    },
-  ].map(({ type, label, value }) => {
+  const resultConstraints = (
+    [
+      {
+        type: 'minDamage',
+        value: minDamage,
+        label: [<Trans key="rc_1">Min.</Trans>, ' ', t('Damage')],
+      },
+      {
+        type: 'minHealing',
+        value: minHealing,
+        label: [<Trans key="rc_2">Min.</Trans>, ' ', t('Healing')],
+      },
+      {
+        type: 'minSurvivability',
+        value: minSurvivability,
+        label: [<Trans key="rc_3">Min.</Trans>, ' ', t('Survivability')],
+      },
+    ] as const
+  ).map(({ type, label, value }) => {
     return (
       <Grid key={`resultConstraints${type}`} className={classes.box} size={{ xs: 6, md: 4 }}>
         <FormControl className={classes.formControl} variant="standard">
@@ -168,79 +176,81 @@ const Priorities = () => {
     );
   });
 
-  const statConstraints = [
-    {
-      type: 'minToughness',
-      value: minToughness,
-      label: [
-        <Trans key="sC_1">Min.</Trans>,
-        ' ',
-        <Attribute key="sC_3" name="Toughness" disableLink />,
-      ],
-    },
-    {
-      type: 'maxToughness',
-      value: maxToughness,
-      label: [
-        <Trans key="sC_1">Max.</Trans>,
-        ' ',
-        <Attribute key="sC_3" name="Toughness" disableLink />,
-      ],
-    },
-    {
-      type: 'minBoonDuration',
-      value: minBoonDuration,
-      label: [
-        <Trans key="sC_1">Min.</Trans>,
-        ' ',
-        <Attribute key="sC_3" name="Boon Duration" disableLink />,
-      ],
-    },
-    {
-      type: 'minHealingPower',
-      value: minHealingPower,
-      label: [
-        <Trans key="sC_1">Min.</Trans>,
-        ' ',
-        <Attribute key="sC_3" name="Healing Power" disableLink />,
-      ],
-    },
-    {
-      type: 'minHealth',
-      value: minHealth,
-      label: [
-        <Trans key="sC_1">Min.</Trans>,
-        ' ',
-        <Attribute key="sC_3" name="Health" disableLink />,
-      ],
-    },
-    {
-      type: 'minCritChance',
-      value: minCritChance,
-      label: [
-        <Trans key="sC_1">Min.</Trans>,
-        ' ',
-        <Attribute key="sC_3" name="Critical Chance" disableLink />,
-      ],
-    },
-    {
-      type: 'minOutgoingHealing',
-      value: minOutgoingHealing,
-      label: [<Trans key="sC_1">Min.</Trans>, ' ', t('% Outgoing Healing')],
-    },
-    {
-      type: 'minQuicknessDuration',
-      value: minQuicknessDuration,
-      label: [
-        <Trans key="sC_1">Min.</Trans>,
-        ' ',
-        <React.Fragment key="sC_3">
-          <Boon name="Quickness" disableLink />
-          {t(' duration')}
-        </React.Fragment>,
-      ],
-    },
-  ].map(({ type, label, value }) => {
+  const statConstraints = (
+    [
+      {
+        type: 'minToughness',
+        value: minToughness,
+        label: [
+          <Trans key="sC_1">Min.</Trans>,
+          ' ',
+          <Attribute key="sC_3" name="Toughness" disableLink />,
+        ],
+      },
+      {
+        type: 'maxToughness',
+        value: maxToughness,
+        label: [
+          <Trans key="sC_1">Max.</Trans>,
+          ' ',
+          <Attribute key="sC_3" name="Toughness" disableLink />,
+        ],
+      },
+      {
+        type: 'minBoonDuration',
+        value: minBoonDuration,
+        label: [
+          <Trans key="sC_1">Min.</Trans>,
+          ' ',
+          <Attribute key="sC_3" name="Boon Duration" disableLink />,
+        ],
+      },
+      {
+        type: 'minHealingPower',
+        value: minHealingPower,
+        label: [
+          <Trans key="sC_1">Min.</Trans>,
+          ' ',
+          <Attribute key="sC_3" name="Healing Power" disableLink />,
+        ],
+      },
+      {
+        type: 'minHealth',
+        value: minHealth,
+        label: [
+          <Trans key="sC_1">Min.</Trans>,
+          ' ',
+          <Attribute key="sC_3" name="Health" disableLink />,
+        ],
+      },
+      {
+        type: 'minCritChance',
+        value: minCritChance,
+        label: [
+          <Trans key="sC_1">Min.</Trans>,
+          ' ',
+          <Attribute key="sC_3" name="Critical Chance" disableLink />,
+        ],
+      },
+      {
+        type: 'minOutgoingHealing',
+        value: minOutgoingHealing,
+        label: [<Trans key="sC_1">Min.</Trans>, ' ', t('% Outgoing Healing')],
+      },
+      {
+        type: 'minQuicknessDuration',
+        value: minQuicknessDuration,
+        label: [
+          <Trans key="sC_1">Min.</Trans>,
+          ' ',
+          <React.Fragment key="sC_3">
+            <Boon name="Quickness" disableLink />
+            {t(' duration')}
+          </React.Fragment>,
+        ],
+      },
+    ] as const
+  ).map(({ type, label, value }) => {
     return (
       <Grid key={`statsConstraints${type}`} className={classes.box} size={{ xs: 6, md: 4 }}>
         <FormControl className={classes.formControl} variant="standard">

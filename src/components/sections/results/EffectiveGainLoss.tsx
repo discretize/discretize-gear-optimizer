@@ -1,12 +1,14 @@
 import { Attribute } from '@discretize/gw2-ui-new';
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { type Character } from '../../../state/optimizer/optimizerCore';
+import { objectKeys } from '../../../utils/usefulFunctions';
 
-const EffectiveGainLoss = ({ character }) => {
+const EffectiveGainLoss = ({ character }: { character: Character }) => {
   const { t } = useTranslation();
 
-  const positive = character.results.effectivePositiveValues ?? {};
-  const negative = character.results.effectiveNegativeValues ?? {};
+  const positive = character.results?.effectivePositiveValues ?? {};
+  const negative = character.results?.effectiveNegativeValues ?? {};
 
   return (
     <>
@@ -20,16 +22,16 @@ const EffectiveGainLoss = ({ character }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {Object.keys(positive).map((attribute) => (
+          {objectKeys(positive).map((attribute) => (
             <TableRow hover key={attribute}>
               <TableCell>
                 <Attribute name={attribute} style={{ fontSize: '20px', color: '#AAAAAA' }} />
               </TableCell>
               <TableCell align="right">
-                {positive[attribute].toFixed?.(2) ?? positive[attribute]}
+                {positive[attribute]!.toFixed?.(2) ?? positive[attribute]}
               </TableCell>
               <TableCell align="right">
-                {negative[attribute].toFixed?.(2) ?? negative[attribute]}
+                {negative[attribute]!.toFixed?.(2) ?? negative[attribute]}
               </TableCell>
             </TableRow>
           ))}

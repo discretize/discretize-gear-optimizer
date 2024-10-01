@@ -9,13 +9,12 @@ const SkillsSection = () => {
   const { t } = useTranslation();
   const profession = useSelector(getProfession);
 
+  if (!profession) return null;
+
   const skillsData = classModifiers[profession]?.find((section) => section.section === 'Skills');
 
   return skillsData ? (
-    <Section
-      title={t('Skills')}
-      content={<Skills profession={profession} data={skillsData.items} />}
-    />
+    <Section title={t('Skills')} content={<Skills data={skillsData.items} />} />
   ) : null;
 };
 

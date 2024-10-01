@@ -20,7 +20,7 @@ import { GEAR_SLOTS, WeaponTypes } from '../../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({
   tableCollapse: {
-    borderCollapse: 'collapse !important',
+    borderCollapse: 'collapse !important' as 'collapse',
     marginBottom: '0px !important',
   },
   checkbox: {
@@ -41,10 +41,6 @@ const ExcludedSlots = () => {
   if (dualWielded !== WeaponTypes.dualWield) {
     SLOTS = GEAR_SLOTS.slice(0, 13);
   }
-
-  const handleChange = (index, affix) => (event) => {
-    dispatch(changeExclusion({ index, affix, value: event.target.checked }));
-  };
 
   return (
     <TableContainer>
@@ -71,8 +67,10 @@ const ExcludedSlots = () => {
                     size="small"
                     classes={{ root: classes.checkbox }}
                     checked={Boolean(exclusions?.[affix]?.[index])}
-                    disabled={forcedSlots[index] !== null}
-                    onChange={handleChange(index, affix)}
+                    disabled={Boolean(forcedSlots[index])}
+                    onChange={(event) => {
+                      dispatch(changeExclusion({ index, affix, value: event.target.checked }));
+                    }}
                   />
                 </TableCell>
               ))}

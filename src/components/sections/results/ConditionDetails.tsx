@@ -2,6 +2,7 @@ import { Condition } from '@discretize/gw2-ui-new';
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
+import { type Character } from '../../../state/optimizer/optimizerCore';
 import { damagingConditions } from '../../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({
@@ -14,7 +15,7 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const ConditionDetails = ({ character }) => {
+const ConditionDetails = ({ character }: { character: Character }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
 
@@ -48,8 +49,7 @@ const ConditionDetails = ({ character }) => {
             <TableRow hover key={attribute}>
               <TableCell>
                 <Condition
-                  name={attribute.split(' ')[0].replace('Poison', 'Poisoned')}
-                  text={attribute}
+                  name={attribute === 'Poison' ? 'Poisoned' : attribute}
                   className={classes.gw2Item}
                 />
               </TableCell>

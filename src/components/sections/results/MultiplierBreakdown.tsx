@@ -1,9 +1,10 @@
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'react-i18next';
+import { type Character } from '../../../state/optimizer/optimizerCore';
 
-const roundFour = (num) => Math.round(num * 10000) / 10000;
+const roundFour = (num: number) => Math.round(num * 10000) / 10000;
 
-const MultiplierBreakdown = ({ character }) => {
+const MultiplierBreakdown = ({ character }: { character: Character }) => {
   const { t } = useTranslation();
 
   const data = character.settings.modifiers.damageMultiplierBreakdown;
@@ -17,7 +18,7 @@ const MultiplierBreakdown = ({ character }) => {
     { title: t('add'), key: 'add' },
     { title: t('target'), key: 'target' },
     { title: t('total'), key: 'total' },
-  ];
+  ] as const;
   return (
     <>
       <Typography variant="h6">

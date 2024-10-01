@@ -13,6 +13,7 @@ import {
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { type PresetExtrasEntry } from '../../../assets/presetdata/metadata';
 import {
   changeJsHeuristicsEnabled,
   changeJsHeuristicsTarget,
@@ -29,10 +30,10 @@ import {
 } from '../../../state/slices/extras';
 import data from '../../../utils/data';
 import { SPECIALIZATIONS } from '../../../utils/gw2-data';
+import Info from '../../baseComponents/Info';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Extras from './Extras';
-import Info from '../../baseComponents/Info';
 
 const ExtrasSection = () => {
   const { t } = useTranslation();
@@ -57,7 +58,7 @@ const ExtrasSection = () => {
   }
 
   const onTemplateClickExtras = React.useCallback(
-    (value) => {
+    (value: PresetExtrasEntry) => {
       if (!value) return;
 
       const newExtras = JSON.parse(value.value);
@@ -141,7 +142,6 @@ const ExtrasSection = () => {
                 }}
                 disabled
                 value={combinationCount}
-                onChange={() => {}}
               />
             )}
 

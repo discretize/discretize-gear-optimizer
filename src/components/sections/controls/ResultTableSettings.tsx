@@ -24,6 +24,7 @@ import {
   changeFilterMode,
   changeHighlightDiffering,
   changeTallTable,
+  type FilterMode,
   getCompareByPercent,
   getDisplayAttributes,
   getFilterMode,
@@ -106,7 +107,6 @@ export default function ResultTableSettings() {
                 text={t(
                   'Colors gear slots by whether they are the same as or different than the currently selected build. Useful for creating multiple builds that share some equipment.',
                 )}
-                size="small"
               />
             </>
           }
@@ -119,7 +119,7 @@ export default function ResultTableSettings() {
           multiple
           disableCloseOnSelect
           value={displayAttributes}
-          options={['Toughness', 'Boon Duration', 'Health', 'Critical Chance']}
+          options={['Toughness', 'Boon Duration', 'Health', 'Critical Chance'] as const}
           onChange={(event, value) => dispatch(changeDisplayAttributes(value))}
           renderInput={(params) => (
             <TextField {...params} variant="standard" label={t('Show Attributes')} margin="dense" />
@@ -136,7 +136,6 @@ export default function ResultTableSettings() {
                 variant="outlined"
                 label={<Attribute name={option} disableLink disableText />}
                 {...getTagProps({ index })}
-                onDelete={null}
               />
             ))
           }
@@ -152,19 +151,21 @@ export default function ResultTableSettings() {
           <RadioGroup
             aria-labelledby="filter-button-group"
             value={filterMode}
-            onChange={(e) => dispatch(changeFilterMode(e.target.value))}
+            onChange={(e) => dispatch(changeFilterMode(e.target.value as FilterMode))}
             name="checked"
             color="primary"
           >
-            {[
-              ['None', t('No Filtering')],
-              ['Combinations', t('All Combinations')],
-              ['Sigils', t('Sigils')],
-              ['Runes', t('Runes')],
-              ['Relics', t('Relics')],
-              ['Nourishment', t('Food')],
-              ['Enhancement', t('Utility')],
-            ].map(([value, label]) => (
+            {(
+              [
+                ['None', t('No Filtering')],
+                ['Combinations', t('All Combinations')],
+                ['Sigils', t('Sigils')],
+                ['Runes', t('Runes')],
+                ['Relics', t('Relics')],
+                ['Nourishment', t('Food')],
+                ['Enhancement', t('Utility')],
+              ] satisfies [FilterMode, string][]
+            ).map(([value, label]) => (
               <FormControlLabel
                 key={value}
                 value={value}

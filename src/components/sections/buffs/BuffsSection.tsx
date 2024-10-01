@@ -6,17 +6,18 @@ import data from '../../../utils/data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Buffs from './Buffs';
+import { type PresetBuffsEntry } from '../../../assets/presetdata/metadata';
 
 const BuffsSection = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
   const handleTemplateClickBuffs = React.useCallback(
-    (value) => {
+    (value: PresetBuffsEntry) => {
       if (!value) return;
 
       const state = JSON.parse(value.value);
-      dispatch(replaceBuffs(state));
+      dispatch(replaceBuffs(state as Record<string, boolean>));
     },
     [dispatch],
   );

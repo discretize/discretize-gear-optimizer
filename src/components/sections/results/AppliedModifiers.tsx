@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { Trans, useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
-import { scaleValue } from '../../../state/optimizer/optimizerCore';
+import { type Character, scaleValue } from '../../../state/optimizer/optimizerCore';
 import { parseAmount } from '../../../utils/usefulFunctions';
 
 const useStyles = makeStyles()((theme) => ({
@@ -25,9 +25,9 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const roundTwo = (num) => Math.round(num * 100) / 100;
+const roundTwo = (num: number) => Math.round(num * 100) / 100;
 
-const AppliedModifiers = ({ character }) => {
+const AppliedModifiers = ({ character }: { character: Character }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
 
@@ -43,20 +43,21 @@ const AppliedModifiers = ({ character }) => {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Typography className={classes.heading}>
+        <Typography>
           <Trans>Applied Modifers</Trans>
         </Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Table padding="none">
           <TableBody>
-            {appliedModifiers.map(({ type, id, modifiers, wvwModifiers, amount, amountData }) => {
+            {appliedModifiers.map(({ id, modifiers, wvwModifiers, amount, amountData }, i) => {
               const { value: amountInput } = parseAmount(amount);
               const multiplierNote = amountData
                 ? `${roundTwo(scaleValue(1, amountInput, amountData))}x`
                 : '';
               return (
-                <TableRow hover key={`${type} ${id}`}>
+                // eslint-disable-next-line react/no-array-index-key
+                <TableRow hover key={i}>
                   <TableCell>
                     <Typography className={classes.gw2Item}> {id} </Typography>
                   </TableCell>

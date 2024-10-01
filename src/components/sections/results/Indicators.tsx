@@ -1,7 +1,7 @@
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
 import { Trans } from 'react-i18next';
 
-const AffixesStats = ({ data }) => {
+const Indicators = ({ data = {} }: { data?: Record<string, any> }) => {
   return (
     <>
       <Typography variant="h6">
@@ -30,4 +30,4 @@ const AffixesStats = ({ data }) => {
   );
 };
 
-export default AffixesStats;
+export default Indicators;

@@ -2,6 +2,7 @@ import { Box, Chip, FormControlLabel, Switch } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { type PresetAffixesEntry } from '../../../assets/presetdata/metadata';
 import {
   changeAffixes,
   changeExclusion,
@@ -26,7 +27,7 @@ const AffixesSection = () => {
   const exoticsEnabled = useSelector(getExoticsEnabled);
 
   const handleTemplateClickPriorities = React.useCallback(
-    (value) => {
+    (value: PresetAffixesEntry) => {
       if (!value) return;
       const state = JSON.parse(value.value);
       dispatch(changePriorities(state));

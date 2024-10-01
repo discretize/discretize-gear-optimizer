@@ -4,6 +4,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useStore } from 'react-redux';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { changeAllForcedSlots, clearForcedSlots } from '../../../state/slices/forcedSlots';
+import { type RootState } from '../../../state/store';
 import Section from '../../baseComponents/Section';
 import ForcedSlots from './ForcedSlots';
 
@@ -13,7 +14,7 @@ const ForcedSlotsSection = () => {
   const dispatch = useDispatch();
 
   const handleCopy = () => {
-    const selectedCharacter = getSelectedCharacter(store.getState());
+    const selectedCharacter = getSelectedCharacter(store.getState() as RootState);
     const currentSelectedSlots = selectedCharacter?.gear;
     if (currentSelectedSlots) {
       dispatch(changeAllForcedSlots(currentSelectedSlots));

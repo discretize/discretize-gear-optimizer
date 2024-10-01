@@ -22,7 +22,7 @@ import ResultCharacter from './ResultCharacter';
 import SpecialDurations from './SpecialDurations';
 import TemplateHelperSections from './TemplateHelperSections';
 
-const roundTwo = (num) => Math.round(num * 100) / 100;
+const roundTwo = (num: number) => Math.round(num * 100) / 100;
 
 const ResultDetails = () => {
   const { t } = useTranslation();
@@ -40,7 +40,7 @@ const ResultDetails = () => {
   // gamemode is technically not correct since the gamemode is not tied to a character at the moment.
   assumedBuffs = createAssumedBuffs({ buffsRaw: assumedBuffs, character, gameMode });
 
-  const bonuses = {};
+  const bonuses: Record<string, string> = {};
   Object.entries({
     'Outgoing Healing': t('Outgoing Healing'),
     'Player Critical Damage': t('Player Critical Damage'),
@@ -64,7 +64,7 @@ const ResultDetails = () => {
         <Grid size={{ xs: 12, sm: 6, md: 4 }}>
           <SpecialDurations data={character.attributes} />
           {Object.keys(bonuses).length ? <Bonuses data={bonuses} title={t('Bonuses')} /> : null}
-          <Indicators data={character.results.indicators} />
+          <Indicators data={character.results?.indicators} />
           <AffixesStats data={character.gearStats} title={t('Stats from Affixes')} />
           {character.infusions && <OutputInfusions data={character.infusions} />}
         </Grid>

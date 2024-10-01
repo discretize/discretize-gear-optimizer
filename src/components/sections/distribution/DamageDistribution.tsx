@@ -1,9 +1,9 @@
 import { Attribute as AttributeRaw, Condition as ConditionRaw } from '@discretize/gw2-ui-new';
 import { Box, FormControl, Input, InputAdornment, InputLabel, Slider } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import { type DistributionNameUI } from '../../../state/optimizer/optimizerSetup';
 import {
   changeDistributionNew,
   changeTextBoxes,
@@ -41,29 +41,20 @@ const DISTRIBUTION_NAMES = [
   { name: 'Poisoned', min: 0, max: 60, step: 0.1 },
   { name: 'Torment', min: 0, max: 60, step: 0.1 },
   { name: 'Confusion', min: 0, max: 60, step: 0.1 },
-];
+] as const;
 
 const DamageDistribution = () => {
   const { classes } = useStyles();
 
   const dispatch = useDispatch();
   const distributionNew = useSelector(getDistributionNew);
-  const { t } = useTranslation();
 
   // locally displayed in the text boxes. Text boxes might contain a string that is not a real number (yet), so we need to store those separately
   const textBoxes = useSelector(getTextBoxes);
 
-  const onUpdate = (key) => (_, value) => {
-    dispatch(changeTextBoxes({ index: key, value: Math.round(value * 100) / 100 }));
+  const onUpdate = (key: DistributionNameUI) => (e: any, value: number) => {
+    dispatch(changeTextBoxes({ index: key, value: String(Math.round(value * 100) / 100) }));
     dispatch(changeDistributionNew({ index: key, value: Math.round(value * 100) / 100 }));
-  };
-
-  const handleChangeTextNew = (key) => (e) => {
-    const { value } = e.target;
-    dispatch(changeTextBoxes({ index: key, value }));
-
-    const parsedValue = parseDistribution(value).value;
-    dispatch(changeDistributionNew({ index: key, value: parsedValue }));
   };
 
   const [alternativeDamageLabel, alternativeDamageEnabled] = useAlternativeDamage();
@@ -80,23 +71,16 @@ const DamageDistribution = () => {
     return (
       <Box key={`distriNew_${dist.name}`} style={style} sx={{ display: 'flex', flexWrap: 'wrap' }}>
         <Box>
-          <FormControl mb={1} className={classes.textbox} variant="standard">
+          <FormControl className={classes.textbox} variant="standard">
             <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
-              {dist.name.startsWith('Power') ? (
+              {dist.name === 'Power' || dist.name === 'Power2' ? (
                 <Attribute
                   name="Power"
                   disableLink
                   text={dist.name === 'Power2' ? alternativeDamageLabel : undefined}
                 />
               ) : (
-                <Condition
-                  name={dist.name}
-                  disableLink
-                  text={
-                    // i18next-extract-mark-context-next-line ["Burning","Bleeding","Poisoned","Torment", "Confusion"]
-                    t(`avgStacks`, { context: dist.name })
-                  }
-                />
+                <Condition name={dist.name} disableLink />
               )}
             </InputLabel>
             <Input
@@ -104,7 +88,7 @@ const DamageDistribution = () => {
               value={textBoxes[dist.name]}
               endAdornment={
                 <InputAdornment position="end">
-                  {dist.name.startsWith('Power') ? (
+                  {dist.name === 'Power' || dist.name === 'Power2' ? (
                     <Attribute name="Power" disableLink disableText />
                   ) : (
                     <Condition name={dist.name} disableLink disableText />
@@ -112,7 +96,13 @@ const DamageDistribution = () => {
                 </InputAdornment>
               }
               error={parseDistribution(textBoxes[dist.name]).error}
-              onChange={handleChangeTextNew(dist.name)}
+              onChange={(e) => {
+                const { value } = e.target;
+                dispatch(changeTextBoxes({ index: dist.name, value }));
+
+                const parsedValue = parseDistribution(value).value;
+                dispatch(changeDistributionNew({ index: dist.name, value: parsedValue }));
+              }}
               autoComplete="off"
             />
           </FormControl>
@@ -138,7 +128,7 @@ const DamageDistribution = () => {
               }))}
             min={dist.min}
             max={dist.max}
-            onChange={onUpdate(dist.name)}
+            onChange={onUpdate(dist.name) as React.ComponentProps<typeof Slider>['onChange']}
             valueLabelDisplay="auto"
           />
         </Box>

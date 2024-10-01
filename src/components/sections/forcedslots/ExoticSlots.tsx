@@ -23,7 +23,7 @@ import { pick } from '../../../utils/usefulFunctions';
 
 const useStyles = makeStyles()((theme) => ({
   tableCollapse: {
-    borderCollapse: 'collapse !important',
+    borderCollapse: 'collapse !important' as 'collapse',
     marginBottom: '0px !important',
   },
   checkbox: {
@@ -48,12 +48,6 @@ const ExoticSlots = () => {
     SLOTS = GEAR_SLOTS.slice(0, 13);
   }
 
-  const handleChange = (index, affix) => (event) => {
-    dispatch(changeExotic({ index, affix, value: event.target.checked }));
-  };
-  const handleChangeAll = (event) => {
-    dispatch(changeAllExotic({ value: event.target.checked }));
-  };
   const allExotics = Object.values(exotics).flat();
   const allExoticsChecked = allExotics.length > 0 && allExotics.every(Boolean);
   const someExoticsChecked = !allExoticsChecked && allExotics.some(Boolean);
@@ -68,7 +62,9 @@ const ExoticSlots = () => {
                 classes={{ root: classes.checkbox }}
                 checked={allExoticsChecked}
                 indeterminate={someExoticsChecked}
-                onChange={handleChangeAll}
+                onChange={(event) => {
+                  dispatch(changeAllExotic({ value: event.target.checked }));
+                }}
               />
             </TableCell>
             {SLOTS.map(({ short }) => (
@@ -88,8 +84,10 @@ const ExoticSlots = () => {
                     size="small"
                     classes={{ root: classes.checkbox }}
                     checked={Boolean(exotics?.[affix]?.[index])}
-                    disabled={forcedSlots[index] !== null || excludedSlots?.[affix]?.[index]}
-                    onChange={handleChange(index, affix)}
+                    disabled={Boolean(forcedSlots[index]) || excludedSlots?.[affix]?.[index]}
+                    onChange={(event) => {
+                      dispatch(changeExotic({ index, affix, value: event.target.checked }));
+                    }}
                   />
                 </TableCell>
               ))}

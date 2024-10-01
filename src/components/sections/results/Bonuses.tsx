@@ -1,6 +1,11 @@
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
 
-const Bonuses = ({ data, title }) => {
+interface BonusesProps {
+  data: Record<string, string>;
+  title: string;
+}
+
+const Bonuses = ({ data, title }: BonusesProps) => {
   return (
     <>
       <Typography variant="h6">{title}</Typography>
