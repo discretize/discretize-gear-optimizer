@@ -30,7 +30,7 @@ import {
   getExtrasIds,
 } from '../../../state/slices/extras';
 import { chunkArray } from '../../../utils/usefulFunctions';
-import AmountInput from '../../baseComponents/AmountInput';
+import { AmountInput } from '../../baseComponents/AmountInput';
 import Label from '../../baseComponents/Label';
 import ModalContent from './ModalContent';
 import { formatApiText, joinWith } from './helpers';
@@ -73,7 +73,7 @@ export default function ExtraSelection(props) {
   React.useEffect(() => {
     if (open) {
       const { current: descriptionElement } = descriptionElementRef;
-      if (descriptionElement !== null) {
+      if (descriptionElement) {
         descriptionElement.focus();
       }
     }

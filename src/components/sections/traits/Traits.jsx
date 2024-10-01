@@ -16,7 +16,7 @@ import {
   setTraitModiferAmount,
   toggleTraitModifier,
 } from '../../../state/slices/traits';
-import AmountInput from '../../baseComponents/AmountInput';
+import { AmountInput } from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import Info from '../../baseComponents/Info';
 

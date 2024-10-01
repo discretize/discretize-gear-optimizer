@@ -1,4 +1,4 @@
-import { Boon, CommonEffect, Condition, Skill, Trait } from '@discretize/gw2-ui-new';
+import { Boon, CommonEffect, Condition, Item, Skill, Trait } from '@discretize/gw2-ui-new';
 import { firstUppercase } from '@discretize/react-discretize-components';
 import { Box, FormControl, FormGroup, FormLabel, Grid2 as Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -11,7 +11,7 @@ import {
   getBuffAmounts,
   getBuffs,
 } from '../../../state/slices/buffs';
-import AmountInput from '../../baseComponents/AmountInput';
+import { AmountInput } from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
 const useStyles = makeStyles()((theme) => ({
@@ -54,6 +54,7 @@ const Buffs = () => {
     Skill,
     CommonEffect,
     Condition,
+    Item,
   };
 
   return (

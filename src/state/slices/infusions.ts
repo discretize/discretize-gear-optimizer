@@ -65,6 +65,15 @@ export const infusionsSlice = createSlice({
     ) => {
       state[action.payload.key] = action.payload.value;
     },
+    changeInfusionMax: (
+      state,
+      action: PayloadAction<{
+        key: 'maxInfusions' | 'primaryMaxInfusions' | 'secondaryMaxInfusions';
+        value: string;
+      }>,
+    ) => {
+      state[action.payload.key] = action.payload.value;
+    },
     changeInfusions: (state, action) => {
       return { ...state, ...action.payload };
     },
@@ -332,6 +341,7 @@ export const {
   changeOmnipotion,
   changeMaxInfusions,
   changeInfusion,
+  changeInfusionMax,
   changeInfusions,
   changeHelperEnabled,
   changeSlots,
