@@ -2,6 +2,7 @@ import { useMediaQuery, useTheme } from '@mui/material';
 import fractalImg from '../../assets/images/background/fractals.jpg';
 import raidImg from '../../assets/images/background/raids.jpg';
 import wvwImg from '../../assets/images/background/wvw.jpg';
+import { type GameMode } from '../../state/slices/userSettings';
 
 const images = {
   'fractals': fractalImg,
@@ -9,7 +10,7 @@ const images = {
   'wvw': wvwImg,
 };
 
-export default function BackgroundImage({ gameMode }) {
+export default function BackgroundImage({ gameMode }: { gameMode: GameMode }) {
   const theme = useTheme();
   const showImage = useMediaQuery(theme.breakpoints.up('lg'));
   // only show the image for larger screens

@@ -2,7 +2,11 @@ import { Box, CircularProgress, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { getHeuristicsProgress, getProgress } from '../../state/slices/controlsSlice';
 
-const ProgressIcon = ({ className }) => {
+interface ProgressIconProps {
+  className: string;
+}
+
+const ProgressIcon = ({ className }: ProgressIconProps) => {
   const progress = useSelector(getProgress);
   const heuristicsProgress = useSelector(getHeuristicsProgress);
 

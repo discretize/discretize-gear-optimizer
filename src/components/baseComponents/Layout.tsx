@@ -1,6 +1,13 @@
 import { Box, Container } from '@mui/material';
+import React from 'react';
 
-const Layout = ({ children, ContainerProps, disableContainer = false }) =>
+interface LayoutProps {
+  children: React.ReactNode;
+  ContainerProps: Partial<React.ComponentProps<typeof Container>>;
+  disableContainer?: boolean;
+}
+
+const Layout = ({ children, ContainerProps, disableContainer = false }: LayoutProps) =>
   disableContainer ? (
     <Box sx={{ p: 2 }}>{children}</Box>
   ) : (

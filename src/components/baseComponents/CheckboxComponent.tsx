@@ -1,6 +1,19 @@
 import { Checkbox, FormControlLabel } from '@mui/material';
+import React from 'react';
 
-const CheckboxComponent = ({ className, checked, value, label, onChange, ...rest }) => (
+interface CheckboxComponentProps extends Partial<React.ComponentProps<typeof Checkbox>> {
+  className?: string;
+  label: React.ReactNode;
+}
+
+const CheckboxComponent = ({
+  className,
+  checked,
+  value,
+  label,
+  onChange,
+  ...rest
+}: CheckboxComponentProps) => (
   <FormControlLabel
     className={className}
     control={

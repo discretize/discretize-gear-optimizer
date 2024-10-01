@@ -11,10 +11,6 @@ const LanguageSelection = () => {
   const { i18n } = useTranslation();
   const { language, changeLanguage } = i18n;
 
-  const onChangeLanguage = (e) => {
-    changeLanguage(e.target.value);
-  };
-
   return (
     <FormControl sx={{ minWidth: 150 }} size="small" variant="standard">
       <FormLabel id="filter-button-group">Language</FormLabel>
@@ -22,7 +18,9 @@ const LanguageSelection = () => {
       <RadioGroup
         aria-labelledby="language-select-label"
         value={language}
-        onChange={onChangeLanguage}
+        onChange={(e) => {
+          changeLanguage(e.target.value);
+        }}
         color="primary"
       >
         {LANGUAGES.map(({ value, label }) => (

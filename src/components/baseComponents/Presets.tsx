@@ -3,18 +3,27 @@ import { Box, Chip, TextField, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { type PresetEntry } from '../../assets/presetdata/metadata';
 import { getProfession, getSelectedTemplate } from '../../state/slices/controlsSlice';
 
 // this many chips are allowed before they will be put into a dropdown select
 const maxChipsDefault = 7;
 
-const Presets = ({
+interface PresetsProps<T extends PresetEntry> {
+  className?: string;
+  data?: T[];
+  handleClick: (value: T) => void;
+  presetCategory: string;
+  maxChips?: number;
+}
+
+function Presets<T extends PresetEntry>({
   className,
   data: dataRaw = [],
   handleClick,
   presetCategory,
   maxChips = maxChipsDefault,
-}) => {
+}: PresetsProps<T>) {
   const { t } = useTranslation();
   const profession = useSelector(getProfession);
   const selectedTemplateName = useSelector(getSelectedTemplate);
@@ -83,5 +92,5 @@ const Presets = ({
       )}
     </Box>
   );
-};
+}
 export default Presets;

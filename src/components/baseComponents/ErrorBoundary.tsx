@@ -1,14 +1,20 @@
 import { Card, CardContent, Typography } from '@mui/material';
 import React from 'react';
-import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary';
+import { type FallbackProps, ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary';
+
+interface ErrorBoundaryProps {
+  children: React.ReactNode;
+  location?: string;
+  resetKeys?: any[];
+}
 
 export default function ErrorBoundary({
   children,
   location = 'unspecified component',
   resetKeys = [],
-}) {
+}: ErrorBoundaryProps) {
   const fallbackRender = React.useCallback(
-    function FallbackComponent({ error }) {
+    function FallbackComponent({ error }: FallbackProps) {
       return (
         <Card>
           <CardContent>

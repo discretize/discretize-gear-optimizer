@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getProfession } from '../../state/slices/controlsSlice';
+import { type ProfessionName } from '../../utils/gw2-data';
 
-const useAlternativeDamage = () => {
+const useAlternativeDamage = (): [string, boolean] => {
   const { t } = useTranslation();
   const profession = useSelector(getProfession);
 
@@ -18,7 +19,9 @@ const useAlternativeDamage = () => {
 
 export default useAlternativeDamage;
 
-export const getAlternativeDamage = (profession, t) => {
+export const useAlternativeDamage2 = (profession: ProfessionName): [string, boolean] => {
+  const { t } = useTranslation();
+
   switch (profession) {
     case 'Mesmer':
       return [t('Power (Illusion)'), true];

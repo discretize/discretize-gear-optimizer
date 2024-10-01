@@ -23,7 +23,12 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const SectionInfo = ({ title, children }) => {
+interface SectionInfoProps {
+  title: React.ReactNode;
+  children: React.ReactNode;
+}
+
+const SectionInfo = ({ title, children }: SectionInfoProps) => {
   const { t } = useTranslation();
   const expert = useSelector(getExpertMode);
   const { classes } = useStyles();
@@ -57,8 +62,16 @@ const SectionInfo = ({ title, children }) => {
   );
 };
 
+interface SectionProps {
+  first?: boolean;
+  title: React.ReactNode;
+  helpText?: React.ReactNode;
+  extraInfo?: React.ReactNode;
+  content: React.ReactNode;
+}
+
 // first disables the delimiting line above!
-const Section = ({ first, title, helpText, extraInfo, content }) => {
+const Section = ({ first, title, helpText, extraInfo, content }: SectionProps) => {
   return (
     <Grid container size={12} spacing={2} sx={{ mb: 2, borderColor: 'primary.main' }}>
       {!first && (

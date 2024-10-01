@@ -1,6 +1,7 @@
+import React from 'react';
 import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()((theme: any) => ({
   root: {
     fontFamily: theme.typography.fontFamily,
     fontWeight: theme.typography.fontWeight,
@@ -16,7 +17,12 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-function Label({ className, children }) {
+interface LabelProps {
+  className?: string;
+  children: React.ReactNode;
+}
+
+function Label({ className, children }: LabelProps) {
   const { classes, cx } = useStyles();
   return <span className={cx(classes.root, className)}>{children}</span>;
 }

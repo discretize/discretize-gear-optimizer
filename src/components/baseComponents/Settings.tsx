@@ -2,8 +2,13 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { ClickAwayListener, Grow, IconButton, Paper, Popper } from '@mui/material';
 import React from 'react';
 
-export default function Settings({ children, maxWidth = 'unset' }) {
-  const anchorRef = React.useRef();
+interface SettingsProps {
+  children: React.ReactNode;
+  maxWidth: React.CSSProperties['maxWidth'];
+}
+
+export default function Settings({ children, maxWidth = 'unset' }: SettingsProps) {
+  const anchorRef = React.useRef<HTMLButtonElement | null>(null);
 
   const [open, setOpen] = React.useState(false);
 
@@ -11,8 +16,8 @@ export default function Settings({ children, maxWidth = 'unset' }) {
     setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClose = (event) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+  const handleClose = (event: MouseEvent | TouchEvent) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target as Node)) {
       return;
     }
     setOpen(false);
@@ -28,7 +33,7 @@ export default function Settings({ children, maxWidth = 'unset' }) {
         style={{ zIndex: 99 }}
         open={open}
         anchorEl={anchorRef.current}
-        onClose={handleClose}
+        // onClose={handleClose}
         placement="bottom-end"
         transition
         role={undefined}

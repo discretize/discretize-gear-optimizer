@@ -3,7 +3,7 @@ import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@m
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
 import { damagingConditions } from '../../../utils/gw2-data';
-import { getAlternativeDamage } from '../../baseComponents/useAlternativeDamage';
+import { useAlternativeDamage2 } from '../../baseComponents/useAlternativeDamage';
 
 const useStyles = makeStyles()((theme) => ({
   root: {
@@ -18,7 +18,7 @@ const useStyles = makeStyles()((theme) => ({
 const OutputDistribution = ({ character }) => {
   const { classes } = useStyles();
   const { t } = useTranslation();
-  const [alternativeDamageLabel] = getAlternativeDamage(character.settings.profession, t);
+  const [alternativeDamageLabel] = useAlternativeDamage2(character.settings.profession);
 
   const damageLabels = {
     Power2: alternativeDamageLabel,

@@ -1,5 +1,18 @@
 import { Autocomplete, InputAdornment, TextField, Typography } from '@mui/material';
-import { parseAmount } from '../../utils/usefulFunctions';
+import React from 'react';
+import { parseAmount, type WithRequired, type ParseFunction } from '../../utils/usefulFunctions';
+
+interface AmountInputProps {
+  className?: string;
+  placeholder: number | string;
+  label?: React.ReactNode;
+  endLabel: React.ReactNode;
+  handleAmountChange: React.ComponentProps<typeof TextField>['onChange'];
+  value?: string;
+  disabled?: boolean;
+  maxWidth?: number;
+  parseFn?: ParseFunction<any>;
+}
 
 export const AmountInput = ({
   className,
@@ -11,7 +24,7 @@ export const AmountInput = ({
   disabled = false,
   maxWidth,
   parseFn = parseAmount,
-}) => {
+}: AmountInputProps) => {
   const { error } = parseFn(value);
 
   return (
@@ -31,7 +44,7 @@ export const AmountInput = ({
               <Typography sx={{ fontSize: '0.9rem', color: '#b1b1b5' }}>{endLabel}</Typography>
             </InputAdornment>
           ),
-          inputProps: { style: maxWidth ? { maxWidth } : null },
+          inputProps: { style: maxWidth ? { maxWidth } : undefined },
         },
       }}
       onChange={handleAmountChange}
@@ -39,6 +52,17 @@ export const AmountInput = ({
     />
   );
 };
+
+interface AmountInputAutoProps {
+  className?: string;
+  label?: React.ReactNode;
+  endLabel: React.ReactNode;
+  handleAmountChange: React.ComponentProps<typeof Autocomplete>['onInputChange'];
+  value?: string;
+  maxWidth?: number;
+  autoCompleteProps: WithRequired<Partial<React.ComponentProps<typeof Autocomplete>>, 'options'>;
+  parseFn?: ParseFunction<any>;
+}
 
 export const AmountInputAuto = ({
   className,
@@ -49,7 +73,7 @@ export const AmountInputAuto = ({
   maxWidth,
   autoCompleteProps,
   parseFn = parseAmount,
-}) => {
+}: AmountInputAutoProps) => {
   const { error } = parseFn(value);
 
   return (
@@ -73,7 +97,7 @@ export const AmountInputAuto = ({
               ),
             },
           }}
-          style={maxWidth ? { maxWidth } : null}
+          style={maxWidth ? { maxWidth } : undefined}
         />
       )}
       value={value}
