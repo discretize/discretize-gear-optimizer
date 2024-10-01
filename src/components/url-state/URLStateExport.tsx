@@ -23,7 +23,7 @@ const URLStateExport = () => {
   // URL state loading logic
   /// const [_, setBuildUrl] = useQueryParam('data', StringParam);
 
-  const onSuccess = React.useCallback((message) => {
+  const onSuccess = React.useCallback((message: string) => {
     setSnackbarState((state) => ({
       ...state,
       open: true,
@@ -33,7 +33,7 @@ const URLStateExport = () => {
     setLoading(false);
   }, []);
 
-  const onFailure = React.useCallback((message) => {
+  const onFailure = React.useCallback((message: string) => {
     setSnackbarState((state) => ({
       ...state,
       open: true,

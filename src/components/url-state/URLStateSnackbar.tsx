@@ -1,6 +1,17 @@
 import { Alert, Snackbar } from '@mui/material';
 
-export default function URLStateSnackbar({ state, setState }) {
+interface State {
+  open: boolean;
+  success: boolean;
+  message: string;
+}
+
+interface URLStateSnackbarProps {
+  state: State;
+  setState: (state: State) => void;
+}
+
+export default function URLStateSnackbar({ state, setState }: URLStateSnackbarProps) {
   return (
     <Snackbar
       open={state.open}

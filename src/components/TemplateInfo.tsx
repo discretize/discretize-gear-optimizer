@@ -5,11 +5,12 @@ import { Fragment } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import creditData from '../assets/presetdata/credit.yaml';
+import { type Credit, type PresetDistributionEntry } from '../assets/presetdata/metadata';
 import { getSelectedDistribution } from '../state/slices/distribution';
 import data from '../utils/data';
 import Info from './baseComponents/Info';
 
-const TemplateLabel = ({ preset }) => {
+const TemplateLabel = ({ preset }: { preset: PresetDistributionEntry }) => {
   const { t } = useTranslation();
   return preset.profession ? (
     <Profession
@@ -22,7 +23,7 @@ const TemplateLabel = ({ preset }) => {
   );
 };
 
-const Author = ({ name }) => {
+const Author = ({ name }: { name: string }) => {
   const url = creditData[name]?.authorUrl;
   return url ? (
     <Link href={url} target="_blank" rel="noopener">
@@ -33,13 +34,13 @@ const Author = ({ name }) => {
   );
 };
 
-const BeginningLinks = ({ credit }) =>
+const BeginningLinks = ({ credit }: { credit: Credit[] }) =>
   credit
     .slice(0, -1)
     .map((entry) => <Author name={entry.author} />)
-    .reduce((prev, curr) => [prev, ', ', curr]);
+    .reduce<React.ReactNode[]>((prev, curr) => [...prev, ', ', curr], []);
 
-const EndingLinks = ({ credit }) =>
+const EndingLinks = ({ credit }: { credit: Credit[] }) =>
   credit.slice(-1).map((entry) => <Author key={entry.author} name={entry.author} />);
 
 export default function TemplateInfo() {

@@ -4,7 +4,12 @@ import { useDispatch } from 'react-redux';
 import { PARAMS, setQueryParm, useQueryParam } from '../../utils/queryParam';
 import URLStateSnackbar from './URLStateSnackbar';
 
-const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
+interface URLStateImportProps {
+  sagaType: string;
+  clearUrlOnSuccess: boolean;
+}
+
+const URLStateImport = ({ sagaType, clearUrlOnSuccess }: URLStateImportProps) => {
   const dispatch = useDispatch();
 
   // State for snackbar, which indicates the result of url load action
@@ -75,7 +80,9 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
       console.log('Imported URL data:', jsonUrlData);
       dispatch({ type: sagaType, jsonUrlData, onSuccess: onLoadSuccess, onError: onLoadError });
     }
-    return () => {};
+    return () => {
+      // do nothing
+    };
   }, [jsonUrlData, onLoadError, onLoadSuccess, dispatch, sagaType, shortie]);
 
   return <URLStateSnackbar state={snackbarState} setState={setSnackbarState} />;

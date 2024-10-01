@@ -79,7 +79,7 @@ const GearOptimizer = () => {
 
                 <ExtrasSection />
 
-                <BuffsSection first />
+                <BuffsSection />
 
                 <InfusionsSection />
 
