@@ -1,13 +1,12 @@
-import { Profession } from '@discretize/gw2-ui-new';
+import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
 
 type JSON = string;
-type ProfessionOrSpecName = React.ComponentProps<typeof Profession>['name'];
 
 interface TemplateEntryBase {
   name: string;
   id: string;
-  specialization: ProfessionOrSpecName;
-  boonType?: string;
+  specialization: ProfessionOrSpecializationName;
+  boonType: 'Power' | 'Condi';
   priority?: string;
   distribution?: string;
   traits?: string;
@@ -15,77 +14,76 @@ interface TemplateEntryBase {
   weaponType?: string;
   outdated: boolean;
 }
-type TemplateEntry = TemplateEntryBase & {
+export type TemplateEntry = TemplateEntryBase & {
   fractal?: Partial<TemplateEntryBase>;
   raid?: Partial<TemplateEntryBase>;
 };
 export interface Templates {
   'GraphQL ID': string;
   list: {
-    class: ProfessionOrSpecName;
+    class: ProfessionName;
     builds: TemplateEntry[];
   }[];
 }
 
+export interface PresetEntry {
+  name: string;
+  profession?: ProfessionOrSpecializationName;
+  hidden?: true;
+}
+
+export type PresetBuffsEntry = PresetEntry & {
+  value: JSON;
+};
 export interface PresetBuffs {
   'GraphQL ID': string;
-  list: {
-    name: string;
-    hidden?: true;
-    value: JSON;
-  }[];
+  list: PresetBuffsEntry[];
 }
 
+export type PresetAffixesEntry = Exclude<PresetEntry, 'profession'> & {
+  value: JSON;
+};
 export interface PresetAffixes {
   'GraphQL ID': string;
-  list: {
-    name: string;
-    hidden?: true;
-    value: JSON;
-  }[];
+  list: PresetAffixesEntry[];
 }
 
-interface Credit {
+export interface Credit {
   author: string;
   url?: string;
   log?: string;
 }
+export type PresetDistributionEntry = PresetEntry & {
+  value: JSON;
+  noCreditOkay?: true;
+  credit?: Credit[];
+};
 export interface PresetDistribution {
   'GraphQL ID': string;
-  list: {
-    name: string;
-    profession?: ProfessionOrSpecName;
-    hidden?: true;
-    value: JSON;
-    noCreditOkay?: true;
-    credit?: Credit[];
-  }[];
+  list: PresetDistributionEntry[];
 }
 
+export type PresetExtrasEntry = PresetEntry & {
+  value: JSON;
+};
 export interface PresetExtras {
   'GraphQL ID': string;
-  list: {
-    name: string;
-    profession?: ProfessionOrSpecName;
-    hidden?: true;
-    value: JSON;
-  }[];
+  list: PresetExtrasEntry[];
 }
 
+export type PresetInfusionsEntry = Exclude<PresetEntry, 'profession'> & {
+  value: JSON;
+};
 export interface PresetInfusions {
   'GraphQL ID': string;
-  list: {
-    name: string;
-    value: JSON;
-  }[];
+  list: PresetInfusionsEntry[];
 }
 
+export type PresetTraitsEntry = PresetEntry & {
+  traits: JSON;
+  skills: JSON;
+};
 export interface PresetTraits {
   'GraphQL ID': string;
-  list: {
-    name: string;
-    profession?: ProfessionOrSpecName;
-    traits: JSON;
-    skills: JSON;
-  }[];
+  list: PresetTraitsEntry[];
 }
