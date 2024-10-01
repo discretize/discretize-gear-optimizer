@@ -6,6 +6,7 @@ import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import React from 'react';
 import { makeStyles } from 'tss-react/mui';
 import data from '../../utils/data';
+import { type ProfessionName } from '../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({
   accordionRoot: {
@@ -41,13 +42,17 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-export default function NavAccordion({ handleTemplateSelect }) {
+interface NavAccordionProps {
+  handleTemplateSelect: (popup: null, selectedTemplate: string, profession: ProfessionName) => void;
+}
+
+export default function NavAccordion({ handleTemplateSelect }: NavAccordionProps) {
   const { classes } = useStyles();
 
   const [expanded, setExpanded] = React.useState('');
 
-  const handleChange = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
+  const handleChange = (panel: string) => (event: any, newExpanded: boolean) => {
+    setExpanded(newExpanded ? panel : '');
   };
 
   return data.templates.list.map((prof) => (

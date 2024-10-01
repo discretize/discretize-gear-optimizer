@@ -10,6 +10,7 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import { type TFunction } from 'i18next';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,6 +29,7 @@ import {
 import {
   changeExpertMode,
   changeGameMode,
+  type GameMode,
   getExpertMode,
   getGameMode,
 } from '../../state/slices/userSettings';
@@ -43,11 +45,20 @@ const useStyles = makeStyles()((theme) => ({
 
 const SETTINGS_STORAGE_KEY = 'globalSettings';
 
-export const GAME_MODES = (t) => [
+export const GAME_MODES = (t: TFunction) => [
   { value: 'fractals', label: t('Fractals') },
   { value: 'raids', label: t('Raids/Strikes') },
   { value: 'wvw', label: t('WvW') },
 ];
+
+interface NavSettingsProps {
+  disableSettings?: {
+    language?: boolean;
+    expertMode?: boolean;
+    gameMode?: boolean;
+    threading?: boolean;
+  };
+}
 
 export default function NavSettings({
   disableSettings: {
@@ -56,7 +67,7 @@ export default function NavSettings({
     gameMode: gameModeDisabled,
     threading: threadingDisabled,
   } = {},
-}) {
+}: NavSettingsProps) {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { classes } = useStyles();
@@ -87,50 +98,6 @@ export default function NavSettings({
     localStorage.setItem(SETTINGS_STORAGE_KEY, settings);
   }, [expertMode, gameMode, language]);
 
-  const changeExpertModeHandler = (e) => {
-    dispatch({ type: SagaTypes.Stop });
-    dispatch(changeExpertMode(e.target.checked));
-  };
-  const changeGameModeHandler = (e) => {
-    const newGameMode = e.target.value;
-    dispatch(changeGameMode(newGameMode));
-
-    const isFractalsNew = newGameMode === 'fractals';
-    const isFractalsOld = gameMode === 'fractals';
-    const isFractalsChanged = isFractalsNew !== isFractalsOld;
-    if (isFractalsChanged && selectedTemplate && selectedTemplate.length > 0) setOpen(true);
-  };
-  const changeHwThreadsHandler = (e) => {
-    const newHwThreads = e.target.value;
-
-    // only allow numbers
-    if (!newHwThreads.match(/^[0-9]*$/)) {
-      return;
-    }
-    // parse to int
-    const newHwThreadsInt = parseInt(newHwThreads, 10);
-
-    dispatch(changeHwThreads(newHwThreadsInt));
-  };
-
-  const changeMulticoreHandler = (e) => {
-    if (!enableMulticore) {
-      dispatch({ type: SagaTypes.Stop });
-    } else {
-      // workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
-      stopCalculationParallel(dispatch);
-    }
-
-    const newMulticore = e.target.checked;
-    dispatch(changeMulticore(newMulticore));
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const changeHeuristicsHandler = (e) => {
-    const newHeuristics = e.target.checked;
-    dispatch(changeHeuristics(newHeuristics));
-  };
-
   return (
     <Settings maxWidth={400}>
       <Typography variant="h6" sx={{ width: 300 }}>
@@ -143,7 +110,10 @@ export default function NavSettings({
             control={
               <Switch
                 checked={expertMode}
-                onChange={changeExpertModeHandler}
+                onChange={(e) => {
+                  dispatch({ type: SagaTypes.Stop });
+                  dispatch(changeExpertMode(e.target.checked));
+                }}
                 name="checked"
                 color="primary"
               />
@@ -165,7 +135,16 @@ export default function NavSettings({
             <RadioGroup
               aria-labelledby="gamemode-select-label"
               value={gameMode}
-              onChange={changeGameModeHandler}
+              onChange={(e) => {
+                const newGameMode = e.target.value as GameMode;
+                dispatch(changeGameMode(newGameMode));
+
+                const isFractalsNew = newGameMode === 'fractals';
+                const isFractalsOld = gameMode === 'fractals';
+                const isFractalsChanged = isFractalsNew !== isFractalsOld;
+                if (isFractalsChanged && selectedTemplate && selectedTemplate.length > 0)
+                  setOpen(true);
+              }}
               color="primary"
             >
               {GAME_MODES(t).map(({ value, label }) => (
@@ -181,11 +160,24 @@ export default function NavSettings({
         <>
           <Divider className={classes.divider} />
           <FormControlLabel
-            control={<Checkbox />}
+            control={
+              <Checkbox
+                onChange={(e) => {
+                  if (!enableMulticore) {
+                    dispatch({ type: SagaTypes.Stop });
+                  } else {
+                    // workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
+                    stopCalculationParallel(dispatch);
+                  }
+
+                  const newMulticore = e.target.checked;
+                  dispatch(changeMulticore(newMulticore));
+                }}
+              />
+            }
             label={t('Enable experimental multicore processing')}
             sx={{ mb: 3 }}
             checked={enableMulticore}
-            onChange={changeMulticoreHandler}
           />
 
           <TextField
@@ -193,17 +185,34 @@ export default function NavSettings({
             helperText={t('Number of threads to use for calculations')}
             size="small"
             value={hwThreads}
-            onChange={changeHwThreadsHandler}
+            onChange={(e) => {
+              const newHwThreads = e.target.value;
+
+              // only allow numbers
+              if (!newHwThreads.match(/^[0-9]*$/)) {
+                return;
+              }
+              // parse to int
+              const newHwThreadsInt = parseInt(newHwThreads, 10);
+
+              dispatch(changeHwThreads(newHwThreadsInt));
+            }}
             slotProps={{
               htmlInput: { inputMode: 'numeric', pattern: '[0-9]*' },
             }}
           />
           <FormControlLabel
-            control={<Checkbox />}
+            control={
+              <Checkbox
+                onChange={(e) => {
+                  const newHeuristics = e.target.checked;
+                  dispatch(changeHeuristics(newHeuristics));
+                }}
+              />
+            }
             label={t('Enable heuristics')}
             sx={{ mb: 3, display: 'none' }}
             checked={enableHeuristics}
-            onChange={changeHeuristicsHandler}
           />
         </>
       )}

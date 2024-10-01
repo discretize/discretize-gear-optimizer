@@ -17,7 +17,12 @@ import {
 import { getGameMode } from '../../state/slices/userSettings';
 import data from '../../utils/data';
 
-export default function ReapplyTemplateDialog({ open, handleClose }) {
+interface ReapplyTemplateDialogProps {
+  open: boolean;
+  handleClose: () => void;
+}
+
+export default function ReapplyTemplateDialog({ open, handleClose }: ReapplyTemplateDialogProps) {
   const dispatch = useDispatch();
 
   const gameMode = useSelector(getGameMode);

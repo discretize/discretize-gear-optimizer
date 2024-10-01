@@ -13,7 +13,7 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import Menu from 'material-ui-popup-state/HoverMenu';
-import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hooks';
+import { bindHover, bindMenu, type PopupState, usePopupState } from 'material-ui-popup-state/hooks';
 import React, { useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,7 +32,7 @@ import {
 } from '../../state/slices/controlsSlice';
 import { changeGameMode, getExpertMode, getGameMode } from '../../state/slices/userSettings';
 import data from '../../utils/data';
-import { PROFESSIONS } from '../../utils/gw2-data';
+import { type ProfessionName, PROFESSIONS } from '../../utils/gw2-data';
 import NavAccordion from './NavAccordion';
 import NavSettings from './NavSettings';
 import ReapplyTemplateDialog from './ReapplyTemplateDialog';
@@ -184,7 +184,7 @@ const Navbar = () => {
 
   const handleTemplateSelect = React.useCallback(
     // eslint-disable-next-line no-shadow
-    (popup, selectedTemplate, profession) => {
+    (popup: PopupState | null, selectedTemplate: string, profession: ProfessionName) => {
       dispatch({ type: SagaTypes.Stop });
       try {
         const buildTemplateData = getBuildTemplateData({
@@ -269,7 +269,7 @@ const Navbar = () => {
         ))}
       </Box>
 
-      {showSelectedTemplate && (selectedSpecialization || selectedTemplateName) && (
+      {showSelectedTemplate && selectedSpecialization && (
         <Box sx={{ flexGrow: 1 }}>
           <Typography>
             <Trans>Selected</Trans>:{' '}
