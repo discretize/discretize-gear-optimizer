@@ -7,8 +7,7 @@ import { useDispatch } from 'react-redux';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import URLStateSnackbar from './URLStateSnackbar';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const URLStateExport = ({ type }) => {
+const URLStateExport = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
