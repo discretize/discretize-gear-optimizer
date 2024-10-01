@@ -15,6 +15,16 @@ import presetInfusions from '../assets/presetdata/preset-infusions.yaml';
 import presetTraits from '../assets/presetdata/preset-traits.yaml';
 import templates from '../assets/presetdata/templates.yaml';
 
+export interface PresetData {
+  templates: Templates;
+  presetBuffs: PresetBuffs;
+  presetAffixes: PresetAffixes;
+  presetDistribution: PresetDistribution;
+  presetExtras: PresetExtras;
+  presetInfusions: PresetInfusions;
+  presetTraits: PresetTraits;
+}
+
 export default {
   templates,
   presetBuffs,
@@ -23,12 +33,4 @@ export default {
   presetExtras,
   presetInfusions,
   presetTraits,
-} as {
-  templates: Templates;
-  presetBuffs: PresetBuffs;
-  presetAffixes: PresetAffixes;
-  presetDistribution: PresetDistribution;
-  presetExtras: PresetExtras;
-  presetInfusions: PresetInfusions;
-  presetTraits: PresetTraits;
-};
+} as PresetData;
