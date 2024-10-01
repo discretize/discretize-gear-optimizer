@@ -22,7 +22,7 @@ type TemplateEntry = TemplateEntryBase & {
 export interface Templates {
   'GraphQL ID': string;
   list: {
-    class: string;
+    class: ProfessionOrSpecName;
     builds: TemplateEntry[];
   }[];
 }
