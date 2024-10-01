@@ -156,6 +156,7 @@ export interface MultiplierBreakdown {
   mult: number;
   add: number;
   target: number;
+  total: number;
 }
 export type DamageMultiplier = Record<MultiplierName, number>;
 export type DamageMultiplierBreakdown = Record<MultiplierName, MultiplierBreakdown>;
