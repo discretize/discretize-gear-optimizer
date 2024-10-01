@@ -11,7 +11,7 @@ import {
   getBuffAmounts,
   getBuffs,
 } from '../../../state/slices/buffs';
-import AmountInput from '../../baseComponents/AmountInput';
+import { AmountInput } from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
 const useStyles = makeStyles()((theme) => ({

@@ -10,7 +10,7 @@ import {
   getMovementUptime,
 } from '../../../state/slices/boss';
 import { parseBoss } from '../../../utils/usefulFunctions';
-import AmountInput from '../../baseComponents/AmountInput';
+import { AmountInputAuto } from '../../baseComponents/AmountInput';
 
 const Condition = React.memo(ConditionRaw);
 
@@ -78,7 +78,7 @@ const Boss = () => {
     <>
       <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
         <Box sx={{ width: 195 }}>
-          <AmountInput
+          <AmountInputAuto
             label={
               <Trans>
                 <Condition name="Torment" disableText /> Movement Uptime
@@ -88,7 +88,6 @@ const Boss = () => {
             handleAmountChange={(_e, value) => dispatch(changeMovementUptime(value))}
             value={movementUptimeString}
             maxWidth={180}
-            useAutoComplete
             autoCompleteProps={{ options: [] }}
           />
         </Box>
@@ -116,7 +115,7 @@ const Boss = () => {
       </Box>
       <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
         <Box sx={{ width: 195 }}>
-          <AmountInput
+          <AmountInputAuto
             label={
               <Trans>
                 <Condition name="Confusion" disableText /> Attack Rate
@@ -126,7 +125,6 @@ const Boss = () => {
             handleAmountChange={(_e, value) => dispatch(changeAttackRate(value))}
             value={attackRateString}
             maxWidth={180}
-            useAutoComplete
             autoCompleteProps={{
               options: confusionOptions,
               renderOption: (props, option) => (

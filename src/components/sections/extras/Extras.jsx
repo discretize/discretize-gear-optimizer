@@ -10,7 +10,7 @@ import {
   getLifestealAmount,
   lifestealData,
 } from '../../../state/slices/extras';
-import AmountInput from '../../baseComponents/AmountInput';
+import { AmountInput } from '../../baseComponents/AmountInput';
 import ExtraSelection from './ExtraSelection';
 
 const Extras = () => {

@@ -1,7 +1,7 @@
 import { Autocomplete, InputAdornment, TextField, Typography } from '@mui/material';
 import { parseAmount } from '../../utils/usefulFunctions';
 
-const AmountInput = ({
+export const AmountInput = ({
   className,
   placeholder,
   label,
@@ -10,45 +10,9 @@ const AmountInput = ({
   value = '',
   disabled = false,
   maxWidth,
-  useAutoComplete = false,
-  autoCompleteProps,
   parseFn = parseAmount,
 }) => {
   const { error } = parseFn(value);
-
-  if (useAutoComplete) {
-    return (
-      <Autocomplete
-        className={className}
-        freeSolo
-        disableClearable
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            error={error}
-            label={label}
-            variant="standard"
-            slotProps={{
-              input: {
-                ...params.InputProps,
-                endAdornment: (
-                  <InputAdornment disablePointerEvents position="end" disableTypography>
-                    <Typography sx={{ fontSize: '0.9rem', color: '#b1b1b5' }}>
-                      {endLabel}
-                    </Typography>
-                  </InputAdornment>
-                ),
-              },
-            }}
-            style={maxWidth ? { maxWidth } : null}
-          />
-        )}
-        value={value}
-        onInputChange={handleAmountChange}
-        {...autoCompleteProps}
-      />
-    );
-  }
 
   return (
     <TextField
@@ -76,4 +40,45 @@ const AmountInput = ({
   );
 };
 
-export default AmountInput;
+export const AmountInputAuto = ({
+  className,
+  label,
+  endLabel,
+  handleAmountChange,
+  value = '',
+  maxWidth,
+  autoCompleteProps,
+  parseFn = parseAmount,
+}) => {
+  const { error } = parseFn(value);
+
+  return (
+    <Autocomplete
+      className={className}
+      freeSolo
+      disableClearable
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          error={error}
+          label={label}
+          variant="standard"
+          slotProps={{
+            input: {
+              ...params.InputProps,
+              endAdornment: (
+                <InputAdornment disablePointerEvents position="end" disableTypography>
+                  <Typography sx={{ fontSize: '0.9rem', color: '#b1b1b5' }}>{endLabel}</Typography>
+                </InputAdornment>
+              ),
+            },
+          }}
+          style={maxWidth ? { maxWidth } : null}
+        />
+      )}
+      value={value}
+      onInputChange={handleAmountChange}
+      {...autoCompleteProps}
+    />
+  );
+};

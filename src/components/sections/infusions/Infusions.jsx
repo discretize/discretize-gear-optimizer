@@ -20,7 +20,7 @@ import {
 import { getGameMode } from '../../../state/slices/userSettings';
 import { INFUSION_IDS } from '../../../utils/gw2-data';
 import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
-import AmountInput from '../../baseComponents/AmountInput';
+import { AmountInputAuto } from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import InfusionHelper from './InfusionHelper';
 
@@ -138,9 +138,8 @@ const Infusions = () => {
           </Grid>
 
           <Grid size={{ xs: 12, sm: 'grow' }}>
-            <AmountInput
+            <AmountInputAuto
               className={classes.formControl}
-              useAutoComplete
               parseFn={parseAr}
               handleAmountChange={handleARChange}
               label={t('Agony Resistance')}
