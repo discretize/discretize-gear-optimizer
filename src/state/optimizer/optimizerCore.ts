@@ -455,11 +455,16 @@ export class OptimizerCore {
 
       const gearStats: GearStats = {};
 
+      // perform division once, after all addition, to avoid slightly inconsistent results due to floating point addition
+      // this prevents arbitrary random giver/harrier split being used instead of tiebreaking in favor of harrier
       partition.forEach((num, i) =>
         jsHeuristicsData[i].forEach(([stat, value]) => {
-          gearStats[stat] = (gearStats[stat] ?? 0) + (value * num) / split;
+          gearStats[stat] = (gearStats[stat] ?? 0) + value * num;
         }),
       );
+      Object.keys(gearStats).forEach((key) => {
+        gearStats[key] /= split;
+      });
 
       const percentages = `Estimate: ${partition
         .map((num, i) => `${roundOne((num / split) * 100)}% ${affixes[i]}`)
