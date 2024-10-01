@@ -73,7 +73,7 @@ export default function ExtraSelection(props) {
   React.useEffect(() => {
     if (open) {
       const { current: descriptionElement } = descriptionElementRef;
-      if (descriptionElement !== null) {
+      if (descriptionElement) {
         descriptionElement.focus();
       }
     }

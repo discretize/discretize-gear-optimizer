@@ -121,17 +121,17 @@ export interface OptimizerCoreSettingsPerCalculation {
   weaponType: WeaponHandednessType;
   forcedAffixes: (AffixName | null)[]; // array of specific affix names for each slot, or '' for unspecfied
   rankby: IndicatorName;
-  minBoonDuration: number | null;
-  minHealingPower: number | null;
-  minToughness: number | null;
-  maxToughness: number | null;
-  minHealth: number | null;
-  minCritChance: number | null;
-  minDamage: number | null;
-  minHealing: number | null;
-  minOutgoingHealing: number | null;
-  minQuicknessDuration: number | null;
-  minSurvivability: number | null;
+  minBoonDuration: number | undefined;
+  minHealingPower: number | undefined;
+  minToughness: number | undefined;
+  maxToughness: number | undefined;
+  minHealth: number | undefined;
+  minCritChance: number | undefined;
+  minDamage: number | undefined;
+  minHealing: number | undefined;
+  minOutgoingHealing: number | undefined;
+  minQuicknessDuration: number | undefined;
+  minSurvivability: number | undefined;
   maxResults: number;
   primaryInfusion: InfusionName | '';
   secondaryInfusion: InfusionName | '';
@@ -850,19 +850,19 @@ export class OptimizerCore {
     const { attributes } = character;
 
     const invalid =
-      (settings.minBoonDuration !== null &&
+      (settings.minBoonDuration !== undefined &&
         attributes['Boon Duration'] < settings.minBoonDuration / 100) ||
-      (settings.minQuicknessDuration !== null &&
+      (settings.minQuicknessDuration !== undefined &&
         attributes['Boon Duration'] + (attributes['Quickness Duration'] ?? 0) <
           settings.minQuicknessDuration / 100) ||
-      (settings.minHealingPower !== null &&
+      (settings.minHealingPower !== undefined &&
         attributes['Healing Power'] < settings.minHealingPower) ||
-      (settings.minToughness !== null && attributes['Toughness'] < settings.minToughness) ||
-      (settings.maxToughness !== null && attributes['Toughness'] > settings.maxToughness) ||
-      (settings.minHealth !== null && attributes['Health'] < settings.minHealth) ||
-      (settings.minCritChance !== null &&
+      (settings.minToughness !== undefined && attributes['Toughness'] < settings.minToughness) ||
+      (settings.maxToughness !== undefined && attributes['Toughness'] > settings.maxToughness) ||
+      (settings.minHealth !== undefined && attributes['Health'] < settings.minHealth) ||
+      (settings.minCritChance !== undefined &&
         attributes['Critical Chance'] < settings.minCritChance / 100) ||
-      (settings.minOutgoingHealing !== null &&
+      (settings.minOutgoingHealing !== undefined &&
         (attributes['Outgoing Healing'] ?? 0) < settings.minOutgoingHealing / 100);
     if (invalid) {
       character.valid = false;
@@ -876,9 +876,9 @@ export class OptimizerCore {
     const { attributes } = character;
 
     const invalid =
-      (settings.minDamage !== null && attributes['Damage'] < settings.minDamage) ||
-      (settings.minHealing !== null && attributes['Healing'] < settings.minHealing) ||
-      (settings.minSurvivability !== null &&
+      (settings.minDamage !== undefined && attributes['Damage'] < settings.minDamage) ||
+      (settings.minHealing !== undefined && attributes['Healing'] < settings.minHealing) ||
+      (settings.minSurvivability !== undefined &&
         attributes['Survivability'] < settings.minSurvivability);
     if (invalid) {
       character.valid = false;
