@@ -30,17 +30,18 @@ export function parseNumber<Default>(
   return { value, error: false };
 }
 
-export const parseAmount = (text: number | string | null | undefined) =>
-  parseNumber(text, null, false);
-export const parseAr = (text: number | string | null | undefined) => parseNumber(text, 0, true);
-export const parseInfusionCount = (text: number | string | null | undefined) =>
-  parseNumber(text, 18, true);
-export const parseDistribution = (text: number | string | null | undefined) =>
-  parseNumber(text, 0, false);
-export const parsePriority = (text: number | string | null | undefined) =>
-  parseNumber(text, null, false);
-export const parseBoss = (text: number | string | null | undefined) =>
-  parseNumber(text, null, false);
+export type ParseFunction<Default> = (text: number | string | null | undefined) => {
+  value: number | Default;
+  error: boolean;
+};
+
+export const parseAmount: ParseFunction<null> = (text) => parseNumber(text, null, false);
+export const parseAr: ParseFunction<number> = (text) => parseNumber(text, 0, true);
+export const parseInfusionCount: ParseFunction<number> = (text) => parseNumber(text, 18, true);
+export const parseDistribution: ParseFunction<number> = (text) => parseNumber(text, 0, false);
+export const parsePriority: ParseFunction<undefined> = (text) =>
+  parseNumber(text, undefined, false);
+export const parseBoss: ParseFunction<undefined> = (text) => parseNumber(text, undefined, false);
 
 export const objectEntries = Object.entries as <Type extends object>(
   value: Type,
@@ -107,3 +108,5 @@ export function enumArrayIncludes<T extends readonly string[]>(
 
 export const pick = (object: Record<string, any>, keysToPick: string[]) =>
   Object.fromEntries(keysToPick.filter((key) => key in object).map((key) => [key, object[key]]));
+
+export type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] };

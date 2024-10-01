@@ -118,7 +118,7 @@ export interface AppliedModifier {
 // todo: move these; they should be synchronized with ../../assets/modifierdata/metadata.js and
 // ../../components/sections/distribution/DamageDistribution.jsx
 // (unsure how that would best be done)
-type DistributionNameUI =
+export type DistributionNameUI =
   | 'Power'
   | 'Power2'
   | 'Burning'
