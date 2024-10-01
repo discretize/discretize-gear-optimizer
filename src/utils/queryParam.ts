@@ -5,7 +5,7 @@ export const PARAMS = {
   BUILD: 'data',
 };
 
-export function useQueryParam({ key }) {
+export function useQueryParam({ key }: { key: string }) {
   if (typeof window === 'undefined') return '';
 
   const queryParam = new URLSearchParams(window.location.search);
@@ -13,7 +13,7 @@ export function useQueryParam({ key }) {
   return queryParam.get(key);
 }
 
-export function setQueryParm({ key, value }) {
+export function setQueryParm({ key, value }: { key: string; value?: string }) {
   if (typeof window === 'undefined') return;
 
   const current = new URL(window.location.href);
