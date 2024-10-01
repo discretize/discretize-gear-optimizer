@@ -8,7 +8,12 @@ const CustomSwitch = ({ onChange, label }) => (
   <FormControlLabel control={<Switch onChange={onChange} />} label={label} />
 );
 
-export default function ResultCharacter({ character, weapons, skills, assumedBuffs }) {
+export default function ResultCharacter({
+  character,
+  weapons = undefined,
+  skills = undefined,
+  assumedBuffs,
+}) {
   const { profession, specialization, weaponType, cachedFormState, extrasCombination } =
     character.settings;
 
