@@ -1,9 +1,12 @@
+import { Profession } from '@discretize/gw2-ui-new';
+
 type JSON = string;
+type ProfessionOrSpecName = React.ComponentProps<typeof Profession>['name'];
 
 interface TemplateEntryBase {
   name: string;
   id: string;
-  specialization: string;
+  specialization: ProfessionOrSpecName;
   boonType?: string;
   priority?: string;
   distribution?: string;
@@ -51,7 +54,7 @@ export interface PresetDistribution {
   'GraphQL ID': string;
   list: {
     name: string;
-    profession?: string;
+    profession?: ProfessionOrSpecName;
     hidden?: true;
     value: JSON;
     noCreditOkay?: true;
@@ -63,7 +66,7 @@ export interface PresetExtras {
   'GraphQL ID': string;
   list: {
     name: string;
-    profession?: string;
+    profession?: ProfessionOrSpecName;
     hidden?: true;
     value: JSON;
   }[];
@@ -81,7 +84,7 @@ export interface PresetTraits {
   'GraphQL ID': string;
   list: {
     name: string;
-    profession?: string;
+    profession?: ProfessionOrSpecName;
     traits: JSON;
     skills: JSON;
   }[];
