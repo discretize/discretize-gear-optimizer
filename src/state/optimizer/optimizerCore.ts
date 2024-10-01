@@ -202,14 +202,16 @@ interface CoefficientHelperValue {
   slope: number;
   intercept: number;
 }
+type EffectiveDistributionKey = DistributionNameInternal | 'Siphon';
+type GainLossKey = 'Power' | 'Precision' | 'Ferocity' | 'Condition Damage' | 'Expertise';
 interface Results {
   value: number;
   indicators: Record<IndicatorName, number>;
-  effectivePositiveValues?: Record<string, number>;
-  effectiveNegativeValues?: Record<string, number>;
-  effectiveDamageDistribution?: Record<string, string | number>;
-  damageBreakdown?: Record<string, number>;
-  coefficientHelper?: Record<string, CoefficientHelperValue>;
+  effectivePositiveValues?: Partial<Record<GainLossKey, number>>;
+  effectiveNegativeValues?: Partial<Record<GainLossKey, number>>;
+  effectiveDamageDistribution?: Partial<Record<EffectiveDistributionKey, string | number>>;
+  damageBreakdown?: Partial<Record<EffectiveDistributionKey, number>>;
+  coefficientHelper?: Partial<Record<DistributionNameInternal, CoefficientHelperValue>>;
   unbuffedAttributes?: Attributes;
 }
 export interface CharacterUnprocessed {
@@ -1064,9 +1066,17 @@ export class OptimizerCore {
     const baseline = this.clone(character);
     this.updateAttributes(baseline, true);
 
+    const gainLossKeys = [
+      'Power',
+      'Precision',
+      'Ferocity',
+      'Condition Damage',
+      'Expertise',
+    ] as const;
+
     // effective gain from adding +5 infusions
     results.effectivePositiveValues = {};
-    for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
+    for (const attribute of gainLossKeys) {
       const temp = this.clone(character);
       temp.baseAttributes[attribute] += 5;
 
@@ -1077,7 +1087,7 @@ export class OptimizerCore {
 
     // effective loss by not having +5 infusions
     results.effectiveNegativeValues = {};
-    for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
+    for (const attribute of gainLossKeys) {
       const temp = this.clone(character);
       temp.baseAttributes[attribute] = Math.max(temp.baseAttributes[attribute] - 5, 0);
 
@@ -1086,9 +1096,14 @@ export class OptimizerCore {
         temp.attributes['Damage'] - baseline.attributes['Damage'];
     }
 
+    const effectiveDistributionKeys = [
+      ...Object.keys(settings.distribution),
+      'Siphon',
+    ] as EffectiveDistributionKey[];
+
     // effective damage distribution
     results.effectiveDamageDistribution = {};
-    for (const key of [...Object.keys(settings.distribution), 'Siphon']) {
+    for (const key of effectiveDistributionKeys) {
       if (attributes[`${key} DPS`] === undefined) continue;
 
       const damage = attributes[`${key} DPS`] / attributes['Damage'];
@@ -1097,7 +1112,7 @@ export class OptimizerCore {
 
     // damage indicator breakdown
     results.damageBreakdown = {};
-    for (const key of [...Object.keys(settings.distribution), 'Siphon']) {
+    for (const key of effectiveDistributionKeys) {
       if (attributes[`${key} DPS`] === undefined) continue;
 
       results.damageBreakdown[`${key}`] = attributes[`${key} DPS`];
@@ -1122,7 +1137,7 @@ export class OptimizerCore {
     const withOne = attrsWithModifiedCoefficient(1);
     const withZero = attrsWithModifiedCoefficient(0);
 
-    for (const key of Object.keys(settings.distribution)) {
+    for (const key of objectKeys(settings.distribution)) {
       results.coefficientHelper[key] = {
         slope: withOne[`${key} DPS`] - withZero[`${key} DPS`],
         intercept: withZero[`${key} DPS`],
