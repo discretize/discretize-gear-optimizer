@@ -1,3 +1,12 @@
+import type {
+  PresetAffixes,
+  PresetBuffs,
+  PresetDistribution,
+  PresetExtras,
+  PresetInfusions,
+  PresetTraits,
+  Templates,
+} from '../assets/presetdata/metadata';
 import presetAffixes from '../assets/presetdata/preset-affixes.yaml';
 import presetBuffs from '../assets/presetdata/preset-buffs.yaml';
 import presetDistribution from '../assets/presetdata/preset-distribution.yaml';
@@ -14,4 +23,12 @@ export default {
   presetExtras,
   presetInfusions,
   presetTraits,
+} as {
+  templates: Templates;
+  presetBuffs: PresetBuffs;
+  presetAffixes: PresetAffixes;
+  presetDistribution: PresetDistribution;
+  presetExtras: PresetExtras;
+  presetInfusions: PresetInfusions;
+  presetTraits: PresetTraits;
 };
