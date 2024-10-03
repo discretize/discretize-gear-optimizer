@@ -5,7 +5,7 @@ import { Fragment } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import creditData from '../assets/presetdata/credit.yaml';
-import { type Credit, type PresetDistributionEntry } from '../assets/presetdata/metadata';
+import type { Credit, PresetDistributionEntry } from '../assets/presetdata/metadata';
 import { getSelectedDistribution } from '../state/slices/distribution';
 import data from '../utils/data';
 import Info from './baseComponents/Info';

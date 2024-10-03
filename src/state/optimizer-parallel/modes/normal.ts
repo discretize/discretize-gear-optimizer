@@ -1,5 +1,6 @@
-import { Character, characterLT } from '../../optimizer/optimizerCore';
-import { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
+import type { Character } from '../../optimizer/optimizerCore';
+import { characterLT } from '../../optimizer/optimizerCore';
+import type { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import { ERROR, RUNNING, SUCCESS } from '../../optimizer/status';
 import {
   changeList,
@@ -9,14 +10,13 @@ import {
 } from '../../slices/controlsSlice';
 import type { AppDispatch, RootState } from '../../store';
 import type { WorkerWrapper } from '../calculate';
-import { CalculationSettings, CombinationSettings } from '../optimizerSetup';
+import type { CalculationSettings, CombinationSettings } from '../optimizerSetup';
 import { enhanceResults, getResultProperties } from '../results';
 import { getLayerCombinations, getLayerNumber } from '../tree';
 import { getTotalCombinations, splitCombinations } from '../utils';
+import type { MessageType, StartMessage } from '../worker/workerMessageTypes';
 import {
-  MessageType,
   START,
-  StartMessage,
   isErrorMessage,
   isFinishMessage,
   isProgressMessage,

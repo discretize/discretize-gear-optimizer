@@ -3,15 +3,10 @@ import type { ExtraFilterMode } from '../slices/controlsSlice';
 import type { ExtrasType } from '../slices/extras';
 import type { RootState } from '../store';
 import { iteratePartitionCount } from './combinatorics';
-import {
-  CalculateGenerator,
-  Character,
-  characterLT,
-  OptimizerCore,
-  OptimizerCoreSettings,
-  UPDATE_MS,
-} from './optimizerCore';
-import { ExtrasCombinationEntry, setupCombinations } from './optimizerSetup';
+import type { CalculateGenerator, Character, OptimizerCoreSettings } from './optimizerCore';
+import { characterLT, OptimizerCore, UPDATE_MS } from './optimizerCore';
+import type { ExtrasCombinationEntry } from './optimizerSetup';
+import { setupCombinations } from './optimizerSetup';
 
 interface Combination extends ExtrasCombinationEntry {
   settings: OptimizerCoreSettings;

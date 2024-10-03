@@ -2,10 +2,10 @@ import type {
   OptimizerCoreSettingsPerCalculation,
   OptimizerCoreSettingsPerCombination,
 } from '../optimizer/optimizerCore';
+import type { AppliedModifier } from '../optimizer/optimizerSetup';
 import {
   createSettingsPerCalculation,
   createSettingsPerCombination,
-  type AppliedModifier,
 } from '../optimizer/optimizerSetup';
 import { getExtrasCombinationsAndModifiers } from '../slices/extras';
 import type { RootState } from '../store';

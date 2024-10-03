@@ -8,7 +8,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { type Character } from '../../../../state/optimizer/optimizerCore';
+import type { Character } from '../../../../state/optimizer/optimizerCore';
 import SagaTypes from '../../../../state/sagas/sagaTypes';
 import ModalContent from './ModalContent';
 

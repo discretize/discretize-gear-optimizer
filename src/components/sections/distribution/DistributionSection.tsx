@@ -3,7 +3,7 @@ import { Box, Link } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { type PresetDistributionEntry } from '../../../assets/presetdata/metadata';
+import type { PresetDistributionEntry } from '../../../assets/presetdata/metadata';
 import { getProfession } from '../../../state/slices/controlsSlice';
 import { changeAllDistributions } from '../../../state/slices/distribution';
 import data from '../../../utils/data';

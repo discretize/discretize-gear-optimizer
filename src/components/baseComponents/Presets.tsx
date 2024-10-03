@@ -3,7 +3,7 @@ import { Box, Chip, TextField, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { type PresetEntry } from '../../assets/presetdata/metadata';
+import type { PresetEntry } from '../../assets/presetdata/metadata';
 import { getProfession, getSelectedTemplate } from '../../state/slices/controlsSlice';
 
 // this many chips are allowed before they will be put into a dropdown select

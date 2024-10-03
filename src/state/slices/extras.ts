@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { PayloadAction, createSelector, createSlice, original } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSelector, createSlice, original } from '@reduxjs/toolkit';
 import { allExtrasModifiersById } from '../../assets/modifierdata';
 import { mapValues, objectEntries, parseNumber } from '../../utils/usefulFunctions';
 import type { AppliedModifier } from '../optimizer/optimizerSetup';

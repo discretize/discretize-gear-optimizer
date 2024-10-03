@@ -1,16 +1,13 @@
-import { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
+import type { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import { RUNNING_HEURISTICS } from '../../optimizer/status';
 import { changeStatus } from '../../slices/controlsSlice';
 import type { AppDispatch, RootState } from '../../store';
 import type { WorkerWrapper } from '../calculate';
-import { CalculationSettings, CombinationSettings } from '../optimizerSetup';
+import type { CalculationSettings, CombinationSettings } from '../optimizerSetup';
 import { getLayerCombinations, getLayerNumber } from '../tree';
 import { getExtrasIdsCombinations, getTotalCombinations, splitCombinations } from '../utils';
-import {
-  START_HEURISTICS,
-  StartHeuristicsMessage,
-  isFinishHeuristicsMessage,
-} from '../worker/workerMessageTypes';
+import type { StartHeuristicsMessage } from '../worker/workerMessageTypes';
+import { START_HEURISTICS, isFinishHeuristicsMessage } from '../worker/workerMessageTypes';
 import runCalcNormal from './normal';
 
 export default function runCalcHeuristics(

@@ -1,6 +1,7 @@
 import { Card, CardContent, Typography } from '@mui/material';
 import React from 'react';
-import { type FallbackProps, ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary';
+import type { FallbackProps } from 'react-error-boundary';
+import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary';
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;

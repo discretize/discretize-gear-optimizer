@@ -2,7 +2,7 @@ import { Box, FormControlLabel, Switch } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { type PresetTraitsEntry } from '../../../assets/presetdata/metadata';
+import type { PresetTraitsEntry } from '../../../assets/presetdata/metadata';
 import { getProfession } from '../../../state/slices/controlsSlice';
 import { changeSkills } from '../../../state/slices/skills';
 import { changeTraits, getShowAllTraits, toggleShowAll } from '../../../state/slices/traits';

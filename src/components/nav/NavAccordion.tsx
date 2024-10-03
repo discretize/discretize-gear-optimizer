@@ -6,7 +6,7 @@ import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import React from 'react';
 import { makeStyles } from 'tss-react/mui';
 import data from '../../utils/data';
-import { type ProfessionName } from '../../utils/gw2-data';
+import type { ProfessionName } from '../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({
   accordionRoot: {

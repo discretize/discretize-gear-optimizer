@@ -1,6 +1,7 @@
 import { Autocomplete, InputAdornment, TextField, Typography } from '@mui/material';
 import React from 'react';
-import { parseAmount, type WithRequired, type ParseFunction } from '../../utils/usefulFunctions';
+import type { ParseFunction, WithRequired } from '../../utils/usefulFunctions';
+import { parseAmount } from '../../utils/usefulFunctions';
 
 interface AmountInputProps {
   className?: string;

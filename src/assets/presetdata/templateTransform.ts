@@ -1,6 +1,6 @@
-import { type PresetData } from '../../utils/data';
-import { type ProfessionName } from '../../utils/gw2-data';
-import { type TemplateEntry } from './metadata';
+import type { PresetData } from '../../utils/data';
+import type { ProfessionName } from '../../utils/gw2-data';
+import type { TemplateEntry } from './metadata';
 
 const defaultBoonTemplates = {
   fractal: {

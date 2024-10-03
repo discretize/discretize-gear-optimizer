@@ -1,5 +1,7 @@
-import { PayloadAction, createSelector, createSlice } from '@reduxjs/toolkit';
-import { InfusionName, agonyInfusionIds, omnipotionModifiers } from '../../utils/gw2-data';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSelector, createSlice } from '@reduxjs/toolkit';
+import type { InfusionName } from '../../utils/gw2-data';
+import { agonyInfusionIds, omnipotionModifiers } from '../../utils/gw2-data';
 import { parseAmount, parseAr, parseInfusionCount } from '../../utils/usefulFunctions';
 import type { AppliedModifier } from '../optimizer/optimizerSetup';
 import type { RootState } from '../store';

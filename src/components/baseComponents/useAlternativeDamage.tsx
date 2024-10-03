@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getProfession } from '../../state/slices/controlsSlice';
-import { type ProfessionName } from '../../utils/gw2-data';
+import type { ProfessionName } from '../../utils/gw2-data';
 
 const useAlternativeDamage = (): [string, boolean] => {
   const { t } = useTranslation();
