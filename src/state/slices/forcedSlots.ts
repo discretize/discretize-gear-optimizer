@@ -1,10 +1,10 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { AffixName } from '../../utils/gw2-data';
+import { AffixName, maxSlotsLength } from '../../utils/gw2-data';
 import type { RootState } from '../store';
 import { changeAll } from './controlsSlice';
 
 const initialState = {
-  slots: Array(14).fill(null) as (AffixName | null)[],
+  slots: Array(maxSlotsLength).fill(null) as (AffixName | null)[],
 };
 
 export const forcedSlotsSlice = createSlice({

@@ -14,6 +14,7 @@ import {
   getExoticsEnabled,
 } from '../../../state/slices/priorities';
 import data from '../../../utils/data';
+import { maxSlotsLength } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Affixes from './Affixes';
@@ -47,7 +48,7 @@ const AffixesSection = () => {
 
     // dispatch(changeExoticsEnabled(true));
 
-    for (let index = 0; index < 14; index++) {
+    for (let index = 0; index < maxSlotsLength; index++) {
       if (index === backSlot) {
         dispatch(changeExclusion({ affix: 'Ritualist', index, value: true }));
         dispatch(changeExclusion({ affix: 'Celestial', index, value: false }));
