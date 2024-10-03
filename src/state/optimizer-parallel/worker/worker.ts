@@ -5,32 +5,31 @@ import init, {
   calculate_with_heuristics,
 } from '../../../../wasm_module/pkg'; // eslint-disable-line
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
-import { AffixName } from '../../../utils/gw2-data';
+import type { AffixName } from '../../../utils/gw2-data';
 import { objectEntries } from '../../../utils/usefulFunctions';
 import type { AppliedModifier, ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
+import type { ExtrasCombination } from '../../slices/extras';
 import {
   allowedDuplicateSigils,
   getExtrasData,
   getLifestealAmount,
   lifestealData,
-  type ExtrasCombination,
 } from '../../slices/extras';
-import { RootState } from '../../store';
-import {
-  CombinationSettings,
-  CalculationSettings,
-  createCombinationSettings,
-} from '../optimizerSetup';
+import type { RootState } from '../../store';
+import type { CalculationSettings, CombinationSettings } from '../optimizerSetup';
+import { createCombinationSettings } from '../optimizerSetup';
 import { descendSubtreeDFS } from '../tree';
 import { combinationsToWorkerString, getAffixId, settingsToWorkerString } from '../utils';
-import {
-  ERROR,
+import type {
   ErrorMessage,
-  FINISHED,
-  FINISHED_HEURISTICS,
   FinishedHeuristicsMessage,
   FinishedMessage,
   MessageType,
+} from './workerMessageTypes';
+import {
+  ERROR,
+  FINISHED,
+  FINISHED_HEURISTICS,
   isStartHeuristicsMessage,
   isStartMessage,
 } from './workerMessageTypes';

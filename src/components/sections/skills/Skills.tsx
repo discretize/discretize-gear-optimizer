@@ -2,7 +2,7 @@ import { Skill } from '@discretize/gw2-ui-new';
 import { Box, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { type ModifierItem } from '../../../assets/modifierdata/metadata';
+import type { ModifierItem } from '../../../assets/modifierdata/metadata';
 import { getSkills, setSkillAmount, toggleSkill } from '../../../state/slices/skills';
 import { AmountInput } from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';

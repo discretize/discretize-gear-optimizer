@@ -13,7 +13,7 @@ import {
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { type PresetExtrasEntry } from '../../../assets/presetdata/metadata';
+import type { PresetExtrasEntry } from '../../../assets/presetdata/metadata';
 import {
   changeJsHeuristicsEnabled,
   changeJsHeuristicsTarget,

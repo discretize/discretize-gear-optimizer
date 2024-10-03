@@ -18,13 +18,13 @@ import {
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import type { FilterMode } from '../../../state/slices/controlsSlice';
 import {
   changeCompareByPercent,
   changeDisplayAttributes,
   changeFilterMode,
   changeHighlightDiffering,
   changeTallTable,
-  type FilterMode,
   getCompareByPercent,
   getDisplayAttributes,
   getFilterMode,

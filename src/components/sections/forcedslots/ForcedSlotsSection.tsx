@@ -4,7 +4,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useStore } from 'react-redux';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { changeAllForcedSlots, clearForcedSlots } from '../../../state/slices/forcedSlots';
-import { type RootState } from '../../../state/store';
+import type { RootState } from '../../../state/store';
 import Section from '../../baseComponents/Section';
 import ForcedSlots from './ForcedSlots';
 

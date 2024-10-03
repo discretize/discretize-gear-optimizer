@@ -1,7 +1,7 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { type PresetInfusionsEntry } from '../../../assets/presetdata/metadata';
+import type { PresetInfusionsEntry } from '../../../assets/presetdata/metadata';
 import { changeInfusions } from '../../../state/slices/infusions';
 import { getGameMode } from '../../../state/slices/userSettings';
 import data from '../../../utils/data';

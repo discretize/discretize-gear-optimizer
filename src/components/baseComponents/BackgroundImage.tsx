@@ -2,7 +2,7 @@ import { useMediaQuery, useTheme } from '@mui/material';
 import fractalImg from '../../assets/images/background/fractals.jpg';
 import raidImg from '../../assets/images/background/raids.jpg';
 import wvwImg from '../../assets/images/background/wvw.jpg';
-import { type GameMode } from '../../state/slices/userSettings';
+import type { GameMode } from '../../state/slices/userSettings';
 
 const images = {
   'fractals': fractalImg,

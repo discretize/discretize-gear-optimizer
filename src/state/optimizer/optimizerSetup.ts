@@ -50,11 +50,8 @@ import { getBuffsModifiers } from '../slices/buffs';
 import { getProfession } from '../slices/controlsSlice';
 import { getDistributionNew } from '../slices/distribution';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
-import {
-  getExtrasCombinationsAndModifiers,
-  getExtrasIds,
-  type ExtrasCombination,
-} from '../slices/extras';
+import type { ExtrasCombination } from '../slices/extras';
+import { getExtrasCombinationsAndModifiers, getExtrasIds } from '../slices/extras';
 import { getForcedSlots } from '../slices/forcedSlots';
 import {
   getInfusionsModifiers,

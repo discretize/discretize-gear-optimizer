@@ -1,24 +1,22 @@
+import type { AffixName, DamagingConditionName, WeaponHandednessType } from '../../utils/gw2-data';
 import {
   Affix,
-  AffixName,
   BoonDurationAttributes,
   ConditionCoefficientAttributes,
   ConditionDurationAttributes,
   ConditionTickAttributes,
-  DamagingConditionName,
   DerivedAttributes,
   EffectiveAttributes,
   Indicators,
   PrimaryAttributes,
   SecondaryAttributes,
-  WeaponHandednessType,
   WeaponTypes,
   damagingConditions,
 } from '../../utils/gw2-data';
 import { objectKeys } from '../../utils/usefulFunctions';
 import { getExtrasIds } from '../slices/extras';
 import type { RootState } from '../store';
-import { CombinationSettings, CalculationSettings } from './optimizerSetup';
+import type { CombinationSettings, CalculationSettings } from './optimizerSetup';
 
 const attributes = [
   ...PrimaryAttributes,

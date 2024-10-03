@@ -6,7 +6,7 @@ import data from '../../../utils/data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Buffs from './Buffs';
-import { type PresetBuffsEntry } from '../../../assets/presetdata/metadata';
+import type { PresetBuffsEntry } from '../../../assets/presetdata/metadata';
 
 const BuffsSection = () => {
   const dispatch = useDispatch();

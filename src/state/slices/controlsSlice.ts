@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { PayloadAction, createSelector, createSlice, original } from '@reduxjs/toolkit';
-import { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
-import { Character } from '../optimizer/optimizerCore';
-import { OptimizerStatus, RUNNING, RUNNING_HEURISTICS, WAITING } from '../optimizer/status';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSelector, createSlice, original } from '@reduxjs/toolkit';
+import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
+import type { Character } from '../optimizer/optimizerCore';
+import type { OptimizerStatus } from '../optimizer/status';
+import { RUNNING, RUNNING_HEURISTICS, WAITING } from '../optimizer/status';
 import type { RootState } from '../store';
 
 const roundThree = (num: number) => Math.round(num * 1000) / 1000;

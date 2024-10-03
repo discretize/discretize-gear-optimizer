@@ -10,7 +10,7 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import { type TFunction } from 'i18next';
+import type { TFunction } from 'i18next';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -26,10 +26,10 @@ import {
   getMulticore,
   getSelectedTemplate,
 } from '../../state/slices/controlsSlice';
+import type { GameMode } from '../../state/slices/userSettings';
 import {
   changeExpertMode,
   changeGameMode,
-  type GameMode,
   getExpertMode,
   getGameMode,
 } from '../../state/slices/userSettings';

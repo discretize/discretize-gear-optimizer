@@ -30,7 +30,7 @@ import {
   getStatus,
 } from '../../../state/slices/controlsSlice';
 import { getAffixes } from '../../../state/slices/priorities';
-import { type RootState } from '../../../state/store';
+import type { RootState } from '../../../state/store';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
 import ResultTableSettings from './ResultTableSettings';
 

@@ -20,6 +20,7 @@ import {
   getSelectedCharacter,
   getTallTable,
 } from '../../../../state/slices/controlsSlice';
+import { maxSlotsLength } from '../../../../utils/gw2-data';
 import SavedResultManager from '../SavedResultManager/SavedResultManager';
 import ResultTableHeaderRow from './ResultTableHeaderRow';
 import ResultTableRow from './ResultTableRow';
@@ -118,7 +119,7 @@ const StickyHeadTable = () => {
     () =>
       highlightDiffering
         ? selectedCharacter && selectedCharacter.gear
-        : Array(14).fill(mostCommonAffix),
+        : Array(maxSlotsLength).fill(mostCommonAffix),
     [highlightDiffering, mostCommonAffix, selectedCharacter],
   );
 

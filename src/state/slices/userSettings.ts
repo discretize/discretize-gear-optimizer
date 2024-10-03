@@ -1,4 +1,5 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { PARAMS, setQueryParm, useQueryParam } from '../../utils/queryParam';
 import type { RootState } from '../store';
 import { changeAll } from './controlsSlice';

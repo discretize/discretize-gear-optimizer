@@ -1,11 +1,12 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import {
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import type {
   AffixData,
   AffixNameOrCustom,
   IndicatorName,
   WeaponHandednessType,
-  WeaponTypes,
 } from '../../utils/gw2-data';
+import { WeaponTypes } from '../../utils/gw2-data';
 import type { RootState } from '../store';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 

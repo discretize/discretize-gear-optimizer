@@ -13,7 +13,8 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import Menu from 'material-ui-popup-state/HoverMenu';
-import { bindHover, bindMenu, type PopupState, usePopupState } from 'material-ui-popup-state/hooks';
+import type { PopupState } from 'material-ui-popup-state/hooks';
+import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hooks';
 import React, { useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,7 +33,8 @@ import {
 } from '../../state/slices/controlsSlice';
 import { changeGameMode, getExpertMode, getGameMode } from '../../state/slices/userSettings';
 import data from '../../utils/data';
-import { type ProfessionName, PROFESSIONS } from '../../utils/gw2-data';
+import type { ProfessionName } from '../../utils/gw2-data';
+import { PROFESSIONS } from '../../utils/gw2-data';
 import NavAccordion from './NavAccordion';
 import NavSettings from './NavSettings';
 import ReapplyTemplateDialog from './ReapplyTemplateDialog';

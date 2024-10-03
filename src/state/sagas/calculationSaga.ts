@@ -3,8 +3,8 @@ import { freeze } from '@reduxjs/toolkit';
 import { call, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga';
 import type { Character } from '../optimizer/optimizerCore';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
+import type { ExtraFilterMode } from '../slices/controlsSlice';
 import {
-  ExtraFilterMode,
   changeError,
   changeProgress,
   changeSelectedCharacter,
@@ -14,9 +14,9 @@ import {
   getStatus,
   updateResults,
 } from '../slices/controlsSlice';
+import { getParsedJsHeuristicsTarget } from '../slices/extras';
 import type { RootState } from '../store';
 import SagaTypes from './sagaTypes';
-import { getParsedJsHeuristicsTarget } from '../slices/extras';
 
 const worker = new ComlinkWorker<typeof import('../optimizer/optimizer')>(
   new URL('../optimizer/optimizer.ts', import.meta.url),
