@@ -20,7 +20,7 @@ This is optional if you just want to contribute to the optimizer's database and 
 
 ### Building the Site
 
-This project requires [Node.js](https://nodejs.org/) and [PNPM 8](https://pnpm.io/).
+This project requires [Node.js](https://nodejs.org/) and [PNPM 9](https://pnpm.io/).
 
 Setting up your editor with [EditorConfig](https://editorconfig.org/), [ESLint](https://eslint.org/), and [Prettier](https://prettier.io/) integrations is also recommended.
 
