@@ -21,7 +21,7 @@ We use Github actions for continuous integration and deployment. Any push to the
 
 ## 👨‍💻 Developing
 
-This project requires node 18 and pnpm 8! Please make sure to select the correct version of node via nvm or a comparable software before running `pnpm install`
+This project requires node 18 and pnpm 9! Please make sure to select the correct version of node via nvm or a comparable software before running `pnpm install`
 
 ```sh
 git clone git@github.com:ManuelHaag/discretize-old.git
