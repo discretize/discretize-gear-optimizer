@@ -14,7 +14,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
   const KV: KVNamespace = env.SHORT_LINKS;
 
   const urlObject = new URL(request.url);
-  const key = urlObject.searchParams.get(PARAMS.SHORTENER);
+  const key = urlObject.searchParams.get(PARAMS.SHORTENER_KEY);
 
   const value = await KV.get(key!, { type: 'stream' });
 

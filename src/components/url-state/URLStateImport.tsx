@@ -21,18 +21,21 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }: URLStateImportProps) =>
 
   // query param in case the site gets called with the shortener param.
   // Must be unshortend then, check useEffects
-  const shortie = useQueryParam({ key: PARAMS.SHORTENER });
+  const shortenerKey = useQueryParam({ key: PARAMS.SHORTENER_KEY });
 
   // data, which is provided by a query parameter to the url
   // in this case we are looking for any ?data=buildUrl occurences so that we can access buildUrl without needing to parse the query parameters on our own.
-  const jsonUrlData = useQueryParam({ key: PARAMS.BUILD });
+  const jsonUrlData = useQueryParam({ key: PARAMS.DATA });
+
+  const rawJSONData = useQueryParam({ key: PARAMS.RAW });
 
   // Sets the url back to the original state, in case the loading of the state was successful
   const onLoadSuccess = React.useCallback(() => {
     if (clearUrlOnSuccess) {
-      setQueryParm({ key: PARAMS.BUILD, value: undefined });
+      setQueryParm({ key: PARAMS.DATA, value: undefined });
       setQueryParm({ key: PARAMS.VERSION, value: undefined });
-      setQueryParm({ key: PARAMS.SHORTENER, value: undefined });
+      setQueryParm({ key: PARAMS.SHORTENER_KEY, value: undefined });
+      setQueryParm({ key: PARAMS.RAW, value: undefined });
     }
 
     setSnackbarState((state) => ({
@@ -56,12 +59,12 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }: URLStateImportProps) =>
   }, []);
 
   React.useEffect(() => {
-    if (shortie && shortie.endsWith('v1')) {
+    if (shortenerKey && shortenerKey.endsWith('v1')) {
       // found shortened link, resolve the data.
       // cf-function can be found in /functions/share/load.ts
-      const key = shortie.slice(0, -2);
+      const key = shortenerKey.slice(0, -2);
       axios
-        .get(`share/load?${PARAMS.SHORTENER}=${key}`, { responseType: 'arraybuffer' })
+        .get(`share/load?${PARAMS.SHORTENER_KEY}=${key}`, { responseType: 'arraybuffer' })
         .then((response) => {
           const binaryData = new Uint8Array(response.data);
           console.log(binaryData);
@@ -80,10 +83,15 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }: URLStateImportProps) =>
       console.log('Imported URL data:', jsonUrlData);
       dispatch({ type: sagaType, jsonUrlData, onSuccess: onLoadSuccess, onError: onLoadError });
     }
+
+    if (rawJSONData) {
+      console.log('Imported URL data:', rawJSONData);
+      dispatch({ type: sagaType, rawJSONData, onSuccess: onLoadSuccess, onError: onLoadError });
+    }
     return () => {
       // do nothing
     };
-  }, [jsonUrlData, onLoadError, onLoadSuccess, dispatch, sagaType, shortie]);
+  }, [jsonUrlData, onLoadError, onLoadSuccess, dispatch, sagaType, shortenerKey, rawJSONData]);
 
   return <URLStateSnackbar state={snackbarState} setState={setSnackbarState} />;
 };
