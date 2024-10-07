@@ -63,8 +63,8 @@ export const buffsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
-      const removeOldBuffs = (data: Buffs | BuffAmounts) => {
-        if (!data) return data;
+      const removeOldBuffs = (data?: Buffs | BuffAmounts) => {
+        if (!data) return {};
         const validEntries = Object.entries(data).filter(([key]) => buffModifiersById[key]);
         return Object.fromEntries(validEntries);
       };
@@ -72,7 +72,6 @@ export const buffsSlice = createSlice({
       const { buffs, amounts } = action.payload?.form?.buffs ?? {};
       const validData = { buffs: removeOldBuffs(buffs), amounts: removeOldBuffs(amounts) };
 
-      console.log({ buffs, amounts, validData });
       return { ...state, ...validData };
     });
 

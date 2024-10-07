@@ -99,25 +99,27 @@ export const extrasSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
-      // best effort conversion of old data from before multiple selection
-      if (action.payload?.form?.extras?.Runes) {
-        const convertedExtras = mapValues(action.payload.form.extras, (data) => {
-          if (data === '') {
-            return {};
-          }
-          if (typeof data === 'string') {
-            return { [data]: {} };
-          }
-          if (Array.isArray(data)) {
-            return Object.fromEntries(data.map((key) => [key, {}]));
-          }
-          return data;
-        });
+      if (action.payload?.form?.extras) {
+        // best effort conversion of old data from before multiple selection
+        if (action.payload.form.extras.Runes) {
+          const convertedExtras = mapValues(action.payload.form.extras, (data) => {
+            if (data === '') {
+              return {};
+            }
+            if (typeof data === 'string') {
+              return { [data]: {} };
+            }
+            if (Array.isArray(data)) {
+              return Object.fromEntries(data.map((key) => [key, {}]));
+            }
+            return data;
+          });
 
-        return { ...state, extras: convertedExtras };
+          return { ...state, extras: convertedExtras };
+        }
+
+        return { ...state, ...action.payload.form.extras };
       }
-
-      return { ...state, ...action.payload?.form?.extras };
     });
 
     builder.addCase(setBuildTemplate, (state, action) => {

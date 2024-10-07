@@ -151,7 +151,9 @@ export const prioritiesSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
-      return { ...state, ...action.payload?.form?.priorities };
+      if (action.payload?.form?.priorities) {
+        return { ...state, ...action.payload?.form?.priorities };
+      }
     });
 
     builder.addCase(setBuildTemplate, (state, action) => {

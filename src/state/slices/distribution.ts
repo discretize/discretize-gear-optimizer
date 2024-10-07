@@ -105,11 +105,13 @@ export const distributionSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
-      const newState = clone(action.payload?.form?.distribution);
-      newState.values2.Power2 ??= 0;
-      newState.textBoxes.Power2 ??= '0';
+      if (action.payload?.form?.distribution) {
+        const newState = clone(action.payload.form.distribution);
+        newState.values2.Power2 ??= 0;
+        newState.textBoxes.Power2 ??= '0';
 
-      return { ...state, ...newState };
+        return { ...state, ...newState };
+      }
     });
 
     builder.addCase(setBuildTemplate, (state, action) => {

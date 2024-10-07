@@ -110,7 +110,9 @@ export const infusionsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
-      return { ...state, ...action.payload?.form?.infusions };
+      if (action.payload?.form?.infusions) {
+        return { ...state, ...action.payload.form.infusions };
+      }
     });
 
     builder.addCase(changeGameMode, (state, action) => {
