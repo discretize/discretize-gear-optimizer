@@ -340,19 +340,6 @@
       defaultEnabled: true
       temporaryBuff: false
 
-    - id: honorable-staff-2
-      text: Honorable Staff
-      subText: with staff
-      modifiers:
-        attributes:
-          Concentration: [120, converted] # tested by Stephan
-      wvwModifiers:
-        attributes:
-          Concentration: [60, converted] # tested by Stephan
-      gw2id: 557
-      defaultEnabled: true
-      temporaryBuff: true # assume the user is on a dual-wield set
-
     - id: force-of-will
       text: Force of Will
       modifiers:
@@ -488,15 +475,6 @@
           Outgoing Strike Damage: [15%, mult]
       gw2id: 1926
       defaultEnabled: false
-
-    - id: hunters-fortification
-      text: Hunter's Fortification
-      subText: no conditions
-      modifiers:
-        damage:
-          Damage Reduction: [10%, unknown]
-      gw2id: 1908
-      defaultEnabled: true
 
     - id: heavy-light-defiant
       text: Heavy Light
