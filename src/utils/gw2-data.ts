@@ -59,6 +59,12 @@ export interface AffixData {
     jewelMajor?: (PrimaryAttributeName | SecondaryAttributeName)[];
     jewelMinor?: (PrimaryAttributeName | SecondaryAttributeName)[];
   };
+  wvwBonuses?: {
+    major: (PrimaryAttributeName | SecondaryAttributeName)[];
+    minor: (PrimaryAttributeName | SecondaryAttributeName)[];
+    jewelMajor?: (PrimaryAttributeName | SecondaryAttributeName)[];
+    jewelMinor?: (PrimaryAttributeName | SecondaryAttributeName)[];
+  };
 }
 export const Affix: Record<AffixNameOrCustom, AffixData> = {
   Custom: {
@@ -275,6 +281,10 @@ export const Affix: Record<AffixNameOrCustom, AffixData> = {
     bonuses: {
       major: ['Power', 'Precision', 'Toughness', 'Vitality'],
       minor: ['Ferocity', 'Condition Damage', 'Expertise', 'Concentration', 'Healing Power'],
+    },
+    wvwBonuses: {
+      major: ['Power', 'Precision', 'Toughness', 'Vitality'],
+      minor: ['Ferocity', 'Condition Damage', 'Healing Power'],
     },
   },
   Diviner: {
