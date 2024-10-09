@@ -395,7 +395,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [5%, unknown]
+          Outgoing Strike Damage: [5%, add] # probably
           Outgoing Condition Damage: [5%, add] #unconfirmed
       gw2id: 2204
       defaultEnabled: true
