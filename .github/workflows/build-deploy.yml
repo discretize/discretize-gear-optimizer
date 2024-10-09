@@ -66,14 +66,11 @@ jobs:
         run: pnpm build-all
 
       - name: Deploy to Cloudflare
-        uses: cloudflare/pages-action@1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CI_CF_PAGES }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: ${{ env.PAGES_PROJECT_NAME }}
-          directory: dist-cf
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          wranglerVersion: '3'
+          command: pages deploy dist-cf --project-name=${{ env.PAGES_PROJECT_NAME }}
 
       - name: Setup Github Pages
         uses: actions/configure-pages@v5
