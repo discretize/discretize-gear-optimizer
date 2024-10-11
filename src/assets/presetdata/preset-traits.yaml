@@ -2545,6 +2545,88 @@ list:
         }
       }
 
+  - name: Condi Weaver Pistol
+    profession: Weaver
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "56"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            2177,
+            2180,
+            2131
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "23.8"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": "6"
+            }
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "superior-elements": {},
+            "masters-fortitude": {},
+            "masters-fortitude-sword": {},
+            "weavers-prowess": {},
+            "swift-revenge": {
+              "amount": ""
+            },
+            "elemental-polyphony-fire": {
+              "amount": "44.5"
+            },
+            "elements-of-rage-base": {},
+            "elements-of-rage-buff": {
+              "amount": "95"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "woven-fire": {
+            "amount": "50.4"
+          },
+          "woven-air": {
+            "amount": "11.2"
+          },
+          "signet-of-fire": {},
+          "raging-ricochet": {
+            "amount": "80"
+          }
+        }
+      }
+
   - name: Condi Weaver Sword
     profession: Weaver
     traits: |-

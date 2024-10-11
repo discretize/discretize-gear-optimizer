@@ -1177,7 +1177,9 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {
             "earth": {}
           },

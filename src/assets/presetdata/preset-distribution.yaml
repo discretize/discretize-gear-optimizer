@@ -357,6 +357,17 @@ list:
         url: https://www.youtube.com/watch?v=j1hJg6g1i1E
         log: https://dps.report/SbRf-20231003-025202_golem
 
+  - name: Condi Weaver Pistol
+    profession: Weaver
+    value: >-
+      {
+        "values2": { "Power": 1442, "Power2": 0, "Burning": 9.53, "Bleeding": 29.79, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Ryan'
+        url: https://www.youtube.com/watch?v=gKvY0cI2wfg
+        log: https://dps.report/LyCY-20240323-201022_golem
+
   # no jade bot
   - name: Condi Weaver Sword
     profession: Weaver
