@@ -335,13 +335,13 @@ list:
         "minQuicknessDuration": 0
       }
 
-  - name: Alacrity Hybrid Tempest 28%
+  - name: Alacrity Condi Tempest 40%
     hidden: true
     value: >-
       {
-        "affixes": ["Viper", "Grieving", "Celestial"],
+        "affixes": ["Viper", "Ritualist", "Sinister"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 28,
+        "minBoonDuration": 40,
         "minQuicknessDuration": 0
       }
 
