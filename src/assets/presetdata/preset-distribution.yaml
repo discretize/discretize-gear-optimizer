@@ -1077,6 +1077,18 @@ list:
         url: https://www.youtube.com/watch?v=hyunt1U3YHQ
         log: https://dps.report/wtGt-20220902-132134_golem
 
+  # uses https://github.com/hobinjk/optimizer-scripts/blob/main/reaper.js for shroud power damage split
+  - name: Power Harbinger
+    profession: Harbinger
+    value: >-
+      {
+        "values2": { "Power": 1756, "Power2": 2122, "Burning": 0.67, "Bleeding": 0.67, "Poisoned": 1.48, "Torment": 9.89, "Confusion": 0.66 }
+      }
+    credit:
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=ZGC5WTTHmi4
+        log: https://dps.report/Mu8J-20240821-222344_golem
+
   - name: Condi Deadeye
     profession: Deadeye
     value: >-

@@ -6441,6 +6441,84 @@ list:
         "skills": {}
       }
 
+  - name: Power Harbinger
+    profession: Harbinger
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "53",
+          "50",
+          "64"
+        ],
+        "selectedTraits": [
+          [
+            914,
+            829,
+            853
+          ],
+          [
+            875,
+            894,
+            893
+          ],
+          [
+            2188,
+            2192,
+            2218
+          ]
+        ],
+        "items": [
+          {
+            "spiteful-talisman": {
+              "amount": ""
+            },
+            "awaken-the-pain": {
+              "amount": ""
+            },
+            "close-to-death": {
+              "amount": ""
+            }
+          },
+          {
+            "soul-barbs": {
+              "amount": "97"
+            },
+            "vital-persistence": {},
+            "death-perception": {}
+          },
+          {
+            "wicked-corruption-base": {},
+            "wicked-corruption": {
+              "amount": "22"
+            },
+            "septic-corruption": {
+              "amount": ""
+            },
+            "alchemic-vigor": {},
+            "implacable-foe": {},
+            "twisted-medicine": {},
+            "dark-gunslinger": {},
+            "cascading-corruption": {},
+            "doom-approaches": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-spite": {
+            "amount": "43"
+          },
+          "soul-shards": {
+            "amount": "3"
+          },
+          "soul-shards-below": {
+            "amount": "3"
+          }
+        }
+      }
+
   - name: Condi Deadeye
     profession: Deadeye
     traits: |-

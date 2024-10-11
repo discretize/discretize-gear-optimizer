@@ -1225,6 +1225,20 @@ list:
         weaponType: Dual wield
         outdated: false
 
+      - name: Power Harbinger
+        id: pharb
+        specialization: Harbinger
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Harbinger
+        traits: Power Harbinger
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid, fireworks)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Alacrity Condi Scourge
         id: scourge-alac
         specialization: Scourge
