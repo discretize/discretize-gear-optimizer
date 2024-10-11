@@ -60,6 +60,34 @@
       gw2id: 55050
       temporaryBuff: true
 
+    - id: soul-shards
+      text: Soul Shards
+      subText: Soul Shards
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 1504
+          Siphon Coefficient: 0.1
+      temporaryBuff: true
+
+    - id: soul-shards-below
+      text: Soul Shards
+      subText: Soul Shards (vs low health)
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 3008
+          Siphon Coefficient: 0.2
+      temporaryBuff: true
+
 - section: Spite
   id: 53
   items:
