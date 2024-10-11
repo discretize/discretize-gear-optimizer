@@ -961,6 +961,17 @@ list:
         url: https://www.youtube.com/watch?v=SgiCD0VZC1M
         log: https://dps.report/9Epv-20230630-181945_golem
 
+  - name: Power Virtuoso Spear
+    profession: Virtuoso
+    value: >-
+      {
+        "values2": { "Power": 4886, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.52 }
+      }
+    credit:
+      - author: 'Mastro'
+        url: https://www.youtube.com/watch?v=eiA6Zmj23ok
+        log: https://dps.report/SQov-20240821-152722_golem
+
   # accuracy, assassin legs, 4 precise (2007 prec)
   - name: Power Virtuoso GS
     profession: Virtuoso

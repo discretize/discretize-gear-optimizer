@@ -676,7 +676,79 @@ list:
         }
       }
 
-  - name: Power Virtuoso
+  - name: Power Virtuoso Spear
+    profession: Virtuoso
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "66"
+        ],
+        "selectedTraits": [
+          [
+            682,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            2208,
+            2205,
+            2223
+          ]
+        ],
+        "items": [
+          {
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            },
+            "empowered-illusions": {}
+          },
+          {
+            "fencers-finesse": {
+              "amount": "5.47"
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "sharper-images-phantasm": {
+              "amount": ".85"
+            },
+            "phantasmal-fury-virtuoso": {}
+          },
+          {
+            "mental-focus": {
+              "amount": ""
+            },
+            "deadly-blades": {
+              "amount": "98.7"
+            },
+            "sharpening-sorrow": {},
+            "quiet-intensity": {},
+            "quiet-intensity-fury": {},
+            "bloodsong": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Power Virtuoso GS
     profession: Virtuoso
     traits: |-
       {

@@ -36,13 +36,27 @@ list:
         weaponType: Dual wield
         outdated: true
 
+      - name: Power Virtuoso Spear
+        id: pvirt-spear
+        specialization: Virtuoso
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Virtuoso Spear
+        traits: Power Virtuoso Spear
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid, furious)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Power Virtuoso GS
         id: pvirt-gs
         specialization: Virtuoso
         boonType: Power
         priority: Power DPS (no dragon)
         distribution: Power Virtuoso GS
-        traits: Power Virtuoso
+        traits: Power Virtuoso GS
         fractal:
           extras: Power (Fractal)
         raid:
