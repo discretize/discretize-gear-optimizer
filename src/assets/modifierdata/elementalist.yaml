@@ -90,7 +90,7 @@
         label: '% uptime'
         default: 0
         defaultInput: ???
-        quantityEntered: 1
+        quantityEntered: 100
       modifiers:
         damage:
           Outgoing Condition Damage: [5%, add] # unconfirmed
