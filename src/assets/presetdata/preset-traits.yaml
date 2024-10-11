@@ -3315,6 +3315,82 @@ list:
         }
       }
 
+  - name: Alacrity Power Tempest Arcane
+    profession: Tempest
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "37",
+          "41",
+          "48"
+        ],
+        "selectedTraits": [
+          [
+            253,
+            265,
+            1511
+          ],
+          [
+            232,
+            1502,
+            1503
+          ],
+          [
+            1886,
+            1891,
+            2033
+          ]
+        ],
+        "items": [
+          {
+            "elemental-enchantment": {},
+            "arcane-lightning": {
+              "amount": ""
+            },
+            "bountiful-power": {
+              "amount": ""
+            }
+          },
+          {
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "90"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": "58"
+            },
+            "zephyrs-speed": {}
+          },
+          {
+            "gathered-focus": {},
+            "hardy-conduit": {},
+            "transcendent-tempest": {
+              "amount": "98"
+            },
+            "tempestuous-aria": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-fire": {}
+        }
+      }
+
   - name: Power Catalyst
     profession: Catalyst
     traits: |-

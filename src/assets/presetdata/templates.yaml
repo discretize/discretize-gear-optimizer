@@ -568,6 +568,20 @@ list:
         weaponType: Dual wield
         outdated: false
 
+      - name: Alacrity Power Tempest Scepter
+        id: ptemp-alac
+        specialization: Tempest
+        boonType: Power
+        priority: Alacrity Power Tempest 28%
+        distribution: None
+        traits: Alacrity Power Tempest Arcane
+        fractal:
+          extras: Alacrity Power Tempest (Fractal)
+        raid:
+          extras: Alacrity Power Tempest (Raid)
+        weaponType: Dual wield
+        outdated: true
+
       - name: Condi Tempest Pistol
         id: ctemp
         specialization: Tempest
