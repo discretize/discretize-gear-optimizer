@@ -1259,7 +1259,7 @@ list:
         raid:
           extras: Power (Raid, fireworks)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Condi Reaper
         id: creaper
