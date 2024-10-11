@@ -826,12 +826,12 @@ list:
     profession: Scrapper
     value: >-
       {
-        "values2": { "Power": 3302, "Power2": 0, "Burning": 0, "Bleeding": 3.14, "Poisoned": 3.87, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3662, "Power2": 0, "Burning": 0, "Bleeding": 4.98, "Poisoned": 4.78, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Aralyth'
-        url: https://www.youtube.com/watch?v=n0X117MhmlU
-        log: https://dps.report/SJTF-20230216-171115_golem
+      - author: 'beng / L3m0n'
+        url: https://www.youtube.com/watch?v=D_rBzRClNFU
+        log: https://dps.report/VMeG-20240703-153531_golem
 
   - name: Quickness Power Scrapper
     profession: Scrapper

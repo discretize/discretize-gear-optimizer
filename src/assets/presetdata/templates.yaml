@@ -1040,9 +1040,9 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power Scrapper (Raid)
+          extras: Power (Raid, fireworks)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Power Holo ECSU
         id: pholo-ecsu
