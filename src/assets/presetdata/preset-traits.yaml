@@ -3030,7 +3030,75 @@ list:
         "skills": {}
       }
 
-  - name: Condi Tempest
+  - name: Condi Tempest Pistol
+    profession: Tempest
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "48"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            1886,
+            1891,
+            1839
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "43"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": "7.6"
+            }
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "gathered-focus": {},
+            "hardy-conduit": {},
+            "transcendent-tempest": {
+              "amount": "61.5"
+            },
+            "tempestuous-aria": {
+              "amount": ""
+            },
+            "gathered-focus-2": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-fire": {}
+        }
+      }
+
+  - name: Condi Tempest Hammer
     profession: Tempest
     traits: |-
       {

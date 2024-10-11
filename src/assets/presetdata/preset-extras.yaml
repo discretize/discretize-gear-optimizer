@@ -1244,13 +1244,18 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
           "Sigil1": {
             "bursting": {}
           },
           "Sigil2": {
             "smoldering": {},
-            "earth": {}
+            "earth": {},
+            "malice": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
@@ -1260,7 +1265,8 @@ list:
             "plate-of-kimchi-pancakes": {},
             "cilantro-and-cured-meat-flatbread": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Power Quickness Catalyst (Raid)

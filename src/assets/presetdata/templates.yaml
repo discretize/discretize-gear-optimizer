@@ -568,16 +568,16 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Tempest
+      - name: Condi Tempest Pistol
         id: ctemp
         specialization: Tempest
         boonType: Condi
         priority: Condi Tempest
-        distribution: Condi Tempest
-        traits: Condi Tempest
+        distribution: Condi Tempest Pistol
+        traits: Condi Tempest Pistol
         extras: Condi Tempest
-        weaponType: Two-handed
-        outdated: true
+        weaponType: Dual wield
+        outdated: false
 
       - name: Power Tempest Scepter
         id: ptemp
