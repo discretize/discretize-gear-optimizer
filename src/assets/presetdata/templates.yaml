@@ -607,7 +607,7 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: Power Weaver
+      - name: Power Weaver Sword
         id: pwea
         specialization: Weaver
         boonType: Power
