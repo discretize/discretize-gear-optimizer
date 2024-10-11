@@ -1205,14 +1205,14 @@ list:
         specialization: Harbinger
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Quickness Power Harbinger (Approx.)
+        distribution: Quickness Power Harbinger
         traits: Quickness Power Harbinger
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid, furious)
+          extras: Power (Raid, fireworks)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Condi Harbinger
         id: charb

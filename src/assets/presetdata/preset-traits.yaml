@@ -6390,7 +6390,7 @@ list:
             853
           ],
           [
-            898,
+            875,
             894,
             893
           ],
@@ -6414,7 +6414,7 @@ list:
           },
           {
             "soul-barbs": {
-              "amount": "90"
+              "amount": "97"
             },
             "vital-persistence": {},
             "death-perception": {}
@@ -6422,7 +6422,7 @@ list:
           {
             "wicked-corruption-base": {},
             "wicked-corruption": {
-              "amount": "18.6"
+              "amount": "22"
             },
             "septic-corruption": {
               "amount": ""
@@ -6438,7 +6438,14 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "soul-shards": {
+            "amount": "3"
+          },
+          "soul-shards-below": {
+            "amount": "3"
+          }
+        }
       }
 
   - name: Power Harbinger

@@ -1066,16 +1066,16 @@ list:
         url: https://www.youtube.com/watch?v=hGy1hhhvhhc
         log: https://dps.report/9GSF-20231002-152522_golem
 
-  - name: Quickness Power Harbinger (Approx.)
+  - name: Quickness Power Harbinger
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 1589, "Power2": 1382, "Burning": 0.13, "Bleeding": 2.44, "Poisoned": 2.14, "Torment": 9.49, "Confusion": 0.13 }
+        "values2": { "Power": 1656, "Power2": 1965, "Burning": 0.55, "Bleeding": 0.55, "Poisoned": 0.55, "Torment": 10.11, "Confusion": 0.55 }
       }
     credit:
-      - author: '[CnD] Aphrodite Lady'
-        url: https://www.youtube.com/watch?v=hyunt1U3YHQ
-        log: https://dps.report/wtGt-20220902-132134_golem
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=CHdwmsq15f8
+        log: https://dps.report/BCeZ-20240822-094804_golem
 
   # uses https://github.com/hobinjk/optimizer-scripts/blob/main/reaper.js for shroud power damage split
   - name: Power Harbinger
