@@ -437,17 +437,16 @@ list:
         url: https://www.youtube.com/watch?v=UI_DqbbBhWg
         log: https://dps.report/JJvS-20231203-145912_golem
 
-  # gear is missing one infusion (and not crit capped?)
-  - name: Power Tempest
+  - name: Power Tempest Scepter
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 4778, "Power2": 0, "Burning": 4.37, "Bleeding": 4.22, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 5121, "Power2": 0, "Burning": 3.21, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[SC] Roul'
-        url: https://www.youtube.com/watch?v=4i5TFegDNXg
-        log: https://dps.report/6Kzq-20221201-114817_golem
+      - author: '[NA] Crone'
+        url: https://www.youtube.com/watch?v=I5H5GZm-56E
+        log: https://dps.report/qZCK-20240717-155857_golem
 
   - name: Power Catalyst
     profession: Catalyst

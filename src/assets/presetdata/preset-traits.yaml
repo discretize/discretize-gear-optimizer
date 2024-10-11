@@ -3103,21 +3103,21 @@ list:
         }
       }
 
-  - name: Power Tempest
+  - name: Power Tempest Water
     profession: Tempest
     traits: |-
       {
         "showAll": false,
         "selectedLines": [
-          "31",
+          "17",
           "41",
           "48"
         ],
         "selectedTraits": [
           [
-            296,
-            334,
-            1510
+            363,
+            349,
+            2028
           ],
           [
             232,
@@ -3132,19 +3132,15 @@ list:
         ],
         "items": [
           {
-            "empowering-flame": {
-              "amount": "13"
+            "piercing-shards": {},
+            "piercing-shards-2": {
+              "amount": ""
             },
-            "burning-precision": {},
-            "burning-rage": {},
-            "power-overwhelming": {},
-            "power-overwhelming-2": {
-              "amount": "13"
+            "flow-like-water": {
+              "amount": ""
             },
-            "pyromancers-training": {},
-            "persisting-flames": {
-              "amount": "7"
-            }
+            "aquamancers-training": {},
+            "soothing-power": {}
           },
           {
             "ferocious-winds": {},
@@ -3156,13 +3152,13 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "75.8"
+              "amount": "90"
             },
             "bolt-to-the-heart": {
               "amount": ""
             },
             "fresh-air": {
-              "amount": "71"
+              "amount": "70"
             },
             "zephyrs-speed": {}
           },
@@ -3170,7 +3166,7 @@ list:
             "gathered-focus": {},
             "hardy-conduit": {},
             "transcendent-tempest": {
-              "amount": "67.2"
+              "amount": "98"
             }
           }
         ]

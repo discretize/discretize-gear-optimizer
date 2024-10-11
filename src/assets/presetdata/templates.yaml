@@ -579,19 +579,19 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Power Tempest
+      - name: Power Tempest Scepter
         id: ptemp
         specialization: Tempest
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Tempest
-        traits: Power Tempest
+        distribution: Power Tempest Scepter
+        traits: Power Tempest Water
         fractal:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Power Weaver
         id: pwea
