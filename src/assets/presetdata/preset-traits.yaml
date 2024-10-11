@@ -6044,6 +6044,77 @@ list:
         "skills": {}
       }
 
+  - name: Condi Reaper Spear
+    profession: Reaper
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "39",
+          "50",
+          "34"
+        ],
+        "selectedTraits": [
+          [
+            815,
+            816,
+            801
+          ],
+          [
+            898,
+            894,
+            893
+          ],
+          [
+            2020,
+            1969,
+            1919
+          ]
+        ],
+        "items": [
+          {
+            "barbed-precision": {},
+            "furious-demise": {},
+            "target-the-weak-base": {},
+            "target-the-weak": {
+              "amount": ""
+            },
+            "lingering-curse": {},
+            "barbed-precision-on-crit": {
+              "amount": "3.73"
+            }
+          },
+          {
+            "soul-barbs": {
+              "amount": "96"
+            },
+            "vital-persistence": {},
+            "death-perception": {}
+          },
+          {
+            "soul-eater": {
+              "amount": ""
+            },
+            "decimate-defenses-25x": {},
+            "cold-shoulder": {
+              "amount": ""
+            },
+            "reapers-onslaught": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "soul-shards": {
+            "amount": "4.83"
+          },
+          "soul-shards-below": {
+            "amount": "4.83"
+          }
+        }
+      }
+
   - name: Condi Reaper Scepter
     profession: Reaper
     traits: |-

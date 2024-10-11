@@ -1021,6 +1021,18 @@ list:
         log: https://dps.report/s1PP-20231007-214530_golem
 
   # uses https://github.com/hobinjk/optimizer-scripts/blob/main/reaper.js for shroud power damage split
+  - name: Condi Reaper Spear
+    profession: Reaper
+    value: >-
+      {
+        "values2": { "Power": 3109, "Power2": 666, "Burning": 0.32, "Bleeding": 39.17, "Poisoned": 1.73, "Torment": 2.06, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=QlyneWeY3N0
+        log: https://dps.report/HZw6-20240829-121726_golem
+
+  # uses https://github.com/hobinjk/optimizer-scripts/blob/main/reaper.js for shroud power damage split
   - name: Condi Reaper Scepter
     profession: Reaper
     value: >-

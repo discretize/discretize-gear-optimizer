@@ -2154,6 +2154,37 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Condi Reaper Spear
+    profession: Reaper
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "krait": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "earth": {
+              "amount": ""
+            }
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {},
+            "plate-of-kimchi-pancakes": {},
+            "truffle-risotto": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Reaper Scepter
     profession: Reaper
     value: |-
