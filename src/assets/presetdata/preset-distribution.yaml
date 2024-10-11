@@ -1021,7 +1021,7 @@ list:
         log: https://dps.report/s1PP-20231007-214530_golem
 
   # uses https://github.com/hobinjk/optimizer-scripts/blob/main/reaper.js for shroud power damage split
-  - name: Condi Reaper
+  - name: Condi Reaper Scepter
     profession: Reaper
     value: >-
       {

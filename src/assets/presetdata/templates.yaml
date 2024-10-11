@@ -1261,14 +1261,14 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Condi Reaper
+      - name: Condi Reaper Scepter
         id: creaper
         specialization: Reaper
         boonType: Condi
         priority: Hybrid DPS
-        distribution: Condi Reaper
-        traits: Condi Reaper
-        extras: Condi Reaper
+        distribution: Condi Reaper Scepter
+        traits: Condi Reaper Scepter
+        extras: Condi Reaper Scepter
         weaponType: Two-handed
         outdated: false
 
