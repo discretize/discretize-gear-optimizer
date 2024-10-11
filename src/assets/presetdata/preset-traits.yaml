@@ -6301,7 +6301,7 @@ list:
         }
       }
 
-  - name: Quickness Harbinger
+  - name: Quickness Condi Harbinger
     profession: Harbinger
     traits: |-
       {

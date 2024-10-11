@@ -1055,7 +1055,7 @@ list:
         url: https://www.youtube.com/watch?v=ZOC2RsEFrTY
         log: https://dps.report/IpSJ-20231002-151234_golem
 
-  - name: Quickness Harbinger
+  - name: Quickness Condi Harbinger
     profession: Harbinger
     value: >-
       {

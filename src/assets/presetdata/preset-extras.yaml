@@ -2250,7 +2250,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Quickness Harbinger
+  - name: Quickness Condi Harbinger
     profession: Harbinger
     value: |-
       {
