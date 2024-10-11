@@ -1005,19 +1005,19 @@ list:
 
   - class: Engineer
     builds:
-      - name: Quickness Power Scrapper
+      - name: Quickness Power Scrapper (Approx.)
         id: pqscrap
         specialization: Scrapper
         boonType: Power
         priority: Power DPS
-        distribution: Quickness Power Scrapper
+        distribution: Power Scrapper
         traits: Quickness Power Scrapper
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power (Raid, fireworks)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Quickness Condi Scrapper
         id: cqscrap

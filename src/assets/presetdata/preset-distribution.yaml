@@ -833,17 +833,6 @@ list:
         url: https://www.youtube.com/watch?v=D_rBzRClNFU
         log: https://dps.report/VMeG-20240703-153531_golem
 
-  - name: Quickness Power Scrapper
-    profession: Scrapper
-    value: >-
-      {
-        "values2": { "Power": 3397, "Power2": 0, "Burning": 0, "Bleeding": 4.01, "Poisoned": 3.3, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: '[NA] Crone'
-        url: https://www.youtube.com/watch?v=cKQ9-9gHe0Q
-        log: https://dps.report/jbc7-20230707-213937_golem
-
   - name: Quickness Condi Scrapper
     profession: Scrapper
     value: >-
