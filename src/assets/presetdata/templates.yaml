@@ -1430,6 +1430,20 @@ list:
         weaponType: Two-handed
         outdated: true
 
+      - name: Power Deadeye Spear
+        id: pded-spear
+        specialization: Deadeye
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Deadeye Spear
+        traits: Power Deadeye Spear
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Deadeye (Raid)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Power Deadeye Daggers BQoBK
         id: pded-daggers-bqobk
         specialization: Deadeye
