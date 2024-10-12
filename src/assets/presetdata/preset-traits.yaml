@@ -6612,7 +6612,7 @@ list:
             1904
           ],
           [
-            1933,
+            1949,
             1893,
             2047
           ]
@@ -6655,7 +6655,7 @@ list:
               "amount": ""
             },
             "bounding-dodger": {
-              "amount": "79.8"
+              "amount": "87.5"
             },
             "lotus-training": {}
           }
@@ -6665,10 +6665,10 @@ list:
       {
         "skills": {
           "assassins-signet": {
-            "amount": "44.1"
+            "amount": "77.1"
           },
           "assassins-signet-active": {
-            "amount": "20"
+            "amount": "10.3"
           }
         }
       }

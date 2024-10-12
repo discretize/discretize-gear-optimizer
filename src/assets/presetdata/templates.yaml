@@ -1391,7 +1391,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Power Staff Daredevil (Approx.)
+      - name: Power Daredevil Staff
         id: staffdd
         specialization: Daredevil
         boonType: Power

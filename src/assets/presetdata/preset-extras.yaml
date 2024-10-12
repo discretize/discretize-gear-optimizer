@@ -2346,7 +2346,9 @@ list:
             "ranger": {}
           },
           "Relics": {
-            "thief-relic": {}
+            "thief-relic": {
+              "amount": "4.86"
+            }
           },
           "Sigil1": {
             "force": {}
