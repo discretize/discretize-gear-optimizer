@@ -2295,6 +2295,7 @@ list:
       }
 
   - name: Power Deadeye (Raid)
+    profession: Deadeye
     value: |-
       {
         "extras": {
@@ -2309,7 +2310,7 @@ list:
           },
           "Relics": {
             "deadeye-relic": {
-              "amount": "90.5"
+              "amount": "95"
             }
           },
           "Sigil1": {
