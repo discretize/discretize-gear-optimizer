@@ -168,11 +168,25 @@
       gw2id: 101191
 
     - id: peitha-relic
-      text: 'Relic of Peitha: not yet implemented'
-      subText: 'Relic of Peitha: not yet implemented'
-      textOverride: 'Relic of Peitha: not yet implemented'
-      modifiers: {}
-      # gw2id intentionally omitted
+      text: Relic of Peitha
+      subText: approximate
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Torment Coefficient: 1.4
+        damage:
+          Outgoing Strike Damage: [4%, add]
+      wvwModifiers:
+        attributes:
+          Torment Coefficient: 0.8
+        damage:
+          Outgoing Strike Damage: [4%, add]
+      gw2id: 100177
+      temporaryBuff: true
 
 - section: Condition Relics
   items:
