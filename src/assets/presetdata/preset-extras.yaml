@@ -2410,7 +2410,10 @@ list:
       {
         "extras": {
           "Sigil1": {
-            "earth": {}
+            "agony": {},
+            "earth": {
+              "amount": ""
+            }
           },
           "Sigil2": {
             "doom": {}
@@ -2427,7 +2430,11 @@ list:
             "afflicted": {},
             "thorns": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "plate-of-kimchi-pancakes": {},
@@ -2437,7 +2444,8 @@ list:
             "master-tuning-crystal": {},
             "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Boon Daredevil
