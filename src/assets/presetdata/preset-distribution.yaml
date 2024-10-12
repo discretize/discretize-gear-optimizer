@@ -1124,7 +1124,7 @@ list:
         url: https://www.youtube.com/watch?v=gKnb5aRz5nk
         log: https://www.dps.report/WZp4-20230216-142041_golem
 
-  - name: Power Deadeye M7
+  - name: Power Deadeye Rifle
     profession: Deadeye
     value: >-
       {
@@ -1157,18 +1157,7 @@ list:
         url: https://www.youtube.com/watch?v=roV_hRP7AVY
         log: https://dps.report/tpmp-20221130-042530_golem
 
-  - name: Rifle Deadeye Premeditation
-    profession: Deadeye
-    value: >-
-      {
-        "values2": { "Power": 3669, "Power2": 0, "Burning": 0, "Bleeding": 0.42, "Poisoned": 1.83, "Torment": 0.5, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Iskarel'
-        url: https://www.youtube.com/watch?v=52La8OgG69w
-        log: https://dps.report/yDtd-20230214-221732_golem
-
-  - name: Rifle Deadeye Silent Scope
+  - name: Power Deadeye Rifle Silent Scope
     profession: Deadeye
     value: >-
       {

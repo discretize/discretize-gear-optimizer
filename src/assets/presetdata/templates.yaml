@@ -1416,13 +1416,13 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Power Deadeye M7
+      - name: Power Deadeye Rifle
         id: pded-m7
         specialization: Deadeye
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Deadeye M7
-        traits: Power Deadeye M7
+        distribution: Power Deadeye Rifle
+        traits: Power Deadeye Rifle
         fractal:
           extras: Power (Fractal)
         raid:
@@ -1444,41 +1444,27 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Power Deadeye Daggers BQoBK
-        id: pded-daggers-bqobk
-        specialization: Deadeye
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Power Deadeye Daggers BQoBK
-        traits: Power Deadeye Daggers BQoBK
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid)
-        weaponType: Dual wield
-        outdated: true
+      # - name: Power Deadeye Daggers BQoBK
+      #   id: pded-daggers-bqobk
+      #   specialization: Deadeye
+      #   boonType: Power
+      #   priority: Power DPS (no dragon)
+      #   distribution: Power Deadeye Daggers BQoBK
+      #   traits: Power Deadeye Daggers BQoBK
+      #   fractal:
+      #     extras: Power (Fractal)
+      #   raid:
+      #     extras: Power (Raid)
+      #   weaponType: Dual wield
+      #   outdated: true
 
-      - name: Rifle Deadeye Premeditation
-        id: rifleded-premed
-        specialization: Deadeye
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Rifle Deadeye Premeditation
-        traits: Rifle Deadeye Premeditation
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid)
-        weaponType: Two-handed
-        outdated: true
-
-      - name: Rifle Deadeye Silent Scope
+      - name: Power Deadeye Rifle Silent Scope
         id: rifleded-silent
         specialization: Deadeye
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Rifle Deadeye Silent Scope
-        traits: Rifle Deadeye Silent Scope
+        distribution: Power Deadeye Rifle Silent Scope
+        traits: Power Deadeye Rifle Silent Scope
         fractal:
           extras: Power (Fractal)
         raid:
