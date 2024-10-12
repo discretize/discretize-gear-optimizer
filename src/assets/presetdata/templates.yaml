@@ -1072,7 +1072,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Condi Holo (Approx.)
+      - name: Condi Holosmith Spear
         id: cholo
         specialization: Holosmith
         boonType: Condi
@@ -1080,8 +1080,8 @@ list:
         distribution: Condi Holo
         traits: Condi Holo
         extras: Condi Holo
-        weaponType: Dual wield
-        outdated: true
+        weaponType: Two-handed
+        outdated: false
 
       # - name: Alacrity Power Mech (inaccurate)
       #   id: mech-alac-power
