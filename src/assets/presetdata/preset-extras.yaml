@@ -2263,7 +2263,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Deadeye
+  - name: Condi Deadeye A/D
     profession: Deadeye
     value: |-
       {
@@ -2280,18 +2280,27 @@ list:
             "afflicted": {},
             "thorns": {}
           },
-          "Relics": {},
+          "Relics": {
+            "peitha-relic": {
+              "amount": "1.9"
+            }
+          },
           "Sigil1": {
             "bursting": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "earth": {
+              "amount": ""
+            }
+          },
           "Enhancement": {
             "master-tuning-crystal": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Power Deadeye (Raid)

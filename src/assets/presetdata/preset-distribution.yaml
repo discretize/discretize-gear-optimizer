@@ -1078,16 +1078,27 @@ list:
         url: https://www.youtube.com/watch?v=ZGC5WTTHmi4
         log: https://dps.report/Mu8J-20240821-222344_golem
 
-  - name: Condi Deadeye
+  - name: Condi Deadeye A/D
     profession: Deadeye
     value: >-
       {
-        "values2": { "Power": 1690, "Power2": 0, "Burning": 0.5, "Bleeding": 19, "Poisoned": 14.6, "Torment": 9.5, "Confusion": 0 }
+        "values2": { "Power": 3552, "Power2": 0, "Burning": 0, "Bleeding": 7.43, "Poisoned": 25.79, "Torment": 4.95, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
-        url: https://www.youtube.com/watch?v=1yAvjWJoAyE
-        log: https://dps.report/zCoq-20211001-043146_golem
+        url: https://www.youtube.com/watch?v=hZZMpKMWnbE
+        log: https://dps.report/KuD7-20240530-002512_golem
+
+  - name: Condi Deadeye A/D (no allies)
+    profession: Deadeye
+    value: >-
+      {
+        "values2": { "Power": 3554, "Power2": 0, "Burning": 0, "Bleeding": 7.24, "Poisoned": 21.34, "Torment": 6.47, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Incera'
+        url: https://www.youtube.com/watch?v=hZZMpKMWnbE
+        log: https://dps.report/4GTi-20240530-005615_golem
 
   - name: Power Staff Daredevil
     profession: Daredevil

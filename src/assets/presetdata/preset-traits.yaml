@@ -6526,7 +6526,7 @@ list:
         }
       }
 
-  - name: Condi Deadeye
+  - name: Condi Deadeye A/D
     profession: Deadeye
     traits: |-
       {

@@ -1405,16 +1405,16 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Condi Deadeye
+      - name: Condi Deadeye A/D
         id: cded
         specialization: Deadeye
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Deadeye
-        traits: Condi Deadeye
-        extras: Condi Deadeye
+        distribution: Condi Deadeye A/D
+        traits: Condi Deadeye A/D
+        extras: Condi Deadeye A/D
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Power Deadeye Rifle
         id: pded-m7
