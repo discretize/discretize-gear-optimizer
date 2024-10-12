@@ -1428,7 +1428,7 @@ list:
         raid:
           extras: Power Deadeye (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Power Deadeye Spear
         id: pded-spear

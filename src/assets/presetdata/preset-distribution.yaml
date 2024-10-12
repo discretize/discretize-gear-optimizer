@@ -1128,12 +1128,12 @@ list:
     profession: Deadeye
     value: >-
       {
-        "values2": { "Power": 3805, "Power2": 0, "Burning": 0, "Bleeding": 1.19, "Poisoned": 2.48, "Torment": 0.63, "Confusion": 0 }
+        "values2": { "Power": 4065, "Power2": 0, "Burning": 0, "Bleeding": 0.98, "Poisoned": 2.17, "Torment": 0.27, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
-        url: https://www.youtube.com/watch?v=F4KeTOtfzY8
-        log: https://dps.report/MXrd-20230915-172015_golem
+        url: https://www.youtube.com/watch?v=W1yc6I7DfAs
+        log: https://dps.report/FyD0-20240322-133853_golem
 
   - name: Power Deadeye Spear
     profession: Deadeye

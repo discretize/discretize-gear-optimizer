@@ -6905,7 +6905,7 @@ list:
             "deadly-ambition": {},
             "revealed-training-base": {},
             "revealed-training-revealed": {
-              "amount": "78.7"
+              "amount": "73.8"
             },
             "exposed-weakness": {
               "amount": ""
@@ -6915,7 +6915,7 @@ list:
               "amount": ""
             },
             "dagger-training-dagger": {
-              "amount": "61"
+              "amount": "50"
             }
           },
           {
@@ -6947,10 +6947,10 @@ list:
       {
         "skills": {
           "assassins-signet": {
-            "amount": "40.9"
+            "amount": "58.8"
           },
           "assassins-signet-active": {
-            "amount": "21.1"
+            "amount": "16.4"
           }
         }
       }
