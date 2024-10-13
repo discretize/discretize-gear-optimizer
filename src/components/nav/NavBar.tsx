@@ -43,6 +43,9 @@ const useStyles = makeStyles()((theme) => ({
   icon: {
     fontSize: '2rem',
   },
+  faded: {
+    opacity: '0.8',
+  },
 }));
 
 const Navbar = () => {
@@ -254,6 +257,7 @@ const Navbar = () => {
                   <MenuItem
                     key={elem.name}
                     onClick={(e) => handleTemplateSelect(popupState[index], elem.name, prof)}
+                    sx={elem.outdated ? { opacity: 0.5 } : {}}
                   >
                     <Profession
                       name={elem.specialization}
