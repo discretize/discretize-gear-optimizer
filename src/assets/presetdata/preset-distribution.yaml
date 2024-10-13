@@ -206,6 +206,17 @@ list:
         url: https://www.youtube.com/watch?v=9BT5TBoaWEk
         log: https://dps.report/bXp7-20240321-001338_golem
 
+  - name: Condi Firebrand A/T
+    profession: Firebrand
+    value: >-
+      {
+        "values2": { "Power": 2219, "Power2": 0, "Burning": 13.98, "Bleeding": 14.64, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Iskarel
+        url: https://www.youtube.com/watch?v=3K3fFUXvQKs
+        log: https://dps.report/vPRV-20240706-013634_golem
+
   - name: Condi Firebrand A/T P/P (No Allies)
     profession: Firebrand
     value: >-

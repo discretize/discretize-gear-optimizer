@@ -1252,6 +1252,73 @@ list:
         "skills": {}
       }
 
+  - name: Condi Firebrand Zeal
+    profession: Firebrand
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "16",
+          "42",
+          "62"
+        ],
+        "selectedTraits": [
+          [
+            566,
+            567,
+            1686
+          ],
+          [
+            634,
+            1556,
+            2017
+          ],
+          [
+            2075,
+            2063,
+            2179
+          ]
+        ],
+        "items": [
+          {
+            "right-hand-strength": {},
+            "right-hand-strength-1h": {
+              "amount": "100"
+            },
+            "radiant-fire": {},
+            "retribution": {
+              "amount": ""
+            },
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
+          },
+          {
+            "fiery-wrath": {},
+            "symbolic-exposure": {},
+            "zealous-blade-base": {},
+            "zealous-blade-gs": {
+              "amount": ""
+            },
+            "kindled-zeal": {},
+            "symbolic-avenger": {}
+          },
+          {
+            "imbued-haste": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-wrath": {
+            "amount": ""
+          }
+        }
+      }
+
   - name: Condi Firebrand Virtues
     profession: Firebrand
     traits: |-

@@ -297,6 +297,17 @@ list:
         weaponType: Dual wield
         outdated: true
 
+      - name: Condi Firebrand A/T
+        id: cfb-axe-only
+        specialization: Firebrand
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Firebrand A/T
+        traits: Condi Firebrand Zeal
+        extras: Condi Firebrand
+        weaponType: Dual wield
+        outdated: false
+
       - name: Power DH Radiance
         id: dh-radiance
         specialization: Dragonhunter

@@ -827,14 +827,15 @@ list:
           "Relics": {
             "fractal-relic": {
               "amount": ""
-            }
+            },
+            "aristocracy-relic": {}
           },
           "Sigil1": {
             "bursting": {}
           },
           "Sigil2": {
-            "geomancy-torment-cfb5-virtues": {},
-            "smoldering": {}
+            "smoldering": {},
+            "malice": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
