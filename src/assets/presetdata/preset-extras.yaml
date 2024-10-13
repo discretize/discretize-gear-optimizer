@@ -736,11 +736,7 @@ list:
           "Sigil1": {
             "bursting": {}
           },
-          "Sigil2": {
-            "air": {
-              "amount": ""
-            }
-          },
+          "Sigil2": {},
           "Runes": {
             "trapper": {},
             "nightmare": {},
@@ -827,14 +823,15 @@ list:
           "Relics": {
             "fractal-relic": {
               "amount": ""
-            }
+            },
+            "aristocracy-relic": {}
           },
           "Sigil1": {
             "bursting": {}
           },
           "Sigil2": {
-            "geomancy-torment-cfb5-virtues": {},
-            "smoldering": {}
+            "smoldering": {},
+            "malice": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
@@ -847,7 +844,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Quickbrand
+  - name: Quickess Condi Firebrand
     profession: Firebrand
     value: |-
       {
@@ -862,13 +859,8 @@ list:
             "trapper": {},
             "nightmare": {},
             "tempest": {},
-            "lich": {},
             "balthazar": {},
-            "renegade": {},
             "berserker": {},
-            "weaver": {},
-            "baelfire": {},
-            "flame-legion-2": {},
             "firebrand": {}
           },
           "Relics": {
@@ -979,6 +971,85 @@ list:
             "spherified-cilantro-oyster-soup": {}
           }
         }
+      }
+
+  - name: Alacrity Power Tempest (Fractal)
+    profession: Tempest
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {}
+          },
+          "Relics": {
+            "fireworks-relic": {
+              "amount": "100"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Alacrity Power Tempest (Raid)
+    profession: Tempest
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {}
+          },
+          "Relics": {
+            "fireworks-relic": {
+              "amount": "100"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Weaver Sword
@@ -1098,7 +1169,9 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {}
+          },
           "Sigil1": {
             "earth": {}
           },
@@ -1244,13 +1317,18 @@ list:
             "baelfire": {},
             "flame-legion-2": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
           "Sigil1": {
             "bursting": {}
           },
           "Sigil2": {
             "smoldering": {},
-            "earth": {}
+            "earth": {},
+            "malice": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
@@ -1260,7 +1338,8 @@ list:
             "plate-of-kimchi-pancakes": {},
             "cilantro-and-cured-meat-flatbread": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Power Quickness Catalyst (Raid)
@@ -1448,7 +1527,11 @@ list:
             "krait": {},
             "mad-king": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "plate-of-kimchi-pancakes": {},
@@ -1570,39 +1653,6 @@ list:
         }
       }
 
-  - name: Power Scrapper (Raid)
-    profession: Scrapper
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "scholar": {},
-            "dragonhunter": {},
-            "golemancer": {},
-            "deadeye": {},
-            "eagle": {},
-            "infiltration": {},
-            "ranger": {}
-          },
-          "Relics": {},
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "impact/night/slaying-only-3": {},
-            "accuracy": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
   - name: Condi Quickness Scrapper
     profession: Scrapper
     value: |-
@@ -1640,7 +1690,7 @@ list:
         }
       }
 
-  - name: Condi Alac Ren
+  - name: Alacrity Condi Renegade
     profession: Renegade
     value: |-
       {
@@ -1669,7 +1719,8 @@ list:
           "Enhancement": {
             "toxic-maintenance-oil": {},
             "master-tuning-crystal": {},
-            "toxic-focusing-crystal": {}
+            "toxic-focusing-crystal": {},
+            "magnanimous-tuning-crystal": {}
           }
         },
         "lifestealAmount": ""
@@ -2067,7 +2118,38 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Reaper
+  - name: Condi Reaper Spear
+    profession: Reaper
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "krait": {}
+          },
+          "Relics": {
+            "fractal-relic": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "earth": {
+              "amount": ""
+            }
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {},
+            "plate-of-kimchi-pancakes": {},
+            "truffle-risotto": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Condi Reaper Scepter
     profession: Reaper
     value: |-
       {
@@ -2132,7 +2214,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Quickness Harbinger
+  - name: Quickness Condi Harbinger
     profession: Harbinger
     value: |-
       {
@@ -2174,7 +2256,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Deadeye
+  - name: Condi Deadeye A/D
     profession: Deadeye
     value: |-
       {
@@ -2191,21 +2273,71 @@ list:
             "afflicted": {},
             "thorns": {}
           },
-          "Relics": {},
+          "Relics": {
+            "peitha-relic": {
+              "amount": "1.9"
+            }
+          },
           "Sigil1": {
             "bursting": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "earth": {
+              "amount": ""
+            }
+          },
           "Enhancement": {
             "master-tuning-crystal": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {}
           }
-        }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Quickness Condi Deadeye Spear
+    profession: Deadeye
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
+            "afflicted": {},
+            "thorns": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "earth": {
+              "amount": ""
+            }
+          },
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {}
+          }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Power Deadeye (Raid)
+    profession: Deadeye
     value: |-
       {
         "extras": {
@@ -2220,7 +2352,7 @@ list:
           },
           "Relics": {
             "deadeye-relic": {
-              "amount": "90.5"
+              "amount": "95"
             }
           },
           "Sigil1": {
@@ -2257,7 +2389,9 @@ list:
             "ranger": {}
           },
           "Relics": {
-            "thief-relic": {}
+            "thief-relic": {
+              "amount": "4.86"
+            }
           },
           "Sigil1": {
             "force": {}
@@ -2319,7 +2453,10 @@ list:
       {
         "extras": {
           "Sigil1": {
-            "earth": {}
+            "agony": {},
+            "earth": {
+              "amount": ""
+            }
           },
           "Sigil2": {
             "doom": {}
@@ -2336,7 +2473,11 @@ list:
             "afflicted": {},
             "thorns": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "plate-of-kimchi-pancakes": {},
@@ -2346,7 +2487,8 @@ list:
             "master-tuning-crystal": {},
             "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Boon Daredevil
@@ -2383,7 +2525,50 @@ list:
         }
       }
 
-  - name: DPS Specter SC/D
+  - name: Condi Specter Spear
+    profession: Specter
+    value: |-
+      {
+        "extras": {
+          "Sigil1": {
+            "torment": {
+              "amount": "1.72"
+            },
+            "bursting": {}
+          },
+          "Sigil2": {
+            "bursting": {},
+            "earth": {
+              "amount": ""
+            }
+          },
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {},
+            "tormenting": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": "0.39"
+            }
+          },
+          "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {},
+            "master-tuning-crystal": {}
+          }
+        },
+        "lifestealAmount": "3.5"
+      }
+
+  - name: Condi Specter SC/D
     profession: Specter
     value: |-
       {

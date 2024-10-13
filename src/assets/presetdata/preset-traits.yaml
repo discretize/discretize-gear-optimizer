@@ -69,6 +69,74 @@ list:
         "skills": {}
       }
 
+  - name: Boon Power Chrono Spear
+    profession: Chronomancer
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "40"
+        ],
+        "selectedTraits": [
+          [
+            682,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            1995,
+            1978,
+            0
+          ]
+        ],
+        "items": [
+          {
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            },
+            "empowered-illusions": {}
+          },
+          {
+            "fencers-finesse": {
+              "amount": "6.8"
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "phantasmal-fury": {},
+            "sharper-images-phantasm": {
+              "amount": "1.26"
+            },
+            "sharper-images-clone": {
+              "amount": "0.51"
+            }
+          },
+          {
+            "danger-time": {},
+            "improved-alacrity": {},
+            "chronophantasma": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: Boon Power Chrono GS
     profession: Chronomancer
     traits: |-
@@ -608,7 +676,79 @@ list:
         }
       }
 
-  - name: Power Virtuoso
+  - name: Power Virtuoso Spear
+    profession: Virtuoso
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "66"
+        ],
+        "selectedTraits": [
+          [
+            682,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            2208,
+            2205,
+            2223
+          ]
+        ],
+        "items": [
+          {
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            },
+            "empowered-illusions": {}
+          },
+          {
+            "fencers-finesse": {
+              "amount": "5.47"
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "sharper-images-phantasm": {
+              "amount": ".85"
+            },
+            "phantasmal-fury-virtuoso": {}
+          },
+          {
+            "mental-focus": {
+              "amount": ""
+            },
+            "deadly-blades": {
+              "amount": "98.7"
+            },
+            "sharpening-sorrow": {},
+            "quiet-intensity": {},
+            "quiet-intensity-fury": {},
+            "bloodsong": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Power Virtuoso GS
     profession: Virtuoso
     traits: |-
       {
@@ -1046,7 +1186,7 @@ list:
         }
       }
 
-  - name: Condi Quickbrand WT
+  - name: Quickess Condi Firebrand P/T P/P
     profession: Firebrand
     traits: |-
       {
@@ -1064,11 +1204,11 @@ list:
           ],
           [
             617,
-            587,
+            610,
             622
           ],
           [
-            2075,
+            2101,
             2063,
             2179
           ]
@@ -1109,12 +1249,77 @@ list:
       }
     skills: |-
       {
+        "skills": {}
+      }
+
+  - name: Condi Firebrand Zeal
+    profession: Firebrand
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "16",
+          "42",
+          "62"
+        ],
+        "selectedTraits": [
+          [
+            566,
+            567,
+            1686
+          ],
+          [
+            634,
+            1556,
+            2017
+          ],
+          [
+            2075,
+            2063,
+            2179
+          ]
+        ],
+        "items": [
+          {
+            "right-hand-strength": {},
+            "right-hand-strength-1h": {
+              "amount": "100"
+            },
+            "radiant-fire": {},
+            "retribution": {
+              "amount": ""
+            },
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
+          },
+          {
+            "fiery-wrath": {},
+            "symbolic-exposure": {},
+            "zealous-blade-base": {},
+            "zealous-blade-gs": {
+              "amount": ""
+            },
+            "kindled-zeal": {},
+            "symbolic-avenger": {}
+          },
+          {
+            "imbued-haste": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
         "skills": {
-          "mantra-of-flame": {}
+          "signet-of-wrath": {
+            "amount": ""
+          }
         }
       }
 
-  - name: CFB DPS 5 Page
+  - name: Condi Firebrand Virtues
     profession: Firebrand
     traits: |-
       {
@@ -1179,9 +1384,6 @@ list:
       {
         "skills": {
           "signet-of-wrath": {
-            "amount": ""
-          },
-          "mantra-of-flame": {
             "amount": ""
           }
         }
@@ -1310,11 +1512,7 @@ list:
       }
     skills: |-
       {
-        "skills": {
-          "mantra-of-flame": {
-            "amount": ""
-          }
-        }
+        "skills": {}
       }
 
   - name: Healbrand
@@ -1737,7 +1935,7 @@ list:
         }
       }
 
-  - name: Power Berserker
+  - name: Power Berserker GS A/A
     profession: Berserker
     traits: |-
       {
@@ -1813,7 +2011,7 @@ list:
         }
       }
 
-  - name: Power Quickness Berserker
+  - name: Quickness Power Berserker GS A/A
     profession: Berserker
     traits: |-
       {
@@ -2360,6 +2558,78 @@ list:
         "skills": {}
       }
 
+  - name: Heal Quickness Berserker
+    profession: Berserker
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "11",
+          "51",
+          "18"
+        ],
+        "selectedTraits": [
+          [
+            1474,
+            1482,
+            1470
+          ],
+          [
+            1381,
+            1484,
+            1657
+          ],
+          [
+            2049,
+            2042,
+            2307
+          ]
+        ],
+        "items": [
+          {
+            "leg-specialist": {
+              "amount": ""
+            },
+            "roaring-reveille": {},
+            "empowered": {
+              "amount": ""
+            },
+            "warriors-cunning": {
+              "amount": ""
+            },
+            "vigorous-shouts": {}
+          },
+          {
+            "warriors-sprint": {
+              "amount": ""
+            },
+            "stalwart-focus": {},
+            "axe-mastery-one": {},
+            "axe-mastery-axe": {
+              "amount": ""
+            }
+          },
+          {
+            "smash-brawler-full": {},
+            "blood-reaction-base": {},
+            "blood-reaction-with": {
+              "amount": ""
+            },
+            "fatal-frenzy-power-condi": {
+              "amount": ""
+            },
+            "bloody-roar": {
+              "amount": ""
+            },
+            "king-of-fires": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: Power Weaver Stormsoul Fractal
     profession: Weaver
     traits: |-
@@ -2541,6 +2811,88 @@ list:
           },
           "woven-air": {
             "amount": "53.1"
+          }
+        }
+      }
+
+  - name: Condi Weaver Pistol
+    profession: Weaver
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "56"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            2177,
+            2180,
+            2131
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "23.8"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": "6"
+            }
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "superior-elements": {},
+            "masters-fortitude": {},
+            "masters-fortitude-sword": {},
+            "weavers-prowess": {},
+            "swift-revenge": {
+              "amount": ""
+            },
+            "elemental-polyphony-fire": {
+              "amount": "44.5"
+            },
+            "elements-of-rage-base": {},
+            "elements-of-rage-buff": {
+              "amount": "95"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "woven-fire": {
+            "amount": "50.4"
+          },
+          "woven-air": {
+            "amount": "11.2"
+          },
+          "signet-of-fire": {},
+          "raging-ricochet": {
+            "amount": "80"
           }
         }
       }
@@ -3030,7 +3382,144 @@ list:
         "skills": {}
       }
 
-  - name: Condi Tempest
+  - name: Alacrity Condi Tempest Pistol
+    profession: Tempest
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "48"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            1886,
+            1891,
+            2033
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "42"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": "7.1"
+            }
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "gathered-focus": {},
+            "hardy-conduit": {},
+            "transcendent-tempest": {
+              "amount": "61.5"
+            },
+            "tempestuous-aria": {
+              "amount": ""
+            },
+            "gathered-focus-2": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-fire": {},
+          "signet-of-earth": {}
+        }
+      }
+
+  - name: Condi Tempest Pistol
+    profession: Tempest
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "48"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            1886,
+            1891,
+            1839
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "43"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": "7.6"
+            }
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "gathered-focus": {},
+            "hardy-conduit": {},
+            "transcendent-tempest": {
+              "amount": "61.5"
+            },
+            "tempestuous-aria": {
+              "amount": ""
+            },
+            "gathered-focus-2": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-fire": {}
+        }
+      }
+
+  - name: Condi Tempest Hammer
     profession: Tempest
     traits: |-
       {
@@ -3103,21 +3592,21 @@ list:
         }
       }
 
-  - name: Power Tempest
+  - name: Power Tempest Water
     profession: Tempest
     traits: |-
       {
         "showAll": false,
         "selectedLines": [
-          "31",
+          "17",
           "41",
           "48"
         ],
         "selectedTraits": [
           [
-            296,
-            334,
-            1510
+            363,
+            349,
+            2028
           ],
           [
             232,
@@ -3132,18 +3621,87 @@ list:
         ],
         "items": [
           {
-            "empowering-flame": {
-              "amount": "13"
+            "piercing-shards": {},
+            "piercing-shards-2": {
+              "amount": ""
             },
-            "burning-precision": {},
-            "burning-rage": {},
-            "power-overwhelming": {},
-            "power-overwhelming-2": {
-              "amount": "13"
+            "flow-like-water": {
+              "amount": ""
             },
-            "pyromancers-training": {},
-            "persisting-flames": {
-              "amount": "7"
+            "aquamancers-training": {},
+            "soothing-power": {}
+          },
+          {
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "90"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": "70"
+            },
+            "zephyrs-speed": {}
+          },
+          {
+            "gathered-focus": {},
+            "hardy-conduit": {},
+            "transcendent-tempest": {
+              "amount": "98"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-fire": {}
+        }
+      }
+
+  - name: Alacrity Power Tempest Arcane
+    profession: Tempest
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "37",
+          "41",
+          "48"
+        ],
+        "selectedTraits": [
+          [
+            253,
+            265,
+            1511
+          ],
+          [
+            232,
+            1502,
+            1503
+          ],
+          [
+            1886,
+            1891,
+            2033
+          ]
+        ],
+        "items": [
+          {
+            "elemental-enchantment": {},
+            "arcane-lightning": {
+              "amount": ""
+            },
+            "bountiful-power": {
+              "amount": ""
             }
           },
           {
@@ -3156,13 +3714,13 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "75.8"
+              "amount": "90"
             },
             "bolt-to-the-heart": {
               "amount": ""
             },
             "fresh-air": {
-              "amount": "71"
+              "amount": "58"
             },
             "zephyrs-speed": {}
           },
@@ -3170,7 +3728,10 @@ list:
             "gathered-focus": {},
             "hardy-conduit": {},
             "transcendent-tempest": {
-              "amount": "67.2"
+              "amount": "98"
+            },
+            "tempestuous-aria": {
+              "amount": ""
             }
           }
         ]
@@ -3817,7 +4378,7 @@ list:
         }
       }
 
-  - name: Hybrid Slb LotP
+  - name: Hybrid Slb
     profession: Soulbeast
     traits: |-
       {
@@ -4801,7 +5362,7 @@ list:
             },
             "incendiary-powder": {},
             "sharpshooter": {
-              "amount": "4.5"
+              "amount": "4.66"
             }
           },
           {
@@ -5142,7 +5703,7 @@ list:
             },
             "incendiary-powder": {},
             "sharpshooter": {
-              "amount": "4.1"
+              "amount": "4.2"
             }
           },
           {
@@ -5160,7 +5721,7 @@ list:
           },
           {
             "object-in-motion": {
-              "amount": "2.28"
+              "amount": "2.2"
             },
             "impact-savant": {},
             "kinetic-accelerators": {},
@@ -5218,7 +5779,7 @@ list:
             },
             "incendiary-powder": {},
             "sharpshooter": {
-              "amount": "3.97"
+              "amount": "4.2"
             }
           },
           {
@@ -5236,7 +5797,7 @@ list:
           },
           {
             "object-in-motion": {
-              "amount": ""
+              "amount": "2.2"
             },
             "impact-savant": {},
             "kinetic-accelerators": {},
@@ -5613,7 +6174,78 @@ list:
         "skills": {}
       }
 
-  - name: Condi Reaper
+  - name: Condi Reaper Spear
+    profession: Reaper
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "39",
+          "50",
+          "34"
+        ],
+        "selectedTraits": [
+          [
+            815,
+            816,
+            801
+          ],
+          [
+            898,
+            894,
+            893
+          ],
+          [
+            2020,
+            1969,
+            1919
+          ]
+        ],
+        "items": [
+          {
+            "barbed-precision": {},
+            "furious-demise": {},
+            "target-the-weak-base": {},
+            "target-the-weak": {
+              "amount": ""
+            },
+            "lingering-curse": {},
+            "barbed-precision-on-crit": {
+              "amount": "3.73"
+            }
+          },
+          {
+            "soul-barbs": {
+              "amount": "96"
+            },
+            "vital-persistence": {},
+            "death-perception": {}
+          },
+          {
+            "soul-eater": {
+              "amount": ""
+            },
+            "decimate-defenses-25x": {},
+            "cold-shoulder": {
+              "amount": ""
+            },
+            "reapers-onslaught": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "soul-shards": {
+            "amount": "4.83"
+          },
+          "soul-shards-below": {
+            "amount": "4.83"
+          }
+        }
+      }
+
+  - name: Condi Reaper Scepter
     profession: Reaper
     traits: |-
       {
@@ -5799,7 +6431,7 @@ list:
         }
       }
 
-  - name: Quickness Harbinger
+  - name: Quickness Condi Harbinger
     profession: Harbinger
     traits: |-
       {
@@ -5888,7 +6520,7 @@ list:
             853
           ],
           [
-            898,
+            875,
             894,
             893
           ],
@@ -5912,7 +6544,7 @@ list:
           },
           {
             "soul-barbs": {
-              "amount": "90"
+              "amount": "97"
             },
             "vital-persistence": {},
             "death-perception": {}
@@ -5920,7 +6552,7 @@ list:
           {
             "wicked-corruption-base": {},
             "wicked-corruption": {
-              "amount": "18.6"
+              "amount": "22"
             },
             "septic-corruption": {
               "amount": ""
@@ -5936,10 +6568,95 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "soul-shards": {
+            "amount": "3"
+          },
+          "soul-shards-below": {
+            "amount": "3"
+          }
+        }
       }
 
-  - name: Condi Deadeye
+  - name: Power Harbinger
+    profession: Harbinger
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "53",
+          "50",
+          "64"
+        ],
+        "selectedTraits": [
+          [
+            914,
+            829,
+            853
+          ],
+          [
+            875,
+            894,
+            893
+          ],
+          [
+            2188,
+            2192,
+            2218
+          ]
+        ],
+        "items": [
+          {
+            "spiteful-talisman": {
+              "amount": ""
+            },
+            "awaken-the-pain": {
+              "amount": ""
+            },
+            "close-to-death": {
+              "amount": ""
+            }
+          },
+          {
+            "soul-barbs": {
+              "amount": "97"
+            },
+            "vital-persistence": {},
+            "death-perception": {}
+          },
+          {
+            "wicked-corruption-base": {},
+            "wicked-corruption": {
+              "amount": "22"
+            },
+            "septic-corruption": {
+              "amount": ""
+            },
+            "alchemic-vigor": {},
+            "implacable-foe": {},
+            "twisted-medicine": {},
+            "dark-gunslinger": {},
+            "cascading-corruption": {},
+            "doom-approaches": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-spite": {
+            "amount": "43"
+          },
+          "soul-shards": {
+            "amount": "3"
+          },
+          "soul-shards-below": {
+            "amount": "3"
+          }
+        }
+      }
+
+  - name: Condi Deadeye A/D
     profession: Deadeye
     traits: |-
       {
@@ -6003,6 +6720,70 @@ list:
         "skills": {}
       }
 
+  - name: Quickness Condi Deadeye Spear
+    profession: Deadeye
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "44",
+          "58"
+        ],
+        "selectedTraits": [
+          [
+            1164,
+            1292,
+            1291
+          ],
+          [
+            1163,
+            1277,
+            1706
+          ],
+          [
+            2136,
+            2160,
+            2146
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": {},
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "preparedness": {},
+            "lead-attacks": {
+              "amount": "14"
+            },
+            "deadly-ambush": {}
+          },
+          {
+            "silent-scope-base": {},
+            "silent-scope-rifle": {},
+            "premeditation-base": {},
+            "premeditation": {
+              "amount": ""
+            },
+            "iron-sight": {},
+            "be-quick-or-be-killed": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: Power Staff Daredevil
     profession: Daredevil
     traits: |-
@@ -6025,7 +6806,7 @@ list:
             1904
           ],
           [
-            1933,
+            1949,
             1893,
             2047
           ]
@@ -6068,7 +6849,7 @@ list:
               "amount": ""
             },
             "bounding-dodger": {
-              "amount": "79.8"
+              "amount": "87.5"
             },
             "lotus-training": {}
           }
@@ -6078,10 +6859,10 @@ list:
       {
         "skills": {
           "assassins-signet": {
-            "amount": "44.1"
+            "amount": "77.1"
           },
           "assassins-signet-active": {
-            "amount": "20"
+            "amount": "10.3"
           }
         }
       }
@@ -6285,7 +7066,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Deadeye M7
+  - name: Power Deadeye Rifle
     profession: Deadeye
     traits: |-
       {
@@ -6318,7 +7099,7 @@ list:
             "deadly-ambition": {},
             "revealed-training-base": {},
             "revealed-training-revealed": {
-              "amount": "78.7"
+              "amount": "73.8"
             },
             "exposed-weakness": {
               "amount": ""
@@ -6328,7 +7109,7 @@ list:
               "amount": ""
             },
             "dagger-training-dagger": {
-              "amount": "61"
+              "amount": "50"
             }
           },
           {
@@ -6360,10 +7141,170 @@ list:
       {
         "skills": {
           "assassins-signet": {
-            "amount": "40.9"
+            "amount": "58.8"
           },
           "assassins-signet-active": {
-            "amount": "21.1"
+            "amount": "16.4"
+          }
+        }
+      }
+
+  - name: Power Deadeye Spear
+    profession: Deadeye
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "35",
+          "58"
+        ],
+        "selectedTraits": [
+          [
+            1245,
+            1704,
+            1269
+          ],
+          [
+            1268,
+            1272,
+            1904
+          ],
+          [
+            2136,
+            2160,
+            2093
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
+            "revealed-training-revealed": {
+              "amount": "53"
+            },
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": {},
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "keen-observer": {},
+            "keen-observer-scholar": {},
+            "twin-fangs-scholar": {},
+            "twin-fangs-flank": {},
+            "practiced-tolerance": {},
+            "ferocious-strikes": {
+              "amount": ""
+            },
+            "no-quarter": {
+              "amount": ""
+            }
+          },
+          {
+            "silent-scope-base": {},
+            "silent-scope-rifle": {},
+            "premeditation-base": {},
+            "premeditation": {
+              "amount": ""
+            },
+            "iron-sight": {},
+            "be-quick-or-be-killed": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "assassins-signet": {
+            "amount": ""
+          },
+          "vampiric-slash": {
+            "amount": "4.23"
+          }
+        }
+      }
+
+  - name: Quickness Power Deadeye Spear
+    profession: Deadeye
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "35",
+          "58"
+        ],
+        "selectedTraits": [
+          [
+            1245,
+            1704,
+            1269
+          ],
+          [
+            1268,
+            1272,
+            1904
+          ],
+          [
+            2136,
+            2160,
+            2146
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
+            "revealed-training-revealed": {
+              "amount": "61"
+            },
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": {},
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "keen-observer": {},
+            "keen-observer-scholar": {},
+            "twin-fangs-scholar": {},
+            "twin-fangs-flank": {},
+            "practiced-tolerance": {},
+            "ferocious-strikes": {
+              "amount": ""
+            },
+            "no-quarter": {
+              "amount": ""
+            }
+          },
+          {
+            "silent-scope-base": {},
+            "silent-scope-rifle": {},
+            "premeditation-base": {},
+            "premeditation": {
+              "amount": ""
+            },
+            "iron-sight": {},
+            "be-quick-or-be-killed": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "assassins-signet": {
+            "amount": ""
+          },
+          "vampiric-slash": {
+            "amount": "3.82"
           }
         }
       }
@@ -6449,87 +7390,7 @@ list:
         }
       }
 
-  - name: Rifle Deadeye Premeditation
-    profession: Deadeye
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "28",
-          "35",
-          "58"
-        ],
-        "selectedTraits": [
-          [
-            1245,
-            1704,
-            1269
-          ],
-          [
-            1268,
-            1272,
-            1904
-          ],
-          [
-            2145,
-            2160,
-            2111
-          ]
-        ],
-        "items": [
-          {
-            "dagger-training-base": {},
-            "deadly-ambition": {},
-            "revealed-training-base": {},
-            "revealed-training-revealed": {
-              "amount": "60.3"
-            },
-            "exposed-weakness": {
-              "amount": ""
-            },
-            "potent-poison": {},
-            "executioner": {
-              "amount": ""
-            }
-          },
-          {
-            "keen-observer": {},
-            "keen-observer-scholar": {},
-            "twin-fangs-scholar": {},
-            "twin-fangs-flank": {},
-            "practiced-tolerance": {},
-            "ferocious-strikes": {
-              "amount": ""
-            },
-            "no-quarter": {
-              "amount": ""
-            }
-          },
-          {
-            "silent-scope-base": {},
-            "silent-scope-rifle": {},
-            "premeditation-base": {},
-            "premeditation": {
-              "amount": ""
-            },
-            "iron-sight": {},
-            "be-quick-or-be-killed": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "assassins-signet": {
-            "amount": "29"
-          },
-          "assassins-signet-active": {
-            "amount": "24.8"
-          }
-        }
-      }
-
-  - name: Rifle Deadeye Silent Scope
+  - name: Power Deadeye Rifle Silent Scope
     profession: Deadeye
     traits: |-
       {
@@ -6609,7 +7470,70 @@ list:
         }
       }
 
-  - name: DPS Specter SC/D
+  - name: Condi Specter Spear
+    profession: Specter
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "44",
+          "71"
+        ],
+        "selectedTraits": [
+          [
+            1164,
+            1292,
+            1291
+          ],
+          [
+            1163,
+            1277,
+            1706
+          ],
+          [
+            2284,
+            2288,
+            2264
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": {},
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "preparedness": {},
+            "lead-attacks": {
+              "amount": "13.9"
+            },
+            "deadly-ambush": {}
+          },
+          {
+            "second-opinion-base": {},
+            "dark-sentry": {},
+            "larcenous-torment": {},
+            "strength-of-shadows-base": {},
+            "strength-of-shadows-condis": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Condi Specter SC/D
     profession: Specter
     traits: |-
       {
