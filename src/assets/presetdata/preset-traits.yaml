@@ -1249,9 +1249,7 @@ list:
       }
     skills: |-
       {
-        "skills": {
-          "mantra-of-flame": {}
-        }
+        "skills": {}
       }
 
   - name: Condi Firebrand Virtues
@@ -1319,9 +1317,6 @@ list:
       {
         "skills": {
           "signet-of-wrath": {
-            "amount": ""
-          },
-          "mantra-of-flame": {
             "amount": ""
           }
         }
@@ -1450,11 +1445,7 @@ list:
       }
     skills: |-
       {
-        "skills": {
-          "mantra-of-flame": {
-            "amount": ""
-          }
-        }
+        "skills": {}
       }
 
   - name: Healbrand

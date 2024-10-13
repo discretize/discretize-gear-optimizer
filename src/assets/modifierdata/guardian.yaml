@@ -88,43 +88,43 @@
     #
     # f1 passives from procs are 2.4s because of amplified wrath; every 3 hits if virtues
     # passive burning : 1/3 * 2.4 = 0.8
-    - id: mantra-of-flame
-      text: Mantra of Flame
-      subText: (with passive + permeating + amplified)
-      amountData:
-        label: '/10s'
-        default: 1.5
-        quantityEntered: 10
-      modifiers:
-        attributes:
-          Power Coefficient: 483.3
-          Burning Coefficient: 14.4
-      wvwModifiers:
-        attributes:
-          Power Coefficient: 483.3
-          Burning Coefficient: 4.8
-      gw2id: 46148
-      temporaryBuff: true
+    # - id: mantra-of-flame
+    #   text: Mantra of Flame
+    #   subText: (with passive + permeating + amplified)
+    #   amountData:
+    #     label: '/10s'
+    #     default: 1.5
+    #     quantityEntered: 10
+    #   modifiers:
+    #     attributes:
+    #       Power Coefficient: 483.3
+    #       Burning Coefficient: 14.4
+    #   wvwModifiers:
+    #     attributes:
+    #       Power Coefficient: 483.3
+    #       Burning Coefficient: 4.8
+    #   gw2id: 46148
+    #   temporaryBuff: true
 
     # 0.7 coefficient, 690.5(?) strength, 18 proc/120s traited
     # burning: 4s
-    - id: mantra-of-flame-base
-      text: Mantra of Flame
-      subText: (no passive)
-      amountData:
-        label: '/10s'
-        default: 1.5
-        quantityEntered: 10
-      modifiers:
-        attributes:
-          Power Coefficient: 483.3
-          Burning Coefficient: 12
-      wvwModifiers:
-        attributes:
-          Power Coefficient: 483.3
-          Burning Coefficient: 4
-      gw2id: 46148
-      temporaryBuff: true
+    # - id: mantra-of-flame-base
+    #   text: Mantra of Flame
+    #   subText: (no passive)
+    #   amountData:
+    #     label: '/10s'
+    #     default: 1.5
+    #     quantityEntered: 10
+    #   modifiers:
+    #     attributes:
+    #       Power Coefficient: 483.3
+    #       Burning Coefficient: 12
+    #   wvwModifiers:
+    #     attributes:
+    #       Power Coefficient: 483.3
+    #       Burning Coefficient: 4
+    #   gw2id: 46148
+    #   temporaryBuff: true
 
     - id: binding-blade
       text: Binding Blade
