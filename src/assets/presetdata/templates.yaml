@@ -936,14 +936,14 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Alacrity Condi Renegade Invo (Approx.)
+      - name: Alacrity Condi Renegade
         id: cren-alac-invo
         specialization: Renegade
         boonType: Condi
-        priority: Condi Alacrity Renegade 37.5%
-        distribution: Condi Alac Invocation
+        priority: Alacrity Condi Renegade 42%
+        distribution: Alacrity Condi Renegade
         traits: Condi Alac Ren Invo
-        extras: Condi Alac Ren
+        extras: Alacrity Condi Renegade
         weaponType: Two-handed
         outdated: false
 

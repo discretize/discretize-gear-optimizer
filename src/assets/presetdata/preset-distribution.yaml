@@ -525,18 +525,16 @@ list:
         url: https://www.youtube.com/watch?v=s1OXN6HRLTo
         log: https://dps.report/8LBy-20230515-192958_golem
 
-  # add razorclaw casts every 20sec to simulate allies
-  # 4 players * 10 pulses * 2 seconds / 20 sec = 4.00 avg bleed
-  - name: Condi Alac Invocation
+  - name: Alacrity Condi Renegade
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 1903, "Power2": 0, "Burning": 4.14, "Bleeding": 13.37, "Poisoned": 4, "Torment": 16.09, "Confusion": 0 }
+        "values2": { "Power": 2139, "Power2": 0, "Burning": 3.97, "Bleeding": 12.36, "Poisoned": 4.42, "Torment": 17.24, "Confusion": 0 }
       }
     credit:
       - author: Umbra
-        url: https://www.youtube.com/watch?v=uCI1Xu63SmM
-        log: https://dps.report/ervZ-20231003-013459_golem
+        url: https://www.youtube.com/watch?v=J_1pVfkTvHo
+        log: https://dps.report/8VfB-20240706-155741_golem
 
   - name: Condi Alac Invocation (no allies)
     profession: Renegade

@@ -1690,7 +1690,7 @@ list:
         }
       }
 
-  - name: Condi Alac Ren
+  - name: Alacrity Condi Renegade
     profession: Renegade
     value: |-
       {
@@ -1719,7 +1719,8 @@ list:
           "Enhancement": {
             "toxic-maintenance-oil": {},
             "master-tuning-crystal": {},
-            "toxic-focusing-crystal": {}
+            "toxic-focusing-crystal": {},
+            "magnanimous-tuning-crystal": {}
           }
         },
         "lifestealAmount": ""
