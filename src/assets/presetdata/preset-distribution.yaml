@@ -195,6 +195,17 @@ list:
         url: https://www.youtube.com/watch?v=mCOEGlJkRJ0
         log: https://dps.report/z2Zl-20220316-172733_golem
 
+  - name: Quickess Condi Firebrand P/T P/P
+    profession: Firebrand
+    value: >-
+      {
+        "values2": { "Power": 1548, "Power2": 0, "Burning": 16.88, "Bleeding": 8.17, "Poisoned": 0, "Torment": 0.11, "Confusion": 0 }
+      }
+    credit:
+      - author: Iskarel
+        url: https://www.youtube.com/watch?v=MERU2xlyhuw
+        log: https://dps.report/ujRl-20240630-011947_golem
+
   - name: Condi Firebrand A/T P/P
     profession: Firebrand
     value: >-
@@ -228,50 +239,50 @@ list:
         url: https://www.youtube.com/watch?v=9BT5TBoaWEk
         log: https://dps.report/CdPR-20240321-151620_golem
 
-  - name: Condi Quickbrand (WT, Allies)
-    profession: Firebrand
-    value: >-
-      {
-        "values2": { "Power": 1397, "Power2": 0, "Burning": 14.23, "Bleeding": 6.07, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: Iskarel
-        url: https://www.youtube.com/watch?v=jv6BRBFb_H8
-        log: https://dps.report/manG-20240324-193028_golem
+  # - name: Condi Quickbrand (WT, Allies)
+  #   profession: Firebrand
+  #   value: >-
+  #     {
+  #       "values2": { "Power": 1397, "Power2": 0, "Burning": 14.23, "Bleeding": 6.07, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
+  #   credit:
+  #     - author: Iskarel
+  #       url: https://www.youtube.com/watch?v=jv6BRBFb_H8
+  #       log: https://dps.report/manG-20240324-193028_golem
 
-  - name: Condi Quickbrand (WT, No Allies)
-    profession: Firebrand
-    value: >-
-      {
-        "values2": { "Power": 1391, "Power2": 0, "Burning": 13.51, "Bleeding": 5.83, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: Iskarel
-        url: https://www.youtube.com/watch?v=jv6BRBFb_H8
-        log: https://dps.report/OeKr-20240324-194950_golem
+  # - name: Condi Quickbrand (WT, No Allies)
+  #   profession: Firebrand
+  #   value: >-
+  #     {
+  #       "values2": { "Power": 1391, "Power2": 0, "Burning": 13.51, "Bleeding": 5.83, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
+  #   credit:
+  #     - author: Iskarel
+  #       url: https://www.youtube.com/watch?v=jv6BRBFb_H8
+  #       log: https://dps.report/OeKr-20240324-194950_golem
 
   # Solo log adjusted upwards to match with-allies dps (no log for the with allies bench)
-  - name: Condi Quickbrand (LL, Allies, Approx.)
-    profession: Firebrand
-    value: >-
-      {
-        "values2": { "Power": 2023, "Power2": 0, "Burning": 16.65, "Bleeding": 3.51, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=zGr5pn7jn2A
-        log: https://dps.report/GP0v-20230228-174716_golem
+  # - name: Condi Quickbrand (LL, Allies, Approx.)
+  #   profession: Firebrand
+  #   value: >-
+  #     {
+  #       "values2": { "Power": 2023, "Power2": 0, "Burning": 16.65, "Bleeding": 3.51, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
+  #   credit:
+  #     - author: 'Support Hero'
+  #       url: https://www.youtube.com/watch?v=zGr5pn7jn2A
+  #       log: https://dps.report/GP0v-20230228-174716_golem
 
-  - name: Condi Quickbrand (LL, No Allies)
-    profession: Firebrand
-    value: >-
-      {
-        "values2": { "Power": 2023, "Power2": 0, "Burning": 13.95, "Bleeding": 3.34, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=zGr5pn7jn2A
-        log: https://dps.report/GP0v-20230228-174716_golem
+  # - name: Condi Quickbrand (LL, No Allies)
+  #   profession: Firebrand
+  #   value: >-
+  #     {
+  #       "values2": { "Power": 2023, "Power2": 0, "Burning": 13.95, "Bleeding": 3.34, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
+  #   credit:
+  #     - author: 'Support Hero'
+  #       url: https://www.youtube.com/watch?v=zGr5pn7jn2A
+  #       log: https://dps.report/GP0v-20230228-174716_golem
 
   # - name: Hybrid FB (Virtues, no allies)
   #   profession: Firebrand

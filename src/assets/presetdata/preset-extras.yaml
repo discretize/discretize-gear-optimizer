@@ -848,7 +848,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Quickbrand
+  - name: Quickess Condi Firebrand
     profession: Firebrand
     value: |-
       {
@@ -863,13 +863,8 @@ list:
             "trapper": {},
             "nightmare": {},
             "tempest": {},
-            "lich": {},
             "balthazar": {},
-            "renegade": {},
             "berserker": {},
-            "weaver": {},
-            "baelfire": {},
-            "flame-legion-2": {},
             "firebrand": {}
           },
           "Relics": {

@@ -1186,7 +1186,7 @@ list:
         }
       }
 
-  - name: Condi Quickbrand WT
+  - name: Quickess Condi Firebrand P/T P/P
     profession: Firebrand
     traits: |-
       {
@@ -1204,11 +1204,11 @@ list:
           ],
           [
             617,
-            587,
+            610,
             622
           ],
           [
-            2075,
+            2101,
             2063,
             2179
           ]
