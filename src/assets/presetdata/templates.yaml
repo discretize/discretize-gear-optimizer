@@ -323,7 +323,7 @@ list:
         raid:
           extras: DH Virtues (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Alacrity Power Willbender
         id: pwb-alac
