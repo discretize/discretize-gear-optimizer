@@ -7340,7 +7340,70 @@ list:
         }
       }
 
-  - name: DPS Specter SC/D
+  - name: Condi Specter Spear
+    profession: Specter
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "44",
+          "71"
+        ],
+        "selectedTraits": [
+          [
+            1164,
+            1292,
+            1291
+          ],
+          [
+            1163,
+            1277,
+            1706
+          ],
+          [
+            2284,
+            2288,
+            2264
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": {},
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "preparedness": {},
+            "lead-attacks": {
+              "amount": "13.9"
+            },
+            "deadly-ambush": {}
+          },
+          {
+            "second-opinion-base": {},
+            "dark-sentry": {},
+            "larcenous-torment": {},
+            "strength-of-shadows-base": {},
+            "strength-of-shadows-condis": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Condi Specter SC/D
     profession: Specter
     traits: |-
       {

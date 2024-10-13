@@ -2532,7 +2532,50 @@ list:
         }
       }
 
-  - name: DPS Specter SC/D
+  - name: Condi Specter Spear
+    profession: Specter
+    value: |-
+      {
+        "extras": {
+          "Sigil1": {
+            "torment": {
+              "amount": "1.72"
+            },
+            "bursting": {}
+          },
+          "Sigil2": {
+            "bursting": {},
+            "earth": {
+              "amount": ""
+            }
+          },
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {},
+            "tormenting": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": "0.39"
+            }
+          },
+          "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {},
+            "master-tuning-crystal": {}
+          }
+        },
+        "lifestealAmount": "3.5"
+      }
+
+  - name: Condi Specter SC/D
     profession: Specter
     value: |-
       {

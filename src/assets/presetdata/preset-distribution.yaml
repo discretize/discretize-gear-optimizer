@@ -1201,8 +1201,19 @@ list:
         url: https://www.youtube.com/watch?v=iou6Wx7NQ4w
         log: https://dps.report/OK9l-20230214-214155_golem
 
+  - name: Condi Specter Spear (Allies)
+    profession: Specter
+    value: >-
+      {
+        "values2": { "Power": 3206, "Power2": 0, "Burning": 0.24, "Bleeding": 12.24, "Poisoned": 21.26, "Torment": 6.69, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Incera'
+        url: https://dps.report/4PUw-20240821-170414_golem
+        log: https://dps.report/4PUw-20240821-170414_golem
+
   # 1.72 torment proc rate (from evtc tool applied to previous log)
-  - name: DPS Specter SC/D (Allies)
+  - name: Condi Specter SC/D (Allies)
     profession: Specter
     value: >-
       {

@@ -1336,14 +1336,25 @@ list:
         weaponType: Dual wield
         outdated: false
 
+      - name: Condi Specter Spear
+        id: specter-spear
+        specialization: Specter
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Specter Spear (Allies)
+        traits: Condi Specter Spear
+        extras: Condi Specter Spear
+        weaponType: Two-handed
+        outdated: false
+
       - name: Condi Specter SC/D
         id: specter
         specialization: Specter
         boonType: Condi
         priority: Condi DPS
-        distribution: DPS Specter SC/D (Allies)
-        traits: DPS Specter SC/D
-        extras: DPS Specter SC/D
+        distribution: Condi Specter SC/D (Allies)
+        traits: Condi Specter SC/D
+        extras: Condi Specter SC/D
         weaponType: Dual wield
         outdated: false
 
@@ -1353,7 +1364,7 @@ list:
         boonType: Condi
         priority: Condi Barrier Specter
         distribution: DPS Barrier Specter SC/D (Allies)
-        traits: DPS Specter SC/D
+        traits: Condi Specter SC/D
         extras: Condi Barrier Specter SC/D
         weaponType: Dual wield
         outdated: true
