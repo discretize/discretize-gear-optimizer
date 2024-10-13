@@ -1157,6 +1157,17 @@ list:
         url: https://www.youtube.com/watch?v=Rj7plV06ws4
         log: https://dps.report/7Qst-20240901-201424_golem
 
+  - name: Quickness Power Deadeye Spear
+    profession: Deadeye
+    value: >-
+      {
+        "values2": { "Power": 3670, "Power2": 0, "Burning": 0, "Bleeding": 8.39, "Poisoned": 9, "Torment": 0.41, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Iskarel'
+        url: https://www.youtube.com/watch?v=QEuiCecSnx8
+        log: https://dps.report/DIWM-20240823-013059_golem
+
   - name: Power Deadeye Daggers BQoBK
     profession: Deadeye
     value: >-

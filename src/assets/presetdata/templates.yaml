@@ -1405,6 +1405,20 @@ list:
         weaponType: Two-handed
         outdated: false
 
+      - name: Quickness Power Deadeye Spear
+        id: quick-pded-spear
+        specialization: Deadeye
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Quickness Power Deadeye Spear
+        traits: Quickness Power Deadeye Spear
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Deadeye (Raid)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Condi Deadeye A/D
         id: cded
         specialization: Deadeye
