@@ -25,7 +25,7 @@ list:
 
   # Uses air/hydro sigils, somewhat taken into consideration by giving air a
   # proc rate high enough to match air+hydro damage
-  - name: Power Berserker
+  - name: Power Berserker GS A/A
     profession: Berserker
     value: >-
       {
@@ -38,7 +38,7 @@ list:
 
   # Uses air/hydro sigils, somewhat taken into consideration by giving air a
   # proc rate high enough to match air+hydro damage
-  - name: Power Quickness Berserker
+  - name: Quickness Power Berserker GS A/A
     profession: Berserker
     value: >-
       {

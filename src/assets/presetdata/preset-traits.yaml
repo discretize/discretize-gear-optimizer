@@ -1935,7 +1935,7 @@ list:
         }
       }
 
-  - name: Power Berserker
+  - name: Power Berserker GS A/A
     profession: Berserker
     traits: |-
       {
@@ -2011,7 +2011,7 @@ list:
         }
       }
 
-  - name: Power Quickness Berserker
+  - name: Quickness Power Berserker GS A/A
     profession: Berserker
     traits: |-
       {

@@ -537,13 +537,13 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Quickness Power Berserker
+      - name: Quickness Power Berserker GS A/A
         id: pbers-quick
         specialization: Berserker
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Quickness Berserker
-        traits: Power Quickness Berserker
+        distribution: Quickness Power Berserker GS A/A
+        traits: Quickness Power Berserker GS A/A
         fractal:
           extras: Power (Fractal)
         raid:
@@ -551,13 +551,13 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Power Berserker
+      - name: Power Berserker GS A/A
         id: pbers
         specialization: Berserker
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Berserker
-        traits: Power Berserker
+        distribution: Power Berserker GS A/A
+        traits: Power Berserker GS A/A
         fractal:
           extras: Power (Fractal)
         raid:
