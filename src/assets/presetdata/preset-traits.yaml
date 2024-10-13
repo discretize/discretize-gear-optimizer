@@ -2558,6 +2558,78 @@ list:
         "skills": {}
       }
 
+  - name: Heal Quickness Berserker
+    profession: Berserker
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "11",
+          "51",
+          "18"
+        ],
+        "selectedTraits": [
+          [
+            1474,
+            1482,
+            1470
+          ],
+          [
+            1381,
+            1484,
+            1657
+          ],
+          [
+            2049,
+            2042,
+            2307
+          ]
+        ],
+        "items": [
+          {
+            "leg-specialist": {
+              "amount": ""
+            },
+            "roaring-reveille": {},
+            "empowered": {
+              "amount": ""
+            },
+            "warriors-cunning": {
+              "amount": ""
+            },
+            "vigorous-shouts": {}
+          },
+          {
+            "warriors-sprint": {
+              "amount": ""
+            },
+            "stalwart-focus": {},
+            "axe-mastery-one": {},
+            "axe-mastery-axe": {
+              "amount": ""
+            }
+          },
+          {
+            "smash-brawler-full": {},
+            "blood-reaction-base": {},
+            "blood-reaction-with": {
+              "amount": ""
+            },
+            "fatal-frenzy-power-condi": {
+              "amount": ""
+            },
+            "bloody-roar": {
+              "amount": ""
+            },
+            "king-of-fires": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: Power Weaver Stormsoul Fractal
     profession: Weaver
     traits: |-

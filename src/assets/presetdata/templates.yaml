@@ -593,6 +593,20 @@ list:
         weaponType: Two-handed
         outdated: false
 
+      - name: Heal Quickness Berserker
+        id: heal-berserker
+        specialization: Berserker
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Quickness Berserker
+        extras: Heal
+        weaponType: Two-handed
+        outdated: false
+
   - class: Elementalist
     builds:
 
