@@ -286,13 +286,13 @@ list:
       #   traits: Condi Quickbrand
       #   extras: CFB w/ Quickness (renegade)
 
-      - name: Condi Firebrand
+      - name: Condi Firebrand A/T P/P
         id: cfb-geo
         specialization: Firebrand
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Firebrand
-        traits: CFB DPS 5 Page
+        distribution: Condi Firebrand A/T P/P
+        traits: Condi Firebrand Virtues
         extras: Condi Firebrand
         weaponType: Dual wield
         outdated: true

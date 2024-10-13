@@ -195,7 +195,7 @@ list:
         url: https://www.youtube.com/watch?v=mCOEGlJkRJ0
         log: https://dps.report/z2Zl-20220316-172733_golem
 
-  - name: Condi Firebrand
+  - name: Condi Firebrand A/T P/P
     profession: Firebrand
     value: >-
       {
@@ -206,7 +206,7 @@ list:
         url: https://www.youtube.com/watch?v=9BT5TBoaWEk
         log: https://dps.report/bXp7-20240321-001338_golem
 
-  - name: Condi Firebrand (No Allies)
+  - name: Condi Firebrand A/T P/P (No Allies)
     profession: Firebrand
     value: >-
       {
