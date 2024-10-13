@@ -29,7 +29,9 @@ export const forcedSlotsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
-      return { ...state, ...action.payload?.form?.forcedSlots };
+      if (action.payload?.form?.forcedSlots) {
+        return { ...state, ...action.payload.form.forcedSlots };
+      }
     });
   },
 });

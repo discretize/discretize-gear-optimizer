@@ -85,7 +85,7 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
   const urlObject = new URL('build/', window.location.href);
   urlObject.searchParams.set(PARAMS.GAMEMODE, gameMode);
   urlObject.searchParams.set(PARAMS.VERSION, schemaVersion);
-  urlObject.searchParams.set(PARAMS.BUILD, result);
+  urlObject.searchParams.set(PARAMS.DATA, result);
   const url = urlObject.href;
 
   if (newPage) {

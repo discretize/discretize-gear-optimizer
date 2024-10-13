@@ -35,6 +35,21 @@
       gw2id: 13062
       temporaryBuff: false
 
+    - id: vampiric-slash
+      text: Vampiric Slash
+      subText: siphon effect, vs vulnerable
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 2115 # 1410 * 1.5
+          Siphon Coefficient: 0.3 # 0.2 * 1.5
+      gw2id: 73063
+      temporaryBuff: true
+
 - section: Deadly Arts
   id: 28
   items:

@@ -270,7 +270,7 @@ const TemplateHelper = ({ character }) => {
             .join('\n');
 
           setInput({ Power: powerDPSWithoutLifesteal, Power2: 0, ...conditionData });
-          setProbablyGolem(data.players.length === 1);
+          setProbablyGolem(data.players.length <= 5);
           setUrlResult(resultAreaText);
         } catch (e) {
           console.error(e);

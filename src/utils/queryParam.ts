@@ -1,8 +1,9 @@
 export const PARAMS = {
   VERSION: 'v',
   GAMEMODE: 'm',
-  SHORTENER: 's',
-  BUILD: 'data',
+  SHORTENER_KEY: 's',
+  DATA: 'data',
+  RAW: 'json',
 };
 
 export function useQueryParam({ key }: { key: string }) {

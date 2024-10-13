@@ -294,6 +294,7 @@ export function createSettingsPerCalculation(
   const movementUptimeText = getMovementUptime(reduxState);
 
   const gameMode = getGameMode(reduxState);
+  const isWvW = gameMode === 'wvw';
 
   // todo: consolidate error handling
   if (profession === '') {
@@ -499,7 +500,11 @@ export function createSettingsPerCalculation(
           : settings_slots[slotindex].asc;
         const bonuses = objectEntries(item[Affix[affix].type]);
         for (const [type, bonus] of bonuses) {
-          for (const stat of Affix[affix].bonuses[type] ?? []) {
+          const affixData = Affix[affix];
+          const affixBonuses = isWvW
+            ? (affixData.wvwBonuses ?? affixData.bonuses)
+            : affixData.bonuses;
+          for (const stat of affixBonuses[type] ?? []) {
             statTotals[stat] = (statTotals[stat] || 0) + bonus;
           }
         }
@@ -526,7 +531,11 @@ export function createSettingsPerCalculation(
           : settings_slots[slotindex].asc;
         const bonuses = objectEntries(item[Affix[affix].type]);
         for (const [type, bonus] of bonuses) {
-          for (const stat of Affix[affix].bonuses[type] ?? []) {
+          const affixData = Affix[affix];
+          const affixBonuses = isWvW
+            ? (affixData.wvwBonuses ?? affixData.bonuses)
+            : affixData.bonuses;
+          for (const stat of affixBonuses[type] ?? []) {
             statTotals[stat] = (statTotals[stat] || 0) + bonus;
           }
         }

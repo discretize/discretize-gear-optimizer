@@ -22,7 +22,9 @@ export const bossSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
-      return { ...state, ...action.payload?.form?.boss };
+      if (action.payload?.form?.boss) {
+        return { ...state, ...action.payload?.form?.boss };
+      }
     });
   },
 });

@@ -97,7 +97,7 @@ const getShortUrl = async (exportData) => {
   const { Key } = response.data;
 
   const urlObject = new URL(window.location.href);
-  urlObject.searchParams.set(PARAMS.SHORTENER, `${Key}v1`);
+  urlObject.searchParams.set(PARAMS.SHORTENER_KEY, `${Key}v1`);
   urlObject.searchParams.delete(PARAMS.GAMEMODE);
   const shortUrl = urlObject.href;
 
@@ -112,7 +112,7 @@ const getLongUrl = async (exportData, onFailure, t) => {
 
   const urlObject = new URL(window.location.href);
   urlObject.searchParams.set(PARAMS.VERSION, version);
-  urlObject.searchParams.set(PARAMS.BUILD, jsonUrlData);
+  urlObject.searchParams.set(PARAMS.DATA, jsonUrlData);
   const longUrl = urlObject.href;
 
   if (longUrl.length > 8000) {
@@ -173,7 +173,8 @@ function* watchExportState() {
   yield takeLeading(SagaTypes.ExportFormState, exportState);
 }
 
-function* importState({ jsonUrlData, binaryData, onSuccess, onError }) {
+function* importState({ jsonUrlData, binaryData, rawJSONData, onSuccess, onError }) {
+  yield new Promise(requestAnimationFrame);
   try {
     if (binaryData) {
       const decompressed = pako.inflate(binaryData, { to: 'string' });
@@ -194,6 +195,19 @@ function* importState({ jsonUrlData, binaryData, onSuccess, onError }) {
       console.timeEnd('Decompressed template in:');
 
       console.log(importData);
+      const optimizerState = unModifyState(importData);
+
+      console.time('Applied state in:');
+      yield put(changeAll(optimizerState));
+      console.timeEnd('Applied state in:');
+
+      // execute success callback
+      onSuccess();
+    } else if (rawJSONData) {
+      const decoded = decodeURIComponent(rawJSONData);
+      const importData = JSON.parse(decoded);
+      console.log(importData);
+
       const optimizerState = unModifyState(importData);
 
       console.time('Applied state in:');

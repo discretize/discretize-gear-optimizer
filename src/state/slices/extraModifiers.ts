@@ -31,7 +31,9 @@ export const extraModifiersSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
-      return { ...state, ...action.payload?.form?.extraModifiers };
+      if (action.payload?.form?.extraModifiers) {
+        return { ...state, ...action.payload.form.extraModifiers };
+      }
     });
   },
 });

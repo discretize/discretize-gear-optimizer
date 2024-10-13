@@ -25,7 +25,7 @@ list:
 
   # Uses air/hydro sigils, somewhat taken into consideration by giving air a
   # proc rate high enough to match air+hydro damage
-  - name: Power Berserker
+  - name: Power Berserker GS A/A
     profession: Berserker
     value: >-
       {
@@ -38,7 +38,7 @@ list:
 
   # Uses air/hydro sigils, somewhat taken into consideration by giving air a
   # proc rate high enough to match air+hydro damage
-  - name: Power Quickness Berserker
+  - name: Quickness Power Berserker GS A/A
     profession: Berserker
     value: >-
       {
@@ -159,22 +159,22 @@ list:
       }
     noCreditOkay: true
 
-  - name: Condi Willbender
+  - name: Condi Willbender P/T P/P
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 2043, "Power2": 0, "Burning": 16.4, "Bleeding": 6.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2202, "Power2": 0, "Burning": 16.4, "Bleeding": 6.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Incera
-        url: https://www.youtube.com/watch?v=BrQ8MZhnvRI
-        log: https://dps.report/nqi8-20240420-175827_golem
+        url: https://www.youtube.com/watch?v=KtWL4d7IEfU
+        log: https://dps.report/oXuq-20240705-200423_golem
 
   - name: Condi Willbender Sword
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 2871, "Power2": 0, "Burning": 14.05, "Bleeding": 0, "Poisoned": 0, "Torment": 0.08, "Confusion": 0 }
+        "values2": { "Power": 2871, "Power2": 0, "Burning": 14.05, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
@@ -195,7 +195,18 @@ list:
         url: https://www.youtube.com/watch?v=mCOEGlJkRJ0
         log: https://dps.report/z2Zl-20220316-172733_golem
 
-  - name: Condi Firebrand
+  - name: Quickess Condi Firebrand P/T P/P
+    profession: Firebrand
+    value: >-
+      {
+        "values2": { "Power": 1548, "Power2": 0, "Burning": 16.88, "Bleeding": 8.17, "Poisoned": 0, "Torment": 0.11, "Confusion": 0 }
+      }
+    credit:
+      - author: Iskarel
+        url: https://www.youtube.com/watch?v=MERU2xlyhuw
+        log: https://dps.report/ujRl-20240630-011947_golem
+
+  - name: Condi Firebrand A/T P/P
     profession: Firebrand
     value: >-
       {
@@ -206,7 +217,18 @@ list:
         url: https://www.youtube.com/watch?v=9BT5TBoaWEk
         log: https://dps.report/bXp7-20240321-001338_golem
 
-  - name: Condi Firebrand (No Allies)
+  - name: Condi Firebrand A/T
+    profession: Firebrand
+    value: >-
+      {
+        "values2": { "Power": 2219, "Power2": 0, "Burning": 13.98, "Bleeding": 14.64, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Iskarel
+        url: https://www.youtube.com/watch?v=3K3fFUXvQKs
+        log: https://dps.report/vPRV-20240706-013634_golem
+
+  - name: Condi Firebrand A/T P/P (No Allies)
     profession: Firebrand
     value: >-
       {
@@ -217,50 +239,50 @@ list:
         url: https://www.youtube.com/watch?v=9BT5TBoaWEk
         log: https://dps.report/CdPR-20240321-151620_golem
 
-  - name: Condi Quickbrand (WT, Allies)
-    profession: Firebrand
-    value: >-
-      {
-        "values2": { "Power": 1397, "Power2": 0, "Burning": 14.23, "Bleeding": 6.07, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: Iskarel
-        url: https://www.youtube.com/watch?v=jv6BRBFb_H8
-        log: https://dps.report/manG-20240324-193028_golem
+  # - name: Condi Quickbrand (WT, Allies)
+  #   profession: Firebrand
+  #   value: >-
+  #     {
+  #       "values2": { "Power": 1397, "Power2": 0, "Burning": 14.23, "Bleeding": 6.07, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
+  #   credit:
+  #     - author: Iskarel
+  #       url: https://www.youtube.com/watch?v=jv6BRBFb_H8
+  #       log: https://dps.report/manG-20240324-193028_golem
 
-  - name: Condi Quickbrand (WT, No Allies)
-    profession: Firebrand
-    value: >-
-      {
-        "values2": { "Power": 1391, "Power2": 0, "Burning": 13.51, "Bleeding": 5.83, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: Iskarel
-        url: https://www.youtube.com/watch?v=jv6BRBFb_H8
-        log: https://dps.report/OeKr-20240324-194950_golem
+  # - name: Condi Quickbrand (WT, No Allies)
+  #   profession: Firebrand
+  #   value: >-
+  #     {
+  #       "values2": { "Power": 1391, "Power2": 0, "Burning": 13.51, "Bleeding": 5.83, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
+  #   credit:
+  #     - author: Iskarel
+  #       url: https://www.youtube.com/watch?v=jv6BRBFb_H8
+  #       log: https://dps.report/OeKr-20240324-194950_golem
 
   # Solo log adjusted upwards to match with-allies dps (no log for the with allies bench)
-  - name: Condi Quickbrand (LL, Allies, Approx.)
-    profession: Firebrand
-    value: >-
-      {
-        "values2": { "Power": 2023, "Power2": 0, "Burning": 16.65, "Bleeding": 3.51, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=zGr5pn7jn2A
-        log: https://dps.report/GP0v-20230228-174716_golem
+  # - name: Condi Quickbrand (LL, Allies, Approx.)
+  #   profession: Firebrand
+  #   value: >-
+  #     {
+  #       "values2": { "Power": 2023, "Power2": 0, "Burning": 16.65, "Bleeding": 3.51, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
+  #   credit:
+  #     - author: 'Support Hero'
+  #       url: https://www.youtube.com/watch?v=zGr5pn7jn2A
+  #       log: https://dps.report/GP0v-20230228-174716_golem
 
-  - name: Condi Quickbrand (LL, No Allies)
-    profession: Firebrand
-    value: >-
-      {
-        "values2": { "Power": 2023, "Power2": 0, "Burning": 13.95, "Bleeding": 3.34, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=zGr5pn7jn2A
-        log: https://dps.report/GP0v-20230228-174716_golem
+  # - name: Condi Quickbrand (LL, No Allies)
+  #   profession: Firebrand
+  #   value: >-
+  #     {
+  #       "values2": { "Power": 2023, "Power2": 0, "Burning": 13.95, "Bleeding": 3.34, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
+  #   credit:
+  #     - author: 'Support Hero'
+  #       url: https://www.youtube.com/watch?v=zGr5pn7jn2A
+  #       log: https://dps.report/GP0v-20230228-174716_golem
 
   # - name: Hybrid FB (Virtues, no allies)
   #   profession: Firebrand
@@ -357,6 +379,17 @@ list:
         url: https://www.youtube.com/watch?v=j1hJg6g1i1E
         log: https://dps.report/SbRf-20231003-025202_golem
 
+  - name: Condi Weaver Pistol
+    profession: Weaver
+    value: >-
+      {
+        "values2": { "Power": 1442, "Power2": 0, "Burning": 9.53, "Bleeding": 29.79, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Ryan'
+        url: https://www.youtube.com/watch?v=gKvY0cI2wfg
+        log: https://dps.report/LyCY-20240323-201022_golem
+
   # no jade bot
   - name: Condi Weaver Sword
     profession: Weaver
@@ -415,18 +448,29 @@ list:
         url: https://www.youtube.com/watch?v=sU5-g4wBsgw
         log: https://dps.report/4kbg-20230312-075239_golem
 
-  - name: Alacrity Hybrid Tempest
+  - name: Alacrity Condi Tempest Pistol
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 2930, "Power2": 0, "Burning": 11.56, "Bleeding": 11.96, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2452, "Power2": 0, "Burning": 9.13, "Bleeding": 29.37, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Dánmander'
-        url: https://www.youtube.com/watch?v=WOrKFRobSiU
-        log: https://dps.report/RMsk-20231213-174648_golem
+      - author: '[NA] Crone'
+        url: https://www.youtube.com/watch?v=A8vHxauHgaI
+        log: https://dps.report/ToYQ-20240320-030855_golem
 
-  - name: Condi Tempest
+  - name: Condi Tempest Pistol
+    profession: Tempest
+    value: >-
+      {
+        "values2": { "Power": 2616, "Power2": 0, "Burning": 11.04, "Bleeding": 25.97, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: '[NA] Crone'
+        url: https://www.youtube.com/watch?v=oU5R2TqrRGo
+        log: https://dps.report/c6Pe-20240320-004729_golem
+
+  - name: Condi Tempest Hammer
     profession: Tempest
     value: >-
       {
@@ -437,17 +481,16 @@ list:
         url: https://www.youtube.com/watch?v=UI_DqbbBhWg
         log: https://dps.report/JJvS-20231203-145912_golem
 
-  # gear is missing one infusion (and not crit capped?)
-  - name: Power Tempest
+  - name: Power Tempest Scepter
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 4778, "Power2": 0, "Burning": 4.37, "Bleeding": 4.22, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 5121, "Power2": 0, "Burning": 3.21, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[SC] Roul'
-        url: https://www.youtube.com/watch?v=4i5TFegDNXg
-        log: https://dps.report/6Kzq-20221201-114817_golem
+      - author: '[NA] Crone'
+        url: https://www.youtube.com/watch?v=I5H5GZm-56E
+        log: https://dps.report/qZCK-20240717-155857_golem
 
   - name: Power Catalyst
     profession: Catalyst
@@ -482,18 +525,16 @@ list:
         url: https://www.youtube.com/watch?v=s1OXN6HRLTo
         log: https://dps.report/8LBy-20230515-192958_golem
 
-  # add razorclaw casts every 20sec to simulate allies
-  # 4 players * 10 pulses * 2 seconds / 20 sec = 4.00 avg bleed
-  - name: Condi Alac Invocation
+  - name: Alacrity Condi Renegade
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 1903, "Power2": 0, "Burning": 4.14, "Bleeding": 13.37, "Poisoned": 4, "Torment": 16.09, "Confusion": 0 }
+        "values2": { "Power": 2139, "Power2": 0, "Burning": 3.97, "Bleeding": 12.36, "Poisoned": 4.42, "Torment": 17.24, "Confusion": 0 }
       }
     credit:
       - author: Umbra
-        url: https://www.youtube.com/watch?v=uCI1Xu63SmM
-        log: https://dps.report/ervZ-20231003-013459_golem
+        url: https://www.youtube.com/watch?v=J_1pVfkTvHo
+        log: https://dps.report/8VfB-20240706-155741_golem
 
   - name: Condi Alac Invocation (no allies)
     profession: Renegade
@@ -686,7 +727,7 @@ list:
   #       url: https://www.youtube.com/watch?v=SgCNpLWO-KA
   #       log: https://dps.report/qHdT-20220712-170120_golem
 
-  - name: Hybrid Slb A/T D/A (LotP)
+  - name: Hybrid Slb A/T D/A
     profession: Soulbeast
     value: >-
       {
@@ -747,12 +788,12 @@ list:
     profession: Holosmith
     value: >-
       {
-        "values2": { "Power": 2915, "Power2": 0, "Burning": 13.13, "Bleeding": 10.95, "Poisoned": 7.64, "Torment": 0.06, "Confusion": 4.28 }
+        "values2": { "Power": 3072, "Power2": 0, "Burning": 16.89, "Bleeding": 8.12, "Poisoned": 3.67, "Torment": 0, "Confusion": 2.54 }
       }
     credit:
       - author: beng / L3m0n
-        url: https://www.youtube.com/watch?v=jCF4hW8Ziz0
-        log: https://dps.report/mbPx-20231009-150450_golem
+        url: https://www.youtube.com/watch?v=2Lt1tT7dNJI
+        log: https://dps.report/1MvY-20240907-181942_golem
 
   # has lifesteal food; subtracy 127 power dps
   # mech does burning (???) - import tool breaks
@@ -805,23 +846,12 @@ list:
     profession: Scrapper
     value: >-
       {
-        "values2": { "Power": 3302, "Power2": 0, "Burning": 0, "Bleeding": 3.14, "Poisoned": 3.87, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3662, "Power2": 0, "Burning": 0, "Bleeding": 4.98, "Poisoned": 4.78, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Aralyth'
-        url: https://www.youtube.com/watch?v=n0X117MhmlU
-        log: https://dps.report/SJTF-20230216-171115_golem
-
-  - name: Quickness Power Scrapper
-    profession: Scrapper
-    value: >-
-      {
-        "values2": { "Power": 3397, "Power2": 0, "Burning": 0, "Bleeding": 4.01, "Poisoned": 3.3, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: '[NA] Crone'
-        url: https://www.youtube.com/watch?v=cKQ9-9gHe0Q
-        log: https://dps.report/jbc7-20230707-213937_golem
+      - author: 'beng / L3m0n'
+        url: https://www.youtube.com/watch?v=D_rBzRClNFU
+        log: https://dps.report/VMeG-20240703-153531_golem
 
   - name: Quickness Condi Scrapper
     profession: Scrapper
@@ -838,7 +868,7 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 3541, "Power2": 1419, "Burning": 0, "Bleeding": 0.1, "Poisoned": 0, "Torment": 0, "Confusion": 0.93 }
+        "values2": { "Power": 3541, "Power2": 1419, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.93 }
       }
     credit:
       - author: Cemox
@@ -846,11 +876,23 @@ list:
         log: https://dps.report/mV8B-20231003-224244_golem
 
   # impact
+  - name: Boon Power Chrono Spear
+    profession: Chronomancer
+    value: >-
+      {
+        "values2": { "Power": 4691, "Power2": 0, "Burning": 0, "Bleeding": 0.63, "Poisoned": 0, "Torment": 0, "Confusion": 1.12 }
+      }
+    credit:
+      - author: '[CnD] Tipcat'
+        url: https://www.youtube.com/watch?v=YErx0w85N-0
+        log: https://dps.report/arbR-20240915-193047_golem
+
+  # impact
   - name: Boon Power Chrono GS
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 3640, "Power2": 1118, "Burning": 0, "Bleeding": 0.1, "Poisoned": 0, "Torment": 0, "Confusion": 1.24 }
+        "values2": { "Power": 3640, "Power2": 1118, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 1.24 }
       }
     credit:
       - author: '[CnD] Tipcat'
@@ -909,7 +951,7 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 3200, "Power2": 930, "Burning": 0, "Bleeding": 0.03, "Poisoned": 0, "Torment": 8.98, "Confusion": 3.39 }
+        "values2": { "Power": 3200, "Power2": 930, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 8.98, "Confusion": 3.39 }
       }
     credit:
       - author: 'REMagic'
@@ -928,12 +970,23 @@ list:
         url: https://www.youtube.com/watch?v=SgiCD0VZC1M
         log: https://dps.report/9Epv-20230630-181945_golem
 
+  - name: Power Virtuoso Spear
+    profession: Virtuoso
+    value: >-
+      {
+        "values2": { "Power": 4886, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.52 }
+      }
+    credit:
+      - author: 'Mastro'
+        url: https://www.youtube.com/watch?v=eiA6Zmj23ok
+        log: https://dps.report/SQov-20240821-152722_golem
+
   # accuracy, assassin legs, 4 precise (2007 prec)
   - name: Power Virtuoso GS
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 3508, "Power2": 1106, "Burning": 0, "Bleeding": 0.16, "Poisoned": 0, "Torment": 0, "Confusion": 0.56 }
+        "values2": { "Power": 3508, "Power2": 1106, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.56 }
       }
     credit:
       - author: beng / L3m0n
@@ -977,7 +1030,19 @@ list:
         log: https://dps.report/s1PP-20231007-214530_golem
 
   # uses https://github.com/hobinjk/optimizer-scripts/blob/main/reaper.js for shroud power damage split
-  - name: Condi Reaper
+  - name: Condi Reaper Spear
+    profession: Reaper
+    value: >-
+      {
+        "values2": { "Power": 3109, "Power2": 666, "Burning": 0.32, "Bleeding": 39.17, "Poisoned": 1.73, "Torment": 2.06, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=QlyneWeY3N0
+        log: https://dps.report/HZw6-20240829-121726_golem
+
+  # uses https://github.com/hobinjk/optimizer-scripts/blob/main/reaper.js for shroud power damage split
+  - name: Condi Reaper Scepter
     profession: Reaper
     value: >-
       {
@@ -999,7 +1064,7 @@ list:
         url: https://www.youtube.com/watch?v=ZOC2RsEFrTY
         log: https://dps.report/IpSJ-20231002-151234_golem
 
-  - name: Quickness Harbinger
+  - name: Quickness Condi Harbinger
     profession: Harbinger
     value: >-
       {
@@ -1010,38 +1075,72 @@ list:
         url: https://www.youtube.com/watch?v=hGy1hhhvhhc
         log: https://dps.report/9GSF-20231002-152522_golem
 
-  - name: Quickness Power Harbinger (Approx.)
+  - name: Quickness Power Harbinger
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 1589, "Power2": 1382, "Burning": 0.13, "Bleeding": 2.44, "Poisoned": 2.14, "Torment": 9.49, "Confusion": 0.13 }
+        "values2": { "Power": 1656, "Power2": 1965, "Burning": 0.55, "Bleeding": 0.55, "Poisoned": 0.55, "Torment": 10.11, "Confusion": 0.55 }
       }
     credit:
-      - author: '[CnD] Aphrodite Lady'
-        url: https://www.youtube.com/watch?v=hyunt1U3YHQ
-        log: https://dps.report/wtGt-20220902-132134_golem
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=CHdwmsq15f8
+        log: https://dps.report/BCeZ-20240822-094804_golem
 
-  - name: Condi Deadeye
+  # uses https://github.com/hobinjk/optimizer-scripts/blob/main/reaper.js for shroud power damage split
+  - name: Power Harbinger
+    profession: Harbinger
+    value: >-
+      {
+        "values2": { "Power": 1756, "Power2": 2122, "Burning": 0.67, "Bleeding": 0.67, "Poisoned": 1.48, "Torment": 9.89, "Confusion": 0.66 }
+      }
+    credit:
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=ZGC5WTTHmi4
+        log: https://dps.report/Mu8J-20240821-222344_golem
+
+  - name: Condi Deadeye A/D
     profession: Deadeye
     value: >-
       {
-        "values2": { "Power": 1690, "Power2": 0, "Burning": 0.5, "Bleeding": 19, "Poisoned": 14.6, "Torment": 9.5, "Confusion": 0 }
+        "values2": { "Power": 3552, "Power2": 0, "Burning": 0, "Bleeding": 7.43, "Poisoned": 25.79, "Torment": 4.95, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
-        url: https://www.youtube.com/watch?v=1yAvjWJoAyE
-        log: https://dps.report/zCoq-20211001-043146_golem
+        url: https://www.youtube.com/watch?v=hZZMpKMWnbE
+        log: https://dps.report/KuD7-20240530-002512_golem
+
+  - name: Condi Deadeye A/D (no allies)
+    profession: Deadeye
+    value: >-
+      {
+        "values2": { "Power": 3554, "Power2": 0, "Burning": 0, "Bleeding": 7.24, "Poisoned": 21.34, "Torment": 6.47, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Incera'
+        url: https://www.youtube.com/watch?v=hZZMpKMWnbE
+        log: https://dps.report/4GTi-20240530-005615_golem
+
+  - name: Quickness Condi Deadeye Spear
+    profession: Deadeye
+    value: >-
+      {
+        "values2": { "Power": 3173, "Power2": 0, "Burning": 0, "Bleeding": 14.14, "Poisoned": 20.49, "Torment": 0.51, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Incera'
+        url: https://dps.report/dUOv-20240821-180709_golem
+        log: https://dps.report/dUOv-20240821-180709_golem
 
   - name: Power Staff Daredevil
     profession: Daredevil
     value: >-
       {
-        "values2": { "Power": 3346, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 3.02, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3401, "Power2": 0, "Burning": 0, "Bleeding": 0.65, "Poisoned": 3.3, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Left'
-        url: https://www.youtube.com/watch?v=j_KEqAhxgjc
-        log: https://dps.report/GlYP-20230826-115834_golem
+        url: https://www.youtube.com/watch?v=4Wh6CLpzCkM
+        log: https://www.dps.report/smRL-20240319-204548_golem
 
   - name: Condi Daredevil (No Allies)
     profession: Daredevil
@@ -1067,16 +1166,38 @@ list:
         url: https://www.youtube.com/watch?v=gKnb5aRz5nk
         log: https://www.dps.report/WZp4-20230216-142041_golem
 
-  - name: Power Deadeye M7
+  - name: Power Deadeye Rifle
     profession: Deadeye
     value: >-
       {
-        "values2": { "Power": 3805, "Power2": 0, "Burning": 0, "Bleeding": 1.19, "Poisoned": 2.48, "Torment": 0.63, "Confusion": 0 }
+        "values2": { "Power": 4065, "Power2": 0, "Burning": 0, "Bleeding": 0.98, "Poisoned": 2.17, "Torment": 0.27, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
-        url: https://www.youtube.com/watch?v=F4KeTOtfzY8
-        log: https://dps.report/MXrd-20230915-172015_golem
+        url: https://www.youtube.com/watch?v=W1yc6I7DfAs
+        log: https://dps.report/FyD0-20240322-133853_golem
+
+  - name: Power Deadeye Spear
+    profession: Deadeye
+    value: >-
+      {
+        "values2": { "Power": 3705, "Power2": 0, "Burning": 0, "Bleeding": 10.41, "Poisoned": 8.77, "Torment": 1.37, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Iskarel'
+        url: https://www.youtube.com/watch?v=Rj7plV06ws4
+        log: https://dps.report/7Qst-20240901-201424_golem
+
+  - name: Quickness Power Deadeye Spear
+    profession: Deadeye
+    value: >-
+      {
+        "values2": { "Power": 3670, "Power2": 0, "Burning": 0, "Bleeding": 8.39, "Poisoned": 9, "Torment": 0.41, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Iskarel'
+        url: https://www.youtube.com/watch?v=QEuiCecSnx8
+        log: https://dps.report/DIWM-20240823-013059_golem
 
   - name: Power Deadeye Daggers BQoBK
     profession: Deadeye
@@ -1089,18 +1210,7 @@ list:
         url: https://www.youtube.com/watch?v=roV_hRP7AVY
         log: https://dps.report/tpmp-20221130-042530_golem
 
-  - name: Rifle Deadeye Premeditation
-    profession: Deadeye
-    value: >-
-      {
-        "values2": { "Power": 3669, "Power2": 0, "Burning": 0, "Bleeding": 0.42, "Poisoned": 1.83, "Torment": 0.5, "Confusion": 0 }
-      }
-    credit:
-      - author: 'Iskarel'
-        url: https://www.youtube.com/watch?v=52La8OgG69w
-        log: https://dps.report/yDtd-20230214-221732_golem
-
-  - name: Rifle Deadeye Silent Scope
+  - name: Power Deadeye Rifle Silent Scope
     profession: Deadeye
     value: >-
       {
@@ -1111,8 +1221,19 @@ list:
         url: https://www.youtube.com/watch?v=iou6Wx7NQ4w
         log: https://dps.report/OK9l-20230214-214155_golem
 
+  - name: Condi Specter Spear (Allies)
+    profession: Specter
+    value: >-
+      {
+        "values2": { "Power": 3206, "Power2": 0, "Burning": 0.24, "Bleeding": 12.24, "Poisoned": 21.26, "Torment": 6.69, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Incera'
+        url: https://dps.report/4PUw-20240821-170414_golem
+        log: https://dps.report/4PUw-20240821-170414_golem
+
   # 1.72 torment proc rate (from evtc tool applied to previous log)
-  - name: DPS Specter SC/D (Allies)
+  - name: Condi Specter SC/D (Allies)
     profession: Specter
     value: >-
       {

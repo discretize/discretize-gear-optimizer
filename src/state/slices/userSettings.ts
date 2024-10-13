@@ -60,11 +60,13 @@ export const userSettingsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
-      if (action.payload?.userSettings?.gameMode) {
-        setQueryParm({ key: PARAMS.GAMEMODE, value: action.payload.userSettings.gameMode });
-      }
+      if (action.payload?.userSettings) {
+        if (action.payload.userSettings.gameMode) {
+          setQueryParm({ key: PARAMS.GAMEMODE, value: action.payload.userSettings.gameMode });
+        }
 
-      return { ...state, ...action.payload?.userSettings };
+        return { ...state, ...action.payload.userSettings };
+      }
     });
   },
 });

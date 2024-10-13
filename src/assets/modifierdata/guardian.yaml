@@ -88,42 +88,61 @@
     #
     # f1 passives from procs are 2.4s because of amplified wrath; every 3 hits if virtues
     # passive burning : 1/3 * 2.4 = 0.8
-    - id: mantra-of-flame
-      text: Mantra of Flame
-      subText: (with passive + permeating + amplified)
-      amountData:
-        label: '/10s'
-        default: 1.5
-        quantityEntered: 10
-      modifiers:
-        attributes:
-          Power Coefficient: 483.3
-          Burning Coefficient: 14.4
-      wvwModifiers:
-        attributes:
-          Power Coefficient: 483.3
-          Burning Coefficient: 4.8
-      gw2id: 46148
-      temporaryBuff: true
+    # - id: mantra-of-flame
+    #   text: Mantra of Flame
+    #   subText: (with passive + permeating + amplified)
+    #   amountData:
+    #     label: '/10s'
+    #     default: 1.5
+    #     quantityEntered: 10
+    #   modifiers:
+    #     attributes:
+    #       Power Coefficient: 483.3
+    #       Burning Coefficient: 14.4
+    #   wvwModifiers:
+    #     attributes:
+    #       Power Coefficient: 483.3
+    #       Burning Coefficient: 4.8
+    #   gw2id: 46148
+    #   temporaryBuff: true
 
     # 0.7 coefficient, 690.5(?) strength, 18 proc/120s traited
     # burning: 4s
-    - id: mantra-of-flame-base
-      text: Mantra of Flame
-      subText: (no passive)
+    # - id: mantra-of-flame-base
+    #   text: Mantra of Flame
+    #   subText: (no passive)
+    #   amountData:
+    #     label: '/10s'
+    #     default: 1.5
+    #     quantityEntered: 10
+    #   modifiers:
+    #     attributes:
+    #       Power Coefficient: 483.3
+    #       Burning Coefficient: 12
+    #   wvwModifiers:
+    #     attributes:
+    #       Power Coefficient: 483.3
+    #       Burning Coefficient: 4
+    #   gw2id: 46148
+    #   temporaryBuff: true
+
+    - id: binding-blade
+      text: Binding Blade
+      subText: damage over time tick (approx.)
       amountData:
         label: '/10s'
-        default: 1.5
+        default: 0
+        defaultInput: ???
         quantityEntered: 10
       modifiers:
         attributes:
-          Power Coefficient: 483.3
-          Burning Coefficient: 12
+          Siphon Base Coefficient: 160
+          Siphon Coefficient: 0.3
       wvwModifiers:
         attributes:
-          Power Coefficient: 483.3
-          Burning Coefficient: 4
-      gw2id: 46148
+          Siphon Base Coefficient: 160
+          Siphon Coefficient: 0.1
+      gw2id: 9147
       temporaryBuff: true
 
 - section: Zeal
@@ -321,19 +340,6 @@
       defaultEnabled: true
       temporaryBuff: false
 
-    - id: honorable-staff-2
-      text: Honorable Staff
-      subText: with staff
-      modifiers:
-        attributes:
-          Concentration: [120, converted] # tested by Stephan
-      wvwModifiers:
-        attributes:
-          Concentration: [60, converted] # tested by Stephan
-      gw2id: 557
-      defaultEnabled: true
-      temporaryBuff: true # assume the user is on a dual-wield set
-
     - id: force-of-will
       text: Force of Will
       modifiers:
@@ -469,15 +475,6 @@
           Outgoing Strike Damage: [15%, mult]
       gw2id: 1926
       defaultEnabled: false
-
-    - id: hunters-fortification
-      text: Hunter's Fortification
-      subText: no conditions
-      modifiers:
-        damage:
-          Damage Reduction: [10%, unknown]
-      gw2id: 1908
-      defaultEnabled: true
 
     - id: heavy-light-defiant
       text: Heavy Light

@@ -63,17 +63,18 @@ export const buffsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
-      const removeOldBuffs = (data: Buffs | BuffAmounts) => {
-        if (!data) return data;
-        const validEntries = Object.entries(data).filter(([key]) => buffModifiersById[key]);
-        return Object.fromEntries(validEntries);
-      };
+      if (action.payload?.form?.buffs) {
+        const removeOldBuffs = (data?: Buffs | BuffAmounts) => {
+          if (!data) return {};
+          const validEntries = Object.entries(data).filter(([key]) => buffModifiersById[key]);
+          return Object.fromEntries(validEntries);
+        };
 
-      const { buffs, amounts } = action.payload?.form?.buffs ?? {};
-      const validData = { buffs: removeOldBuffs(buffs), amounts: removeOldBuffs(amounts) };
+        const { buffs, amounts } = action.payload?.form?.buffs ?? {};
+        const validData = { buffs: removeOldBuffs(buffs), amounts: removeOldBuffs(amounts) };
 
-      console.log({ buffs, amounts, validData });
-      return { ...state, ...validData };
+        return { ...state, ...validData };
+      }
     });
 
     builder.addCase(setBuildTemplate, (state, action) => {

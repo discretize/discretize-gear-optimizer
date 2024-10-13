@@ -285,13 +285,13 @@ list:
         "minQuicknessDuration": 0
       }
 
-  - name: Condi Alacrity Renegade 37.5%
+  - name: Alacrity Condi Renegade 42%
     hidden: true
     value: >-
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 37.5,
+        "minBoonDuration": 42,
         "minQuicknessDuration": 0
       }
 
@@ -335,13 +335,22 @@ list:
         "minQuicknessDuration": 0
       }
 
-  - name: Alacrity Hybrid Tempest 28%
+  - name: Alacrity Power Tempest 28%
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 28,
+        "minQuicknessDuration": 0
+      }
+
+  - name: Alacrity Condi Tempest 40%
     hidden: true
     value: >-
       {
-        "affixes": ["Viper", "Grieving", "Celestial"],
+        "affixes": ["Viper", "Ritualist", "Sinister"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 28,
+        "minBoonDuration": 40,
         "minQuicknessDuration": 0
       }
 

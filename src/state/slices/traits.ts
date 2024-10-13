@@ -102,7 +102,9 @@ export const traitsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
-      return { ...state, ...action.payload?.form?.traits };
+      if (action.payload?.form?.traits) {
+        return { ...state, ...action.payload.form.traits };
+      }
     });
 
     builder.addCase(changeProfession, (state, _action) => ({

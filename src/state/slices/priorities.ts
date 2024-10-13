@@ -151,7 +151,9 @@ export const prioritiesSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
-      return { ...state, ...action.payload?.form?.priorities };
+      if (action.payload?.form?.priorities) {
+        return { ...state, ...action.payload?.form?.priorities };
+      }
     });
 
     builder.addCase(setBuildTemplate, (state, action) => {
@@ -189,8 +191,10 @@ export const getCustomAffixData = (state: RootState) => {
   const type = customAffix?.type || 'triple';
   const major = customAffix?.bonuses?.major || [];
   const minor = customAffix?.bonuses?.minor || [];
+  const jewelMajor = customAffix?.bonuses?.jewelMajor || [];
+  const jewelMinor = customAffix?.bonuses?.jewelMinor || [];
 
-  return { type, bonuses: { major, minor } };
+  return { type, bonuses: { major, minor, jewelMajor, jewelMinor }, ...customAffix };
 };
 
 export const {

@@ -138,7 +138,9 @@ export const controlSlice = createSlice({
   initialState,
   reducers: {
     changeAll: (state, action) => {
-      return { ...state, ...action.payload?.control };
+      if (action.payload?.control) {
+        return { ...state, ...action.payload.control };
+      }
     },
     changeProfession: (state, action: PayloadAction<ProfessionName>) => {
       if (state.profession !== action.payload) {

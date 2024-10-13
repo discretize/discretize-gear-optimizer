@@ -46,7 +46,9 @@ export const skillsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
-      return { ...state, ...action.payload?.form?.skills };
+      if (action.payload?.form?.skills) {
+        return { ...state, ...action.payload.form.skills };
+      }
     });
 
     builder.addCase(changeProfession, (state, _action) => ({

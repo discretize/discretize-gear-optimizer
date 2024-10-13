@@ -72,7 +72,7 @@ const BuildPage = () => {
   const buffs = useSelector(getBuffs);
 
   // migrate to own implementation
-  const buildData = useQueryParam({ key: PARAMS.BUILD });
+  const buildData = useQueryParam({ key: PARAMS.DATA });
   const versionParam = useQueryParam({ key: PARAMS.VERSION });
 
   // if no version is present, default to version 0

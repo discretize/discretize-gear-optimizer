@@ -20,8 +20,8 @@
     - id: dolyak-signet
       text: Dolyak Signet
       modifiers:
-        attributes:
-          Toughness: [180, buff]
+        damage:
+          Damage Reduction: [10%, unknown]
       gw2id: 14413
       temporaryBuff: false
 
@@ -216,7 +216,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Ferocity: [150, unknown]
+          Ferocity: [250, unknown]
       gw2id: 1336
       defaultEnabled: true
       temporaryBuff: true
