@@ -546,7 +546,7 @@
           Outgoing Strike Damage: [20%, add] # add according to wiki
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [13%, add] # add according to wiki
+          Outgoing Strike Damage: [15%, add] # add according to wiki
       gw2id: 1803
       defaultEnabled: true
 
@@ -562,7 +562,7 @@
           Outgoing Strike Damage: [7%, add] # add according to wiki
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [3%, add]
+          Outgoing Strike Damage: [4%, add]
       gw2id: 1803
       defaultEnabled: true
 

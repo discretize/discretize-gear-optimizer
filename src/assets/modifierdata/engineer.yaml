@@ -257,6 +257,7 @@
       subText: 100% regeneration
       modifiers:
         attributes:
+          Power: [250, buff]
           Healing Power: [250, buff]
       minor: true
       gw2id: 519

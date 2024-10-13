@@ -734,7 +734,6 @@ list:
             "defenders-dogma": {},
             "zealots-aggression": {},
             "pure-of-sight": {},
-            "hunters-fortification": {},
             "heavy-light-defiant": {},
             "heavy-light-defiant-disabled": {
               "amount": ""
@@ -812,7 +811,6 @@ list:
             "defenders-dogma": {},
             "zealots-aggression": {},
             "pure-of-sight": {},
-            "hunters-fortification": {},
             "heavy-light-defiant": {},
             "heavy-light-defiant-disabled": {
               "amount": ""
@@ -1301,7 +1299,6 @@ list:
               "amount": ""
             },
             "honorable-staff": {},
-            "honorable-staff-2": {},
             "force-of-will": {}
           },
           {
