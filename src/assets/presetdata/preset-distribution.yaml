@@ -707,7 +707,7 @@ list:
   #       url: https://www.youtube.com/watch?v=SgCNpLWO-KA
   #       log: https://dps.report/qHdT-20220712-170120_golem
 
-  - name: Hybrid Slb A/T D/A (LotP)
+  - name: Hybrid Slb A/T D/A
     profession: Soulbeast
     value: >-
       {

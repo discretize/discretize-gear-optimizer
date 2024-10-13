@@ -817,16 +817,16 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Hybrid Soulbeast LotP (Approx.)
+      - name: Hybrid Soulbeast A/T D/A (Approx.)
         id: hslb
         specialization: Soulbeast
         boonType: Condi
         priority: Hybrid DPS
-        distribution: Hybrid Slb A/T D/A (LotP)
-        traits: Hybrid Slb LotP
+        distribution: Hybrid Slb A/T D/A
+        traits: Hybrid Slb
         extras: Hybrid Slb
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       # - name: Condi Soulbeast D/T SB
       #   id: cslb-sb
@@ -847,7 +847,7 @@ list:
       #   distribution: Condi Slb (D/T A/D)
       #   traits: Condi Slb D/T A/D
 
-      - name: Condi Soulbeast D/D SB
+      - name: Condi Soulbeast D/D SB (Approx.)
         id: cslb-ddsb
         specialization: Soulbeast
         boonType: Condi

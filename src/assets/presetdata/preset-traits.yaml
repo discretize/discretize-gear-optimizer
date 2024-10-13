@@ -4248,7 +4248,7 @@ list:
         }
       }
 
-  - name: Hybrid Slb LotP
+  - name: Hybrid Slb
     profession: Soulbeast
     traits: |-
       {
