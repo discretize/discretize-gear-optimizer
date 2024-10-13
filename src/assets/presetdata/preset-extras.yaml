@@ -2303,6 +2303,46 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Quickness Condi Deadeye Spear
+    profession: Deadeye
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
+            "afflicted": {},
+            "thorns": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "earth": {
+              "amount": ""
+            }
+          },
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Deadeye (Raid)
     profession: Deadeye
     value: |-

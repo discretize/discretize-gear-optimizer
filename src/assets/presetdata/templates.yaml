@@ -1405,6 +1405,17 @@ list:
         weaponType: Two-handed
         outdated: false
 
+      - name: Quickness Condi Deadeye Spear
+        id: quick-cded-spear
+        specialization: Deadeye
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Quickness Condi Deadeye Spear
+        traits: Quickness Condi Deadeye Spear
+        extras: Quickness Condi Deadeye Spear
+        weaponType: Two-handed
+        outdated: false
+
       - name: Quickness Power Deadeye Spear
         id: quick-pded-spear
         specialization: Deadeye

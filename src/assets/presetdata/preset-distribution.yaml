@@ -1100,6 +1100,17 @@ list:
         url: https://www.youtube.com/watch?v=hZZMpKMWnbE
         log: https://dps.report/4GTi-20240530-005615_golem
 
+  - name: Quickness Condi Deadeye Spear
+    profession: Deadeye
+    value: >-
+      {
+        "values2": { "Power": 3173, "Power2": 0, "Burning": 0, "Bleeding": 14.14, "Poisoned": 20.49, "Torment": 0.51, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Incera'
+        url: https://dps.report/dUOv-20240821-180709_golem
+        log: https://dps.report/dUOv-20240821-180709_golem
+
   - name: Power Staff Daredevil
     profession: Daredevil
     value: >-

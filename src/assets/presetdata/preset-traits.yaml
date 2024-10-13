@@ -6590,6 +6590,70 @@ list:
         "skills": {}
       }
 
+  - name: Quickness Condi Deadeye Spear
+    profession: Deadeye
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "44",
+          "58"
+        ],
+        "selectedTraits": [
+          [
+            1164,
+            1292,
+            1291
+          ],
+          [
+            1163,
+            1277,
+            1706
+          ],
+          [
+            2136,
+            2160,
+            2146
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": {},
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "preparedness": {},
+            "lead-attacks": {
+              "amount": "14"
+            },
+            "deadly-ambush": {}
+          },
+          {
+            "silent-scope-base": {},
+            "silent-scope-rifle": {},
+            "premeditation-base": {},
+            "premeditation": {
+              "amount": ""
+            },
+            "iron-sight": {},
+            "be-quick-or-be-killed": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: Power Staff Daredevil
     profession: Daredevil
     traits: |-
