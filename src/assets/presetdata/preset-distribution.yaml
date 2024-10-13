@@ -838,7 +838,7 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 3541, "Power2": 1419, "Burning": 0, "Bleeding": 0.1, "Poisoned": 0, "Torment": 0, "Confusion": 0.93 }
+        "values2": { "Power": 3541, "Power2": 1419, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.93 }
       }
     credit:
       - author: Cemox
@@ -850,7 +850,7 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 3640, "Power2": 1118, "Burning": 0, "Bleeding": 0.1, "Poisoned": 0, "Torment": 0, "Confusion": 1.24 }
+        "values2": { "Power": 3640, "Power2": 1118, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 1.24 }
       }
     credit:
       - author: '[CnD] Tipcat'
@@ -909,7 +909,7 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 3200, "Power2": 930, "Burning": 0, "Bleeding": 0.03, "Poisoned": 0, "Torment": 8.98, "Confusion": 3.39 }
+        "values2": { "Power": 3200, "Power2": 930, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 8.98, "Confusion": 3.39 }
       }
     credit:
       - author: 'REMagic'
@@ -933,7 +933,7 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 3508, "Power2": 1106, "Burning": 0, "Bleeding": 0.16, "Poisoned": 0, "Torment": 0, "Confusion": 0.56 }
+        "values2": { "Power": 3508, "Power2": 1106, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.56 }
       }
     credit:
       - author: beng / L3m0n
