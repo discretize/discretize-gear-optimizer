@@ -174,7 +174,7 @@ list:
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 2871, "Power2": 0, "Burning": 14.05, "Bleeding": 0, "Poisoned": 0, "Torment": 0.08, "Confusion": 0 }
+        "values2": { "Power": 2871, "Power2": 0, "Burning": 14.05, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
