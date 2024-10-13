@@ -736,11 +736,7 @@ list:
           "Sigil1": {
             "bursting": {}
           },
-          "Sigil2": {
-            "air": {
-              "amount": ""
-            }
-          },
+          "Sigil2": {},
           "Runes": {
             "trapper": {},
             "nightmare": {},
