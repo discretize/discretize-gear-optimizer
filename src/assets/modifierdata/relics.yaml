@@ -179,12 +179,12 @@
         attributes:
           Torment Coefficient: 1.4
         damage:
-          Outgoing Strike Damage: [4%, add]
+          Outgoing Strike Damage: [4%, mult]
       wvwModifiers:
         attributes:
           Torment Coefficient: 0.8
         damage:
-          Outgoing Strike Damage: [4%, add]
+          Outgoing Strike Damage: [4%, mult]
       gw2id: 100177
       temporaryBuff: true
 
