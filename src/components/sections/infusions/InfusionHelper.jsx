@@ -33,8 +33,7 @@ import {
   getHelperData,
   getHelperResult,
   getMaxInfusions,
-  getPrimaryInfusion,
-  getSecondaryInfusion,
+  getValidInfusionOptions,
 } from '../../../state/slices/infusions';
 import { agonyInfusionIds, statInfusionIds } from '../../../utils/gw2-data';
 import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
@@ -122,8 +121,7 @@ const InfusionHelper = () => {
 
   const ar = parseAr(useSelector(getAR)).value;
   const maxInfusions = parseInfusionCount(useSelector(getMaxInfusions)).value;
-  const primaryInfusion = useSelector(getPrimaryInfusion);
-  const secondaryInfusion = useSelector(getSecondaryInfusion);
+  const infusionOptions = useSelector(getValidInfusionOptions);
   const { enabled, impedence, attunement, singularity, tear, slots, freeWvW, ownedMatrix } =
     useSelector(getHelperData);
   const { error, resultText, resultArray, cost, maxRequiredMatrix } = useSelector(getHelperResult);
@@ -324,25 +322,27 @@ const InfusionHelper = () => {
 
             <Typography variant="body2">
               {resultArray.map((text, i) => {
-                const infusionData = statInfusionIds[text] ?? agonyInfusionIds[text];
-
-                const firstStatId = infusionData?.[primaryInfusion]?.id;
-                const secondStatId = infusionData?.[secondaryInfusion]?.id;
-
                 let renderInfusions;
 
-                if (firstStatId && secondStatId) {
+                if (statInfusionIds[text] && infusionOptions.length) {
                   renderInfusions = (
                     <>
-                      <Item id={firstStatId} disableLink disableText />
-                      <Item id={secondStatId} disableLink disableText />{' '}
-                      <Item id={secondStatId} disableLink disableIcon disableTooltip text={text} />
+                      {infusionOptions.map(({ type }) => (
+                        <Item id={statInfusionIds[text][type]?.id} disableLink disableText />
+                      ))}{' '}
+                      <Item
+                        id={statInfusionIds[text][infusionOptions.at(-1).type]?.id}
+                        disableLink
+                        disableIcon
+                        disableTooltip
+                        text={text}
+                      />
                     </>
                   );
-                } else if (firstStatId || secondStatId || infusionData?.id) {
+                } else if (agonyInfusionIds[text]?.id) {
                   renderInfusions = (
                     <Item
-                      id={firstStatId || secondStatId || infusionData?.id}
+                      id={agonyInfusionIds[text]?.id}
                       disableLink
                       className={classes.bigStyle}
                     />

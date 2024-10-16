@@ -1,24 +1,33 @@
 import { Attribute, Item } from '@discretize/gw2-ui-new';
 import { HelperIcon } from '@discretize/react-discretize-components';
-import { FormControl, Grid2 as Grid, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import {
+  FormControl,
+  Grid2 as Grid,
+  IconButton,
+  Input,
+  InputLabel,
+  MenuItem,
+  Select,
+} from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import {
+  addInfusionOption,
   changeAR,
-  changeInfusion,
-  changeInfusionMax,
+  changeMaxInfusions,
+  changeInfusionOptionCount,
+  changeInfusionOptionType,
   changeOmnipotion,
   getAR,
+  getInfusionOptions,
   getMaxInfusions,
   getOmniPotion,
-  getPrimaryInfusion,
-  getPrimaryMaxInfusions,
-  getSecondaryInfusion,
-  getSecondaryMaxInfusions,
 } from '../../../state/slices/infusions';
 import { getGameMode } from '../../../state/slices/userSettings';
+import type { InfusionName } from '../../../utils/gw2-data';
 import { INFUSION_IDS } from '../../../utils/gw2-data';
 import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
 import { AmountInputAuto } from '../../baseComponents/AmountInput';
@@ -46,6 +55,28 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
+const amountInput = (
+  label: string,
+  id: string,
+  onChange: React.ComponentProps<typeof Input>['onChange'],
+  value: string,
+  className?: string,
+) => {
+  const { error } = parseInfusionCount(value);
+  return (
+    <FormControl className={className} variant="standard">
+      <InputLabel htmlFor={`${id}-amount-input`}>{label}</InputLabel>
+      <Input
+        id={`${id}-amount-input`}
+        value={value}
+        onChange={onChange}
+        autoComplete="off"
+        error={error}
+      />
+    </FormControl>
+  );
+};
+
 const Infusions = () => {
   const { classes } = useStyles();
 
@@ -55,10 +86,7 @@ const Infusions = () => {
   const omnipotion = useSelector(getOmniPotion);
 
   const maxInfusions = useSelector(getMaxInfusions);
-  const primaryInfusion = useSelector(getPrimaryInfusion);
-  const secondaryInfusion = useSelector(getSecondaryInfusion);
-  const primaryMaxInfusions = useSelector(getPrimaryMaxInfusions);
-  const secondaryMaxInfusions = useSelector(getSecondaryMaxInfusions);
+  const infusionOptions = useSelector(getInfusionOptions);
 
   const gameMode = useSelector(getGameMode);
 
@@ -66,62 +94,6 @@ const Infusions = () => {
     (e: any, value: string) => dispatch(changeAR(value)),
     [dispatch],
   );
-
-  const dropdown = (
-    name: string,
-    varName: 'primaryInfusion' | 'secondaryInfusion',
-    infusion: string,
-  ) => {
-    return (
-      <FormControl className={classes.formControl} variant="standard">
-        <InputLabel id={`dropdown_${name}`}>{name}</InputLabel>
-        <Select
-          labelId={`dropdown_${name}`}
-          value={typeof infusion === 'undefined' ? '' : infusion.toString()}
-          input={<Input name={name} id={name} />}
-          onChange={(e) =>
-            dispatch(
-              changeInfusion({
-                key: varName,
-                value: e.target.value as keyof typeof INFUSION_IDS,
-              }),
-            )
-          }
-          renderValue={(value) => (
-            <Item id={(INFUSION_IDS as Record<string, number>)[value]} disableLink />
-          )}
-        >
-          <MenuItem value="">{t('None')} </MenuItem>
-          {Object.entries(INFUSION_IDS).map(([attribute, id]) => (
-            <MenuItem value={attribute} key={attribute}>
-              <Item id={id} disableLink />
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    );
-  };
-
-  const input = (
-    name: string,
-    varName: 'primaryMaxInfusions' | 'secondaryMaxInfusions' | 'maxInfusions',
-    value: string,
-    className?: string,
-  ) => {
-    const { error } = parseInfusionCount(value);
-    return (
-      <FormControl className={className} variant="standard">
-        <InputLabel htmlFor={`${varName}_input-with-icon-adornment`}>{name}</InputLabel>
-        <Input
-          id={`${varName}_input-with-icon-adornment`}
-          value={value}
-          onChange={(e) => dispatch(changeInfusionMax({ key: varName, value: e.target.value }))}
-          autoComplete="off"
-          error={error}
-        />
-      </FormControl>
-    );
-  };
 
   return (
     <Grid container spacing={4}>
@@ -176,17 +148,54 @@ const Infusions = () => {
         direction="row"
         sx={{ justifyContent: 'flex-start', alignItems: 'center' }}
       >
-        <Grid size={12}>{input('# Stat Infusions', 'maxInfusions', maxInfusions)}</Grid>
-
         <Grid size={12}>
-          {dropdown(t('Infusion Type #1'), 'primaryInfusion', primaryInfusion)}
-          {input(t('Max #'), 'primaryMaxInfusions', primaryMaxInfusions, classes.formControl2)}
+          {amountInput(
+            '# Stat Infusions',
+            'max-infusions',
+            (e) => dispatch(changeMaxInfusions(e.target.value)),
+            maxInfusions,
+          )}
         </Grid>
 
-        <Grid size={12}>
-          {dropdown(t('Infusion Type #2'), 'secondaryInfusion', secondaryInfusion)}
-          {input(t('Max #'), 'secondaryMaxInfusions', secondaryMaxInfusions, classes.formControl2)}
-        </Grid>
+        {infusionOptions.map(({ type, count }, index) => (
+          <Grid size={12}>
+            <FormControl className={classes.formControl} variant="standard">
+              <InputLabel
+                htmlFor={`${index}-type-input`}
+              >{`${t('Infusion Type #')}${index + 1}`}</InputLabel>
+              <Select<InfusionName | ''>
+                id={`${index}-type-input`}
+                value={type}
+                input={<Input />}
+                onChange={(e) =>
+                  dispatch(
+                    changeInfusionOptionType({ index, type: e.target.value as InfusionName }),
+                  )
+                }
+                renderValue={(value) => value && <Item id={INFUSION_IDS[value]} disableLink />}
+              >
+                <MenuItem value="">{t('None')} </MenuItem>
+                {Object.entries(INFUSION_IDS).map(([attribute, id]) => (
+                  <MenuItem value={attribute} key={attribute}>
+                    <Item id={id} disableLink />
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+
+            {amountInput(
+              t('Max #'),
+              `infusion-option-${index}`,
+              (e) => dispatch(changeInfusionOptionCount({ index, count: e.target.value })),
+              count,
+              classes.formControl2,
+            )}
+          </Grid>
+        ))}
+
+        <IconButton aria-label="add" onClick={() => dispatch(addInfusionOption())}>
+          <AddIcon />
+        </IconButton>
       </Grid>
 
       {gameMode === 'fractals' && (

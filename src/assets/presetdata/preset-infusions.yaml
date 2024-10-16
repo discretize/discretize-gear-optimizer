@@ -2,46 +2,26 @@ GraphQL ID: presetInfusions
 list:
 
   - name: None
-    value: |-
-      {
-        "primaryInfusion": "",
-        "secondaryInfusion": "",
-        "primaryMaxInfusions": "",
-        "secondaryMaxInfusions": ""
-      }
+    value:
+      - { type: "", count: "" }
+      - { type: "", count: "" }
 
   - name: Power + Precision
-    value: |-
-      {
-        "primaryInfusion": "Power",
-        "secondaryInfusion": "Precision",
-        "primaryMaxInfusions": "",
-        "secondaryMaxInfusions": ""
-      }
+    value:
+      - { type: "Power", count: "" }
+      - { type: "Precision", count: "" }
 
   - name: Condition Damage + Expertise
-    value: |-
-      {
-        "primaryInfusion": "Condition Damage",
-        "secondaryInfusion": "Expertise",
-        "primaryMaxInfusions": "",
-        "secondaryMaxInfusions": ""
-      }
+    value:
+      - { type: "Condition Damage", count: "" }
+      - { type: "Expertise", count: "" }
 
   - name: Condition Damage + Precision
-    value: |-
-      {
-        "primaryInfusion": "Condition Damage",
-        "secondaryInfusion": "Precision",
-        "primaryMaxInfusions": "",
-        "secondaryMaxInfusions": ""
-      }
+    value:
+      - { type: "Condition Damage", count: "" }
+      - { type: "Precision", count: "" }
 
   - name: Healing Power + Concentration
-    value: |-
-      {
-        "primaryInfusion": "Healing Power",
-        "secondaryInfusion": "Concentration",
-        "primaryMaxInfusions": "",
-        "secondaryMaxInfusions": ""
-      }
+    value:
+      - { type: "Healing Power", count: "" }
+      - { type: "Concentration", count: "" }

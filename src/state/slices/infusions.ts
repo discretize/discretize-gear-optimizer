@@ -10,14 +10,14 @@ import { changeGameMode, loadedSettings } from './userSettings';
 
 const isFractal = loadedSettings.gameMode === 'fractals';
 
+export type InfusionOptions = { type: InfusionName | ''; count: string }[];
+export type ValidInfusionOptions = { type: InfusionName; count: string }[];
+
 const initialState: {
   omnipotion: boolean;
   ar: string;
   maxInfusions: string;
-  primaryInfusion: InfusionName | '';
-  secondaryInfusion: InfusionName | '';
-  primaryMaxInfusions: string;
-  secondaryMaxInfusions: string;
+  infusionOptions: InfusionOptions;
   helperData: {
     enabled: boolean;
     slots: number;
@@ -32,10 +32,10 @@ const initialState: {
   omnipotion: isFractal,
   ar: isFractal ? '162' : '',
   maxInfusions: '18',
-  primaryInfusion: '',
-  secondaryInfusion: '',
-  primaryMaxInfusions: '',
-  secondaryMaxInfusions: '',
+  infusionOptions: [
+    { type: '', count: '' },
+    { type: '', count: '' },
+  ],
   helperData: {
     enabled: false,
     slots: 18,
@@ -61,23 +61,26 @@ export const infusionsSlice = createSlice({
     changeMaxInfusions: (state, action: PayloadAction<string>) => {
       state.maxInfusions = action.payload;
     },
-    changeInfusion: (
+    changeInfusionOptionType: (
       state,
-      action: PayloadAction<{ key: 'primaryInfusion' | 'secondaryInfusion'; value: InfusionName }>,
+      action: PayloadAction<{ index: number; type: InfusionName | '' }>,
     ) => {
-      state[action.payload.key] = action.payload.value;
+      if (state.infusionOptions[action.payload.index]) {
+        state.infusionOptions[action.payload.index].type = action.payload.type;
+      }
     },
-    changeInfusionMax: (
-      state,
-      action: PayloadAction<{
-        key: 'maxInfusions' | 'primaryMaxInfusions' | 'secondaryMaxInfusions';
-        value: string;
-      }>,
-    ) => {
-      state[action.payload.key] = action.payload.value;
+    changeInfusionOptionCount: (state, action: PayloadAction<{ index: number; count: string }>) => {
+      if (state.infusionOptions[action.payload.index]) {
+        state.infusionOptions[action.payload.index].count = action.payload.count;
+      }
     },
-    changeInfusions: (state, action) => {
-      return { ...state, ...action.payload };
+    changeInfusionOptions: (state, action: PayloadAction<InfusionOptions>) => {
+      state.infusionOptions = state.infusionOptions.map(
+        (_, i) => action.payload[i] ?? { type: '', count: '' },
+      );
+    },
+    addInfusionOption: (state) => {
+      state.infusionOptions.push({ type: '', count: '' });
     },
     changeHelperEnabled: (state, action: PayloadAction<boolean>) => {
       state.helperData.enabled = action.payload;
@@ -111,6 +114,19 @@ export const infusionsSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
       if (action.payload?.form?.infusions) {
+        // best effort conversion of old data
+        if (action.payload.form.infusions.primaryInfusion) {
+          const { primaryInfusion, secondaryInfusion, primaryMaxInfusions, secondaryMaxInfusions } =
+            action.payload.form.infusions;
+          return {
+            ...state,
+            infusionOptions: [
+              { type: primaryInfusion, count: primaryMaxInfusions },
+              { type: secondaryInfusion, count: secondaryMaxInfusions },
+            ],
+          };
+        }
+
         return { ...state, ...action.payload.form.infusions };
       }
     });
@@ -127,14 +143,20 @@ export const infusionsSlice = createSlice({
 export const getAR = (state: RootState) => state.optimizer.form.infusions.ar;
 export const getOmniPotion = (state: RootState) => state.optimizer.form.infusions.omnipotion;
 export const getMaxInfusions = (state: RootState) => state.optimizer.form.infusions.maxInfusions;
-export const getPrimaryInfusion = (state: RootState) =>
-  state.optimizer.form.infusions.primaryInfusion;
-export const getSecondaryInfusion = (state: RootState) =>
-  state.optimizer.form.infusions.secondaryInfusion;
-export const getPrimaryMaxInfusions = (state: RootState) =>
-  state.optimizer.form.infusions.primaryMaxInfusions;
-export const getSecondaryMaxInfusions = (state: RootState) =>
-  state.optimizer.form.infusions.secondaryMaxInfusions;
+export const getInfusionOptions = (state: RootState) =>
+  state.optimizer.form.infusions.infusionOptions;
+
+export const getValidInfusionOptions = createSelector(
+  getInfusionOptions,
+  (infusionOptions) =>
+    infusionOptions.filter(
+      ({ type, count }, i) =>
+        type &&
+        parseInfusionCount(count).value > 0 &&
+        // ignore duplicates
+        infusionOptions.findIndex((entry) => entry.type === type) === i,
+    ) as ValidInfusionOptions,
+);
 export const getHelperData = (state: RootState) => state.optimizer.form.infusions.helperData;
 
 export const getInfusionsModifiers = (state: RootState): AppliedModifier[] => {
@@ -202,24 +224,11 @@ const calcAgonyInfusions = (slots: number, ar: number) => {
 export const getHelperResult = createSelector(
   getAR,
   getMaxInfusions,
-  getPrimaryInfusion,
-  getSecondaryInfusion,
-  getPrimaryMaxInfusions,
-  getSecondaryMaxInfusions,
+  getValidInfusionOptions,
   getHelperData,
-  (
-    arString,
-    maxInfusionsString,
-    primaryInfusion,
-    secondaryInfusion,
-    primaryMaxInfusionsString,
-    secondaryMaxInfusionsString,
-    helperData,
-  ) => {
+  (arString, maxInfusionsString, infusionOptions, helperData) => {
     const ar = parseAr(arString).value;
     const maxInfusions = parseInfusionCount(maxInfusionsString).value;
-    const primaryMaxInfusions = parseInfusionCount(primaryMaxInfusionsString).value;
-    const secondaryMaxInfusions = parseInfusionCount(secondaryMaxInfusionsString).value;
 
     const { impedence, attunement, singularity, tear, slots, freeWvW, ownedMatrix } = helperData;
 
@@ -230,8 +239,9 @@ export const getHelperResult = createSelector(
     }
 
     const statSlots = Math.min(
-      (primaryInfusion ? primaryMaxInfusions || 18 : 0) +
-        (secondaryInfusion ? secondaryMaxInfusions || 18 : 0),
+      infusionOptions
+        .filter(({ type }) => type)
+        .reduce((prev, { count }) => prev + parseInfusionCount(count).value, 0),
       maxInfusions,
     );
 
@@ -344,9 +354,10 @@ export const {
   changeAR,
   changeOmnipotion,
   changeMaxInfusions,
-  changeInfusion,
-  changeInfusionMax,
-  changeInfusions,
+  changeInfusionOptionType,
+  changeInfusionOptionCount,
+  changeInfusionOptions,
+  addInfusionOption,
   changeHelperEnabled,
   changeSlots,
   changeImpedence,
