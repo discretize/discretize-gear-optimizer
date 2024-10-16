@@ -10,7 +10,6 @@ import { setupCombinations } from './optimizerSetup';
 
 interface Combination extends ExtrasCombinationEntry {
   settings: OptimizerCoreSettings;
-  core: OptimizerCore;
   calculation: CalculateGenerator;
   done: boolean;
   list: Character[];
@@ -78,7 +77,6 @@ export function* calculate(reduxState: RootState, overrides: Overrides = {}) {
       return {
         ...extrasCombinationEntry,
         settings,
-        core,
         calculation,
         done: false,
         list: [],
@@ -90,7 +88,7 @@ export function* calculate(reduxState: RootState, overrides: Overrides = {}) {
    * iteration
    */
 
-  const { rankby, runsAfterThisSlot } = combinations[0].core.settings;
+  const { rankby, runsAfterThisSlot } = combinations[0].settings;
   const calculationTotal = runsAfterThisSlot[0];
   const globalCalculationTotal =
     calculationTotal * combinations.filter(({ heuristicDisabled }) => !heuristicDisabled).length;
@@ -200,7 +198,6 @@ export function* calculateHeuristic(reduxState: RootState, targetCombinationCoun
       return {
         ...extrasCombinationEntry,
         settings,
-        core,
         calculation,
         done: false,
         list: [],
@@ -209,7 +206,7 @@ export function* calculateHeuristic(reduxState: RootState, targetCombinationCoun
     },
   );
 
-  const { rankby, affixes } = normalCombinations[0].core.settings;
+  const { rankby, affixes } = normalCombinations[0].settings;
 
   // don't do any heuristic stuff with few combinations/one affix
   if (normalCombinations.length <= targetCombinationCount || affixes.length < 2)
