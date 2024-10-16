@@ -3,7 +3,7 @@ list:
 
   - name: Power Chrono IA GS
     profession: Chronomancer
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -64,14 +64,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Boon Power Chrono Spear
     profession: Chronomancer
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -132,14 +132,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Boon Power Chrono GS
     profession: Chronomancer
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -200,14 +200,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Heal Chrono
     profession: Chronomancer
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -250,7 +250,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
@@ -258,7 +258,7 @@ list:
 
   - name: Axe Mirage
     profession: Mirage
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -316,7 +316,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-domination": {},
@@ -326,7 +326,7 @@ list:
 
   - name: Alacrity Staff Mirage
     profession: Mirage
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -388,7 +388,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-domination": {},
@@ -398,7 +398,7 @@ list:
 
   - name: Condi Staff / Axe Mirage
     profession: Mirage
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -460,7 +460,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-domination": {},
@@ -470,7 +470,7 @@ list:
 
   - name: Boon Condi Chrono
     profession: Chronomancer
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -523,7 +523,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-domination": {},
@@ -533,7 +533,7 @@ list:
 
   - name: Condi Virtuoso Dueling
     profession: Virtuoso
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -597,7 +597,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-domination": {},
@@ -607,7 +607,7 @@ list:
 
   - name: Condi Virtuoso Chaos
     profession: Virtuoso
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -668,7 +668,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-domination": {},
@@ -678,7 +678,7 @@ list:
 
   - name: Power Virtuoso Spear
     profession: Virtuoso
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -743,14 +743,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Power Virtuoso GS
     profession: Virtuoso
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -814,14 +814,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: DH Radiance
     profession: Dragonhunter
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -884,7 +884,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "bane-signet": {
@@ -895,7 +895,7 @@ list:
 
   - name: DH Virtues
     profession: Dragonhunter
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -961,7 +961,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "bane-signet": {
@@ -972,7 +972,7 @@ list:
 
   - name: Core Guardian
     profession: Guardian
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -1036,7 +1036,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "bane-signet": {
@@ -1047,7 +1047,7 @@ list:
 
   - name: Power Quickbrand
     profession: Firebrand
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -1103,7 +1103,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "bane-signet": {
@@ -1114,7 +1114,7 @@ list:
 
   - name: Condi Willbender
     profession: Willbender
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -1177,7 +1177,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-wrath": {
@@ -1188,7 +1188,7 @@ list:
 
   - name: Quickess Condi Firebrand P/T P/P
     profession: Firebrand
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -1247,14 +1247,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Condi Firebrand Zeal
     profession: Firebrand
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -1310,7 +1310,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-wrath": {
@@ -1321,7 +1321,7 @@ list:
 
   - name: Condi Firebrand Virtues
     profession: Firebrand
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -1380,7 +1380,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-wrath": {
@@ -1391,7 +1391,7 @@ list:
 
   - name: Hybrid FB Virtues
     profession: Firebrand
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -1450,14 +1450,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Hybrid FB Honor
     profession: Firebrand
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -1510,14 +1510,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Healbrand
     profession: Firebrand
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -1570,14 +1570,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Heal Alacrity Willbender
     profession: Willbender
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -1639,14 +1639,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Power Willbender Radiance
     profession: Willbender
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -1706,7 +1706,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "bane-signet": {
@@ -1717,7 +1717,7 @@ list:
 
   - name: Power Willbender Virtues
     profession: Willbender
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -1780,7 +1780,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "bane-signet": {
@@ -1791,7 +1791,7 @@ list:
 
   - name: Condi Alacrity Willbender
     profession: Willbender
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -1855,7 +1855,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-wrath": {
@@ -1866,7 +1866,7 @@ list:
 
   - name: Power Alacrity Willbender
     profession: Willbender
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -1926,7 +1926,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "bane-signet": {
@@ -1937,7 +1937,7 @@ list:
 
   - name: Power Berserker GS A/A
     profession: Berserker
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -2003,7 +2003,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-might": {},
@@ -2013,7 +2013,7 @@ list:
 
   - name: Quickness Power Berserker GS A/A
     profession: Berserker
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -2079,7 +2079,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-might": {},
@@ -2089,7 +2089,7 @@ list:
 
   - name: Condi Quickness Berserker
     profession: Berserker
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -2166,14 +2166,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Condi Berserker
     profession: Berserker
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -2250,7 +2250,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
@@ -2258,7 +2258,7 @@ list:
   # Tether uptime can be calculated from Damage Modifiers tab
   - name: Power Spellbreaker GS
     profession: Spellbreaker
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -2329,7 +2329,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-might": {},
@@ -2341,7 +2341,7 @@ list:
   # gear may be calculated properly for crit cap
   - name: Power Spellbreaker Hammer
     profession: Spellbreaker
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -2411,7 +2411,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-might": {},
@@ -2421,7 +2421,7 @@ list:
 
   - name: Alacrity Bladesworn
     profession: Bladesworn
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -2482,14 +2482,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: DPS Bladesworn Tactics
     profession: Bladesworn
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -2553,14 +2553,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Heal Quickness Berserker
     profession: Berserker
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -2625,14 +2625,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Power Weaver Stormsoul Fractal
     profession: Weaver
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -2714,14 +2714,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Power Weaver Raid
     profession: Weaver
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -2803,7 +2803,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "woven-fire": {
@@ -2817,7 +2817,7 @@ list:
 
   - name: Condi Weaver Pistol
     profession: Weaver
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -2881,7 +2881,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "woven-fire": {
@@ -2899,7 +2899,7 @@ list:
 
   - name: Condi Weaver Sword
     profession: Weaver
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -2966,7 +2966,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "woven-fire": {
@@ -2977,7 +2977,7 @@ list:
 
   - name: Condi Weaver Dagger
     profession: Weaver
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -3044,7 +3044,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "woven-fire": {
@@ -3055,7 +3055,7 @@ list:
 
   - name: Condi Weaver Staff
     profession: Weaver
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -3122,7 +3122,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "woven-fire": {
@@ -3136,7 +3136,7 @@ list:
 
   - name: Condi Weaver Scepter
     profession: Weaver
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -3203,7 +3203,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "woven-fire": {
@@ -3218,7 +3218,7 @@ list:
 
   - name: Hybrid Weaver
     profession: Weaver
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -3300,7 +3300,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "woven-fire": {
@@ -3314,7 +3314,7 @@ list:
 
   - name: Alacrity Hybrid Tempest
     profession: Tempest
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -3377,14 +3377,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Alacrity Condi Tempest Pistol
     profession: Tempest
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -3443,7 +3443,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-fire": {},
@@ -3453,7 +3453,7 @@ list:
 
   - name: Condi Tempest Pistol
     profession: Tempest
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -3512,7 +3512,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-fire": {}
@@ -3521,7 +3521,7 @@ list:
 
   - name: Condi Tempest Hammer
     profession: Tempest
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -3580,7 +3580,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "crescent-wind": {},
@@ -3594,7 +3594,7 @@ list:
 
   - name: Power Tempest Water
     profession: Tempest
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -3660,7 +3660,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-fire": {}
@@ -3669,7 +3669,7 @@ list:
 
   - name: Alacrity Power Tempest Arcane
     profession: Tempest
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -3736,7 +3736,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-fire": {}
@@ -3745,7 +3745,7 @@ list:
 
   - name: Power Catalyst
     profession: Catalyst
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -3818,7 +3818,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "flame-wheel": {
@@ -3833,7 +3833,7 @@ list:
 
   - name: Power Quickness Catalyst
     profession: Catalyst
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -3901,7 +3901,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "flame-wheel": {
@@ -3916,7 +3916,7 @@ list:
 
   - name: Heal Tempest
     profession: Tempest
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -3968,14 +3968,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Condi Quickness Untamed
     profession: Untamed
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -4029,7 +4029,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "pet-dps": {
@@ -4040,7 +4040,7 @@ list:
 
   - name: Power Soulbeast
     profession: Soulbeast
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -4100,7 +4100,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-the-wild": {},
@@ -4112,7 +4112,7 @@ list:
 
   - name: Quickness Power Untamed
     profession: Untamed
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -4168,7 +4168,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-the-wild": {}
@@ -4177,7 +4177,7 @@ list:
 
   - name: Power Untamed
     profession: Untamed
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -4232,7 +4232,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-the-wild": {}
@@ -4241,7 +4241,7 @@ list:
 
   - name: Condi Slb D/D SB
     profession: Soulbeast
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -4296,7 +4296,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "one-wolf-pack-no-sic-em-sharpened": {
@@ -4310,7 +4310,7 @@ list:
 
   - name: Hybrid Slb OS
     profession: Soulbeast
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -4366,7 +4366,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "one-wolf-pack-sic-em-sharpened": {
@@ -4380,7 +4380,7 @@ list:
 
   - name: Hybrid Slb
     profession: Soulbeast
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -4436,7 +4436,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "one-wolf-pack-sic-em-sharpened": {
@@ -4450,7 +4450,7 @@ list:
 
   - name: Condi Druid
     profession: Druid
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -4503,7 +4503,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "pet-dps": {
@@ -4514,7 +4514,7 @@ list:
 
   - name: Heal Druid
     profession: Druid
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -4560,14 +4560,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Power Alac Ren
     profession: Renegade
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -4633,14 +4633,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Condi Alac Ren Invo
     profession: Renegade
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -4695,14 +4695,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Condi DPS Ren Invo
     profession: Renegade
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -4757,14 +4757,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Power Quickness Herald
     profession: Herald
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -4833,7 +4833,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "burst-of-strength": {
@@ -4844,7 +4844,7 @@ list:
 
   - name: Power Herald FP
     profession: Herald
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -4912,7 +4912,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "burst-of-strength": {
@@ -4923,7 +4923,7 @@ list:
 
   - name: Condi Quickness Herald
     profession: Herald
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -4981,7 +4981,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "burst-of-strength": {
@@ -4992,7 +4992,7 @@ list:
 
   - name: Heal Ren
     profession: Renegade
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -5039,14 +5039,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Heal Herald
     profession: Herald
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -5096,14 +5096,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: DPS Vindicator
     profession: Vindicator
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -5172,14 +5172,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Power Holo ECSU
     profession: Holosmith
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -5243,14 +5243,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Power Holo PBM
     profession: Holosmith
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -5314,14 +5314,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Condi Holo
     profession: Holosmith
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -5385,14 +5385,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Power Alacrity Mechanist (inaccurate)
     profession: Mechanist
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -5452,7 +5452,7 @@ list:
           {}
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "force-signet": {}
@@ -5461,7 +5461,7 @@ list:
 
   - name: Condi Mechanist J-Drive
     profession: Mechanist
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -5519,7 +5519,7 @@ list:
           {}
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "superconducting-signet-traited": {}
@@ -5528,7 +5528,7 @@ list:
 
   - name: Condi Mechanist Jade Dynamo
     profession: Mechanist
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -5588,14 +5588,14 @@ list:
           {}
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Condi Alac Mechanist (inaccurate)
     profession: Mechanist
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -5655,14 +5655,14 @@ list:
           {}
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Power Scrapper
     profession: Scrapper
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -5731,14 +5731,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Quickness Power Scrapper
     profession: Scrapper
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -5807,14 +5807,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Quickness Condi Scrapper
     profession: Scrapper
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -5883,14 +5883,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Heal Scrapper
     profession: Scrapper
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -5935,14 +5935,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Heal Mechanist
     profession: Mechanist
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -5978,14 +5978,14 @@ list:
           {}
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Condi Alacrity Scourge
     profession: Scourge
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -6038,7 +6038,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-spite": {
@@ -6049,7 +6049,7 @@ list:
 
   - name: DPS Scourge
     profession: Scourge
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -6102,7 +6102,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-spite": {
@@ -6113,7 +6113,7 @@ list:
 
   - name: Power Reaper
     profession: Reaper
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -6169,14 +6169,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Condi Reaper Spear
     profession: Reaper
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -6233,7 +6233,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "soul-shards": {
@@ -6247,7 +6247,7 @@ list:
 
   - name: Condi Reaper Scepter
     profession: Reaper
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -6304,14 +6304,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Heal Scourge
     profession: Scourge
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -6355,14 +6355,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: DPS Harbinger
     profession: Harbinger
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -6422,7 +6422,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-spite": {
@@ -6433,7 +6433,7 @@ list:
 
   - name: Quickness Condi Harbinger
     profession: Harbinger
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -6494,7 +6494,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-spite": {
@@ -6505,7 +6505,7 @@ list:
 
   - name: Quickness Power Harbinger
     profession: Harbinger
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -6566,7 +6566,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "soul-shards": {
@@ -6580,7 +6580,7 @@ list:
 
   - name: Power Harbinger
     profession: Harbinger
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -6641,7 +6641,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-spite": {
@@ -6658,7 +6658,7 @@ list:
 
   - name: Condi Deadeye A/D
     profession: Deadeye
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -6715,14 +6715,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Quickness Condi Deadeye Spear
     profession: Deadeye
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -6779,14 +6779,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Power Staff Daredevil
     profession: Daredevil
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -6855,7 +6855,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "assassins-signet": {
@@ -6869,7 +6869,7 @@ list:
 
   - name: Power Boon Daredevil
     profession: Daredevil
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -6929,7 +6929,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "signet-of-agility": {}
@@ -6938,7 +6938,7 @@ list:
 
   - name: Condi Daredevil
     profession: Daredevil
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -6996,14 +6996,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Condi Boon Daredevil
     profession: Daredevil
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -7061,14 +7061,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Power Deadeye Rifle
     profession: Deadeye
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -7137,7 +7137,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "assassins-signet": {
@@ -7151,7 +7151,7 @@ list:
 
   - name: Power Deadeye Spear
     profession: Deadeye
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -7217,7 +7217,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "assassins-signet": {
@@ -7231,7 +7231,7 @@ list:
 
   - name: Quickness Power Deadeye Spear
     profession: Deadeye
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -7297,7 +7297,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "assassins-signet": {
@@ -7311,7 +7311,7 @@ list:
 
   - name: Power Deadeye Daggers BQoBK
     profession: Deadeye
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -7378,7 +7378,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "assassins-signet": {
@@ -7392,7 +7392,7 @@ list:
 
   - name: Power Deadeye Rifle Silent Scope
     profession: Deadeye
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -7458,7 +7458,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {
           "assassins-signet": {
@@ -7472,7 +7472,7 @@ list:
 
   - name: Condi Specter Spear
     profession: Specter
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -7528,14 +7528,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Condi Specter SC/D
     profession: Specter
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -7594,14 +7594,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Alacrity Specter SC/D
     profession: Specter
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -7660,14 +7660,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Alacrity Specter D/D
     profession: Specter
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -7723,14 +7723,14 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }
 
   - name: Heal Specter
     profession: Specter
-    traits: |-
+    traits:
       {
         "showAll": false,
         "selectedLines": [
@@ -7774,7 +7774,7 @@ list:
           }
         ]
       }
-    skills: |-
+    skills:
       {
         "skills": {}
       }

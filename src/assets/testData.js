@@ -546,15 +546,12 @@ const testPresets = async () => {
     for (const entry of entries) {
       try {
         if (type === 'traits') {
-          JSON.parse(entry.traits);
-          // const traits = JSON.parse(entry.traits);
-          // traits.items
+          // entry.traits.items
           //   .flatMap(Object.keys)
           //   .forEach((id) =>
           //     gentleAssert(allTraitIds.has(id), `${entry.name} has nonexistent trait id: ${id}`),
           //   );
-          const skills = JSON.parse(entry.skills);
-          Object.keys(skills.skills).forEach((id) =>
+          Object.keys(entry.skills.skills).forEach((id) =>
             gentleAssert(allTraitIds.has(id), `${entry.name} has nonexistent skill id: ${id}`),
           );
         } else if (['priority', 'boons', 'distribution', 'extras', 'infusions'].includes(type)) {

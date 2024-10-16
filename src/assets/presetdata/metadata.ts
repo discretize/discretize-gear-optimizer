@@ -2,6 +2,8 @@ import type { BuffsSlice } from '../../state/slices/buffs';
 import type { Distribution } from '../../state/slices/distribution';
 import type { ExtrasSlice } from '../../state/slices/extras';
 import type { PrioritiesSlice } from '../../state/slices/priorities';
+import type { SkillsSlice } from '../../state/slices/skills';
+import type { TraitsSlice } from '../../state/slices/traits';
 import type {
   InfusionName,
   ProfessionName,
@@ -89,8 +91,8 @@ export interface PresetInfusions {
 }
 
 export type PresetTraitsEntry = PresetEntry & {
-  traits: JSON;
-  skills: JSON;
+  traits: Partial<TraitsSlice>;
+  skills: Partial<SkillsSlice>;
 };
 export interface PresetTraits {
   'GraphQL ID': string;

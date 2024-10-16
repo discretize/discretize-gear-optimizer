@@ -64,11 +64,7 @@ export function getBuildTemplateData({
     prioritiesPreset:
       prioritiesPresets.list.find((pre) => pre.name === build.priority)?.value ?? 'undefined',
     extrasPreset: presetExtras.list.find((pre) => pre.name === build.extras)?.value ?? 'undefined',
-    traitsPreset: JSON.parse(
-      presetTraits.list.find((pre) => pre.name === build.traits)?.traits ?? 'undefined',
-    ),
-    skillsPreset: JSON.parse(
-      presetTraits.list.find((pre) => pre.name === build.traits)?.skills ?? 'undefined',
-    ),
+    traitsPreset: presetTraits.list.find((pre) => pre.name === build.traits)?.traits ?? 'undefined',
+    skillsPreset: presetTraits.list.find((pre) => pre.name === build.traits)?.skills ?? 'undefined',
   };
 }
