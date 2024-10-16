@@ -85,13 +85,15 @@ export const buffsSlice = createSlice({
     builder.addCase(setBuildTemplate, (state, action) => {
       const { buffPreset } = action.payload;
 
-      const buffs: Buffs = {};
-      [...Object.keys(state.buffs)].forEach((key) => {
-        buffs[key] = false;
-        if (key in buffPreset) buffs[key] = buffPreset[key];
-      });
+      if (buffPreset) {
+        const buffs: Buffs = {};
+        [...Object.keys(state.buffs)].forEach((key) => {
+          buffs[key] = false;
+          if (key in buffPreset) buffs[key] = buffPreset[key]!;
+        });
 
-      return { buffs, amounts: state.amounts };
+        return { buffs, amounts: state.amounts };
+      }
     });
   },
 });

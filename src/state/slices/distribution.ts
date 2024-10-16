@@ -116,7 +116,7 @@ export const distributionSlice = createSlice({
     });
 
     builder.addCase(setBuildTemplate, (state, action) => {
-      const { distributionPreset, selectedDistribution } = action.payload;
+      const { distributionPreset, selectedDistribution = '' } = action.payload;
 
       if (distributionPreset) {
         return {
