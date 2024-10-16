@@ -544,19 +544,15 @@ const testPresets = async () => {
 
   for (const [type, entries] of Object.entries(data)) {
     for (const entry of entries) {
-      try {
-        if (type === 'traits') {
-          // entry.traits.items
-          //   .flatMap(Object.keys)
-          //   .forEach((id) =>
-          //     gentleAssert(allTraitIds.has(id), `${entry.name} has nonexistent trait id: ${id}`),
-          //   );
-          Object.keys(entry.skills.skills).forEach((id) =>
-            gentleAssert(allTraitIds.has(id), `${entry.name} has nonexistent skill id: ${id}`),
-          );
-        }
-      } catch {
-        gentleAssert(false, `err: the ${entry.name} ${type} entry is invalid JSON`);
+      if (type === 'traits') {
+        // entry.traits.items
+        //   .flatMap(Object.keys)
+        //   .forEach((id) =>
+        //     gentleAssert(allTraitIds.has(id), `${entry.name} has nonexistent trait id: ${id}`),
+        //   );
+        Object.keys(entry.skills.skills).forEach((id) =>
+          gentleAssert(allTraitIds.has(id), `${entry.name} has nonexistent skill id: ${id}`),
+        );
       }
       if (type === 'distribution') {
         if (!entry.noCreditOkay) {
