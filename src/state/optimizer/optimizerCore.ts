@@ -235,12 +235,6 @@ export const UPDATE_MS = 90;
 export class OptimizerCore {
   settings: OptimizerCoreSettings;
   minimalSettings: OptimizerCoreMinimalSettings;
-  applyInfusionsFunction: (
-    this: OptimizerCore,
-    gear: Gear,
-    gearStats: GearStats,
-    overrides?: Partial<Character>,
-  ) => void;
 
   condiResultCache = new Map<number, number>();
   worstScore: number = 0;
@@ -266,28 +260,6 @@ export class OptimizerCore {
       gameMode: settings.gameMode,
     };
     this.conditionData = settings.gameMode === 'wvw' ? conditionDataWvW : conditionData;
-
-    const { infusionOptions, maxInfusions, infusionNoDuplicates } = settings;
-    let applyInfusionsFunction: OptimizerCore['applyInfusionsFunction'];
-
-    if (infusionOptions.length === 0) {
-      // Applies no infusions
-      applyInfusionsFunction = this.applyInfusionsNone;
-    } else if (infusionOptions.length === 1) {
-      // Just applies the primary infusion
-      applyInfusionsFunction = this.applyInfusionsPrimary;
-    } else if (infusionOptions.reduce((prev, cur) => prev + cur.count, 0) <= maxInfusions) {
-      // Just applies the maximum number of primary/secondary infusions, since the total is less than or equal to the max
-      applyInfusionsFunction = this.applyInfusionsFew;
-    } else if (infusionNoDuplicates === false) {
-      // Inserts every valid combination of 18 infusions
-      applyInfusionsFunction = this.applyInfusionsSecondary;
-    } else {
-      // Tests every valid combination of 18 infusions and inserts the best result
-      applyInfusionsFunction = this.applyInfusionsSecondaryNoDuplicates;
-    }
-
-    this.applyInfusionsFunction = applyInfusionsFunction;
   }
 
   /**
@@ -361,8 +333,7 @@ export class OptimizerCore {
       if (nextSlot >= settings.slots) {
         calculationRuns++;
 
-        // this.applyInfusionsFunction is aliased to the correct applyInfusions[mode] function during setup
-        this.applyInfusionsFunction(gear, gearStats);
+        this.applyInfusions(gear, gearStats);
         continue;
       }
 
@@ -468,8 +439,7 @@ export class OptimizerCore {
 
       calculationRuns++;
 
-      // this.applyInfusionsFunction is aliased to the correct applyInfusions[mode] function during setup
-      this.applyInfusionsFunction([], gearStats, { gearDescription: percentages });
+      this.applyInfusions([], gearStats, { gearDescription: percentages });
     }
 
     this.list.forEach(this.calcResults, this);
@@ -508,109 +478,108 @@ export class OptimizerCore {
     return character;
   }
 
-  // Applies no infusions
-  applyInfusionsNone(gear: Gear, gearStats: GearStats, overrides?: Partial<Character>) {
-    const character = this.createCharacter(gear, gearStats, {}, overrides);
-    this.updateAttributesFast(character);
-    this.insertCharacter(character);
-  }
-
-  // Just applies the primary infusion
-  applyInfusionsPrimary(gear: Gear, gearStats: GearStats, overrides?: Partial<Character>) {
+  applyInfusions(gear: Gear, gearStats: GearStats, overrides?: Partial<Character>) {
     const { settings } = this;
+    const { infusionOptions } = settings;
 
-    const infusionOption = settings.infusionOptions[0];
-    const character = this.createCharacter(
-      gear,
-      gearStats,
-      { [infusionOption.type]: Math.min(infusionOption.count, settings.maxInfusions) },
-      overrides,
-    );
-    this.updateAttributesFast(character);
-    this.insertCharacter(character);
-  }
+    if (infusionOptions.length === 0) {
+      // Applies no infusions
 
-  // Just applies the maximum number of primary/secondary infusions, since the total is less than or equal to the max
-  applyInfusionsFew(gear: Gear, gearStats: GearStats, overrides?: Partial<Character>) {
-    const { settings } = this;
+      const character = this.createCharacter(gear, gearStats, {}, overrides);
+      this.updateAttributesFast(character);
+      this.insertCharacter(character);
+    } else if (infusionOptions.length === 1) {
+      // Just applies the primary infusion
 
-    const character = this.createCharacter(
-      gear,
-      gearStats,
-      Object.fromEntries(settings.infusionOptions.map(({ type, count }) => [type, count])),
-      overrides,
-    );
-    this.updateAttributesFast(character);
-    this.insertCharacter(character);
-  }
+      const infusionOption = infusionOptions[0];
+      const character = this.createCharacter(
+        gear,
+        gearStats,
+        { [infusionOption.type]: Math.min(infusionOption.count, settings.maxInfusions) },
+        overrides,
+      );
+      this.updateAttributesFast(character);
+      this.insertCharacter(character);
+    } else if (
+      infusionOptions.reduce((prev, cur) => prev + cur.count, 0) <= settings.maxInfusions
+    ) {
+      // Just applies the maximum number of primary/secondary infusions, since the total is less than or equal to the max
 
-  // Inserts every valid combination of 18 infusions
-  applyInfusionsSecondary(gear: Gear, gearStats: GearStats, overrides?: Partial<Character>) {
-    const { settings } = this;
-    const { maxInfusions, infusionOptions, rankby } = settings;
+      const character = this.createCharacter(
+        gear,
+        gearStats,
+        Object.fromEntries(infusionOptions.map(({ type, count }) => [type, count])),
+        overrides,
+      );
+      this.updateAttributesFast(character);
+      this.insertCharacter(character);
+    } else if (settings.infusionNoDuplicates === false) {
+      // Inserts every valid combination of 18 infusions
 
-    const test = this.createCharacter(gear, gearStats, {}, overrides);
-    if (!this.worstScore || this.testInfusionUsefulness(test)) {
-      let previousResult;
+      const test = this.createCharacter(gear, gearStats, {}, overrides);
+      if (!this.worstScore || this.testInfusionUsefulness(test)) {
+        let previousResult;
 
-      for (const counts of iteratePartitions(maxInfusions, infusionOptions.length, true)) {
-        if (infusionOptions.every(({ count }, i) => counts[i] <= count)) {
-          const character = this.createCharacter(
-            gear,
-            gearStats,
-            Object.fromEntries(infusionOptions.map(({ type }, i) => [type, counts[i]])),
-            overrides,
-          );
-          this.updateAttributesFast(character);
-          if (character.valid && character.attributes[rankby] !== previousResult) {
-            this.insertCharacter(character);
-            previousResult = character.attributes[rankby];
-          }
-        }
-      }
-    }
-  }
-
-  // Tests every valid combination of 18 infusions and inserts the best result
-  applyInfusionsSecondaryNoDuplicates(
-    gear: Gear,
-    gearStats: GearStats,
-    overrides?: Partial<Character>,
-  ) {
-    const { settings } = this;
-    const { maxInfusions, infusionOptions, rankby } = settings;
-
-    const test = this.createCharacter(gear, gearStats, {}, overrides);
-    if (!this.worstScore || this.testInfusionUsefulness(test)) {
-      let best = null;
-      for (const counts of iteratePartitions(maxInfusions, infusionOptions.length, true)) {
-        if (infusionOptions.every(({ count }, i) => counts[i] <= count)) {
-          const character = this.createCharacter(
-            gear,
-            gearStats,
-            Object.fromEntries(infusionOptions.map(({ type }, i) => [type, counts[i]])),
-            overrides,
-          );
-          this.updateAttributesFast(character);
-          if (character.valid) {
-            if (!best || characterLT(best, character, rankby) > 0) {
-              best = character;
+        for (const counts of iteratePartitions(
+          settings.maxInfusions,
+          infusionOptions.length,
+          true,
+        )) {
+          if (infusionOptions.every(({ count }, i) => counts[i] <= count)) {
+            const character = this.createCharacter(
+              gear,
+              gearStats,
+              Object.fromEntries(infusionOptions.map(({ type }, i) => [type, counts[i]])),
+              overrides,
+            );
+            this.updateAttributesFast(character);
+            if (character.valid && character.attributes[settings.rankby] !== previousResult) {
+              this.insertCharacter(character);
+              previousResult = character.attributes[settings.rankby];
             }
           }
         }
       }
+    } else {
+      // Tests every valid combination of 18 infusions and inserts the best result
 
-      if (best) {
-        this.insertCharacter(best);
+      const test = this.createCharacter(gear, gearStats, {}, overrides);
+      if (!this.worstScore || this.testInfusionUsefulness(test)) {
+        let best = null;
+        for (const counts of iteratePartitions(
+          settings.maxInfusions,
+          infusionOptions.length,
+          true,
+        )) {
+          if (infusionOptions.every(({ count }, i) => counts[i] <= count)) {
+            const character = this.createCharacter(
+              gear,
+              gearStats,
+              Object.fromEntries(infusionOptions.map(({ type }, i) => [type, counts[i]])),
+              overrides,
+            );
+            this.updateAttributesFast(character);
+            if (character.valid) {
+              if (!best || characterLT(best, character, settings.rankby) > 0) {
+                best = character;
+              }
+            }
+          }
+        }
+
+        if (best) {
+          this.insertCharacter(best);
+        }
       }
     }
   }
 
   testInfusionUsefulness(character: CharacterUnprocessed) {
     const { settings } = this;
+    const { infusionOptions } = settings;
     const temp = this.clone(character);
 
-    settings.infusionOptions.forEach(({ type, count }) =>
+    infusionOptions.forEach(({ type, count }) =>
       this.addBaseStats(temp, type, count * INFUSION_BONUS),
     );
     this.updateAttributesFast(temp, true);
