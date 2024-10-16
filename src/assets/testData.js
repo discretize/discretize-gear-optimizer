@@ -582,7 +582,9 @@ const testPresets = async () => {
 
     for (const entry of data[type]) {
       const { name, value, traits, skills } = entry;
-      const entryValue = JSON.stringify(value) || JSON.stringify(traits) + JSON.stringify(skills);
+      const entryValue = traits
+        ? JSON.stringify(traits) + JSON.stringify(skills)
+        : JSON.stringify(value);
 
       if (potentialDuplicates[entryValue]) {
         potentialDuplicates[entryValue].push(name);
