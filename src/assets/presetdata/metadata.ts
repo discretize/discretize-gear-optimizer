@@ -1,4 +1,8 @@
-import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
+import type {
+  InfusionName,
+  ProfessionName,
+  ProfessionOrSpecializationName,
+} from '../../utils/gw2-data';
 
 type JSON = string;
 
@@ -72,7 +76,7 @@ export interface PresetExtras {
 }
 
 export type PresetInfusionsEntry = Exclude<PresetEntry, 'profession'> & {
-  value: JSON;
+  value: { type: InfusionName | ''; count: string }[];
 };
 export interface PresetInfusions {
   'GraphQL ID': string;
