@@ -1,3 +1,4 @@
+import type { PrioritiesSlice } from '../../state/slices/priorities';
 import type {
   InfusionName,
   ProfessionName,
@@ -46,7 +47,7 @@ export interface PresetBuffs {
 }
 
 export type PresetAffixesEntry = Exclude<PresetEntry, 'profession'> & {
-  value: JSON;
+  value: Partial<PrioritiesSlice>;
 };
 export interface PresetAffixes {
   'GraphQL ID': string;
