@@ -33,13 +33,8 @@ const TraitsSection = () => {
 
   const onTemplateClickTraits = React.useCallback(
     (value: PresetTraitsEntry) => {
-      if (!value) return;
-
-      const newTraits = JSON.parse(value.traits);
-      dispatch(changeTraits(newTraits));
-
-      const newSkills = JSON.parse(value.skills);
-      dispatch(changeSkills(newSkills));
+      dispatch(changeTraits(value.traits));
+      dispatch(changeSkills(value.skills));
     },
     [dispatch],
   );

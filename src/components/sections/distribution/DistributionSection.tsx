@@ -31,11 +31,7 @@ const DistributionSection = () => {
   }
 
   const onTemplateClickDistribution = React.useCallback(
-    (value: PresetDistributionEntry) => {
-      if (!value) return;
-
-      dispatch(changeAllDistributions(value));
-    },
+    (value: PresetDistributionEntry) => dispatch(changeAllDistributions(value)),
     [dispatch],
   );
 

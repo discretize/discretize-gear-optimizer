@@ -16,7 +16,7 @@ const fillAffix = (data: Data, affix: AffixNameOrCustom, value = false) => {
   data[affix] = Array(14).fill(value);
 };
 
-const initialState: {
+export interface PrioritiesSlice {
   optimizeFor: IndicatorName;
   weaponType: WeaponHandednessType;
   minBoonDuration: string;
@@ -42,7 +42,9 @@ const initialState: {
   customAffix: Partial<AffixData>;
   customAffixTextBox: string;
   customAffixError: string;
-} = {
+}
+
+const initialState: PrioritiesSlice = {
   optimizeFor: 'Damage',
   weaponType: WeaponTypes.dualWield,
   minBoonDuration: '',
@@ -90,7 +92,7 @@ export const prioritiesSlice = createSlice({
     changeConstraint: (state, action: PayloadAction<{ key: ConstraintKey; value: string }>) => {
       state[action.payload.key] = action.payload.value;
     },
-    changePriorities: (state, action) => {
+    changePriorities: (state, action: PayloadAction<Partial<PrioritiesSlice>>) => {
       return { ...state, ...action.payload };
     },
     changeOptimizeFor: (state, action: PayloadAction<IndicatorName>) => {

@@ -12,9 +12,11 @@ interface SkillValue {
 // todo: specify skills keys
 type SkillsValues = Record<string, SkillValue>;
 
-const initialState: {
+export interface SkillsSlice {
   skills: SkillsValues;
-} = {
+}
+
+const initialState: SkillsSlice = {
   skills: {},
 };
 

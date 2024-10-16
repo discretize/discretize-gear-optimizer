@@ -9,7 +9,12 @@ import { changeAll, setBuildTemplate } from './controlsSlice';
 type Buffs = Record<string, boolean>;
 type BuffAmounts = Record<string, string>;
 
-const initialState: { buffs: Buffs; amounts: BuffAmounts } = {
+export interface BuffsSlice {
+  buffs: Buffs;
+  amounts: BuffAmounts;
+}
+
+const initialState: BuffsSlice = {
   buffs: {
     might: false,
     fury: false,
@@ -80,13 +85,15 @@ export const buffsSlice = createSlice({
     builder.addCase(setBuildTemplate, (state, action) => {
       const { buffPreset } = action.payload;
 
-      const buffs: Buffs = {};
-      [...Object.keys(state.buffs)].forEach((key) => {
-        buffs[key] = false;
-        if (key in buffPreset) buffs[key] = buffPreset[key];
-      });
+      if (buffPreset) {
+        const buffs: Buffs = {};
+        [...Object.keys(state.buffs)].forEach((key) => {
+          buffs[key] = false;
+          if (key in buffPreset) buffs[key] = buffPreset[key]!;
+        });
 
-      return { buffs, amounts: state.amounts };
+        return { buffs, amounts: state.amounts };
+      }
     });
   },
 });

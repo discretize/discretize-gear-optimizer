@@ -58,12 +58,7 @@ const ExtrasSection = () => {
   }
 
   const onTemplateClickExtras = React.useCallback(
-    (value: PresetExtrasEntry) => {
-      if (!value) return;
-
-      const newExtras = JSON.parse(value.value);
-      dispatch(changeExtras(newExtras));
-    },
+    (value: PresetExtrasEntry) => dispatch(changeExtras(value.value)),
     [dispatch],
   );
 

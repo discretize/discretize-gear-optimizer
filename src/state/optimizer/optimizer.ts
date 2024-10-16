@@ -318,15 +318,16 @@ export function* calculateHeuristic(reduxState: RootState, targetCombinationCoun
 
       const bestResult = combinations[0].heuristicBestResult;
 
-      combinations.slice(targetCombinationCount).forEach((comb) => {
-        if (
-          bestResult &&
-          comb.heuristicBestResult &&
-          comb.heuristicBestResult.attributes[rankby] / bestResult.attributes[rankby] < 0.998
-        ) {
-          comb.heuristicDisabled = true;
-        }
-      });
+      if (bestResult) {
+        combinations.slice(targetCombinationCount).forEach((comb) => {
+          if (
+            comb.heuristicBestResult === undefined ||
+            comb.heuristicBestResult.attributes[rankby] / bestResult.attributes[rankby] < 0.998
+          ) {
+            comb.heuristicDisabled = true;
+          }
+        });
+      }
 
       console.timeEnd('heuristics');
 

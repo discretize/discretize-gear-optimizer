@@ -1,6 +1,15 @@
-import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
-
-type JSON = string;
+import type { BuffsSlice } from '../../state/slices/buffs';
+import type { Distribution } from '../../state/slices/distribution';
+import type { ExtrasSlice } from '../../state/slices/extras';
+import type { PrioritiesSlice } from '../../state/slices/priorities';
+import type { SkillsSlice } from '../../state/slices/skills';
+import type { TraitsSlice } from '../../state/slices/traits';
+import type {
+  InfusionName,
+  ProfessionName,
+  ProfessionOrSpecializationName,
+  WeaponHandednessType,
+} from '../../utils/gw2-data';
 
 interface TemplateEntryBase {
   name: string;
@@ -11,7 +20,7 @@ interface TemplateEntryBase {
   distribution?: string;
   traits?: string;
   extras?: string;
-  weaponType?: string;
+  weaponType: WeaponHandednessType;
   outdated: boolean;
 }
 export type TemplateEntry = TemplateEntryBase & {
@@ -33,7 +42,7 @@ export interface PresetEntry {
 }
 
 export type PresetBuffsEntry = PresetEntry & {
-  value: JSON;
+  value: Partial<BuffsSlice['buffs']>;
 };
 export interface PresetBuffs {
   'GraphQL ID': string;
@@ -41,7 +50,7 @@ export interface PresetBuffs {
 }
 
 export type PresetAffixesEntry = Exclude<PresetEntry, 'profession'> & {
-  value: JSON;
+  value: Partial<PrioritiesSlice>;
 };
 export interface PresetAffixes {
   'GraphQL ID': string;
@@ -54,7 +63,7 @@ export interface Credit {
   log?: string;
 }
 export type PresetDistributionEntry = PresetEntry & {
-  value: JSON;
+  value: { values2: Distribution };
   noCreditOkay?: true;
   credit?: Credit[];
 };
@@ -64,7 +73,7 @@ export interface PresetDistribution {
 }
 
 export type PresetExtrasEntry = PresetEntry & {
-  value: JSON;
+  value: Partial<ExtrasSlice>;
 };
 export interface PresetExtras {
   'GraphQL ID': string;
@@ -72,7 +81,7 @@ export interface PresetExtras {
 }
 
 export type PresetInfusionsEntry = Exclude<PresetEntry, 'profession'> & {
-  value: JSON;
+  value: { type: InfusionName | ''; count: string }[];
 };
 export interface PresetInfusions {
   'GraphQL ID': string;
@@ -80,8 +89,8 @@ export interface PresetInfusions {
 }
 
 export type PresetTraitsEntry = PresetEntry & {
-  traits: JSON;
-  skills: JSON;
+  traits: Partial<TraitsSlice>;
+  skills: Partial<SkillsSlice>;
 };
 export interface PresetTraits {
   'GraphQL ID': string;

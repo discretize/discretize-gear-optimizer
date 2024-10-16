@@ -26,7 +26,6 @@ import {
 } from '../../assets/modifierdata/metadata';
 import type { AffixName, ForcedSlotName } from '../../utils/gw2-data';
 import {
-  Attributes,
   Classes,
   ForcedSlots,
   Slots,
@@ -56,10 +55,7 @@ import { getForcedSlots } from '../slices/forcedSlots';
 import {
   getInfusionsModifiers,
   getMaxInfusions,
-  getPrimaryInfusion,
-  getPrimaryMaxInfusions,
-  getSecondaryInfusion,
-  getSecondaryMaxInfusions,
+  getValidInfusionOptions,
 } from '../slices/infusions';
 import {
   getAffixes,
@@ -267,11 +263,8 @@ export function createSettingsPerCalculation(
   };
 
   const profession = getProfession(reduxState);
-  const primaryInfusion = getPrimaryInfusion(reduxState);
-  const secondaryInfusion = getSecondaryInfusion(reduxState);
+  const infusionOptions = getValidInfusionOptions(reduxState);
   const maxInfusionsText = getMaxInfusions(reduxState);
-  const primaryMaxInfusionsText = getPrimaryMaxInfusions(reduxState);
-  const secondaryMaxInfusionsText = getSecondaryMaxInfusions(reduxState);
   const forcedSlots = getForcedSlots(reduxState);
   const exclusions = getExclusionData(reduxState);
   const exotics = getExoticsData(reduxState);
@@ -309,8 +302,6 @@ export function createSettingsPerCalculation(
   // );
 
   const maxInfusions = parseInfusionCount(maxInfusionsText).value;
-  const primaryMaxInfusions = parseInfusionCount(primaryMaxInfusionsText).value;
-  const secondaryMaxInfusions = parseInfusionCount(secondaryMaxInfusionsText).value;
 
   const minBoonDuration = parsePriority(minBoonDurationText).value;
   const minHealingPower = parsePriority(minHealingPowerText).value;
@@ -337,69 +328,33 @@ export function createSettingsPerCalculation(
 
   const settings_maxInfusions: OptimizerCoreSettings['maxInfusions'] = clamp(maxInfusions, 0, 18);
 
-  const primaryMaxInfusionsInput = clamp(primaryMaxInfusions, 0, settings_maxInfusions);
-  const secondaryMaxInfusionsInput = clamp(secondaryMaxInfusions, 0, settings_maxInfusions);
+  const settings_infusionOptions = infusionOptions.map(({ type, count }) => ({
+    type,
+    count: clamp(parseInfusionCount(count).value, 0, 18),
+  }));
 
-  const validInfusionStats = new Set([
-    ...Attributes.PRIMARY,
-    ...Attributes.SECONDARY,
-    ...Attributes.DERIVED,
-  ]);
-
-  let settings_primaryInfusion: OptimizerCoreSettings['primaryInfusion'] = '';
-  let settings_primaryMaxInfusions: OptimizerCoreSettings['primaryMaxInfusions'] = 0;
-  let settings_secondaryInfusion: OptimizerCoreSettings['secondaryInfusion'] = '';
-  let settings_secondaryMaxInfusions: OptimizerCoreSettings['secondaryMaxInfusions'] = 0;
-
-  let activeInfusions = 0;
-  if (primaryInfusion) {
-    if (validInfusionStats.has(primaryInfusion)) {
-      activeInfusions++;
-      settings_primaryInfusion = primaryInfusion;
-      settings_primaryMaxInfusions = primaryMaxInfusionsInput;
-    } else {
-      throw new Error(
-        `Primary infusion can only increase primary, secondary or derived attributes, not ${primaryInfusion}`,
-      );
-    }
-  }
-
-  if (secondaryInfusion && secondaryInfusion !== primaryInfusion) {
-    if (validInfusionStats.has(secondaryInfusion)) {
-      activeInfusions++;
-      if (activeInfusions === 2) {
-        settings_secondaryInfusion = secondaryInfusion;
-        settings_secondaryMaxInfusions = secondaryMaxInfusionsInput;
-      } else {
-        // only secondary is selected; pretend secondary is primary
-        settings_primaryInfusion = secondaryInfusion;
-        settings_primaryMaxInfusions = secondaryMaxInfusionsInput;
-      }
-    } else {
-      throw new Error(
-        `Secondary infusion can only increase primary, secondary or derived attributes, not ${secondaryInfusion}`,
-      );
-    }
-  }
+  const totalSelectedInfusions = settings_infusionOptions.reduce(
+    (prev, cur) => prev + cur.count,
+    0,
+  );
 
   // currently unimplemented setting
   const infusionNoDuplicates = false;
 
   let settings_infusionMode: OptimizerCoreSettings['infusionMode'] = 'None';
-  switch (activeInfusions) {
+  switch (infusionOptions.length) {
     case 0:
       settings_infusionMode = 'None';
       break;
     case 1:
       settings_infusionMode = 'Primary';
       break;
-    case 2:
-      if (settings_primaryMaxInfusions + settings_secondaryMaxInfusions <= settings_maxInfusions) {
+    default:
+      if (totalSelectedInfusions <= settings_maxInfusions) {
         settings_infusionMode = 'Few';
       } else {
         settings_infusionMode = infusionNoDuplicates ? 'SecondaryNoDuplicates' : 'Secondary';
       }
-    // no default
   }
 
   /* Equipment */
@@ -606,10 +561,7 @@ export function createSettingsPerCalculation(
     shouldDisplayExtras,
     distribution,
     maxInfusions: settings_maxInfusions,
-    primaryInfusion: settings_primaryInfusion,
-    primaryMaxInfusions: settings_primaryMaxInfusions,
-    secondaryInfusion: settings_secondaryInfusion,
-    secondaryMaxInfusions: settings_secondaryMaxInfusions,
+    infusionOptions: settings_infusionOptions,
     infusionMode: settings_infusionMode,
     slots: settings_slots.length,
     affixesArray: settings_affixesArray,

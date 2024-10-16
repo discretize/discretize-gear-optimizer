@@ -31,12 +31,14 @@ const getInitialItems = (traitline: string): TraitsValues => {
   );
 };
 
-const initialState: {
+export interface TraitsSlice {
   showAll: boolean;
   selectedLines: string[];
   selectedTraits: number[][];
   items: TraitsValues[];
-} = {
+}
+
+const initialState: TraitsSlice = {
   showAll: false,
   selectedLines: ['', '', ''],
   selectedTraits: [

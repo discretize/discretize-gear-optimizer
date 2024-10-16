@@ -57,24 +57,13 @@ export function getBuildTemplateData({
     build,
     specialization: build.specialization,
     profession,
-    buffPreset: JSON.parse(
-      presetBuffs.list.find((pre) => pre.name === build.boons)?.value ?? 'undefined',
-    ),
+    buffPreset: presetBuffs.list.find((pre) => pre.name === build.boons)?.value,
     selectedDistribution: build.distribution,
-    distributionPreset: JSON.parse(
-      presetDistribution.list.find((pre) => pre.name === build.distribution)?.value || 'undefined',
-    ),
-    prioritiesPreset: JSON.parse(
-      prioritiesPresets.list.find((pre) => pre.name === build.priority)?.value ?? 'undefined',
-    ),
-    extrasPreset: JSON.parse(
-      presetExtras.list.find((pre) => pre.name === build.extras)?.value ?? 'undefined',
-    ),
-    traitsPreset: JSON.parse(
-      presetTraits.list.find((pre) => pre.name === build.traits)?.traits ?? 'undefined',
-    ),
-    skillsPreset: JSON.parse(
-      presetTraits.list.find((pre) => pre.name === build.traits)?.skills ?? 'undefined',
-    ),
+    distributionPreset: presetDistribution.list.find((pre) => pre.name === build.distribution)
+      ?.value,
+    prioritiesPreset: prioritiesPresets.list.find((pre) => pre.name === build.priority)?.value,
+    extrasPreset: presetExtras.list.find((pre) => pre.name === build.extras)?.value,
+    traitsPreset: presetTraits.list.find((pre) => pre.name === build.traits)?.traits,
+    skillsPreset: presetTraits.list.find((pre) => pre.name === build.traits)?.skills,
   };
 }

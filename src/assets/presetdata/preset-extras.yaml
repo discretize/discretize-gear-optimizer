@@ -2,7 +2,7 @@ GraphQL ID: presetExtras
 list:
 
   - name: Power (Fractal)
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -35,7 +35,7 @@ list:
       }
 
   - name: Power (Raid)
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -70,7 +70,7 @@ list:
       }
 
   - name: Power (Raid, fireworks)
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -107,8 +107,46 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power (Raid, claw)
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "claw-relic": {
+              "amount": "100"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power (Raid, furious)
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -144,7 +182,7 @@ list:
       }
 
   - name: Power (Raid, air)
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -182,7 +220,7 @@ list:
 
   # just reduced lifesteal frequency
   - name: Bladesworn
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -219,7 +257,7 @@ list:
 
   # air-only approximation of air/hydro split
   - name: Power Berserker
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -256,7 +294,7 @@ list:
       }
 
   - name: Power Boon (Raid)
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -300,7 +338,7 @@ list:
       }
 
   - name: Power Boon (Fractal)
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -342,7 +380,7 @@ list:
 
   # no item sigil represents use of water sigil
   - name: Heal
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -368,7 +406,7 @@ list:
 
   - name: Alacrity Staff Mirage
     profession: Mirage
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -401,7 +439,7 @@ list:
 
   - name: DPS Mirage (Raid)
     profession: Mirage
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -435,7 +473,7 @@ list:
 
   - name: Boon Condi Chrono
     profession: Chronomancer
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -464,7 +502,7 @@ list:
 
   - name: Condi Chrono DPS
     profession: Chronomancer
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -491,7 +529,7 @@ list:
 
   - name: Condi Virtuoso Dueling
     profession: Virtuoso
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -523,7 +561,7 @@ list:
 
   - name: Condi Virtuoso Chaos
     profession: Virtuoso
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -552,7 +590,7 @@ list:
 
   - name: Power Quickbrand (Raid)
     profession: Firebrand
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -590,7 +628,7 @@ list:
 
   - name: DH Virtues (Raid)
     profession: Dragonhunter
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -630,7 +668,7 @@ list:
 
   - name: DH Virtues (Fractal)
     profession: Dragonhunter
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -665,7 +703,7 @@ list:
 
   - name: Power Willbender Virtues (Fractal)
     profession: Willbender
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -695,7 +733,7 @@ list:
 
   - name: Power Alacrity Willbender (Raid)
     profession: Willbender
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -730,7 +768,7 @@ list:
 
   - name: Condi Willbender
     profession: Willbender
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -767,7 +805,7 @@ list:
 
   - name: Condi Alacrity Willbender
     profession: Willbender
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -805,7 +843,7 @@ list:
 
   - name: Condi Firebrand
     profession: Firebrand
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -846,7 +884,7 @@ list:
 
   - name: Quickess Condi Firebrand
     profession: Firebrand
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -885,7 +923,7 @@ list:
 
   - name: Hybrid FB Traveler
     profession: Firebrand
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {},
@@ -911,7 +949,7 @@ list:
 
   - name: Condi Berserker
     profession: Berserker
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -947,7 +985,7 @@ list:
 
   - name: Condi Quickness Bers
     profession: Berserker
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -975,7 +1013,7 @@ list:
 
   - name: Alacrity Power Tempest (Fractal)
     profession: Tempest
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1014,7 +1052,7 @@ list:
 
   - name: Alacrity Power Tempest (Raid)
     profession: Tempest
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1054,7 +1092,7 @@ list:
 
   - name: Condi Weaver Sword
     profession: Weaver
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1083,7 +1121,7 @@ list:
 
   - name: Condi Weaver Dagger
     profession: Weaver
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -1117,7 +1155,7 @@ list:
   # Torment procs chosen to make log get 0 stacks
   - name: Condi Weaver Scepter
     profession: Weaver
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1154,7 +1192,7 @@ list:
 
   - name: Condi Weaver
     profession: Weaver
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1191,7 +1229,7 @@ list:
 
   - name: Hybrid Weaver (Fractal)
     profession: Weaver
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1224,7 +1262,7 @@ list:
 
   - name: Hybrid Weaver (Raid)
     profession: Weaver
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1257,7 +1295,7 @@ list:
 
   - name: Alacrity Hybrid Tempest
     profession: Tempest
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1302,7 +1340,7 @@ list:
 
   - name: Condi Tempest
     profession: Tempest
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1344,7 +1382,7 @@ list:
 
   - name: Power Quickness Catalyst (Raid)
     profession: Catalyst
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1381,7 +1419,7 @@ list:
 
   - name: Condi Quickness Untamed
     profession: Untamed
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -1423,7 +1461,7 @@ list:
 
   - name: Power Quickness Untamed (Raid)
     profession: Untamed
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1466,7 +1504,7 @@ list:
 
   - name: Condi Slb
     profession: Soulbeast
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -1508,7 +1546,7 @@ list:
 
   - name: Hybrid Slb
     profession: Soulbeast
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -1546,7 +1584,7 @@ list:
 
   - name: Condi Druid
     profession: Druid
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -1581,7 +1619,7 @@ list:
 
   - name: Power Holo (Raid)
     profession: Holosmith
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1618,7 +1656,7 @@ list:
 
   - name: Condi Holo
     profession: Holosmith
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1655,7 +1693,7 @@ list:
 
   - name: Condi Quickness Scrapper
     profession: Scrapper
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1692,7 +1730,7 @@ list:
 
   - name: Alacrity Condi Renegade
     profession: Renegade
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {},
@@ -1728,7 +1766,7 @@ list:
 
   - name: Condi Ren
     profession: Renegade
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {},
@@ -1756,7 +1794,7 @@ list:
 
   - name: Power Quickness Herald (Raid)
     profession: Herald
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1799,7 +1837,7 @@ list:
 
   - name: Power Quickness Herald (Fractal)
     profession: Herald
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1834,7 +1872,7 @@ list:
 
   - name: Power Alac Ren (Raid)
     profession: Renegade
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1873,7 +1911,7 @@ list:
 
   - name: Condi Quickness Herald
     profession: Herald
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1906,7 +1944,7 @@ list:
 
   - name: DPS Vindicator (Fractal)
     profession: Vindicator
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1937,7 +1975,7 @@ list:
 
   - name: DPS Vindicator (Raid)
     profession: Vindicator
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1957,7 +1995,7 @@ list:
           },
           "Sigil2": {
             "air": {
-              "amount": 3.1
+              "amount": "3.1"
             }
           },
           "Enhancement": {
@@ -1973,7 +2011,7 @@ list:
   - name: Power Alacrity Mechanist (Fractal, inaccurate)
     hidden: true
     profession: Mechanist
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -1996,7 +2034,7 @@ list:
 
   - name: Power Alacrity Mechanist (Raid, air, inaccurate)
     profession: Mechanist
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -2021,7 +2059,7 @@ list:
 
   - name: Power Alacrity Mechanist (Raid, concentration, inaccurate)
     profession: Mechanist
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -2048,7 +2086,7 @@ list:
 
   - name: Condi Mechanist
     profession: Mechanist
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -2084,7 +2122,7 @@ list:
 
   - name: DPS Scourge
     profession: Scourge
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -2120,7 +2158,7 @@ list:
 
   - name: Condi Reaper Spear
     profession: Reaper
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -2151,7 +2189,7 @@ list:
 
   - name: Condi Reaper Scepter
     profession: Reaper
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -2175,7 +2213,7 @@ list:
 
   - name: DPS Harbinger
     profession: Harbinger
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -2216,7 +2254,7 @@ list:
 
   - name: Quickness Condi Harbinger
     profession: Harbinger
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -2258,7 +2296,7 @@ list:
 
   - name: Condi Deadeye A/D
     profession: Deadeye
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -2298,7 +2336,7 @@ list:
 
   - name: Quickness Condi Deadeye Spear
     profession: Deadeye
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -2338,7 +2376,7 @@ list:
 
   - name: Power Deadeye (Raid)
     profession: Deadeye
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -2376,7 +2414,7 @@ list:
 
   - name: Power Staff Daredevil
     profession: Daredevil
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -2412,7 +2450,7 @@ list:
 
   - name: Power Boon Daredevil
     profession: Daredevil
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -2449,7 +2487,7 @@ list:
 
   - name: Condi Daredevil
     profession: Daredevil
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -2493,7 +2531,7 @@ list:
 
   - name: Condi Boon Daredevil
     profession: Daredevil
-    value: |-
+    value:
       {
         "extras": {
           "Runes": {
@@ -2527,7 +2565,7 @@ list:
 
   - name: Condi Specter Spear
     profession: Specter
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -2570,7 +2608,7 @@ list:
 
   - name: Condi Specter SC/D
     profession: Specter
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -2616,7 +2654,7 @@ list:
 
   - name: Condi Barrier Specter SC/D
     profession: Specter
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
@@ -2656,7 +2694,7 @@ list:
 
   - name: Alacrity Specter
     profession: Specter
-    value: |-
+    value:
       {
         "extras": {
           "Sigil1": {
