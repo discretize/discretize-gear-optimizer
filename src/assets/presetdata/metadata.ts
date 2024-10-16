@@ -1,5 +1,6 @@
 import type { BuffsSlice } from '../../state/slices/buffs';
 import type { Distribution } from '../../state/slices/distribution';
+import type { ExtrasSlice } from '../../state/slices/extras';
 import type { PrioritiesSlice } from '../../state/slices/priorities';
 import type {
   InfusionName,
@@ -72,7 +73,7 @@ export interface PresetDistribution {
 }
 
 export type PresetExtrasEntry = PresetEntry & {
-  value: JSON;
+  value: Partial<ExtrasSlice>;
 };
 export interface PresetExtras {
   'GraphQL ID': string;

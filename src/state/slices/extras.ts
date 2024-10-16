@@ -34,7 +34,7 @@ type ExtrasValues = Record<string, ExtraValue>;
 export type ExtrasCombination = Record<ExtrasType, string>;
 export type ShouldDisplayExtras = Record<ExtrasType, boolean>;
 
-const initialState: {
+export interface ExtrasSlice {
   extras: {
     Sigil1: ExtrasValues;
     Sigil2: ExtrasValues;
@@ -44,7 +44,9 @@ const initialState: {
     Enhancement: ExtrasValues;
   };
   lifestealAmount: string;
-} = {
+}
+
+const initialState: ExtrasSlice = {
   extras: {
     Sigil1: {},
     Sigil2: {},
@@ -81,7 +83,7 @@ export const extrasSlice = createSlice({
       const { type, id, amount } = action.payload;
       state.extras[type][id].amount = amount;
     },
-    changeExtras: (state, action) => {
+    changeExtras: (state, action: PayloadAction<Partial<ExtrasSlice>>) => {
       return { ...state, ...action.payload };
     },
     changeLifestealAmount: (state, action: PayloadAction<string>) => {

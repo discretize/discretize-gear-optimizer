@@ -63,9 +63,7 @@ export function getBuildTemplateData({
       presetDistribution.list.find((pre) => pre.name === build.distribution)?.value || 'undefined',
     prioritiesPreset:
       prioritiesPresets.list.find((pre) => pre.name === build.priority)?.value ?? 'undefined',
-    extrasPreset: JSON.parse(
-      presetExtras.list.find((pre) => pre.name === build.extras)?.value ?? 'undefined',
-    ),
+    extrasPreset: presetExtras.list.find((pre) => pre.name === build.extras)?.value ?? 'undefined',
     traitsPreset: JSON.parse(
       presetTraits.list.find((pre) => pre.name === build.traits)?.traits ?? 'undefined',
     ),

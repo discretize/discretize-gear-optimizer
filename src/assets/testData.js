@@ -557,7 +557,7 @@ const testPresets = async () => {
           Object.keys(skills.skills).forEach((id) =>
             gentleAssert(allTraitIds.has(id), `${entry.name} has nonexistent skill id: ${id}`),
           );
-        } else if (['priority', 'boons', 'distribution', 'infusions'].includes(type)) {
+        } else if (['priority', 'boons', 'distribution', 'extras', 'infusions'].includes(type)) {
           // values are not JSON; do nothing
           // (values are validated in validateDataTypes script)
         } else {
@@ -676,7 +676,7 @@ const testPresets = async () => {
             console.log(`❓ ${name}'s ${type}'s profession is wrong! (mode: ${mode})`);
 
           if (type === 'extras') {
-            const extrasData = JSON.parse(match.value);
+            const extrasData = match.value;
             ['Sigil1', 'Sigil2', 'Runes', 'Relics', 'Nourishment', 'Enhancement'].forEach(
               (extrasType) => {
                 gentleAssert(
