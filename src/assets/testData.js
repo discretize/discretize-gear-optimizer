@@ -554,11 +554,6 @@ const testPresets = async () => {
           Object.keys(entry.skills.skills).forEach((id) =>
             gentleAssert(allTraitIds.has(id), `${entry.name} has nonexistent skill id: ${id}`),
           );
-        } else if (['priority', 'boons', 'distribution', 'extras', 'infusions'].includes(type)) {
-          // values are not JSON; do nothing
-          // (values are validated in validateDataTypes script)
-        } else {
-          JSON.parse(entry.value);
         }
       } catch {
         gentleAssert(false, `err: the ${entry.name} ${type} entry is invalid JSON`);

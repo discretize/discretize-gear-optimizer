@@ -11,8 +11,6 @@ import type {
   WeaponHandednessType,
 } from '../../utils/gw2-data';
 
-type JSON = string;
-
 interface TemplateEntryBase {
   name: string;
   id: string;
