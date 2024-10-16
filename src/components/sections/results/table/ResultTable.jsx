@@ -16,6 +16,7 @@ import {
   getHighlightDiffering,
   getList,
   getSaved,
+  getSavedHeader,
   getSelectedCharacter,
   getTallTable,
 } from '../../../../state/slices/controlsSlice';
@@ -88,6 +89,7 @@ const StickyHeadTable = () => {
   const highlightDiffering = useSelector(getHighlightDiffering);
   const filterMode = useSelector(getFilterMode);
   const tallTable = useSelector(getTallTable);
+  const savedHeader = useSelector(getSavedHeader);
 
   const list = {
     None: normalList,
@@ -234,7 +236,7 @@ const StickyHeadTable = () => {
                 aria-label="saved results table"
                 className={classes.tableCollapse}
               >
-                <TableHead style={{ visibility: 'collapse' }}>
+                <TableHead style={savedHeader ? {} : { visibility: 'collapse' }}>
                   <ResultTableHeaderRow
                     classes={classes}
                     cx={cx}
