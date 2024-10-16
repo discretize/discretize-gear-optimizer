@@ -59,9 +59,8 @@ export function getBuildTemplateData({
     profession,
     buffPreset: presetBuffs.list.find((pre) => pre.name === build.boons)?.value ?? 'undefined',
     selectedDistribution: build.distribution,
-    distributionPreset: JSON.parse(
+    distributionPreset:
       presetDistribution.list.find((pre) => pre.name === build.distribution)?.value || 'undefined',
-    ),
     prioritiesPreset:
       prioritiesPresets.list.find((pre) => pre.name === build.priority)?.value ?? 'undefined',
     extrasPreset: JSON.parse(

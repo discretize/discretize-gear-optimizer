@@ -1,4 +1,5 @@
 import type { BuffsSlice } from '../../state/slices/buffs';
+import type { Distribution } from '../../state/slices/distribution';
 import type { PrioritiesSlice } from '../../state/slices/priorities';
 import type {
   InfusionName,
@@ -61,7 +62,7 @@ export interface Credit {
   log?: string;
 }
 export type PresetDistributionEntry = PresetEntry & {
-  value: JSON;
+  value: { values2: Distribution };
   noCreditOkay?: true;
   credit?: Credit[];
 };
