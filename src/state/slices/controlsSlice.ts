@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSelector, createSlice, original } from '@reduxjs/toolkit';
+import type { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
 import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
 import type { Character } from '../optimizer/optimizerCore';
 import type { OptimizerStatus } from '../optimizer/status';
@@ -154,7 +155,7 @@ export const controlSlice = createSlice({
       }
       return state;
     },
-    setBuildTemplate: (state, action) => {
+    setBuildTemplate: (state, action: PayloadAction<ReturnType<typeof getBuildTemplateData>>) => {
       const { build, specialization, profession } = action.payload;
 
       return {

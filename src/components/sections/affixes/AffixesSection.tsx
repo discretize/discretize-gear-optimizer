@@ -28,11 +28,7 @@ const AffixesSection = () => {
   const exoticsEnabled = useSelector(getExoticsEnabled);
 
   const handleTemplateClickPriorities = React.useCallback(
-    (value: PresetAffixesEntry) => {
-      if (!value) return;
-      const state = JSON.parse(value.value);
-      dispatch(changePriorities(state));
-    },
+    (value: PresetAffixesEntry) => dispatch(changePriorities(value.value)),
     [dispatch],
   );
 

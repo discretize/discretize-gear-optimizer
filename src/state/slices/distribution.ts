@@ -8,7 +8,7 @@ const clone =
     ? (value: any) => structuredClone(value)
     : (value: any) => JSON.parse(JSON.stringify(value));
 
-interface Distribution {
+export interface Distribution {
   Power: number;
   Power2: number;
   Burning: number;
@@ -85,11 +85,12 @@ export const distributionSlice = createSlice({
         textBoxes: action.payload,
       };
     },
-    changeAllDistributions: (state, action: PayloadAction<{ name: string; value: string }>) => {
-      const { name, value } = action.payload;
+    changeAllDistributions: (
+      state,
+      action: PayloadAction<{ name: string; value: { values2: Distribution } }>,
+    ) => {
+      const { name, value: distributionPreset } = action.payload;
       try {
-        const distributionPreset = JSON.parse(value) as typeof initialState;
-
         return {
           ...state,
           selectedDistribution: name,
@@ -115,7 +116,7 @@ export const distributionSlice = createSlice({
     });
 
     builder.addCase(setBuildTemplate, (state, action) => {
-      const { distributionPreset, selectedDistribution } = action.payload;
+      const { distributionPreset, selectedDistribution = '' } = action.payload;
 
       if (distributionPreset) {
         return {

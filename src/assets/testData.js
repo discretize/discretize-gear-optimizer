@@ -544,27 +544,15 @@ const testPresets = async () => {
 
   for (const [type, entries] of Object.entries(data)) {
     for (const entry of entries) {
-      try {
-        if (type === 'traits') {
-          JSON.parse(entry.traits);
-          // const traits = JSON.parse(entry.traits);
-          // traits.items
-          //   .flatMap(Object.keys)
-          //   .forEach((id) =>
-          //     gentleAssert(allTraitIds.has(id), `${entry.name} has nonexistent trait id: ${id}`),
-          //   );
-          const skills = JSON.parse(entry.skills);
-          Object.keys(skills.skills).forEach((id) =>
-            gentleAssert(allTraitIds.has(id), `${entry.name} has nonexistent skill id: ${id}`),
-          );
-        } else if (['infusions'].includes(type)) {
-          // values are not JSON; do nothing
-          // (values are validated in validateDataTypes script)
-        } else {
-          JSON.parse(entry.value);
-        }
-      } catch {
-        gentleAssert(false, `err: the ${entry.name} ${type} entry is invalid JSON`);
+      if (type === 'traits') {
+        // entry.traits.items
+        //   .flatMap(Object.keys)
+        //   .forEach((id) =>
+        //     gentleAssert(allTraitIds.has(id), `${entry.name} has nonexistent trait id: ${id}`),
+        //   );
+        Object.keys(entry.skills.skills).forEach((id) =>
+          gentleAssert(allTraitIds.has(id), `${entry.name} has nonexistent skill id: ${id}`),
+        );
       }
       if (type === 'distribution') {
         if (!entry.noCreditOkay) {
@@ -594,7 +582,9 @@ const testPresets = async () => {
 
     for (const entry of data[type]) {
       const { name, value, traits, skills } = entry;
-      const entryValue = value || traits + skills;
+      const entryValue = traits
+        ? JSON.stringify(traits) + JSON.stringify(skills)
+        : JSON.stringify(value);
 
       if (potentialDuplicates[entryValue]) {
         potentialDuplicates[entryValue].push(name);
@@ -676,7 +666,7 @@ const testPresets = async () => {
             console.log(`❓ ${name}'s ${type}'s profession is wrong! (mode: ${mode})`);
 
           if (type === 'extras') {
-            const extrasData = JSON.parse(match.value);
+            const extrasData = match.value;
             ['Sigil1', 'Sigil2', 'Runes', 'Relics', 'Nourishment', 'Enhancement'].forEach(
               (extrasType) => {
                 gentleAssert(
