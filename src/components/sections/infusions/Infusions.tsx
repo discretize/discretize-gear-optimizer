@@ -176,11 +176,19 @@ const Infusions = () => {
                 renderValue={(value) => value && <Item id={INFUSION_IDS[value]} disableLink />}
               >
                 <MenuItem value="">{t('None')} </MenuItem>
-                {Object.entries(INFUSION_IDS).map(([attribute, id]) => (
-                  <MenuItem value={attribute} key={attribute}>
-                    <Item id={id} disableLink />
-                  </MenuItem>
-                ))}
+                {Object.entries(INFUSION_IDS)
+                  .filter(
+                    ([attribute]) =>
+                      // currently selected in this slot
+                      attribute === type ||
+                      // not selected in any other slot
+                      !infusionOptions.some((option) => option.type === attribute),
+                  )
+                  .map(([attribute, id]) => (
+                    <MenuItem value={attribute} key={attribute}>
+                      <Item id={id} disableLink />
+                    </MenuItem>
+                  ))}
               </Select>
             </FormControl>
 
