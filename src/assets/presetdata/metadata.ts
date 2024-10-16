@@ -2,6 +2,7 @@ import type {
   InfusionName,
   ProfessionName,
   ProfessionOrSpecializationName,
+  WeaponHandednessType,
 } from '../../utils/gw2-data';
 
 type JSON = string;
@@ -15,7 +16,7 @@ interface TemplateEntryBase {
   distribution?: string;
   traits?: string;
   extras?: string;
-  weaponType?: string;
+  weaponType: WeaponHandednessType;
   outdated: boolean;
 }
 export type TemplateEntry = TemplateEntryBase & {
