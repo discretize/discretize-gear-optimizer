@@ -28,6 +28,7 @@ import type {
   CachedFormState,
   DamageMultiplier,
   DistributionNameInternal,
+  InfusionMode,
   Modifiers,
 } from './optimizerSetup';
 
@@ -140,7 +141,7 @@ export interface OptimizerCoreSettingsPerCalculation {
   gameMode: GameMode;
 
   // these are in addition to the input
-  infusionNoDuplicates: boolean;
+  infusionMode: InfusionMode;
   identicalRing: boolean;
   identicalAcc: boolean;
   identicalWep: boolean;
@@ -267,26 +268,28 @@ export class OptimizerCore {
     };
     this.conditionData = settings.gameMode === 'wvw' ? conditionDataWvW : conditionData;
 
-    const { infusionOptions, maxInfusions, infusionNoDuplicates } = settings;
     let applyInfusionsFunction: OptimizerCore['applyInfusionsFunction'];
-
-    if (infusionOptions.length === 0) {
-      // Applies no infusions
-      applyInfusionsFunction = this.applyInfusionsNone;
-    } else if (infusionOptions.length === 1) {
-      // Just applies the primary infusion
-      applyInfusionsFunction = this.applyInfusionsPrimary;
-    } else if (infusionOptions.reduce((prev, cur) => prev + cur.count, 0) <= maxInfusions) {
-      // Just applies the maximum number of primary/secondary infusions, since the total is less than or equal to the max
-      applyInfusionsFunction = this.applyInfusionsFew;
-    } else if (infusionNoDuplicates === false) {
-      // Inserts every valid combination of 18 infusions
-      applyInfusionsFunction = this.applyInfusionsSecondary;
-    } else {
-      // Tests every valid combination of 18 infusions and inserts the best result
-      applyInfusionsFunction = this.applyInfusionsSecondaryNoDuplicates;
+    switch (settings.infusionMode) {
+      case 'None':
+        applyInfusionsFunction = this.applyInfusionsNone;
+        break;
+      case 'Primary':
+        applyInfusionsFunction = this.applyInfusionsPrimary;
+        break;
+      case 'Few':
+        applyInfusionsFunction = this.applyInfusionsFew;
+        break;
+      case 'Secondary':
+        applyInfusionsFunction = this.applyInfusionsSecondary;
+        break;
+      case 'SecondaryNoDuplicates':
+        applyInfusionsFunction = this.applyInfusionsSecondaryNoDuplicates;
+        break;
+      default:
+        throw new Error(
+          `Error: optimizer selected invalid infusion calculation mode: ${settings.infusionMode}`,
+        );
     }
-
     this.applyInfusionsFunction = applyInfusionsFunction;
   }
 

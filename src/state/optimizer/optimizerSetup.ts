@@ -164,7 +164,7 @@ export interface Modifiers {
   ][];
 }
 
-// export type InfusionMode = 'None' | 'Primary' | 'Few' | 'Secondary' | 'SecondaryNoDuplicates';
+export type InfusionMode = 'None' | 'Primary' | 'Few' | 'Secondary' | 'SecondaryNoDuplicates';
 
 export interface CachedFormState {
   traits: Record<string, any>;
@@ -333,8 +333,29 @@ export function createSettingsPerCalculation(
     count: clamp(parseInfusionCount(count).value, 0, 18),
   }));
 
+  const totalSelectedInfusions = settings_infusionOptions.reduce(
+    (prev, cur) => prev + cur.count,
+    0,
+  );
+
   // currently unimplemented setting
   const infusionNoDuplicates = false;
+
+  let settings_infusionMode: OptimizerCoreSettings['infusionMode'] = 'None';
+  switch (infusionOptions.length) {
+    case 0:
+      settings_infusionMode = 'None';
+      break;
+    case 1:
+      settings_infusionMode = 'Primary';
+      break;
+    default:
+      if (totalSelectedInfusions <= settings_maxInfusions) {
+        settings_infusionMode = 'Few';
+      } else {
+        settings_infusionMode = infusionNoDuplicates ? 'SecondaryNoDuplicates' : 'Secondary';
+      }
+  }
 
   /* Equipment */
 
@@ -541,7 +562,7 @@ export function createSettingsPerCalculation(
     distribution,
     maxInfusions: settings_maxInfusions,
     infusionOptions: settings_infusionOptions,
-    infusionNoDuplicates,
+    infusionMode: settings_infusionMode,
     slots: settings_slots.length,
     affixesArray: settings_affixesArray,
     identicalArmor: settings_identicalArmor,

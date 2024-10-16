@@ -30,7 +30,7 @@ pub struct Settings {
     pub attackRate: f32,
     pub movementUptime: f32,
     pub gameMode: String,
-    pub infusionNoDuplicates: bool, // currently unused
+    pub infusionMode: String,
     pub identicalRing: bool,
     pub identicalAcc: bool,
     pub identicalWep: bool,
