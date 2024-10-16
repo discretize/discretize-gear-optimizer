@@ -1,12 +1,12 @@
 GraphQL ID: presetBuffs
 list:
   - name: None
-    value: >-
+    value:
       {
       }
 
   - name: Realistic
-    value: >-
+    value:
       {
         "might": true,
         "fury": true,
@@ -19,7 +19,7 @@ list:
 
   - name: Condi
     hidden: true
-    value: >-
+    value:
       {
         "might": true,
         "fury": true,
@@ -33,7 +33,7 @@ list:
 
   - name: Power (no spotter)
     hidden: true
-    value: >-
+    value:
       {
         "might": true,
         "fury": true,
@@ -48,7 +48,7 @@ list:
 
   - name: Power (spotter)
     hidden: true
-    value: >-
+    value:
       {
         "might": true,
         "fury": true,
@@ -64,7 +64,7 @@ list:
 
   - name: Benchmark
     hidden: true
-    value: >-
+    value:
       {
         "might": true,
         "fury": true,

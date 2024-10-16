@@ -9,7 +9,12 @@ import { changeAll, setBuildTemplate } from './controlsSlice';
 type Buffs = Record<string, boolean>;
 type BuffAmounts = Record<string, string>;
 
-const initialState: { buffs: Buffs; amounts: BuffAmounts } = {
+export interface BuffsSlice {
+  buffs: Buffs;
+  amounts: BuffAmounts;
+}
+
+const initialState: BuffsSlice = {
   buffs: {
     might: false,
     fury: false,

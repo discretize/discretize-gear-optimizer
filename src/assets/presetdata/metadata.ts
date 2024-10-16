@@ -1,3 +1,4 @@
+import type { BuffsSlice } from '../../state/slices/buffs';
 import type { PrioritiesSlice } from '../../state/slices/priorities';
 import type {
   InfusionName,
@@ -39,7 +40,7 @@ export interface PresetEntry {
 }
 
 export type PresetBuffsEntry = PresetEntry & {
-  value: JSON;
+  value: Partial<BuffsSlice['buffs']>;
 };
 export interface PresetBuffs {
   'GraphQL ID': string;

@@ -13,12 +13,7 @@ const BuffsSection = () => {
   const { t } = useTranslation();
 
   const handleTemplateClickBuffs = React.useCallback(
-    (value: PresetBuffsEntry) => {
-      if (!value) return;
-
-      const state = JSON.parse(value.value);
-      dispatch(replaceBuffs(state as Record<string, boolean>));
-    },
+    (value: PresetBuffsEntry) => dispatch(replaceBuffs(value.value)),
     [dispatch],
   );
 
