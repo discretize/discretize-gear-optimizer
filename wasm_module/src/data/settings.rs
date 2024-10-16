@@ -24,11 +24,8 @@ pub struct Settings {
     pub minQuicknessDuration: Option<f32>,
     pub minSurviability: Option<f32>,
     pub maxResults: u32,
-    pub primaryInfusion: String,   // todo
-    pub secondaryInfusion: String, // todo
-    pub primaryMaxInfusions: u8,
-    pub secondaryMaxInfusions: u8,
-    pub maxInfusions: u8, // max 18
+    pub infusionOptions: Vec<InfusionOption>, // todo
+    pub maxInfusions: u8,                     // max 18
     pub distribution: Distribution,
     pub attackRate: f32,
     pub movementUptime: f32,
@@ -63,6 +60,13 @@ impl fmt::Display for WeaponHandednessType {
             WeaponHandednessType::TwoHanded => write!(f, "TwoHanded"),
         }
     }
+}
+
+#[allow(non_snake_case)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct InfusionOption {
+    pub r#type: String,
+    pub count: u8,
 }
 
 #[allow(non_snake_case)]
