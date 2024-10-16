@@ -2,9 +2,9 @@ import { Attribute, Item } from '@discretize/gw2-ui-new';
 import { HelperIcon } from '@discretize/react-discretize-components';
 import AddIcon from '@mui/icons-material/Add';
 import {
+  Button,
   FormControl,
   Grid2 as Grid,
-  IconButton,
   Input,
   InputLabel,
   MenuItem,
@@ -202,9 +202,15 @@ const Infusions = () => {
           </Grid>
         ))}
 
-        <IconButton aria-label="add" onClick={() => dispatch(addInfusionOption())}>
-          <AddIcon />
-        </IconButton>
+        {infusionOptions.length < Object.keys(INFUSION_IDS).length && (
+          <Button
+            variant="text"
+            startIcon={<AddIcon />}
+            onClick={() => dispatch(addInfusionOption())}
+          >
+            {t('Add')}
+          </Button>
+        )}
       </Grid>
 
       {gameMode === 'fractals' && (
