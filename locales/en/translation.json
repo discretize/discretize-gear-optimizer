@@ -76,7 +76,7 @@
   "Distribution Template": "Distribution Template",
   "Dual wielded": "Dual wielded",
   "Effective Power": "Effective Power",
-  "Enable experimental multicore processing": "Enable experimental multicore processing",
+  "Enable experimental Rust/WebAssembly mode": "Enable experimental Rust/WebAssembly mode",
   "Enable free WvW stat infusions": "Enable free WvW stat infusions",
   "Enable heuristics": "Enable heuristics",
   "Enhancement": "Enhancement",

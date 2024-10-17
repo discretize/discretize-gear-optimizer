@@ -164,6 +164,22 @@ export default function NavSettings({
       {!threadingDisabled && (
         <>
           <Divider className={classes.divider} />
+
+          <TextField
+            label={t('Threads')}
+            helperText={t('Number of threads to use for calculations')}
+            placeholder={String(defaultHwThreads)}
+            size="small"
+            value={hwThreadsString}
+            error={hwThreadsError}
+            onChange={(e) => dispatch(changeHwThreads(e.target.value))}
+            slotProps={{
+              htmlInput: { inputMode: 'numeric', pattern: '[0-9]*' },
+            }}
+          />
+
+          <Divider className={classes.divider} />
+
           <FormControlLabel
             control={
               <Checkbox
@@ -180,23 +196,10 @@ export default function NavSettings({
                 }}
               />
             }
-            label={t('Enable experimental multicore processing')}
-            sx={{ mb: 3 }}
+            label={t('Enable experimental Rust/WebAssembly mode')}
             checked={enableMulticore}
           />
 
-          <TextField
-            label={t('Threads')}
-            helperText={t('Number of threads to use for calculations')}
-            placeholder={String(defaultHwThreads)}
-            size="small"
-            value={hwThreadsString}
-            error={hwThreadsError}
-            onChange={(e) => dispatch(changeHwThreads(e.target.value))}
-            slotProps={{
-              htmlInput: { inputMode: 'numeric', pattern: '[0-9]*' },
-            }}
-          />
           <FormControlLabel
             control={
               <Checkbox
@@ -207,7 +210,7 @@ export default function NavSettings({
               />
             }
             label={t('Enable heuristics')}
-            sx={{ mb: 3, display: 'none' }}
+            sx={{ display: 'none' }}
             checked={enableHeuristics}
           />
         </>
