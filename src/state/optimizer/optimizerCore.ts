@@ -326,7 +326,7 @@ export class OptimizerCore {
         yield {
           isChanged: this.isChanged,
           calculationRuns,
-          newList: this.list,
+          newList: this.isChanged ? this.list : undefined,
         };
         this.isChanged = false;
         iterationTimer = Date.now();
@@ -402,7 +402,7 @@ export class OptimizerCore {
     yield {
       isChanged: this.isChanged,
       calculationRuns,
-      newList: this.list,
+      newList: this.isChanged ? this.list : undefined,
     };
   }
 
@@ -447,7 +447,7 @@ export class OptimizerCore {
         yield {
           isChanged: this.isChanged,
           calculationRuns,
-          newList: this.list,
+          newList: this.isChanged ? this.list : undefined,
         };
         this.isChanged = false;
         iterationTimer = Date.now();
@@ -480,7 +480,7 @@ export class OptimizerCore {
     yield {
       isChanged: this.isChanged,
       calculationRuns,
-      newList: this.list,
+      newList: this.isChanged ? this.list : undefined,
     };
   }
 

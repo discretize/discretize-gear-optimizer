@@ -138,7 +138,9 @@ export async function* calculate(
             const {
               value: { isChanged, calculationRuns, newList },
             } = result;
-            combination.list = newList;
+            if (newList) {
+              combination.list = newList;
+            }
 
             combination.calculationRuns = calculationRuns ?? 0;
             // console.log(`option ${index} progress: ${calculationRuns} / ${calculationTotal}`);
@@ -295,8 +297,10 @@ export async function* calculateHeuristic(
             const {
               value: { isChanged, calculationRuns, newList },
             } = result;
-            // eslint-disable-next-line prefer-destructuring
-            combination.heuristicBestResult = newList[0];
+            if (newList) {
+              // eslint-disable-next-line prefer-destructuring
+              combination.heuristicBestResult = newList[0];
+            }
 
             combination.heuristicCalculationRuns = calculationRuns ?? 0;
             // console.log(`option ${index} heuristics progress: ${calculationRuns} / ${calculationTotal}`);
