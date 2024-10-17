@@ -21,9 +21,6 @@ import SagaTypes from './sagaTypes';
 
 const worker = new ComlinkWorker<typeof import('../optimizer/optimizer')>(
   new URL('../optimizer/optimizer.ts', import.meta.url),
-  {
-    type: 'module',
-  },
 );
 
 function* runCalc() {

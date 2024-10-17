@@ -21,7 +21,7 @@ const createdWorkers: WorkerWrapper[] = [];
 
 const createWorker = (): WorkerWrapper => ({
   status: 'idle',
-  worker: new Worker(new URL('./worker/worker.ts', import.meta.url), { type: 'module' }),
+  worker: new Worker(new URL('./worker/worker.ts', import.meta.url)),
 });
 
 const terminateActiveWorkers = () => {

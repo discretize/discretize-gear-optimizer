@@ -61,9 +61,7 @@ const findExtraBestResults = (
 };
 
 const createWorker = () =>
-  new ComlinkWorker<typeof import('./worker')>(new URL('./worker.ts', import.meta.url), {
-    type: 'module',
-  });
+  new ComlinkWorker<typeof import('./worker')>(new URL('./worker.ts', import.meta.url));
 
 const createdWorkers: ReturnType<typeof createWorker>[] = [];
 
