@@ -5,6 +5,7 @@ import type { getBuildTemplateData } from '../../assets/presetdata/templateTrans
 import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
 import type { ParseFunction } from '../../utils/usefulFunctions';
 import { parseNumber } from '../../utils/usefulFunctions';
+import { isFirefox } from '../optimizer/detectFirefox';
 import type { Character } from '../optimizer/optimizerCore';
 import type { OptimizerStatus } from '../optimizer/status';
 import { RUNNING, RUNNING_HEURISTICS, WAITING } from '../optimizer/status';
@@ -90,7 +91,9 @@ export const emptyFilteredLists = {
   Enhancement: [],
 };
 
-export const defaultHwThreads = navigator.hardwareConcurrency || 4; // 4 seems to be a sensible default
+export const defaultHwThreads = isFirefox
+  ? 4 // to investigate: high thread count performance degradation in firefox
+  : navigator.hardwareConcurrency || 4; // 4 seems to be a sensible default
 
 export const parseHwThreads: ParseFunction<number> = (text) =>
   parseNumber(text, defaultHwThreads, true);
