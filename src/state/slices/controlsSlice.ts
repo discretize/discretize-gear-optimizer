@@ -91,13 +91,6 @@ export const emptyFilteredLists = {
   Enhancement: [],
 };
 
-export const defaultHwThreads = isFirefox
-  ? 4 // to investigate: high thread count performance degradation in firefox
-  : navigator.hardwareConcurrency || 4; // 4 seems to be a sensible default
-
-export const parseHwThreads: ParseFunction<number> = (text) =>
-  parseNumber(text, defaultHwThreads, true);
-
 const initialState: {
   list: Character[];
   filteredLists: Record<ExtraFilterMode, Character[]>;
@@ -141,7 +134,7 @@ const initialState: {
   jsHeuristicsEnabled: false,
   jsHeuristicsTarget: '',
   multicore: false,
-  hwThreads: String(defaultHwThreads),
+  hwThreads: '',
   heuristics: false,
   error: '',
 };
@@ -262,8 +255,6 @@ export const controlSlice = createSlice({
 export const getProfession = (state: RootState) => state.optimizer.control.profession;
 export const getSelectedTemplate = (state: RootState) => state.optimizer.control.selectedTemplate;
 export const getHwThreadsString = (state: RootState) => state.optimizer.control.hwThreads;
-export const getHwThreads = (state: RootState) =>
-  parseHwThreads(state.optimizer.control.hwThreads).value;
 export const getProgress = (state: RootState) => state.optimizer.control.progress;
 export const getHeuristicsProgress = (state: RootState) =>
   state.optimizer.control.heuristicsProgress;
@@ -288,6 +279,25 @@ export const getJsHeuristicsTarget = (state: RootState) =>
   state.optimizer.control.jsHeuristicsTarget;
 export const getMulticore = (state: RootState) => state.optimizer.control.multicore;
 export const getHeuristics = (state: RootState) => state.optimizer.control.heuristics;
+
+export const defaultRustThreads = navigator.hardwareConcurrency || 4; // 4 seems to be a sensible default
+
+export const defaultJsThreads = isFirefox
+  ? 4 // to investigate: high thread count performance degradation in firefox
+  : defaultRustThreads;
+
+export const parseHwThreads: ParseFunction<undefined> = (text) =>
+  parseNumber(text, undefined, true);
+
+export const getDefaultHwThreads = createSelector(getMulticore, (multicore) =>
+  multicore ? defaultRustThreads : defaultJsThreads,
+);
+export const getHwThreads = createSelector(
+  getHwThreadsString,
+  getDefaultHwThreads,
+  (hwThreadsString, defaultHwThreads) =>
+    Math.max(parseHwThreads(hwThreadsString).value ?? defaultHwThreads, 1),
+);
 
 export const getPageTitle = createSelector(getStatus, getProgress, (status, progress) => {
   if (status === RUNNING) return `${progress}% - Discretize Gear Optimizer`;

@@ -22,7 +22,7 @@ import {
   changeHeuristics,
   changeHwThreads,
   changeMulticore,
-  defaultHwThreads,
+  getDefaultHwThreads,
   getHeuristics,
   getHwThreadsString,
   getMulticore,
@@ -82,6 +82,7 @@ export default function NavSettings({
   const gameMode = useSelector(getGameMode);
   const selectedTemplate = useSelector(getSelectedTemplate);
   const hwThreadsString = useSelector(getHwThreadsString);
+  const defaultHwThreads = useSelector(getDefaultHwThreads);
   const enableMulticore = useSelector(getMulticore);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -175,6 +176,11 @@ export default function NavSettings({
             onChange={(e) => dispatch(changeHwThreads(e.target.value))}
             slotProps={{
               htmlInput: { inputMode: 'numeric', pattern: '[0-9]*' },
+              input: {
+                // used to always display the placeholder value instead of the label
+                // eslint-disable-next-line react/jsx-no-useless-fragment
+                startAdornment: <></>,
+              },
             }}
           />
 
