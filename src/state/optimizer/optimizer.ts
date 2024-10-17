@@ -135,10 +135,12 @@ export async function* calculate(
 
   let iterationTimer = Date.now();
 
-  while (true) {
-    // const combination = combinations[i];
+  // concurrency optimization: request new batch of results before waiting for the previous batch
+  // prevents waiting for one slow thread (until a thread is delayed by an entire batch duration)
+  const queue: ReturnType<typeof requestResults>[] = [];
 
-    const res = await Promise.all(
+  const requestResults = () =>
+    Promise.all(
       workers.map((worker) =>
         worker.next().then(({ combinationIndex, result }) => {
           const combination = combinations.find(({ index }) => index === combinationIndex)!;
@@ -159,8 +161,13 @@ export async function* calculate(
         }),
       ),
     );
+  queue.push(requestResults());
 
-    const isChanged = res.some(Boolean);
+  while (true) {
+    // const combination = combinations[i];
+
+    queue.push(requestResults());
+    const isChanged = (await queue.shift()!).some(Boolean);
 
     // const currentIndex = i;
     // i = (i + 1) % combinations.length;
@@ -318,10 +325,12 @@ export async function* calculateHeuristic(
 
   let iterationTimer = Date.now();
 
-  while (true) {
-    // const combination = combinations[i];
+  // concurrency optimization: request new batch of results before waiting for the previous batch
+  // prevents waiting for one slow thread (until a thread is delayed by an entire batch duration)
+  const queue: ReturnType<typeof requestResults>[] = [];
 
-    const res = await Promise.all(
+  const requestResults = () =>
+    Promise.all(
       workers.map((worker) =>
         worker.next().then(({ combinationIndex, result }) => {
           const combination = combinations.find(({ index }) => index === combinationIndex)!;
@@ -343,8 +352,13 @@ export async function* calculateHeuristic(
         }),
       ),
     );
+  queue.push(requestResults());
 
-    const isChanged = res.some(Boolean);
+  while (true) {
+    // const combination = combinations[i];
+
+    queue.push(requestResults());
+    const isChanged = (await queue.shift()!).some(Boolean);
 
     // const currentIndex = i;
     // i = (i + 1) % combinations.length;

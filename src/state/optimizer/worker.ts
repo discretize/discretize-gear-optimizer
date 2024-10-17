@@ -4,8 +4,6 @@ import { OptimizerCore } from './optimizerCore';
 let i = 0;
 let combinations: Combination[] = [];
 
-let nextPromise: ReturnType<typeof iterate>;
-
 export const setup = (input: Combination[]) => {
   i = 0;
   combinations = input;
@@ -14,8 +12,6 @@ export const setup = (input: Combination[]) => {
     const core = new OptimizerCore(combination.settings);
     combination.calculation = core.calculate();
   });
-
-  nextPromise = iterate();
 };
 
 export const setupHeuristic = (input: Combination[], split: number) => {
@@ -29,22 +25,11 @@ export const setupHeuristic = (input: Combination[], split: number) => {
     });
     combination.calculation = core.calculateHeuristic(split);
   });
-
-  nextPromise = iterate();
 };
 
-const iterate = async () => {
-  await new Promise((resolve) => {
-    setTimeout(resolve);
-  });
+export const next = async () => {
   const combination = combinations[i];
   i = (i + 1) % combinations.length;
 
   return { combinationIndex: combination.index, result: combination.calculation!.next() };
-};
-
-export const next = async () => {
-  const current = nextPromise;
-  nextPromise = iterate();
-  return current;
 };
