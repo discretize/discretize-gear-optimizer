@@ -4,8 +4,8 @@ import type { ExtraFilterMode } from '../slices/controlsSlice';
 import type { ExtrasType } from '../slices/extras';
 import type { RootState } from '../store';
 import { iteratePartitionCount } from './combinatorics';
-import type { CalculateGenerator, Character, OptimizerCoreSettings } from './optimizerCore';
-import { characterLT, OptimizerCore, UPDATE_MS } from './optimizerCore';
+import type { Character, OptimizerCoreSettings } from './optimizerCore';
+import { characterLT, UPDATE_MS } from './optimizerCore';
 import type { ExtrasCombinationEntry } from './optimizerSetup';
 import { setupCombinations } from './optimizerSetup';
 
@@ -13,7 +13,6 @@ export interface Combination extends ExtrasCombinationEntry {
   index: number;
 
   settings: OptimizerCoreSettings;
-  calculation?: CalculateGenerator;
   done: boolean;
   list: Character[];
   calculationRuns: number;
@@ -21,8 +20,6 @@ export interface Combination extends ExtrasCombinationEntry {
   heuristicDisabled?: boolean;
   heuristicBestResult?: Character;
 
-  heuristicCore?: OptimizerCore;
-  heuristicCalculation?: CalculateGenerator;
   heuristicDone?: boolean;
   heuristicCalculationRuns?: number;
 }
@@ -93,19 +90,14 @@ export async function* calculate(
   const combinations =
     overrides.combinations ??
     setupCombinations(reduxState).map(
-      ({ extrasCombinationEntry, settings }, index): Combination => {
-        // const core = new OptimizerCore(settings);
-        // const calculation = core.calculate();
-        return {
-          ...extrasCombinationEntry,
-          settings,
-          // calculation,
-          done: false,
-          list: [],
-          calculationRuns: 0,
-          index,
-        };
-      },
+      ({ extrasCombinationEntry, settings }, index): Combination => ({
+        ...extrasCombinationEntry,
+        settings,
+        done: false,
+        list: [],
+        calculationRuns: 0,
+        index,
+      }),
     );
 
   /**
@@ -116,6 +108,7 @@ export async function* calculate(
   const activeThreads = Math.min(threads, activeCombinations.length);
 
   const workers = createWorkers(activeThreads);
+  console.log(`calculating using ${activeThreads} workers`);
 
   workers.forEach((worker, workerIndex) =>
     worker.setup(
@@ -129,17 +122,11 @@ export async function* calculate(
   const calculationTotal = runsAfterThisSlot[0];
   const globalCalculationTotal = calculationTotal * activeCombinations.length;
 
-  // let i = 0;
-
   let globalWorstScore = 0;
 
   let iterationTimer = Date.now();
 
-  // concurrency optimization: request new batch of results before waiting for the previous batch
-  // prevents waiting for one slow thread (until a thread is delayed by an entire batch duration)
-  const queue: ReturnType<typeof requestResults>[] = [];
-
-  const requestResults = () =>
+  const requestWorkerResults = () =>
     Promise.all(
       workers.map((worker) =>
         worker.next().then(({ combinationIndex, result }) => {
@@ -161,31 +148,19 @@ export async function* calculate(
         }),
       ),
     );
-  queue.push(requestResults());
+
+  // concurrency optimization: request new batch of results before waiting for the previous batch
+  // prevents waiting for one slow thread (until a thread is delayed by an entire batch duration)
+  const queue: ReturnType<typeof requestWorkerResults>[] = [];
+  queue.push(requestWorkerResults());
 
   while (true) {
-    // const combination = combinations[i];
-
-    queue.push(requestResults());
+    queue.push(requestWorkerResults());
     const isChanged = (await queue.shift()!).some(Boolean);
-
-    // const currentIndex = i;
-    // i = (i + 1) % combinations.length;
-
-    // if (combination.done || combination.heuristicDisabled) continue;
-
-    // const {
-    //   value: { isChanged, calculationRuns, newList },
-    //   done,
-    // } = combination.calculation.next();
-
-    // combination.calculationRuns = calculationRuns ?? 0;
 
     const globalCalculationRuns = combinations.reduce((prev, cur) => prev + cur.calculationRuns, 0);
     console.log(`total progress: ${globalCalculationRuns} / ${globalCalculationTotal}`);
 
-    // combination.list = newList;
-    // combination.done = Boolean(done);
     const everyCombinationDone = combinations.every((comb) => comb.done || comb.heuristicDisabled);
 
     const createResult = () => {
@@ -241,8 +216,6 @@ export async function* calculate(
 }
 
 interface HeuristicCombination extends Combination {
-  // heuristicCore: OptimizerCore;
-  // heuristicCalculation: CalculateGenerator;
   heuristicDone: boolean;
   heuristicCalculationRuns: number;
 }
@@ -261,19 +234,14 @@ export async function* calculateHeuristic(
    */
 
   const normalCombinations: Combination[] = setupCombinations(reduxState).map(
-    ({ extrasCombinationEntry, settings }, index) => {
-      // const core = new OptimizerCore(settings);
-      // const calculation = core.calculate();
-      return {
-        ...extrasCombinationEntry,
-        settings,
-        // calculation,
-        done: false,
-        list: [],
-        calculationRuns: 0,
-        index,
-      };
-    },
+    ({ extrasCombinationEntry, settings }, index) => ({
+      ...extrasCombinationEntry,
+      settings,
+      done: false,
+      list: [],
+      calculationRuns: 0,
+      index,
+    }),
   );
 
   const { rankby, affixes } = normalCombinations[0].settings;
@@ -291,6 +259,7 @@ export async function* calculateHeuristic(
   const activeThreads = Math.min(threads, normalCombinations.length);
 
   const workers = createWorkers(activeThreads);
+  console.log(`calculating heuristics using ${activeThreads} workers`);
 
   workers.forEach((worker, workerIndex) =>
     worker.setupHeuristic(
@@ -304,32 +273,17 @@ export async function* calculateHeuristic(
   const calculationTotal = iteratePartitionCount(split, affixes.length);
   const globalCalculationTotal = calculationTotal * normalCombinations.length;
 
-  const combinations: HeuristicCombination[] = normalCombinations.map((comb) => {
-    // const heuristicCore = new OptimizerCore({
-    //   ...comb.settings,
-    //   maxResults: 1,
-    // });
-
-    return {
-      ...comb,
-      // heuristicCore,
-      // heuristicCalculation: heuristicCore.calculateHeuristic(split),
-      heuristicDone: false,
-      heuristicCalculationRuns: 0,
-    };
-  });
+  const combinations: HeuristicCombination[] = normalCombinations.map((comb) => ({
+    ...comb,
+    heuristicDone: false,
+    heuristicCalculationRuns: 0,
+  }));
 
   //
 
-  // let i = 0;
-
   let iterationTimer = Date.now();
 
-  // concurrency optimization: request new batch of results before waiting for the previous batch
-  // prevents waiting for one slow thread (until a thread is delayed by an entire batch duration)
-  const queue: ReturnType<typeof requestResults>[] = [];
-
-  const requestResults = () =>
+  const requestWorkerResults = () =>
     Promise.all(
       workers.map((worker) =>
         worker.next().then(({ combinationIndex, result }) => {
@@ -352,25 +306,15 @@ export async function* calculateHeuristic(
         }),
       ),
     );
-  queue.push(requestResults());
+
+  // concurrency optimization: request new batch of results before waiting for the previous batch
+  // prevents waiting for one slow thread (until a thread is delayed by an entire batch duration)
+  const queue: ReturnType<typeof requestWorkerResults>[] = [];
+  queue.push(requestWorkerResults());
 
   while (true) {
-    // const combination = combinations[i];
-
-    queue.push(requestResults());
+    queue.push(requestWorkerResults());
     const isChanged = (await queue.shift()!).some(Boolean);
-
-    // const currentIndex = i;
-    // i = (i + 1) % combinations.length;
-
-    // if (combination.heuristicDone) continue;
-
-    // const {
-    //   value: { isChanged, calculationRuns, newList },
-    //   done,
-    // } = combination.heuristicCalculation.next();
-
-    // combination.heuristicCalculationRuns = calculationRuns ?? 0;
 
     const globalCalculationRuns = combinations.reduce(
       (prev, cur) => prev + cur.heuristicCalculationRuns,
@@ -378,9 +322,6 @@ export async function* calculateHeuristic(
     );
     console.log(`total heuristics progress: ${globalCalculationRuns} / ${globalCalculationTotal}`);
 
-    // eslint-disable-next-line prefer-destructuring
-    // combination.heuristicBestResult = newList[0];
-    // combination.heuristicDone = Boolean(done);
     const everyCombinationDone = combinations.every((comb) => comb.heuristicDone);
 
     const createResult = () => {

@@ -1,29 +1,36 @@
 import type { Combination } from './optimizer';
+import type { CalculateGenerator } from './optimizerCore';
 import { OptimizerCore } from './optimizerCore';
 
+type WorkerCombination = Combination & {
+  calculation: CalculateGenerator;
+};
+
 let i = 0;
-let combinations: Combination[] = [];
+let combinations: WorkerCombination[] = [];
 
 export const setup = (input: Combination[]) => {
   i = 0;
-  combinations = input;
-
-  combinations.forEach((combination) => {
+  combinations = input.map((combination) => {
     const core = new OptimizerCore(combination.settings);
-    combination.calculation = core.calculate();
+    return {
+      ...combination,
+      calculation: core.calculate(),
+    };
   });
 };
 
 export const setupHeuristic = (input: Combination[], split: number) => {
   i = 0;
-  combinations = input;
-
-  combinations.forEach((combination) => {
+  combinations = input.map((combination) => {
     const core = new OptimizerCore({
       ...combination.settings,
       maxResults: 1,
     });
-    combination.calculation = core.calculateHeuristic(split);
+    return {
+      ...combination,
+      calculation: core.calculateHeuristic(split),
+    };
   });
 };
 
