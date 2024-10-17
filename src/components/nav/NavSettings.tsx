@@ -13,9 +13,10 @@ import {
 import type { TFunction } from 'i18next';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { stopCalculationParallel } from '../../state/optimizer-parallel/calculate';
+import { useAppDispatch } from '../../state/redux-hooks';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import {
   changeHeuristics,
@@ -71,7 +72,7 @@ export default function NavSettings({
   } = {},
 }: NavSettingsProps) {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { classes } = useStyles();
 
   const { i18n } = useTranslation();

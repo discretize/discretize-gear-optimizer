@@ -6,7 +6,7 @@ import ErrorIcon from '@mui/icons-material/Error';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import { Box, Button, Chip, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'react-i18next';
-import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useSelector, useStore } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import {
   calculateParallel,
@@ -20,6 +20,7 @@ import {
   SUCCESS,
   WAITING,
 } from '../../../state/optimizer/status';
+import { useAppDispatch } from '../../../state/redux-hooks';
 import SagaTypes from '../../../state/sagas/sagaTypes';
 import {
   changeError,
@@ -52,7 +53,7 @@ const useStyles = makeStyles()((theme) => ({
 
 const ControlsBox = () => {
   const { classes, cx } = useStyles();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const store = useStore();
 
