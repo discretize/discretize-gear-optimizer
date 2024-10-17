@@ -399,7 +399,7 @@ export class OptimizerCore {
     }
 
     this.list.forEach(this.calcResults, this);
-    return {
+    yield {
       isChanged: this.isChanged,
       calculationRuns,
       newList: this.list,
@@ -424,11 +424,12 @@ export class OptimizerCore {
     const { affixes, jsHeuristicsData } = settings;
 
     if (!jsHeuristicsData) {
-      return {
+      yield {
         isChanged: true,
         calculationRuns: 0,
         newList: [],
       };
+      return;
     }
 
     let calculationRuns = 0;
@@ -476,7 +477,7 @@ export class OptimizerCore {
     }
 
     this.list.forEach(this.calcResults, this);
-    return {
+    yield {
       isChanged: this.isChanged,
       calculationRuns,
       newList: this.list,

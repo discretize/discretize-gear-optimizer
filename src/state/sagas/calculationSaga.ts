@@ -9,6 +9,7 @@ import {
   changeProgress,
   changeSelectedCharacter,
   changeStatus,
+  getHwThreads,
   getJsHeuristicsEnabled,
   getSelectedCharacter,
   getStatus,
@@ -46,11 +47,12 @@ function* runCalc() {
     const originalSelectedCharacter = yield* select(getSelectedCharacter);
     const jsHeuristicsEnabled = getJsHeuristicsEnabled(reduxState);
     const { value: jsHeuristicsTarget } = getParsedJsHeuristicsTarget(reduxState);
+    const threads = getHwThreads(reduxState);
 
     let elapsed = 0;
     let timer = performance.now();
 
-    yield worker.setup(reduxState, jsHeuristicsEnabled, jsHeuristicsTarget);
+    yield worker.setup(reduxState, jsHeuristicsEnabled, jsHeuristicsTarget, threads);
 
     let nextPromise = worker.next();
 
