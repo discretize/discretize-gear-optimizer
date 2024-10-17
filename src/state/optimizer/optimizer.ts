@@ -125,31 +125,9 @@ export async function* calculate(
   let globalWorstScore = 0;
 
   let iterationTimer = Date.now();
+  let isChanged = false;
 
-  const requestWorkerResults = () =>
-    Promise.all(
-      workers.map((worker) =>
-        worker.next().then(({ combinationIndex, result }) => {
-          const combination = combinations.find(({ index }) => index === combinationIndex)!;
-
-          if (result.done) {
-            combination.done = true;
-          } else {
-            const {
-              value: { isChanged, calculationRuns, newList },
-            } = result;
-            if (newList) {
-              combination.list = newList;
-            }
-
-            combination.calculationRuns = calculationRuns ?? 0;
-            // console.log(`option ${index} progress: ${calculationRuns} / ${calculationTotal}`);
-
-            return isChanged;
-          }
-        }),
-      ),
-    );
+  const requestWorkerResults = () => workers.map((worker) => worker.next());
 
   // concurrency optimization: request new batch of results before waiting for the previous batch
   // prevents waiting for one slow thread (until a thread is delayed by an entire batch duration)
@@ -158,7 +136,24 @@ export async function* calculate(
 
   while (true) {
     queue.push(requestWorkerResults());
-    const isChanged = (await queue.shift()!).some(Boolean);
+
+    (await Promise.all(queue.shift()!)).forEach(({ combinationIndex, result }) => {
+      const combination = combinations.find(({ index }) => index === combinationIndex)!;
+
+      if (result.done) {
+        combination.done = true;
+      } else {
+        const { value } = result;
+        if (value.newList) {
+          combination.list = value.newList;
+        }
+        if (value.isChanged) {
+          isChanged = true;
+        }
+
+        combination.calculationRuns = value.calculationRuns ?? 0;
+      }
+    });
 
     const globalCalculationRuns = combinations.reduce((prev, cur) => prev + cur.calculationRuns, 0);
     console.log(`total progress: ${globalCalculationRuns} / ${globalCalculationTotal}`);
@@ -213,6 +208,7 @@ export async function* calculate(
     if (Date.now() - iterationTimer > UPDATE_MS) {
       yield createResult();
       iterationTimer = Date.now();
+      isChanged = false;
     }
   }
 }
@@ -284,32 +280,9 @@ export async function* calculateHeuristic(
   //
 
   let iterationTimer = Date.now();
+  let isChanged = false;
 
-  const requestWorkerResults = () =>
-    Promise.all(
-      workers.map((worker) =>
-        worker.next().then(({ combinationIndex, result }) => {
-          const combination = combinations.find(({ index }) => index === combinationIndex)!;
-
-          if (result.done) {
-            combination.heuristicDone = true;
-          } else {
-            const {
-              value: { isChanged, calculationRuns, newList },
-            } = result;
-            if (newList) {
-              // eslint-disable-next-line prefer-destructuring
-              combination.heuristicBestResult = newList[0];
-            }
-
-            combination.heuristicCalculationRuns = calculationRuns ?? 0;
-            // console.log(`option ${index} heuristics progress: ${calculationRuns} / ${calculationTotal}`);
-
-            return isChanged;
-          }
-        }),
-      ),
-    );
+  const requestWorkerResults = () => workers.map((worker) => worker.next());
 
   // concurrency optimization: request new batch of results before waiting for the previous batch
   // prevents waiting for one slow thread (until a thread is delayed by an entire batch duration)
@@ -318,7 +291,25 @@ export async function* calculateHeuristic(
 
   while (true) {
     queue.push(requestWorkerResults());
-    const isChanged = (await queue.shift()!).some(Boolean);
+
+    (await Promise.all(queue.shift()!)).forEach(({ combinationIndex, result }) => {
+      const combination = combinations.find(({ index }) => index === combinationIndex)!;
+
+      if (result.done) {
+        combination.heuristicDone = true;
+      } else {
+        const { value } = result;
+        if (value.newList) {
+          // eslint-disable-next-line prefer-destructuring
+          combination.heuristicBestResult = value.newList[0];
+        }
+        if (value.isChanged) {
+          isChanged = true;
+        }
+
+        combination.heuristicCalculationRuns = value.calculationRuns ?? 0;
+      }
+    });
 
     const globalCalculationRuns = combinations.reduce(
       (prev, cur) => prev + cur.heuristicCalculationRuns,
@@ -392,6 +383,7 @@ export async function* calculateHeuristic(
     if (Date.now() - iterationTimer > UPDATE_MS) {
       yield createResult();
       iterationTimer = Date.now();
+      isChanged = false;
     }
   }
 }
