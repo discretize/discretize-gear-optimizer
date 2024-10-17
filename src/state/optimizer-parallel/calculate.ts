@@ -5,6 +5,7 @@ import {
   changeProgress,
   changeStatus,
   getHeuristics,
+  getHwThreads,
 } from '../slices/controlsSlice';
 import type { AppDispatch, RootState } from '../store';
 import runCalcHeuristics from './modes/heuristics';
@@ -33,7 +34,7 @@ const terminateActiveWorkers = () => {
 };
 
 export function calculateParallel(reduxState: RootState, dispatch: AppDispatch): WorkerWrapper[] {
-  const selectedMaxThreads = reduxState.optimizer.control.hwThreads;
+  const selectedMaxThreads = getHwThreads(reduxState);
 
   dispatch(changeList([]));
   dispatch(

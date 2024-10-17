@@ -3,6 +3,8 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSelector, createSlice, original } from '@reduxjs/toolkit';
 import type { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
 import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
+import type { ParseFunction } from '../../utils/usefulFunctions';
+import { parseNumber } from '../../utils/usefulFunctions';
 import type { Character } from '../optimizer/optimizerCore';
 import type { OptimizerStatus } from '../optimizer/status';
 import { RUNNING, RUNNING_HEURISTICS, WAITING } from '../optimizer/status';
@@ -88,6 +90,11 @@ export const emptyFilteredLists = {
   Enhancement: [],
 };
 
+export const defaultHwThreads = navigator.hardwareConcurrency || 4; // 4 seems to be a sensible default
+
+export const parseHwThreads: ParseFunction<number> = (text) =>
+  parseNumber(text, defaultHwThreads, true);
+
 const initialState: {
   list: Character[];
   filteredLists: Record<ExtraFilterMode, Character[]>;
@@ -108,7 +115,7 @@ const initialState: {
   jsHeuristicsEnabled: boolean;
   jsHeuristicsTarget: string;
   multicore: boolean;
-  hwThreads: number;
+  hwThreads: string;
   heuristics: boolean;
   error: string;
 } = {
@@ -131,7 +138,7 @@ const initialState: {
   jsHeuristicsEnabled: false,
   jsHeuristicsTarget: '',
   multicore: false,
-  hwThreads: navigator.hardwareConcurrency || 4, // 4 seems to be a sensible default
+  hwThreads: String(defaultHwThreads),
   heuristics: false,
   error: '',
 };
@@ -237,7 +244,7 @@ export const controlSlice = createSlice({
     changeJsHeuristicsTarget: (state, action: PayloadAction<string>) => {
       state.jsHeuristicsTarget = action.payload;
     },
-    changeHwThreads: (state, action: PayloadAction<number>) => {
+    changeHwThreads: (state, action: PayloadAction<string>) => {
       state.hwThreads = action.payload;
     },
     changeMulticore: (state, action: PayloadAction<boolean>) => {
@@ -251,7 +258,9 @@ export const controlSlice = createSlice({
 
 export const getProfession = (state: RootState) => state.optimizer.control.profession;
 export const getSelectedTemplate = (state: RootState) => state.optimizer.control.selectedTemplate;
-export const getHwThreads = (state: RootState) => state.optimizer.control.hwThreads;
+export const getHwThreadsString = (state: RootState) => state.optimizer.control.hwThreads;
+export const getHwThreads = (state: RootState) =>
+  parseHwThreads(state.optimizer.control.hwThreads).value;
 export const getProgress = (state: RootState) => state.optimizer.control.progress;
 export const getHeuristicsProgress = (state: RootState) =>
   state.optimizer.control.heuristicsProgress;

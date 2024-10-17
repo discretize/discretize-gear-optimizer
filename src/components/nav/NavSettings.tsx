@@ -21,10 +21,12 @@ import {
   changeHeuristics,
   changeHwThreads,
   changeMulticore,
+  defaultHwThreads,
   getHeuristics,
-  getHwThreads,
+  getHwThreadsString,
   getMulticore,
   getSelectedTemplate,
+  parseHwThreads,
 } from '../../state/slices/controlsSlice';
 import type { GameMode } from '../../state/slices/userSettings';
 import {
@@ -78,7 +80,7 @@ export default function NavSettings({
   const expertMode = useSelector(getExpertMode);
   const gameMode = useSelector(getGameMode);
   const selectedTemplate = useSelector(getSelectedTemplate);
-  const hwThreads = useSelector(getHwThreads);
+  const hwThreadsString = useSelector(getHwThreadsString);
   const enableMulticore = useSelector(getMulticore);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -97,6 +99,8 @@ export default function NavSettings({
 
     localStorage.setItem(SETTINGS_STORAGE_KEY, settings);
   }, [expertMode, gameMode, language]);
+
+  const { error: hwThreadsError } = parseHwThreads(hwThreadsString);
 
   return (
     <Settings maxWidth={400}>
@@ -183,20 +187,11 @@ export default function NavSettings({
           <TextField
             label={t('Threads')}
             helperText={t('Number of threads to use for calculations')}
+            placeholder={String(defaultHwThreads)}
             size="small"
-            value={hwThreads}
-            onChange={(e) => {
-              const newHwThreads = e.target.value;
-
-              // only allow numbers
-              if (!newHwThreads.match(/^[0-9]*$/)) {
-                return;
-              }
-              // parse to int
-              const newHwThreadsInt = parseInt(newHwThreads, 10);
-
-              dispatch(changeHwThreads(newHwThreadsInt));
-            }}
+            value={hwThreadsString}
+            error={hwThreadsError}
+            onChange={(e) => dispatch(changeHwThreads(e.target.value))}
             slotProps={{
               htmlInput: { inputMode: 'numeric', pattern: '[0-9]*' },
             }}
