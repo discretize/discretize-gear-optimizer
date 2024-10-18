@@ -77,7 +77,7 @@
         conversion:
           Vitality: {Vitality: 1%}
           Armor: {Armor: 1%}
-      type: Text
+      type: CommonEffect
       temporaryBuff: false
 
 - section: Effects

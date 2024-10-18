@@ -49,10 +49,10 @@
     "axios@0.26.1": "^0.28.1"
   },
   "dependencies": {
-    "@discretize/globals": "^0.0.2",
-    "@discretize/gw2-ui-new": "^0.1.5",
+    "@discretize/globals": "^0.0.4",
+    "@discretize/gw2-ui-new": "^0.1.6",
     "@discretize/object-compression": "^1.0.3",
-    "@discretize/react-discretize-components": "^3.0.0",
+    "@discretize/react-discretize-components": "^3.0.1",
     "@discretize/typeface-menomonia": "^0.1.3",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
