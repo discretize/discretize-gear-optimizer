@@ -5,10 +5,12 @@ import type { getBuildTemplateData } from '../../assets/presetdata/templateTrans
 import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
 import type { ParseFunction } from '../../utils/usefulFunctions';
 import { parseNumber } from '../../utils/usefulFunctions';
+import { isFirefox } from '../optimizer/detectFirefox';
 import type { Character } from '../optimizer/optimizerCore';
 import type { OptimizerStatus } from '../optimizer/status';
 import { RUNNING, RUNNING_HEURISTICS, WAITING } from '../optimizer/status';
 import type { RootState } from '../store';
+import { reduxSideEffect } from '../redux-hooks';
 
 const roundThree = (num: number) => Math.round(num * 1000) / 1000;
 
@@ -90,10 +92,9 @@ export const emptyFilteredLists = {
   Enhancement: [],
 };
 
-export const defaultHwThreads = navigator.hardwareConcurrency || 4; // 4 seems to be a sensible default
-
-export const parseHwThreads: ParseFunction<number> = (text) =>
-  parseNumber(text, defaultHwThreads, true);
+const THREADS_SETTINGS_STORAGE_KEY = 'hwThreads-1';
+const savedHwThreads =
+  (typeof localStorage !== 'undefined' && localStorage.getItem(THREADS_SETTINGS_STORAGE_KEY)) || '';
 
 const initialState: {
   list: Character[];
@@ -138,7 +139,7 @@ const initialState: {
   jsHeuristicsEnabled: false,
   jsHeuristicsTarget: '',
   multicore: false,
-  hwThreads: String(defaultHwThreads),
+  hwThreads: savedHwThreads,
   heuristics: false,
   error: '',
 };
@@ -259,8 +260,6 @@ export const controlSlice = createSlice({
 export const getProfession = (state: RootState) => state.optimizer.control.profession;
 export const getSelectedTemplate = (state: RootState) => state.optimizer.control.selectedTemplate;
 export const getHwThreadsString = (state: RootState) => state.optimizer.control.hwThreads;
-export const getHwThreads = (state: RootState) =>
-  parseHwThreads(state.optimizer.control.hwThreads).value;
 export const getProgress = (state: RootState) => state.optimizer.control.progress;
 export const getHeuristicsProgress = (state: RootState) =>
   state.optimizer.control.heuristicsProgress;
@@ -285,6 +284,29 @@ export const getJsHeuristicsTarget = (state: RootState) =>
   state.optimizer.control.jsHeuristicsTarget;
 export const getMulticore = (state: RootState) => state.optimizer.control.multicore;
 export const getHeuristics = (state: RootState) => state.optimizer.control.heuristics;
+
+export const defaultRustThreads = navigator.hardwareConcurrency || 4; // 4 seems to be a sensible default
+
+export const defaultJsThreads = isFirefox
+  ? 4 // to investigate: high thread count performance degradation in firefox
+  : defaultRustThreads;
+
+export const parseHwThreads: ParseFunction<undefined> = (text) =>
+  parseNumber(text, undefined, true);
+
+export const getDefaultHwThreads = createSelector(getMulticore, (multicore) =>
+  multicore ? defaultRustThreads : defaultJsThreads,
+);
+export const getHwThreads = createSelector(
+  getHwThreadsString,
+  getDefaultHwThreads,
+  (hwThreadsString, defaultHwThreads) =>
+    Math.max(parseHwThreads(hwThreadsString).value ?? defaultHwThreads, 1),
+);
+
+reduxSideEffect(getHwThreadsString, (hwThreads) =>
+  localStorage.setItem(THREADS_SETTINGS_STORAGE_KEY, hwThreads),
+);
 
 export const getPageTitle = createSelector(getStatus, getProgress, (status, progress) => {
   if (status === RUNNING) return `${progress}% - Discretize Gear Optimizer`;

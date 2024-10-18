@@ -1,16 +1,18 @@
+/* eslint-disable no-await-in-loop */
 /* eslint-disable no-loop-func */
 import type { ExtraFilterMode } from '../slices/controlsSlice';
 import type { ExtrasType } from '../slices/extras';
 import type { RootState } from '../store';
 import { iteratePartitionCount } from './combinatorics';
-import type { CalculateGenerator, Character, OptimizerCoreSettings } from './optimizerCore';
-import { characterLT, OptimizerCore, UPDATE_MS } from './optimizerCore';
+import type { Character, OptimizerCoreSettings } from './optimizerCore';
+import { characterLT, UPDATE_MS } from './optimizerCore';
 import type { ExtrasCombinationEntry } from './optimizerSetup';
 import { setupCombinations } from './optimizerSetup';
 
-interface Combination extends ExtrasCombinationEntry {
+export interface Combination extends ExtrasCombinationEntry {
+  index: number;
+
   settings: OptimizerCoreSettings;
-  calculation: CalculateGenerator;
   done: boolean;
   list: Character[];
   calculationRuns: number;
@@ -18,8 +20,6 @@ interface Combination extends ExtrasCombinationEntry {
   heuristicDisabled?: boolean;
   heuristicBestResult?: Character;
 
-  heuristicCore?: OptimizerCore;
-  heuristicCalculation?: CalculateGenerator;
   heuristicDone?: boolean;
   heuristicCalculationRuns?: number;
 }
@@ -60,67 +60,102 @@ const findExtraBestResults = (
   return result;
 };
 
+const createWorker = () =>
+  new ComlinkWorker<typeof import('./worker')>(new URL('./worker.ts', import.meta.url));
+
+const createdWorkers: ReturnType<typeof createWorker>[] = [];
+
+const createWorkers = (count: number) => {
+  while (createdWorkers.length < count) {
+    createdWorkers.push(createWorker());
+  }
+  return createdWorkers.slice(0, count);
+};
+
 interface Overrides {
   combinations?: Combination[];
 }
 
-export function* calculate(reduxState: RootState, overrides: Overrides = {}) {
+export async function* calculate(
+  reduxState: RootState,
+  threads: number,
+  overrides: Overrides = {},
+) {
   /**
    * set up input
    */
 
   const combinations =
     overrides.combinations ??
-    setupCombinations(reduxState).map(({ extrasCombinationEntry, settings }): Combination => {
-      const core = new OptimizerCore(settings);
-      const calculation = core.calculate();
-      return {
+    setupCombinations(reduxState).map(
+      ({ extrasCombinationEntry, settings }, index): Combination => ({
         ...extrasCombinationEntry,
         settings,
-        calculation,
         done: false,
         list: [],
         calculationRuns: 0,
-      };
-    });
+        index,
+      }),
+    );
 
   /**
    * iteration
    */
 
+  const activeCombinations = combinations.filter(({ heuristicDisabled }) => !heuristicDisabled);
+  const activeThreads = Math.min(threads, activeCombinations.length);
+
+  const workers = createWorkers(activeThreads);
+  console.log(`calculating using ${activeThreads} workers`);
+
+  workers.forEach((worker, workerIndex) =>
+    worker.setup(
+      activeCombinations.filter(
+        (_, combinationIndex) => combinationIndex % activeThreads === workerIndex,
+      ),
+    ),
+  );
+
   const { rankby, runsAfterThisSlot } = combinations[0].settings;
   const calculationTotal = runsAfterThisSlot[0];
-  const globalCalculationTotal =
-    calculationTotal * combinations.filter(({ heuristicDisabled }) => !heuristicDisabled).length;
-
-  let i = 0;
+  const globalCalculationTotal = calculationTotal * activeCombinations.length;
 
   let globalWorstScore = 0;
 
   let iterationTimer = Date.now();
+  let isChanged = false;
+
+  const requestWorkerResults = () => workers.map((worker) => worker.next());
+
+  // concurrency optimization: request new batch of results before waiting for the previous batch
+  // prevents waiting for one slow thread (until a thread is delayed by an entire batch duration)
+  const queue: ReturnType<typeof requestWorkerResults>[] = [];
+  queue.push(requestWorkerResults());
 
   while (true) {
-    const combination = combinations[i];
+    queue.push(requestWorkerResults());
 
-    const currentIndex = i;
-    i = (i + 1) % combinations.length;
+    (await Promise.all(queue.shift()!)).forEach(({ combinationIndex, result }) => {
+      const combination = combinations.find(({ index }) => index === combinationIndex)!;
 
-    if (combination.done || combination.heuristicDisabled) continue;
+      if (result.done) {
+        combination.done = true;
+      } else {
+        const { value } = result;
+        if (value.newList) {
+          combination.list = value.newList;
+        }
+        if (value.isChanged) {
+          isChanged = true;
+        }
 
-    const {
-      value: { isChanged, calculationRuns, newList },
-      done,
-    } = combination.calculation.next();
-
-    combination.calculationRuns = calculationRuns ?? 0;
+        combination.calculationRuns = value.calculationRuns ?? 0;
+      }
+    });
 
     const globalCalculationRuns = combinations.reduce((prev, cur) => prev + cur.calculationRuns, 0);
-    console.log(
-      `option ${currentIndex} progress: ${calculationRuns} / ${calculationTotal}. total: ${globalCalculationRuns} / ${globalCalculationTotal}`,
-    );
+    console.log(`total progress: ${globalCalculationRuns} / ${globalCalculationTotal}`);
 
-    combination.list = newList;
-    combination.done = Boolean(done);
     const everyCombinationDone = combinations.every((comb) => comb.done || comb.heuristicDisabled);
 
     const createResult = () => {
@@ -171,18 +206,21 @@ export function* calculate(reduxState: RootState, overrides: Overrides = {}) {
     if (Date.now() - iterationTimer > UPDATE_MS) {
       yield createResult();
       iterationTimer = Date.now();
+      isChanged = false;
     }
   }
 }
 
 interface HeuristicCombination extends Combination {
-  heuristicCore: OptimizerCore;
-  heuristicCalculation: CalculateGenerator;
   heuristicDone: boolean;
   heuristicCalculationRuns: number;
 }
 
-export function* calculateHeuristic(reduxState: RootState, targetCombinationCount: number) {
+export async function* calculateHeuristic(
+  reduxState: RootState,
+  threads: number,
+  targetCombinationCount: number,
+) {
   // 28 closely matches a single shoulderpiece
   // 118 closely matches both a single shoulderpiece and a single back item, but is much slower
   const split = 28;
@@ -192,25 +230,21 @@ export function* calculateHeuristic(reduxState: RootState, targetCombinationCoun
    */
 
   const normalCombinations: Combination[] = setupCombinations(reduxState).map(
-    ({ extrasCombinationEntry, settings }) => {
-      const core = new OptimizerCore(settings);
-      const calculation = core.calculate();
-      return {
-        ...extrasCombinationEntry,
-        settings,
-        calculation,
-        done: false,
-        list: [],
-        calculationRuns: 0,
-      };
-    },
+    ({ extrasCombinationEntry, settings }, index) => ({
+      ...extrasCombinationEntry,
+      settings,
+      done: false,
+      list: [],
+      calculationRuns: 0,
+      index,
+    }),
   );
 
   const { rankby, affixes } = normalCombinations[0].settings;
 
   // don't do any heuristic stuff with few combinations/one affix
   if (normalCombinations.length <= targetCombinationCount || affixes.length < 2)
-    return yield* calculate(reduxState, { combinations: normalCombinations });
+    return yield* calculate(reduxState, threads, { combinations: normalCombinations });
 
   console.time('heuristics');
 
@@ -218,56 +252,69 @@ export function* calculateHeuristic(reduxState: RootState, targetCombinationCoun
    * iteration
    */
 
+  const activeThreads = Math.min(threads, normalCombinations.length);
+
+  const workers = createWorkers(activeThreads);
+  console.log(`calculating heuristics using ${activeThreads} workers`);
+
+  workers.forEach((worker, workerIndex) =>
+    worker.setupHeuristic(
+      normalCombinations.filter(
+        (_, combinationIndex) => combinationIndex % activeThreads === workerIndex,
+      ),
+      split,
+    ),
+  );
+
   const calculationTotal = iteratePartitionCount(split, affixes.length);
   const globalCalculationTotal = calculationTotal * normalCombinations.length;
 
-  const combinations: HeuristicCombination[] = normalCombinations.map((comb) => {
-    const heuristicCore = new OptimizerCore({
-      ...comb.settings,
-      maxResults: 1,
-    });
-
-    return {
-      ...comb,
-      heuristicCore,
-      heuristicCalculation: heuristicCore.calculateHeuristic(split),
-      heuristicDone: false,
-      heuristicCalculationRuns: 0,
-    };
-  });
+  const combinations: HeuristicCombination[] = normalCombinations.map((comb) => ({
+    ...comb,
+    heuristicDone: false,
+    heuristicCalculationRuns: 0,
+  }));
 
   //
 
-  let i = 0;
-
   let iterationTimer = Date.now();
+  let isChanged = false;
+
+  const requestWorkerResults = () => workers.map((worker) => worker.next());
+
+  // concurrency optimization: request new batch of results before waiting for the previous batch
+  // prevents waiting for one slow thread (until a thread is delayed by an entire batch duration)
+  const queue: ReturnType<typeof requestWorkerResults>[] = [];
+  queue.push(requestWorkerResults());
 
   while (true) {
-    const combination = combinations[i];
+    queue.push(requestWorkerResults());
 
-    const currentIndex = i;
-    i = (i + 1) % combinations.length;
+    (await Promise.all(queue.shift()!)).forEach(({ combinationIndex, result }) => {
+      const combination = combinations.find(({ index }) => index === combinationIndex)!;
 
-    if (combination.heuristicDone) continue;
+      if (result.done) {
+        combination.heuristicDone = true;
+      } else {
+        const { value } = result;
+        if (value.newList) {
+          // eslint-disable-next-line prefer-destructuring
+          combination.heuristicBestResult = value.newList[0];
+        }
+        if (value.isChanged) {
+          isChanged = true;
+        }
 
-    const {
-      value: { isChanged, calculationRuns, newList },
-      done,
-    } = combination.heuristicCalculation.next();
-
-    combination.heuristicCalculationRuns = calculationRuns ?? 0;
+        combination.heuristicCalculationRuns = value.calculationRuns ?? 0;
+      }
+    });
 
     const globalCalculationRuns = combinations.reduce(
       (prev, cur) => prev + cur.heuristicCalculationRuns,
       0,
     );
-    console.log(
-      `option ${currentIndex} heuristics progress: ${calculationRuns} / ${calculationTotal}. total: ${globalCalculationRuns} / ${globalCalculationTotal}`,
-    );
+    console.log(`total heuristics progress: ${globalCalculationRuns} / ${globalCalculationTotal}`);
 
-    // eslint-disable-next-line prefer-destructuring
-    combination.heuristicBestResult = newList[0];
-    combination.heuristicDone = Boolean(done);
     const everyCombinationDone = combinations.every((comb) => comb.heuristicDone);
 
     const createResult = () => {
@@ -328,12 +375,13 @@ export function* calculateHeuristic(reduxState: RootState, targetCombinationCoun
 
       console.timeEnd('heuristics');
 
-      return yield* calculate(reduxState, { combinations });
+      return yield* calculate(reduxState, threads, { combinations });
     }
 
     if (Date.now() - iterationTimer > UPDATE_MS) {
       yield createResult();
       iterationTimer = Date.now();
+      isChanged = false;
     }
   }
 }
@@ -344,9 +392,10 @@ export const setup = (
   reduxState: RootState,
   jsHeuristicsEnabled: boolean,
   jsHeuristicsTarget: number,
+  threads: number,
 ) => {
   generator = jsHeuristicsEnabled
-    ? calculateHeuristic(reduxState, jsHeuristicsTarget)
-    : calculate(reduxState);
+    ? calculateHeuristic(reduxState, threads, jsHeuristicsTarget)
+    : calculate(reduxState, threads);
 };
 export const next = () => generator.next();

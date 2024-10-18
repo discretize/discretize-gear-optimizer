@@ -11,6 +11,7 @@ import BackgroundImage from '../../components/baseComponents/BackgroundImage';
 import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
 import Layout from '../../components/baseComponents/Layout';
 import URLStateImport from '../../components/url-state/URLStateImport';
+import { isFirefox } from '../../state/optimizer/detectFirefox';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import { getMulticore } from '../../state/slices/controlsSlice';
 import { getGameMode } from '../../state/slices/userSettings';
@@ -22,7 +23,7 @@ const IndexPage = () => {
   const gameMode = useSelector(getGameMode);
   const multicore = useSelector(getMulticore);
 
-  const [alertOpen, setAlertOpen] = React.useState([true, true]);
+  const [alertOpen, setAlertOpen] = React.useState([true, true, true]);
 
   const ALERTS = [
     <Trans>
@@ -53,6 +54,14 @@ const IndexPage = () => {
       </Link>
       .
     </Trans>,
+    ...(isFirefox
+      ? [
+          <Trans>
+            Note: Some large calculations may take longer in Firefox for reasons that are currently
+            unclear.
+          </Trans>,
+        ]
+      : []),
   ];
 
   return (
@@ -100,8 +109,8 @@ const IndexPage = () => {
         {multicore && (
           <Alert severity="error" sx={{ marginBottom: 2 }}>
             <Typography variant="body2" sx={{ marginBottom: '16px' }}>
-              You have selected the experimental multicore mode. This mode is still in development
-              and may cause issues. Please report any issues in the Discretize{' '}
+              You have selected the experimental Rust/WebAssembly mode. This mode is still in
+              development and may cause issues. Please report any issues in the Discretize{' '}
               <Link href="https://discord.gg/Qdt7nFY" target="_blank" rel="noopener">
                 Discord
               </Link>
