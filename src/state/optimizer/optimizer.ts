@@ -1,6 +1,7 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-loop-func */
 import type { ExtraFilterMode } from '../slices/controlsSlice';
+import { defaultJsThreads } from '../slices/controlsSlice';
 import type { ExtrasType } from '../slices/extras';
 import type { RootState } from '../store';
 import { iteratePartitionCount } from './combinatorics';
@@ -71,6 +72,8 @@ const createWorkers = (count: number) => {
   }
   return createdWorkers.slice(0, count);
 };
+
+createWorkers(defaultJsThreads);
 
 interface Overrides {
   combinations?: Combination[];
