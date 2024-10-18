@@ -45,7 +45,7 @@ export const parseBoss: ParseFunction<undefined> = (text) => parseNumber(text, u
 
 export const objectEntries = Object.entries as <Type extends object>(
   value: Type,
-) => [keyof Type, Type[keyof Type]][];
+) => [keyof Type, NonNullable<Type[keyof Type]>][];
 
 export const objectKeys = Object.keys as <Type extends object>(value: Type) => (keyof Type)[];
 
