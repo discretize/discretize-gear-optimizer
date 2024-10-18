@@ -215,7 +215,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
 
       <DialogContent sx={{ padding: 2 }} dividers>
         <Typography sx={{ fontWeight: 200 }}>
-          <Trans>Temporary saved builds</Trans>{' '}
+          <Trans>Current pinned builds</Trans>{' '}
           <HelperIcon
             text={t('These builds will be deleted after you leave or refresh this page.')}
             size="small"
@@ -343,7 +343,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
                       </IconButton>
                     </Tooltip>
 
-                    <Tooltip title={t('Copy build to temporary saved builds')}>
+                    <Tooltip title={t('Load as pinned build')}>
                       <IconButton onClick={handleCopyToTemporary(character)}>
                         <ArrowCircleUpIcon fontSize="small" />
                       </IconButton>
