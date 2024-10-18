@@ -4,7 +4,7 @@ import { createSelector, createSlice, original } from '@reduxjs/toolkit';
 import type { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
 import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
 import type { ParseFunction } from '../../utils/usefulFunctions';
-import { parseNumber } from '../../utils/usefulFunctions';
+import { objectKeys, parseNumber } from '../../utils/usefulFunctions';
 import { isFirefox } from '../optimizer/detectFirefox';
 import type { Character } from '../optimizer/optimizerCore';
 import type { OptimizerStatus } from '../optimizer/status';
@@ -22,18 +22,18 @@ const logAttributeDiff = (newCharacter: Character | null, oldCharacter: Characte
     newCharacter?.baseAttributes
   ) {
     console.groupCollapsed('Selected Character Comparison');
-    const baseAttributeComparisonEntries = Object.keys(newCharacter.baseAttributes)
+    const baseAttributeComparisonEntries = objectKeys(newCharacter.baseAttributes)
       .map(
         (key) =>
           [
             key,
             {
               value: roundThree(
-                newCharacter.baseAttributes[key] - oldCharacter.baseAttributes[key],
+                newCharacter.baseAttributes[key]! - oldCharacter.baseAttributes[key]!,
               ),
               percent: roundThree(
-                ((newCharacter.baseAttributes[key] - oldCharacter.baseAttributes[key]) /
-                  oldCharacter.baseAttributes[key]) *
+                ((newCharacter.baseAttributes[key]! - oldCharacter.baseAttributes[key]!) /
+                  oldCharacter.baseAttributes[key]!) *
                   100,
               ),
             },
@@ -42,16 +42,16 @@ const logAttributeDiff = (newCharacter: Character | null, oldCharacter: Characte
       .filter(([_key, value]) => value.value);
     console.log('Base attributes changed (not including modifiers):');
     console.table(Object.fromEntries(baseAttributeComparisonEntries));
-    const attributeComparisonEntries = Object.keys(newCharacter.attributes)
+    const attributeComparisonEntries = objectKeys(newCharacter.attributes)
       .map(
         (key) =>
           [
             key,
             {
-              value: roundThree(newCharacter.attributes[key] - oldCharacter.attributes[key]),
+              value: roundThree(newCharacter.attributes[key]! - oldCharacter.attributes[key]!),
               percent: roundThree(
-                ((newCharacter.attributes[key] - oldCharacter.attributes[key]) /
-                  oldCharacter.attributes[key]) *
+                ((newCharacter.attributes[key]! - oldCharacter.attributes[key]!) /
+                  oldCharacter.attributes[key]!) *
                   100,
               ),
             },

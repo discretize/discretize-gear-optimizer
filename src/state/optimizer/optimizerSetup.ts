@@ -449,7 +449,7 @@ export function createSettingsPerCalculation(
   const settings_affixStatsArray: OptimizerCoreSettings['affixStatsArray'] =
     settings_affixesArray.map((possibleAffixes, slotindex) =>
       possibleAffixes.map((affix) => {
-        const statTotals: Record<AttributeName, number> = {};
+        const statTotals: Partial<Record<AttributeName, number>> = {};
         const item = exotics?.[affix]?.[slotindex]
           ? settings_slots[slotindex].exo
           : settings_slots[slotindex].asc;
@@ -464,7 +464,7 @@ export function createSettingsPerCalculation(
           }
         }
 
-        return Object.entries(statTotals);
+        return objectEntries(statTotals);
       }),
     );
 
@@ -474,7 +474,7 @@ export function createSettingsPerCalculation(
   let settings_jsHeuristicsData: [AttributeName, number][][] | undefined;
   try {
     settings_jsHeuristicsData = affixes.map((forcedAffix) => {
-      const statTotals: Record<AttributeName, number> = {};
+      const statTotals: Partial<Record<AttributeName, number>> = {};
       settings_affixesArray.forEach((possibleAffixes, slotindex) => {
         if (!possibleAffixes.includes(forcedAffix) && possibleAffixes.length !== 1) {
           throw new Error();
@@ -496,7 +496,7 @@ export function createSettingsPerCalculation(
         }
       });
 
-      return Object.entries(statTotals);
+      return objectEntries(statTotals);
     });
   } catch {
     // silently disable heuristics where they will not be accurate
@@ -641,7 +641,7 @@ export function createSettingsPerCombination(
     settings_baseAttributes['Phantasm Critical Damage'] = 1.5;
   }
 
-  for (const [key, value] of Object.entries(distribution)) {
+  for (const [key, value] of objectEntries(distribution)) {
     settings_baseAttributes[`${key} Coefficient`] = value;
   }
 
