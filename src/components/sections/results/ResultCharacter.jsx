@@ -198,31 +198,34 @@ export default function ResultCharacter({
 
   return (
     <ErrorBoundary location="Character" resetKeys={[character]}>
-      {unbuffedAttributes && (
-        <>
-          <FormControlLabel
-            control={
-              <Switch
-                checked={showUnbuffed}
-                onChange={(e) => setShowUnbuffed(e.target.checked)}
-                name="checked"
-                color="primary"
-              />
-            }
-            label="Simulate Unbuffed Attributes"
-          />
+      {unbuffedAttributes && showUnbuffed && (
+        <Box sx={{ p: 1 }}>
+          <Info icon={<WarningAmberIcon />}>
+            Simulated unbuffed attributes are not exact and may not match ingame hero panel! For
+            example, soulbeast's "with axe" and "with torch/dagger" buffs are both included,
+            simulating a scenario which doesn't occur in either weapon set on some builds. Use with
+            caution.
+          </Info>
+        </Box>
+      )}
 
-          {showUnbuffed && (
-            <Box sx={{ p: 1 }}>
-              <Info icon={<WarningAmberIcon />}>
-                Simulated unbuffed attributes are not exact and may not match ingame hero panel! For
-                example, soulbeast's "with axe" and "with torch/dagger" buffs are both included,
-                simulating a scenario which doesn't occur in either weapon set on some builds. Use
-                with caution.
-              </Info>
-            </Box>
-          )}
-        </>
+      {unbuffedAttributes && (
+        <FormControlLabel
+          sx={{
+            position: { sm: 'absolute' },
+            left: { sm: '50%' },
+            transform: { sm: 'translate(-50%)' },
+          }}
+          control={
+            <Switch
+              checked={showUnbuffed}
+              onChange={(e) => setShowUnbuffed(e.target.checked)}
+              name="checked"
+              color="primary"
+            />
+          }
+          label="Show Unbuffed"
+        />
       )}
 
       <Character
