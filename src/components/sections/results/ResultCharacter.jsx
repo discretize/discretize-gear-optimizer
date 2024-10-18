@@ -194,6 +194,14 @@ export default function ResultCharacter({
     <ErrorBoundary location="Character" resetKeys={[character]}>
       <Character
         attributes={{ profession, data: attributes }}
+        unbuffedAttributes={
+          unbuffedAttributes && {
+            profession,
+            specialization,
+            data: unbuffedAttributes,
+            info: 'Simulated unbuffed attributes are not exact and may not match ingame hero panel! For example, soulbeast\'s "with axe" and "with torch/dagger" buffs are both included, simulating a scenario which doesn\'t occur in either weapon set on some builds. Use with caution.',
+          }
+        }
         armor={armorPropsAPI}
         weapon={weaponPropsAPI}
         backAndTrinket={backAndTrinketPropsAPI}
