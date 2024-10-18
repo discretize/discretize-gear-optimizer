@@ -159,10 +159,11 @@ export interface OptimizerCoreSettingsPerCalculation {
 }
 
 export type Attributes = Record<
-  PrimaryAttributeName | SecondaryAttributeName | DerivedAttributeName,
+  PrimaryAttributeName | SecondaryAttributeName | DerivedAttributeName | string,
   number
-> &
-  Record<string, number>;
+>;
+
+type AttributesMap = Map<string, number>;
 
 // settings that **do** vary based on extras combination
 export interface OptimizerCoreSettingsPerCombination {
@@ -214,16 +215,20 @@ interface Results {
 export interface CharacterUnprocessed {
   id?: string;
   settings: OptimizerCoreMinimalSettings;
-  attributes?: Attributes;
+  attributesMap?: AttributesMap;
   gear: Gear;
   gearStats: GearStats;
   gearDescription?: string;
   valid: boolean;
-  baseAttributes: Attributes;
+  baseAttributesMap: AttributesMap;
   infusions: Partial<Record<InfusionName, number>>;
   results?: Results;
 }
-export interface Character extends CharacterUnprocessed {
+export interface CharacterProcessed extends CharacterUnprocessed {
+  attributesMap: AttributesMap;
+}
+export interface Character extends CharacterProcessed {
+  baseAttributes: Attributes;
   attributes: Attributes;
 }
 
@@ -251,6 +256,8 @@ export class OptimizerCore {
   randomId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
   conditionData: typeof conditionData;
 
+  baseAttributesMap: AttributesMap;
+
   constructor(settings: OptimizerCoreSettings) {
     this.settings = settings;
     // only supply character with settings it uses to render
@@ -267,6 +274,8 @@ export class OptimizerCore {
       gameMode: settings.gameMode,
     };
     this.conditionData = settings.gameMode === 'wvw' ? conditionDataWvW : conditionData;
+
+    this.baseAttributesMap = new Map(Object.entries(settings.baseAttributes));
 
     let applyInfusionsFunction: OptimizerCore['applyInfusionsFunction'];
     switch (settings.infusionMode) {
@@ -322,7 +331,6 @@ export class OptimizerCore {
 
       // pause to update UI
       if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
-        this.list.forEach(this.calcResults, this);
         yield {
           isChanged: this.isChanged,
           calculationRuns,
@@ -398,7 +406,6 @@ export class OptimizerCore {
       calculationStatsQueue.push(gearStats);
     }
 
-    this.list.forEach(this.calcResults, this);
     yield {
       isChanged: this.isChanged,
       calculationRuns,
@@ -443,7 +450,6 @@ export class OptimizerCore {
 
       // pause to update UI
       if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
-        this.list.forEach(this.calcResults, this);
         yield {
           isChanged: this.isChanged,
           calculationRuns,
@@ -476,7 +482,6 @@ export class OptimizerCore {
       this.applyInfusionsFunction([], gearStats, { gearDescription: percentages });
     }
 
-    this.list.forEach(this.calcResults, this);
     yield {
       isChanged: this.isChanged,
       calculationRuns,
@@ -497,16 +502,19 @@ export class OptimizerCore {
       gearStats, // passed by reference
       attributes: undefined,
       valid: true,
-      baseAttributes: { ...this.settings.baseAttributes },
+      baseAttributesMap: new Map(this.baseAttributesMap),
       ...overrides,
     };
 
     // apply gear and infusions
     for (const [stat, value] of Object.entries(gearStats)) {
-      character.baseAttributes[stat] += value;
+      character.baseAttributesMap.set(stat, character.baseAttributesMap.get(stat)! + value);
     }
     for (const [stat, count] of Object.entries(infusions)) {
-      character.baseAttributes[stat] += count * INFUSION_BONUS;
+      character.baseAttributesMap.set(
+        stat,
+        character.baseAttributesMap.get(stat)! + count * INFUSION_BONUS,
+      );
     }
 
     return character;
@@ -566,9 +574,9 @@ export class OptimizerCore {
             overrides,
           );
           this.updateAttributesFast(character);
-          if (character.valid && character.attributes[rankby] !== previousResult) {
+          if (character.valid && character.attributesMap.get(rankby)! !== previousResult) {
             this.insertCharacter(character);
-            previousResult = character.attributes[rankby];
+            previousResult = character.attributesMap.get(rankby)!;
           }
         }
       }
@@ -597,7 +605,7 @@ export class OptimizerCore {
           );
           this.updateAttributesFast(character);
           if (character.valid) {
-            if (!best || characterLT(best, character, rankby) > 0) {
+            if (!best || characterLTInternal(best, character, rankby) > 0) {
               best = character;
             }
           }
@@ -618,21 +626,23 @@ export class OptimizerCore {
       this.addBaseStats(temp, type, count * INFUSION_BONUS),
     );
     this.updateAttributesFast(temp, true);
-    return temp.attributes[settings.rankby] > this.worstScore;
+    return temp.attributesMap.get(settings.rankby)! > this.worstScore;
   }
 
-  insertCharacter(character: Character) {
+  insertCharacter(character: CharacterProcessed) {
     const { settings } = this;
 
     if (
       !character.valid ||
-      (this.worstScore && this.worstScore > character.attributes[settings.rankby])
+      (this.worstScore && this.worstScore > character.attributesMap.get(settings.rankby)!)
     ) {
       return;
     }
 
     this.updateAttributes(character);
     character.id = `${this.uniqueIDCounter++} (${this.randomId})`;
+
+    this.calcResults(character);
 
     if (this.list.length === 0) {
       this.list.push(character);
@@ -656,14 +666,14 @@ export class OptimizerCore {
       this.list.length = settings.maxResults;
     }
     if (this.list.length === settings.maxResults) {
-      this.worstScore = this.list[this.list.length - 1].attributes[settings.rankby];
+      this.worstScore = this.list[this.list.length - 1].attributesMap.get(settings.rankby)!;
     }
 
     this.isChanged = true;
   }
 
   addBaseStats(character: CharacterUnprocessed, stat: AttributeName, amount: number) {
-    character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
+    character.baseAttributesMap.set(stat, (character.baseAttributesMap.get(stat) || 0) + amount);
   }
 
   /**
@@ -676,7 +686,7 @@ export class OptimizerCore {
   updateAttributes(
     character: CharacterUnprocessed,
     noRounding = false,
-  ): asserts character is Character {
+  ): asserts character is CharacterProcessed {
     const { modifiers } = this.settings;
     const { damageMultiplier } = modifiers;
 
@@ -686,8 +696,10 @@ export class OptimizerCore {
 
     const powerDamageScore = this.calcPower(character, damageMultiplier);
     const condiDamageScore = this.calcCondi(character, damageMultiplier, Attributes.CONDITION);
-    character.attributes['Damage'] =
-      powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
+    character.attributesMap.set(
+      'Damage',
+      powerDamageScore + condiDamageScore + (character.attributesMap.get('Flat DPS') || 0),
+    );
 
     this.calcSurvivability(character, damageMultiplier);
     this.calcHealing(character);
@@ -704,7 +716,7 @@ export class OptimizerCore {
   updateAttributesFast(
     character: CharacterUnprocessed,
     skipValidation = false,
-  ): asserts character is Character {
+  ): asserts character is CharacterProcessed {
     const { settings } = this;
     const { modifiers } = this.settings;
     const { damageMultiplier } = modifiers;
@@ -712,7 +724,7 @@ export class OptimizerCore {
 
     this.calcStats(character, modifiers);
 
-    const { attributes } = character;
+    const { attributesMap } = character;
 
     if (!skipValidation && this.checkInvalid(character)) {
       return;
@@ -726,15 +738,18 @@ export class OptimizerCore {
       if (settings.disableCondiResultCache) {
         condiDamageScore = this.calcCondi(character, damageMultiplier, settings.relevantConditions);
       } else if (settings.relevantConditions.length > 0) {
-        const CONDI_CACHE_ID = attributes['Expertise'] + attributes['Condition Damage'] * 10000;
+        const CONDI_CACHE_ID =
+          attributesMap.get('Expertise')! + attributesMap.get('Condition Damage')! * 10000;
         condiDamageScore =
           this.condiResultCache?.get(CONDI_CACHE_ID) ||
           this.calcCondi(character, damageMultiplier, settings.relevantConditions);
         this.condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
       }
 
-      attributes['Damage'] =
-        powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
+      attributesMap.set(
+        'Damage',
+        powerDamageScore + condiDamageScore + (character.attributesMap.get('Flat DPS') || 0),
+      );
     }
     if (settings.rankby === 'Healing' || settings.minHealing) {
       this.calcHealing(character);
@@ -752,59 +767,94 @@ export class OptimizerCore {
     character: CharacterUnprocessed,
     modifiers: Modifiers,
     noRounding = false,
-  ): asserts character is Character {
+  ): asserts character is CharacterProcessed {
     const { settings } = this;
 
     const round = noRounding ? (val: number) => val : roundEven;
 
-    character.attributes = { ...character.baseAttributes };
-    const { attributes, baseAttributes } = character;
+    character.attributesMap = new Map(character.baseAttributesMap);
+    const { attributesMap, baseAttributesMap } = character;
 
     for (const [attribute, conversion] of modifiers['convert']) {
       const maybeRound = enumArrayIncludes(allAttributePointKeys, attribute)
         ? round
         : (val: number) => val;
       for (const [source, percent] of conversion) {
-        attributes[attribute] += maybeRound(baseAttributes[source] * percent);
+        attributesMap.set(
+          attribute,
+          attributesMap.get(attribute)! + maybeRound(baseAttributesMap.get(source)!) * percent,
+        );
       }
     }
 
     for (const [attribute, bonus] of modifiers['buff']) {
-      attributes[attribute] = (attributes[attribute] || 0) + bonus;
+      attributesMap.set(attribute, (attributesMap.get(attribute) || 0) + bonus);
     }
 
-    attributes['Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
-    attributes['Critical Damage'] += attributes['Ferocity'] / 15 / 100;
-
-    attributes['Boon Duration'] += attributes['Concentration'] / 15 / 100;
-    attributes['Condition Duration'] += attributes['Expertise'] / 15 / 100;
-
-    attributes['Health'] = round(
-      (attributes['Health'] + attributes['Vitality'] * 10) *
-        (1 + (attributes['Maximum Health'] || 0)),
+    attributesMap.set(
+      'Critical Chance',
+      attributesMap.get('Critical Chance')! + (attributesMap.get('Precision')! - 1000) / 21 / 100,
+    );
+    attributesMap.set(
+      'Critical Damage',
+      attributesMap.get('Critical Damage')! + attributesMap.get('Ferocity')! / 15 / 100,
     );
 
-    attributes['Armor'] += attributes['Toughness'];
+    attributesMap.set(
+      'Boon Duration',
+      attributesMap.get('Boon Duration')! + attributesMap.get('Concentration')! / 15 / 100,
+    );
+    attributesMap.set(
+      'Condition Duration',
+      attributesMap.get('Condition Duration')! + attributesMap.get('Expertise')! / 15 / 100,
+    );
+
+    attributesMap.set(
+      'Health',
+      round(
+        (attributesMap.get('Health')! + attributesMap.get('Vitality')! * 10) *
+          (1 + (attributesMap.get('Maximum Health') || 0)),
+      ),
+    );
+
+    attributesMap.set('Armor', attributesMap.get('Armor')! + attributesMap.get('Toughness')!);
 
     // clones/phantasms/shroud
 
     if (settings.profession === 'Mesmer') {
       // mesmer illusions: special bonuses are INSTEAD OF player attributes
-      attributes['Clone Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
-      attributes['Phantasm Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
-      attributes['Phantasm Critical Damage'] += attributes['Ferocity'] / 15 / 100;
-    } else if (attributes['Power2 Coefficient']) {
+      attributesMap.set(
+        'Clone Critical Chance',
+        attributesMap.get('Clone Critical Chance')! +
+          (attributesMap.get('Precision')! - 1000) / 21 / 100,
+      );
+      attributesMap.set(
+        'Phantasm Critical Chance',
+        attributesMap.get('Phantasm Critical Chance')! +
+          (attributesMap.get('Precision')! - 1000) / 21 / 100,
+      );
+      attributesMap.set(
+        'Phantasm Critical Damage',
+        attributesMap.get('Phantasm Critical Damage')! + attributesMap.get('Ferocity')! / 15 / 100,
+      );
+    } else if (attributesMap.get('Power2 Coefficient')!) {
       // necromancer shroud: special bonuses are IN ADDITION TO player attributes
-      attributes['Alternative Power'] =
-        (attributes['Alternative Power'] ?? 0) + attributes['Power'];
-      attributes['Alternative Critical Chance'] =
-        (attributes['Alternative Critical Chance'] ?? 0) +
-        attributes['Critical Chance'] +
-        (attributes['Alternative Precision'] ?? 0) / 21 / 100;
-      attributes['Alternative Critical Damage'] =
-        (attributes['Alternative Critical Damage'] ?? 0) +
-        attributes['Critical Damage'] +
-        (attributes['Alternative Ferocity'] ?? 0) / 15 / 100;
+      attributesMap.set(
+        'Alternative Power',
+        (attributesMap.get('Alternative Power') ?? 0) + attributesMap.get('Power')!,
+      );
+      attributesMap.set(
+        'Alternative Critical Chance',
+        (attributesMap.get('Alternative Critical Chance') ?? 0) +
+          attributesMap.get('Critical Chance')! +
+          (attributesMap.get('Alternative Precision') ?? 0) / 21 / 100,
+      );
+      attributesMap.set(
+        'Alternative Critical Damage',
+        (attributesMap.get('Alternative Critical Damage') ?? 0) +
+          attributesMap.get('Critical Damage')! +
+          (attributesMap.get('Alternative Ferocity') ?? 0) / 15 / 100,
+      );
     }
 
     for (const [attribute, conversion] of modifiers['convertAfterBuffs']) {
@@ -813,41 +863,54 @@ export class OptimizerCore {
         : (val: number) => val;
       for (const [source, percent] of conversion) {
         if (source === 'Critical Chance') {
-          attributes[attribute] += maybeRound(clamp(attributes['Critical Chance'], 0, 1) * percent);
+          attributesMap.set(
+            attribute,
+            attributesMap.get(attribute)! +
+              maybeRound(clamp(attributesMap.get('Critical Chance')!, 0, 1) * percent),
+          );
         } else if (source === 'Clone Critical Chance') {
-          attributes[attribute] += maybeRound(
-            clamp(attributes['Clone Critical Chance'] ?? 0, 0, 1) * percent,
+          attributesMap.set(
+            attribute,
+            attributesMap.get(attribute)! +
+              maybeRound(clamp(attributesMap.get('Clone Critical Chance') ?? 0, 0, 1) * percent),
           );
         } else if (source === 'Phantasm Critical Chance') {
-          attributes[attribute] += maybeRound(
-            clamp(attributes['Phantasm Critical Chance'] ?? 0, 0, 1) * percent,
+          attributesMap.set(
+            attribute,
+            attributesMap.get(attribute)! +
+              maybeRound(clamp(attributesMap.get('Phantasm Critical Chance') ?? 0, 0, 1) * percent),
           );
         } else {
-          attributes[attribute] += maybeRound(attributes[source] * percent);
+          attributesMap.set(
+            attribute,
+            attributesMap.get(attribute)! + maybeRound(attributesMap.get(source)! * percent),
+          );
         }
       }
     }
   }
 
-  checkInvalid(character: Character) {
+  checkInvalid(character: CharacterProcessed) {
     const { settings } = this;
-    const { attributes } = character;
+    const { attributesMap } = character;
 
     const invalid =
       (settings.minBoonDuration !== undefined &&
-        attributes['Boon Duration'] < settings.minBoonDuration / 100) ||
+        attributesMap.get('Boon Duration')! < settings.minBoonDuration / 100) ||
       (settings.minQuicknessDuration !== undefined &&
-        attributes['Boon Duration'] + (attributes['Quickness Duration'] ?? 0) <
+        attributesMap.get('Boon Duration')! + (attributesMap.get('Quickness Duration') ?? 0) <
           settings.minQuicknessDuration / 100) ||
       (settings.minHealingPower !== undefined &&
-        attributes['Healing Power'] < settings.minHealingPower) ||
-      (settings.minToughness !== undefined && attributes['Toughness'] < settings.minToughness) ||
-      (settings.maxToughness !== undefined && attributes['Toughness'] > settings.maxToughness) ||
-      (settings.minHealth !== undefined && attributes['Health'] < settings.minHealth) ||
+        attributesMap.get('Healing Power')! < settings.minHealingPower) ||
+      (settings.minToughness !== undefined &&
+        attributesMap.get('Toughness')! < settings.minToughness) ||
+      (settings.maxToughness !== undefined &&
+        attributesMap.get('Toughness')! > settings.maxToughness) ||
+      (settings.minHealth !== undefined && attributesMap.get('Health')! < settings.minHealth) ||
       (settings.minCritChance !== undefined &&
-        attributes['Critical Chance'] < settings.minCritChance / 100) ||
+        attributesMap.get('Critical Chance')! < settings.minCritChance / 100) ||
       (settings.minOutgoingHealing !== undefined &&
-        (attributes['Outgoing Healing'] ?? 0) < settings.minOutgoingHealing / 100);
+        (attributesMap.get('Outgoing Healing') ?? 0) < settings.minOutgoingHealing / 100);
     if (invalid) {
       character.valid = false;
     }
@@ -855,15 +918,15 @@ export class OptimizerCore {
     return invalid;
   }
 
-  checkInvalidIndicators(character: Character) {
+  checkInvalidIndicators(character: CharacterProcessed) {
     const { settings } = this;
-    const { attributes } = character;
+    const { attributesMap } = character;
 
     const invalid =
-      (settings.minDamage !== undefined && attributes['Damage'] < settings.minDamage) ||
-      (settings.minHealing !== undefined && attributes['Healing'] < settings.minHealing) ||
+      (settings.minDamage !== undefined && attributesMap.get('Damage')! < settings.minDamage) ||
+      (settings.minHealing !== undefined && attributesMap.get('Healing')! < settings.minHealing) ||
       (settings.minSurvivability !== undefined &&
-        attributes['Survivability'] < settings.minSurvivability);
+        attributesMap.get('Survivability')! < settings.minSurvivability);
     if (invalid) {
       character.valid = false;
     }
@@ -871,78 +934,96 @@ export class OptimizerCore {
     return invalid;
   }
 
-  calcPower(character: Character, damageMultiplier: DamageMultiplier) {
+  calcPower(character: CharacterProcessed, damageMultiplier: DamageMultiplier) {
     const { settings } = this;
-    const { attributes } = character;
+    const { attributesMap } = character;
 
-    const critDmg = attributes['Critical Damage'] * damageMultiplier['Outgoing Critical Damage'];
-    const critChance = clamp(attributes['Critical Chance'], 0, 1);
+    const critDmg =
+      attributesMap.get('Critical Damage')! * damageMultiplier['Outgoing Critical Damage'];
+    const critChance = clamp(attributesMap.get('Critical Chance')!, 0, 1);
 
     // this should really just overwrite the 'Critical Damage' value, but we use
     // it for "the critical damage stat in the hero panel," which includes
     // ferocity but excludes "critical hits do more damage" modifiers
     if (damageMultiplier['Outgoing Critical Damage'] !== 1) {
-      attributes['Player Critical Damage'] = critDmg;
+      attributesMap.set('Player Critical Damage', critDmg);
     }
 
-    attributes['Effective Power'] = attributes['Power'] * (1 + critChance * (critDmg - 1));
+    attributesMap.set(
+      'Effective Power',
+      attributesMap.get('Power')! * (1 + critChance * (critDmg - 1)),
+    );
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
     let powerDamage =
-      ((attributes['Power Coefficient'] || 0) / 2597) *
-        attributes['Effective Power'] *
+      ((attributesMap.get('Power Coefficient') || 0) / 2597) *
+        attributesMap.get('Effective Power')! *
         damageMultiplier['Outgoing Strike Damage'] +
-      ((attributes['NonCrit Power Coefficient'] || 0) / 2597) *
-        attributes['Power'] *
+      ((attributesMap.get('NonCrit Power Coefficient') || 0) / 2597) *
+        attributesMap.get('Power')! *
         damageMultiplier['Outgoing Strike Damage'];
 
-    attributes['Power DPS'] = powerDamage;
+    attributesMap.set('Power DPS', powerDamage);
 
-    if (attributes['Power2 Coefficient']) {
+    if (attributesMap.get('Power2 Coefficient')!) {
       if (settings.profession === 'Mesmer') {
         // mesmer illusions: special bonuses are INSTEAD OF player attributes
-        attributes['Phantasm Critical Damage'] *=
-          damageMultiplier['Outgoing Phantasm Critical Damage'];
-        const phantasmCritChance = clamp(attributes['Phantasm Critical Chance'], 0, 1);
+        attributesMap.set(
+          'Phantasm Critical Damage',
+          attributesMap.get('Phantasm Critical Damage')! *
+            damageMultiplier['Outgoing Phantasm Critical Damage'],
+        );
+        const phantasmCritChance = clamp(attributesMap.get('Phantasm Critical Chance')!, 0, 1);
 
-        attributes['Phantasm Effective Power'] =
-          attributes['Power'] *
-          (1 + phantasmCritChance * (attributes['Phantasm Critical Damage'] - 1));
+        attributesMap.set(
+          'Phantasm Effective Power',
+          attributesMap.get('Power')! *
+            (1 + phantasmCritChance * (attributesMap.get('Phantasm Critical Damage')! - 1)),
+        );
 
         const phantasmPowerDamage =
-          ((attributes['Power2 Coefficient'] || 0) / 2597) *
-          attributes['Phantasm Effective Power'] *
+          ((attributesMap.get('Power2 Coefficient') || 0) / 2597) *
+          attributesMap.get('Phantasm Effective Power')! *
           damageMultiplier['Outgoing Phantasm Damage'];
-        attributes['Power2 DPS'] = phantasmPowerDamage;
+        attributesMap.set('Power2 DPS', phantasmPowerDamage);
         powerDamage += phantasmPowerDamage;
       } else {
         // necromancer shroud: special bonuses are IN ADDITION TO player attributes
-        attributes['Alternative Critical Damage'] *=
-          damageMultiplier['Outgoing Critical Damage'] *
-          damageMultiplier['Outgoing Alternative Critical Damage'];
-        const alternativeCritChance = clamp(attributes['Alternative Critical Chance'], 0, 1);
+        attributesMap.set(
+          'Alternative Critical Damage',
+          attributesMap.get('Alternative Critical Damage')! *
+            damageMultiplier['Outgoing Critical Damage'] *
+            damageMultiplier['Outgoing Alternative Critical Damage'],
+        );
+        const alternativeCritChance = clamp(
+          attributesMap.get('Alternative Critical Chance')!,
+          0,
+          1,
+        );
 
-        attributes['Alternative Effective Power'] =
-          attributes['Alternative Power'] *
-          (1 + alternativeCritChance * (attributes['Alternative Critical Damage'] - 1));
+        attributesMap.set(
+          'Alternative Effective Power',
+          attributesMap.get('Alternative Power')! *
+            (1 + alternativeCritChance * (attributesMap.get('Alternative Critical Damage')! - 1)),
+        );
 
         const alternativePowerDamage =
-          ((attributes['Power2 Coefficient'] || 0) / 2597) *
-          attributes['Alternative Effective Power'] *
+          ((attributesMap.get('Power2 Coefficient') || 0) / 2597) *
+          attributesMap.get('Alternative Effective Power')! *
           damageMultiplier['Outgoing Strike Damage'] *
           damageMultiplier['Outgoing Alternative Damage'];
-        attributes['Power2 DPS'] = alternativePowerDamage;
+        attributesMap.set('Power2 DPS', alternativePowerDamage);
         powerDamage += alternativePowerDamage;
       }
     } else {
-      attributes['Power2 DPS'] = 0;
+      attributesMap.set('Power2 DPS', 0);
     }
 
     const siphonDamage =
-      ((attributes['Siphon Base Coefficient'] || 0) +
-        (attributes['Siphon Coefficient'] || 0) * attributes['Power']) *
+      ((attributesMap.get('Siphon Base Coefficient') || 0) +
+        (attributesMap.get('Siphon Coefficient') || 0) * attributesMap.get('Power')!) *
       damageMultiplier['Outgoing Siphon Damage'];
-    attributes['Siphon DPS'] = siphonDamage;
+    attributesMap.set('Siphon DPS', siphonDamage);
 
     return powerDamage + siphonDamage;
   }
@@ -951,45 +1032,57 @@ export class OptimizerCore {
     (this.conditionData[condition].factor * cdmg + this.conditionData[condition].baseDamage) * mult;
 
   calcCondi(
-    character: Character,
+    character: CharacterProcessed,
     damageMultiplier: DamageMultiplier,
     relevantConditions: readonly DamagingConditionName[],
   ) {
     const { settings } = this;
-    const { attributes } = character;
+    const { attributesMap } = character;
 
     let condiDamageScore = 0;
     for (const condition of relevantConditions) {
-      const cdmg = attributes['Condition Damage'];
+      const cdmg = attributesMap.get('Condition Damage')!;
       const mult =
         damageMultiplier['Outgoing Condition Damage'] *
         damageMultiplier[`Outgoing ${condition} Damage`];
 
       switch (condition) {
         case 'Torment':
-          attributes[`Torment Damage Tick`] =
+          attributesMap.set(
+            `Torment Damage Tick`,
             this.conditionDamageTick('Torment', cdmg, mult) * (1 - settings.movementUptime) +
-            this.conditionDamageTick('TormentMoving', cdmg, mult) * settings.movementUptime;
+              this.conditionDamageTick('TormentMoving', cdmg, mult) * settings.movementUptime,
+          );
           break;
         case 'Confusion':
-          attributes[`Confusion Damage Tick`] =
+          attributesMap.set(
+            `Confusion Damage Tick`,
             this.conditionDamageTick('Confusion', cdmg, mult) +
-            this.conditionDamageTick('ConfusionActive', cdmg, mult) * settings.attackRate;
+              this.conditionDamageTick('ConfusionActive', cdmg, mult) * settings.attackRate,
+          );
           break;
         default:
-          attributes[`${condition} Damage Tick`] = this.conditionDamageTick(condition, cdmg, mult);
+          attributesMap.set(
+            `${condition} Damage Tick`,
+            this.conditionDamageTick(condition, cdmg, mult),
+          );
       }
 
       const duration =
         1 +
-        clamp((attributes[`${condition} Duration`] || 0) + attributes['Condition Duration'], 0, 1) +
-        attributes['Condition Duration Uncapped'];
+        clamp(
+          (attributesMap.get(`${condition} Duration`) || 0) +
+            attributesMap.get('Condition Duration')!,
+          0,
+          1,
+        ) +
+        attributesMap.get('Condition Duration Uncapped')!;
 
-      const stacks = (attributes[`${condition} Coefficient`] || 0) * duration;
-      attributes[`${condition} Stacks`] = stacks;
+      const stacks = (attributesMap.get(`${condition} Coefficient`) || 0) * duration;
+      attributesMap.set(`${condition} Stacks`, stacks);
 
-      const DPS = stacks * (attributes[`${condition} Damage Tick`] || 1);
-      attributes[`${condition} DPS`] = DPS;
+      const DPS = stacks * (attributesMap.get(`${condition} Damage Tick`) || 1);
+      attributesMap.set(`${condition} DPS`, DPS);
 
       condiDamageScore += DPS;
     }
@@ -997,46 +1090,57 @@ export class OptimizerCore {
     return condiDamageScore;
   }
 
-  calcSurvivability(character: Character, damageMultiplier: DamageMultiplier) {
-    const { attributes } = character;
+  calcSurvivability(character: CharacterProcessed, damageMultiplier: DamageMultiplier) {
+    const { attributesMap } = character;
 
-    attributes['Effective Health'] =
-      attributes['Health'] * attributes['Armor'] * (1 / damageMultiplier['Incoming Strike Damage']);
+    attributesMap.set(
+      'Effective Health',
+      attributesMap.get('Health')! *
+        attributesMap.get('Armor')! *
+        (1 / damageMultiplier['Incoming Strike Damage']),
+    );
 
-    attributes['Survivability'] = attributes['Effective Health'] / 1967;
+    attributesMap.set('Survivability', attributesMap.get('Effective Health')! / 1967);
   }
 
-  calcHealing(character: Character) {
+  calcHealing(character: CharacterProcessed) {
     const { settings } = this;
-    const { attributes } = character;
+    const { attributesMap } = character;
 
     // reasonably representative skill: druid celestial avatar 4 pulse
     // 390 base, 0.3 coefficient
-    attributes['Effective Healing'] =
-      (attributes['Healing Power'] * 0.3 + 390) * (1 + (attributes['Outgoing Healing'] || 0));
+    attributesMap.set(
+      'Effective Healing',
+      (attributesMap.get('Healing Power')! * 0.3 + 390) *
+        (1 + (attributesMap.get('Outgoing Healing') || 0)),
+    );
     if (Object.prototype.hasOwnProperty.call(settings.modifiers, 'bountiful-maintenance-oil')) {
       const bonus =
-        ((attributes['Healing Power'] || 0) * 0.6) / 10000 +
-        ((attributes['Concentration'] || 0) * 0.8) / 10000;
+        ((attributesMap.get('Healing Power') || 0) * 0.6) / 10000 +
+        ((attributesMap.get('Concentration') || 0) * 0.8) / 10000;
       if (bonus) {
-        attributes['Effective Healing'] *= 1 + bonus;
+        attributesMap.set('Effective Healing', attributesMap.get('Effective Healing')! * 1 + bonus);
       }
     }
 
-    attributes['Healing'] = attributes['Effective Healing'];
+    attributesMap.set('Healing', attributesMap.get('Effective Healing')!);
   }
 
-  calcResults(character: Character) {
+  calcResults(characterInput: CharacterProcessed): asserts characterInput is Character {
+    const character = characterInput as Character;
     if (character.results) return;
 
     const { settings } = this;
-    const { attributes } = character;
+    const { attributesMap, baseAttributesMap } = character;
 
-    const value = character.attributes[settings.rankby];
+    character.attributes = Object.fromEntries(attributesMap);
+    character.baseAttributes = Object.fromEntries(baseAttributesMap);
+
+    const value = attributesMap.get(settings.rankby)!;
 
     const indicators = {} as Record<IndicatorName, number>;
     for (const attribute of Attributes.INDICATORS) {
-      indicators[attribute] = attributes[attribute];
+      indicators[attribute] = attributesMap.get(attribute)!;
     }
 
     const results: Results = {
@@ -1062,22 +1166,25 @@ export class OptimizerCore {
     results.effectivePositiveValues = {};
     for (const attribute of gainLossKeys) {
       const temp = this.clone(character);
-      temp.baseAttributes[attribute] += 5;
+      temp.baseAttributesMap.set(attribute, temp.baseAttributesMap.get(attribute)! + 5);
 
       this.updateAttributes(temp, true);
       results.effectivePositiveValues[attribute] =
-        temp.attributes['Damage'] - baseline.attributes['Damage'];
+        temp.attributesMap.get('Damage')! - baseline.attributesMap.get('Damage')!;
     }
 
     // effective loss by not having +5 infusions
     results.effectiveNegativeValues = {};
     for (const attribute of gainLossKeys) {
       const temp = this.clone(character);
-      temp.baseAttributes[attribute] = Math.max(temp.baseAttributes[attribute] - 5, 0);
+      temp.baseAttributesMap.set(
+        attribute,
+        Math.max(temp.baseAttributesMap.get(attribute)! - 5, 0),
+      );
 
       this.updateAttributes(temp, true);
       results.effectiveNegativeValues[attribute] =
-        temp.attributes['Damage'] - baseline.attributes['Damage'];
+        temp.attributesMap.get('Damage')! - baseline.attributesMap.get('Damage')!;
     }
 
     const effectiveDistributionKeys = [
@@ -1088,18 +1195,18 @@ export class OptimizerCore {
     // effective damage distribution
     results.effectiveDamageDistribution = {};
     for (const key of effectiveDistributionKeys) {
-      if (attributes[`${key} DPS`] === undefined) continue;
+      if (attributesMap.get(`${key} DPS`) === undefined) continue;
 
-      const damage = attributes[`${key} DPS`] / attributes['Damage'];
+      const damage = attributesMap.get(`${key} DPS`)! / attributesMap.get('Damage')!;
       results.effectiveDamageDistribution[`${key}`] = `${(damage * 100).toFixed(1)}%`;
     }
 
     // damage indicator breakdown
     results.damageBreakdown = {};
     for (const key of effectiveDistributionKeys) {
-      if (attributes[`${key} DPS`] === undefined) continue;
+      if (attributesMap.get(`${key} DPS`) === undefined) continue;
 
-      results.damageBreakdown[`${key}`] = attributes[`${key} DPS`];
+      results.damageBreakdown[`${key}`] = attributesMap.get(`${key} DPS`)!;
     }
 
     // template helper data
@@ -1109,13 +1216,19 @@ export class OptimizerCore {
 
     const attrsWithModifiedCoefficient = (newCoefficient: number) => {
       const newCharacter = this.clone(character);
-      newCharacter.baseAttributes = { ...character.baseAttributes };
+      newCharacter.baseAttributesMap = new Map(character.baseAttributesMap);
       objectKeys(settings.distribution).forEach((key) => {
-        newCharacter.baseAttributes[`${key} Coefficient`] -= settings.distribution[key];
-        newCharacter.baseAttributes[`${key} Coefficient`] += newCoefficient;
+        newCharacter.baseAttributesMap.set(
+          `${key} Coefficient`,
+          newCharacter.baseAttributesMap.get(`${key} Coefficient`)! - settings.distribution[key],
+        );
+        newCharacter.baseAttributesMap.set(
+          `${key} Coefficient`,
+          newCharacter.baseAttributesMap.get(`${key} Coefficient`)! + newCoefficient,
+        );
       });
       this.updateAttributes(newCharacter);
-      return newCharacter.attributes;
+      return newCharacter.attributesMap;
     };
 
     const withOne = attrsWithModifiedCoefficient(1);
@@ -1123,8 +1236,8 @@ export class OptimizerCore {
 
     for (const key of objectKeys(settings.distribution)) {
       results.coefficientHelper[key] = {
-        slope: withOne[`${key} DPS`] - withZero[`${key} DPS`],
-        intercept: withZero[`${key} DPS`],
+        slope: withOne.get(`${key} DPS`)! - withZero.get(`${key} DPS`)!,
+        intercept: withZero.get(`${key} DPS`)!,
       };
     }
 
@@ -1134,7 +1247,7 @@ export class OptimizerCore {
         baseAttributes: { ...settings.unbuffedBaseAttributes },
       });
       this.calcStats(temp, settings.unbuffedModifiers);
-      results.unbuffedAttributes = temp.attributes;
+      results.unbuffedAttributes = Object.fromEntries(temp.attributesMap);
     }
   }
 
@@ -1149,15 +1262,49 @@ export class OptimizerCore {
   clone(character: CharacterUnprocessed): CharacterUnprocessed {
     return {
       settings: character.settings, // passed by reference
-      attributes: character.attributes, // passed by reference
+      attributesMap: character.attributesMap, // passed by reference
       gear: character.gear, // passed by reference
       gearStats: character.gearStats, // passed by reference
       valid: character.valid,
 
-      baseAttributes: { ...character.baseAttributes },
+      baseAttributesMap: new Map(character.baseAttributesMap),
       infusions: { ...character.infusions },
     };
   }
+}
+
+function characterLTInternal(
+  a: CharacterProcessed | undefined,
+  b: CharacterProcessed | undefined,
+  rankby: string,
+): number {
+  if (!a && !b) return 0;
+  if (!a) return 1;
+  if (!b) return -1;
+  // const { rankby } = this.settings;
+
+  // if (!a.valid && b.valid) {
+  //     // A is invalid, B is valid -> replace A
+  //     return true;
+  // } else if (!b.valid) {
+  //     // B is invalid -> do not replace A
+  //     return false;
+  // }
+
+  // tiebreakers
+  // eslint-disable-next-line @typescript-eslint/no-confusing-non-null-assertion
+  if (a.attributesMap.get(rankby)! === b.attributesMap.get(rankby)!) {
+    switch (rankby) {
+      case 'Damage':
+        return b.attributesMap.get('Survivability')! - a.attributesMap.get('Survivability')!;
+      case 'Survivability':
+      case 'Healing':
+        return b.attributesMap.get('Damage')! - a.attributesMap.get('Damage')!;
+      // no default
+    }
+  }
+
+  return b.attributesMap.get(rankby)! - a.attributesMap.get(rankby)!;
 }
 
 // returns a positive value if B is better than A
