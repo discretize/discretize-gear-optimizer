@@ -3,10 +3,14 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSelector, createSlice, original } from '@reduxjs/toolkit';
 import type { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
 import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
+import type { ParseFunction } from '../../utils/usefulFunctions';
+import { parseNumber } from '../../utils/usefulFunctions';
+import { isFirefox } from '../optimizer/detectFirefox';
 import type { Character } from '../optimizer/optimizerCore';
 import type { OptimizerStatus } from '../optimizer/status';
 import { RUNNING, RUNNING_HEURISTICS, WAITING } from '../optimizer/status';
 import type { RootState } from '../store';
+import { reduxSideEffect } from '../redux-hooks';
 
 const roundThree = (num: number) => Math.round(num * 1000) / 1000;
 
@@ -88,6 +92,10 @@ export const emptyFilteredLists = {
   Enhancement: [],
 };
 
+const THREADS_SETTINGS_STORAGE_KEY = 'hwThreads-1';
+const savedHwThreads =
+  (typeof localStorage !== 'undefined' && localStorage.getItem(THREADS_SETTINGS_STORAGE_KEY)) || '';
+
 const initialState: {
   list: Character[];
   filteredLists: Record<ExtraFilterMode, Character[]>;
@@ -107,7 +115,7 @@ const initialState: {
   jsHeuristicsEnabled: boolean;
   jsHeuristicsTarget: string;
   multicore: boolean;
-  hwThreads: number;
+  hwThreads: string;
   heuristics: boolean;
   error: string;
 } = {
@@ -129,7 +137,7 @@ const initialState: {
   jsHeuristicsEnabled: false,
   jsHeuristicsTarget: '',
   multicore: false,
-  hwThreads: navigator.hardwareConcurrency || 4, // 4 seems to be a sensible default
+  hwThreads: savedHwThreads,
   heuristics: false,
   error: '',
 };
@@ -238,7 +246,7 @@ export const controlSlice = createSlice({
     changeJsHeuristicsTarget: (state, action: PayloadAction<string>) => {
       state.jsHeuristicsTarget = action.payload;
     },
-    changeHwThreads: (state, action: PayloadAction<number>) => {
+    changeHwThreads: (state, action: PayloadAction<string>) => {
       state.hwThreads = action.payload;
     },
     changeMulticore: (state, action: PayloadAction<boolean>) => {
@@ -252,7 +260,7 @@ export const controlSlice = createSlice({
 
 export const getProfession = (state: RootState) => state.optimizer.control.profession;
 export const getSelectedTemplate = (state: RootState) => state.optimizer.control.selectedTemplate;
-export const getHwThreads = (state: RootState) => state.optimizer.control.hwThreads;
+export const getHwThreadsString = (state: RootState) => state.optimizer.control.hwThreads;
 export const getProgress = (state: RootState) => state.optimizer.control.progress;
 export const getHeuristicsProgress = (state: RootState) =>
   state.optimizer.control.heuristicsProgress;
@@ -276,6 +284,29 @@ export const getJsHeuristicsTarget = (state: RootState) =>
   state.optimizer.control.jsHeuristicsTarget;
 export const getMulticore = (state: RootState) => state.optimizer.control.multicore;
 export const getHeuristics = (state: RootState) => state.optimizer.control.heuristics;
+
+export const defaultRustThreads = navigator.hardwareConcurrency || 4; // 4 seems to be a sensible default
+
+export const defaultJsThreads = isFirefox
+  ? 4 // to investigate: high thread count performance degradation in firefox
+  : defaultRustThreads;
+
+export const parseHwThreads: ParseFunction<undefined> = (text) =>
+  parseNumber(text, undefined, true);
+
+export const getDefaultHwThreads = createSelector(getMulticore, (multicore) =>
+  multicore ? defaultRustThreads : defaultJsThreads,
+);
+export const getHwThreads = createSelector(
+  getHwThreadsString,
+  getDefaultHwThreads,
+  (hwThreadsString, defaultHwThreads) =>
+    Math.max(parseHwThreads(hwThreadsString).value ?? defaultHwThreads, 1),
+);
+
+reduxSideEffect(getHwThreadsString, (hwThreads) =>
+  localStorage.setItem(THREADS_SETTINGS_STORAGE_KEY, hwThreads),
+);
 
 export const getPageTitle = createSelector(getStatus, getProgress, (status, progress) => {
   if (status === RUNNING) return `${progress}% - Discretize Gear Optimizer`;

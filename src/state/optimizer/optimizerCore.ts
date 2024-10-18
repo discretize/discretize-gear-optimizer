@@ -326,7 +326,7 @@ export class OptimizerCore {
         yield {
           isChanged: this.isChanged,
           calculationRuns,
-          newList: this.list,
+          newList: this.isChanged ? this.list : undefined,
         };
         this.isChanged = false;
         iterationTimer = Date.now();
@@ -399,10 +399,10 @@ export class OptimizerCore {
     }
 
     this.list.forEach(this.calcResults, this);
-    return {
+    yield {
       isChanged: this.isChanged,
       calculationRuns,
-      newList: this.list,
+      newList: this.isChanged ? this.list : undefined,
     };
   }
 
@@ -424,11 +424,12 @@ export class OptimizerCore {
     const { affixes, jsHeuristicsData } = settings;
 
     if (!jsHeuristicsData) {
-      return {
+      yield {
         isChanged: true,
         calculationRuns: 0,
         newList: [],
       };
+      return;
     }
 
     let calculationRuns = 0;
@@ -446,7 +447,7 @@ export class OptimizerCore {
         yield {
           isChanged: this.isChanged,
           calculationRuns,
-          newList: this.list,
+          newList: this.isChanged ? this.list : undefined,
         };
         this.isChanged = false;
         iterationTimer = Date.now();
@@ -476,10 +477,10 @@ export class OptimizerCore {
     }
 
     this.list.forEach(this.calcResults, this);
-    return {
+    yield {
       isChanged: this.isChanged,
       calculationRuns,
-      newList: this.list,
+      newList: this.isChanged ? this.list : undefined,
     };
   }
 

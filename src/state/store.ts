@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { listenerMiddleware } from './redux-hooks';
 import buildPageSaga from './sagas/buildPageSaga';
 import calculationSaga from './sagas/calculationSaga';
 import formStateSaga from './sagas/formStateSaga';
@@ -40,7 +41,8 @@ const store = configureStore({
       buildPage: buildPageSlice.reducer,
     }),
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(saga),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().prepend(listenerMiddleware.middleware).concat(saga),
   devTools: { actionsDenylist: ['control/updateResults'] },
 });
 

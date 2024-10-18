@@ -13,18 +13,21 @@ import {
 import type { TFunction } from 'i18next';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { stopCalculationParallel } from '../../state/optimizer-parallel/calculate';
+import { useAppDispatch } from '../../state/redux-hooks';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import {
   changeHeuristics,
   changeHwThreads,
   changeMulticore,
+  getDefaultHwThreads,
   getHeuristics,
-  getHwThreads,
+  getHwThreadsString,
   getMulticore,
   getSelectedTemplate,
+  parseHwThreads,
 } from '../../state/slices/controlsSlice';
 import type { GameMode } from '../../state/slices/userSettings';
 import {
@@ -69,7 +72,7 @@ export default function NavSettings({
   } = {},
 }: NavSettingsProps) {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { classes } = useStyles();
 
   const { i18n } = useTranslation();
@@ -78,7 +81,8 @@ export default function NavSettings({
   const expertMode = useSelector(getExpertMode);
   const gameMode = useSelector(getGameMode);
   const selectedTemplate = useSelector(getSelectedTemplate);
-  const hwThreads = useSelector(getHwThreads);
+  const hwThreadsString = useSelector(getHwThreadsString);
+  const defaultHwThreads = useSelector(getDefaultHwThreads);
   const enableMulticore = useSelector(getMulticore);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -97,6 +101,8 @@ export default function NavSettings({
 
     localStorage.setItem(SETTINGS_STORAGE_KEY, settings);
   }, [expertMode, gameMode, language]);
+
+  const { error: hwThreadsError } = parseHwThreads(hwThreadsString);
 
   return (
     <Settings maxWidth={400}>
@@ -159,6 +165,27 @@ export default function NavSettings({
       {!threadingDisabled && (
         <>
           <Divider className={classes.divider} />
+
+          <TextField
+            label={t('Threads')}
+            helperText={t('Number of threads to use for calculations')}
+            placeholder={String(defaultHwThreads)}
+            size="small"
+            value={hwThreadsString}
+            error={hwThreadsError}
+            onChange={(e) => dispatch(changeHwThreads(e.target.value))}
+            slotProps={{
+              htmlInput: { inputMode: 'numeric', pattern: '[0-9]*' },
+              input: {
+                // used to always display the placeholder value instead of the label
+                // eslint-disable-next-line react/jsx-no-useless-fragment
+                startAdornment: <></>,
+              },
+            }}
+          />
+
+          <Divider className={classes.divider} />
+
           <FormControlLabel
             control={
               <Checkbox
@@ -175,32 +202,10 @@ export default function NavSettings({
                 }}
               />
             }
-            label={t('Enable experimental multicore processing')}
-            sx={{ mb: 3 }}
+            label={t('Enable experimental Rust/WebAssembly mode')}
             checked={enableMulticore}
           />
 
-          <TextField
-            label={t('Threads')}
-            helperText={t('Number of threads to use for calculations')}
-            size="small"
-            value={hwThreads}
-            onChange={(e) => {
-              const newHwThreads = e.target.value;
-
-              // only allow numbers
-              if (!newHwThreads.match(/^[0-9]*$/)) {
-                return;
-              }
-              // parse to int
-              const newHwThreadsInt = parseInt(newHwThreads, 10);
-
-              dispatch(changeHwThreads(newHwThreadsInt));
-            }}
-            slotProps={{
-              htmlInput: { inputMode: 'numeric', pattern: '[0-9]*' },
-            }}
-          />
           <FormControlLabel
             control={
               <Checkbox
@@ -211,7 +216,7 @@ export default function NavSettings({
               />
             }
             label={t('Enable heuristics')}
-            sx={{ mb: 3, display: 'none' }}
+            sx={{ display: 'none' }}
             checked={enableHeuristics}
           />
         </>

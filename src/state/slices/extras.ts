@@ -186,44 +186,45 @@ export const allowedDuplicateSigils = [
   'platinum-doubloon',
 ];
 
-export const getExtrasCombinationsAndModifiers = (state: RootState) => {
-  const ids = getExtrasIds(state);
-  const data = getExtrasData(state);
-  const lifestealAmount = getLifestealAmount(state);
+export const getExtrasCombinationsAndModifiers = createSelector(
+  getExtrasIds,
+  getExtrasData,
+  getLifestealAmount,
+  (ids, data, lifestealAmount) => {
+    const allExtrasCombinations: ExtrasCombination[] = findCombinations(ids);
+    const extrasCombinations = allExtrasCombinations.filter(({ Sigil1, Sigil2 }) => {
+      // remove duplicate sigils
+      if (Sigil1 && Sigil2 && Sigil1 === Sigil2 && !allowedDuplicateSigils.includes(Sigil1))
+        return false;
 
-  const allExtrasCombinations: ExtrasCombination[] = findCombinations(ids);
-  const extrasCombinations = allExtrasCombinations.filter(({ Sigil1, Sigil2 }) => {
-    // remove duplicate sigils
-    if (Sigil1 && Sigil2 && Sigil1 === Sigil2 && !allowedDuplicateSigils.includes(Sigil1))
-      return false;
+      if (ids.Sigil1.includes(Sigil2) && ids.Sigil2.includes(Sigil1)) {
+        // potential duplicate; deduplicate in arbitrary order
+        if (Sigil1 > Sigil2) return false;
+      }
+      return true;
+    });
 
-    if (ids.Sigil1.includes(Sigil2) && ids.Sigil2.includes(Sigil1)) {
-      // potential duplicate; deduplicate in arbitrary order
-      if (Sigil1 > Sigil2) return false;
-    }
-    return true;
-  });
+    const getModifiers = (extrasCombination: ExtrasCombination) => {
+      const allModifiers: AppliedModifier[] = objectEntries(extrasCombination)
+        .filter(([_, id]) => id)
+        .map(([type, id]) => {
+          if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);
+          const itemData = allExtrasModifiersById[id];
 
-  const getModifiers = (extrasCombination: ExtrasCombination) => {
-    const allModifiers: AppliedModifier[] = objectEntries(extrasCombination)
-      .filter(([_, id]) => id)
-      .map(([type, id]) => {
-        if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);
-        const itemData = allExtrasModifiersById[id];
+          return { id, ...itemData, amount: data[type][id]?.amount };
+        });
+      if (allExtrasModifiersById?.[extrasCombination?.Nourishment]?.hasLifesteal) {
+        allModifiers.push({ ...lifestealData, amount: lifestealAmount });
+      }
+      return allModifiers;
+    };
 
-        return { id, ...itemData, amount: data[type][id]?.amount };
-      });
-    if (allExtrasModifiersById?.[extrasCombination?.Nourishment]?.hasLifesteal) {
-      allModifiers.push({ ...lifestealData, amount: lifestealAmount });
-    }
-    return allModifiers;
-  };
-
-  return extrasCombinations.map((extrasCombination) => ({
-    extrasCombination,
-    extrasModifiers: getModifiers(extrasCombination),
-  }));
-};
+    return extrasCombinations.map((extrasCombination) => ({
+      extrasCombination,
+      extrasModifiers: getModifiers(extrasCombination),
+    }));
+  },
+);
 
 export const getExtrasCombinationCount = (state: RootState) =>
   getExtrasCombinationsAndModifiers(state).length;

@@ -925,12 +925,12 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Quickness Condi Herald
+      - name: Quickness Condi Herald SB M/A
         id: cherald-quick
         specialization: Herald
         boonType: Condi
         priority: Condi Quickness Herald 0%
-        distribution: Condi Quickness Herald
+        distribution: Condi Quickness Herald SB M/A
         traits: Condi Quickness Herald
         extras: Condi Quickness Herald
         weaponType: Two-handed
