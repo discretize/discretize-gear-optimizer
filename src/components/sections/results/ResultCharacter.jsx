@@ -1,8 +1,12 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Character, firstUppercase } from '@discretize/react-discretize-components';
-import { FormControlLabel, Switch } from '@mui/material';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
+import { Box, FormControlLabel, Switch } from '@mui/material';
+import { useState } from 'react';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { Classes, INFUSION_IDS, WeaponTypes, getWeight } from '../../../utils/gw2-data';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
+import Info from '../../baseComponents/Info';
 
 const CustomSwitch = ({ onChange, label }) => (
   <FormControlLabel control={<Switch onChange={onChange} />} label={label} />
@@ -127,7 +131,7 @@ export default function ResultCharacter({
   }
 
   // Calculate armor props
-  const { gear, attributes } = character;
+  const { gear, attributes, results: { unbuffedAttributes } = {} } = character;
   const runeId = rune ? rune.gw2id : undefined;
   const armorPropsAPI = {
     weight: firstUppercase(weight),
@@ -190,10 +194,42 @@ export default function ResultCharacter({
 
   const relicId = allExtrasModifiersById[relics]?.gw2id;
 
+  const [showUnbuffed, setShowUnbuffed] = useState(false);
+
   return (
     <ErrorBoundary location="Character" resetKeys={[character]}>
+      {unbuffedAttributes && showUnbuffed && (
+        <Box sx={{ p: 1 }}>
+          <Info icon={<WarningAmberIcon />}>
+            Simulated unbuffed attributes are not exact and may not match ingame hero panel! For
+            example, soulbeast's "with axe" and "with torch/dagger" buffs are both included,
+            simulating a scenario which doesn't occur in either weapon set on some builds. Use with
+            caution.
+          </Info>
+        </Box>
+      )}
+
+      {unbuffedAttributes && (
+        <FormControlLabel
+          sx={{
+            position: { sm: 'absolute' },
+            left: { sm: '50%' },
+            transform: { sm: 'translate(-50%)' },
+          }}
+          control={
+            <Switch
+              checked={showUnbuffed}
+              onChange={(e) => setShowUnbuffed(e.target.checked)}
+              name="checked"
+              color="primary"
+            />
+          }
+          label="Show Unbuffed"
+        />
+      )}
+
       <Character
-        attributes={{ profession, data: attributes }}
+        attributes={{ profession, data: (showUnbuffed && unbuffedAttributes) || attributes }}
         armor={armorPropsAPI}
         weapon={weaponPropsAPI}
         backAndTrinket={backAndTrinketPropsAPI}
