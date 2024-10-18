@@ -1461,15 +1461,6 @@ export const ConditionDurationAttributes = [
 ] as const;
 export type ConditionDurationAttributeName = (typeof ConditionDurationAttributes)[number];
 
-export type ConditionDamageAttributeName = `${DamagingConditionName} Damage`;
-export const ConditionDamageAttributes: readonly ConditionDamageAttributeName[] = [
-  'Bleeding Damage',
-  'Burning Damage',
-  'Confusion Damage',
-  'Poison Damage',
-  'Torment Damage',
-] as const;
-
 export type ConditionCoefficientAttributeName = `${DamagingConditionName} Coefficient`;
 export const ConditionCoefficientAttributes: readonly ConditionCoefficientAttributeName[] = [
   'Bleeding Coefficient',
@@ -1498,25 +1489,103 @@ export type EffectiveAttributeName = (typeof EffectiveAttributes)[number];
 export const Indicators = ['Damage', 'Survivability', 'Healing'] as const;
 export type IndicatorName = (typeof Indicators)[number];
 
+export type ConditionStackAttributeName = `${DamagingConditionName} Stacks`;
+export const ConditionStackAttributes: readonly ConditionStackAttributeName[] = [
+  'Bleeding Stacks',
+  'Burning Stacks',
+  'Confusion Stacks',
+  'Poison Stacks',
+  'Torment Stacks',
+] as const;
+
+export type ConditionDpsAttributeName = `${DamagingConditionName} DPS`;
+export const ConditionDpsAttributes: readonly ConditionDpsAttributeName[] = [
+  'Bleeding DPS',
+  'Burning DPS',
+  'Confusion DPS',
+  'Poison DPS',
+  'Torment DPS',
+] as const;
+
+export const AlternativeAttributes = [
+  'Alternative Power',
+  'Alternative Precision',
+  'Alternative Ferocity',
+  'Alternative Critical Chance',
+  'Alternative Effective Power',
+  'Alternative Critical Damage',
+] as const;
+export type AlternativeAttributeName = (typeof AlternativeAttributes)[number];
+
+export const ProfessionAttributes = [
+  'Clone Critical Chance',
+  'Phantasm Critical Chance',
+  'Phantasm Critical Damage',
+  'Phantasm Effective Power',
+] as const;
+export type ProfessionAttributeName = (typeof ProfessionAttributes)[number];
+
+export const SiphonAttributes = [
+  'Siphon Coefficient',
+  'Siphon Base Coefficient',
+  'Siphon DPS',
+] as const;
+export type SiphonAttributeName = (typeof SiphonAttributes)[number];
+
+export const MiscAttributes = [
+  'Maximum Health',
+  'Outgoing Healing',
+  'Damage Reduction',
+  'Power Coefficient',
+  'NonCrit Power Coefficient',
+  'Power2 DPS',
+  'Power2 Coefficient',
+  'Flat DPS',
+  'Power DPS',
+  'Player Critical Damage',
+] as const;
+type MiscAttributeName = (typeof MiscAttributes)[number];
+
+export const DamageAttributes = [
+  'Outgoing Strike Damage',
+  'Outgoing Condition Damage',
+  'Outgoing Siphon Damage',
+  'Incoming Strike Damage',
+  'Outgoing Critical Damage',
+  'Outgoing Bleeding Damage',
+  'Outgoing Burning Damage',
+  'Outgoing Confusion Damage',
+  'Outgoing Poison Damage',
+  'Outgoing Torment Damage',
+  'Outgoing Alternative Damage',
+  'Outgoing Alternative Critical Damage',
+  'Outgoing Phantasm Damage',
+  'Outgoing Phantasm Critical Damage',
+  'Outgoing All Damage',
+] as const;
+export type DamageAttributeName = (typeof DamageAttributes)[number];
+
+export const DisplayOnlyAttributes = ['Player Critical Damage'] as const;
+export type DisplayOnlyAttributeName = (typeof DisplayOnlyAttributes)[number];
+
 export type AttributeName =
   | PrimaryAttributeName
   | SecondaryAttributeName
   | DerivedAttributeName
   | BoonDurationAttributeName
   | ConditionDurationAttributeName
-  | ConditionDamageAttributeName;
-
-export const Attributes = {
-  PRIMARY: PrimaryAttributes,
-  SECONDARY: SecondaryAttributes,
-  DERIVED: DerivedAttributes,
-  BOON_DURATION: BoonDurationAttributes,
-  CONDITION_DURATION: ConditionDurationAttributes,
-  CONDITION: damagingConditions,
-  CONDITION_DAMAGE: ConditionDamageAttributes,
-  EFFECTIVE: EffectiveAttributes,
-  INDICATORS: Indicators,
-};
+  | ConditionCoefficientAttributeName
+  | ConditionTickAttributeName
+  | EffectiveAttributeName
+  | IndicatorName
+  | ConditionStackAttributeName
+  | ConditionDpsAttributeName
+  | AlternativeAttributeName
+  | ProfessionAttributeName
+  | SiphonAttributeName
+  | MiscAttributeName
+  | DamageAttributeName
+  | DisplayOnlyAttributeName;
 
 export const MAX_INFUSIONS = 18;
 export const INFUSION_BONUS = 5;

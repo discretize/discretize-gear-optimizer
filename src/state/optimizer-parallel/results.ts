@@ -1,5 +1,4 @@
 import type {
-  Attributes,
   Character,
   OptimizerCoreMinimalSettings,
   OptimizerCoreSettings,
@@ -140,8 +139,8 @@ export function enhanceResults(
     };
 
     resultList.push({
-      baseAttributes: arrayToObject(character.base_attributes) as Attributes,
-      attributes: arrayToObject(character.attributes) as Attributes,
+      baseAttributes: arrayToObject(character.base_attributes) as Character['baseAttributes'],
+      attributes: arrayToObject(character.attributes) as Character['attributes'],
       gear: character.gear.map(getAffixName).slice(0, slots),
       gearStats: arrayToObject(
         character.gear_stats
