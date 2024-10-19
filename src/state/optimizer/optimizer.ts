@@ -1,5 +1,6 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-loop-func */
+import * as Comlink from 'comlink';
 import type { ExtraFilterMode } from '../slices/controlsSlice';
 import { defaultJsThreads } from '../slices/controlsSlice';
 import type { ExtrasType } from '../slices/extras';
@@ -62,7 +63,9 @@ const findExtraBestResults = (
 };
 
 const createWorker = () =>
-  new ComlinkWorker<typeof import('./worker')>(new URL('./worker.ts', import.meta.url));
+  Comlink.wrap<typeof import('./worker')>(
+    new Worker(new URL('./workerFile.ts', import.meta.url), { type: 'module' }),
+  );
 
 const createdWorkers: ReturnType<typeof createWorker>[] = [];
 
