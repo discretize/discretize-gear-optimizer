@@ -2,10 +2,10 @@ import { Character, firstUppercase } from '@discretize/react-discretize-componen
 import { FormControlLabel, Switch } from '@mui/material';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import {
-  allProfessionData,
+  Classes,
   INFUSION_IDS,
   MAX_INFUSIONS,
-  weaponTypes,
+  WeaponTypes,
   getWeight,
 } from '../../../utils/gw2-data';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
@@ -23,7 +23,7 @@ export default function ResultCharacter({
   const { profession, specialization, weaponType, cachedFormState, extrasCombination } =
     character.settings;
 
-  const classData = allProfessionData[profession].weapons;
+  const classData = Classes[profession].weapons;
 
   // Calculate weight class
   const weight = getWeight(profession);
@@ -100,7 +100,7 @@ export default function ResultCharacter({
         weapon2MainInfusion2Id: isExotic(13) ? null : infusions[17],
       };
     }
-  } else if (weaponType === weaponTypes.dualWield) {
+  } else if (weaponType === WeaponTypes.dualWield) {
     wea1 = classData.mainHand.find((item) => item.type === 'one-handed');
     [wea2] = classData.offHand;
 

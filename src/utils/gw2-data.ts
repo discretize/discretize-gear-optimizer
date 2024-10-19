@@ -66,7 +66,9 @@ export interface AffixDataEntry {
     jewelMinor?: (PrimaryAttributeName | SecondaryAttributeName)[];
   };
 }
-export const affixData: Record<AffixName, AffixDataEntry> = {
+
+// referenced in discretize.eu-rewrite
+export const Affix: Record<AffixName, AffixDataEntry> = {
   Custom: {
     type: 'triple',
     category: 'Custom',
@@ -903,7 +905,8 @@ export const ascendedStats = {
 
 export type ItemSlot = keyof typeof ascendedStats;
 
-export const weaponTypes = {
+// referenced in discretize.eu-rewrite
+export const WeaponTypes = {
   dualWield: 'Dual wield',
   twoHanded: 'Two-handed',
 } as const;
@@ -1149,7 +1152,8 @@ export const WEAPONS = {
 };
 export type WeaponType = keyof typeof WEAPONS;
 
-export const allProfessionData = {
+// referenced in discretize.eu-rewrite
+export const Classes = {
   Warrior: {
     health: healthValues.HIGH,
     defense: defenseValues.HEAVY,
@@ -1309,7 +1313,7 @@ export const allProfessionData = {
     },
   },
 };
-export type ProfessionName = keyof typeof allProfessionData;
+export type ProfessionName = keyof typeof Classes;
 
 function firstUppercase(text: string | undefined | null): string {
   if (typeof text === 'undefined' || text === null || text === '') return '';
@@ -1318,9 +1322,10 @@ function firstUppercase(text: string | undefined | null): string {
   return text.split(' ').map(toUpper).join(' ').trim();
 }
 
+// referenced in discretize.eu-rewrite
 export const getWeight = (profession: ProfessionName) => {
   // Calculate weight class
-  const { defense } = allProfessionData[firstUppercase(profession) as ProfessionName];
+  const { defense } = Classes[firstUppercase(profession) as ProfessionName];
   if (defense === defenseValues.HEAVY) {
     return 'Heavy';
   }
@@ -1606,6 +1611,7 @@ export type ProfessionOrSpecializationName =
   | keyof typeof SPECIALIZATIONS
   | (typeof SPECIALIZATIONS)[keyof typeof SPECIALIZATIONS][number];
 
+// referenced in discretize.eu-rewrite
 export const GEAR_SLOTS = [
   {
     name: 'Helm',
@@ -1665,6 +1671,7 @@ export const GEAR_SLOTS = [
   },
 ];
 
+// referenced in discretize.eu-rewrite
 export const INFUSION_IDS = {
   'Power': 37131,
   'Precision': 37132,

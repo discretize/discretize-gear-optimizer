@@ -18,7 +18,7 @@ import {
   getExoticsData,
   getWeaponType,
 } from '../../../state/slices/priorities';
-import { GEAR_SLOTS, weaponTypes } from '../../../utils/gw2-data';
+import { GEAR_SLOTS, WeaponTypes } from '../../../utils/gw2-data';
 import { pick } from '../../../utils/usefulFunctions';
 
 const useStyles = makeStyles()((theme) => ({
@@ -44,7 +44,7 @@ const ExoticSlots = () => {
   const exotics = pick(exoticsData, affixes) as typeof exoticsData;
 
   let SLOTS = GEAR_SLOTS;
-  if (weaponType !== weaponTypes.dualWield) {
+  if (weaponType !== WeaponTypes.dualWield) {
     SLOTS = GEAR_SLOTS.slice(0, 13);
   }
 

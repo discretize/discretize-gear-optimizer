@@ -26,13 +26,13 @@ import {
 } from '../../assets/modifierdata/metadata';
 import type { AffixName, AttributeName, ForcedSlotName } from '../../utils/gw2-data';
 import {
-  allProfessionData,
   allSlotData,
+  Classes,
   conditionData,
   damagingConditions,
   forcedSlotNames,
   MAX_INFUSIONS,
-  affixData as rawAffixData,
+  Affix as rawAffix,
 } from '../../utils/gw2-data';
 import {
   enumArrayIncludes,
@@ -244,8 +244,7 @@ export function createSettingsPerCalculation(
 
   const specialization = getCurrentSpecialization(reduxState);
 
-  const customAffixData: Omit<typeof rawAffixData.Custom, 'category'> =
-    getCustomAffixData(reduxState);
+  const customAffixData: Omit<typeof rawAffix.Custom, 'category'> = getCustomAffixData(reduxState);
 
   // display extras in table if they have multiple options
   const shouldDisplayExtras = mapValues(
@@ -360,9 +359,9 @@ export function createSettingsPerCalculation(
 
   /* Equipment */
 
-  const affixData: typeof rawAffixData = {
-    ...rawAffixData,
-    Custom: { ...rawAffixData.Custom, ...customAffixData },
+  const Affix: typeof rawAffix = {
+    ...rawAffix,
+    Custom: { ...rawAffix.Custom, ...customAffixData },
   };
 
   const slotData = allSlotData[weaponType];
@@ -453,10 +452,12 @@ export function createSettingsPerCalculation(
         const item = exotics?.[affix]?.[slotindex]
           ? slotData[slotindex].exo
           : slotData[slotindex].asc;
-        const bonuses = objectEntries(item[affixData[affix].type]);
+        const bonuses = objectEntries(item[Affix[affix].type]);
         for (const [type, bonus] of bonuses) {
-          const entry = affixData[affix];
-          const affixBonuses = isWvW ? (entry.wvwBonuses ?? entry.bonuses) : entry.bonuses;
+          const affixData = Affix[affix];
+          const affixBonuses = isWvW
+            ? (affixData.wvwBonuses ?? affixData.bonuses)
+            : affixData.bonuses;
           for (const stat of affixBonuses[type] ?? []) {
             statTotals[stat] = (statTotals[stat] ?? 0) + bonus;
           }
@@ -482,10 +483,12 @@ export function createSettingsPerCalculation(
         const item = exotics?.[affix]?.[slotindex]
           ? slotData[slotindex].exo
           : slotData[slotindex].asc;
-        const bonuses = objectEntries(item[affixData[affix].type]);
+        const bonuses = objectEntries(item[Affix[affix].type]);
         for (const [type, bonus] of bonuses) {
-          const entry = affixData[affix];
-          const affixBonuses = isWvW ? (entry.wvwBonuses ?? entry.bonuses) : entry.bonuses;
+          const affixData = Affix[affix];
+          const affixBonuses = isWvW
+            ? (affixData.wvwBonuses ?? affixData.bonuses)
+            : affixData.bonuses;
           for (const stat of affixBonuses[type] ?? []) {
             statTotals[stat] = (statTotals[stat] ?? 0) + bonus;
           }
@@ -629,8 +632,8 @@ export function createSettingsPerCombination(
     'Condition Duration': 0,
     'Condition Duration Uncapped': 0,
     'Boon Duration': 0,
-    'Health': allProfessionData[profession].health,
-    'Armor': allProfessionData[profession].defense,
+    'Health': Classes[profession].health,
+    'Armor': Classes[profession].defense,
   } as OptimizerCoreSettings['baseAttributes'];
 
   if (profession === 'Mesmer') {

@@ -6,7 +6,7 @@ import type {
   IndicatorName,
   WeaponHandednessType,
 } from '../../utils/gw2-data';
-import { weaponTypes } from '../../utils/gw2-data';
+import { WeaponTypes } from '../../utils/gw2-data';
 import type { RootState } from '../store';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
@@ -46,7 +46,7 @@ export interface PrioritiesSlice {
 
 const initialState: PrioritiesSlice = {
   optimizeFor: 'Damage',
-  weaponType: weaponTypes.dualWield,
+  weaponType: WeaponTypes.dualWield,
   minBoonDuration: '',
   minHealingPower: '',
   minToughness: '',
