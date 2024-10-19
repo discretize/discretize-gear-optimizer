@@ -1,13 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 import { writeFileSync } from 'node:fs';
-import {
-  Affix,
-  AffixNameOrCustom,
-  AscendedItem,
-  ExoticItem,
-  PrimaryAttributes,
-} from './src/utils/gw2-data.ts';
+import { Affix, AffixName, AscendedItem, ExoticItem } from './src/utils/gw2-data.ts';
 
 /*
 WARNING
@@ -46,7 +40,7 @@ function getRustAttribute(str) {
   return `Attribute::${adjustedStr})`;
 }
 
-function findStats(slot: string, affix: AffixNameOrCustom, rarity: string) {
+function findStats(slot: string, affix: AffixName, rarity: string) {
   let slotStats = null;
   // eslint-disable-next-line default-case
   switch (rarity) {

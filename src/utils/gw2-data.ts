@@ -47,9 +47,9 @@ export type AffixName =
   | 'Dragon'
   | 'BerserkerValkyrie'
   | 'RabidApothecary'
-  | 'DireRabid';
+  | 'DireRabid'
+  | 'Custom';
 
-export type AffixNameOrCustom = AffixName | 'Custom';
 export interface AffixData {
   type: 'triple' | 'quadruple' | 'celestial' | 'ascendedMismatchedTrinket';
   category: string;
@@ -66,7 +66,7 @@ export interface AffixData {
     jewelMinor?: (PrimaryAttributeName | SecondaryAttributeName)[];
   };
 }
-export const Affix: Record<AffixNameOrCustom, AffixData> = {
+export const Affix: Record<AffixName, AffixData> = {
   Custom: {
     type: 'triple',
     category: 'Custom',
@@ -1751,13 +1751,6 @@ export const statInfusionIds = {
     'Toughness': { id: 43251 },
     'Vitality': { id: 43252 },
   },
-};
-
-export const ARMOR_IDS = {
-  // Helm, Shoulders, Chest, Hands, Leggings, Feet
-  HEAVY: [86198, 85829, 85814, 85949, 86079, 86237],
-  MEDIUM: [48087, 48089, 48085, 48086, 48088, 48084],
-  LIGHT: [],
 };
 
 export const JADE_BOT_CORE_IDS = [

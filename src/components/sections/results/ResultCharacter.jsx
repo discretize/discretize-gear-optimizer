@@ -1,7 +1,13 @@
 import { Character, firstUppercase } from '@discretize/react-discretize-components';
 import { FormControlLabel, Switch } from '@mui/material';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
-import { Classes, INFUSION_IDS, WeaponTypes, getWeight } from '../../../utils/gw2-data';
+import {
+  Classes,
+  INFUSION_IDS,
+  MAX_INFUSIONS,
+  WeaponTypes,
+  getWeight,
+} from '../../../utils/gw2-data';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 
 const CustomSwitch = ({ onChange, label }) => (
@@ -23,14 +29,14 @@ export default function ResultCharacter({
   const weight = getWeight(profession);
 
   // Calculate infusions
-  let infusions = [...Array(18).fill(49432)];
+  let infusions = [...Array(MAX_INFUSIONS).fill(49432)];
 
   if (character.infusions) {
     infusions = Object.keys(character.infusions).flatMap((key) => [
       ...Array(character.infusions[key]).fill(INFUSION_IDS[key]),
     ]);
     // fill up the remaining slots with generic +9 Agony Infusions
-    infusions = [...infusions, ...Array(18).fill(49432)].slice(0, 18);
+    infusions = [...infusions, ...Array(MAX_INFUSIONS).fill(49432)].slice(0, MAX_INFUSIONS);
   }
 
   // Calculate extras

@@ -24,10 +24,11 @@ import {
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
-import type { AffixNameOrCustom, AttributeName, ForcedSlotName } from '../../utils/gw2-data';
+import type { AffixName, AttributeName, ForcedSlotName } from '../../utils/gw2-data';
 import {
   Classes,
   ForcedSlots,
+  MAX_INFUSIONS,
   Slots,
   conditionData,
   damagingConditions,
@@ -325,11 +326,15 @@ export function createSettingsPerCalculation(
 
   /* Infusions */
 
-  const maxInfusions: OptimizerCoreSettings['maxInfusions'] = clamp(rawMaxInfusions, 0, 18);
+  const maxInfusions: OptimizerCoreSettings['maxInfusions'] = clamp(
+    rawMaxInfusions,
+    0,
+    MAX_INFUSIONS,
+  );
 
   const infusionOptions = rawInfusionOptions.map(({ type, count }) => ({
     type,
-    count: clamp(parseInfusionCount(count).value, 0, 18),
+    count: clamp(parseInfusionCount(count).value, 0, MAX_INFUSIONS),
   }));
 
   const totalSelectedInfusions = infusionOptions.reduce((prev, cur) => prev + cur.count, 0);
@@ -430,7 +435,7 @@ export function createSettingsPerCalculation(
     if (affixOptions.length === 1) {
       return affixOptions;
     }
-    const result: AffixNameOrCustom[] = [];
+    const result: AffixName[] = [];
     affixOptions.forEach((affix, index) => {
       result[(index + slotindex) % affixOptions.length] = affix;
     });

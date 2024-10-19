@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSelector, createSlice } from '@reduxjs/toolkit';
 import type { InfusionName } from '../../utils/gw2-data';
-import { agonyInfusionIds, omnipotionModifiers } from '../../utils/gw2-data';
+import { agonyInfusionIds, MAX_INFUSIONS, omnipotionModifiers } from '../../utils/gw2-data';
 import { parseAmount, parseAr, parseInfusionCount } from '../../utils/usefulFunctions';
 import type { AppliedModifier } from '../optimizer/optimizerSetup';
 import type { RootState } from '../store';
@@ -31,14 +31,14 @@ const initialState: {
 } = {
   omnipotion: isFractal,
   ar: isFractal ? '162' : '',
-  maxInfusions: '18',
+  maxInfusions: String(MAX_INFUSIONS),
   infusionOptions: [
     { type: '', count: '' },
     { type: '', count: '' },
   ],
   helperData: {
     enabled: false,
-    slots: 18,
+    slots: MAX_INFUSIONS,
     impedence: 0,
     attunement: 0,
     singularity: false,

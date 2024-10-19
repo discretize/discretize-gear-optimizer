@@ -5,7 +5,7 @@ import init, {
   calculate_with_heuristics,
 } from '../../../../wasm_module/pkg'; // eslint-disable-line
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
-import type { AffixNameOrCustom } from '../../../utils/gw2-data';
+import type { AffixName } from '../../../utils/gw2-data';
 import { objectEntries } from '../../../utils/usefulFunctions';
 import type { AppliedModifier, ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import type { ExtrasCombination } from '../../slices/extras';
@@ -66,7 +66,7 @@ async function start(
 
   const calcFn = withHeurisics ? calculate_with_heuristics : calculate;
   const transformedChunks = chunks.map((chunk: string[]) =>
-    chunk.map((value) => getAffixId(value as AffixNameOrCustom)),
+    chunk.map((value) => getAffixId(value as AffixName)),
   );
 
   try {

@@ -1,5 +1,5 @@
 import type {
-  AffixNameOrCustom,
+  AffixName,
   AttributeName,
   DamagingConditionName,
   WeaponHandednessType,
@@ -51,7 +51,7 @@ const attributes: AttributeName[] = [
   ...DisplayOnlyAttributes,
 ] as const;
 
-export const getAffixId = (affix: AffixNameOrCustom) => {
+export const getAffixId = (affix: AffixName) => {
   const index = objectKeys(Affix).indexOf(affix);
   if (index === -1) {
     throw new Error(`Affix ${affix} not found`);

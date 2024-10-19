@@ -1,3 +1,5 @@
+import { MAX_INFUSIONS } from './gw2-data';
+
 export function firstUppercase(text: string | undefined | null): string {
   if (typeof text === 'undefined' || text === null || text === '') return '';
 
@@ -37,7 +39,8 @@ export type ParseFunction<Default> = (text: number | string | null | undefined) 
 
 export const parseAmount: ParseFunction<null> = (text) => parseNumber(text, null, false);
 export const parseAr: ParseFunction<number> = (text) => parseNumber(text, 0, true);
-export const parseInfusionCount: ParseFunction<number> = (text) => parseNumber(text, 18, true);
+export const parseInfusionCount: ParseFunction<number> = (text) =>
+  parseNumber(text, MAX_INFUSIONS, true);
 export const parseDistribution: ParseFunction<number> = (text) => parseNumber(text, 0, false);
 export const parsePriority: ParseFunction<undefined> = (text) =>
   parseNumber(text, undefined, false);
