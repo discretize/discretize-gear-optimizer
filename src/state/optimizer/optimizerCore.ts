@@ -8,15 +8,11 @@ import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
 import type {
   AffixName,
   AttributeName,
-  ConditionCoefficientAttributeName,
   ConditionName,
   DamagingConditionName,
-  DerivedAttributeName,
   IndicatorName,
   InfusionName,
-  PrimaryAttributeName,
   ProfessionName,
-  SecondaryAttributeName,
   WeaponHandednessType,
 } from '../../utils/gw2-data';
 import {
@@ -165,17 +161,7 @@ export interface OptimizerCoreSettingsPerCalculation {
   cachedFormState: CachedFormState;
 }
 
-export type Attributes = Record<
-  | PrimaryAttributeName
-  | SecondaryAttributeName
-  | DerivedAttributeName
-  | 'Power Coefficient'
-  | 'Power2 Coefficient'
-  | ConditionCoefficientAttributeName
-  | 'Flat DPS',
-  number
-> &
-  Partial<Record<AttributeName, number>>;
+export type Attributes = Record<AttributeName, number>;
 
 // settings that **do** vary based on extras combination
 export interface OptimizerCoreSettingsPerCombination {
@@ -677,7 +663,7 @@ export class OptimizerCore {
   }
 
   addBaseStats(character: CharacterUnprocessed, stat: AttributeName, amount: number) {
-    character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
+    character.baseAttributes[stat] += amount;
   }
 
   /**
@@ -701,7 +687,7 @@ export class OptimizerCore {
     const powerDamageScore = this.calcPower(character, damageMultiplier);
     const condiDamageScore = this.calcCondi(character, damageMultiplier, damagingConditions);
     character.attributes['Damage'] =
-      powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
+      powerDamageScore + condiDamageScore + character.attributes['Flat DPS'];
 
     this.calcSurvivability(character, damageMultiplier);
     this.calcHealing(character);
@@ -747,8 +733,7 @@ export class OptimizerCore {
         this.condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
       }
 
-      attributes['Damage'] =
-        powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
+      attributes['Damage'] = powerDamageScore + condiDamageScore + character.attributes['Flat DPS'];
     }
     if (settings.rankby === 'Healing' || settings.minHealing) {
       this.calcHealing(character);
@@ -784,7 +769,7 @@ export class OptimizerCore {
     }
 
     for (const [attribute, bonus] of modifiers['buff']) {
-      attributes[attribute] = (attributes[attribute] || 0) + bonus;
+      attributes[attribute] += bonus;
     }
 
     attributes['Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
@@ -794,8 +779,7 @@ export class OptimizerCore {
     attributes['Condition Duration'] += attributes['Expertise'] / 15 / 100;
 
     attributes['Health'] = round(
-      (attributes['Health'] + attributes['Vitality'] * 10) *
-        (1 + (attributes['Maximum Health'] || 0)),
+      (attributes['Health'] + attributes['Vitality'] * 10) * (1 + attributes['Maximum Health']),
     );
 
     attributes['Armor'] += attributes['Toughness'];
@@ -809,16 +793,11 @@ export class OptimizerCore {
       attributes['Phantasm Critical Damage']! += attributes['Ferocity'] / 15 / 100;
     } else if (attributes['Power2 Coefficient']) {
       // necromancer shroud: special bonuses are IN ADDITION TO player attributes
-      attributes['Alternative Power'] =
-        (attributes['Alternative Power'] ?? 0) + attributes['Power'];
-      attributes['Alternative Critical Chance'] =
-        (attributes['Alternative Critical Chance'] ?? 0) +
-        attributes['Critical Chance'] +
-        (attributes['Alternative Precision'] ?? 0) / 21 / 100;
-      attributes['Alternative Critical Damage'] =
-        (attributes['Alternative Critical Damage'] ?? 0) +
-        attributes['Critical Damage'] +
-        (attributes['Alternative Ferocity'] ?? 0) / 15 / 100;
+      attributes['Alternative Power'] += attributes['Power'];
+      attributes['Alternative Critical Chance'] +=
+        attributes['Critical Chance'] + attributes['Alternative Precision'] / 21 / 100;
+      attributes['Alternative Critical Damage'] +=
+        attributes['Critical Damage'] + attributes['Alternative Ferocity'] / 15 / 100;
     }
 
     for (const [attribute, conversion] of modifiers['convertAfterBuffs']) {
@@ -830,11 +809,11 @@ export class OptimizerCore {
           attributes[attribute] += maybeRound(clamp(attributes['Critical Chance'], 0, 1) * percent);
         } else if (source === 'Clone Critical Chance') {
           attributes[attribute] += maybeRound(
-            clamp(attributes['Clone Critical Chance'] ?? 0, 0, 1) * percent,
+            clamp(attributes['Clone Critical Chance'], 0, 1) * percent,
           );
         } else if (source === 'Phantasm Critical Chance') {
           attributes[attribute] += maybeRound(
-            clamp(attributes['Phantasm Critical Chance'] ?? 0, 0, 1) * percent,
+            clamp(attributes['Phantasm Critical Chance'], 0, 1) * percent,
           );
         } else {
           attributes[attribute] += maybeRound(attributes[source] * percent);
@@ -851,7 +830,7 @@ export class OptimizerCore {
       (settings.minBoonDuration !== undefined &&
         attributes['Boon Duration'] < settings.minBoonDuration / 100) ||
       (settings.minQuicknessDuration !== undefined &&
-        attributes['Boon Duration'] + (attributes['Quickness Duration'] ?? 0) <
+        attributes['Boon Duration'] + attributes['Quickness Duration'] <
           settings.minQuicknessDuration / 100) ||
       (settings.minHealingPower !== undefined &&
         attributes['Healing Power'] < settings.minHealingPower) ||
@@ -861,7 +840,7 @@ export class OptimizerCore {
       (settings.minCritChance !== undefined &&
         attributes['Critical Chance'] < settings.minCritChance / 100) ||
       (settings.minOutgoingHealing !== undefined &&
-        (attributes['Outgoing Healing'] ?? 0) < settings.minOutgoingHealing / 100);
+        attributes['Outgoing Healing'] < settings.minOutgoingHealing / 100);
     if (invalid) {
       character.valid = false;
     }
@@ -903,10 +882,10 @@ export class OptimizerCore {
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
     let powerDamage =
-      ((attributes['Power Coefficient'] || 0) / 2597) *
+      (attributes['Power Coefficient'] / 2597) *
         attributes['Effective Power'] *
         damageMultiplier['Outgoing Strike Damage'] +
-      ((attributes['NonCrit Power Coefficient'] || 0) / 2597) *
+      (attributes['NonCrit Power Coefficient'] / 2597) *
         attributes['Power'] *
         damageMultiplier['Outgoing Strike Damage'];
 
@@ -924,7 +903,7 @@ export class OptimizerCore {
           (1 + phantasmCritChance * (attributes['Phantasm Critical Damage']! - 1));
 
         const phantasmPowerDamage =
-          ((attributes['Power2 Coefficient'] || 0) / 2597) *
+          (attributes['Power2 Coefficient'] / 2597) *
           attributes['Phantasm Effective Power'] *
           damageMultiplier['Outgoing Phantasm Damage'];
         attributes['Power2 DPS'] = phantasmPowerDamage;
@@ -941,7 +920,7 @@ export class OptimizerCore {
           (1 + alternativeCritChance * (attributes['Alternative Critical Damage'] - 1));
 
         const alternativePowerDamage =
-          ((attributes['Power2 Coefficient'] || 0) / 2597) *
+          (attributes['Power2 Coefficient'] / 2597) *
           attributes['Alternative Effective Power'] *
           damageMultiplier['Outgoing Strike Damage'] *
           damageMultiplier['Outgoing Alternative Damage'];
@@ -953,8 +932,8 @@ export class OptimizerCore {
     }
 
     const siphonDamage =
-      ((attributes['Siphon Base Coefficient'] || 0) +
-        (attributes['Siphon Coefficient'] || 0) * attributes['Power']) *
+      (attributes['Siphon Base Coefficient'] +
+        attributes['Siphon Coefficient'] * attributes['Power']) *
       damageMultiplier['Outgoing Siphon Damage'];
     attributes['Siphon DPS'] = siphonDamage;
 
@@ -996,10 +975,10 @@ export class OptimizerCore {
 
       const duration =
         1 +
-        clamp((attributes[`${condition} Duration`] || 0) + attributes['Condition Duration'], 0, 1) +
+        clamp(attributes[`${condition} Duration`] + attributes['Condition Duration'], 0, 1) +
         attributes['Condition Duration Uncapped'];
 
-      const stacks = (attributes[`${condition} Coefficient`] || 0) * duration;
+      const stacks = attributes[`${condition} Coefficient`] * duration;
       attributes[`${condition} Stacks`] = stacks;
 
       const DPS = stacks * (attributes[`${condition} Damage Tick`] || 1);
@@ -1027,11 +1006,10 @@ export class OptimizerCore {
     // reasonably representative skill: druid celestial avatar 4 pulse
     // 390 base, 0.3 coefficient
     attributes['Effective Healing'] =
-      (attributes['Healing Power'] * 0.3 + 390) * (1 + (attributes['Outgoing Healing'] || 0));
+      (attributes['Healing Power'] * 0.3 + 390) * (1 + attributes['Outgoing Healing']);
     if (Object.prototype.hasOwnProperty.call(settings.modifiers, 'bountiful-maintenance-oil')) {
       const bonus =
-        ((attributes['Healing Power'] || 0) * 0.6) / 10000 +
-        ((attributes['Concentration'] || 0) * 0.8) / 10000;
+        (attributes['Healing Power'] * 0.6) / 10000 + (attributes['Concentration'] * 0.8) / 10000;
       if (bonus) {
         attributes['Effective Healing'] *= 1 + bonus;
       }
