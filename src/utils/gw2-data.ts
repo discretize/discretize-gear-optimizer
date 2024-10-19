@@ -1401,10 +1401,10 @@ export const damagingConditions = [
 ] as const;
 export type DamagingConditionName = (typeof damagingConditions)[number];
 
-export const PrimaryAttributes = ['Power', 'Precision', 'Toughness', 'Vitality'] as const;
-export type PrimaryAttributeName = (typeof PrimaryAttributes)[number];
+export const primaryAttributes = ['Power', 'Precision', 'Toughness', 'Vitality'] as const;
+export type PrimaryAttributeName = (typeof primaryAttributes)[number];
 
-export const SecondaryAttributes = [
+export const secondaryAttributes = [
   'Ferocity',
   'Condition Damage',
   'Expertise',
@@ -1412,9 +1412,9 @@ export const SecondaryAttributes = [
   'Healing Power',
   'Agony Resistance',
 ] as const;
-export type SecondaryAttributeName = (typeof SecondaryAttributes)[number];
+export type SecondaryAttributeName = (typeof secondaryAttributes)[number];
 
-export const DerivedAttributes = [
+export const derivedAttributes = [
   'Critical Chance',
   'Critical Damage',
   'Condition Duration',
@@ -1423,9 +1423,9 @@ export const DerivedAttributes = [
   'Health',
   'Armor',
 ] as const;
-export type DerivedAttributeName = (typeof DerivedAttributes)[number];
+export type DerivedAttributeName = (typeof derivedAttributes)[number];
 
-export const BoonDurationAttributes = [
+export const boonDurationAttributes = [
   'Aegis Duration',
   'Fury Duration',
   'Might Duration',
@@ -1439,9 +1439,9 @@ export const BoonDurationAttributes = [
   'Swiftness Duration',
   'Vigor Duration',
 ] as const;
-export type BoonDurationAttributeName = (typeof BoonDurationAttributes)[number];
+export type BoonDurationAttributeName = (typeof boonDurationAttributes)[number];
 
-export const ConditionDurationAttributes = [
+export const conditionDurationAttributes = [
   'Bleeding Duration',
   'Blind Duration',
   'Burning Duration',
@@ -1457,10 +1457,10 @@ export const ConditionDurationAttributes = [
   'Vulnerability Duration',
   'Weakness Duration',
 ] as const;
-export type ConditionDurationAttributeName = (typeof ConditionDurationAttributes)[number];
+export type ConditionDurationAttributeName = (typeof conditionDurationAttributes)[number];
 
 export type ConditionCoefficientAttributeName = `${DamagingConditionName} Coefficient`;
-export const ConditionCoefficientAttributes: readonly ConditionCoefficientAttributeName[] = [
+export const conditionCoefficientAttributes: readonly ConditionCoefficientAttributeName[] = [
   'Bleeding Coefficient',
   'Burning Coefficient',
   'Confusion Coefficient',
@@ -1469,7 +1469,7 @@ export const ConditionCoefficientAttributes: readonly ConditionCoefficientAttrib
 ] as const;
 
 export type ConditionTickAttributeName = `${DamagingConditionName} Damage Tick`;
-export const ConditionTickAttributes: readonly ConditionTickAttributeName[] = [
+export const conditionTickAttributes: readonly ConditionTickAttributeName[] = [
   'Bleeding Damage Tick',
   'Burning Damage Tick',
   'Confusion Damage Tick',
@@ -1477,18 +1477,18 @@ export const ConditionTickAttributes: readonly ConditionTickAttributeName[] = [
   'Torment Damage Tick',
 ] as const;
 
-export const EffectiveAttributes = [
+export const effectiveAttributes = [
   'Effective Power',
   'Effective Health',
   'Effective Healing',
 ] as const;
-export type EffectiveAttributeName = (typeof EffectiveAttributes)[number];
+export type EffectiveAttributeName = (typeof effectiveAttributes)[number];
 
-export const Indicators = ['Damage', 'Survivability', 'Healing'] as const;
-export type IndicatorName = (typeof Indicators)[number];
+export const indicatorAttributes = ['Damage', 'Survivability', 'Healing'] as const;
+export type IndicatorName = (typeof indicatorAttributes)[number];
 
 export type ConditionStackAttributeName = `${DamagingConditionName} Stacks`;
-export const ConditionStackAttributes: readonly ConditionStackAttributeName[] = [
+export const conditionStackAttributes: readonly ConditionStackAttributeName[] = [
   'Bleeding Stacks',
   'Burning Stacks',
   'Confusion Stacks',
@@ -1497,7 +1497,7 @@ export const ConditionStackAttributes: readonly ConditionStackAttributeName[] = 
 ] as const;
 
 export type ConditionDpsAttributeName = `${DamagingConditionName} DPS`;
-export const ConditionDpsAttributes: readonly ConditionDpsAttributeName[] = [
+export const conditionDpsAttributes: readonly ConditionDpsAttributeName[] = [
   'Bleeding DPS',
   'Burning DPS',
   'Confusion DPS',
@@ -1505,7 +1505,7 @@ export const ConditionDpsAttributes: readonly ConditionDpsAttributeName[] = [
   'Torment DPS',
 ] as const;
 
-export const AlternativeAttributes = [
+export const alternativeAttributes = [
   'Alternative Power',
   'Alternative Precision',
   'Alternative Ferocity',
@@ -1513,24 +1513,24 @@ export const AlternativeAttributes = [
   'Alternative Effective Power',
   'Alternative Critical Damage',
 ] as const;
-export type AlternativeAttributeName = (typeof AlternativeAttributes)[number];
+export type AlternativeAttributeName = (typeof alternativeAttributes)[number];
 
-export const ProfessionAttributes = [
+export const professionAttributes = [
   'Clone Critical Chance',
   'Phantasm Critical Chance',
   'Phantasm Critical Damage',
   'Phantasm Effective Power',
 ] as const;
-export type ProfessionAttributeName = (typeof ProfessionAttributes)[number];
+export type ProfessionAttributeName = (typeof professionAttributes)[number];
 
-export const SiphonAttributes = [
+export const siphonAttributes = [
   'Siphon Coefficient',
   'Siphon Base Coefficient',
   'Siphon DPS',
 ] as const;
-export type SiphonAttributeName = (typeof SiphonAttributes)[number];
+export type SiphonAttributeName = (typeof siphonAttributes)[number];
 
-export const MiscAttributes = [
+export const miscAttributes = [
   'Maximum Health',
   'Outgoing Healing',
   'Damage Reduction',
@@ -1542,9 +1542,9 @@ export const MiscAttributes = [
   'Power DPS',
   'Player Critical Damage',
 ] as const;
-type MiscAttributeName = (typeof MiscAttributes)[number];
+type MiscAttributeName = (typeof miscAttributes)[number];
 
-export const DamageAttributes = [
+export const damageAttributes = [
   'Outgoing Strike Damage',
   'Outgoing Condition Damage',
   'Outgoing Siphon Damage',
@@ -1561,10 +1561,10 @@ export const DamageAttributes = [
   'Outgoing Phantasm Critical Damage',
   'Outgoing All Damage',
 ] as const;
-export type DamageAttributeName = (typeof DamageAttributes)[number];
+export type DamageAttributeName = (typeof damageAttributes)[number];
 
-export const DisplayOnlyAttributes = ['Player Critical Damage'] as const;
-export type DisplayOnlyAttributeName = (typeof DisplayOnlyAttributes)[number];
+export const displayOnlyAttributes = ['Player Critical Damage'] as const;
+export type DisplayOnlyAttributeName = (typeof displayOnlyAttributes)[number];
 
 export type AttributeName =
   | PrimaryAttributeName

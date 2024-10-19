@@ -21,7 +21,7 @@ import type {
 } from '../../utils/gw2-data';
 import {
   INFUSION_BONUS,
-  Indicators,
+  indicatorAttributes,
   conditionData,
   conditionDataWvW,
   damagingConditions,
@@ -1049,7 +1049,7 @@ export class OptimizerCore {
     const value = character.attributes[settings.rankby];
 
     const indicators = {} as Record<IndicatorName, number>;
-    for (const attribute of Indicators) {
+    for (const attribute of indicatorAttributes) {
       indicators[attribute] = attributes[attribute];
     }
 
