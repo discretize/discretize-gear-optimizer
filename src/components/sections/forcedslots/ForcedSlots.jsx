@@ -9,11 +9,11 @@ import AffixesSelect from '../../baseComponents/AffixesSelect';
 const ForcedSlots = () => {
   const dispatch = useDispatch();
   const forcedSlots = useSelector(getForcedSlots);
-  const dualWielded = useSelector(getWeaponType);
+  const weaponType = useSelector(getWeaponType);
   const { t } = useTranslation();
 
   let SLOTS = GEAR_SLOTS;
-  if (dualWielded !== WeaponTypes.dualWield) {
+  if (weaponType !== WeaponTypes.dualWield) {
     SLOTS = GEAR_SLOTS.slice(0, 13);
   }
 

@@ -6,7 +6,7 @@
 
 import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
 import type {
-  AffixNameOrCustom,
+  AffixName,
   AttributeName,
   ConditionCoefficientAttributeName,
   ConditionName,
@@ -21,10 +21,10 @@ import type {
 } from '../../utils/gw2-data';
 import {
   INFUSION_BONUS,
-  Indicators,
   conditionData,
   conditionDataWvW,
   damagingConditions,
+  indicatorAttributes,
 } from '../../utils/gw2-data';
 import { enumArrayIncludes, objectEntries, objectKeys } from '../../utils/usefulFunctions';
 import type { ExtrasCombination, ShouldDisplayExtras } from '../slices/extras';
@@ -126,7 +126,7 @@ export interface OptimizerCoreSettingsPerCalculation {
   profession: ProfessionName;
   specialization: string;
   weaponType: WeaponHandednessType;
-  forcedAffixes: (AffixNameOrCustom | null)[]; // array of specific affix names for each slot, or '' for unspecfied
+  forcedAffixes: (AffixName | null)[]; // array of specific affix names for each slot, or '' for unspecfied
   rankby: IndicatorName;
   minBoonDuration: number | undefined;
   minHealingPower: number | undefined;
@@ -155,10 +155,10 @@ export interface OptimizerCoreSettingsPerCalculation {
   identicalArmor: boolean;
   slots: number; // The length of the former slots array
   runsAfterThisSlot: number[];
-  affixesArray: AffixNameOrCustom[][];
+  affixesArray: AffixName[][];
   affixStatsArray: [AttributeName, number][][][];
 
-  affixes: AffixNameOrCustom[];
+  affixes: AffixName[];
   jsHeuristicsData?: [AttributeName, number][][];
 
   shouldDisplayExtras: ShouldDisplayExtras;
@@ -206,7 +206,7 @@ export type OptimizerCoreMinimalSettings = Pick<
   | 'modifiers'
   | 'gameMode'
 >;
-export type Gear = AffixNameOrCustom[];
+export type Gear = AffixName[];
 export type GearStats = Partial<Record<AttributeName, number>>;
 interface CoefficientHelperValue {
   slope: number;
@@ -1049,7 +1049,7 @@ export class OptimizerCore {
     const value = character.attributes[settings.rankby];
 
     const indicators = {} as Record<IndicatorName, number>;
-    for (const attribute of Indicators) {
+    for (const attribute of indicatorAttributes) {
       indicators[attribute] = attributes[attribute];
     }
 

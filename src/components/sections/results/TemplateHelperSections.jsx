@@ -14,7 +14,7 @@ import { allExtrasModifiersById, buffModifiers } from '../../../assets/modifierd
 import { getSkills, getWeapons } from '../../../state/slices/buildPage';
 import { getTraitLines, getTraits } from '../../../state/slices/traits';
 import { getGameMode } from '../../../state/slices/userSettings';
-import { WEAPONS, getWeight, statInfusionIds } from '../../../utils/gw2-data';
+import { MAX_INFUSIONS, WEAPONS, getWeight, statInfusionIds } from '../../../utils/gw2-data';
 import { createAssumedBuffs } from '../../../utils/toLazyToType-usefulFunctions';
 import Section from '../../baseComponents/Section';
 import ModalContent from './BuildShareModal/ModalContent';
@@ -68,7 +68,7 @@ const TemplateHelperSections = ({ character }) => {
           ])
           .flat()
       : [];
-    const infusions = infusionsTemp.concat(Array(18 - infusionsTemp.length).fill(49432));
+    const infusions = infusionsTemp.concat(Array(MAX_INFUSIONS - infusionsTemp.length).fill(49432));
     const relicId = allExtrasModifiersById[relics]?.gw2id;
 
     const { mainhand1: w11, offhand1: w12, mainhand2: w21, offhand2: w22 } = weapons;

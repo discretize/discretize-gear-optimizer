@@ -24,14 +24,15 @@ import {
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
-import type { AffixNameOrCustom, AttributeName, ForcedSlotName } from '../../utils/gw2-data';
+import type { AffixName, AttributeName, ForcedSlotName } from '../../utils/gw2-data';
 import {
+  allSlotData,
   Classes,
-  ForcedSlots,
-  Slots,
   conditionData,
   damagingConditions,
-  Affix as unmodifiedAffix,
+  forcedSlotNames,
+  MAX_INFUSIONS,
+  Affix as rawAffix,
 } from '../../utils/gw2-data';
 import {
   enumArrayIncludes,
@@ -243,8 +244,7 @@ export function createSettingsPerCalculation(
 
   const specialization = getCurrentSpecialization(reduxState);
 
-  const customAffixData: Omit<typeof unmodifiedAffix.Custom, 'category'> =
-    getCustomAffixData(reduxState);
+  const customAffixData: Omit<typeof rawAffix.Custom, 'category'> = getCustomAffixData(reduxState);
 
   // display extras in table if they have multiple options
   const shouldDisplayExtras = mapValues(
@@ -325,11 +325,15 @@ export function createSettingsPerCalculation(
 
   /* Infusions */
 
-  const maxInfusions: OptimizerCoreSettings['maxInfusions'] = clamp(rawMaxInfusions, 0, 18);
+  const maxInfusions: OptimizerCoreSettings['maxInfusions'] = clamp(
+    rawMaxInfusions,
+    0,
+    MAX_INFUSIONS,
+  );
 
   const infusionOptions = rawInfusionOptions.map(({ type, count }) => ({
     type,
-    count: clamp(parseInfusionCount(count).value, 0, 18),
+    count: clamp(parseInfusionCount(count).value, 0, MAX_INFUSIONS),
   }));
 
   const totalSelectedInfusions = infusionOptions.reduce((prev, cur) => prev + cur.count, 0);
@@ -355,12 +359,12 @@ export function createSettingsPerCalculation(
 
   /* Equipment */
 
-  const Affix: typeof unmodifiedAffix = {
-    ...unmodifiedAffix,
-    Custom: { ...unmodifiedAffix.Custom, ...customAffixData },
+  const Affix: typeof rawAffix = {
+    ...rawAffix,
+    Custom: { ...rawAffix.Custom, ...customAffixData },
   };
 
-  const slotData = Slots[weaponType];
+  const slotData = allSlotData[weaponType];
   const slots = slotData.length;
 
   // affixesArray: valid affixes for each slot, taking forced slots into account
@@ -403,7 +407,7 @@ export function createSettingsPerCalculation(
    * @returns {boolean} identical
    */
   const slotSettingsIdentical = (slotNames: ForcedSlotName[]) => {
-    const slotIndexes = slotNames.map((slotName) => ForcedSlots.indexOf(slotName));
+    const slotIndexes = slotNames.map((slotName) => forcedSlotNames.indexOf(slotName));
 
     const slotAffixesArrays = slotIndexes.map((index) => orderedAffixesArray[index]);
     const slotAffixesArraysIdentical = arrayEntriesDeepEqual(slotAffixesArrays);
@@ -430,7 +434,7 @@ export function createSettingsPerCalculation(
     if (affixOptions.length === 1) {
       return affixOptions;
     }
-    const result: AffixNameOrCustom[] = [];
+    const result: AffixName[] = [];
     affixOptions.forEach((affix, index) => {
       result[(index + slotindex) % affixOptions.length] = affix;
     });

@@ -1,12 +1,12 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import type { AffixNameOrCustom } from '../../utils/gw2-data';
+import type { AffixName } from '../../utils/gw2-data';
 import { maxSlotsLength } from '../../utils/gw2-data';
 import type { RootState } from '../store';
 import { changeAll } from './controlsSlice';
 
 const initialState = {
-  slots: Array(maxSlotsLength).fill(null) as (AffixNameOrCustom | null)[],
+  slots: Array(maxSlotsLength).fill(null) as (AffixName | null)[],
 };
 
 export const forcedSlotsSlice = createSlice({
@@ -15,14 +15,14 @@ export const forcedSlotsSlice = createSlice({
   reducers: {
     changeForcedSlot: (
       state,
-      action: PayloadAction<{ index: number; value: AffixNameOrCustom | null }>,
+      action: PayloadAction<{ index: number; value: AffixName | null }>,
     ) => {
       state.slots[action.payload.index] = action.payload.value;
     },
     clearForcedSlots: (state) => {
       state.slots = state.slots.map(() => null);
     },
-    changeAllForcedSlots: (state, action: PayloadAction<(AffixNameOrCustom | null)[]>) => {
+    changeAllForcedSlots: (state, action: PayloadAction<(AffixName | null)[]>) => {
       state.slots = action.payload;
     },
   },

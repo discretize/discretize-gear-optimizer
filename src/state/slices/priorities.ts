@@ -1,8 +1,8 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import type {
-  AffixData,
-  AffixNameOrCustom,
+  AffixDataEntry,
+  AffixName,
   IndicatorName,
   WeaponHandednessType,
 } from '../../utils/gw2-data';
@@ -10,9 +10,9 @@ import { WeaponTypes } from '../../utils/gw2-data';
 import type { RootState } from '../store';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
-type Data = Partial<Record<AffixNameOrCustom, boolean[]>>;
+type Data = Partial<Record<AffixName, boolean[]>>;
 
-const fillAffix = (data: Data, affix: AffixNameOrCustom, value = false) => {
+const fillAffix = (data: Data, affix: AffixName, value = false) => {
   data[affix] = Array(14).fill(value);
 };
 
@@ -30,7 +30,7 @@ export interface PrioritiesSlice {
   minSurvivability: string;
   minOutgoingHealing: string;
   minQuicknessDuration: string;
-  affixes: AffixNameOrCustom[];
+  affixes: AffixName[];
   exclusions: {
     enabled: boolean;
     data: Data;
@@ -39,7 +39,7 @@ export interface PrioritiesSlice {
     enabled: boolean;
     data: Data;
   };
-  customAffix: Partial<AffixData>;
+  customAffix: Partial<AffixDataEntry>;
   customAffixTextBox: string;
   customAffixError: string;
 }
@@ -101,12 +101,12 @@ export const prioritiesSlice = createSlice({
     changeWeaponType: (state, action: PayloadAction<WeaponHandednessType>) => {
       state.weaponType = action.payload;
     },
-    changeAffixes: (state, action: PayloadAction<AffixNameOrCustom[]>) => {
+    changeAffixes: (state, action: PayloadAction<AffixName[]>) => {
       state.affixes = action.payload;
     },
     changeExclusion: (
       state,
-      action: PayloadAction<{ affix: AffixNameOrCustom; index: number; value: boolean }>,
+      action: PayloadAction<{ affix: AffixName; index: number; value: boolean }>,
     ) => {
       const { affix, index, value } = action.payload;
       if (!state.exclusions.data[affix]) fillAffix(state.exclusions.data, affix);
@@ -115,7 +115,7 @@ export const prioritiesSlice = createSlice({
     },
     changeExotic: (
       state,
-      action: PayloadAction<{ affix: AffixNameOrCustom; index: number; value: boolean }>,
+      action: PayloadAction<{ affix: AffixName; index: number; value: boolean }>,
     ) => {
       const { affix, index, value } = action.payload;
       if (!state.exotics.data[affix]) fillAffix(state.exotics.data, affix);
@@ -143,7 +143,7 @@ export const prioritiesSlice = createSlice({
     changeCustomAffixTextBox: (state, action: PayloadAction<string>) => {
       state.customAffixTextBox = action.payload;
     },
-    changeCustomAffix: (state, action: PayloadAction<Partial<AffixData>>) => {
+    changeCustomAffix: (state, action: PayloadAction<Partial<AffixDataEntry>>) => {
       state.customAffix = action.payload;
     },
     changeCustomAffixError: (state, action: PayloadAction<string>) => {
