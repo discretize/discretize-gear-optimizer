@@ -973,37 +973,110 @@ export class OptimizerCore {
     const { attributes } = character;
 
     let condiDamageScore = 0;
-    for (const condition of relevantConditions) {
-      const cdmg = attributes['Condition Damage'];
+    const cdmg = attributes['Condition Damage'];
+
+    if (relevantConditions.includes('Bleeding')) {
       const mult =
         damageMultiplier['Outgoing Condition Damage'] *
-        damageMultiplier[`Outgoing ${condition} Damage`];
+        damageMultiplier[`Outgoing Bleeding Damage`];
 
-      switch (condition) {
-        case 'Torment':
-          attributes[`Torment Damage Tick`] =
-            this.conditionDamageTick('Torment', cdmg, mult) * (1 - settings.movementUptime) +
-            this.conditionDamageTick('TormentMoving', cdmg, mult) * settings.movementUptime;
-          break;
-        case 'Confusion':
-          attributes[`Confusion Damage Tick`] =
-            this.conditionDamageTick('Confusion', cdmg, mult) +
-            this.conditionDamageTick('ConfusionActive', cdmg, mult) * settings.attackRate;
-          break;
-        default:
-          attributes[`${condition} Damage Tick`] = this.conditionDamageTick(condition, cdmg, mult);
-      }
+      attributes[`Bleeding Damage Tick`] = this.conditionDamageTick('Bleeding', cdmg, mult);
 
       const duration =
         1 +
-        clamp((attributes[`${condition} Duration`] || 0) + attributes['Condition Duration'], 0, 1) +
+        clamp((attributes[`Bleeding Duration`] || 0) + attributes['Condition Duration'], 0, 1) +
         attributes['Condition Duration Uncapped'];
 
-      const stacks = (attributes[`${condition} Coefficient`] || 0) * duration;
-      attributes[`${condition} Stacks`] = stacks;
+      const stacks = (attributes[`Bleeding Coefficient`] || 0) * duration;
+      attributes[`Bleeding Stacks`] = stacks;
 
-      const DPS = stacks * (attributes[`${condition} Damage Tick`] || 1);
-      attributes[`${condition} DPS`] = DPS;
+      const DPS = stacks * (attributes[`Bleeding Damage Tick`] || 1);
+      attributes[`Bleeding DPS`] = DPS;
+
+      condiDamageScore += DPS;
+    }
+
+    if (relevantConditions.includes('Burning')) {
+      const mult =
+        damageMultiplier['Outgoing Condition Damage'] * damageMultiplier[`Outgoing Burning Damage`];
+
+      attributes[`Burning Damage Tick`] = this.conditionDamageTick('Burning', cdmg, mult);
+
+      const duration =
+        1 +
+        clamp((attributes[`Burning Duration`] || 0) + attributes['Condition Duration'], 0, 1) +
+        attributes['Condition Duration Uncapped'];
+
+      const stacks = (attributes[`Burning Coefficient`] || 0) * duration;
+      attributes[`Burning Stacks`] = stacks;
+
+      const DPS = stacks * (attributes[`Burning Damage Tick`] || 1);
+      attributes[`Burning DPS`] = DPS;
+
+      condiDamageScore += DPS;
+    }
+
+    if (relevantConditions.includes('Poison')) {
+      const mult =
+        damageMultiplier['Outgoing Condition Damage'] * damageMultiplier[`Outgoing Poison Damage`];
+
+      attributes[`Poison Damage Tick`] = this.conditionDamageTick('Poison', cdmg, mult);
+
+      const duration =
+        1 +
+        clamp((attributes[`Poison Duration`] || 0) + attributes['Condition Duration'], 0, 1) +
+        attributes['Condition Duration Uncapped'];
+
+      const stacks = (attributes[`Poison Coefficient`] || 0) * duration;
+      attributes[`Poison Stacks`] = stacks;
+
+      const DPS = stacks * (attributes[`Poison Damage Tick`] || 1);
+      attributes[`Poison DPS`] = DPS;
+
+      condiDamageScore += DPS;
+    }
+
+    if (relevantConditions.includes('Torment')) {
+      const mult =
+        damageMultiplier['Outgoing Condition Damage'] * damageMultiplier[`Outgoing Torment Damage`];
+
+      attributes[`Torment Damage Tick`] =
+        this.conditionDamageTick('Torment', cdmg, mult) * (1 - settings.movementUptime) +
+        this.conditionDamageTick('TormentMoving', cdmg, mult) * settings.movementUptime;
+
+      const duration =
+        1 +
+        clamp((attributes[`Torment Duration`] || 0) + attributes['Condition Duration'], 0, 1) +
+        attributes['Condition Duration Uncapped'];
+
+      const stacks = (attributes[`Torment Coefficient`] || 0) * duration;
+      attributes[`Torment Stacks`] = stacks;
+
+      const DPS = stacks * (attributes[`Torment Damage Tick`] || 1);
+      attributes[`Torment DPS`] = DPS;
+
+      condiDamageScore += DPS;
+    }
+
+    if (relevantConditions.includes('Confusion')) {
+      const mult =
+        damageMultiplier['Outgoing Condition Damage'] *
+        damageMultiplier[`Outgoing Confusion Damage`];
+
+      attributes[`Confusion Damage Tick`] =
+        this.conditionDamageTick('Confusion', cdmg, mult) +
+        this.conditionDamageTick('ConfusionActive', cdmg, mult) * settings.attackRate;
+
+      const duration =
+        1 +
+        clamp((attributes[`Confusion Duration`] || 0) + attributes['Condition Duration'], 0, 1) +
+        attributes['Condition Duration Uncapped'];
+
+      const stacks = (attributes[`Confusion Coefficient`] || 0) * duration;
+      attributes[`Confusion Stacks`] = stacks;
+
+      const DPS = stacks * (attributes[`Confusion Damage Tick`] || 1);
+      attributes[`Confusion DPS`] = DPS;
 
       condiDamageScore += DPS;
     }
