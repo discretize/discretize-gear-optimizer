@@ -76,7 +76,7 @@ import type {
   OptimizerCoreSettingsPerCalculation,
   OptimizerCoreSettingsPerCombination,
 } from './optimizerCore';
-import { clamp, KEY, scaleValue } from './optimizerCore';
+import { clamp, scaleValue } from './optimizerCore';
 
 export interface ExtrasCombinationEntry {
   extrasCombination: ExtrasCombination;
@@ -614,142 +614,39 @@ export function createSettingsPerCombination(
 
   /* Base Attributes */
 
-  const baseAttributes: OptimizerCoreSettings['baseAttributes'] = [
-    1000, // Power
-    1000, // Precision
-    1000, // Toughness
-    1000, // Vitality
+  const baseAttributes = {
+    'Power': 1000,
+    'Precision': 1000,
+    'Toughness': 1000,
+    'Vitality': 1000,
 
-    0, // Ferocity
-    0, // Condition Damage
-    0, // Expertise
-    0, // Concentration
-    0, // Healing Power
-    0, // Agony Resistance
+    'Ferocity': 0,
+    'Condition Damage': 0,
+    'Expertise': 0,
+    'Concentration': 0,
+    'Healing Power': 0,
+    'Agony Resistance': 0,
 
-    0.05, // Critical Chance
-    1.5, // Critical Damage
-    0, // Condition Duration
-    0, // Condition Duration Uncapped
-    0, // Boon Duration
-    Classes[profession].health, // Health
-    Classes[profession].defense, // Armor
-
-    0, // Aegis Duration
-    0, // Fury Duration
-    0, // Might Duration
-    0, // Protection Duration
-    0, // Quickness Duration
-    0, // Alacrity Duration
-    0, // Regeneration Duration
-    0, // Resistance Duration
-    0, // Resolution Duration
-    0, // Stability Duration
-    0, // Swiftness Duration
-    0, // Vigor Duration
-
-    0, // Bleeding Duration
-    0, // Blind Duration
-    0, // Burning Duration
-    0, // Chilled Duration
-    0, // Confusion Duration
-    0, // Crippled Duration
-    0, // Fear Duration
-    0, // Immobile Duration
-    0, // Poison Duration
-    0, // Slow Duration
-    0, // Taunt Duration
-    0, // Torment Duration
-    0, // Vulnerability Duration
-    0, // Weakness Duration
-
-    0, // Bleeding Coefficient
-    0, // Burning Coefficient
-    0, // Confusion Coefficient
-    0, // Poison Coefficient
-    0, // Torment Coefficient
-
-    0, // Bleeding Damage Tick
-    0, // Burning Damage Tick
-    0, // Confusion Damage Tick
-    0, // Poison Damage Tick
-    0, // Torment Damage Tick
-
-    0, // Effective Power
-    0, // Effective Health
-    0, // Effective Healing
-
-    0, // Damage
-    0, // Survivability
-    0, // Healing
-
-    0, // Bleeding Stacks
-    0, // Burning Stacks
-    0, // Confusion Stacks
-    0, // Poison Stacks
-    0, // Torment Stacks
-
-    0, // Bleeding DPS
-    0, // Burning DPS
-    0, // Confusion DPS
-    0, // Poison DPS
-    0, // Torment DPS
-
-    0, // Alternative Power
-    0, // Alternative Precision
-    0, // Alternative Ferocity
-    0, // Alternative Critical Chance
-    0, // Alternative Effective Power
-    0, // Alternative Critical Damage
-
-    0, // Clone Critical Chance
-    0, // Phantasm Critical Chance
-    0, // Phantasm Critical Damage
-    0, // Phantasm Effective Power
-
-    0, // Siphon Coefficient
-    0, // Siphon Base Coefficient
-    0, // Siphon DPS
-
-    0, // Maximum Health
-    0, // Outgoing Healing
-    0, // Damage Reduction
-    0, // Power Coefficient
-    0, // NonCrit Power Coefficient
-    0, // Power2 DPS
-    0, // Power2 Coefficient
-    0, // Flat DPS
-    0, // Power DPS
-    0, // Player Critical Damage
-
-    0, // Outgoing Strike Damage
-    0, // Outgoing Condition Damage
-    0, // Outgoing Siphon Damage
-    0, // Incoming Strike Damage
-    0, // Outgoing Critical Damage
-    0, // Outgoing Bleeding Damage
-    0, // Outgoing Burning Damage
-    0, // Outgoing Confusion Damage
-    0, // Outgoing Poison Damage
-    0, // Outgoing Torment Damage
-    0, // Outgoing Alternative Damage
-    0, // Outgoing Alternative Critical Damage
-    0, // Outgoing Phantasm Damage
-    0, // Outgoing Phantasm Critical Damage
-    0, // Outgoing All Damage
-  ];
+    'Critical Chance': 0.05,
+    'Critical Damage': 1.5,
+    'Condition Duration': 0,
+    'Condition Duration Uncapped': 0,
+    'Boon Duration': 0,
+    'Health': Classes[profession].health,
+    'Armor': Classes[profession].defense,
+  } as OptimizerCoreSettings['baseAttributes'];
 
   if (profession === 'Mesmer') {
-    baseAttributes[KEY['Clone Critical Chance']] = 0.05;
-    baseAttributes[KEY['Phantasm Critical Chance']] = 0.05;
-    baseAttributes[KEY['Phantasm Critical Damage']] = 1.5;
+    baseAttributes['Clone Critical Chance'] = 0.05;
+    baseAttributes['Phantasm Critical Chance'] = 0.05;
+    baseAttributes['Phantasm Critical Damage'] = 1.5;
   }
 
   for (const [key, value] of objectEntries(distribution)) {
-    baseAttributes[KEY[`${key} Coefficient`]] = value;
+    baseAttributes[`${key} Coefficient`] = value;
   }
 
-  baseAttributes[KEY[`Flat DPS`]] = 0;
+  baseAttributes[`Flat DPS`] = 0;
 
   /* Modifiers */
 
@@ -911,7 +808,7 @@ export function createSettingsPerCombination(
 
           switch (convertedOrBuff) {
             case 'converted':
-              baseAttributes[KEY[attribute]] = (baseAttributes[KEY[attribute]] || 0) + scaledAmount;
+              baseAttributes[attribute] = (baseAttributes[attribute] || 0) + scaledAmount;
               break;
             case 'buff':
             case 'unknown':
@@ -927,7 +824,7 @@ export function createSettingsPerCombination(
 
         const value: number = Array.isArray(allPairs) ? allPairs[0] : allPairs;
         const scaledAmount = scaleValue(value, amountInput, amountData);
-        baseAttributes[KEY[attribute]] = (baseAttributes[KEY[attribute]] || 0) + scaledAmount;
+        baseAttributes[attribute] = (baseAttributes[attribute] || 0) + scaledAmount;
       } else if (enumArrayIncludes(allAttributePercentKeys, attribute)) {
         // percent, i.e.
         //   Torment Duration: 15%
@@ -937,10 +834,10 @@ export function createSettingsPerCombination(
         // unconfirmed if +max health mods are mult but ¯\_(ツ)_/¯
         // +outgoing healing is assumed additive
         if (attribute === 'Maximum Health') {
-          baseAttributes[KEY[attribute]] =
-            ((baseAttributes[KEY[attribute]] || 0) + 1) * (1 + scaledAmount) - 1;
+          baseAttributes[attribute] =
+            ((baseAttributes[attribute] || 0) + 1) * (1 + scaledAmount) - 1;
         } else {
-          baseAttributes[KEY[attribute]] = (baseAttributes[KEY[attribute]] || 0) + scaledAmount;
+          baseAttributes[attribute] = (baseAttributes[attribute] || 0) + scaledAmount;
         }
       } else {
         // eslint-disable-next-line no-alert
@@ -960,7 +857,7 @@ export function createSettingsPerCombination(
       if (!collectedModifiers['convert'][attribute]) {
         collectedModifiers['convert'][attribute] = {};
       }
-      baseAttributes[KEY[attribute]] ??= 0;
+      baseAttributes[attribute] ??= 0;
 
       for (const [source, percentAmount] of Object.entries(val) as [
         ConversionSourceKey,
@@ -1038,8 +935,7 @@ export function createSettingsPerCombination(
 
   const relevantConditions: OptimizerCoreSettings['relevantConditions'] = damagingConditions.filter(
     (condition) =>
-      (baseAttributes[KEY[`${condition} Coefficient`]] ?? 0) > 0 ||
-      extraRelevantConditions[condition],
+      (baseAttributes[`${condition} Coefficient`] ?? 0) > 0 || extraRelevantConditions[condition],
   );
 
   // if any condition coefficnents are the result of a conversion, the same cdmg + expertise does
@@ -1048,7 +944,7 @@ export function createSettingsPerCombination(
     Object.values(extraRelevantConditions).some(Boolean);
 
   const settings: OptimizerCoreSettingsPerCombination = {
-    baseAttributes, // object shape performance optimization
+    baseAttributes: { ...baseAttributes }, // object shape performance optimization
     modifiers,
     relevantConditions,
     disableCondiResultCache,
