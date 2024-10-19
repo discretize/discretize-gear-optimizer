@@ -28,3 +28,11 @@ export const reduxSideEffect = <T>(
       effect(newValue);
     },
   });
+
+// easy state logger:
+// startListening({
+//   predicate: () => true,
+//   effect: (_, listenerApi) => {
+//     console.log(listenerApi.getState());
+//   },
+// });
