@@ -24,6 +24,13 @@ const createWorker = (): WorkerWrapper => ({
   worker: new Worker(new URL('./worker/worker.ts', import.meta.url), { type: 'module' }),
 });
 
+const createWorkers = (count: number) => {
+  while (createdWorkers.length < count) {
+    createdWorkers.push(createWorker());
+  }
+  return createdWorkers.slice(0, count);
+};
+
 const terminateActiveWorkers = () => {
   createdWorkers.forEach((workerObj, i) => {
     if (workerObj.status !== 'idle') {
@@ -59,10 +66,7 @@ export function calculateParallel(reduxState: RootState, dispatch: AppDispatch):
 
   console.log(`Creating ${selectedMaxThreads} threads`);
   // create all threads. later on we may or may not use them depending on the presented problem
-  const workers: WorkerWrapper[] = [...Array(selectedMaxThreads)].map((_, index) => {
-    createdWorkers[index] ??= createWorker();
-    return createdWorkers[index];
-  });
+  const workers = createWorkers(selectedMaxThreads);
 
   // select calculation mode - at the moment there are only two modes
   if (withHeuristics) {

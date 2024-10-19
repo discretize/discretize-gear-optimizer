@@ -209,8 +209,10 @@ const calcAgonyInfusions = (slots: number, ar: number) => {
   const agonyCost = lowerCount * lowerCost + higherCount * higherCost;
 
   const agonyArray = [
-    ...Array(lowerCount).fill(lowerType ? `+${lowerType} Agony Infusion` : '(empty slot)'),
-    ...Array(higherCount).fill(`+${higherType} Agony Infusion`),
+    ...(Array(lowerCount).fill(
+      lowerType ? `+${lowerType} Agony Infusion` : '(empty slot)',
+    ) as string[]),
+    ...(Array(higherCount).fill(`+${higherType} Agony Infusion`) as string[]),
   ];
 
   const agonyText = [];
@@ -335,10 +337,10 @@ export const getHelperResult = createSelector(
     const resultText = `\n${[...statText, ...bestResult.agony.agonyText].join(', ')}`;
 
     const resultArray = [
-      ...Array(bestResult.zero).fill(`WvW Stat Infusion`),
-      ...Array(bestResult.five).fill(`+5 Stat Infusion`),
-      ...Array(bestResult.seven).fill(`+7 Stat Infusion`),
-      ...Array(bestResult.nine).fill(`+9 Stat Infusion`),
+      ...(Array(bestResult.zero).fill(`WvW Stat Infusion`) as string[]),
+      ...(Array(bestResult.five).fill(`+5 Stat Infusion`) as string[]),
+      ...(Array(bestResult.seven).fill(`+7 Stat Infusion`) as string[]),
+      ...(Array(bestResult.nine).fill(`+9 Stat Infusion`) as string[]),
       ...bestResult.agony.agonyArray,
     ];
 

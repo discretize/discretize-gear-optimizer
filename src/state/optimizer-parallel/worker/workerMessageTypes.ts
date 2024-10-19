@@ -40,7 +40,7 @@ export interface StartHeuristicsMessage {
 }
 export interface FinishedMessage {
   type: typeof FINISHED;
-  results: any[];
+  results: unknown[];
 }
 export interface FinishedHeuristicsMessage {
   type: typeof FINISHED_HEURISTICS;
@@ -50,11 +50,11 @@ export interface ProgressMessage {
   type: typeof PROGRESS;
   new: number;
   total: number;
-  results: any[];
+  results: unknown[];
 }
 export interface ErrorMessage {
   type: typeof ERROR;
-  data: any;
+  data: unknown;
 }
 
 export function isStartMessage(message: MessageType): message is StartMessage {

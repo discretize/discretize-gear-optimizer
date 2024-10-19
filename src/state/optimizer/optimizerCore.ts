@@ -6,7 +6,6 @@
 
 import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
 import type {
-  AffixName,
   AffixNameOrCustom,
   AttributeName,
   ConditionCoefficientAttributeName,
@@ -127,7 +126,7 @@ export interface OptimizerCoreSettingsPerCalculation {
   profession: ProfessionName;
   specialization: string;
   weaponType: WeaponHandednessType;
-  forcedAffixes: (AffixName | null)[]; // array of specific affix names for each slot, or '' for unspecfied
+  forcedAffixes: (AffixNameOrCustom | null)[]; // array of specific affix names for each slot, or '' for unspecfied
   rankby: IndicatorName;
   minBoonDuration: number | undefined;
   minHealingPower: number | undefined;
@@ -156,7 +155,7 @@ export interface OptimizerCoreSettingsPerCalculation {
   identicalArmor: boolean;
   slots: number; // The length of the former slots array
   runsAfterThisSlot: number[];
-  affixesArray: AffixName[][];
+  affixesArray: AffixNameOrCustom[][];
   affixStatsArray: [AttributeName, number][][][];
 
   affixes: AffixNameOrCustom[];
@@ -207,7 +206,7 @@ export type OptimizerCoreMinimalSettings = Pick<
   | 'modifiers'
   | 'gameMode'
 >;
-export type Gear = AffixName[];
+export type Gear = AffixNameOrCustom[];
 export type GearStats = Partial<Record<AttributeName, number>>;
 interface CoefficientHelperValue {
   slope: number;

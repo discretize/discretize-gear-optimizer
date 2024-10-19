@@ -1,7 +1,7 @@
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
 import { Trans } from 'react-i18next';
 
-const Indicators = ({ data = {} }: { data?: Record<string, any> }) => {
+const Indicators = ({ data = {} }: { data?: Record<string, number> }) => {
   return (
     <>
       <Typography variant="h6">

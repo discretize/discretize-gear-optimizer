@@ -38,7 +38,7 @@ export function* iteratePartitions(
 ): Generator<number[], void, void> {
   if (cupsK < 1) throw new Error('invalid iteratePartitions input');
 
-  const current: number[] = new Array(cupsK).fill(0);
+  const current = new Array(cupsK).fill(0) as number[];
 
   function* inner(currentCup: number, currentBalls: number): Generator<number[], void, void> {
     if (currentCup === cupsK - 1) {

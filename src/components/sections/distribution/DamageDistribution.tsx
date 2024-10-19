@@ -52,7 +52,7 @@ const DamageDistribution = () => {
   // locally displayed in the text boxes. Text boxes might contain a string that is not a real number (yet), so we need to store those separately
   const textBoxes = useSelector(getTextBoxes);
 
-  const onUpdate = (key: DistributionNameUI) => (e: any, value: number) => {
+  const onUpdate = (key: DistributionNameUI) => (e: unknown, value: number) => {
     dispatch(changeTextBoxes({ index: key, value: String(Math.round(value * 100) / 100) }));
     dispatch(changeDistributionNew({ index: key, value: Math.round(value * 100) / 100 }));
   };

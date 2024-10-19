@@ -24,7 +24,7 @@ import {
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
-import type { AffixName, AttributeName, ForcedSlotName } from '../../utils/gw2-data';
+import type { AffixNameOrCustom, AttributeName, ForcedSlotName } from '../../utils/gw2-data';
 import {
   Classes,
   ForcedSlots,
@@ -365,7 +365,7 @@ export function createSettingsPerCalculation(
 
   // affixesArray: valid affixes for each slot, taking forced slots into account
   // e.g. [[Berserker, Assassin], [Assassin], [Berserker, Assassin]...]
-  const orderedAffixesArray: OptimizerCoreSettings['affixesArray'] = new Array(slots).fill(affixes);
+  const orderedAffixesArray = new Array(slots).fill(affixes) as (typeof affixes)[];
 
   orderedAffixesArray.forEach((_, index) => {
     const forcedAffix = forcedSlots[index];
@@ -386,7 +386,7 @@ export function createSettingsPerCalculation(
     }
   });
 
-  const arrayEntriesDeepEqual = (arr: any[]) =>
+  const arrayEntriesDeepEqual = (arr: unknown[]) =>
     arr.every((entry) => JSON.stringify(entry) === JSON.stringify(arr[0]));
 
   /**
@@ -430,7 +430,7 @@ export function createSettingsPerCalculation(
     if (affixOptions.length === 1) {
       return affixOptions;
     }
-    const result: AffixName[] = [];
+    const result: AffixNameOrCustom[] = [];
     affixOptions.forEach((affix, index) => {
       result[(index + slotindex) % affixOptions.length] = affix;
     });
@@ -894,8 +894,8 @@ export function createSettingsPerCombination(
     }
   }
 
-  const damageMultiplier: any = {};
-  const damageMultiplierBreakdown: any = {};
+  const damageMultiplier = {} as DamageMultiplier;
+  const damageMultiplierBreakdown = {} as DamageMultiplierBreakdown;
 
   objectKeys(initialMultipliers).forEach((attribute) => {
     damageMultiplier[attribute] =

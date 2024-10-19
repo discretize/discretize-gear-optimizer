@@ -106,7 +106,7 @@ export function enumArrayIncludes<T extends readonly string[]>(
   return arr.includes(value);
 }
 
-export const pick = (object: Record<string, any>, keysToPick: string[]) =>
+export const pick = (object: Record<string, unknown>, keysToPick: string[]) =>
   Object.fromEntries(keysToPick.filter((key) => key in object).map((key) => [key, object[key]]));
 
 export type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] };

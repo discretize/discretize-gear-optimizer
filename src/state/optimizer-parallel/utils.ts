@@ -1,5 +1,5 @@
 import type {
-  AffixName,
+  AffixNameOrCustom,
   AttributeName,
   DamagingConditionName,
   WeaponHandednessType,
@@ -29,7 +29,7 @@ import {
 import { objectKeys } from '../../utils/usefulFunctions';
 import { getExtrasIds } from '../slices/extras';
 import type { RootState } from '../store';
-import type { CombinationSettings, CalculationSettings } from './optimizerSetup';
+import type { CalculationSettings, CombinationSettings } from './optimizerSetup';
 
 const attributes: AttributeName[] = [
   ...PrimaryAttributes,
@@ -51,7 +51,7 @@ const attributes: AttributeName[] = [
   ...DisplayOnlyAttributes,
 ] as const;
 
-export const getAffixId = (affix: AffixName) => {
+export const getAffixId = (affix: AffixNameOrCustom) => {
   const index = objectKeys(Affix).indexOf(affix);
   if (index === -1) {
     throw new Error(`Affix ${affix} not found`);

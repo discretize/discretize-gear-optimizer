@@ -5,7 +5,7 @@ import init, {
   calculate_with_heuristics,
 } from '../../../../wasm_module/pkg'; // eslint-disable-line
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
-import type { AffixName } from '../../../utils/gw2-data';
+import type { AffixNameOrCustom } from '../../../utils/gw2-data';
 import { objectEntries } from '../../../utils/usefulFunctions';
 import type { AppliedModifier, ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import type { ExtrasCombination } from '../../slices/extras';
@@ -66,7 +66,7 @@ async function start(
 
   const calcFn = withHeurisics ? calculate_with_heuristics : calculate;
   const transformedChunks = chunks.map((chunk: string[]) =>
-    chunk.map((value) => getAffixId(value as AffixName)),
+    chunk.map((value) => getAffixId(value as AffixNameOrCustom)),
   );
 
   try {
@@ -81,7 +81,7 @@ async function start(
 
     const message: FinishedMessage = {
       type: FINISHED,
-      results: JSON.parse(data || '[]') as any[],
+      results: JSON.parse(data || '[]') as unknown[],
     };
     postMessage(message);
   } catch (e) {

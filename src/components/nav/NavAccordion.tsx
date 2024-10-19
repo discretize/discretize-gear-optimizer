@@ -51,7 +51,7 @@ export default function NavAccordion({ handleTemplateSelect }: NavAccordionProps
 
   const [expanded, setExpanded] = React.useState('');
 
-  const handleChange = (panel: string) => (event: any, newExpanded: boolean) => {
+  const handleChange = (panel: string) => (e: unknown, newExpanded: boolean) => {
     setExpanded(newExpanded ? panel : '');
   };
 

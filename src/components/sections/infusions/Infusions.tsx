@@ -91,7 +91,7 @@ const Infusions = () => {
   const gameMode = useSelector(getGameMode);
 
   const handleARChange = React.useCallback(
-    (e: any, value: string) => dispatch(changeAR(value)),
+    (e: unknown, value: string) => dispatch(changeAR(value)),
     [dispatch],
   );
 

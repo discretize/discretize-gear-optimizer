@@ -18,13 +18,12 @@ interface TraitValue {
 // todo: specify trait keys
 type TraitsValues = Record<string, TraitValue>;
 
-// todo: type item data
 const getInitialItems = (traitline: string): TraitsValues => {
   const allItemData = traitSectionsById[traitline].items || [];
   return Object.fromEntries(
     allItemData
-      .filter((itemData: any) => itemData.defaultEnabled)
-      .map((itemData: any) => {
+      .filter((itemData) => itemData.defaultEnabled)
+      .map((itemData) => {
         const value = itemData.amountData ? { amount: itemData.amountData.defaultInput ?? '' } : {};
         return [itemData.id, value];
       }),
@@ -163,7 +162,7 @@ export const getCurrentSpecialization = (state: RootState): string => {
   const eliteSpecializations = SPECIALIZATIONS[profession];
   // contains the names of the selected trait lines
   const selectedTraitLinesNames = selectedLines
-    .map((id) => classModifiers[profession].find((section: any) => section?.id === Number(id)))
+    .map((id) => classModifiers[profession].find((section) => section?.id === Number(id)))
     .filter(Boolean)
     .map((section) => section.section);
 

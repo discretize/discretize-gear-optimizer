@@ -67,10 +67,10 @@ export const skillsSlice = createSlice({
 
 export const getSkills = (state: RootState) => state.optimizer.form.skills.skills;
 
-export const getSkillsModifiers = (state: RootState): AppliedModifier[] => {
+export const getSkillsModifiers = (state: RootState) => {
   const { skills } = state.optimizer.form;
 
-  const result: any[] = [];
+  const result: AppliedModifier[] = [];
   Object.entries(skills.skills).forEach(([id, value]) => {
     const itemData = allClassModifiersById[id];
     if (!itemData) return;

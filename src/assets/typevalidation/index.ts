@@ -64,7 +64,7 @@ const assertValidPresetData = {
   'preset-infusions.yaml': typia.createAssertEquals<PresetInfusions>(),
   'preset-traits.yaml': typia.createAssertEquals<PresetTraits>(),
   'credit.yaml': typia.createAssertEquals<CreditData>(),
-} as Record<string, (data: any) => void>;
+} as Record<string, (data: unknown) => void>;
 
 const testPresets = async () => {
   const files = (await fs.readdir(presetDirectory)).filter(

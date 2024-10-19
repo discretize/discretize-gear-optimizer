@@ -41,7 +41,7 @@ const ExoticSlots = () => {
   const affixes = useSelector(getAffixes);
   const exoticsData = useSelector(getExoticsData);
 
-  const exotics = pick(exoticsData, affixes);
+  const exotics = pick(exoticsData, affixes) as typeof exoticsData;
 
   let SLOTS = GEAR_SLOTS;
   if (dualWielded !== WeaponTypes.dualWield) {
