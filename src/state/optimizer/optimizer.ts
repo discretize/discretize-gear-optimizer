@@ -109,7 +109,9 @@ export async function* calculate(
    */
 
   const activeCombinations = combinations.filter(({ heuristicDisabled }) => !heuristicDisabled);
-  const activeThreads = Math.min(threads, activeCombinations.length);
+
+  const combinationsPerThreadMin = Math.ceil(activeCombinations.length / threads);
+  const activeThreads = Math.ceil(activeCombinations.length / combinationsPerThreadMin);
 
   const workers = createWorkers(activeThreads);
   console.log(`calculating using ${activeThreads} workers`);
@@ -258,7 +260,8 @@ export async function* calculateHeuristic(
    * iteration
    */
 
-  const activeThreads = Math.min(threads, normalCombinations.length);
+  const combinationsPerThreadMin = Math.ceil(normalCombinations.length / threads);
+  const activeThreads = Math.ceil(normalCombinations.length / combinationsPerThreadMin);
 
   const workers = createWorkers(activeThreads);
   console.log(`calculating heuristics using ${activeThreads} workers`);
