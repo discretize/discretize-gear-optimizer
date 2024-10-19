@@ -26,12 +26,12 @@ import {
 } from '../../assets/modifierdata/metadata';
 import type { AffixName, AttributeName, ForcedSlotName } from '../../utils/gw2-data';
 import {
-  Classes,
-  ForcedSlots,
-  MAX_INFUSIONS,
   allSlotData,
+  Classes,
   conditionData,
   damagingConditions,
+  forcedSlotNames,
+  MAX_INFUSIONS,
   allAffixData as rawAffixData,
 } from '../../utils/gw2-data';
 import {
@@ -408,7 +408,7 @@ export function createSettingsPerCalculation(
    * @returns {boolean} identical
    */
   const slotSettingsIdentical = (slotNames: ForcedSlotName[]) => {
-    const slotIndexes = slotNames.map((slotName) => ForcedSlots.indexOf(slotName));
+    const slotIndexes = slotNames.map((slotName) => forcedSlotNames.indexOf(slotName));
 
     const slotAffixesArrays = slotIndexes.map((index) => orderedAffixesArray[index]);
     const slotAffixesArraysIdentical = arrayEntriesDeepEqual(slotAffixesArrays);

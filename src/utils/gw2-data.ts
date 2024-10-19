@@ -1081,7 +1081,7 @@ export type WeaponHandednessType = keyof typeof allSlotData;
 export const maxSlotsLength = Math.max(...Object.values(allSlotData).map((arr) => arr.length));
 
 // used for forcing slots to a certain affix
-export const ForcedSlots = [
+export const forcedSlotNames = [
   'helm', // 0
   'shld', // 1
   'coat', // 2
@@ -1098,7 +1098,7 @@ export const ForcedSlots = [
   'wep2', // 13
 ] as const;
 
-export type ForcedSlotName = (typeof ForcedSlots)[number];
+export type ForcedSlotName = (typeof forcedSlotNames)[number];
 
 export const omnipotionModifiers = {
   // Condi dmg from omnipot has been removed
