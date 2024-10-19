@@ -145,7 +145,7 @@ export const getTraitsModifiers = (state: RootState): AppliedModifier[] => {
       if (!itemData) return;
 
       const visible =
-        itemData.minor ||
+        itemData.minor ??
         (typeof itemData.gw2id === 'number' && allSelectedTraits.includes(itemData.gw2id));
       if (visible) {
         result.push({ id, ...itemData, amount: value?.amount });
@@ -170,7 +170,7 @@ export const getCurrentSpecialization = (state: RootState): string => {
   // currently selected specialization. In case multiple elite specializations are selected, only the first one is counted.
   // In case no specialization is selected, the variable defaults to the core profession
   const currentSpecialization =
-    selectedTraitLinesNames.find((spec: string) => enumArrayIncludes(eliteSpecializations, spec)) ||
+    selectedTraitLinesNames.find((spec: string) => enumArrayIncludes(eliteSpecializations, spec)) ??
     profession;
   return currentSpecialization;
 };

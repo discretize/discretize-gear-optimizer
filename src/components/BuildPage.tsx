@@ -76,7 +76,7 @@ const BuildPage = () => {
   const versionParam = useQueryParam({ key: PARAMS.VERSION });
 
   // if no version is present, default to version 0
-  const version = parseInt(versionParam || '0', 10);
+  const version = parseInt(versionParam ?? '0', 10);
 
   React.useEffect(() => {
     dispatch({ type: SagaTypes.ImportBuildPageState, version, buildUrl: buildData });

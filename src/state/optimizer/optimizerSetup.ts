@@ -460,7 +460,7 @@ export function createSettingsPerCalculation(
             ? (affixData.wvwBonuses ?? affixData.bonuses)
             : affixData.bonuses;
           for (const stat of affixBonuses[type] ?? []) {
-            statTotals[stat] = (statTotals[stat] || 0) + bonus;
+            statTotals[stat] = (statTotals[stat] ?? 0) + bonus;
           }
         }
 
@@ -491,7 +491,7 @@ export function createSettingsPerCalculation(
             ? (affixData.wvwBonuses ?? affixData.bonuses)
             : affixData.bonuses;
           for (const stat of affixBonuses[type] ?? []) {
-            statTotals[stat] = (statTotals[stat] || 0) + bonus;
+            statTotals[stat] = (statTotals[stat] ?? 0) + bonus;
           }
         }
       });
@@ -814,7 +814,7 @@ export function createSettingsPerCombination(
             case 'unknown':
             default:
               collectedModifiers['buff'][attribute] =
-                (collectedModifiers['buff'][attribute] || 0) + scaledAmount;
+                (collectedModifiers['buff'][attribute] ?? 0) + scaledAmount;
               break;
           }
         }
@@ -868,7 +868,7 @@ export function createSettingsPerCombination(
         const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
         collectedModifiers['convert'][attribute]![source] =
-          (collectedModifiers['convert'][attribute]![source] || 0) + scaledAmount;
+          (collectedModifiers['convert'][attribute]![source] ?? 0) + scaledAmount;
       }
     }
 
@@ -895,7 +895,7 @@ export function createSettingsPerCombination(
         const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
         collectedModifiers['convertAfterBuffs'][attribute]![source] =
-          (collectedModifiers['convertAfterBuffs'][attribute]![source] || 0) + scaledAmount;
+          (collectedModifiers['convertAfterBuffs'][attribute]![source] ?? 0) + scaledAmount;
       }
     }
   }
