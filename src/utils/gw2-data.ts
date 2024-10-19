@@ -908,7 +908,7 @@ export const weaponTypes = {
   twoHanded: 'Two-handed',
 } as const;
 
-export const Slots = {
+export const allSlotData = {
   'Dual wield': [
     {
       name: 'Helm',
@@ -1076,11 +1076,9 @@ export const Slots = {
     },
   ],
 };
-export type WeaponHandednessType = keyof typeof Slots;
+export type WeaponHandednessType = keyof typeof allSlotData;
 
-export type SlotsEntry = (typeof Slots)['Dual wield'];
-
-export const maxSlotsLength = Math.max(...Object.values(Slots).map((arr) => arr.length));
+export const maxSlotsLength = Math.max(...Object.values(allSlotData).map((arr) => arr.length));
 
 // used for forcing slots to a certain affix
 export const ForcedSlots = [

@@ -5,7 +5,7 @@ import TableRow from '@mui/material/TableRow';
 import React, { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { extrasTypes } from '../../../../state/slices/extras';
-import { INFUSION_IDS, Slots, maxSlotsLength } from '../../../../utils/gw2-data';
+import { INFUSION_IDS, allSlotData, maxSlotsLength } from '../../../../utils/gw2-data';
 
 const extrasLabels = {
   Sigil1: <Item id={24615} disableLink disableText disableTooltip style={{ fontSize: 18 }} />,
@@ -57,7 +57,7 @@ const ResultTableHeaderRow = ({
       </TableCell>
       {padCellArray(
         maxSlotsLength,
-        Slots[weaponType].map((slot) => (
+        allSlotData[weaponType].map((slot) => (
           <TableCell
             className={cx(classes.tablehead, classes.gearColumn)}
             align="center"

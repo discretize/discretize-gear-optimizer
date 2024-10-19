@@ -29,7 +29,7 @@ import {
   Classes,
   ForcedSlots,
   MAX_INFUSIONS,
-  Slots,
+  allSlotData,
   conditionData,
   damagingConditions,
   allAffixData as rawAffixData,
@@ -365,7 +365,7 @@ export function createSettingsPerCalculation(
     Custom: { ...rawAffixData.Custom, ...customAffixData },
   };
 
-  const slotData = Slots[weaponType];
+  const slotData = allSlotData[weaponType];
   const slots = slotData.length;
 
   // affixesArray: valid affixes for each slot, taking forced slots into account
