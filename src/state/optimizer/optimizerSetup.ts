@@ -76,7 +76,7 @@ import type {
   OptimizerCoreSettingsPerCalculation,
   OptimizerCoreSettingsPerCombination,
 } from './optimizerCore';
-import { clamp, KEY, scaleValue } from './optimizerCore';
+import { ATTR_COUNT, clamp, KEY, scaleValue } from './optimizerCore';
 
 export interface ExtrasCombinationEntry {
   extrasCombination: ExtrasCombination;
@@ -614,7 +614,7 @@ export function createSettingsPerCombination(
 
   /* Base Attributes */
 
-  const baseAttributes: OptimizerCoreSettings['baseAttributes'] = [
+  const base = [
     1000, // Power
     1000, // Precision
     1000, // Toughness
@@ -738,6 +738,10 @@ export function createSettingsPerCombination(
     0, // Outgoing Phantasm Critical Damage
     0, // Outgoing All Damage
   ];
+
+  const baseAttributes: OptimizerCoreSettings['baseAttributes'] = new Float64Array(ATTR_COUNT * 2);
+
+  baseAttributes.set(base);
 
   if (profession === 'Mesmer') {
     baseAttributes[KEY['Clone Critical Chance']] = 0.05;
@@ -1046,6 +1050,8 @@ export function createSettingsPerCombination(
   // not mean the same condition dps; disable caching if so
   const disableCondiResultCache: OptimizerCoreSettings['disableCondiResultCache'] =
     Object.values(extraRelevantConditions).some(Boolean);
+
+  baseAttributes.copyWithin(ATTR_COUNT, 0, ATTR_COUNT);
 
   const settings: OptimizerCoreSettingsPerCombination = {
     baseAttributes, // object shape performance optimization

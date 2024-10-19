@@ -161,8 +161,10 @@ export interface OptimizerCoreSettingsPerCalculation {
   cachedFormState: CachedFormState;
 }
 
-export type AttributesInternal = number[];
+export type AttributesInternal = Float64Array;
 export type Attributes = Record<AttributeName, number>;
+
+export const ATTR_COUNT = 107;
 
 const REVERSE_KEY = [
   'Power',
@@ -644,7 +646,8 @@ export class OptimizerCore {
       gearStats, // passed by reference
       attributes: undefined,
       valid: true,
-      baseAttributes: [...this.settings.baseAttributes],
+      baseAttributes:
+        overrides.baseAttributes ?? this.settings.baseAttributes.copyWithin(0, ATTR_COUNT),
       ...overrides,
     };
 
@@ -792,7 +795,7 @@ export class OptimizerCore {
     const character: Character = {
       ...characterInternal,
       attributes: Object.fromEntries(
-        characterInternal.attributes.map((value, i) => [REVERSE_KEY[i], value]),
+        [...characterInternal.attributes].map((value, i) => [REVERSE_KEY[i], value]),
       ) as Attributes,
     };
     character.id = `${this.uniqueIDCounter++} (${this.randomId})`;
@@ -921,7 +924,7 @@ export class OptimizerCore {
 
     const round = noRounding ? (val: number) => val : roundEven;
 
-    character.attributes = [...character.baseAttributes];
+    character.attributes = character.baseAttributes.slice(0, ATTR_COUNT);
     const { attributes, baseAttributes } = character;
 
     for (const [attribute, conversion] of modifiers['convert']) {
@@ -1285,7 +1288,7 @@ export class OptimizerCore {
 
     const attrsWithModifiedCoefficient = (newCoefficient: number) => {
       const newCharacter = this.clone(character);
-      newCharacter.baseAttributes = [...character.baseAttributes];
+      newCharacter.baseAttributes = character.baseAttributes.slice();
       objectKeys(settings.distribution).forEach((key) => {
         newCharacter.baseAttributes[KEY[`${key} Coefficient`]] -= settings.distribution[key];
         newCharacter.baseAttributes[KEY[`${key} Coefficient`]] += newCoefficient;
@@ -1307,7 +1310,7 @@ export class OptimizerCore {
     // out of combat hero panel simulation (overrides both baseAttributes and modifiers)
     if (settings.unbuffedBaseAttributes && settings.unbuffedModifiers) {
       const temp = this.createCharacter(character.gear, character.gearStats, character.infusions, {
-        baseAttributes: [...settings.unbuffedBaseAttributes],
+        baseAttributes: settings.unbuffedBaseAttributes.slice(),
       });
       this.calcStats(temp, settings.unbuffedModifiers);
       // results.unbuffedAttributes = temp.attributes;
@@ -1330,7 +1333,7 @@ export class OptimizerCore {
       gearStats: character.gearStats, // passed by reference
       valid: character.valid,
 
-      baseAttributes: [...character.baseAttributes],
+      baseAttributes: character.baseAttributes.slice(),
       infusions: { ...character.infusions },
     };
   }

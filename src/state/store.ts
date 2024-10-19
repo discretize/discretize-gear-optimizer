@@ -42,7 +42,9 @@ const store = configureStore({
     }),
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().prepend(listenerMiddleware.middleware).concat(saga),
+    getDefaultMiddleware({ serializableCheck: false })
+      .prepend(listenerMiddleware.middleware)
+      .concat(saga),
   devTools: { actionsDenylist: ['control/updateResults'] },
 });
 
