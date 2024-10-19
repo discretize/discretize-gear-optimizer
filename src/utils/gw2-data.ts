@@ -50,7 +50,7 @@ export type AffixName =
   | 'DireRabid'
   | 'Custom';
 
-export interface AffixData {
+export interface AffixDataEntry {
   type: 'triple' | 'quadruple' | 'celestial' | 'ascendedMismatchedTrinket';
   category: string;
   bonuses: {
@@ -66,7 +66,7 @@ export interface AffixData {
     jewelMinor?: (PrimaryAttributeName | SecondaryAttributeName)[];
   };
 }
-export const allAffixData: Record<AffixName, AffixData> = {
+export const affixData: Record<AffixName, AffixDataEntry> = {
   Custom: {
     type: 'triple',
     category: 'Custom',

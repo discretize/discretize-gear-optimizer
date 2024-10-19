@@ -26,13 +26,13 @@ import {
 } from '../../assets/modifierdata/metadata';
 import type { AffixName, AttributeName, ForcedSlotName } from '../../utils/gw2-data';
 import {
-  allSlotData,
   allProfessionData,
+  allSlotData,
   conditionData,
   damagingConditions,
   forcedSlotNames,
   MAX_INFUSIONS,
-  allAffixData as rawAffixData,
+  affixData as rawAffixData,
 } from '../../utils/gw2-data';
 import {
   enumArrayIncludes,
@@ -360,7 +360,7 @@ export function createSettingsPerCalculation(
 
   /* Equipment */
 
-  const allAffixData: typeof rawAffixData = {
+  const affixData: typeof rawAffixData = {
     ...rawAffixData,
     Custom: { ...rawAffixData.Custom, ...customAffixData },
   };
@@ -453,12 +453,10 @@ export function createSettingsPerCalculation(
         const item = exotics?.[affix]?.[slotindex]
           ? slotData[slotindex].exo
           : slotData[slotindex].asc;
-        const bonuses = objectEntries(item[allAffixData[affix].type]);
+        const bonuses = objectEntries(item[affixData[affix].type]);
         for (const [type, bonus] of bonuses) {
-          const affixData = allAffixData[affix];
-          const affixBonuses = isWvW
-            ? (affixData.wvwBonuses ?? affixData.bonuses)
-            : affixData.bonuses;
+          const entry = affixData[affix];
+          const affixBonuses = isWvW ? (entry.wvwBonuses ?? entry.bonuses) : entry.bonuses;
           for (const stat of affixBonuses[type] ?? []) {
             statTotals[stat] = (statTotals[stat] ?? 0) + bonus;
           }
@@ -484,12 +482,10 @@ export function createSettingsPerCalculation(
         const item = exotics?.[affix]?.[slotindex]
           ? slotData[slotindex].exo
           : slotData[slotindex].asc;
-        const bonuses = objectEntries(item[allAffixData[affix].type]);
+        const bonuses = objectEntries(item[affixData[affix].type]);
         for (const [type, bonus] of bonuses) {
-          const affixData = allAffixData[affix];
-          const affixBonuses = isWvW
-            ? (affixData.wvwBonuses ?? affixData.bonuses)
-            : affixData.bonuses;
+          const entry = affixData[affix];
+          const affixBonuses = isWvW ? (entry.wvwBonuses ?? entry.bonuses) : entry.bonuses;
           for (const stat of affixBonuses[type] ?? []) {
             statTotals[stat] = (statTotals[stat] ?? 0) + bonus;
           }

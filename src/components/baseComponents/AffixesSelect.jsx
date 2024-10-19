@@ -5,7 +5,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
-import { allAffixData } from '../../utils/gw2-data';
+import { affixData } from '../../utils/gw2-data';
 
 const mistBandId = 80793;
 
@@ -14,10 +14,10 @@ const augumentAffixState = (array) =>
     .filter((affix) => !!affix)
     .map((affix) => ({
       label: affix,
-      category: allAffixData[affix].category,
+      category: affixData[affix].category,
     }));
 const order = ['Power DPS', 'Condi DPS', 'Support', 'Hybrid', 'Open World', 'Custom'];
-const AFFIXES = augumentAffixState(Object.keys(allAffixData))
+const AFFIXES = augumentAffixState(Object.keys(affixData))
   // eslint-disable-next-line id-length
   .sort((a, b) => {
     const aVal = order.indexOf(a.category);

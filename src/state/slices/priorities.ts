@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import type {
-  AffixData,
+  AffixDataEntry,
   AffixName,
   IndicatorName,
   WeaponHandednessType,
@@ -39,7 +39,7 @@ export interface PrioritiesSlice {
     enabled: boolean;
     data: Data;
   };
-  customAffix: Partial<AffixData>;
+  customAffix: Partial<AffixDataEntry>;
   customAffixTextBox: string;
   customAffixError: string;
 }
@@ -143,7 +143,7 @@ export const prioritiesSlice = createSlice({
     changeCustomAffixTextBox: (state, action: PayloadAction<string>) => {
       state.customAffixTextBox = action.payload;
     },
-    changeCustomAffix: (state, action: PayloadAction<Partial<AffixData>>) => {
+    changeCustomAffix: (state, action: PayloadAction<Partial<AffixDataEntry>>) => {
       state.customAffix = action.payload;
     },
     changeCustomAffixError: (state, action: PayloadAction<string>) => {

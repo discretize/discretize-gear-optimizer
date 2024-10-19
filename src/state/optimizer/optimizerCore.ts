@@ -21,10 +21,10 @@ import type {
 } from '../../utils/gw2-data';
 import {
   INFUSION_BONUS,
-  indicatorAttributes,
   conditionData,
   conditionDataWvW,
   damagingConditions,
+  indicatorAttributes,
 } from '../../utils/gw2-data';
 import { enumArrayIncludes, objectEntries, objectKeys } from '../../utils/usefulFunctions';
 import type { ExtrasCombination, ShouldDisplayExtras } from '../slices/extras';

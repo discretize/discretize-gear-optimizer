@@ -5,7 +5,7 @@ import type {
   WeaponHandednessType,
 } from '../../utils/gw2-data';
 import {
-  allAffixData,
+  affixData,
   alternativeAttributes,
   boonDurationAttributes,
   conditionCoefficientAttributes,
@@ -52,7 +52,7 @@ const attributes: AttributeName[] = [
 ] as const;
 
 export const getAffixId = (affix: AffixName) => {
-  const index = objectKeys(allAffixData).indexOf(affix);
+  const index = objectKeys(affixData).indexOf(affix);
   if (index === -1) {
     throw new Error(`Affix ${affix} not found`);
   }
@@ -80,7 +80,7 @@ export const getAttributeName = (attributeId: number) => {
 };
 
 export const getAffixName = (affixId: number) => {
-  return Object.keys(allAffixData)[affixId];
+  return Object.keys(affixData)[affixId];
 };
 
 export function settingsToWorkerString(settings: CalculationSettings): string {
