@@ -2,5 +2,8 @@
   "printWidth": 100,
   "singleQuote": true,
   "quoteProps": "preserve",
-  "trailingComma": "all"
+  "trailingComma": "all",
+
+  "plugins": ["prettier-plugin-organize-imports"],
+  "organizeImportsSkipDestructiveCodeActions": true
 }
