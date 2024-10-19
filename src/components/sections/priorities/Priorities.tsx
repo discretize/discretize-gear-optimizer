@@ -24,7 +24,7 @@ import {
   getOptimizeFor,
   getWeaponType,
 } from '../../../state/slices/priorities';
-import { WeaponTypes } from '../../../utils/gw2-data';
+import { weaponTypes } from '../../../utils/gw2-data';
 import { parsePriority } from '../../../utils/usefulFunctions';
 
 const useStyles = makeStyles()((theme) => ({
@@ -118,18 +118,18 @@ const Priorities = () => {
           onChange={(event) =>
             dispatch(
               changeWeaponType(
-                event.target.value as (typeof WeaponTypes)[keyof typeof WeaponTypes],
+                event.target.value as (typeof weaponTypes)[keyof typeof weaponTypes],
               ),
             )
           }
         >
           <FormControlLabel
-            value={WeaponTypes.dualWield}
+            value={weaponTypes.dualWield}
             control={<Radio color="primary" />}
             label={t('Dual wielded')}
           />
           <FormControlLabel
-            value={WeaponTypes.twoHanded}
+            value={weaponTypes.twoHanded}
             control={<Radio color="primary" />}
             label={t('Two-handed')}
           />

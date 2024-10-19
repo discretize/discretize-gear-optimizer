@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 import { writeFileSync } from 'node:fs';
-import { Affix, AffixName, AscendedItem, ExoticItem } from './src/utils/gw2-data.ts';
+import { allAffixData, AffixName, ascendedStats, exoticStats } from './src/utils/gw2-data.ts';
 
 /*
 WARNING
@@ -45,15 +45,15 @@ function findStats(slot: string, affix: AffixName, rarity: string) {
   // eslint-disable-next-line default-case
   switch (rarity) {
     case 'Ascended':
-      slotStats = AscendedItem[slot];
+      slotStats = ascendedStats[slot];
       break;
     case 'Exotic':
-      slotStats = ExoticItem[slot];
+      slotStats = exoticStats[slot];
       break;
   }
 
   // find out affix type
-  const affixType = Affix[affix].type;
+  const affixType = allAffixData[affix].type;
 
   return slotStats[affixType];
 }
@@ -75,7 +75,7 @@ SLOTS_MAPPING.forEach((slot) => {
 
   output += '\n\t\tAffix::None => {},';
   // match affixes now
-  Object.keys(Affix).forEach((affix) => {
+  Object.keys(allAffixData).forEach((affix) => {
     output += `\n\t\tAffix::${affix} => match rarity {`;
 
     // match rarity now
@@ -83,13 +83,13 @@ SLOTS_MAPPING.forEach((slot) => {
       output += `\n\t\t\tRarity::${rarity.rust} => {`;
       // add stats here
       const stats = findStats(slot.js, affix, rarity.rust);
-      Affix[affix].bonuses.major.forEach((bonus) => {
+      allAffixData[affix].bonuses.major.forEach((bonus) => {
         output += `\n\t\t\t\tstats.add_attribute_value(&${getRustAttribute(bonus)}, ${
           stats.major
         });`;
       });
 
-      Affix[affix].bonuses.minor.forEach((bonus) => {
+      allAffixData[affix].bonuses.minor.forEach((bonus) => {
         output += `\n\t\t\t\tstats.add_attribute_value(&${getRustAttribute(bonus)}, ${
           stats.minor
         });`;

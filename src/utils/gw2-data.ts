@@ -66,7 +66,7 @@ export interface AffixData {
     jewelMinor?: (PrimaryAttributeName | SecondaryAttributeName)[];
   };
 }
-export const Affix: Record<AffixName, AffixData> = {
+export const allAffixData: Record<AffixName, AffixData> = {
   Custom: {
     type: 'triple',
     category: 'Custom',
@@ -415,7 +415,7 @@ export const Affix: Record<AffixName, AffixData> = {
   },
 };
 
-export const ExoticItem = {
+export const exoticStats = {
   HELM: {
     triple: {
       major: 60,
@@ -658,7 +658,7 @@ export const ExoticItem = {
   },
 };
 
-export const AscendedItem = {
+export const ascendedStats = {
   HELM: {
     triple: {
       major: 63,
@@ -901,9 +901,9 @@ export const AscendedItem = {
   },
 };
 
-export type ItemSlot = keyof typeof AscendedItem;
+export type ItemSlot = keyof typeof ascendedStats;
 
-export const WeaponTypes = {
+export const weaponTypes = {
   dualWield: 'Dual wield',
   twoHanded: 'Two-handed',
 } as const;
@@ -913,166 +913,166 @@ export const Slots = {
     {
       name: 'Helm',
       short: 'Helm',
-      asc: AscendedItem.HELM,
-      exo: ExoticItem.HELM,
+      asc: ascendedStats.HELM,
+      exo: exoticStats.HELM,
     },
     {
       name: 'Shoulders',
       short: 'Shld',
-      asc: AscendedItem.SHOULDERS,
-      exo: ExoticItem.SHOULDERS,
+      asc: ascendedStats.SHOULDERS,
+      exo: exoticStats.SHOULDERS,
     },
     {
       name: 'Coat',
       short: 'Coat',
-      asc: AscendedItem.CHEST,
-      exo: ExoticItem.CHEST,
+      asc: ascendedStats.CHEST,
+      exo: exoticStats.CHEST,
     },
     {
       name: 'Gloves',
       short: 'Glov',
-      asc: AscendedItem.GLOVES,
-      exo: ExoticItem.GLOVES,
+      asc: ascendedStats.GLOVES,
+      exo: exoticStats.GLOVES,
     },
     {
       name: 'Leggings',
       short: 'Legs',
-      asc: AscendedItem.LEGGINGS,
-      exo: ExoticItem.LEGGINGS,
+      asc: ascendedStats.LEGGINGS,
+      exo: exoticStats.LEGGINGS,
     },
     {
       name: 'Boots',
       short: 'Boot',
-      asc: AscendedItem.BOOTS,
-      exo: ExoticItem.BOOTS,
+      asc: ascendedStats.BOOTS,
+      exo: exoticStats.BOOTS,
     },
     {
       name: 'Amulet',
       short: 'Amul',
-      asc: AscendedItem.AMULET,
-      exo: ExoticItem.AMULET,
+      asc: ascendedStats.AMULET,
+      exo: exoticStats.AMULET,
     },
     {
       name: 'Ring 1',
       short: 'Rng1',
-      asc: AscendedItem.RING,
-      exo: ExoticItem.RING,
+      asc: ascendedStats.RING,
+      exo: exoticStats.RING,
     },
     {
       name: 'Ring 2',
       short: 'Rng2',
-      asc: AscendedItem.RING,
-      exo: ExoticItem.RING,
+      asc: ascendedStats.RING,
+      exo: exoticStats.RING,
     },
     {
       name: 'Accessory 1',
       short: 'Acc1',
-      asc: AscendedItem.ACCESSORY,
-      exo: ExoticItem.ACCESSORY,
+      asc: ascendedStats.ACCESSORY,
+      exo: exoticStats.ACCESSORY,
     },
     {
       name: 'Accessory 2',
       short: 'Acc2',
-      asc: AscendedItem.ACCESSORY,
-      exo: ExoticItem.ACCESSORY,
+      asc: ascendedStats.ACCESSORY,
+      exo: exoticStats.ACCESSORY,
     },
     {
       name: 'Back Item',
       short: 'Back',
-      asc: AscendedItem.BACK_ITEM,
-      exo: ExoticItem.BACK_ITEM,
+      asc: ascendedStats.BACK_ITEM,
+      exo: exoticStats.BACK_ITEM,
     },
     {
       name: 'Mainhand',
       short: 'Wep1',
-      asc: AscendedItem.ONEHANDED_WEAPON,
-      exo: ExoticItem.ONEHANDED_WEAPON,
+      asc: ascendedStats.ONEHANDED_WEAPON,
+      exo: exoticStats.ONEHANDED_WEAPON,
     },
     {
       name: 'Offhand',
       short: 'Wep2',
-      asc: AscendedItem.ONEHANDED_WEAPON,
-      exo: ExoticItem.ONEHANDED_WEAPON,
+      asc: ascendedStats.ONEHANDED_WEAPON,
+      exo: exoticStats.ONEHANDED_WEAPON,
     },
   ],
   'Two-handed': [
     {
       name: 'Helm',
       short: 'Helm',
-      asc: AscendedItem.HELM,
-      exo: ExoticItem.HELM,
+      asc: ascendedStats.HELM,
+      exo: exoticStats.HELM,
     },
     {
       name: 'Shoulders',
       short: 'Shld',
-      asc: AscendedItem.SHOULDERS,
-      exo: ExoticItem.SHOULDERS,
+      asc: ascendedStats.SHOULDERS,
+      exo: exoticStats.SHOULDERS,
     },
     {
       name: 'Coat',
       short: 'Coat',
-      asc: AscendedItem.CHEST,
-      exo: ExoticItem.CHEST,
+      asc: ascendedStats.CHEST,
+      exo: exoticStats.CHEST,
     },
     {
       name: 'Gloves',
       short: 'Glov',
-      asc: AscendedItem.GLOVES,
-      exo: ExoticItem.GLOVES,
+      asc: ascendedStats.GLOVES,
+      exo: exoticStats.GLOVES,
     },
     {
       name: 'Leggings',
       short: 'Legs',
-      asc: AscendedItem.LEGGINGS,
-      exo: ExoticItem.LEGGINGS,
+      asc: ascendedStats.LEGGINGS,
+      exo: exoticStats.LEGGINGS,
     },
     {
       name: 'Boots',
       short: 'Boot',
-      asc: AscendedItem.BOOTS,
-      exo: ExoticItem.BOOTS,
+      asc: ascendedStats.BOOTS,
+      exo: exoticStats.BOOTS,
     },
     {
       name: 'Amulet',
       short: 'Amul',
-      asc: AscendedItem.AMULET,
-      exo: ExoticItem.AMULET,
+      asc: ascendedStats.AMULET,
+      exo: exoticStats.AMULET,
     },
     {
       name: 'Ring 1',
       short: 'Rng1',
-      asc: AscendedItem.RING,
-      exo: ExoticItem.RING,
+      asc: ascendedStats.RING,
+      exo: exoticStats.RING,
     },
     {
       name: 'Ring 2',
       short: 'Rng2',
-      asc: AscendedItem.RING,
-      exo: ExoticItem.RING,
+      asc: ascendedStats.RING,
+      exo: exoticStats.RING,
     },
     {
       name: 'Accessory 1',
       short: 'Acc1',
-      asc: AscendedItem.ACCESSORY,
-      exo: ExoticItem.ACCESSORY,
+      asc: ascendedStats.ACCESSORY,
+      exo: exoticStats.ACCESSORY,
     },
     {
       name: 'Accessory 2',
       short: 'Acc2',
-      asc: AscendedItem.ACCESSORY,
-      exo: ExoticItem.ACCESSORY,
+      asc: ascendedStats.ACCESSORY,
+      exo: exoticStats.ACCESSORY,
     },
     {
       name: 'Back Item',
       short: 'Back',
-      asc: AscendedItem.BACK_ITEM,
-      exo: ExoticItem.BACK_ITEM,
+      asc: ascendedStats.BACK_ITEM,
+      exo: exoticStats.BACK_ITEM,
     },
     {
       name: 'Weapon',
       short: 'Weap',
-      asc: AscendedItem.TWOHANDED_WEAPON,
-      exo: ExoticItem.TWOHANDED_WEAPON,
+      asc: ascendedStats.TWOHANDED_WEAPON,
+      exo: exoticStats.TWOHANDED_WEAPON,
     },
   ],
 };

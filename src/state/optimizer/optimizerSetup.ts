@@ -32,7 +32,7 @@ import {
   Slots,
   conditionData,
   damagingConditions,
-  Affix as unmodifiedAffix,
+  allAffixData as rawAffixData,
 } from '../../utils/gw2-data';
 import {
   enumArrayIncludes,
@@ -244,7 +244,7 @@ export function createSettingsPerCalculation(
 
   const specialization = getCurrentSpecialization(reduxState);
 
-  const customAffixData: Omit<typeof unmodifiedAffix.Custom, 'category'> =
+  const customAffixData: Omit<typeof rawAffixData.Custom, 'category'> =
     getCustomAffixData(reduxState);
 
   // display extras in table if they have multiple options
@@ -360,9 +360,9 @@ export function createSettingsPerCalculation(
 
   /* Equipment */
 
-  const Affix: typeof unmodifiedAffix = {
-    ...unmodifiedAffix,
-    Custom: { ...unmodifiedAffix.Custom, ...customAffixData },
+  const allAffixData: typeof rawAffixData = {
+    ...rawAffixData,
+    Custom: { ...rawAffixData.Custom, ...customAffixData },
   };
 
   const slotData = Slots[weaponType];
@@ -453,9 +453,9 @@ export function createSettingsPerCalculation(
         const item = exotics?.[affix]?.[slotindex]
           ? slotData[slotindex].exo
           : slotData[slotindex].asc;
-        const bonuses = objectEntries(item[Affix[affix].type]);
+        const bonuses = objectEntries(item[allAffixData[affix].type]);
         for (const [type, bonus] of bonuses) {
-          const affixData = Affix[affix];
+          const affixData = allAffixData[affix];
           const affixBonuses = isWvW
             ? (affixData.wvwBonuses ?? affixData.bonuses)
             : affixData.bonuses;
@@ -484,9 +484,9 @@ export function createSettingsPerCalculation(
         const item = exotics?.[affix]?.[slotindex]
           ? slotData[slotindex].exo
           : slotData[slotindex].asc;
-        const bonuses = objectEntries(item[Affix[affix].type]);
+        const bonuses = objectEntries(item[allAffixData[affix].type]);
         for (const [type, bonus] of bonuses) {
-          const affixData = Affix[affix];
+          const affixData = allAffixData[affix];
           const affixBonuses = isWvW
             ? (affixData.wvwBonuses ?? affixData.bonuses)
             : affixData.bonuses;

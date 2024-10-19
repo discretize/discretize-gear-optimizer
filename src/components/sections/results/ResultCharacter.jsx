@@ -5,7 +5,7 @@ import {
   Classes,
   INFUSION_IDS,
   MAX_INFUSIONS,
-  WeaponTypes,
+  weaponTypes,
   getWeight,
 } from '../../../utils/gw2-data';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
@@ -100,7 +100,7 @@ export default function ResultCharacter({
         weapon2MainInfusion2Id: isExotic(13) ? null : infusions[17],
       };
     }
-  } else if (weaponType === WeaponTypes.dualWield) {
+  } else if (weaponType === weaponTypes.dualWield) {
     wea1 = classData.mainHand.find((item) => item.type === 'one-handed');
     [wea2] = classData.offHand;
 

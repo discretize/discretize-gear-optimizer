@@ -16,7 +16,7 @@ import {
   getExclusionData,
   getWeaponType,
 } from '../../../state/slices/priorities';
-import { GEAR_SLOTS, WeaponTypes } from '../../../utils/gw2-data';
+import { GEAR_SLOTS, weaponTypes } from '../../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({
   tableCollapse: {
@@ -33,12 +33,12 @@ const ExcludedSlots = () => {
 
   const dispatch = useDispatch();
   const forcedSlots = useSelector(getForcedSlots);
-  const dualWielded = useSelector(getWeaponType);
+  const weaponType = useSelector(getWeaponType);
   const affixes = useSelector(getAffixes);
   const exclusions = useSelector(getExclusionData);
 
   let SLOTS = GEAR_SLOTS;
-  if (dualWielded !== WeaponTypes.dualWield) {
+  if (weaponType !== weaponTypes.dualWield) {
     SLOTS = GEAR_SLOTS.slice(0, 13);
   }
 

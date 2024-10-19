@@ -5,7 +5,7 @@ import type {
   WeaponHandednessType,
 } from '../../utils/gw2-data';
 import {
-  Affix,
+  allAffixData,
   AlternativeAttributes,
   BoonDurationAttributes,
   ConditionCoefficientAttributes,
@@ -23,7 +23,7 @@ import {
   ProfessionAttributes,
   SecondaryAttributes,
   SiphonAttributes,
-  WeaponTypes,
+  weaponTypes,
   damagingConditions,
 } from '../../utils/gw2-data';
 import { objectKeys } from '../../utils/usefulFunctions';
@@ -52,7 +52,7 @@ const attributes: AttributeName[] = [
 ] as const;
 
 export const getAffixId = (affix: AffixName) => {
-  const index = objectKeys(Affix).indexOf(affix);
+  const index = objectKeys(allAffixData).indexOf(affix);
   if (index === -1) {
     throw new Error(`Affix ${affix} not found`);
   }
@@ -70,7 +70,7 @@ export const getAttributeId = (attribute: AttributeName) => {
   return index;
 };
 export const getWeaponTypeId = (weaponType: WeaponHandednessType) =>
-  Object.values(WeaponTypes).indexOf(weaponType);
+  Object.values(weaponTypes).indexOf(weaponType);
 export const getConditionId = (condition: string) =>
   Object.values(damagingConditions).indexOf(condition as DamagingConditionName);
 
@@ -80,7 +80,7 @@ export const getAttributeName = (attributeId: number) => {
 };
 
 export const getAffixName = (affixId: number) => {
-  return Object.keys(Affix)[affixId];
+  return Object.keys(allAffixData)[affixId];
 };
 
 export function settingsToWorkerString(settings: CalculationSettings): string {
