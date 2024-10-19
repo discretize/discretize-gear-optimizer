@@ -24,7 +24,7 @@ import {
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
-import type { AffixName, ForcedSlotName } from '../../utils/gw2-data';
+import type { AffixName, AttributeName, ForcedSlotName } from '../../utils/gw2-data';
 import {
   Classes,
   ForcedSlots,
@@ -71,7 +71,6 @@ import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { getGameMode } from '../slices/userSettings';
 import type { RootState } from '../store';
 import type {
-  AttributeName,
   OptimizerCoreSettings,
   OptimizerCoreSettingsPerCalculation,
   OptimizerCoreSettingsPerCombination,
@@ -606,14 +605,16 @@ export function createSettingsPerCombination(
   }
 
   // temp: convert "poisoned" to "poison"
-  const convertPoison = (dist: Record<DistributionNameUI, number>) =>
+  const convertPoison = (
+    dist: Record<DistributionNameUI, number>,
+  ): Record<DistributionNameInternal, number> =>
     mapEntries(dist, ([key, value]) => [key === 'Poisoned' ? 'Poison' : key, value]);
 
   const distribution = convertPoison(unmodifiedDistribution);
 
   /* Base Attributes */
 
-  const settings_baseAttributes: OptimizerCoreSettings['baseAttributes'] = {
+  const settings_baseAttributes = {
     'Power': 1000,
     'Precision': 1000,
     'Toughness': 1000,
@@ -633,7 +634,7 @@ export function createSettingsPerCombination(
     'Boon Duration': 0,
     'Health': Classes[profession].health,
     'Armor': Classes[profession].defense,
-  };
+  } as OptimizerCoreSettings['baseAttributes'];
 
   if (profession === 'Mesmer') {
     settings_baseAttributes['Clone Critical Chance'] = 0.05;

@@ -8,6 +8,8 @@ import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
 import type {
   AffixName,
   AffixNameOrCustom,
+  AttributeName,
+  ConditionCoefficientAttributeName,
   ConditionName,
   DamagingConditionName,
   DerivedAttributeName,
@@ -18,8 +20,14 @@ import type {
   SecondaryAttributeName,
   WeaponHandednessType,
 } from '../../utils/gw2-data';
-import { Attributes, INFUSION_BONUS, conditionData, conditionDataWvW } from '../../utils/gw2-data';
-import { enumArrayIncludes, objectKeys } from '../../utils/usefulFunctions';
+import {
+  INFUSION_BONUS,
+  Indicators,
+  conditionData,
+  conditionDataWvW,
+  damagingConditions,
+} from '../../utils/gw2-data';
+import { enumArrayIncludes, objectEntries, objectKeys } from '../../utils/usefulFunctions';
 import type { ExtrasCombination, ShouldDisplayExtras } from '../slices/extras';
 import type { GameMode } from '../slices/userSettings';
 import { iteratePartitions } from './combinatorics';
@@ -159,10 +167,16 @@ export interface OptimizerCoreSettingsPerCalculation {
 }
 
 export type Attributes = Record<
-  PrimaryAttributeName | SecondaryAttributeName | DerivedAttributeName,
+  | PrimaryAttributeName
+  | SecondaryAttributeName
+  | DerivedAttributeName
+  | 'Power Coefficient'
+  | 'Power2 Coefficient'
+  | ConditionCoefficientAttributeName
+  | 'Flat DPS',
   number
 > &
-  Record<string, number>;
+  Partial<Record<AttributeName, number>>;
 
 // settings that **do** vary based on extras combination
 export interface OptimizerCoreSettingsPerCombination {
@@ -194,7 +208,7 @@ export type OptimizerCoreMinimalSettings = Pick<
   | 'gameMode'
 >;
 export type Gear = AffixName[];
-export type GearStats = Record<AttributeName, number>;
+export type GearStats = Partial<Record<AttributeName, number>>;
 interface CoefficientHelperValue {
   slope: number;
   intercept: number;
@@ -224,10 +238,11 @@ export interface CharacterUnprocessed {
   results?: Results;
 }
 export interface Character extends CharacterUnprocessed {
-  attributes: Attributes;
+  // note: this is not actually accurate
+  // (we convince typescript every attribute is defined via a type predicate in calcStats)
+  // TODO: improve this
+  attributes: Required<Attributes>;
 }
-
-export type AttributeName = string; // TODO: replace with AttributeName from gw2-data
 
 export type CalculateGenerator = ReturnType<OptimizerCore['calculate']>;
 
@@ -462,8 +477,8 @@ export class OptimizerCore {
           gearStats[stat] = (gearStats[stat] ?? 0) + value * num;
         }),
       );
-      Object.keys(gearStats).forEach((key) => {
-        gearStats[key] /= split;
+      objectKeys(gearStats).forEach((key) => {
+        gearStats[key]! /= split;
       });
 
       const percentages = `Estimate: ${partition
@@ -502,10 +517,10 @@ export class OptimizerCore {
     };
 
     // apply gear and infusions
-    for (const [stat, value] of Object.entries(gearStats)) {
+    for (const [stat, value] of objectEntries(gearStats)) {
       character.baseAttributes[stat] += value;
     }
-    for (const [stat, count] of Object.entries(infusions)) {
+    for (const [stat, count] of objectEntries(infusions)) {
       character.baseAttributes[stat] += count * INFUSION_BONUS;
     }
 
@@ -685,7 +700,7 @@ export class OptimizerCore {
     this.calcStats(character, modifiers, noRounding);
 
     const powerDamageScore = this.calcPower(character, damageMultiplier);
-    const condiDamageScore = this.calcCondi(character, damageMultiplier, Attributes.CONDITION);
+    const condiDamageScore = this.calcCondi(character, damageMultiplier, damagingConditions);
     character.attributes['Damage'] =
       powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
 
@@ -790,9 +805,9 @@ export class OptimizerCore {
 
     if (settings.profession === 'Mesmer') {
       // mesmer illusions: special bonuses are INSTEAD OF player attributes
-      attributes['Clone Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
-      attributes['Phantasm Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
-      attributes['Phantasm Critical Damage'] += attributes['Ferocity'] / 15 / 100;
+      attributes['Clone Critical Chance']! += (attributes['Precision'] - 1000) / 21 / 100;
+      attributes['Phantasm Critical Chance']! += (attributes['Precision'] - 1000) / 21 / 100;
+      attributes['Phantasm Critical Damage']! += attributes['Ferocity'] / 15 / 100;
     } else if (attributes['Power2 Coefficient']) {
       // necromancer shroud: special bonuses are IN ADDITION TO player attributes
       attributes['Alternative Power'] =
@@ -901,13 +916,13 @@ export class OptimizerCore {
     if (attributes['Power2 Coefficient']) {
       if (settings.profession === 'Mesmer') {
         // mesmer illusions: special bonuses are INSTEAD OF player attributes
-        attributes['Phantasm Critical Damage'] *=
+        attributes['Phantasm Critical Damage']! *=
           damageMultiplier['Outgoing Phantasm Critical Damage'];
-        const phantasmCritChance = clamp(attributes['Phantasm Critical Chance'], 0, 1);
+        const phantasmCritChance = clamp(attributes['Phantasm Critical Chance']!, 0, 1);
 
         attributes['Phantasm Effective Power'] =
           attributes['Power'] *
-          (1 + phantasmCritChance * (attributes['Phantasm Critical Damage'] - 1));
+          (1 + phantasmCritChance * (attributes['Phantasm Critical Damage']! - 1));
 
         const phantasmPowerDamage =
           ((attributes['Power2 Coefficient'] || 0) / 2597) *
@@ -1035,7 +1050,7 @@ export class OptimizerCore {
     const value = character.attributes[settings.rankby];
 
     const indicators = {} as Record<IndicatorName, number>;
-    for (const attribute of Attributes.INDICATORS) {
+    for (const attribute of Indicators) {
       indicators[attribute] = attributes[attribute];
     }
 
@@ -1164,7 +1179,7 @@ export class OptimizerCore {
 export function characterLT(
   a: Character | undefined,
   b: Character | undefined,
-  rankby: string,
+  rankby: IndicatorName,
 ): number {
   if (!a && !b) return 0;
   if (!a) return 1;
