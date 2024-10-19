@@ -1,7 +1,7 @@
+import { globals } from '@discretize/globals';
 import '@discretize/gw2-ui-new/dist/default_style.css';
 import '@discretize/gw2-ui-new/dist/index.css';
 import '@discretize/react-discretize-components/dist/index.css';
-import { globals } from '@discretize/globals';
 import { Global } from '@emotion/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import React from 'react';

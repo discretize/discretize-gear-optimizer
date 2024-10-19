@@ -1,6 +1,6 @@
 import type { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import type { RootState } from '../../store';
-import type { CombinationSettings, CalculationSettings } from '../optimizerSetup';
+import type { CalculationSettings, CombinationSettings } from '../optimizerSetup';
 
 // All messages exchanged between the main thread and the worker threads are typed here
 

@@ -9,8 +9,8 @@ import { isFirefox } from '../optimizer/detectFirefox';
 import type { Character } from '../optimizer/optimizerCore';
 import type { OptimizerStatus } from '../optimizer/status';
 import { RUNNING, RUNNING_HEURISTICS, WAITING } from '../optimizer/status';
-import type { RootState } from '../store';
 import { reduxSideEffect } from '../redux-hooks';
+import type { RootState } from '../store';
 
 const roundThree = (num: number) => Math.round(num * 1000) / 1000;
 
