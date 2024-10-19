@@ -1,4 +1,5 @@
 import type {
+  CreditData,
   PresetAffixes,
   PresetBuffs,
   PresetDistribution,
@@ -7,6 +8,8 @@ import type {
   PresetTraits,
   Templates,
 } from '../assets/presetdata/metadata';
+
+import creditData from '../assets/presetdata/credit.yaml';
 import presetAffixes from '../assets/presetdata/preset-affixes.yaml';
 import presetBuffs from '../assets/presetdata/preset-buffs.yaml';
 import presetDistribution from '../assets/presetdata/preset-distribution.yaml';
@@ -23,6 +26,7 @@ export interface PresetData {
   presetExtras: PresetExtras;
   presetInfusions: PresetInfusions;
   presetTraits: PresetTraits;
+  creditData: CreditData;
 }
 
 export default {
@@ -33,4 +37,5 @@ export default {
   presetExtras,
   presetInfusions,
   presetTraits,
+  creditData,
 } as PresetData;
