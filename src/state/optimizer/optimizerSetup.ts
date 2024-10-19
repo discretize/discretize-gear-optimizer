@@ -27,7 +27,7 @@ import {
 import type { AffixName, AttributeName, ForcedSlotName } from '../../utils/gw2-data';
 import {
   allSlotData,
-  Classes,
+  allProfessionData,
   conditionData,
   damagingConditions,
   forcedSlotNames,
@@ -633,8 +633,8 @@ export function createSettingsPerCombination(
     'Condition Duration': 0,
     'Condition Duration Uncapped': 0,
     'Boon Duration': 0,
-    'Health': Classes[profession].health,
-    'Armor': Classes[profession].defense,
+    'Health': allProfessionData[profession].health,
+    'Armor': allProfessionData[profession].defense,
   } as OptimizerCoreSettings['baseAttributes'];
 
   if (profession === 'Mesmer') {

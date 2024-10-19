@@ -1114,13 +1114,13 @@ export const omnipotionModifiers = {
   },
 };
 
-export const Health = {
+const healthValues = {
   LOW: 1645,
   MEDIUM: 5922,
   HIGH: 9212,
 };
 
-export const Defense = {
+const defenseValues = {
   LIGHT: 967,
   MEDIUM: 1118,
   HEAVY: 1271,
@@ -1149,10 +1149,10 @@ export const WEAPONS = {
 };
 export type WeaponType = keyof typeof WEAPONS;
 
-export const Classes = {
+export const allProfessionData = {
   Warrior: {
-    health: Health.HIGH,
-    defense: Defense.HEAVY,
+    health: healthValues.HIGH,
+    defense: defenseValues.HEAVY,
     weapons: {
       mainHand: [
         WEAPONS.AXE,
@@ -1178,8 +1178,8 @@ export const Classes = {
     },
   },
   Necromancer: {
-    health: Health.HIGH,
-    defense: Defense.LIGHT,
+    health: healthValues.HIGH,
+    defense: defenseValues.LIGHT,
     weapons: {
       mainHand: [
         WEAPONS.AXE,
@@ -1194,8 +1194,8 @@ export const Classes = {
     },
   },
   Revenant: {
-    health: Health.MEDIUM,
-    defense: Defense.HEAVY,
+    health: healthValues.MEDIUM,
+    defense: defenseValues.HEAVY,
     weapons: {
       mainHand: [
         WEAPONS.GREATSWORD,
@@ -1210,8 +1210,8 @@ export const Classes = {
     },
   },
   Engineer: {
-    health: Health.MEDIUM,
-    defense: Defense.MEDIUM,
+    health: healthValues.MEDIUM,
+    defense: defenseValues.MEDIUM,
     weapons: {
       mainHand: [
         WEAPONS.MACE,
@@ -1225,8 +1225,8 @@ export const Classes = {
     },
   },
   Ranger: {
-    health: Health.MEDIUM,
-    defense: Defense.MEDIUM,
+    health: healthValues.MEDIUM,
+    defense: defenseValues.MEDIUM,
     weapons: {
       mainHand: [
         WEAPONS.AXE,
@@ -1243,8 +1243,8 @@ export const Classes = {
     },
   },
   Mesmer: {
-    health: Health.MEDIUM,
-    defense: Defense.LIGHT,
+    health: healthValues.MEDIUM,
+    defense: defenseValues.LIGHT,
     weapons: {
       mainHand: [
         WEAPONS.AXE,
@@ -1259,8 +1259,8 @@ export const Classes = {
     },
   },
   Guardian: {
-    health: Health.LOW,
-    defense: Defense.HEAVY,
+    health: healthValues.LOW,
+    defense: defenseValues.HEAVY,
     weapons: {
       mainHand: [
         WEAPONS.AXE,
@@ -1277,8 +1277,8 @@ export const Classes = {
     },
   },
   Thief: {
-    health: Health.LOW,
-    defense: Defense.MEDIUM,
+    health: healthValues.LOW,
+    defense: defenseValues.MEDIUM,
     weapons: {
       mainHand: [
         WEAPONS.DAGGER,
@@ -1294,8 +1294,8 @@ export const Classes = {
     },
   },
   Elementalist: {
-    health: Health.LOW,
-    defense: Defense.LIGHT,
+    health: healthValues.LOW,
+    defense: defenseValues.LIGHT,
     weapons: {
       mainHand: [
         WEAPONS.DAGGER,
@@ -1309,7 +1309,7 @@ export const Classes = {
     },
   },
 };
-export type ProfessionName = keyof typeof Classes;
+export type ProfessionName = keyof typeof allProfessionData;
 
 function firstUppercase(text: string | undefined | null): string {
   if (typeof text === 'undefined' || text === null || text === '') return '';
@@ -1320,11 +1320,11 @@ function firstUppercase(text: string | undefined | null): string {
 
 export const getWeight = (profession: ProfessionName) => {
   // Calculate weight class
-  const { defense } = Classes[firstUppercase(profession) as ProfessionName];
-  if (defense === Defense.HEAVY) {
+  const { defense } = allProfessionData[firstUppercase(profession) as ProfessionName];
+  if (defense === defenseValues.HEAVY) {
     return 'Heavy';
   }
-  if (defense === Defense.MEDIUM) {
+  if (defense === defenseValues.MEDIUM) {
     return 'Medium';
   }
   return 'Light';

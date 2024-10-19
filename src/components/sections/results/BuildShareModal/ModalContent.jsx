@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { changeWeapon, getSkills, getWeapons } from '../../../../state/slices/buildPage';
-import { Classes, WEAPONS } from '../../../../utils/gw2-data';
+import { allProfessionData, WEAPONS } from '../../../../utils/gw2-data';
 import SkillSelect from './SkillSelect';
 
 const useStyles = makeStyles()((theme) => ({
@@ -41,7 +41,7 @@ export default function ModalContent({ character, buttons }) {
   const [buttonState, setButtonState] = React.useState(new Array(buttons.length));
 
   const { profession } = character.settings;
-  const { weapons: useableWeapons } = Classes[profession];
+  const { weapons: useableWeapons } = allProfessionData[profession];
 
   const handleChangeWeapon = (e) => {
     if (

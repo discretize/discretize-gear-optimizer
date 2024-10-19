@@ -2,7 +2,7 @@ import { Character, firstUppercase } from '@discretize/react-discretize-componen
 import { FormControlLabel, Switch } from '@mui/material';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import {
-  Classes,
+  allProfessionData,
   INFUSION_IDS,
   MAX_INFUSIONS,
   weaponTypes,
@@ -23,7 +23,7 @@ export default function ResultCharacter({
   const { profession, specialization, weaponType, cachedFormState, extrasCombination } =
     character.settings;
 
-  const classData = Classes[profession].weapons;
+  const classData = allProfessionData[profession].weapons;
 
   // Calculate weight class
   const weight = getWeight(profession);
