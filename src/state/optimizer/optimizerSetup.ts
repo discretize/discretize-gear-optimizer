@@ -262,7 +262,7 @@ export function createSettingsPerCalculation(
   };
 
   const profession = getProfession(reduxState);
-  const infusionOptions = getValidInfusionOptions(reduxState);
+  const rawInfusionOptions = getValidInfusionOptions(reduxState);
   const maxInfusionsText = getMaxInfusions(reduxState);
   const forcedSlots = getForcedSlots(reduxState);
   const exclusions = getExclusionData(reduxState);
@@ -300,7 +300,7 @@ export function createSettingsPerCalculation(
   //   affix.toLowerCase().replace(/^\w/, (char) => char.toUpperCase()),
   // );
 
-  const maxInfusions = parseInfusionCount(maxInfusionsText).value;
+  const rawMaxInfusions = parseInfusionCount(maxInfusionsText).value;
 
   const minBoonDuration = parsePriority(minBoonDurationText).value;
   const minHealingPower = parsePriority(minHealingPowerText).value;
@@ -325,34 +325,31 @@ export function createSettingsPerCalculation(
 
   /* Infusions */
 
-  const settings_maxInfusions: OptimizerCoreSettings['maxInfusions'] = clamp(maxInfusions, 0, 18);
+  const maxInfusions: OptimizerCoreSettings['maxInfusions'] = clamp(rawMaxInfusions, 0, 18);
 
-  const settings_infusionOptions = infusionOptions.map(({ type, count }) => ({
+  const infusionOptions = rawInfusionOptions.map(({ type, count }) => ({
     type,
     count: clamp(parseInfusionCount(count).value, 0, 18),
   }));
 
-  const totalSelectedInfusions = settings_infusionOptions.reduce(
-    (prev, cur) => prev + cur.count,
-    0,
-  );
+  const totalSelectedInfusions = infusionOptions.reduce((prev, cur) => prev + cur.count, 0);
 
   // currently unimplemented setting
   const infusionNoDuplicates = false;
 
-  let settings_infusionMode: OptimizerCoreSettings['infusionMode'] = 'None';
-  switch (infusionOptions.length) {
+  let infusionMode: OptimizerCoreSettings['infusionMode'] = 'None';
+  switch (rawInfusionOptions.length) {
     case 0:
-      settings_infusionMode = 'None';
+      infusionMode = 'None';
       break;
     case 1:
-      settings_infusionMode = 'Primary';
+      infusionMode = 'Primary';
       break;
     default:
-      if (totalSelectedInfusions <= settings_maxInfusions) {
-        settings_infusionMode = 'Few';
+      if (totalSelectedInfusions <= maxInfusions) {
+        infusionMode = 'Few';
       } else {
-        settings_infusionMode = infusionNoDuplicates ? 'SecondaryNoDuplicates' : 'Secondary';
+        infusionMode = infusionNoDuplicates ? 'SecondaryNoDuplicates' : 'Secondary';
       }
   }
 
@@ -363,13 +360,12 @@ export function createSettingsPerCalculation(
     Custom: { ...unmodifiedAffix.Custom, ...customAffixData },
   };
 
-  const settings_slots = Slots[weaponType];
+  const slotData = Slots[weaponType];
+  const slots = slotData.length;
 
   // affixesArray: valid affixes for each slot, taking forced slots into account
   // e.g. [[Berserker, Assassin], [Assassin], [Berserker, Assassin]...]
-  const orderedAffixesArray: OptimizerCoreSettings['affixesArray'] = new Array(
-    settings_slots.length,
-  ).fill(affixes);
+  const orderedAffixesArray: OptimizerCoreSettings['affixesArray'] = new Array(slots).fill(affixes);
 
   orderedAffixesArray.forEach((_, index) => {
     const forcedAffix = forcedSlots[index];
@@ -418,10 +414,10 @@ export function createSettingsPerCalculation(
     return slotAffixesArraysIdentical && slotRaritiesIdentical;
   };
 
-  const settings_identicalArmor = slotSettingsIdentical(['shld', 'glov', 'boot']);
-  const settings_identicalRing = slotSettingsIdentical(['rng1', 'rng2']);
-  const settings_identicalAcc = slotSettingsIdentical(['acc1', 'acc2']);
-  const settings_identicalWep = slotSettingsIdentical(['wep1', 'wep2']);
+  const identicalArmor = slotSettingsIdentical(['shld', 'glov', 'boot']);
+  const identicalRing = slotSettingsIdentical(['rng1', 'rng2']);
+  const identicalAcc = slotSettingsIdentical(['acc1', 'acc2']);
+  const identicalWep = slotSettingsIdentical(['wep1', 'wep2']);
 
   // rearrange affixes so you don't always start with e.g. full berserker. Example:
   // [vipe sini grie] helm
@@ -430,7 +426,7 @@ export function createSettingsPerCalculation(
   // [vipe]           glov (forced to viper)
   // [grie vipe sini] legs
   // ...
-  const settings_affixesArray = orderedAffixesArray.map((affixOptions, slotindex) => {
+  const affixesArray = orderedAffixesArray.map((affixOptions, slotindex) => {
     if (affixOptions.length === 1) {
       return affixOptions;
     }
@@ -445,13 +441,13 @@ export function createSettingsPerCalculation(
   // like affixesArray, but each entry is an array of arrays of stats given by that piece with
   // that affix
   // e.g. berserker helm -> [[Power, 63],[Precision, 45],[Ferocity, 45]]
-  const settings_affixStatsArray: OptimizerCoreSettings['affixStatsArray'] =
-    settings_affixesArray.map((possibleAffixes, slotindex) =>
+  const affixStatsArray: OptimizerCoreSettings['affixStatsArray'] = affixesArray.map(
+    (possibleAffixes, slotindex) =>
       possibleAffixes.map((affix) => {
         const statTotals: Partial<Record<AttributeName, number>> = {};
         const item = exotics?.[affix]?.[slotindex]
-          ? settings_slots[slotindex].exo
-          : settings_slots[slotindex].asc;
+          ? slotData[slotindex].exo
+          : slotData[slotindex].asc;
         const bonuses = objectEntries(item[Affix[affix].type]);
         for (const [type, bonus] of bonuses) {
           const affixData = Affix[affix];
@@ -465,24 +461,24 @@ export function createSettingsPerCalculation(
 
         return objectEntries(statTotals);
       }),
-    );
+  );
 
   // for heuristics
   // like affixes, but each entry is an array of stats given by using that affix in every available slot
   // e.g. berserker with no forced affixes -> [[Power, 1381],[Precision, 961],[Ferocity, 961]]
-  let settings_jsHeuristicsData: [AttributeName, number][][] | undefined;
+  let jsHeuristicsData: [AttributeName, number][][] | undefined;
   try {
-    settings_jsHeuristicsData = affixes.map((forcedAffix) => {
+    jsHeuristicsData = affixes.map((forcedAffix) => {
       const statTotals: Partial<Record<AttributeName, number>> = {};
-      settings_affixesArray.forEach((possibleAffixes, slotindex) => {
+      affixesArray.forEach((possibleAffixes, slotindex) => {
         if (!possibleAffixes.includes(forcedAffix) && possibleAffixes.length !== 1) {
           throw new Error();
         }
         const affix = possibleAffixes.includes(forcedAffix) ? forcedAffix : possibleAffixes[0];
 
         const item = exotics?.[affix]?.[slotindex]
-          ? settings_slots[slotindex].exo
-          : settings_slots[slotindex].asc;
+          ? slotData[slotindex].exo
+          : slotData[slotindex].asc;
         const bonuses = objectEntries(item[Affix[affix].type]);
         for (const [type, bonus] of bonuses) {
           const affixData = Affix[affix];
@@ -502,17 +498,17 @@ export function createSettingsPerCalculation(
   }
 
   // used to keep the progress counter in sync when skipping identical gear combinations.
-  const settings_runsAfterThisSlot: OptimizerCoreSettings['runsAfterThisSlot'] = [];
-  for (let index = 0; index < settings_affixesArray.length; index++) {
+  const runsAfterThisSlot: OptimizerCoreSettings['runsAfterThisSlot'] = [];
+  for (let index = 0; index < affixesArray.length; index++) {
     let counter = 1;
-    for (const affixOptions of settings_affixesArray.slice(index)) {
+    for (const affixOptions of affixesArray.slice(index)) {
       counter *= affixOptions.length;
     }
 
-    settings_runsAfterThisSlot.push(counter);
+    runsAfterThisSlot.push(counter);
   }
 
-  settings_runsAfterThisSlot.push(1);
+  runsAfterThisSlot.push(1);
 
   // const freeSlots = settings.weaponType === WeaponTypes.dualWield ? 5 : 6;
   // const pairs = settings.weaponType === WeaponTypes.dualWield ? 3 : 2;
@@ -559,20 +555,20 @@ export function createSettingsPerCalculation(
     cachedFormState,
     shouldDisplayExtras,
     distribution,
-    maxInfusions: settings_maxInfusions,
-    infusionOptions: settings_infusionOptions,
-    infusionMode: settings_infusionMode,
-    slots: settings_slots.length,
-    affixesArray: settings_affixesArray,
-    identicalArmor: settings_identicalArmor,
-    identicalRing: settings_identicalRing,
-    identicalAcc: settings_identicalAcc,
-    identicalWep: settings_identicalWep,
-    affixStatsArray: settings_affixStatsArray,
-    runsAfterThisSlot: settings_runsAfterThisSlot,
+    maxInfusions,
+    infusionOptions,
+    infusionMode,
+    slots,
+    affixesArray,
+    identicalArmor,
+    identicalRing,
+    identicalAcc,
+    identicalWep,
+    affixStatsArray,
+    runsAfterThisSlot,
     gameMode,
     affixes,
-    jsHeuristicsData: settings_jsHeuristicsData,
+    jsHeuristicsData,
   };
 
   return settings;
@@ -614,7 +610,7 @@ export function createSettingsPerCombination(
 
   /* Base Attributes */
 
-  const settings_baseAttributes = {
+  const baseAttributes = {
     'Power': 1000,
     'Precision': 1000,
     'Toughness': 1000,
@@ -637,16 +633,16 @@ export function createSettingsPerCombination(
   } as OptimizerCoreSettings['baseAttributes'];
 
   if (profession === 'Mesmer') {
-    settings_baseAttributes['Clone Critical Chance'] = 0.05;
-    settings_baseAttributes['Phantasm Critical Chance'] = 0.05;
-    settings_baseAttributes['Phantasm Critical Damage'] = 1.5;
+    baseAttributes['Clone Critical Chance'] = 0.05;
+    baseAttributes['Phantasm Critical Chance'] = 0.05;
+    baseAttributes['Phantasm Critical Damage'] = 1.5;
   }
 
   for (const [key, value] of objectEntries(distribution)) {
-    settings_baseAttributes[`${key} Coefficient`] = value;
+    baseAttributes[`${key} Coefficient`] = value;
   }
 
-  settings_baseAttributes[`Flat DPS`] = 0;
+  baseAttributes[`Flat DPS`] = 0;
 
   /* Modifiers */
 
@@ -808,8 +804,7 @@ export function createSettingsPerCombination(
 
           switch (convertedOrBuff) {
             case 'converted':
-              settings_baseAttributes[attribute] =
-                (settings_baseAttributes[attribute] || 0) + scaledAmount;
+              baseAttributes[attribute] = (baseAttributes[attribute] || 0) + scaledAmount;
               break;
             case 'buff':
             case 'unknown':
@@ -825,8 +820,7 @@ export function createSettingsPerCombination(
 
         const value: number = Array.isArray(allPairs) ? allPairs[0] : allPairs;
         const scaledAmount = scaleValue(value, amountInput, amountData);
-        settings_baseAttributes[attribute] =
-          (settings_baseAttributes[attribute] || 0) + scaledAmount;
+        baseAttributes[attribute] = (baseAttributes[attribute] || 0) + scaledAmount;
       } else if (enumArrayIncludes(allAttributePercentKeys, attribute)) {
         // percent, i.e.
         //   Torment Duration: 15%
@@ -836,11 +830,10 @@ export function createSettingsPerCombination(
         // unconfirmed if +max health mods are mult but ¯\_(ツ)_/¯
         // +outgoing healing is assumed additive
         if (attribute === 'Maximum Health') {
-          settings_baseAttributes[attribute] =
-            ((settings_baseAttributes[attribute] || 0) + 1) * (1 + scaledAmount) - 1;
+          baseAttributes[attribute] =
+            ((baseAttributes[attribute] || 0) + 1) * (1 + scaledAmount) - 1;
         } else {
-          settings_baseAttributes[attribute] =
-            (settings_baseAttributes[attribute] || 0) + scaledAmount;
+          baseAttributes[attribute] = (baseAttributes[attribute] || 0) + scaledAmount;
         }
       } else {
         // eslint-disable-next-line no-alert
@@ -860,7 +853,7 @@ export function createSettingsPerCombination(
       if (!collectedModifiers['convert'][attribute]) {
         collectedModifiers['convert'][attribute] = {};
       }
-      settings_baseAttributes[attribute] ??= 0;
+      baseAttributes[attribute] ??= 0;
 
       for (const [source, percentAmount] of Object.entries(val) as [
         ConversionSourceKey,
@@ -936,23 +929,21 @@ export function createSettingsPerCombination(
 
   /* Relevant Conditions + Condi Caching Toggle */
 
-  const settings_relevantConditions: OptimizerCoreSettings['relevantConditions'] =
-    damagingConditions.filter(
-      (condition) =>
-        (settings_baseAttributes[`${condition} Coefficient`] ?? 0) > 0 ||
-        extraRelevantConditions[condition],
-    );
+  const relevantConditions: OptimizerCoreSettings['relevantConditions'] = damagingConditions.filter(
+    (condition) =>
+      (baseAttributes[`${condition} Coefficient`] ?? 0) > 0 || extraRelevantConditions[condition],
+  );
 
   // if any condition coefficnents are the result of a conversion, the same cdmg + expertise does
   // not mean the same condition dps; disable caching if so
-  const settings_disableCondiResultCache: OptimizerCoreSettings['disableCondiResultCache'] =
+  const disableCondiResultCache: OptimizerCoreSettings['disableCondiResultCache'] =
     Object.values(extraRelevantConditions).some(Boolean);
 
   const settings: OptimizerCoreSettingsPerCombination = {
-    baseAttributes: { ...settings_baseAttributes }, // object shape performance optimization
+    baseAttributes: { ...baseAttributes }, // object shape performance optimization
     modifiers,
-    relevantConditions: settings_relevantConditions,
-    disableCondiResultCache: settings_disableCondiResultCache,
+    relevantConditions,
+    disableCondiResultCache,
     appliedModifiers,
   };
 
