@@ -288,7 +288,7 @@ export const getHeuristics = (state: RootState) => state.optimizer.control.heuri
 export const defaultRustThreads = navigator.hardwareConcurrency || 4; // 4 seems to be a sensible default
 
 export const defaultJsThreads = isFirefox
-  ? 4 // to investigate: high thread count performance degradation in firefox
+  ? Math.min(defaultRustThreads, 4) // firefox's memory allocation slows with high thread count
   : defaultRustThreads;
 
 export const parseHwThreads: ParseFunction<undefined> = (text) =>
