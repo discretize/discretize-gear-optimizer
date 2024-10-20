@@ -194,6 +194,7 @@ export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &
     extrasCombination: ExtrasCombination;
   };
 
+// only supply character with settings it uses to render
 export type OptimizerCoreMinimalSettings = Pick<
   OptimizerCoreSettings,
   | 'cachedFormState'
@@ -227,7 +228,6 @@ interface Results {
 }
 export interface CharacterUnprocessed {
   id?: string;
-  settings: OptimizerCoreMinimalSettings;
   attributes?: Attributes;
   gear: Gear;
   gearStats: GearStats;
@@ -237,11 +237,14 @@ export interface CharacterUnprocessed {
   infusions: Partial<Record<InfusionName, number>>;
   results?: Results;
 }
-export interface Character extends CharacterUnprocessed {
+export interface CharacterProcessed extends CharacterUnprocessed {
   // note: this is not actually accurate
   // (we convince typescript every attribute is defined via a type predicate in calcStats)
   // TODO: improve this
   attributes: Required<Attributes>;
+}
+export interface Character extends CharacterProcessed {
+  settings: OptimizerCoreMinimalSettings;
 }
 
 export type CalculateGenerator = ReturnType<OptimizerCore['calculate']>;
@@ -250,7 +253,6 @@ export const UPDATE_MS = 90;
 
 export class OptimizerCore {
   settings: OptimizerCoreSettings;
-  minimalSettings: OptimizerCoreMinimalSettings;
   applyInfusionsFunction: (
     this: OptimizerCore,
     gear: Gear,
@@ -260,7 +262,7 @@ export class OptimizerCore {
 
   condiResultCache = new Map<number, number>();
   worstScore: number = 0;
-  list: Character[] = [];
+  list: CharacterProcessed[] = [];
   isChanged = true;
   uniqueIDCounter = 0;
   randomId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
@@ -268,19 +270,6 @@ export class OptimizerCore {
 
   constructor(settings: OptimizerCoreSettings) {
     this.settings = settings;
-    // only supply character with settings it uses to render
-    this.minimalSettings = {
-      cachedFormState: settings.cachedFormState,
-      profession: settings.profession,
-      specialization: settings.specialization,
-      weaponType: settings.weaponType,
-      appliedModifiers: settings.appliedModifiers,
-      rankby: settings.rankby,
-      shouldDisplayExtras: settings.shouldDisplayExtras,
-      extrasCombination: settings.extrasCombination,
-      modifiers: settings.modifiers,
-      gameMode: settings.gameMode,
-    };
     this.conditionData = settings.gameMode === 'wvw' ? conditionDataWvW : conditionData;
 
     let applyInfusionsFunction: OptimizerCore['applyInfusionsFunction'];
@@ -508,7 +497,6 @@ export class OptimizerCore {
     const character: CharacterUnprocessed = {
       gear, // passed by reference
       infusions, // passed by reference
-      settings: this.minimalSettings, // passed by reference
       gearStats, // passed by reference
       attributes: undefined,
       valid: true,
@@ -636,7 +624,7 @@ export class OptimizerCore {
     return temp.attributes[settings.rankby] > this.worstScore;
   }
 
-  insertCharacter(character: Character) {
+  insertCharacter(character: CharacterProcessed) {
     const { settings } = this;
 
     if (
@@ -687,7 +675,7 @@ export class OptimizerCore {
   updateAttributes(
     character: CharacterUnprocessed,
     noRounding = false,
-  ): asserts character is Character {
+  ): asserts character is CharacterProcessed {
     const { modifiers } = this.settings;
     const { damageMultiplier } = modifiers;
 
@@ -715,7 +703,7 @@ export class OptimizerCore {
   updateAttributesFast(
     character: CharacterUnprocessed,
     skipValidation = false,
-  ): asserts character is Character {
+  ): asserts character is CharacterProcessed {
     const { settings } = this;
     const { modifiers } = this.settings;
     const { damageMultiplier } = modifiers;
@@ -762,7 +750,7 @@ export class OptimizerCore {
     character: CharacterUnprocessed,
     modifiers: Modifiers,
     noRounding = false,
-  ): asserts character is Character {
+  ): asserts character is CharacterProcessed {
     const { settings } = this;
 
     const round = noRounding ? (val: number) => val : roundEven;
@@ -839,7 +827,7 @@ export class OptimizerCore {
     }
   }
 
-  checkInvalid(character: Character) {
+  checkInvalid(character: CharacterProcessed) {
     const { settings } = this;
     const { attributes } = character;
 
@@ -865,7 +853,7 @@ export class OptimizerCore {
     return invalid;
   }
 
-  checkInvalidIndicators(character: Character) {
+  checkInvalidIndicators(character: CharacterProcessed) {
     const { settings } = this;
     const { attributes } = character;
 
@@ -881,7 +869,7 @@ export class OptimizerCore {
     return invalid;
   }
 
-  calcPower(character: Character, damageMultiplier: DamageMultiplier) {
+  calcPower(character: CharacterProcessed, damageMultiplier: DamageMultiplier) {
     const { settings } = this;
     const { attributes } = character;
 
@@ -961,7 +949,7 @@ export class OptimizerCore {
     (this.conditionData[condition].factor * cdmg + this.conditionData[condition].baseDamage) * mult;
 
   calcCondi(
-    character: Character,
+    character: CharacterProcessed,
     damageMultiplier: DamageMultiplier,
     relevantConditions: readonly DamagingConditionName[],
   ) {
@@ -1007,7 +995,7 @@ export class OptimizerCore {
     return condiDamageScore;
   }
 
-  calcSurvivability(character: Character, damageMultiplier: DamageMultiplier) {
+  calcSurvivability(character: CharacterProcessed, damageMultiplier: DamageMultiplier) {
     const { attributes } = character;
 
     attributes['Effective Health'] =
@@ -1016,7 +1004,7 @@ export class OptimizerCore {
     attributes['Survivability'] = attributes['Effective Health'] / 1967;
   }
 
-  calcHealing(character: Character) {
+  calcHealing(character: CharacterProcessed) {
     const { attributes } = character;
 
     // reasonably representative skill: druid celestial avatar 4 pulse
@@ -1027,7 +1015,7 @@ export class OptimizerCore {
     attributes['Healing'] = attributes['Effective Healing'];
   }
 
-  calcResults(character: Character) {
+  calcResults(character: CharacterProcessed) {
     if (character.results) return;
 
     const { settings } = this;
@@ -1149,7 +1137,6 @@ export class OptimizerCore {
    */
   clone(character: CharacterUnprocessed): CharacterUnprocessed {
     return {
-      settings: character.settings, // passed by reference
       attributes: character.attributes, // passed by reference
       gear: character.gear, // passed by reference
       gearStats: character.gearStats, // passed by reference
@@ -1163,8 +1150,8 @@ export class OptimizerCore {
 
 // returns a positive value if B is better than A
 export function characterLT(
-  a: Character | undefined,
-  b: Character | undefined,
+  a: CharacterProcessed | undefined,
+  b: CharacterProcessed | undefined,
   rankby: IndicatorName,
 ): number {
   if (!a && !b) return 0;

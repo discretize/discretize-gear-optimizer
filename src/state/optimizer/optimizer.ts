@@ -6,7 +6,11 @@ import { defaultJsThreads } from '../slices/controlsSlice';
 import type { ExtrasType } from '../slices/extras';
 import type { RootState } from '../store';
 import { iteratePartitionCount } from './combinatorics';
-import type { Character, OptimizerCoreSettings } from './optimizerCore';
+import type {
+  Character,
+  OptimizerCoreMinimalSettings,
+  OptimizerCoreSettings,
+} from './optimizerCore';
 import { characterLT, UPDATE_MS } from './optimizerCore';
 import type { ExtrasCombinationEntry } from './optimizerSetup';
 import { setupCombinations } from './optimizerSetup';
@@ -15,6 +19,7 @@ export interface Combination extends ExtrasCombinationEntry {
   index: number;
 
   settings: OptimizerCoreSettings;
+  minimalSettings: OptimizerCoreMinimalSettings;
   done: boolean;
   list: Character[];
   calculationRuns: number;
@@ -97,6 +102,18 @@ export async function* calculate(
       ({ extrasCombinationEntry, settings }, index): Combination => ({
         ...extrasCombinationEntry,
         settings,
+        minimalSettings: {
+          cachedFormState: settings.cachedFormState,
+          profession: settings.profession,
+          specialization: settings.specialization,
+          weaponType: settings.weaponType,
+          appliedModifiers: settings.appliedModifiers,
+          rankby: settings.rankby,
+          shouldDisplayExtras: settings.shouldDisplayExtras,
+          extrasCombination: settings.extrasCombination,
+          modifiers: settings.modifiers,
+          gameMode: settings.gameMode,
+        },
         done: false,
         list: [],
         calculationRuns: 0,
@@ -151,7 +168,12 @@ export async function* calculate(
       } else {
         const { value } = result;
         if (value.newList) {
-          combination.list = value.newList;
+          const newList: Character[] = value.newList.map((character) => ({
+            ...character,
+            settings: combination.minimalSettings,
+          }));
+
+          combination.list = newList;
         }
         if (value.isChanged) {
           isChanged = true;
@@ -241,6 +263,18 @@ export async function* calculateHeuristic(
     ({ extrasCombinationEntry, settings }, index) => ({
       ...extrasCombinationEntry,
       settings,
+      minimalSettings: {
+        cachedFormState: settings.cachedFormState,
+        profession: settings.profession,
+        specialization: settings.specialization,
+        weaponType: settings.weaponType,
+        appliedModifiers: settings.appliedModifiers,
+        rankby: settings.rankby,
+        shouldDisplayExtras: settings.shouldDisplayExtras,
+        extrasCombination: settings.extrasCombination,
+        modifiers: settings.modifiers,
+        gameMode: settings.gameMode,
+      },
       done: false,
       list: [],
       calculationRuns: 0,
@@ -307,8 +341,12 @@ export async function* calculateHeuristic(
       } else {
         const { value } = result;
         if (value.newList) {
+          const newList: Character[] = value.newList.map((character) => ({
+            ...character,
+            settings: combination.minimalSettings,
+          }));
           // eslint-disable-next-line prefer-destructuring
-          combination.heuristicBestResult = value.newList[0];
+          combination.heuristicBestResult = newList[0];
         }
         if (value.isChanged) {
           isChanged = true;
