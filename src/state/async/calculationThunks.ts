@@ -2,6 +2,7 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-console */
 import { freeze } from '@reduxjs/toolkit';
+import { next, setup } from '../optimizer/optimizer';
 import type { Character } from '../optimizer/optimizerCore';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
 import type { AppThunk } from '../redux-hooks';
@@ -20,10 +21,6 @@ import {
 import { getParsedJsHeuristicsTarget } from '../slices/extras';
 
 let resume: (() => void) | undefined;
-
-const worker = new ComlinkWorker<typeof import('../optimizer/optimizer')>(
-  new URL('../optimizer/optimizer.ts', import.meta.url),
-);
 
 export const startCalc: AppThunk = async (dispatch, getState) => {
   const reduxState = getState();
@@ -54,13 +51,11 @@ export const startCalc: AppThunk = async (dispatch, getState) => {
     let elapsed = 0;
     let timer = performance.now();
 
-    await worker.setup(reduxState, jsHeuristicsEnabled, jsHeuristicsTarget, threads);
-
-    let nextPromise = worker.next();
+    await setup(reduxState, jsHeuristicsEnabled, jsHeuristicsTarget, threads);
 
     // eslint-disable-next-line no-constant-condition
     while (true) {
-      const result = await nextPromise;
+      const result = await next();
 
       const { percent, heuristicsPercent, isChanged, list, filteredLists } = result.value;
       currentPercent = percent;
@@ -85,9 +80,6 @@ export const startCalc: AppThunk = async (dispatch, getState) => {
         );
         break;
       }
-
-      // concurrency: send next request to worker thread before rendering current on main thread
-      nextPromise = worker.next();
 
       dispatch(
         updateResults({
