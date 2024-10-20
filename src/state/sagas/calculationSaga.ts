@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { freeze } from '@reduxjs/toolkit';
 import { call, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga';
+import { next, setup } from '../optimizer/optimizer';
 import type { Character } from '../optimizer/optimizerCore';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
 import type { ExtraFilterMode } from '../slices/controlsSlice';
@@ -18,10 +19,6 @@ import {
 import { getParsedJsHeuristicsTarget } from '../slices/extras';
 import type { RootState } from '../store';
 import SagaTypes from './sagaTypes';
-
-const worker = new ComlinkWorker<typeof import('../optimizer/optimizer')>(
-  new URL('../optimizer/optimizer.ts', import.meta.url),
-);
 
 function* runCalc() {
   const reduxState: RootState = yield* select();
@@ -49,13 +46,11 @@ function* runCalc() {
     let elapsed = 0;
     let timer = performance.now();
 
-    yield worker.setup(reduxState, jsHeuristicsEnabled, jsHeuristicsTarget, threads);
-
-    let nextPromise = worker.next();
+    yield setup(reduxState, jsHeuristicsEnabled, jsHeuristicsTarget, threads);
 
     while (true) {
       // eslint-disable-next-line no-loop-func
-      const result = yield* call(() => nextPromise);
+      const result = yield* call(() => next());
 
       const { percent, heuristicsPercent, isChanged, list, filteredLists } = result.value;
       currentPercent = percent;
@@ -80,9 +75,6 @@ function* runCalc() {
         );
         break;
       }
-
-      // concurrency: send next request to worker thread before rendering current on main thread
-      nextPromise = worker.next();
 
       yield* put(
         updateResults({
