@@ -1122,7 +1122,7 @@ list:
       #   weaponType: Dual wield
       #   outdated: true
 
-      - name: Alacrity Power Mech Air (No Simulation)
+      - name: Alacrity Power Mech Air
         id: mech-alac-power
         specialization: Mechanist
         boonType: Condi
@@ -1136,7 +1136,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Alacrity Power Mech Concentration (No Simulation)
+      - name: Alacrity Power Mech Conc
         id: mech-alac-power-conc
         specialization: Mechanist
         boonType: Condi

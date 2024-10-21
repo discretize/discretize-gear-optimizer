@@ -4,6 +4,7 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
 import data from '../../utils/data';
 import type { ProfessionName } from '../../utils/gw2-data';
@@ -48,6 +49,7 @@ interface NavAccordionProps {
 
 export default function NavAccordion({ handleTemplateSelect }: NavAccordionProps) {
   const { classes } = useStyles();
+  const { t } = useTranslation();
 
   const [expanded, setExpanded] = React.useState('');
 
@@ -75,7 +77,17 @@ export default function NavAccordion({ handleTemplateSelect }: NavAccordionProps
           <Box key={`templateBuildMobile_${build.name}`} sx={{ mb: 1 }}>
             <Chip
               variant="outlined"
-              label={<Profession name={build.specialization} text={build.name} disableLink />}
+              sx={build.outdated ? { opacity: 0.5 } : {}}
+              label={
+                <Profession
+                  name={build.specialization}
+                  text={
+                    // i18next-extract-mark-context-next-line {{buildTemplateName}}
+                    t('buildTemplateName', { context: build.name })
+                  }
+                  disableLink
+                />
+              }
               onClick={(e) => {
                 handleTemplateSelect(null, build.name, prof.class);
               }}
