@@ -614,7 +614,7 @@ export function createSettingsPerCombination(
 
   /* Base Attributes */
 
-  const baseAttributes = {
+  const baseAttributes: OptimizerCoreSettings['baseAttributes'] = {
     'Power': 1000,
     'Precision': 1000,
     'Toughness': 1000,
@@ -634,7 +634,110 @@ export function createSettingsPerCombination(
     'Boon Duration': 0,
     'Health': Classes[profession].health,
     'Armor': Classes[profession].defense,
-  } as OptimizerCoreSettings['baseAttributes'];
+
+    'Aegis Duration': 0,
+    'Fury Duration': 0,
+    'Might Duration': 0,
+    'Protection Duration': 0,
+    'Quickness Duration': 0,
+    'Alacrity Duration': 0,
+    'Regeneration Duration': 0,
+    'Resistance Duration': 0,
+    'Resolution Duration': 0,
+    'Stability Duration': 0,
+    'Swiftness Duration': 0,
+    'Vigor Duration': 0,
+
+    'Bleeding Duration': 0,
+    'Blind Duration': 0,
+    'Burning Duration': 0,
+    'Chilled Duration': 0,
+    'Confusion Duration': 0,
+    'Crippled Duration': 0,
+    'Fear Duration': 0,
+    'Immobile Duration': 0,
+    'Poison Duration': 0,
+    'Slow Duration': 0,
+    'Taunt Duration': 0,
+    'Torment Duration': 0,
+    'Vulnerability Duration': 0,
+    'Weakness Duration': 0,
+
+    'Bleeding Coefficient': 0,
+    'Burning Coefficient': 0,
+    'Confusion Coefficient': 0,
+    'Poison Coefficient': 0,
+    'Torment Coefficient': 0,
+
+    'Bleeding Damage Tick': 0,
+    'Burning Damage Tick': 0,
+    'Confusion Damage Tick': 0,
+    'Poison Damage Tick': 0,
+    'Torment Damage Tick': 0,
+
+    'Effective Power': 0,
+    'Effective Health': 0,
+    'Effective Healing': 0,
+
+    'Damage': 0,
+    'Survivability': 0,
+    'Healing': 0,
+
+    'Bleeding Stacks': 0,
+    'Burning Stacks': 0,
+    'Confusion Stacks': 0,
+    'Poison Stacks': 0,
+    'Torment Stacks': 0,
+
+    'Bleeding DPS': 0,
+    'Burning DPS': 0,
+    'Confusion DPS': 0,
+    'Poison DPS': 0,
+    'Torment DPS': 0,
+
+    'Alternative Power': 0,
+    'Alternative Precision': 0,
+    'Alternative Ferocity': 0,
+    'Alternative Critical Chance': 0,
+    'Alternative Effective Power': 0,
+    'Alternative Critical Damage': 0,
+
+    'Clone Critical Chance': 0,
+    'Phantasm Critical Chance': 0,
+    'Phantasm Critical Damage': 0,
+    'Phantasm Effective Power': 0,
+
+    'Siphon Coefficient': 0,
+    'Siphon Base Coefficient': 0,
+    'Siphon DPS': 0,
+
+    'Maximum Health': 0,
+    'Outgoing Healing': 0,
+    'Damage Reduction': 0,
+    'Power Coefficient': 0,
+    'NonCrit Power Coefficient': 0,
+    'Power2 DPS': 0,
+    'Power2 Coefficient': 0,
+    'Flat DPS': 0,
+    'Power DPS': 0,
+    'Player Critical Damage': 0,
+
+    'Outgoing Strike Damage': 0,
+    'Outgoing Condition Damage': 0,
+    'Outgoing Siphon Damage': 0,
+    'Incoming Strike Damage': 0,
+    'Outgoing Critical Damage': 0,
+    'Outgoing Bleeding Damage': 0,
+    'Outgoing Burning Damage': 0,
+    'Outgoing Confusion Damage': 0,
+    'Outgoing Poison Damage': 0,
+    'Outgoing Torment Damage': 0,
+    'Outgoing Alternative Damage': 0,
+    'Outgoing Alternative Critical Damage': 0,
+    'Outgoing Phantasm Damage': 0,
+    'Outgoing Phantasm Critical Damage': 0,
+    'Outgoing All Damage': 0,
+  };
 
   if (profession === 'Mesmer') {
     baseAttributes['Clone Critical Chance'] = 0.05;
