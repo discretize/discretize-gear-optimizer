@@ -214,8 +214,6 @@ export function setupCombinations(reduxState: RootState) {
   console.log('settings per calculation', settingsPerCalculation);
 
   const data = getExtrasCombinationsAndModifiers(reduxState).map((extrasCombinationEntry, i) => {
-    console.log(`combination ${i}:`, extrasCombinationEntry);
-
     const { extrasCombination, extrasModifiers } = extrasCombinationEntry;
 
     const settingsPerCombination = createSettingsPerCombination(reduxState, extrasModifiers);
@@ -228,6 +226,14 @@ export function setupCombinations(reduxState: RootState) {
       unbuffedModifiers: unbuffedSettings.modifiers,
       extrasCombination,
     };
+
+    console.log(`combination ${i}:`, {
+      settingsPerCombination,
+      unbuffedBaseAttributes: unbuffedSettings.baseAttributes,
+      unbuffedModifiers: unbuffedSettings.modifiers,
+      extrasCombination,
+      extrasModifiers,
+    });
 
     return { extrasCombinationEntry, settings };
   });
