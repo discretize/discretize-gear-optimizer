@@ -600,7 +600,7 @@ export function createSettingsPerCombination(
   const appliedModifiers = [...sharedModifiers, ...extrasModifiers];
 
   const profession = getProfession(reduxState);
-  const unmodifiedDistribution = getDistributionNew(reduxState);
+  const distribution = getDistributionNew(reduxState);
 
   const gameMode = getGameMode(reduxState);
   const isWvW = gameMode === 'wvw';
@@ -610,17 +610,9 @@ export function createSettingsPerCombination(
     throw new Error('missing profession!');
   }
 
-  // temp: convert "poisoned" to "poison"
-  const convertPoison = (
-    dist: Record<DistributionNameUI, number>,
-  ): Record<DistributionNameInternal, number> =>
-    mapEntries(dist, ([key, value]) => [key === 'Poisoned' ? 'Poison' : key, value]);
-
-  const distribution = convertPoison(unmodifiedDistribution);
-
   /* Base Attributes */
 
-  const baseAttributes = {
+  const baseAttributes: OptimizerCoreSettings['baseAttributes'] = {
     'Power': 1000,
     'Precision': 1000,
     'Toughness': 1000,
@@ -640,19 +632,23 @@ export function createSettingsPerCombination(
     'Boon Duration': 0,
     'Health': Classes[profession].health,
     'Armor': Classes[profession].defense,
-  } as OptimizerCoreSettings['baseAttributes'];
+
+    'Power Coefficient': distribution.Power,
+    'Power2 Coefficient': distribution.Power2,
+    'Burning Coefficient': distribution.Burning,
+    'Bleeding Coefficient': distribution.Bleeding,
+    'Poison Coefficient': distribution.Poisoned, // renamed
+    'Torment Coefficient': distribution.Torment,
+    'Confusion Coefficient': distribution.Confusion,
+
+    'Flat DPS': 0,
+  };
 
   if (profession === 'Mesmer') {
     baseAttributes['Clone Critical Chance'] = 0.05;
     baseAttributes['Phantasm Critical Chance'] = 0.05;
     baseAttributes['Phantasm Critical Damage'] = 1.5;
   }
-
-  for (const [key, value] of objectEntries(distribution)) {
-    baseAttributes[`${key} Coefficient`] = value;
-  }
-
-  baseAttributes[`Flat DPS`] = 0;
 
   /* Modifiers */
 

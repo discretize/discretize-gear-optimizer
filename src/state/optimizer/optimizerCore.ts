@@ -165,7 +165,7 @@ export interface OptimizerCoreSettingsPerCalculation {
   cachedFormState: CachedFormState;
 }
 
-export type Attributes = Record<
+type GuaranteedBaseAttributes = Record<
   | PrimaryAttributeName
   | SecondaryAttributeName
   | DerivedAttributeName
@@ -174,8 +174,9 @@ export type Attributes = Record<
   | ConditionCoefficientAttributeName
   | 'Flat DPS',
   number
-> &
-  Partial<Record<AttributeName, number>>;
+>;
+
+export type Attributes = GuaranteedBaseAttributes & Partial<Record<AttributeName, number>>;
 
 // settings that **do** vary based on extras combination
 export interface OptimizerCoreSettingsPerCombination {
@@ -628,9 +629,9 @@ export class OptimizerCore {
     const { settings } = this;
     const temp = this.clone(character);
 
-    settings.infusionOptions.forEach(({ type, count }) =>
-      this.addBaseStats(temp, type, count * INFUSION_BONUS),
-    );
+    settings.infusionOptions.forEach(({ type, count }) => {
+      temp.baseAttributes[type] += count * INFUSION_BONUS;
+    });
     this.updateAttributesFast(temp, true);
     return temp.attributes[settings.rankby] > this.worstScore;
   }
@@ -676,10 +677,6 @@ export class OptimizerCore {
     this.isChanged = true;
   }
 
-  addBaseStats(character: CharacterUnprocessed, stat: AttributeName, amount: number) {
-    character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
-  }
-
   /**
    * Creates an {attributes} object parameter in the given character object and fills it with
    * calculated stats and damage/healing/survivability scores.
@@ -701,7 +698,7 @@ export class OptimizerCore {
     const powerDamageScore = this.calcPower(character, damageMultiplier);
     const condiDamageScore = this.calcCondi(character, damageMultiplier, damagingConditions);
     character.attributes['Damage'] =
-      powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
+      powerDamageScore + condiDamageScore + character.attributes['Flat DPS'];
 
     this.calcSurvivability(character, damageMultiplier);
     this.calcHealing(character);
@@ -747,8 +744,7 @@ export class OptimizerCore {
         this.condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
       }
 
-      attributes['Damage'] =
-        powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
+      attributes['Damage'] = powerDamageScore + condiDamageScore + character.attributes['Flat DPS'];
     }
     if (settings.rankby === 'Healing' || settings.minHealing) {
       this.calcHealing(character);
@@ -903,7 +899,7 @@ export class OptimizerCore {
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
     let powerDamage =
-      ((attributes['Power Coefficient'] || 0) / 2597) *
+      (attributes['Power Coefficient'] / 2597) *
         attributes['Effective Power'] *
         damageMultiplier['Outgoing Strike Damage'] +
       ((attributes['NonCrit Power Coefficient'] || 0) / 2597) *
@@ -924,7 +920,7 @@ export class OptimizerCore {
           (1 + phantasmCritChance * (attributes['Phantasm Critical Damage']! - 1));
 
         const phantasmPowerDamage =
-          ((attributes['Power2 Coefficient'] || 0) / 2597) *
+          (attributes['Power2 Coefficient'] / 2597) *
           attributes['Phantasm Effective Power'] *
           damageMultiplier['Outgoing Phantasm Damage'];
         attributes['Power2 DPS'] = phantasmPowerDamage;
@@ -941,7 +937,7 @@ export class OptimizerCore {
           (1 + alternativeCritChance * (attributes['Alternative Critical Damage'] - 1));
 
         const alternativePowerDamage =
-          ((attributes['Power2 Coefficient'] || 0) / 2597) *
+          (attributes['Power2 Coefficient'] / 2597) *
           attributes['Alternative Effective Power'] *
           damageMultiplier['Outgoing Strike Damage'] *
           damageMultiplier['Outgoing Alternative Damage'];
@@ -1030,8 +1026,7 @@ export class OptimizerCore {
       (attributes['Healing Power'] * 0.3 + 390) * (1 + (attributes['Outgoing Healing'] || 0));
     if (Object.prototype.hasOwnProperty.call(settings.modifiers, 'bountiful-maintenance-oil')) {
       const bonus =
-        ((attributes['Healing Power'] || 0) * 0.6) / 10000 +
-        ((attributes['Concentration'] || 0) * 0.8) / 10000;
+        (attributes['Healing Power'] * 0.6) / 10000 + (attributes['Concentration'] * 0.8) / 10000;
       if (bonus) {
         attributes['Effective Healing'] *= 1 + bonus;
       }
