@@ -16,7 +16,6 @@ import {
   damageAttributes,
   damagingConditions,
   derivedAttributes,
-  displayOnlyAttributes,
   effectiveAttributes,
   indicatorAttributes,
   miscAttributes,
@@ -48,7 +47,6 @@ const attributes: AttributeName[] = [
   ...siphonAttributes,
   ...miscAttributes,
   ...damageAttributes,
-  ...displayOnlyAttributes,
 ] as const;
 
 export const getAffixId = (affix: AffixName) => {

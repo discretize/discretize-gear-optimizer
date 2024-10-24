@@ -100,6 +100,7 @@ pub enum Attribute {
     PhantasmCriticalChance,
     PhantasmCriticalDamage,
     PhantasmEffectivePower,
+    // siphon
     SiphonCoefficient,
     SiphonBaseCoefficient,
     SiphonDPS,
@@ -114,6 +115,7 @@ pub enum Attribute {
     Power2Coefficient,
     FlatDPS,
     PowerDPS,
+    PlayerCriticalDamage,
 
     // damage
     OutgoingStrikeDamage,
@@ -131,9 +133,6 @@ pub enum Attribute {
     OutgoingPhantasmDamage,
     OutgoingPhantasmCriticalDamage,
     OutgoingAllDamage,
-
-    // display only
-    PlayerCriticalDamage,
 
     #[default]
     None = 255,
@@ -178,11 +177,13 @@ impl Attribute {
             Attribute::Toughness => "Toughness",
             Attribute::Vitality => "Vitality",
             Attribute::Ferocity => "Ferocity",
+
             Attribute::ConditionDamage => "Condition Damage",
             Attribute::Expertise => "Expertise",
             Attribute::Concentration => "Concentration",
             Attribute::HealingPower => "Healing Power",
             Attribute::AgonyResistance => "Agony Resistance",
+
             Attribute::CriticalChance => "Critical Chance",
             Attribute::CriticalDamage => "Critical Damage",
             Attribute::ConditionDuration => "Condition Duration",
@@ -190,6 +191,7 @@ impl Attribute {
             Attribute::BoonDuration => "Boon Duration",
             Attribute::Health => "Health",
             Attribute::Armor => "Armor",
+
             Attribute::AegisDuration => "Aegis Duration",
             Attribute::FuryDuration => "Fury Duration",
             Attribute::MightDuration => "Might Duration",
@@ -202,6 +204,7 @@ impl Attribute {
             Attribute::StabilityDuration => "Stability Duration",
             Attribute::SwiftnessDuration => "Swiftness Duration",
             Attribute::VigorDuration => "Vigor Duration",
+
             Attribute::BleedingDuration => "Bleeding Duration",
             Attribute::BlindDuration => "Blind Duration",
             Attribute::BurningDuration => "Burning Duration",
@@ -216,31 +219,55 @@ impl Attribute {
             Attribute::TormentDuration => "Torment Duration",
             Attribute::VulnerabilityDuration => "Vulnerability Duration",
             Attribute::WeaknessDuration => "Weakness Duration",
+
             Attribute::BleedingCoefficient => "Bleeding Coefficient",
             Attribute::BurningCoefficient => "Burning Coefficient",
             Attribute::ConfusionCoefficient => "Confusion Coefficient",
             Attribute::PoisonCoefficient => "Poison Coefficient",
             Attribute::TormentCoefficient => "Torment Coefficient",
+
             Attribute::BleedingDamageTick => "Bleeding Damage Tick",
             Attribute::BurningDamageTick => "Burning Damage Tick",
             Attribute::ConfusionDamageTick => "Confusion Damage Tick",
             Attribute::PoisonDamageTick => "Poison Damage Tick",
             Attribute::TormentDamageTick => "Torment Damage Tick",
+
             Attribute::EffectivePower => "Effective Power",
             Attribute::EffectiveHealth => "Effective Health",
             Attribute::EffectiveHealing => "Effective Healing",
+
+            Attribute::Damage => "Damage",
+            Attribute::Survivability => "Survivability",
+            Attribute::Healing => "Healing",
+
+            Attribute::BleedingStacks => "Bleeding Stacks",
+            Attribute::BurningStacks => "Burning Stacks",
+            Attribute::ConfusionStacks => "Confusion Stacks",
+            Attribute::PoisonStacks => "Poison Stacks",
+            Attribute::TormentStacks => "Torment Stacks",
+
+            Attribute::BleedingDPS => "Bleeding DPS",
+            Attribute::BurningDPS => "Burning DPS",
+            Attribute::ConfusionDPS => "Confusion DPS",
+            Attribute::PoisonDPS => "Poison DPS",
+            Attribute::TormentDPS => "Torment DPS",
+
             Attribute::AltPower => "Alt Power",
             Attribute::AltPrecision => "Alt Precision",
             Attribute::AltFerocity => "Alt Ferocity",
             Attribute::AltCriticalChance => "Alt Critical Chance",
             Attribute::AltEffectivePower => "Alt Effective Power",
             Attribute::AltCriticalDamage => "Alt Critical Damage",
+
             Attribute::CloneCriticalChance => "Clone Critical Chance",
             Attribute::PhantasmCriticalChance => "Phantasm Critical Chance",
             Attribute::PhantasmCriticalDamage => "Phantasm Critical Damage",
+            Attribute::PhantasmEffectivePower => "Phantasm Effective Power",
+
             Attribute::SiphonCoefficient => "Siphon Coefficient",
             Attribute::SiphonBaseCoefficient => "Siphon Base Coefficient",
             Attribute::SiphonDPS => "Siphon DPS",
+
             Attribute::MaxHealth => "Max Health",
             Attribute::OutgoingHealing => "Outgoing Healing",
             Attribute::DamageReduction => "Damage Reduction",
@@ -249,22 +276,8 @@ impl Attribute {
             Attribute::Power2DPS => "Power2 DPS",
             Attribute::Power2Coefficient => "Power2 Coefficient",
             Attribute::FlatDPS => "Flat DPS",
-            Attribute::None => "None",
-            Attribute::Damage => "Damage",
-            Attribute::Survivability => "Survivability",
-            Attribute::Healing => "Healing",
             Attribute::PowerDPS => "Power DPS",
-            Attribute::BleedingStacks => "Bleeding Stacks",
-            Attribute::BurningStacks => "Burning Stacks",
-            Attribute::ConfusionStacks => "Confusion Stacks",
-            Attribute::PoisonStacks => "Poison Stacks",
-            Attribute::TormentStacks => "Torment Stacks",
-            Attribute::BleedingDPS => "Bleeding DPS",
-            Attribute::BurningDPS => "Burning DPS",
-            Attribute::ConfusionDPS => "Confusion DPS",
-            Attribute::PoisonDPS => "Poison DPS",
-            Attribute::TormentDPS => "Torment DPS",
-            Attribute::PhantasmEffectivePower => "Phantasm Effective Power",
+            Attribute::PlayerCriticalDamage => "Player Critical Damage",
 
             Attribute::OutgoingStrikeDamage => "Outgoing Strike Damage",
             Attribute::OutgoingConditionDamage => "Outgoing Condition Damage",
@@ -282,7 +295,7 @@ impl Attribute {
             Attribute::OutgoingPhantasmCriticalDamage => "Outgoing Phantasm Critical Damage",
             Attribute::OutgoingAllDamage => "Outgoing All Damage",
 
-            Attribute::PlayerCriticalDamage => "Player Critical Damage",
+            Attribute::None => "None",
         }
     }
 

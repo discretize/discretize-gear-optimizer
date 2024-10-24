@@ -1406,6 +1406,8 @@ export const damagingConditions = [
 ] as const;
 export type DamagingConditionName = (typeof damagingConditions)[number];
 
+// #region attribute types
+
 export const primaryAttributes = ['Power', 'Precision', 'Toughness', 'Vitality'] as const;
 export type PrimaryAttributeName = (typeof primaryAttributes)[number];
 
@@ -1568,9 +1570,6 @@ export const damageAttributes = [
 ] as const;
 export type DamageAttributeName = (typeof damageAttributes)[number];
 
-export const displayOnlyAttributes = ['Player Critical Damage'] as const;
-export type DisplayOnlyAttributeName = (typeof displayOnlyAttributes)[number];
-
 export type AttributeName =
   | PrimaryAttributeName
   | SecondaryAttributeName
@@ -1587,8 +1586,9 @@ export type AttributeName =
   | ProfessionAttributeName
   | SiphonAttributeName
   | MiscAttributeName
-  | DamageAttributeName
-  | DisplayOnlyAttributeName;
+  | DamageAttributeName;
+
+// #endregion
 
 export const MAX_INFUSIONS = 18;
 export const INFUSION_BONUS = 5;
