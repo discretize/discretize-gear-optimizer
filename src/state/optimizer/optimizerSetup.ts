@@ -703,7 +703,7 @@ export function createSettingsPerCombination(
   const extraRelevantConditions = Object.fromEntries(
     Object.keys(conditionData).map((condition) => [condition, false]),
   );
-  const makeConditionsRelevant = (attribute: AttributeName) => {
+  const makeConditionsRelevant = (attribute: string) => {
     const condition = attribute.replace(' Coefficient', '');
     if (extraRelevantConditions[condition] !== undefined) {
       extraRelevantConditions[condition] = true;

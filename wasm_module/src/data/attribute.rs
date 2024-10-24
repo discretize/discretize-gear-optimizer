@@ -43,19 +43,10 @@ pub enum Attribute {
     VigorDuration,
     // condition duration
     BleedingDuration,
-    BlindDuration,
     BurningDuration,
-    ChilledDuration,
     ConfusionDuration,
-    CrippledDuration,
-    FearDuration,
-    ImmobileDuration,
     PoisonDuration,
-    SlowDuration,
-    TauntDuration,
     TormentDuration,
-    VulnerabilityDuration,
-    WeaknessDuration,
     // conditions stuff
     BleedingCoefficient,
     BurningCoefficient,
@@ -108,7 +99,6 @@ pub enum Attribute {
     // misc
     MaxHealth,
     OutgoingHealing,
-    DamageReduction,
     PowerCoefficient,
     NonCritPowerCoefficient,
     Power2DPS,
@@ -116,23 +106,6 @@ pub enum Attribute {
     FlatDPS,
     PowerDPS,
     PlayerCriticalDamage,
-
-    // damage
-    OutgoingStrikeDamage,
-    OutgoingConditionDamage,
-    OutgoingSiphonDamage,
-    IncomingStrikeDamage,
-    OutgoingCriticalDamage,
-    OutgoingBleedingDamage,
-    OutgoingBurningDamage,
-    OutgoingConfusionDamage,
-    OutgoingPoisonDamage,
-    OutgoingTormentDamage,
-    OutgoingAltDamage,
-    OutgoingAltCriticalDamage,
-    OutgoingPhantasmDamage,
-    OutgoingPhantasmCriticalDamage,
-    OutgoingAllDamage,
 
     #[default]
     None = 255,
@@ -206,19 +179,10 @@ impl Attribute {
             Attribute::VigorDuration => "Vigor Duration",
 
             Attribute::BleedingDuration => "Bleeding Duration",
-            Attribute::BlindDuration => "Blind Duration",
             Attribute::BurningDuration => "Burning Duration",
-            Attribute::ChilledDuration => "Chilled Duration",
             Attribute::ConfusionDuration => "Confusion Duration",
-            Attribute::CrippledDuration => "Crippled Duration",
-            Attribute::FearDuration => "Fear Duration",
-            Attribute::ImmobileDuration => "Immobile Duration",
             Attribute::PoisonDuration => "Poison Duration",
-            Attribute::SlowDuration => "Slow Duration",
-            Attribute::TauntDuration => "Taunt Duration",
             Attribute::TormentDuration => "Torment Duration",
-            Attribute::VulnerabilityDuration => "Vulnerability Duration",
-            Attribute::WeaknessDuration => "Weakness Duration",
 
             Attribute::BleedingCoefficient => "Bleeding Coefficient",
             Attribute::BurningCoefficient => "Burning Coefficient",
@@ -270,7 +234,6 @@ impl Attribute {
 
             Attribute::MaxHealth => "Max Health",
             Attribute::OutgoingHealing => "Outgoing Healing",
-            Attribute::DamageReduction => "Damage Reduction",
             Attribute::PowerCoefficient => "Power Coefficient",
             Attribute::NonCritPowerCoefficient => "Non Crit Power Coefficient",
             Attribute::Power2DPS => "Power2 DPS",
@@ -278,22 +241,6 @@ impl Attribute {
             Attribute::FlatDPS => "Flat DPS",
             Attribute::PowerDPS => "Power DPS",
             Attribute::PlayerCriticalDamage => "Player Critical Damage",
-
-            Attribute::OutgoingStrikeDamage => "Outgoing Strike Damage",
-            Attribute::OutgoingConditionDamage => "Outgoing Condition Damage",
-            Attribute::OutgoingSiphonDamage => "Outgoing Siphon Damage",
-            Attribute::IncomingStrikeDamage => "Incoming Strike Damage",
-            Attribute::OutgoingCriticalDamage => "Outgoing Critical Damage",
-            Attribute::OutgoingBleedingDamage => "Outgoing Bleeding Damage",
-            Attribute::OutgoingBurningDamage => "Outgoing Burning Damage",
-            Attribute::OutgoingConfusionDamage => "Outgoing Confusion Damage",
-            Attribute::OutgoingPoisonDamage => "Outgoing Poison Damage",
-            Attribute::OutgoingTormentDamage => "Outgoing Torment Damage",
-            Attribute::OutgoingAltDamage => "Outgoing Alt Damage",
-            Attribute::OutgoingAltCriticalDamage => "Outgoing Alt Critical Damage",
-            Attribute::OutgoingPhantasmDamage => "Outgoing Phantasm Damage",
-            Attribute::OutgoingPhantasmCriticalDamage => "Outgoing Phantasm Critical Damage",
-            Attribute::OutgoingAllDamage => "Outgoing All Damage",
 
             Attribute::None => "None",
         }
@@ -306,4 +253,22 @@ impl fmt::Display for Attribute {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "{}", self.to_stringg())
     }
+}
+
+pub enum DamageMultiplier {
+    OutgoingStrikeDamage,
+    OutgoingConditionDamage,
+    OutgoingSiphonDamage,
+    IncomingStrikeDamage,
+    OutgoingCriticalDamage,
+    OutgoingBleedingDamage,
+    OutgoingBurningDamage,
+    OutgoingConfusionDamage,
+    OutgoingPoisonDamage,
+    OutgoingTormentDamage,
+    OutgoingAltDamage,
+    OutgoingAltCriticalDamage,
+    OutgoingPhantasmDamage,
+    OutgoingPhantasmCriticalDamage,
+    OutgoingAllDamage,
 }

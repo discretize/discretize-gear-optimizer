@@ -2,6 +2,7 @@ use crate::{
     data::{
         affix::Affix,
         attribute::Attribute,
+        attribute::DamageMultiplier,
         character::{AttributesArray, Character},
         combination::Combination,
         settings::{Condition, Settings},
@@ -429,13 +430,13 @@ pub fn calc_power(
     let mods = &combination.modifiers;
 
     let crit_dmg = attributes.get_a(Attribute::CriticalDamage)
-        * mods.get_dmg_multiplier(Attribute::OutgoingCriticalDamage);
+        * mods.get_dmg_multiplier(DamageMultiplier::OutgoingCriticalDamage);
     let crit_chance = clamp(attributes.get_a(Attribute::CriticalChance), 0.0, 1.0);
 
     // this should really just overwrite the 'Critical Damage' value, but we use
     // it for "the critical damage stat in the hero panel," which includes
     // ferocity but excludes "critical hits do more damage" modifiers
-    if mods.get_dmg_multiplier(Attribute::OutgoingCriticalDamage) != 1.0 {
+    if mods.get_dmg_multiplier(DamageMultiplier::OutgoingCriticalDamage) != 1.0 {
         attributes.set_a(Attribute::PlayerCriticalDamage, crit_dmg);
     }
 
@@ -447,10 +448,10 @@ pub fn calc_power(
     // 2597: standard enemy armor value, also used for ingame damage tooltips
     let mut power_damage = (attributes.get_a(Attribute::PowerCoefficient) / 2597.0)
         * attributes.get_a(Attribute::EffectivePower)
-        * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage)
+        * mods.get_dmg_multiplier(DamageMultiplier::OutgoingStrikeDamage)
         + (attributes.get_a(Attribute::NonCritPowerCoefficient) / 2597.0)
             * attributes.get_a(Attribute::Power)
-            * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage);
+            * mods.get_dmg_multiplier(DamageMultiplier::OutgoingStrikeDamage);
     // this is nowhere read again?
     attributes.set_a(Attribute::PowerDPS, power_damage);
 
@@ -461,7 +462,7 @@ pub fn calc_power(
             attributes.set_a(
                 Attribute::PhantasmCriticalDamage,
                 attributes.get_a(Attribute::PhantasmCriticalDamage)
-                    * mods.get_dmg_multiplier(Attribute::OutgoingPhantasmCriticalDamage),
+                    * mods.get_dmg_multiplier(DamageMultiplier::OutgoingPhantasmCriticalDamage),
             );
             let phantasm_crit_chance = clamp(
                 attributes.get_a(Attribute::PhantasmCriticalChance),
@@ -479,7 +480,7 @@ pub fn calc_power(
 
             let phantasm_power_damage = (attributes.get_a(Attribute::Power2Coefficient) / 2597.0)
                 * attributes.get_a(Attribute::PhantasmEffectivePower)
-                * mods.get_dmg_multiplier(Attribute::OutgoingPhantasmDamage);
+                * mods.get_dmg_multiplier(DamageMultiplier::OutgoingPhantasmDamage);
             attributes.set_a(Attribute::Power2DPS, phantasm_power_damage);
             power_damage += phantasm_power_damage;
         } else {
@@ -487,8 +488,8 @@ pub fn calc_power(
             attributes.set_a(
                 Attribute::AltCriticalDamage,
                 attributes.get_a(Attribute::AltCriticalDamage)
-                    * mods.get_dmg_multiplier(Attribute::OutgoingCriticalDamage)
-                    * mods.get_dmg_multiplier(Attribute::OutgoingAltCriticalDamage),
+                    * mods.get_dmg_multiplier(DamageMultiplier::OutgoingCriticalDamage)
+                    * mods.get_dmg_multiplier(DamageMultiplier::OutgoingAltCriticalDamage),
             );
             let alt_crit_chance = clamp(attributes.get_a(Attribute::AltCriticalChance), 0.0, 1.0);
 
@@ -501,8 +502,8 @@ pub fn calc_power(
 
             let alt_power_damage = (attributes.get_a(Attribute::Power2Coefficient) / 2597.0)
                 * attributes.get_a(Attribute::AltEffectivePower)
-                * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage)
-                * mods.get_dmg_multiplier(Attribute::OutgoingAltDamage);
+                * mods.get_dmg_multiplier(DamageMultiplier::OutgoingStrikeDamage)
+                * mods.get_dmg_multiplier(DamageMultiplier::OutgoingAltDamage);
             attributes.set_a(Attribute::Power2DPS, alt_power_damage);
             power_damage += alt_power_damage;
         }
@@ -512,7 +513,7 @@ pub fn calc_power(
 
     let siphon_damage = (attributes.get_a(Attribute::SiphonBaseCoefficient)
         + attributes.get_a(Attribute::SiphonCoefficient) * attributes.get_a(Attribute::Power))
-        * mods.get_dmg_multiplier(Attribute::OutgoingSiphonDamage);
+        * mods.get_dmg_multiplier(DamageMultiplier::OutgoingSiphonDamage);
 
     attributes.set_a(Attribute::SiphonDPS, siphon_damage);
 
@@ -550,7 +551,7 @@ pub fn calc_condi(
     // iterate over all (relevant) conditions
     for condition in relevant_conditions.iter() {
         let cdmg = attributes.get_a(Attribute::ConditionDamage);
-        let mult = mods.get_dmg_multiplier(Attribute::OutgoingConditionDamage)
+        let mult = mods.get_dmg_multiplier(DamageMultiplier::OutgoingConditionDamage)
             * mods.get_dmg_multiplier(condition.get_damage_mod_attribute());
 
         match condition {
@@ -608,7 +609,7 @@ fn calc_survivability(character: &mut Character, combination: &Combination) {
         Attribute::EffectiveHealth,
         attributes.get_a(Attribute::Health)
             * attributes.get_a(Attribute::Armor)
-            * (1.0 / mods.get_dmg_multiplier(Attribute::IncomingStrikeDamage)),
+            * (1.0 / mods.get_dmg_multiplier(DamageMultiplier::IncomingStrikeDamage)),
     );
 
     attributes.set_a(

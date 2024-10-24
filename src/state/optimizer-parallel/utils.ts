@@ -13,7 +13,6 @@ import {
   conditionDurationAttributes,
   conditionStackAttributes,
   conditionTickAttributes,
-  damageAttributes,
   damagingConditions,
   derivedAttributes,
   effectiveAttributes,
@@ -46,7 +45,6 @@ const attributes: AttributeName[] = [
   ...professionAttributes,
   ...siphonAttributes,
   ...miscAttributes,
-  ...damageAttributes,
 ] as const;
 
 export const getAffixId = (affix: AffixName) => {

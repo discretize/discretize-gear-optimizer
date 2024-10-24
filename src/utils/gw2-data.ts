@@ -1450,19 +1450,10 @@ export type BoonDurationAttributeName = (typeof boonDurationAttributes)[number];
 
 export const conditionDurationAttributes = [
   'Bleeding Duration',
-  'Blind Duration',
   'Burning Duration',
-  'Chilled Duration',
   'Confusion Duration',
-  'Crippled Duration',
-  'Fear Duration',
-  'Immobile Duration',
   'Poison Duration',
-  'Slow Duration',
-  'Taunt Duration',
   'Torment Duration',
-  'Vulnerability Duration',
-  'Weakness Duration',
 ] as const;
 export type ConditionDurationAttributeName = (typeof conditionDurationAttributes)[number];
 
@@ -1540,7 +1531,6 @@ export type SiphonAttributeName = (typeof siphonAttributes)[number];
 export const miscAttributes = [
   'Maximum Health',
   'Outgoing Healing',
-  'Damage Reduction',
   'Power Coefficient',
   'NonCrit Power Coefficient',
   'Power2 DPS',
@@ -1550,25 +1540,6 @@ export const miscAttributes = [
   'Player Critical Damage',
 ] as const;
 type MiscAttributeName = (typeof miscAttributes)[number];
-
-export const damageAttributes = [
-  'Outgoing Strike Damage',
-  'Outgoing Condition Damage',
-  'Outgoing Siphon Damage',
-  'Incoming Strike Damage',
-  'Outgoing Critical Damage',
-  'Outgoing Bleeding Damage',
-  'Outgoing Burning Damage',
-  'Outgoing Confusion Damage',
-  'Outgoing Poison Damage',
-  'Outgoing Torment Damage',
-  'Outgoing Alternative Damage',
-  'Outgoing Alternative Critical Damage',
-  'Outgoing Phantasm Damage',
-  'Outgoing Phantasm Critical Damage',
-  'Outgoing All Damage',
-] as const;
-export type DamageAttributeName = (typeof damageAttributes)[number];
 
 export type AttributeName =
   | PrimaryAttributeName
@@ -1585,10 +1556,28 @@ export type AttributeName =
   | AlternativeAttributeName
   | ProfessionAttributeName
   | SiphonAttributeName
-  | MiscAttributeName
-  | DamageAttributeName;
+  | MiscAttributeName;
 
 // #endregion
+
+// export const damageAttributes = [
+//   'Outgoing Strike Damage',
+//   'Outgoing Condition Damage',
+//   'Outgoing Siphon Damage',
+//   'Incoming Strike Damage',
+//   'Outgoing Critical Damage',
+//   'Outgoing Bleeding Damage',
+//   'Outgoing Burning Damage',
+//   'Outgoing Confusion Damage',
+//   'Outgoing Poison Damage',
+//   'Outgoing Torment Damage',
+//   'Outgoing Alternative Damage',
+//   'Outgoing Alternative Critical Damage',
+//   'Outgoing Phantasm Damage',
+//   'Outgoing Phantasm Critical Damage',
+//   'Outgoing All Damage',
+// ] as const;
+// export type DamageAttributeName = (typeof damageAttributes)[number];
 
 export const MAX_INFUSIONS = 18;
 export const INFUSION_BONUS = 5;
