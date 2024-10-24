@@ -629,8 +629,6 @@ fn calc_healing(character: &mut Character) {
             * (1.0 + attributes.get_a(Attribute::OutgoingHealing)),
     );
 
-    // TODO add bountiful maintenance oil
-
     attributes.set_a(
         Attribute::Healing,
         attributes.get_a(Attribute::EffectiveHealing),

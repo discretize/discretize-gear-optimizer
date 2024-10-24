@@ -1017,20 +1017,12 @@ export class OptimizerCore {
   }
 
   calcHealing(character: Character) {
-    const { settings } = this;
     const { attributes } = character;
 
     // reasonably representative skill: druid celestial avatar 4 pulse
     // 390 base, 0.3 coefficient
     attributes['Effective Healing'] =
       (attributes['Healing Power'] * 0.3 + 390) * (1 + (attributes['Outgoing Healing'] || 0));
-    if (Object.prototype.hasOwnProperty.call(settings.modifiers, 'bountiful-maintenance-oil')) {
-      const bonus =
-        (attributes['Healing Power'] * 0.6) / 10000 + (attributes['Concentration'] * 0.8) / 10000;
-      if (bonus) {
-        attributes['Effective Healing'] *= 1 + bonus;
-      }
-    }
 
     attributes['Healing'] = attributes['Effective Healing'];
   }
