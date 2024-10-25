@@ -3,8 +3,8 @@ import ShareIcon from '@mui/icons-material/Share';
 import { IconButton } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { exportFormState } from '../../state/async/formStateThunks';
 import { useAppDispatch } from '../../state/redux-hooks';
-import { exportFormState } from '../../state/sagas/formStateSaga';
 import URLStateSnackbar from './URLStateSnackbar';
 
 const URLStateExport = () => {

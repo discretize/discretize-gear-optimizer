@@ -8,6 +8,7 @@ import { Box, Button, Chip, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector, useStore } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import { resumeCalc, startCalc, stopCalc } from '../../../state/async/calculationThunks';
 import {
   calculateParallel,
   stopCalculationParallel,
@@ -21,7 +22,6 @@ import {
   WAITING,
 } from '../../../state/optimizer/status';
 import { useAppDispatch } from '../../../state/redux-hooks';
-import { resumeCalc, startCalc, stopCalc } from '../../../state/sagas/calculationSaga';
 import {
   changeError,
   changeStatus,

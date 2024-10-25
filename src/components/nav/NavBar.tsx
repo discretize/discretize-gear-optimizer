@@ -23,8 +23,8 @@ import fractalImg from '../../assets/images/icons/fractals.png';
 import raidImg from '../../assets/images/icons/raids.png';
 import wvwImg from '../../assets/images/icons/wvw.png';
 import { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
+import { stopCalc } from '../../state/async/calculationThunks';
 import { useAppDispatch } from '../../state/redux-hooks';
-import { stopCalc } from '../../state/sagas/calculationSaga';
 import {
   changeProfession,
   getProfession,

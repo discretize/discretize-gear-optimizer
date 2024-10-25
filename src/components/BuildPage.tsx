@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { buffModifiers, classModifiers } from '../assets/modifierdata';
 import type { ModifierItem } from '../assets/modifierdata/metadata';
+import { importStateCharacter } from '../state/async/buildPageThunks';
 import { useAppDispatch } from '../state/redux-hooks';
-import { importStateCharacter } from '../state/sagas/buildPageSaga';
 import {
   getBuffs,
   getCharacter,

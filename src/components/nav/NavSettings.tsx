@@ -15,9 +15,9 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import { stopCalc } from '../../state/async/calculationThunks';
 import { stopCalculationParallel } from '../../state/optimizer-parallel/calculate';
 import { useAppDispatch } from '../../state/redux-hooks';
-import { stopCalc } from '../../state/sagas/calculationSaga';
 import {
   changeHeuristics,
   changeHwThreads,

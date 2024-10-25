@@ -7,9 +7,9 @@ import Modal from '@mui/material/Modal';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
+import { exportStateCharacter } from '../../../../state/async/buildPageThunks';
 import type { Character } from '../../../../state/optimizer/optimizerCore';
 import { useAppDispatch } from '../../../../state/redux-hooks';
-import { exportStateCharacter } from '../../../../state/sagas/buildPageSaga';
 import ModalContent from './ModalContent';
 
 const useStyles = makeStyles()((theme) => ({
