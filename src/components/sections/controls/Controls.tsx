@@ -6,7 +6,7 @@ import ErrorIcon from '@mui/icons-material/Error';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import { Box, Button, Chip, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'react-i18next';
-import { useSelector, useStore } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { resumeCalc, startCalc, stopCalc } from '../../../state/async/calculationThunks';
 import {
@@ -31,7 +31,6 @@ import {
   getStatus,
 } from '../../../state/slices/controlsSlice';
 import { getAffixes } from '../../../state/slices/priorities';
-import type { RootState } from '../../../state/store';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
 import ResultTableSettings from './ResultTableSettings';
 
@@ -55,7 +54,6 @@ const ControlsBox = () => {
   const { classes, cx } = useStyles();
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
-  const store = useStore();
 
   const status = useSelector(getStatus);
   const error = useSelector(getError);
@@ -76,7 +74,7 @@ const ControlsBox = () => {
       dispatch(changeError(''));
       dispatch(startCalc);
     } else {
-      calculateParallel(store.getState() as RootState, dispatch);
+      dispatch(calculateParallel);
     }
   };
 
@@ -94,7 +92,7 @@ const ControlsBox = () => {
       dispatch(stopCalc);
     } else {
       // workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
-      stopCalculationParallel(dispatch);
+      dispatch(stopCalculationParallel);
     }
   };
 

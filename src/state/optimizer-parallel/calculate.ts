@@ -1,4 +1,5 @@
 import { STOPPED } from '../optimizer/status';
+import type { AppThunk } from '../redux-hooks';
 import {
   changeFilteredLists,
   changeList,
@@ -7,7 +8,6 @@ import {
   getHeuristics,
   getHwThreads,
 } from '../slices/controlsSlice';
-import type { AppDispatch, RootState } from '../store';
 import runCalcHeuristics from './modes/heuristics';
 import runCalcNormal from './modes/normal';
 import { createCalculationSettings, setupNormal } from './optimizerSetup';
@@ -40,7 +40,8 @@ const terminateActiveWorkers = () => {
   });
 };
 
-export function calculateParallel(reduxState: RootState, dispatch: AppDispatch): WorkerWrapper[] {
+export const calculateParallel: AppThunk = (dispatch, getState) => {
+  const reduxState = getState();
   const selectedMaxThreads = getHwThreads(reduxState);
 
   dispatch(changeList([]));
@@ -91,11 +92,9 @@ export function calculateParallel(reduxState: RootState, dispatch: AppDispatch):
       false,
     );
   }
+};
 
-  return workers;
-}
-
-export function stopCalculationParallel(dispatch: AppDispatch) {
+export const stopCalculationParallel: AppThunk = (dispatch) => {
   terminateActiveWorkers();
   dispatch(changeStatus(STOPPED));
-}
+};

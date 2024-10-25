@@ -194,7 +194,7 @@ export default function NavSettings({
                     dispatch(stopCalc);
                   } else {
                     // workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
-                    stopCalculationParallel(dispatch);
+                    dispatch(stopCalculationParallel);
                   }
 
                   const newMulticore = e.target.checked;
