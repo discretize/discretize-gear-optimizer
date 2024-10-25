@@ -39,7 +39,7 @@ export interface PrioritiesSlice {
     enabled: boolean;
     data: Data;
   };
-  customAffix: Partial<AffixDataEntry>;
+  customAffix: object;
   customAffixTextBox: string;
   customAffixError: string;
 }
@@ -188,15 +188,20 @@ export const getCustomAffixText = (state: RootState) =>
 export const getCustomAffixError = (state: RootState) =>
   state.optimizer.form.priorities.customAffixError;
 export const getCustomAffixData = (state: RootState) => {
-  const { customAffix } = state.optimizer.form.priorities;
+  const customAffix = JSON.parse(
+    JSON.stringify(state.optimizer.form.priorities.customAffix),
+  ) as any;
 
-  const type = customAffix?.type || 'triple';
-  const major = customAffix?.bonuses?.major || [];
-  const minor = customAffix?.bonuses?.minor || [];
-  const jewelMajor = customAffix?.bonuses?.jewelMajor || [];
-  const jewelMinor = customAffix?.bonuses?.jewelMinor || [];
+  customAffix.type ??= 'triple';
+  customAffix.category ??= 'Custom';
+  customAffix.bonuses ??= {};
+  customAffix.bonuses.major ??= [];
+  customAffix.bonuses.minor ??= [];
+  customAffix.bonuses.jewelMajor ??= [];
+  customAffix.bonuses.jewelMinor ??= [];
+  customAffix.bonuses.exoticJewel ??= [];
 
-  return { type, bonuses: { major, minor, jewelMajor, jewelMinor }, ...customAffix };
+  return customAffix as AffixDataEntry;
 };
 
 export const {
