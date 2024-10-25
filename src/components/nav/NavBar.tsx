@@ -17,13 +17,14 @@ import type { PopupState } from 'material-ui-popup-state/hooks';
 import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hooks';
 import React, { useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import fractalImg from '../../assets/images/icons/fractals.png';
 import raidImg from '../../assets/images/icons/raids.png';
 import wvwImg from '../../assets/images/icons/wvw.png';
 import { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
-import SagaTypes from '../../state/sagas/sagaTypes';
+import { useAppDispatch } from '../../state/redux-hooks';
+import { stopCalc } from '../../state/sagas/calculationSaga';
 import {
   changeProfession,
   getProfession,
@@ -47,7 +48,7 @@ const useStyles = makeStyles()((theme) => ({
 
 const Navbar = () => {
   const { classes } = useStyles();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
   const profession = useSelector(getProfession);
@@ -187,7 +188,7 @@ const Navbar = () => {
   const handleTemplateSelect = React.useCallback(
     // eslint-disable-next-line no-shadow
     (popup: PopupState | null, selectedTemplate: string, profession: ProfessionName) => {
-      dispatch({ type: SagaTypes.Stop });
+      dispatch(stopCalc);
       try {
         const buildTemplateData = getBuildTemplateData({
           selectedTemplate,
@@ -224,7 +225,7 @@ const Navbar = () => {
           <React.Fragment key={prof}>
             <Button
               onClick={() => {
-                dispatch({ type: SagaTypes.Stop });
+                dispatch(stopCalc);
                 if (prof !== profession && expertMode) {
                   dispatch(changeProfession(prof));
                 }

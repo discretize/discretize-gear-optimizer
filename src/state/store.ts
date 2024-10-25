@@ -3,7 +3,6 @@ import { combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { listenerMiddleware } from './redux-hooks';
 import buildPageSaga from './sagas/buildPageSaga';
-import calculationSaga from './sagas/calculationSaga';
 import formStateSaga from './sagas/formStateSaga';
 import { bossSlice } from './slices/boss';
 import { buffsSlice } from './slices/buffs';
@@ -46,7 +45,6 @@ const store = configureStore({
   devTools: { actionsDenylist: ['control/updateResults'] },
 });
 
-saga.run(calculationSaga);
 saga.run(formStateSaga);
 saga.run(buildPageSaga);
 export default store;
