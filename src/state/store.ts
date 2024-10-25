@@ -2,7 +2,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { listenerMiddleware } from './redux-hooks';
-import buildPageSaga from './sagas/buildPageSaga';
 import formStateSaga from './sagas/formStateSaga';
 import { bossSlice } from './slices/boss';
 import { buffsSlice } from './slices/buffs';
@@ -46,7 +45,6 @@ const store = configureStore({
 });
 
 saga.run(formStateSaga);
-saga.run(buildPageSaga);
 export default store;
 
 export type RootState = ReturnType<typeof store.getState>;

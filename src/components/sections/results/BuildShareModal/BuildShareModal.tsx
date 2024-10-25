@@ -6,10 +6,10 @@ import Fade from '@mui/material/Fade';
 import Modal from '@mui/material/Modal';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import type { Character } from '../../../../state/optimizer/optimizerCore';
-import SagaTypes from '../../../../state/sagas/sagaTypes';
+import { useAppDispatch } from '../../../../state/redux-hooks';
+import { exportStateCharacter } from '../../../../state/sagas/buildPageSaga';
 import ModalContent from './ModalContent';
 
 const useStyles = makeStyles()((theme) => ({
@@ -37,7 +37,7 @@ interface BuildShareModalProps {
 
 const BuildShareModal = ({ children, title, character }: BuildShareModalProps) => {
   const { classes } = useStyles();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
   const [open, setOpen] = React.useState(false);
@@ -54,17 +54,11 @@ const BuildShareModal = ({ children, title, character }: BuildShareModalProps) =
     // fixes the browser protection against window opening without any user interaction due to opening the window in a callback
     const windRef = window.open('', '_blank');
 
-    dispatch({
-      type: SagaTypes.ExportBuildPageState,
-      newPage: windRef,
-    });
+    dispatch(exportStateCharacter({ newPage: windRef }));
   };
 
   const onClickCopy = () => {
-    dispatch({
-      type: SagaTypes.ExportBuildPageState,
-      copyToClipboard: true,
-    });
+    dispatch(exportStateCharacter({ copyToClipboard: true }));
   };
 
   return (

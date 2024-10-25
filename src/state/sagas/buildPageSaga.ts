@@ -1,22 +1,25 @@
 import { compress, decompress } from '@discretize/object-compression';
-import { channel } from 'redux-saga';
-import { all, put, select, take, takeLeading } from 'redux-saga/effects';
 import {
   BuildPageSchema,
   version as schemaVersion,
 } from '../../components/url-state/schema/BuildPageSchema_v3';
 import { buffsDict } from '../../components/url-state/schema/SchemaDicts';
 import { PARAMS } from '../../utils/queryParam';
+import { objectKeys } from '../../utils/usefulFunctions';
+import type { AppThunk } from '../redux-hooks';
 import { changeBuildPage, changeCharacter, getSkills, getWeapons } from '../slices/buildPage';
 import { getProfession, getSelectedCharacter } from '../slices/controlsSlice';
 import { getGameMode } from '../slices/userSettings';
-import SagaTypes from './sagaTypes';
 
-// channels solve the problem "how to get value out of callback"
-// https://stackoverflow.com/questions/43031832/how-to-yield-put-in-redux-saga-within-a-callback
-const compressChannel = channel();
-function* exportStateCharacter({ newPage, copyToClipboard }) {
-  const state = yield select();
+export const exportStateCharacter =
+  ({
+    newPage,
+    copyToClipboard,
+  }: {
+    newPage?: ReturnType<typeof window.open>;
+    copyToClipboard?: boolean;
+  }): AppThunk => async (dispatch, getState) => {
+  const state = getState();
 
   // extract all variables
   const skills = getSkills(state);
@@ -25,6 +28,11 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
 
   const profession = getProfession(state);
   const character = getSelectedCharacter(state);
+
+  if (!character) {
+    console.error('export thunk: No character supplied');
+    return;
+  }
 
   const lines = character.settings.cachedFormState.traits.selectedLines;
   const selected = character.settings.cachedFormState.traits.selectedTraits;
@@ -38,8 +46,8 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
   // TODO ================================================================
 
   // filter out unnecessary attributes
-  const attributes = {};
-  Object.keys(BuildPageSchema.character.attributes).forEach((key) => {
+  const attributes: any = {};
+  objectKeys(BuildPageSchema.character.attributes).forEach((key) => {
     attributes[key] = allAttributes[key];
   });
 
@@ -56,10 +64,10 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
     },
   };
 
-  yield put(changeCharacter(minimalCharacter));
+  dispatch(changeCharacter(minimalCharacter));
 
   // create bit map for buffs
-  const conv = (val) => (val ? 1 : 0);
+  const conv = (val: unknown) => (val ? 1 : 0);
   const buffsInteger = buffsDict.reduce(
     // eslint-disable-next-line no-bitwise
     (acc, curr) => (acc + conv(buffs[curr])) << 1,
@@ -74,17 +82,17 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
     buffs: buffsInteger,
   };
 
-  compress({
-    object,
-    schema: BuildPageSchema,
-    onSuccess: (result) => compressChannel.put({ type: 'STATE_COMPRESS_FINISHED', result }),
+  const result: string = await new Promise((resolve) => {
+    compress({
+      object,
+      schema: BuildPageSchema,
+      onSuccess: resolve,
+    });
   });
-
-  const { result } = yield take(compressChannel);
 
   const urlObject = new URL('build/', window.location.href);
   urlObject.searchParams.set(PARAMS.GAMEMODE, gameMode);
-  urlObject.searchParams.set(PARAMS.VERSION, schemaVersion);
+  urlObject.searchParams.set(PARAMS.VERSION, String(schemaVersion));
   urlObject.searchParams.set(PARAMS.DATA, result);
   const url = urlObject.href;
 
@@ -94,46 +102,36 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
   if (copyToClipboard) {
     navigator.clipboard.writeText(url);
   }
-}
+};
 
-function* watchExportStateCharacter() {
-  yield takeLeading(SagaTypes.ExportBuildPageState, exportStateCharacter);
-}
-
-const decompressChannel = channel();
-function* importStateCharacter({ buildUrl: input, version }) {
+export const importStateCharacter =
+  ({ buildUrl: input, version }: { buildUrl: string | null; version: number }): AppThunk => async (dispatch) => {
   if (!input) {
-    console.error('SAGA: No url parameter supplied');
+    console.error('import thunk: No url parameter supplied');
     return;
   }
   if (typeof version === 'undefined') {
-    console.error('SAGA: No version parameter supplied');
+    console.error('import thunk: No version parameter supplied');
     return;
   }
 
   try {
     // load build state from url
-    const { BuildPageSchema: schema } = yield import(
+    const { BuildPageSchema: schema } = await import(
       `../../components/url-state/schema/BuildPageSchema_v${version}.js`
     );
 
-    decompress({
-      string: input,
-      schema,
-      onSuccess: (result) => decompressChannel.put({ type: 'STATE_DECOMPRESS_FINISHED', result }),
+    const result = await new Promise((resolve) => {
+      decompress({
+        string: input,
+        schema,
+        onSuccess: resolve,
+      });
     });
 
-    const { result } = yield take(decompressChannel);
-    yield put(changeBuildPage(result));
+    dispatch(changeBuildPage(result));
   } catch (e) {
     console.log('Problem restoring template!');
     console.log(e);
   }
-}
-
-function* watchImportStateCharacter() {
-  yield takeLeading(SagaTypes.ImportBuildPageState, importStateCharacter);
-}
-export default function* rootSaga() {
-  yield all([watchExportStateCharacter(), watchImportStateCharacter()]);
-}
+};
