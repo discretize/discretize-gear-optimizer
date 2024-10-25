@@ -1,16 +1,16 @@
 import axios from 'axios';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { importFormState } from '../../state/async/formStateThunks';
+import { useAppDispatch } from '../../state/redux-hooks';
 import { PARAMS, setQueryParm, useQueryParam } from '../../utils/queryParam';
 import URLStateSnackbar from './URLStateSnackbar';
 
 interface URLStateImportProps {
-  sagaType: string;
   clearUrlOnSuccess: boolean;
 }
 
-const URLStateImport = ({ sagaType, clearUrlOnSuccess }: URLStateImportProps) => {
-  const dispatch = useDispatch();
+const URLStateImport = ({ clearUrlOnSuccess }: URLStateImportProps) => {
+  const dispatch = useAppDispatch();
 
   // State for snackbar, which indicates the result of url load action
   const [snackbarState, setSnackbarState] = React.useState({
@@ -69,29 +69,24 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }: URLStateImportProps) =>
           const binaryData = new Uint8Array(response.data);
           console.log(binaryData);
 
-          dispatch({
-            type: sagaType,
-            binaryData,
-            onSuccess: onLoadSuccess,
-            onError: onLoadError,
-          });
+          dispatch(importFormState({ binaryData, onSuccess: onLoadSuccess, onError: onLoadError }));
         });
     }
 
     // unshortened data found, for example when someone copy pasts the long url.
     if (jsonUrlData) {
       console.log('Imported URL data:', jsonUrlData);
-      dispatch({ type: sagaType, jsonUrlData, onSuccess: onLoadSuccess, onError: onLoadError });
+      dispatch(importFormState({ jsonUrlData, onSuccess: onLoadSuccess, onError: onLoadError }));
     }
 
     if (rawJSONData) {
       console.log('Imported URL data:', rawJSONData);
-      dispatch({ type: sagaType, rawJSONData, onSuccess: onLoadSuccess, onError: onLoadError });
+      dispatch(importFormState({ rawJSONData, onSuccess: onLoadSuccess, onError: onLoadError }));
     }
     return () => {
       // do nothing
     };
-  }, [jsonUrlData, onLoadError, onLoadSuccess, dispatch, sagaType, shortenerKey, rawJSONData]);
+  }, [jsonUrlData, onLoadError, onLoadSuccess, dispatch, shortenerKey, rawJSONData]);
 
   return <URLStateSnackbar state={snackbarState} setState={setSnackbarState} />;
 };

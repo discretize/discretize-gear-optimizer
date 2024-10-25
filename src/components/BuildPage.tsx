@@ -2,11 +2,12 @@ import { TraitLine } from '@discretize/gw2-ui-new';
 import { TextDivider } from '@discretize/react-discretize-components';
 import { Box, Paper, Typography } from '@mui/material';
 import * as React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { buffModifiers, classModifiers } from '../assets/modifierdata';
 import type { ModifierItem } from '../assets/modifierdata/metadata';
-import SagaTypes from '../state/sagas/sagaTypes';
+import { importStateCharacter } from '../state/async/buildPageThunks';
+import { useAppDispatch } from '../state/redux-hooks';
 import {
   getBuffs,
   getCharacter,
@@ -62,7 +63,7 @@ function Traits({ id, selected: selectedTraits, traitLookup }: TraitsProps) {
 }
 
 const BuildPage = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   // selectors from buildPage slice, will be loaded from url
   const character = useSelector(getCharacter);
@@ -79,7 +80,7 @@ const BuildPage = () => {
   const version = parseInt(versionParam ?? '0', 10);
 
   React.useEffect(() => {
-    dispatch({ type: SagaTypes.ImportBuildPageState, version, buildUrl: buildData });
+    dispatch(importStateCharacter({ version, buildUrl: buildData }));
     return () => {
       // do nothing
     };

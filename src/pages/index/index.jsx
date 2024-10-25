@@ -12,7 +12,6 @@ import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
 import Layout from '../../components/baseComponents/Layout';
 import URLStateImport from '../../components/url-state/URLStateImport';
 import { isFirefox } from '../../state/optimizer/detectFirefox';
-import SagaTypes from '../../state/sagas/sagaTypes';
 import { getMulticore } from '../../state/slices/controlsSlice';
 import { getGameMode } from '../../state/slices/userSettings';
 
@@ -68,7 +67,7 @@ const IndexPage = () => {
     <APILanguageProvider value={language}>
       <BackgroundImage gameMode={gameMode} />
       <Layout>
-        <URLStateImport sagaType={SagaTypes.ImportFormState} clearUrlOnSuccess />
+        <URLStateImport clearUrlOnSuccess />
         {ALERTS.map((alert, index) => (
           <Collapse key={`alert-${index.toString()}`} in={alertOpen[index]}>
             <MuiAlert

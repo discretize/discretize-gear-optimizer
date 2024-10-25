@@ -8,6 +8,7 @@ import { Box, Button, Chip, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector, useStore } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import { resumeCalc, startCalc, stopCalc } from '../../../state/async/calculationThunks';
 import {
   calculateParallel,
   stopCalculationParallel,
@@ -21,7 +22,6 @@ import {
   WAITING,
 } from '../../../state/optimizer/status';
 import { useAppDispatch } from '../../../state/redux-hooks';
-import SagaTypes from '../../../state/sagas/sagaTypes';
 import {
   changeError,
   changeStatus,
@@ -74,7 +74,7 @@ const ControlsBox = () => {
 
     if (!multicore) {
       dispatch(changeError(''));
-      dispatch({ type: SagaTypes.Start });
+      dispatch(startCalc);
     } else {
       calculateParallel(store.getState() as RootState, dispatch);
     }
@@ -82,7 +82,7 @@ const ControlsBox = () => {
 
   const onResumeCalculate = () => {
     if (!multicore) {
-      dispatch({ type: SagaTypes.Resume });
+      dispatch(resumeCalc);
     } else {
       // not currently implemented: pause/resume in multicore rust mode
       // workers.forEach(({ worker }) => worker.postMessage({ type: RESUME }));
@@ -91,7 +91,7 @@ const ControlsBox = () => {
 
   const onStopCalculate = () => {
     if (!multicore) {
-      dispatch({ type: SagaTypes.Stop });
+      dispatch(stopCalc);
     } else {
       // workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
       stopCalculationParallel(dispatch);
