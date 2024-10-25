@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-import createSagaMiddleware from 'redux-saga';
 import { listenerMiddleware } from './redux-hooks';
 import { bossSlice } from './slices/boss';
 import { buffsSlice } from './slices/buffs';
@@ -15,8 +14,6 @@ import { prioritiesSlice } from './slices/priorities';
 import { skillsSlice } from './slices/skills';
 import { traitsSlice } from './slices/traits';
 import { userSettingsSlice } from './slices/userSettings';
-
-const saga = createSagaMiddleware();
 
 const store = configureStore({
   reducer: {
@@ -39,7 +36,7 @@ const store = configureStore({
     }),
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().prepend(listenerMiddleware.middleware).concat(saga),
+    getDefaultMiddleware().prepend(listenerMiddleware.middleware),
   devTools: { actionsDenylist: ['control/updateResults'] },
 });
 
