@@ -18,120 +18,122 @@ export const exportStateCharacter =
   }: {
     newPage?: ReturnType<typeof window.open>;
     copyToClipboard?: boolean;
-  }): AppThunk => async (dispatch, getState) => {
-  const state = getState();
+  }): AppThunk =>
+  async (dispatch, getState) => {
+    const state = getState();
 
-  // extract all variables
-  const skills = getSkills(state);
-  const weapons = getWeapons(state);
-  const gameMode = getGameMode(state);
+    // extract all variables
+    const skills = getSkills(state);
+    const weapons = getWeapons(state);
+    const gameMode = getGameMode(state);
 
-  const profession = getProfession(state);
-  const character = getSelectedCharacter(state);
+    const profession = getProfession(state);
+    const character = getSelectedCharacter(state);
 
-  if (!character) {
-    console.error('export thunk: No character supplied');
-    return;
-  }
+    if (!character) {
+      console.error('export thunk: No character supplied');
+      return;
+    }
 
-  const lines = character.settings.cachedFormState.traits.selectedLines;
-  const selected = character.settings.cachedFormState.traits.selectedTraits;
-  const { buffs } = character.settings.cachedFormState.buffs;
+    const lines = character.settings.cachedFormState.traits.selectedLines;
+    const selected = character.settings.cachedFormState.traits.selectedTraits;
+    const { buffs } = character.settings.cachedFormState.buffs;
 
-  const { attributes: allAttributes, gear, settings, infusions } = character;
-  const { specialization, weaponType, extrasCombination } = settings;
+    const { attributes: allAttributes, gear, settings, infusions } = character;
+    const { specialization, weaponType, extrasCombination } = settings;
 
-  // TODO ================================================================
-  // TODO ==       ON NEXT SCHEMA UPGRADE ADD JADE BOT TIER             ==
-  // TODO ================================================================
+    // TODO ================================================================
+    // TODO ==       ON NEXT SCHEMA UPGRADE ADD JADE BOT TIER             ==
+    // TODO ================================================================
 
-  // filter out unnecessary attributes
-  const attributes: any = {};
-  objectKeys(BuildPageSchema.character.attributes).forEach((key) => {
-    attributes[key] = allAttributes[key];
-  });
-
-  // since we cant use the compression library for object where the layout of keys is unknown, we stringify it.
-  const minimalCharacter = {
-    attributes,
-    gear,
-    infusions: JSON.stringify(infusions) || '',
-    settings: {
-      extrasCombination,
-      profession,
-      specialization,
-      weaponType,
-    },
-  };
-
-  dispatch(changeCharacter(minimalCharacter));
-
-  // create bit map for buffs
-  const conv = (val: unknown) => (val ? 1 : 0);
-  const buffsInteger = buffsDict.reduce(
-    // eslint-disable-next-line no-bitwise
-    (acc, curr) => (acc + conv(buffs[curr])) << 1,
-    conv(buffs[0]),
-  );
-
-  const object = {
-    character: minimalCharacter,
-    skills,
-    traits: { lines, selected },
-    weapons,
-    buffs: buffsInteger,
-  };
-
-  const result: string = await new Promise((resolve) => {
-    compress({
-      object,
-      schema: BuildPageSchema,
-      onSuccess: resolve,
+    // filter out unnecessary attributes
+    const attributes: any = {};
+    objectKeys(BuildPageSchema.character.attributes).forEach((key) => {
+      attributes[key] = allAttributes[key];
     });
-  });
 
-  const urlObject = new URL('build/', window.location.href);
-  urlObject.searchParams.set(PARAMS.GAMEMODE, gameMode);
-  urlObject.searchParams.set(PARAMS.VERSION, String(schemaVersion));
-  urlObject.searchParams.set(PARAMS.DATA, result);
-  const url = urlObject.href;
+    // since we cant use the compression library for object where the layout of keys is unknown, we stringify it.
+    const minimalCharacter = {
+      attributes,
+      gear,
+      infusions: JSON.stringify(infusions) || '',
+      settings: {
+        extrasCombination,
+        profession,
+        specialization,
+        weaponType,
+      },
+    };
 
-  if (newPage) {
-    newPage.location.href = url;
-  }
-  if (copyToClipboard) {
-    navigator.clipboard.writeText(url);
-  }
-};
+    dispatch(changeCharacter(minimalCharacter));
 
-export const importStateCharacter =
-  ({ buildUrl: input, version }: { buildUrl: string | null; version: number }): AppThunk => async (dispatch) => {
-  if (!input) {
-    console.error('import thunk: No url parameter supplied');
-    return;
-  }
-  if (typeof version === 'undefined') {
-    console.error('import thunk: No version parameter supplied');
-    return;
-  }
-
-  try {
-    // load build state from url
-    const { BuildPageSchema: schema } = await import(
-      `../../components/url-state/schema/BuildPageSchema_v${version}.js`
+    // create bit map for buffs
+    const conv = (val: unknown) => (val ? 1 : 0);
+    const buffsInteger = buffsDict.reduce(
+      // eslint-disable-next-line no-bitwise
+      (acc, curr) => (acc + conv(buffs[curr])) << 1,
+      conv(buffs[0]),
     );
 
-    const result = await new Promise((resolve) => {
-      decompress({
-        string: input,
-        schema,
+    const object = {
+      character: minimalCharacter,
+      skills,
+      traits: { lines, selected },
+      weapons,
+      buffs: buffsInteger,
+    };
+
+    const result: string = await new Promise((resolve) => {
+      compress({
+        object,
+        schema: BuildPageSchema,
         onSuccess: resolve,
       });
     });
 
-    dispatch(changeBuildPage(result));
-  } catch (e) {
-    console.log('Problem restoring template!');
-    console.log(e);
-  }
-};
+    const urlObject = new URL('build/', window.location.href);
+    urlObject.searchParams.set(PARAMS.GAMEMODE, gameMode);
+    urlObject.searchParams.set(PARAMS.VERSION, String(schemaVersion));
+    urlObject.searchParams.set(PARAMS.DATA, result);
+    const url = urlObject.href;
+
+    if (newPage) {
+      newPage.location.href = url;
+    }
+    if (copyToClipboard) {
+      navigator.clipboard.writeText(url);
+    }
+  };
+
+export const importStateCharacter =
+  ({ buildUrl: input, version }: { buildUrl: string | null; version: number }): AppThunk =>
+  async (dispatch) => {
+    if (!input) {
+      console.error('import thunk: No url parameter supplied');
+      return;
+    }
+    if (typeof version === 'undefined') {
+      console.error('import thunk: No version parameter supplied');
+      return;
+    }
+
+    try {
+      // load build state from url
+      const { BuildPageSchema: schema } = await import(
+        `../../components/url-state/schema/BuildPageSchema_v${version}.js`
+      );
+
+      const result = await new Promise((resolve) => {
+        decompress({
+          string: input,
+          schema,
+          onSuccess: resolve,
+        });
+      });
+
+      dispatch(changeBuildPage(result));
+    } catch (e) {
+      console.log('Problem restoring template!');
+      console.log(e);
+    }
+  };
