@@ -1,6 +1,3 @@
-const SagaTypes = {
-  ImportFormState: 'IMPORT_STATE',
-  ExportFormState: 'EXPORT_STATE',
-};
+const SagaTypes = {};
 
 export default SagaTypes;

@@ -4,3 +4,4 @@ declare module '*.yaml' {
 }
 
 declare module '@discretize/object-compression';
+declare module 'json-url';

@@ -2,7 +2,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { listenerMiddleware } from './redux-hooks';
-import formStateSaga from './sagas/formStateSaga';
 import { bossSlice } from './slices/boss';
 import { buffsSlice } from './slices/buffs';
 import { buildPageSlice } from './slices/buildPage';
@@ -44,7 +43,6 @@ const store = configureStore({
   devTools: { actionsDenylist: ['control/updateResults'] },
 });
 
-saga.run(formStateSaga);
 export default store;
 
 export type RootState = ReturnType<typeof store.getState>;

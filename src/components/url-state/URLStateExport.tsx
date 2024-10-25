@@ -3,12 +3,12 @@ import ShareIcon from '@mui/icons-material/Share';
 import { IconButton } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-import SagaTypes from '../../state/sagas/sagaTypes';
+import { useAppDispatch } from '../../state/redux-hooks';
+import { exportFormState } from '../../state/sagas/formStateSaga';
 import URLStateSnackbar from './URLStateSnackbar';
 
 const URLStateExport = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
   const [loading, setLoading] = React.useState(false);
@@ -49,12 +49,7 @@ const URLStateExport = () => {
         <IconButton
           onClick={() => {
             setLoading(true);
-            dispatch({
-              type: SagaTypes.ExportFormState,
-              t,
-              onSuccess,
-              onFailure,
-            });
+            dispatch(exportFormState({ t, onSuccess, onFailure }));
           }}
           size="large"
           disabled={loading}

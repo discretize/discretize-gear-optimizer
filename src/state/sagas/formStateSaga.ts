@@ -1,18 +1,19 @@
 import axios from 'axios';
+import type { TFunction } from 'i18next';
 import JsonUrl from 'json-url';
 import pako from 'pako';
-import { all, put, select, takeLeading } from 'redux-saga/effects';
 import { PARAMS } from '../../utils/queryParam';
+import type { AppThunk } from '../redux-hooks';
 // import { changeBuildPage } from '../slices/buildPage';
 import { changeAll, emptyFilteredLists } from '../slices/controlsSlice';
-import SagaTypes from './sagaTypes';
+import type { RootState } from '../store';
 
 const lib = JsonUrl('lzma');
 
 // hard coded temporarily!
 const version = 0;
 
-const modifyState = (optimizerState) => {
+const modifyState = (optimizerState: RootState['optimizer']) => {
   // const list = optimizerState?.control?.list.slice(0, 6) || [];
   // let modifiedList = list;
 
@@ -29,12 +30,14 @@ const modifyState = (optimizerState) => {
 
   const { selectedCharacter, list, saved } = optimizerState.control;
 
+  type SelectedCharacter = (typeof optimizerState)['control']['selectedCharacter'];
+
   // remove appliedModifiers from selected character
-  let modifiedSelectedCharacter = null;
+  let modifiedSelectedCharacter: SelectedCharacter = null;
   if (optimizerState.control.selectedCharacter) {
     modifiedSelectedCharacter = JSON.parse(
       JSON.stringify(optimizerState.control.selectedCharacter),
-    );
+    ) as NonNullable<SelectedCharacter>;
     modifiedSelectedCharacter.settings.appliedModifiers = [];
   }
 
@@ -67,7 +70,7 @@ const modifyState = (optimizerState) => {
   return exportData;
 };
 
-const unModifyState = (importData) => {
+const unModifyState = (importData: any): RootState['optimizer'] => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { optimizerState, listSettings } = importData;
 
@@ -82,7 +85,7 @@ const unModifyState = (importData) => {
   return optimizerState;
 };
 
-const getShortUrl = async (exportData) => {
+const getShortUrl = async (exportData: unknown) => {
   console.time('Compressed binary data in:');
   const binaryData = pako.deflate(JSON.stringify(exportData));
   console.timeEnd('Compressed binary data in:');
@@ -105,13 +108,17 @@ const getShortUrl = async (exportData) => {
   return shortUrl;
 };
 
-const getLongUrl = async (exportData, onFailure, t) => {
+const getLongUrl = async (
+  exportData: unknown,
+  onFailure: (msg: string) => void,
+  t: TFunction,
+): Promise<string> => {
   console.time('Compressed json-url data in:');
   const jsonUrlData = await lib.compress(exportData);
   console.timeEnd('Compressed json-url data in:');
 
   const urlObject = new URL(window.location.href);
-  urlObject.searchParams.set(PARAMS.VERSION, version);
+  urlObject.searchParams.set(PARAMS.VERSION, String(version));
   urlObject.searchParams.set(PARAMS.DATA, jsonUrlData);
   const longUrl = urlObject.href;
 
@@ -120,6 +127,7 @@ const getLongUrl = async (exportData, onFailure, t) => {
     onFailure(t('Error: too much data!'));
 
     // copy nothing to the clipboard by never settling this promise
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     return new Promise(() => {});
   }
 
@@ -127,10 +135,19 @@ const getLongUrl = async (exportData, onFailure, t) => {
   return longUrl;
 };
 
-function* exportState({ t, onSuccess, onFailure }) {
+export const exportFormState =
+  ({
+    t,
+    onSuccess,
+    onFailure,
+  }: {
+    t: TFunction;
+    onSuccess: (msg: string) => void;
+    onFailure: (msg: string) => void;
+  }): AppThunk => async (dispatch, getState) => {
   if (typeof window === 'undefined') return;
   try {
-    const reduxState = yield select();
+    const reduxState = getState();
 
     const exportData = modifyState(reduxState.optimizer);
     console.log(exportData);
@@ -167,14 +184,23 @@ function* exportState({ t, onSuccess, onFailure }) {
     console.error(e);
     onFailure(t('There was an error exporting the state!'));
   }
-}
+};
 
-function* watchExportState() {
-  yield takeLeading(SagaTypes.ExportFormState, exportState);
-}
-
-function* importState({ jsonUrlData, binaryData, rawJSONData, onSuccess, onError }) {
-  yield new Promise(requestAnimationFrame);
+export const importFormState =
+  ({
+    jsonUrlData,
+    binaryData,
+    rawJSONData,
+    onSuccess,
+    onError,
+  }: {
+    jsonUrlData?: string;
+    binaryData?: Uint8Array;
+    rawJSONData?: string;
+    onSuccess: () => void;
+    onError: () => void;
+  }): AppThunk => async (dispatch) => {
+  await new Promise(requestAnimationFrame);
   try {
     if (binaryData) {
       const decompressed = pako.inflate(binaryData, { to: 'string' });
@@ -184,21 +210,21 @@ function* importState({ jsonUrlData, binaryData, rawJSONData, onSuccess, onError
       const optimizerState = unModifyState(importData);
 
       console.time('Applied state in:');
-      yield put(changeAll(optimizerState));
+      dispatch(changeAll(optimizerState));
       console.timeEnd('Applied state in:');
 
       // execute success callback
       onSuccess();
     } else if (jsonUrlData) {
       console.time('Decompressed template in:');
-      const importData = yield lib.decompress(jsonUrlData);
+      const importData = await lib.decompress(jsonUrlData);
       console.timeEnd('Decompressed template in:');
 
       console.log(importData);
       const optimizerState = unModifyState(importData);
 
       console.time('Applied state in:');
-      yield put(changeAll(optimizerState));
+      dispatch(changeAll(optimizerState));
       console.timeEnd('Applied state in:');
 
       // execute success callback
@@ -211,7 +237,7 @@ function* importState({ jsonUrlData, binaryData, rawJSONData, onSuccess, onError
       const optimizerState = unModifyState(importData);
 
       console.time('Applied state in:');
-      yield put(changeAll(optimizerState));
+      dispatch(changeAll(optimizerState));
       console.timeEnd('Applied state in:');
 
       // execute success callback
@@ -222,12 +248,4 @@ function* importState({ jsonUrlData, binaryData, rawJSONData, onSuccess, onError
     console.log(e);
     onError();
   }
-}
-
-function* watchImportState() {
-  yield takeLeading(SagaTypes.ImportFormState, importState);
-}
-
-export default function* rootSaga() {
-  yield all([watchExportState(), watchImportState()]);
-}
+};
