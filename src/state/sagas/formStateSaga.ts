@@ -144,47 +144,48 @@ export const exportFormState =
     t: TFunction;
     onSuccess: (msg: string) => void;
     onFailure: (msg: string) => void;
-  }): AppThunk => async (dispatch, getState) => {
-  if (typeof window === 'undefined') return;
-  try {
-    const reduxState = getState();
+  }): AppThunk =>
+  async (dispatch, getState) => {
+    if (typeof window === 'undefined') return;
+    try {
+      const reduxState = getState();
 
-    const exportData = modifyState(reduxState.optimizer);
-    console.log(exportData);
+      const exportData = modifyState(reduxState.optimizer);
+      console.log(exportData);
 
-    let successMessage = import.meta.env.VITE_HAS_CF
-      ? t('Copied link to clipboard!')
-      : t('Copied long link to clipboard! (Link shortener requires cloudflare environment.)');
+      let successMessage = import.meta.env.VITE_HAS_CF
+        ? t('Copied link to clipboard!')
+        : t('Copied long link to clipboard! (Link shortener requires cloudflare environment.)');
 
-    const urlPromise = import.meta.env.VITE_HAS_CF
-      ? getShortUrl(exportData).catch((e) => {
-          // fall back to long URL on link shortner failure
-          successMessage = t('Copied long link to clipboard! (Link shortener failed.)');
-          return getLongUrl(exportData, onFailure, t);
-        })
-      : getLongUrl(exportData, onFailure, t);
+      const urlPromise = import.meta.env.VITE_HAS_CF
+        ? getShortUrl(exportData).catch((e) => {
+            // fall back to long URL on link shortner failure
+            successMessage = t('Copied long link to clipboard! (Link shortener failed.)');
+            return getLongUrl(exportData, onFailure, t);
+          })
+        : getLongUrl(exportData, onFailure, t);
 
-    // iOS browsers and desktop Safari require the use of the async clipboard API, calling
-    // navigator.clipboard.write synchronously and passing it a Promise
-    // (see: https://web.dev/async-clipboard/).
-    // Firefox does not support this API but allows writing to the clipboard in a callback.
-    // Chrome doesn't care.
-    const urlBlobPromise = urlPromise.then((url) => new Blob([url], { type: 'text/plain' }));
-    const clipboardPromise =
-      typeof ClipboardItem !== 'undefined'
-        ? // eslint-disable-next-line no-undef
-          navigator.clipboard.write([new ClipboardItem({ 'text/plain': urlBlobPromise })])
-        : urlPromise.then((url) => navigator.clipboard.writeText(url));
+      // iOS browsers and desktop Safari require the use of the async clipboard API, calling
+      // navigator.clipboard.write synchronously and passing it a Promise
+      // (see: https://web.dev/async-clipboard/).
+      // Firefox does not support this API but allows writing to the clipboard in a callback.
+      // Chrome doesn't care.
+      const urlBlobPromise = urlPromise.then((url) => new Blob([url], { type: 'text/plain' }));
+      const clipboardPromise =
+        typeof ClipboardItem !== 'undefined'
+          ? // eslint-disable-next-line no-undef
+            navigator.clipboard.write([new ClipboardItem({ 'text/plain': urlBlobPromise })])
+          : urlPromise.then((url) => navigator.clipboard.writeText(url));
 
-    clipboardPromise
-      .then(() => onSuccess(successMessage))
-      .catch(() => onFailure(t('Failed to copy link to clipboard!')));
-  } catch (e) {
-    console.log('Problem saving and sharing state!');
-    console.error(e);
-    onFailure(t('There was an error exporting the state!'));
-  }
-};
+      clipboardPromise
+        .then(() => onSuccess(successMessage))
+        .catch(() => onFailure(t('Failed to copy link to clipboard!')));
+    } catch (e) {
+      console.log('Problem saving and sharing state!');
+      console.error(e);
+      onFailure(t('There was an error exporting the state!'));
+    }
+  };
 
 export const importFormState =
   ({
@@ -199,53 +200,54 @@ export const importFormState =
     rawJSONData?: string;
     onSuccess: () => void;
     onError: () => void;
-  }): AppThunk => async (dispatch) => {
-  await new Promise(requestAnimationFrame);
-  try {
-    if (binaryData) {
-      const decompressed = pako.inflate(binaryData, { to: 'string' });
-      const importData = JSON.parse(decompressed);
-      console.log(importData);
+  }): AppThunk =>
+  async (dispatch) => {
+    await new Promise(requestAnimationFrame);
+    try {
+      if (binaryData) {
+        const decompressed = pako.inflate(binaryData, { to: 'string' });
+        const importData = JSON.parse(decompressed);
+        console.log(importData);
 
-      const optimizerState = unModifyState(importData);
+        const optimizerState = unModifyState(importData);
 
-      console.time('Applied state in:');
-      dispatch(changeAll(optimizerState));
-      console.timeEnd('Applied state in:');
+        console.time('Applied state in:');
+        dispatch(changeAll(optimizerState));
+        console.timeEnd('Applied state in:');
 
-      // execute success callback
-      onSuccess();
-    } else if (jsonUrlData) {
-      console.time('Decompressed template in:');
-      const importData = await lib.decompress(jsonUrlData);
-      console.timeEnd('Decompressed template in:');
+        // execute success callback
+        onSuccess();
+      } else if (jsonUrlData) {
+        console.time('Decompressed template in:');
+        const importData = await lib.decompress(jsonUrlData);
+        console.timeEnd('Decompressed template in:');
 
-      console.log(importData);
-      const optimizerState = unModifyState(importData);
+        console.log(importData);
+        const optimizerState = unModifyState(importData);
 
-      console.time('Applied state in:');
-      dispatch(changeAll(optimizerState));
-      console.timeEnd('Applied state in:');
+        console.time('Applied state in:');
+        dispatch(changeAll(optimizerState));
+        console.timeEnd('Applied state in:');
 
-      // execute success callback
-      onSuccess();
-    } else if (rawJSONData) {
-      const decoded = decodeURIComponent(rawJSONData);
-      const importData = JSON.parse(decoded);
-      console.log(importData);
+        // execute success callback
+        onSuccess();
+      } else if (rawJSONData) {
+        const decoded = decodeURIComponent(rawJSONData);
+        const importData = JSON.parse(decoded);
+        console.log(importData);
 
-      const optimizerState = unModifyState(importData);
+        const optimizerState = unModifyState(importData);
 
-      console.time('Applied state in:');
-      dispatch(changeAll(optimizerState));
-      console.timeEnd('Applied state in:');
+        console.time('Applied state in:');
+        dispatch(changeAll(optimizerState));
+        console.timeEnd('Applied state in:');
 
-      // execute success callback
-      onSuccess();
+        // execute success callback
+        onSuccess();
+      }
+    } catch (e) {
+      console.log('Problem restoring template!');
+      console.log(e);
+      onError();
     }
-  } catch (e) {
-    console.log('Problem restoring template!');
-    console.log(e);
-    onError();
-  }
-};
+  };
