@@ -336,6 +336,7 @@ list:
       }
 
   - name: Alacrity Power Tempest 28%
+    hidden: true
     value:
       {
         "affixes": ["Berserker", "Assassin", "Diviner"],
@@ -375,6 +376,7 @@ list:
       }
 
   - name: Power Quickness Untamed 40%
+    hidden: true
     value:
       {
         "affixes": ["Berserker", "Assassin", "Diviner"],

@@ -6,6 +6,7 @@ import path from 'node:path';
 import typia from 'typia';
 import type { ModifierData } from '../modifierdata/metadata';
 import type {
+  CreditData,
   PresetAffixes,
   PresetBuffs,
   PresetDistribution,
@@ -62,7 +63,8 @@ const assertValidPresetData = {
   'preset-extras.yaml': typia.createAssertEquals<PresetExtras>(),
   'preset-infusions.yaml': typia.createAssertEquals<PresetInfusions>(),
   'preset-traits.yaml': typia.createAssertEquals<PresetTraits>(),
-} as Record<string, (data: any) => void>;
+  'credit.yaml': typia.createAssertEquals<CreditData>(),
+} as Record<string, (data: unknown) => void>;
 
 const testPresets = async () => {
   const files = (await fs.readdir(presetDirectory)).filter(

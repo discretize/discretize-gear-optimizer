@@ -4,7 +4,7 @@
     "es6": true,
     "jquery": true
   },
-  "plugins": ["@typescript-eslint", "@jambit/eslint-plugin-typed-redux-saga"],
+  "plugins": ["@typescript-eslint"],
   "extends": [
     "airbnb/whitespace",
     "airbnb/hooks",
@@ -112,13 +112,6 @@
         "@typescript-eslint/no-var-requires": "off",
         "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/no-use-before-define": "off"
-      }
-    },
-    {
-      "files": ["*.ts"],
-      "rules": {
-        "@jambit/typed-redux-saga/use-typed-effects": "error",
-        "@jambit/typed-redux-saga/delegate-effects": "error"
       }
     }
   ]

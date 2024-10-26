@@ -113,10 +113,6 @@ Alternatively you can clone the gw2-ui repository and run `yarn dev`, which will
 
 This app uses [Redux](https://redux.js.org/), including [Redux Toolkit](https://redux-toolkit.js.org/), to store and manipulate the UI state. [src/state](../../src/state) contains these files.
 
-[Redux Saga](https://redux-saga.js.org/) is used to integrate the asynchronous optimization process with Redux.
-
-> todo: refactor some of the frontend to more cleanly split UI view code into React components, UI updating code into Redux reducers, and the calculation itself into Redux sagas
-
 ### Core
 
 The optimizer core itself, [/src/state/optimizer/optimizerCore.js](../../src/state/optimizer/optimizerCore.js), is a vanilla Javascript file that exhaustively loops though every possible permutation of the selected gear. It exports a [generator function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) that yields periodically so as not to freeze the browser window.

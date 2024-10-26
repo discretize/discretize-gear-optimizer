@@ -53,8 +53,8 @@ const ConditionDetails = ({ character }: { character: Character }) => {
                   className={classes.gw2Item}
                 />
               </TableCell>
-              <TableCell align="right">{stacks.toFixed(2)}</TableCell>
-              <TableCell align="right">{tick.toFixed(2)}</TableCell>
+              <TableCell align="right">{stacks!.toFixed(2)}</TableCell>
+              <TableCell align="right">{tick!.toFixed(2)}</TableCell>
             </TableRow>
           ))}
         </TableBody>

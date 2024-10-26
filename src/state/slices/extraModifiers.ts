@@ -6,7 +6,7 @@ import { changeAll } from './controlsSlice';
 
 const initialState: {
   error: string;
-  extraModifiers: any[];
+  extraModifiers: unknown[];
   textBox: string;
 } = {
   error: '',
@@ -18,7 +18,7 @@ export const extraModifiersSlice = createSlice({
   name: 'extraModifiers',
   initialState,
   reducers: {
-    changeExtraModifiers: (state, action: PayloadAction<any[]>) => {
+    changeExtraModifiers: (state, action: PayloadAction<unknown[]>) => {
       state.extraModifiers = action.payload;
     },
     changeExtraModifiersText: (state, action: PayloadAction<string>) => {
@@ -47,7 +47,7 @@ export const getExtraModifiersModifiers = (state: RootState): AppliedModifier[] 
   const { extraModifiers } = state.optimizer.form;
   return extraModifiers.extraModifiers.map((data, index) => ({
     id: `extraModifier ${index + 1}`,
-    modifiers: data,
+    modifiers: data as AppliedModifier['modifiers'],
   }));
 };
 

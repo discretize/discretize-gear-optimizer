@@ -1,94 +1,51 @@
-import type { AffixName, DamagingConditionName, WeaponHandednessType } from '../../utils/gw2-data';
+import type {
+  AffixName,
+  AttributeName,
+  DamagingConditionName,
+  WeaponHandednessType,
+} from '../../utils/gw2-data';
 import {
   Affix,
-  BoonDurationAttributes,
-  ConditionCoefficientAttributes,
-  ConditionDurationAttributes,
-  ConditionTickAttributes,
-  DerivedAttributes,
-  EffectiveAttributes,
-  Indicators,
-  PrimaryAttributes,
-  SecondaryAttributes,
-  WeaponTypes,
+  alternativeAttributes,
+  boonDurationAttributes,
+  conditionCoefficientAttributes,
+  conditionDpsAttributes,
+  conditionDurationAttributes,
+  conditionStackAttributes,
+  conditionTickAttributes,
   damagingConditions,
+  derivedAttributes,
+  effectiveAttributes,
+  indicatorAttributes,
+  miscAttributes,
+  primaryAttributes,
+  professionAttributes,
+  secondaryAttributes,
+  siphonAttributes,
+  WeaponTypes,
 } from '../../utils/gw2-data';
 import { objectKeys } from '../../utils/usefulFunctions';
 import { getExtrasIds } from '../slices/extras';
 import type { RootState } from '../store';
-import type { CombinationSettings, CalculationSettings } from './optimizerSetup';
+import type { CalculationSettings, CombinationSettings } from './optimizerSetup';
 
-const attributes = [
-  ...PrimaryAttributes,
-  ...SecondaryAttributes,
-  ...DerivedAttributes,
-  ...BoonDurationAttributes,
-  ...ConditionDurationAttributes,
-  ...ConditionCoefficientAttributes,
-  ...ConditionTickAttributes,
-  ...EffectiveAttributes,
-  ...Indicators,
-
-  'Bleeding Stacks',
-  'Burning Stacks',
-  'Confusion Stacks',
-  'Poison Stacks',
-  'Torment Stacks',
-
-  'Bleeding DPS',
-  'Burning DPS',
-  'Confusion DPS',
-  'Poison DPS',
-  'Torment DPS',
-
-  'Alternative Power',
-  'Alternative Precision',
-  'Alternative Ferocity',
-  'Alternative Critical Chance',
-  'Alternative Effective Power',
-  'Alternative Critical Damage',
-
-  // profession specific
-  'Clone Critical Chance',
-  'Phantasm Critical Chance',
-  'Phantasm Critical Damage',
-  'Phantasm Effective Power',
-  'Siphon Coefficient',
-  'Siphon Base Coefficient',
-  'Siphon DPS',
-
-  // misc
-  'Maximum Health',
-  'Outgoing Healing',
-  'Damage Reduction',
-  'Power Coefficient',
-  'NonCrit Power Coefficient',
-  'Power2 DPS',
-  'Power2 Coefficient',
-  'Flat DPS',
-  'Power DPS',
-
-  // damage
-  'Outgoing Strike Damage',
-  'Outgoing Condition Damage',
-  'Outgoing Siphon Damage',
-  'Incoming Strike Damage',
-  'Outgoing Critical Damage',
-  'Outgoing Bleeding Damage',
-  'Outgoing Burning Damage',
-  'Outgoing Confusion Damage',
-  'Outgoing Poison Damage',
-  'Outgoing Torment Damage',
-  'Outgoing Alternative Damage',
-  'Outgoing Alternative Critical Damage',
-  'Outgoing Phantasm Damage',
-  'Outgoing Phantasm Critical Damage',
-  'Outgoing All Damage',
-
-  'Player Critical Damage',
+const attributes: AttributeName[] = [
+  ...primaryAttributes,
+  ...secondaryAttributes,
+  ...derivedAttributes,
+  ...boonDurationAttributes,
+  ...conditionDurationAttributes,
+  ...conditionCoefficientAttributes,
+  ...conditionTickAttributes,
+  ...effectiveAttributes,
+  ...indicatorAttributes,
+  ...conditionStackAttributes,
+  ...conditionDpsAttributes,
+  ...alternativeAttributes,
+  ...professionAttributes,
+  ...siphonAttributes,
+  ...miscAttributes,
 ] as const;
-
-type AttributeName = (typeof attributes)[number];
 
 export const getAffixId = (affix: AffixName) => {
   const index = objectKeys(Affix).indexOf(affix);

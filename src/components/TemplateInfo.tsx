@@ -4,7 +4,6 @@ import { Link } from '@mui/material';
 import { Fragment } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import creditData from '../assets/presetdata/credit.yaml';
 import type { Credit, PresetDistributionEntry } from '../assets/presetdata/metadata';
 import { getSelectedDistribution } from '../state/slices/distribution';
 import data from '../utils/data';
@@ -24,7 +23,7 @@ const TemplateLabel = ({ preset }: { preset: PresetDistributionEntry }) => {
 };
 
 const Author = ({ name }: { name: string }) => {
-  const url = creditData[name]?.authorUrl;
+  const url = data.creditData[name]?.authorUrl;
   return url ? (
     <Link href={url} target="_blank" rel="noopener">
       {name}
@@ -67,7 +66,7 @@ export default function TemplateInfo() {
         </Trans>
       )}
       {credit
-        .filter((entry) => creditData[entry.author]?.authorUrl && entry.url)
+        .filter((entry) => data.creditData[entry.author]?.authorUrl && entry.url)
         .map((entry) => (
           <Fragment key={`${entry.url}`}>
             {' '}

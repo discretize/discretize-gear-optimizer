@@ -18,13 +18,12 @@ interface TraitValue {
 // todo: specify trait keys
 type TraitsValues = Record<string, TraitValue>;
 
-// todo: type item data
 const getInitialItems = (traitline: string): TraitsValues => {
   const allItemData = traitSectionsById[traitline].items || [];
   return Object.fromEntries(
     allItemData
-      .filter((itemData: any) => itemData.defaultEnabled)
-      .map((itemData: any) => {
+      .filter((itemData) => itemData.defaultEnabled)
+      .map((itemData) => {
         const value = itemData.amountData ? { amount: itemData.amountData.defaultInput ?? '' } : {};
         return [itemData.id, value];
       }),
@@ -76,7 +75,7 @@ export const traitsSlice = createSlice({
     },
     toggleTraitModifier: (
       state,
-      action: PayloadAction<{ index: number; id: number; enabled: boolean }>,
+      action: PayloadAction<{ index: number; id: string; enabled: boolean }>,
     ) => {
       const { index, id, enabled } = action.payload;
 
@@ -91,7 +90,7 @@ export const traitsSlice = createSlice({
     },
     setTraitModiferAmount: (
       state,
-      action: PayloadAction<{ index: number; id: number; amount: string }>,
+      action: PayloadAction<{ index: number; id: string; amount: string }>,
     ) => {
       const { index, id, amount } = action.payload;
 
@@ -145,7 +144,7 @@ export const getTraitsModifiers = (state: RootState): AppliedModifier[] => {
       if (!itemData) return;
 
       const visible =
-        itemData.minor ||
+        itemData.minor ??
         (typeof itemData.gw2id === 'number' && allSelectedTraits.includes(itemData.gw2id));
       if (visible) {
         result.push({ id, ...itemData, amount: value?.amount });
@@ -163,14 +162,14 @@ export const getCurrentSpecialization = (state: RootState): string => {
   const eliteSpecializations = SPECIALIZATIONS[profession];
   // contains the names of the selected trait lines
   const selectedTraitLinesNames = selectedLines
-    .map((id) => classModifiers[profession].find((section: any) => section?.id === Number(id)))
+    .map((id) => classModifiers[profession].find((section) => section?.id === Number(id)))
     .filter(Boolean)
     .map((section) => section.section);
 
   // currently selected specialization. In case multiple elite specializations are selected, only the first one is counted.
   // In case no specialization is selected, the variable defaults to the core profession
   const currentSpecialization =
-    selectedTraitLinesNames.find((spec: string) => enumArrayIncludes(eliteSpecializations, spec)) ||
+    selectedTraitLinesNames.find((spec: string) => enumArrayIncludes(eliteSpecializations, spec)) ??
     profession;
   return currentSpecialization;
 };

@@ -12,7 +12,7 @@ interface AmountInputProps {
   value?: string;
   disabled?: boolean;
   maxWidth?: number;
-  parseFn?: ParseFunction<any>;
+  parseFn?: ParseFunction<unknown>;
 }
 
 export const AmountInput = ({
@@ -62,7 +62,7 @@ interface AmountInputAutoProps {
   value?: string;
   maxWidth?: number;
   autoCompleteProps: WithRequired<Partial<React.ComponentProps<typeof Autocomplete>>, 'options'>;
-  parseFn?: ParseFunction<any>;
+  parseFn?: ParseFunction<unknown>;
 }
 
 export const AmountInputAuto = ({

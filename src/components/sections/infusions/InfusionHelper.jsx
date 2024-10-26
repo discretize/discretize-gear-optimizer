@@ -35,7 +35,7 @@ import {
   getMaxInfusions,
   getValidInfusionOptions,
 } from '../../../state/slices/infusions';
-import { agonyInfusionIds, statInfusionIds } from '../../../utils/gw2-data';
+import { agonyInfusionIds, MAX_INFUSIONS, statInfusionIds } from '../../../utils/gw2-data';
 import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
@@ -243,7 +243,7 @@ const InfusionHelper = () => {
           mb={2}
           step={1}
           min={0}
-          max={18}
+          max={MAX_INFUSIONS}
           marks
           valueLabelDisplay="auto"
           onChange={handleMaxInfusionsChange}
@@ -257,7 +257,7 @@ const InfusionHelper = () => {
           value={slots}
           step={1}
           min={0}
-          max={18}
+          max={MAX_INFUSIONS}
           marks
           valueLabelDisplay="auto"
           onChange={handleSlotsChange}

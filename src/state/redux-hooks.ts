@@ -1,3 +1,4 @@
+import type { ThunkAction, UnknownAction } from '@reduxjs/toolkit';
 import { createListenerMiddleware } from '@reduxjs/toolkit';
 import type { TypedUseSelectorHook } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +10,16 @@ import type { AppDispatch, RootState } from './store';
 type DispatchFunc = () => AppDispatch;
 export const useAppDispatch: DispatchFunc = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+/**
+ * @see https://redux.js.org/usage/usage-with-typescript#type-checking-redux-thunks
+ */
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  undefined,
+  UnknownAction
+>;
 
 /**
  * @see https://redux.js.org/usage/side-effects-approaches#listeners
@@ -28,3 +39,11 @@ export const reduxSideEffect = <T>(
       effect(newValue);
     },
   });
+
+// easy state logger:
+// startListening({
+//   predicate: () => true,
+//   effect: (_, listenerApi) => {
+//     console.log(listenerApi.getState());
+//   },
+// });

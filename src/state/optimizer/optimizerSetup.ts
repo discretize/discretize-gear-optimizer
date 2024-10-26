@@ -24,14 +24,15 @@ import {
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
-import type { AffixName, ForcedSlotName } from '../../utils/gw2-data';
+import type { AffixName, ForcedSlotName, GearAttributeName } from '../../utils/gw2-data';
 import {
+  allSlotData,
   Classes,
-  ForcedSlots,
-  Slots,
   conditionData,
   damagingConditions,
-  Affix as unmodifiedAffix,
+  forcedSlotNames,
+  MAX_INFUSIONS,
+  Affix as rawAffix,
 } from '../../utils/gw2-data';
 import {
   enumArrayIncludes,
@@ -44,12 +45,14 @@ import {
   parseInfusionCount,
   parsePriority,
 } from '../../utils/usefulFunctions';
+import type { BossSlice } from '../slices/boss';
 import { getAttackRate, getMovementUptime } from '../slices/boss';
+import type { BuffsSlice } from '../slices/buffs';
 import { getBuffsModifiers } from '../slices/buffs';
 import { getProfession } from '../slices/controlsSlice';
 import { getDistributionNew } from '../slices/distribution';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
-import type { ExtrasCombination } from '../slices/extras';
+import type { ExtrasCombination, ExtrasSlice } from '../slices/extras';
 import { getExtrasCombinationsAndModifiers, getExtrasIds } from '../slices/extras';
 import { getForcedSlots } from '../slices/forcedSlots';
 import {
@@ -57,6 +60,7 @@ import {
   getMaxInfusions,
   getValidInfusionOptions,
 } from '../slices/infusions';
+import type { PrioritiesSlice } from '../slices/priorities';
 import {
   getAffixes,
   getConstraint,
@@ -66,12 +70,13 @@ import {
   getOptimizeFor,
   getWeaponType,
 } from '../slices/priorities';
+import type { SkillsSlice } from '../slices/skills';
 import { getSkillsModifiers } from '../slices/skills';
+import type { TraitsSlice } from '../slices/traits';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { getGameMode } from '../slices/userSettings';
 import type { RootState } from '../store';
 import type {
-  AttributeName,
   OptimizerCoreSettings,
   OptimizerCoreSettingsPerCalculation,
   OptimizerCoreSettingsPerCombination,
@@ -167,12 +172,12 @@ export interface Modifiers {
 export type InfusionMode = 'None' | 'Primary' | 'Few' | 'Secondary' | 'SecondaryNoDuplicates';
 
 export interface CachedFormState {
-  traits: Record<string, any>;
-  skills: Record<string, any>;
-  extras: Record<string, any>;
-  buffs: Record<string, any>;
-  priorities: Record<string, any>;
-  boss: Record<string, any>;
+  traits: TraitsSlice;
+  skills: SkillsSlice;
+  extras: ExtrasSlice;
+  buffs: BuffsSlice;
+  priorities: PrioritiesSlice;
+  boss: BossSlice;
 }
 
 // interface OptimizerInput {
@@ -214,8 +219,6 @@ export function setupCombinations(reduxState: RootState) {
   console.log('settings per calculation', settingsPerCalculation);
 
   const data = getExtrasCombinationsAndModifiers(reduxState).map((extrasCombinationEntry, i) => {
-    console.log(`combination ${i}:`, extrasCombinationEntry);
-
     const { extrasCombination, extrasModifiers } = extrasCombinationEntry;
 
     const settingsPerCombination = createSettingsPerCombination(reduxState, extrasModifiers);
@@ -228,6 +231,14 @@ export function setupCombinations(reduxState: RootState) {
       unbuffedModifiers: unbuffedSettings.modifiers,
       extrasCombination,
     };
+
+    console.log(`combination ${i}:`, {
+      settingsPerCombination,
+      unbuffedBaseAttributes: unbuffedSettings.baseAttributes,
+      unbuffedModifiers: unbuffedSettings.modifiers,
+      extrasCombination,
+      extrasModifiers,
+    });
 
     return { extrasCombinationEntry, settings };
   });
@@ -244,8 +255,7 @@ export function createSettingsPerCalculation(
 
   const specialization = getCurrentSpecialization(reduxState);
 
-  const customAffixData: Omit<typeof unmodifiedAffix.Custom, 'category'> =
-    getCustomAffixData(reduxState);
+  const customAffixData = getCustomAffixData(reduxState);
 
   // display extras in table if they have multiple options
   const shouldDisplayExtras = mapValues(
@@ -263,7 +273,7 @@ export function createSettingsPerCalculation(
   };
 
   const profession = getProfession(reduxState);
-  const infusionOptions = getValidInfusionOptions(reduxState);
+  const rawInfusionOptions = getValidInfusionOptions(reduxState);
   const maxInfusionsText = getMaxInfusions(reduxState);
   const forcedSlots = getForcedSlots(reduxState);
   const exclusions = getExclusionData(reduxState);
@@ -301,7 +311,7 @@ export function createSettingsPerCalculation(
   //   affix.toLowerCase().replace(/^\w/, (char) => char.toUpperCase()),
   // );
 
-  const maxInfusions = parseInfusionCount(maxInfusionsText).value;
+  const rawMaxInfusions = parseInfusionCount(maxInfusionsText).value;
 
   const minBoonDuration = parsePriority(minBoonDurationText).value;
   const minHealingPower = parsePriority(minHealingPowerText).value;
@@ -326,51 +336,51 @@ export function createSettingsPerCalculation(
 
   /* Infusions */
 
-  const settings_maxInfusions: OptimizerCoreSettings['maxInfusions'] = clamp(maxInfusions, 0, 18);
+  const maxInfusions: OptimizerCoreSettings['maxInfusions'] = clamp(
+    rawMaxInfusions,
+    0,
+    MAX_INFUSIONS,
+  );
 
-  const settings_infusionOptions = infusionOptions.map(({ type, count }) => ({
+  const infusionOptions = rawInfusionOptions.map(({ type, count }) => ({
     type,
-    count: clamp(parseInfusionCount(count).value, 0, 18),
+    count: clamp(parseInfusionCount(count).value, 0, MAX_INFUSIONS),
   }));
 
-  const totalSelectedInfusions = settings_infusionOptions.reduce(
-    (prev, cur) => prev + cur.count,
-    0,
-  );
+  const totalSelectedInfusions = infusionOptions.reduce((prev, cur) => prev + cur.count, 0);
 
   // currently unimplemented setting
   const infusionNoDuplicates = false;
 
-  let settings_infusionMode: OptimizerCoreSettings['infusionMode'] = 'None';
-  switch (infusionOptions.length) {
+  let infusionMode: OptimizerCoreSettings['infusionMode'] = 'None';
+  switch (rawInfusionOptions.length) {
     case 0:
-      settings_infusionMode = 'None';
+      infusionMode = 'None';
       break;
     case 1:
-      settings_infusionMode = 'Primary';
+      infusionMode = 'Primary';
       break;
     default:
-      if (totalSelectedInfusions <= settings_maxInfusions) {
-        settings_infusionMode = 'Few';
+      if (totalSelectedInfusions <= maxInfusions) {
+        infusionMode = 'Few';
       } else {
-        settings_infusionMode = infusionNoDuplicates ? 'SecondaryNoDuplicates' : 'Secondary';
+        infusionMode = infusionNoDuplicates ? 'SecondaryNoDuplicates' : 'Secondary';
       }
   }
 
   /* Equipment */
 
-  const Affix: typeof unmodifiedAffix = {
-    ...unmodifiedAffix,
-    Custom: { ...unmodifiedAffix.Custom, ...customAffixData },
+  const Affix: typeof rawAffix = {
+    ...rawAffix,
+    Custom: customAffixData,
   };
 
-  const settings_slots = Slots[weaponType];
+  const slotData = allSlotData[weaponType];
+  const slots = slotData.length;
 
   // affixesArray: valid affixes for each slot, taking forced slots into account
   // e.g. [[Berserker, Assassin], [Assassin], [Berserker, Assassin]...]
-  const orderedAffixesArray: OptimizerCoreSettings['affixesArray'] = new Array(
-    settings_slots.length,
-  ).fill(affixes);
+  const orderedAffixesArray = new Array(slots).fill(affixes) as (typeof affixes)[];
 
   orderedAffixesArray.forEach((_, index) => {
     const forcedAffix = forcedSlots[index];
@@ -391,7 +401,7 @@ export function createSettingsPerCalculation(
     }
   });
 
-  const arrayEntriesDeepEqual = (arr: any[]) =>
+  const arrayEntriesDeepEqual = (arr: unknown[]) =>
     arr.every((entry) => JSON.stringify(entry) === JSON.stringify(arr[0]));
 
   /**
@@ -408,7 +418,7 @@ export function createSettingsPerCalculation(
    * @returns {boolean} identical
    */
   const slotSettingsIdentical = (slotNames: ForcedSlotName[]) => {
-    const slotIndexes = slotNames.map((slotName) => ForcedSlots.indexOf(slotName));
+    const slotIndexes = slotNames.map((slotName) => forcedSlotNames.indexOf(slotName));
 
     const slotAffixesArrays = slotIndexes.map((index) => orderedAffixesArray[index]);
     const slotAffixesArraysIdentical = arrayEntriesDeepEqual(slotAffixesArrays);
@@ -419,10 +429,10 @@ export function createSettingsPerCalculation(
     return slotAffixesArraysIdentical && slotRaritiesIdentical;
   };
 
-  const settings_identicalArmor = slotSettingsIdentical(['shld', 'glov', 'boot']);
-  const settings_identicalRing = slotSettingsIdentical(['rng1', 'rng2']);
-  const settings_identicalAcc = slotSettingsIdentical(['acc1', 'acc2']);
-  const settings_identicalWep = slotSettingsIdentical(['wep1', 'wep2']);
+  const identicalArmor = slotSettingsIdentical(['shld', 'glov', 'boot']);
+  const identicalRing = slotSettingsIdentical(['rng1', 'rng2']);
+  const identicalAcc = slotSettingsIdentical(['acc1', 'acc2']);
+  const identicalWep = slotSettingsIdentical(['wep1', 'wep2']);
 
   // rearrange affixes so you don't always start with e.g. full berserker. Example:
   // [vipe sini grie] helm
@@ -431,7 +441,7 @@ export function createSettingsPerCalculation(
   // [vipe]           glov (forced to viper)
   // [grie vipe sini] legs
   // ...
-  const settings_affixesArray = orderedAffixesArray.map((affixOptions, slotindex) => {
+  const affixesArray = orderedAffixesArray.map((affixOptions, slotindex) => {
     if (affixOptions.length === 1) {
       return affixOptions;
     }
@@ -446,13 +456,13 @@ export function createSettingsPerCalculation(
   // like affixesArray, but each entry is an array of arrays of stats given by that piece with
   // that affix
   // e.g. berserker helm -> [[Power, 63],[Precision, 45],[Ferocity, 45]]
-  const settings_affixStatsArray: OptimizerCoreSettings['affixStatsArray'] =
-    settings_affixesArray.map((possibleAffixes, slotindex) =>
+  const affixStatsArray: OptimizerCoreSettings['affixStatsArray'] = affixesArray.map(
+    (possibleAffixes, slotindex) =>
       possibleAffixes.map((affix) => {
-        const statTotals: Record<AttributeName, number> = {};
+        const statTotals: Partial<Record<GearAttributeName, number>> = {};
         const item = exotics?.[affix]?.[slotindex]
-          ? settings_slots[slotindex].exo
-          : settings_slots[slotindex].asc;
+          ? slotData[slotindex].exo
+          : slotData[slotindex].asc;
         const bonuses = objectEntries(item[Affix[affix].type]);
         for (const [type, bonus] of bonuses) {
           const affixData = Affix[affix];
@@ -460,30 +470,30 @@ export function createSettingsPerCalculation(
             ? (affixData.wvwBonuses ?? affixData.bonuses)
             : affixData.bonuses;
           for (const stat of affixBonuses[type] ?? []) {
-            statTotals[stat] = (statTotals[stat] || 0) + bonus;
+            statTotals[stat] = (statTotals[stat] ?? 0) + bonus;
           }
         }
 
-        return Object.entries(statTotals);
+        return objectEntries(statTotals);
       }),
-    );
+  );
 
   // for heuristics
   // like affixes, but each entry is an array of stats given by using that affix in every available slot
   // e.g. berserker with no forced affixes -> [[Power, 1381],[Precision, 961],[Ferocity, 961]]
-  let settings_jsHeuristicsData: [AttributeName, number][][] | undefined;
+  let jsHeuristicsData: [GearAttributeName, number][][] | undefined;
   try {
-    settings_jsHeuristicsData = affixes.map((forcedAffix) => {
-      const statTotals: Record<AttributeName, number> = {};
-      settings_affixesArray.forEach((possibleAffixes, slotindex) => {
+    jsHeuristicsData = affixes.map((forcedAffix) => {
+      const statTotals: Partial<Record<GearAttributeName, number>> = {};
+      affixesArray.forEach((possibleAffixes, slotindex) => {
         if (!possibleAffixes.includes(forcedAffix) && possibleAffixes.length !== 1) {
           throw new Error();
         }
         const affix = possibleAffixes.includes(forcedAffix) ? forcedAffix : possibleAffixes[0];
 
         const item = exotics?.[affix]?.[slotindex]
-          ? settings_slots[slotindex].exo
-          : settings_slots[slotindex].asc;
+          ? slotData[slotindex].exo
+          : slotData[slotindex].asc;
         const bonuses = objectEntries(item[Affix[affix].type]);
         for (const [type, bonus] of bonuses) {
           const affixData = Affix[affix];
@@ -491,29 +501,29 @@ export function createSettingsPerCalculation(
             ? (affixData.wvwBonuses ?? affixData.bonuses)
             : affixData.bonuses;
           for (const stat of affixBonuses[type] ?? []) {
-            statTotals[stat] = (statTotals[stat] || 0) + bonus;
+            statTotals[stat] = (statTotals[stat] ?? 0) + bonus;
           }
         }
       });
 
-      return Object.entries(statTotals);
+      return objectEntries(statTotals);
     });
   } catch {
     // silently disable heuristics where they will not be accurate
   }
 
   // used to keep the progress counter in sync when skipping identical gear combinations.
-  const settings_runsAfterThisSlot: OptimizerCoreSettings['runsAfterThisSlot'] = [];
-  for (let index = 0; index < settings_affixesArray.length; index++) {
+  const runsAfterThisSlot: OptimizerCoreSettings['runsAfterThisSlot'] = [];
+  for (let index = 0; index < affixesArray.length; index++) {
     let counter = 1;
-    for (const affixOptions of settings_affixesArray.slice(index)) {
+    for (const affixOptions of affixesArray.slice(index)) {
       counter *= affixOptions.length;
     }
 
-    settings_runsAfterThisSlot.push(counter);
+    runsAfterThisSlot.push(counter);
   }
 
-  settings_runsAfterThisSlot.push(1);
+  runsAfterThisSlot.push(1);
 
   // const freeSlots = settings.weaponType === WeaponTypes.dualWield ? 5 : 6;
   // const pairs = settings.weaponType === WeaponTypes.dualWield ? 3 : 2;
@@ -560,20 +570,20 @@ export function createSettingsPerCalculation(
     cachedFormState,
     shouldDisplayExtras,
     distribution,
-    maxInfusions: settings_maxInfusions,
-    infusionOptions: settings_infusionOptions,
-    infusionMode: settings_infusionMode,
-    slots: settings_slots.length,
-    affixesArray: settings_affixesArray,
-    identicalArmor: settings_identicalArmor,
-    identicalRing: settings_identicalRing,
-    identicalAcc: settings_identicalAcc,
-    identicalWep: settings_identicalWep,
-    affixStatsArray: settings_affixStatsArray,
-    runsAfterThisSlot: settings_runsAfterThisSlot,
+    maxInfusions,
+    infusionOptions,
+    infusionMode,
+    slots,
+    affixesArray,
+    identicalArmor,
+    identicalRing,
+    identicalAcc,
+    identicalWep,
+    affixStatsArray,
+    runsAfterThisSlot,
     gameMode,
     affixes,
-    jsHeuristicsData: settings_jsHeuristicsData,
+    jsHeuristicsData,
   };
 
   return settings;
@@ -595,7 +605,7 @@ export function createSettingsPerCombination(
   const appliedModifiers = [...sharedModifiers, ...extrasModifiers];
 
   const profession = getProfession(reduxState);
-  const unmodifiedDistribution = getDistributionNew(reduxState);
+  const distribution = getDistributionNew(reduxState);
 
   const gameMode = getGameMode(reduxState);
   const isWvW = gameMode === 'wvw';
@@ -605,15 +615,9 @@ export function createSettingsPerCombination(
     throw new Error('missing profession!');
   }
 
-  // temp: convert "poisoned" to "poison"
-  const convertPoison = (dist: Record<DistributionNameUI, number>) =>
-    mapEntries(dist, ([key, value]) => [key === 'Poisoned' ? 'Poison' : key, value]);
-
-  const distribution = convertPoison(unmodifiedDistribution);
-
   /* Base Attributes */
 
-  const settings_baseAttributes: OptimizerCoreSettings['baseAttributes'] = {
+  const baseAttributes: OptimizerCoreSettings['baseAttributes'] = {
     'Power': 1000,
     'Precision': 1000,
     'Toughness': 1000,
@@ -633,19 +637,23 @@ export function createSettingsPerCombination(
     'Boon Duration': 0,
     'Health': Classes[profession].health,
     'Armor': Classes[profession].defense,
+
+    'Power Coefficient': distribution.Power,
+    'Power2 Coefficient': distribution.Power2,
+    'Burning Coefficient': distribution.Burning,
+    'Bleeding Coefficient': distribution.Bleeding,
+    'Poison Coefficient': distribution.Poisoned, // renamed
+    'Torment Coefficient': distribution.Torment,
+    'Confusion Coefficient': distribution.Confusion,
+
+    'Flat DPS': 0,
   };
 
   if (profession === 'Mesmer') {
-    settings_baseAttributes['Clone Critical Chance'] = 0.05;
-    settings_baseAttributes['Phantasm Critical Chance'] = 0.05;
-    settings_baseAttributes['Phantasm Critical Damage'] = 1.5;
+    baseAttributes['Clone Critical Chance'] = 0.05;
+    baseAttributes['Phantasm Critical Chance'] = 0.05;
+    baseAttributes['Phantasm Critical Damage'] = 1.5;
   }
-
-  for (const [key, value] of Object.entries(distribution)) {
-    settings_baseAttributes[`${key} Coefficient`] = value;
-  }
-
-  settings_baseAttributes[`Flat DPS`] = 0;
 
   /* Modifiers */
 
@@ -702,7 +710,7 @@ export function createSettingsPerCombination(
   const extraRelevantConditions = Object.fromEntries(
     Object.keys(conditionData).map((condition) => [condition, false]),
   );
-  const makeConditionsRelevant = (attribute: AttributeName) => {
+  const makeConditionsRelevant = (attribute: string) => {
     const condition = attribute.replace(' Coefficient', '');
     if (extraRelevantConditions[condition] !== undefined) {
       extraRelevantConditions[condition] = true;
@@ -807,14 +815,13 @@ export function createSettingsPerCombination(
 
           switch (convertedOrBuff) {
             case 'converted':
-              settings_baseAttributes[attribute] =
-                (settings_baseAttributes[attribute] || 0) + scaledAmount;
+              baseAttributes[attribute] = (baseAttributes[attribute] || 0) + scaledAmount;
               break;
             case 'buff':
             case 'unknown':
             default:
               collectedModifiers['buff'][attribute] =
-                (collectedModifiers['buff'][attribute] || 0) + scaledAmount;
+                (collectedModifiers['buff'][attribute] ?? 0) + scaledAmount;
               break;
           }
         }
@@ -824,8 +831,7 @@ export function createSettingsPerCombination(
 
         const value: number = Array.isArray(allPairs) ? allPairs[0] : allPairs;
         const scaledAmount = scaleValue(value, amountInput, amountData);
-        settings_baseAttributes[attribute] =
-          (settings_baseAttributes[attribute] || 0) + scaledAmount;
+        baseAttributes[attribute] = (baseAttributes[attribute] || 0) + scaledAmount;
       } else if (enumArrayIncludes(allAttributePercentKeys, attribute)) {
         // percent, i.e.
         //   Torment Duration: 15%
@@ -835,11 +841,10 @@ export function createSettingsPerCombination(
         // unconfirmed if +max health mods are mult but ¯\_(ツ)_/¯
         // +outgoing healing is assumed additive
         if (attribute === 'Maximum Health') {
-          settings_baseAttributes[attribute] =
-            ((settings_baseAttributes[attribute] || 0) + 1) * (1 + scaledAmount) - 1;
+          baseAttributes[attribute] =
+            ((baseAttributes[attribute] || 0) + 1) * (1 + scaledAmount) - 1;
         } else {
-          settings_baseAttributes[attribute] =
-            (settings_baseAttributes[attribute] || 0) + scaledAmount;
+          baseAttributes[attribute] = (baseAttributes[attribute] || 0) + scaledAmount;
         }
       } else {
         // eslint-disable-next-line no-alert
@@ -859,7 +864,7 @@ export function createSettingsPerCombination(
       if (!collectedModifiers['convert'][attribute]) {
         collectedModifiers['convert'][attribute] = {};
       }
-      settings_baseAttributes[attribute] ??= 0;
+      baseAttributes[attribute] ??= 0;
 
       for (const [source, percentAmount] of Object.entries(val) as [
         ConversionSourceKey,
@@ -868,7 +873,7 @@ export function createSettingsPerCombination(
         const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
         collectedModifiers['convert'][attribute]![source] =
-          (collectedModifiers['convert'][attribute]![source] || 0) + scaledAmount;
+          (collectedModifiers['convert'][attribute]![source] ?? 0) + scaledAmount;
       }
     }
 
@@ -895,13 +900,13 @@ export function createSettingsPerCombination(
         const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
         collectedModifiers['convertAfterBuffs'][attribute]![source] =
-          (collectedModifiers['convertAfterBuffs'][attribute]![source] || 0) + scaledAmount;
+          (collectedModifiers['convertAfterBuffs'][attribute]![source] ?? 0) + scaledAmount;
       }
     }
   }
 
-  const damageMultiplier: any = {};
-  const damageMultiplierBreakdown: any = {};
+  const damageMultiplier = {} as DamageMultiplier;
+  const damageMultiplierBreakdown = {} as DamageMultiplierBreakdown;
 
   objectKeys(initialMultipliers).forEach((attribute) => {
     damageMultiplier[attribute] =
@@ -935,23 +940,21 @@ export function createSettingsPerCombination(
 
   /* Relevant Conditions + Condi Caching Toggle */
 
-  const settings_relevantConditions: OptimizerCoreSettings['relevantConditions'] =
-    damagingConditions.filter(
-      (condition) =>
-        (settings_baseAttributes[`${condition} Coefficient`] ?? 0) > 0 ||
-        extraRelevantConditions[condition],
-    );
+  const relevantConditions: OptimizerCoreSettings['relevantConditions'] = damagingConditions.filter(
+    (condition) =>
+      (baseAttributes[`${condition} Coefficient`] ?? 0) > 0 || extraRelevantConditions[condition],
+  );
 
   // if any condition coefficnents are the result of a conversion, the same cdmg + expertise does
   // not mean the same condition dps; disable caching if so
-  const settings_disableCondiResultCache: OptimizerCoreSettings['disableCondiResultCache'] =
+  const disableCondiResultCache: OptimizerCoreSettings['disableCondiResultCache'] =
     Object.values(extraRelevantConditions).some(Boolean);
 
   const settings: OptimizerCoreSettingsPerCombination = {
-    baseAttributes: { ...settings_baseAttributes }, // object shape performance optimization
+    baseAttributes: { ...baseAttributes }, // object shape performance optimization
     modifiers,
-    relevantConditions: settings_relevantConditions,
-    disableCondiResultCache: settings_disableCondiResultCache,
+    relevantConditions,
+    disableCondiResultCache,
     appliedModifiers,
   };
 

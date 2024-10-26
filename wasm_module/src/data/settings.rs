@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 use serde_repr::{Deserialize_repr, Serialize_repr};
 use std::fmt;
 
-use super::{affix::Affix, attribute::Attribute};
+use super::{affix::Affix, attribute::Attribute, attribute::DamageMultiplier};
 
 #[allow(non_snake_case)] // must allow since this comes from JS
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -103,13 +103,13 @@ impl Condition {
         }
     }
     /// returns the index for the damage attribute the Attributes array in Character
-    pub fn get_damage_mod_attribute(&self) -> Attribute {
+    pub fn get_damage_mod_attribute(&self) -> DamageMultiplier {
         match self {
-            Condition::Bleeding => Attribute::OutgoingBleedingDamage,
-            Condition::Burning => Attribute::OutgoingBurningDamage,
-            Condition::Confusion => Attribute::OutgoingConfusionDamage,
-            Condition::Poison => Attribute::OutgoingPoisonDamage,
-            Condition::Torment => Attribute::OutgoingTormentDamage,
+            Condition::Bleeding => DamageMultiplier::OutgoingBleedingDamage,
+            Condition::Burning => DamageMultiplier::OutgoingBurningDamage,
+            Condition::Confusion => DamageMultiplier::OutgoingConfusionDamage,
+            Condition::Poison => DamageMultiplier::OutgoingPoisonDamage,
+            Condition::Torment => DamageMultiplier::OutgoingTormentDamage,
         }
     }
 

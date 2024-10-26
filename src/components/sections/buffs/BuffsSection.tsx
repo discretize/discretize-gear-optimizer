@@ -1,12 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
+import type { PresetBuffsEntry } from '../../../assets/presetdata/metadata';
 import { replaceBuffs } from '../../../state/slices/buffs';
 import data from '../../../utils/data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Buffs from './Buffs';
-import type { PresetBuffsEntry } from '../../../assets/presetdata/metadata';
 
 const BuffsSection = () => {
   const dispatch = useDispatch();

@@ -1,3 +1,5 @@
+import type React from 'react';
+
 const firstUppercase = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
 export const formatApiText = (apiText: string) =>
@@ -25,5 +27,5 @@ export const formatApiText = (apiText: string) =>
       .replace(/^Cuenco de /, ''),
   );
 
-export const joinWith = (array: any[], separator: any) =>
+export const joinWith = (array: React.ReactNode[], separator: React.ReactNode) =>
   array.flatMap((element) => [element, separator]).slice(0, -1);

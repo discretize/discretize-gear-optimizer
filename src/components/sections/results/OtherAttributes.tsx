@@ -36,7 +36,7 @@ const OtherAttributes = ({ character }: { character: Character }) => {
                   {attribute}{' '}
                 </Typography>
               </TableCell>
-              <TableCell align="right">{roundOne(value)}</TableCell>
+              <TableCell align="right">{roundOne(value!)}</TableCell>
             </TableRow>
           ))}
         </TableBody>

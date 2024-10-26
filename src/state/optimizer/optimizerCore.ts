@@ -7,10 +7,12 @@
 import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
 import type {
   AffixName,
-  AffixNameOrCustom,
+  AttributeName,
+  ConditionCoefficientAttributeName,
   ConditionName,
   DamagingConditionName,
   DerivedAttributeName,
+  GearAttributeName,
   IndicatorName,
   InfusionName,
   PrimaryAttributeName,
@@ -18,8 +20,14 @@ import type {
   SecondaryAttributeName,
   WeaponHandednessType,
 } from '../../utils/gw2-data';
-import { Attributes, INFUSION_BONUS, conditionData, conditionDataWvW } from '../../utils/gw2-data';
-import { enumArrayIncludes, objectKeys } from '../../utils/usefulFunctions';
+import {
+  INFUSION_BONUS,
+  conditionData,
+  conditionDataWvW,
+  damagingConditions,
+  indicatorAttributes,
+} from '../../utils/gw2-data';
+import { enumArrayIncludes, objectEntries, objectKeys } from '../../utils/usefulFunctions';
 import type { ExtrasCombination, ShouldDisplayExtras } from '../slices/extras';
 import type { GameMode } from '../slices/userSettings';
 import { iteratePartitions } from './combinatorics';
@@ -149,20 +157,27 @@ export interface OptimizerCoreSettingsPerCalculation {
   slots: number; // The length of the former slots array
   runsAfterThisSlot: number[];
   affixesArray: AffixName[][];
-  affixStatsArray: [AttributeName, number][][][];
+  affixStatsArray: [GearAttributeName, number][][][];
 
-  affixes: AffixNameOrCustom[];
-  jsHeuristicsData?: [AttributeName, number][][];
+  affixes: AffixName[];
+  jsHeuristicsData?: [GearAttributeName, number][][];
 
   shouldDisplayExtras: ShouldDisplayExtras;
   cachedFormState: CachedFormState;
 }
 
-export type Attributes = Record<
-  PrimaryAttributeName | SecondaryAttributeName | DerivedAttributeName,
+type GuaranteedBaseAttributes = Record<
+  | PrimaryAttributeName
+  | SecondaryAttributeName
+  | DerivedAttributeName
+  | 'Power Coefficient'
+  | 'Power2 Coefficient'
+  | ConditionCoefficientAttributeName
+  | 'Flat DPS',
   number
-> &
-  Record<string, number>;
+>;
+
+export type Attributes = GuaranteedBaseAttributes & Partial<Record<AttributeName, number>>;
 
 // settings that **do** vary based on extras combination
 export interface OptimizerCoreSettingsPerCombination {
@@ -180,6 +195,7 @@ export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &
     extrasCombination: ExtrasCombination;
   };
 
+// only supply character with settings it uses to render
 export type OptimizerCoreMinimalSettings = Pick<
   OptimizerCoreSettings,
   | 'cachedFormState'
@@ -194,7 +210,7 @@ export type OptimizerCoreMinimalSettings = Pick<
   | 'gameMode'
 >;
 export type Gear = AffixName[];
-export type GearStats = Record<AttributeName, number>;
+export type GearStats = Partial<Record<GearAttributeName, number>>;
 interface CoefficientHelperValue {
   slope: number;
   intercept: number;
@@ -211,9 +227,8 @@ interface Results {
   coefficientHelper?: Partial<Record<DistributionNameInternal, CoefficientHelperValue>>;
   unbuffedAttributes?: Attributes;
 }
-export interface CharacterUnprocessed {
+interface CharacterUnprocessed {
   id?: string;
-  settings: OptimizerCoreMinimalSettings;
   attributes?: Attributes;
   gear: Gear;
   gearStats: GearStats;
@@ -223,11 +238,18 @@ export interface CharacterUnprocessed {
   infusions: Partial<Record<InfusionName, number>>;
   results?: Results;
 }
-export interface Character extends CharacterUnprocessed {
-  attributes: Attributes;
+interface CharacterProcessed extends CharacterUnprocessed {
+  // note: this is not actually accurate
+  // (we convince typescript every attribute is defined via a type predicate in calcStats)
+  // TODO: improve this
+  attributes: Required<Attributes>;
 }
-
-export type AttributeName = string; // TODO: replace with AttributeName from gw2-data
+interface CharacterWithResults extends CharacterProcessed {
+  results: Results;
+}
+export interface Character extends CharacterWithResults {
+  settings: OptimizerCoreMinimalSettings;
+}
 
 export type CalculateGenerator = ReturnType<OptimizerCore['calculate']>;
 
@@ -235,7 +257,6 @@ export const UPDATE_MS = 90;
 
 export class OptimizerCore {
   settings: OptimizerCoreSettings;
-  minimalSettings: OptimizerCoreMinimalSettings;
   applyInfusionsFunction: (
     this: OptimizerCore,
     gear: Gear,
@@ -245,7 +266,7 @@ export class OptimizerCore {
 
   condiResultCache = new Map<number, number>();
   worstScore: number = 0;
-  list: Character[] = [];
+  list: CharacterProcessed[] = [];
   isChanged = true;
   uniqueIDCounter = 0;
   randomId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
@@ -253,19 +274,6 @@ export class OptimizerCore {
 
   constructor(settings: OptimizerCoreSettings) {
     this.settings = settings;
-    // only supply character with settings it uses to render
-    this.minimalSettings = {
-      cachedFormState: settings.cachedFormState,
-      profession: settings.profession,
-      specialization: settings.specialization,
-      weaponType: settings.weaponType,
-      appliedModifiers: settings.appliedModifiers,
-      rankby: settings.rankby,
-      shouldDisplayExtras: settings.shouldDisplayExtras,
-      extrasCombination: settings.extrasCombination,
-      modifiers: settings.modifiers,
-      gameMode: settings.gameMode,
-    };
     this.conditionData = settings.gameMode === 'wvw' ? conditionDataWvW : conditionData;
 
     let applyInfusionsFunction: OptimizerCore['applyInfusionsFunction'];
@@ -322,11 +330,10 @@ export class OptimizerCore {
 
       // pause to update UI
       if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
-        this.list.forEach(this.calcResults, this);
         yield {
           isChanged: this.isChanged,
           calculationRuns,
-          newList: this.isChanged ? this.list : undefined,
+          newList: this.isChanged ? this.getListWithResults() : undefined,
         };
         this.isChanged = false;
         iterationTimer = Date.now();
@@ -398,11 +405,10 @@ export class OptimizerCore {
       calculationStatsQueue.push(gearStats);
     }
 
-    this.list.forEach(this.calcResults, this);
     yield {
       isChanged: this.isChanged,
       calculationRuns,
-      newList: this.isChanged ? this.list : undefined,
+      newList: this.isChanged ? this.getListWithResults() : undefined,
     };
   }
 
@@ -443,11 +449,10 @@ export class OptimizerCore {
 
       // pause to update UI
       if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
-        this.list.forEach(this.calcResults, this);
         yield {
           isChanged: this.isChanged,
           calculationRuns,
-          newList: this.isChanged ? this.list : undefined,
+          newList: this.isChanged ? this.getListWithResults() : undefined,
         };
         this.isChanged = false;
         iterationTimer = Date.now();
@@ -462,8 +467,8 @@ export class OptimizerCore {
           gearStats[stat] = (gearStats[stat] ?? 0) + value * num;
         }),
       );
-      Object.keys(gearStats).forEach((key) => {
-        gearStats[key] /= split;
+      objectKeys(gearStats).forEach((key) => {
+        gearStats[key]! /= split;
       });
 
       const percentages = `Estimate: ${partition
@@ -476,11 +481,10 @@ export class OptimizerCore {
       this.applyInfusionsFunction([], gearStats, { gearDescription: percentages });
     }
 
-    this.list.forEach(this.calcResults, this);
     yield {
       isChanged: this.isChanged,
       calculationRuns,
-      newList: this.isChanged ? this.list : undefined,
+      newList: this.isChanged ? this.getListWithResults() : undefined,
     };
   }
 
@@ -493,7 +497,6 @@ export class OptimizerCore {
     const character: CharacterUnprocessed = {
       gear, // passed by reference
       infusions, // passed by reference
-      settings: this.minimalSettings, // passed by reference
       gearStats, // passed by reference
       attributes: undefined,
       valid: true,
@@ -502,10 +505,10 @@ export class OptimizerCore {
     };
 
     // apply gear and infusions
-    for (const [stat, value] of Object.entries(gearStats)) {
+    for (const [stat, value] of objectEntries(gearStats)) {
       character.baseAttributes[stat] += value;
     }
-    for (const [stat, count] of Object.entries(infusions)) {
+    for (const [stat, count] of objectEntries(infusions)) {
       character.baseAttributes[stat] += count * INFUSION_BONUS;
     }
 
@@ -614,14 +617,14 @@ export class OptimizerCore {
     const { settings } = this;
     const temp = this.clone(character);
 
-    settings.infusionOptions.forEach(({ type, count }) =>
-      this.addBaseStats(temp, type, count * INFUSION_BONUS),
-    );
+    settings.infusionOptions.forEach(({ type, count }) => {
+      temp.baseAttributes[type] += count * INFUSION_BONUS;
+    });
     this.updateAttributesFast(temp, true);
     return temp.attributes[settings.rankby] > this.worstScore;
   }
 
-  insertCharacter(character: Character) {
+  insertCharacter(character: CharacterProcessed) {
     const { settings } = this;
 
     if (
@@ -662,10 +665,6 @@ export class OptimizerCore {
     this.isChanged = true;
   }
 
-  addBaseStats(character: CharacterUnprocessed, stat: AttributeName, amount: number) {
-    character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
-  }
-
   /**
    * Creates an {attributes} object parameter in the given character object and fills it with
    * calculated stats and damage/healing/survivability scores.
@@ -676,7 +675,7 @@ export class OptimizerCore {
   updateAttributes(
     character: CharacterUnprocessed,
     noRounding = false,
-  ): asserts character is Character {
+  ): asserts character is CharacterProcessed {
     const { modifiers } = this.settings;
     const { damageMultiplier } = modifiers;
 
@@ -685,9 +684,9 @@ export class OptimizerCore {
     this.calcStats(character, modifiers, noRounding);
 
     const powerDamageScore = this.calcPower(character, damageMultiplier);
-    const condiDamageScore = this.calcCondi(character, damageMultiplier, Attributes.CONDITION);
+    const condiDamageScore = this.calcCondi(character, damageMultiplier, damagingConditions);
     character.attributes['Damage'] =
-      powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
+      powerDamageScore + condiDamageScore + character.attributes['Flat DPS'];
 
     this.calcSurvivability(character, damageMultiplier);
     this.calcHealing(character);
@@ -704,7 +703,7 @@ export class OptimizerCore {
   updateAttributesFast(
     character: CharacterUnprocessed,
     skipValidation = false,
-  ): asserts character is Character {
+  ): asserts character is CharacterProcessed {
     const { settings } = this;
     const { modifiers } = this.settings;
     const { damageMultiplier } = modifiers;
@@ -733,8 +732,7 @@ export class OptimizerCore {
         this.condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
       }
 
-      attributes['Damage'] =
-        powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
+      attributes['Damage'] = powerDamageScore + condiDamageScore + character.attributes['Flat DPS'];
     }
     if (settings.rankby === 'Healing' || settings.minHealing) {
       this.calcHealing(character);
@@ -752,7 +750,7 @@ export class OptimizerCore {
     character: CharacterUnprocessed,
     modifiers: Modifiers,
     noRounding = false,
-  ): asserts character is Character {
+  ): asserts character is CharacterProcessed {
     const { settings } = this;
 
     const round = noRounding ? (val: number) => val : roundEven;
@@ -790,9 +788,9 @@ export class OptimizerCore {
 
     if (settings.profession === 'Mesmer') {
       // mesmer illusions: special bonuses are INSTEAD OF player attributes
-      attributes['Clone Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
-      attributes['Phantasm Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
-      attributes['Phantasm Critical Damage'] += attributes['Ferocity'] / 15 / 100;
+      attributes['Clone Critical Chance']! += (attributes['Precision'] - 1000) / 21 / 100;
+      attributes['Phantasm Critical Chance']! += (attributes['Precision'] - 1000) / 21 / 100;
+      attributes['Phantasm Critical Damage']! += attributes['Ferocity'] / 15 / 100;
     } else if (attributes['Power2 Coefficient']) {
       // necromancer shroud: special bonuses are IN ADDITION TO player attributes
       attributes['Alternative Power'] =
@@ -829,7 +827,7 @@ export class OptimizerCore {
     }
   }
 
-  checkInvalid(character: Character) {
+  checkInvalid(character: CharacterProcessed) {
     const { settings } = this;
     const { attributes } = character;
 
@@ -855,7 +853,7 @@ export class OptimizerCore {
     return invalid;
   }
 
-  checkInvalidIndicators(character: Character) {
+  checkInvalidIndicators(character: CharacterProcessed) {
     const { settings } = this;
     const { attributes } = character;
 
@@ -871,7 +869,7 @@ export class OptimizerCore {
     return invalid;
   }
 
-  calcPower(character: Character, damageMultiplier: DamageMultiplier) {
+  calcPower(character: CharacterProcessed, damageMultiplier: DamageMultiplier) {
     const { settings } = this;
     const { attributes } = character;
 
@@ -889,7 +887,7 @@ export class OptimizerCore {
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
     let powerDamage =
-      ((attributes['Power Coefficient'] || 0) / 2597) *
+      (attributes['Power Coefficient'] / 2597) *
         attributes['Effective Power'] *
         damageMultiplier['Outgoing Strike Damage'] +
       ((attributes['NonCrit Power Coefficient'] || 0) / 2597) *
@@ -901,16 +899,16 @@ export class OptimizerCore {
     if (attributes['Power2 Coefficient']) {
       if (settings.profession === 'Mesmer') {
         // mesmer illusions: special bonuses are INSTEAD OF player attributes
-        attributes['Phantasm Critical Damage'] *=
+        attributes['Phantasm Critical Damage']! *=
           damageMultiplier['Outgoing Phantasm Critical Damage'];
-        const phantasmCritChance = clamp(attributes['Phantasm Critical Chance'], 0, 1);
+        const phantasmCritChance = clamp(attributes['Phantasm Critical Chance']!, 0, 1);
 
         attributes['Phantasm Effective Power'] =
           attributes['Power'] *
-          (1 + phantasmCritChance * (attributes['Phantasm Critical Damage'] - 1));
+          (1 + phantasmCritChance * (attributes['Phantasm Critical Damage']! - 1));
 
         const phantasmPowerDamage =
-          ((attributes['Power2 Coefficient'] || 0) / 2597) *
+          (attributes['Power2 Coefficient'] / 2597) *
           attributes['Phantasm Effective Power'] *
           damageMultiplier['Outgoing Phantasm Damage'];
         attributes['Power2 DPS'] = phantasmPowerDamage;
@@ -927,7 +925,7 @@ export class OptimizerCore {
           (1 + alternativeCritChance * (attributes['Alternative Critical Damage'] - 1));
 
         const alternativePowerDamage =
-          ((attributes['Power2 Coefficient'] || 0) / 2597) *
+          (attributes['Power2 Coefficient'] / 2597) *
           attributes['Alternative Effective Power'] *
           damageMultiplier['Outgoing Strike Damage'] *
           damageMultiplier['Outgoing Alternative Damage'];
@@ -951,7 +949,7 @@ export class OptimizerCore {
     (this.conditionData[condition].factor * cdmg + this.conditionData[condition].baseDamage) * mult;
 
   calcCondi(
-    character: Character,
+    character: CharacterProcessed,
     damageMultiplier: DamageMultiplier,
     relevantConditions: readonly DamagingConditionName[],
   ) {
@@ -997,7 +995,7 @@ export class OptimizerCore {
     return condiDamageScore;
   }
 
-  calcSurvivability(character: Character, damageMultiplier: DamageMultiplier) {
+  calcSurvivability(character: CharacterProcessed, damageMultiplier: DamageMultiplier) {
     const { attributes } = character;
 
     attributes['Effective Health'] =
@@ -1006,27 +1004,18 @@ export class OptimizerCore {
     attributes['Survivability'] = attributes['Effective Health'] / 1967;
   }
 
-  calcHealing(character: Character) {
-    const { settings } = this;
+  calcHealing(character: CharacterProcessed) {
     const { attributes } = character;
 
     // reasonably representative skill: druid celestial avatar 4 pulse
     // 390 base, 0.3 coefficient
     attributes['Effective Healing'] =
       (attributes['Healing Power'] * 0.3 + 390) * (1 + (attributes['Outgoing Healing'] || 0));
-    if (Object.prototype.hasOwnProperty.call(settings.modifiers, 'bountiful-maintenance-oil')) {
-      const bonus =
-        ((attributes['Healing Power'] || 0) * 0.6) / 10000 +
-        ((attributes['Concentration'] || 0) * 0.8) / 10000;
-      if (bonus) {
-        attributes['Effective Healing'] *= 1 + bonus;
-      }
-    }
 
     attributes['Healing'] = attributes['Effective Healing'];
   }
 
-  calcResults(character: Character) {
+  calcResults(character: CharacterProcessed): asserts character is CharacterWithResults {
     if (character.results) return;
 
     const { settings } = this;
@@ -1035,7 +1024,7 @@ export class OptimizerCore {
     const value = character.attributes[settings.rankby];
 
     const indicators = {} as Record<IndicatorName, number>;
-    for (const attribute of Attributes.INDICATORS) {
+    for (const attribute of indicatorAttributes) {
       indicators[attribute] = attributes[attribute];
     }
 
@@ -1138,6 +1127,12 @@ export class OptimizerCore {
     }
   }
 
+  getListWithResults = () =>
+    this.list.map((character) => {
+      this.calcResults(character);
+      return character;
+    });
+
   /**
    * Clones a character. baseAttributes is cloned by value, so it can be mutated. Please
    * don't directly mutate character.attributes; it's passed by reference so the clone shares
@@ -1148,7 +1143,6 @@ export class OptimizerCore {
    */
   clone(character: CharacterUnprocessed): CharacterUnprocessed {
     return {
-      settings: character.settings, // passed by reference
       attributes: character.attributes, // passed by reference
       gear: character.gear, // passed by reference
       gearStats: character.gearStats, // passed by reference
@@ -1162,9 +1156,9 @@ export class OptimizerCore {
 
 // returns a positive value if B is better than A
 export function characterLT(
-  a: Character | undefined,
-  b: Character | undefined,
-  rankby: string,
+  a: CharacterProcessed | undefined,
+  b: CharacterProcessed | undefined,
+  rankby: IndicatorName,
 ): number {
   if (!a && !b) return 0;
   if (!a) return 1;

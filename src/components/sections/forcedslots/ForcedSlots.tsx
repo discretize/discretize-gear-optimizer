@@ -9,17 +9,13 @@ import AffixesSelect from '../../baseComponents/AffixesSelect';
 const ForcedSlots = () => {
   const dispatch = useDispatch();
   const forcedSlots = useSelector(getForcedSlots);
-  const dualWielded = useSelector(getWeaponType);
+  const weaponType = useSelector(getWeaponType);
   const { t } = useTranslation();
 
   let SLOTS = GEAR_SLOTS;
-  if (dualWielded !== WeaponTypes.dualWield) {
+  if (weaponType !== WeaponTypes.dualWield) {
     SLOTS = GEAR_SLOTS.slice(0, 13);
   }
-
-  const handleChange = (index) => (event, newInput) => {
-    dispatch(changeForcedSlot({ index, value: newInput?.label || null }));
-  };
 
   return (
     <Grid
@@ -34,7 +30,9 @@ const ForcedSlots = () => {
           <AffixesSelect
             // i18next-extract-mark-context-next-line {{slotName}}
             name={t('slotName', { context: slot.name })}
-            onChange={handleChange(index)}
+            onChange={(event, newInput) => {
+              dispatch(changeForcedSlot({ index, value: newInput?.label || null }));
+            }}
             value={forcedSlots[index]}
           />
         </Grid>

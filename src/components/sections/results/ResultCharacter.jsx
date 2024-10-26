@@ -1,7 +1,13 @@
 import { Character, firstUppercase } from '@discretize/react-discretize-components';
 import { FormControlLabel, Switch } from '@mui/material';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
-import { Classes, INFUSION_IDS, WeaponTypes, getWeight } from '../../../utils/gw2-data';
+import {
+  Classes,
+  INFUSION_IDS,
+  MAX_INFUSIONS,
+  WeaponTypes,
+  getWeight,
+} from '../../../utils/gw2-data';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 
 const CustomSwitch = ({ onChange, label }) => (
@@ -23,14 +29,14 @@ export default function ResultCharacter({
   const weight = getWeight(profession);
 
   // Calculate infusions
-  let infusions = [...Array(18).fill(49432)];
+  let infusions = [...Array(MAX_INFUSIONS).fill(49432)];
 
   if (character.infusions) {
     infusions = Object.keys(character.infusions).flatMap((key) => [
       ...Array(character.infusions[key]).fill(INFUSION_IDS[key]),
     ]);
     // fill up the remaining slots with generic +9 Agony Infusions
-    infusions = [...infusions, ...Array(18).fill(49432)].slice(0, 18);
+    infusions = [...infusions, ...Array(MAX_INFUSIONS).fill(49432)].slice(0, MAX_INFUSIONS);
   }
 
   // Calculate extras
@@ -127,7 +133,7 @@ export default function ResultCharacter({
   }
 
   // Calculate armor props
-  const { gear, attributes } = character;
+  const { gear, attributes, results: { unbuffedAttributes } = {} } = character;
   const runeId = rune ? rune.gw2id : undefined;
   const armorPropsAPI = {
     weight: firstUppercase(weight),
@@ -194,6 +200,14 @@ export default function ResultCharacter({
     <ErrorBoundary location="Character" resetKeys={[character]}>
       <Character
         attributes={{ profession, data: attributes }}
+        unbuffedAttributes={
+          unbuffedAttributes && {
+            profession,
+            specialization,
+            data: unbuffedAttributes,
+            info: 'Simulated unbuffed attributes are not exact and may not match ingame hero panel! For example, soulbeast\'s "with axe" and "with torch/dagger" buffs are both included, simulating a scenario which doesn\'t occur in either weapon set on some builds. Use with caution.',
+          }
+        }
         armor={armorPropsAPI}
         weapon={weaponPropsAPI}
         backAndTrinket={backAndTrinketPropsAPI}

@@ -81,7 +81,7 @@ async function start(
 
     const message: FinishedMessage = {
       type: FINISHED,
-      results: JSON.parse(data || '[]') as any[],
+      results: JSON.parse(data || '[]') as unknown[],
     };
     postMessage(message);
   } catch (e) {

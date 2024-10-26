@@ -72,6 +72,13 @@ const CustomAffix = () => {
           width: '100%',
           marginBottom: 1,
         }}
+        slotProps={{
+          input: {
+            sx: {
+              fontFamily: 'Fira Mono',
+            },
+          },
+        }}
         multiline
         minRows={4}
         value={text}

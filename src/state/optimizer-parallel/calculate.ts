@@ -1,4 +1,5 @@
 import { STOPPED } from '../optimizer/status';
+import type { AppThunk } from '../redux-hooks';
 import {
   changeFilteredLists,
   changeList,
@@ -7,7 +8,6 @@ import {
   getHeuristics,
   getHwThreads,
 } from '../slices/controlsSlice';
-import type { AppDispatch, RootState } from '../store';
 import runCalcHeuristics from './modes/heuristics';
 import runCalcNormal from './modes/normal';
 import { createCalculationSettings, setupNormal } from './optimizerSetup';
@@ -21,8 +21,15 @@ const createdWorkers: WorkerWrapper[] = [];
 
 const createWorker = (): WorkerWrapper => ({
   status: 'idle',
-  worker: new Worker(new URL('./worker/worker.ts', import.meta.url)),
+  worker: new Worker(new URL('./worker/worker.ts', import.meta.url), { type: 'module' }),
 });
+
+const createWorkers = (count: number) => {
+  while (createdWorkers.length < count) {
+    createdWorkers.push(createWorker());
+  }
+  return createdWorkers.slice(0, count);
+};
 
 const terminateActiveWorkers = () => {
   createdWorkers.forEach((workerObj, i) => {
@@ -33,7 +40,8 @@ const terminateActiveWorkers = () => {
   });
 };
 
-export function calculateParallel(reduxState: RootState, dispatch: AppDispatch): WorkerWrapper[] {
+export const calculateParallel: AppThunk = (dispatch, getState) => {
+  const reduxState = getState();
   const selectedMaxThreads = getHwThreads(reduxState);
 
   dispatch(changeList([]));
@@ -59,10 +67,7 @@ export function calculateParallel(reduxState: RootState, dispatch: AppDispatch):
 
   console.log(`Creating ${selectedMaxThreads} threads`);
   // create all threads. later on we may or may not use them depending on the presented problem
-  const workers: WorkerWrapper[] = [...Array(selectedMaxThreads)].map((_, index) => {
-    createdWorkers[index] ??= createWorker();
-    return createdWorkers[index];
-  });
+  const workers = createWorkers(selectedMaxThreads);
 
   // select calculation mode - at the moment there are only two modes
   if (withHeuristics) {
@@ -87,11 +92,9 @@ export function calculateParallel(reduxState: RootState, dispatch: AppDispatch):
       false,
     );
   }
+};
 
-  return workers;
-}
-
-export function stopCalculationParallel(dispatch: AppDispatch) {
+export const stopCalculationParallel: AppThunk = (dispatch) => {
   terminateActiveWorkers();
   dispatch(changeStatus(STOPPED));
-}
+};

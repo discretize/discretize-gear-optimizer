@@ -1,10 +1,16 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-loop-func */
+import * as Comlink from 'comlink';
 import type { ExtraFilterMode } from '../slices/controlsSlice';
+import { defaultJsThreads } from '../slices/controlsSlice';
 import type { ExtrasType } from '../slices/extras';
 import type { RootState } from '../store';
 import { iteratePartitionCount } from './combinatorics';
-import type { Character, OptimizerCoreSettings } from './optimizerCore';
+import type {
+  Character,
+  OptimizerCoreMinimalSettings,
+  OptimizerCoreSettings,
+} from './optimizerCore';
 import { characterLT, UPDATE_MS } from './optimizerCore';
 import type { ExtrasCombinationEntry } from './optimizerSetup';
 import { setupCombinations } from './optimizerSetup';
@@ -13,6 +19,7 @@ export interface Combination extends ExtrasCombinationEntry {
   index: number;
 
   settings: OptimizerCoreSettings;
+  minimalSettings: OptimizerCoreMinimalSettings;
   done: boolean;
   list: Character[];
   calculationRuns: number;
@@ -61,7 +68,9 @@ const findExtraBestResults = (
 };
 
 const createWorker = () =>
-  new ComlinkWorker<typeof import('./worker')>(new URL('./worker.ts', import.meta.url));
+  Comlink.wrap<typeof import('./worker')>(
+    new Worker(new URL('./workerFile.ts', import.meta.url), { type: 'module' }),
+  );
 
 const createdWorkers: ReturnType<typeof createWorker>[] = [];
 
@@ -71,6 +80,8 @@ const createWorkers = (count: number) => {
   }
   return createdWorkers.slice(0, count);
 };
+
+createWorkers(defaultJsThreads);
 
 interface Overrides {
   combinations?: Combination[];
@@ -91,6 +102,18 @@ export async function* calculate(
       ({ extrasCombinationEntry, settings }, index): Combination => ({
         ...extrasCombinationEntry,
         settings,
+        minimalSettings: {
+          cachedFormState: settings.cachedFormState,
+          profession: settings.profession,
+          specialization: settings.specialization,
+          weaponType: settings.weaponType,
+          appliedModifiers: settings.appliedModifiers,
+          rankby: settings.rankby,
+          shouldDisplayExtras: settings.shouldDisplayExtras,
+          extrasCombination: settings.extrasCombination,
+          modifiers: settings.modifiers,
+          gameMode: settings.gameMode,
+        },
         done: false,
         list: [],
         calculationRuns: 0,
@@ -103,7 +126,9 @@ export async function* calculate(
    */
 
   const activeCombinations = combinations.filter(({ heuristicDisabled }) => !heuristicDisabled);
-  const activeThreads = Math.min(threads, activeCombinations.length);
+
+  const combinationsPerThreadMin = Math.ceil(activeCombinations.length / threads);
+  const activeThreads = Math.ceil(activeCombinations.length / combinationsPerThreadMin);
 
   const workers = createWorkers(activeThreads);
   console.log(`calculating using ${activeThreads} workers`);
@@ -143,7 +168,12 @@ export async function* calculate(
       } else {
         const { value } = result;
         if (value.newList) {
-          combination.list = value.newList;
+          const newList: Character[] = value.newList.map((character) => ({
+            ...character,
+            settings: combination.minimalSettings,
+          }));
+
+          combination.list = newList;
         }
         if (value.isChanged) {
           isChanged = true;
@@ -233,6 +263,18 @@ export async function* calculateHeuristic(
     ({ extrasCombinationEntry, settings }, index) => ({
       ...extrasCombinationEntry,
       settings,
+      minimalSettings: {
+        cachedFormState: settings.cachedFormState,
+        profession: settings.profession,
+        specialization: settings.specialization,
+        weaponType: settings.weaponType,
+        appliedModifiers: settings.appliedModifiers,
+        rankby: settings.rankby,
+        shouldDisplayExtras: settings.shouldDisplayExtras,
+        extrasCombination: settings.extrasCombination,
+        modifiers: settings.modifiers,
+        gameMode: settings.gameMode,
+      },
       done: false,
       list: [],
       calculationRuns: 0,
@@ -252,7 +294,8 @@ export async function* calculateHeuristic(
    * iteration
    */
 
-  const activeThreads = Math.min(threads, normalCombinations.length);
+  const combinationsPerThreadMin = Math.ceil(normalCombinations.length / threads);
+  const activeThreads = Math.ceil(normalCombinations.length / combinationsPerThreadMin);
 
   const workers = createWorkers(activeThreads);
   console.log(`calculating heuristics using ${activeThreads} workers`);
@@ -298,8 +341,12 @@ export async function* calculateHeuristic(
       } else {
         const { value } = result;
         if (value.newList) {
+          const newList: Character[] = value.newList.map((character) => ({
+            ...character,
+            settings: combination.minimalSettings,
+          }));
           // eslint-disable-next-line prefer-destructuring
-          combination.heuristicBestResult = value.newList[0];
+          combination.heuristicBestResult = newList[0];
         }
         if (value.isChanged) {
           isChanged = true;

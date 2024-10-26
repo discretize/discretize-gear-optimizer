@@ -55,6 +55,14 @@ const ExtraModifiers = () => {
           width: '100%',
           marginBottom: 1,
         }}
+        slotProps={{
+          input: {
+            sx: {
+              fontFamily: 'Fira Mono',
+              fontSize: '0.875rem',
+            },
+          },
+        }}
         multiline
         minRows={5}
         value={text}

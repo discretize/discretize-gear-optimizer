@@ -7,6 +7,7 @@ import { buffModifiers } from '../../../assets/modifierdata';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { getGameMode } from '../../../state/slices/userSettings';
 import { createAssumedBuffs } from '../../../utils/toLazyToType-usefulFunctions';
+import { objectEntries } from '../../../utils/usefulFunctions';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
@@ -41,7 +42,7 @@ const ResultDetails = () => {
   assumedBuffs = createAssumedBuffs({ buffsRaw: assumedBuffs, character, gameMode });
 
   const bonuses: Record<string, string> = {};
-  Object.entries({
+  objectEntries({
     'Outgoing Healing': t('Outgoing Healing'),
     'Player Critical Damage': t('Player Critical Damage'),
     'Clone Critical Chance': t('Clone Critical Chance'),

@@ -96,3 +96,5 @@ export interface PresetTraits {
   'GraphQL ID': string;
   list: PresetTraitsEntry[];
 }
+
+export type CreditData = Record<string, { authorUrl?: string }>;

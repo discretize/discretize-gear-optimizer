@@ -307,3 +307,21 @@ Specifies if this effect's checkbox should be checked when the user selects the 
 #### hasLifesteal (optional; food only)
 
 Specifies if this food effect should add lifesteal equal to the "lifesteal frequency" box in the UI.
+
+#### temporaryBuff
+
+Used for unbuffed, out-of-combat hero panel simulation. Required unless the item has no `attributes`, `conversion` or `conversionAfterBuffs` fields (and thus it can't affect the hero panel).
+
+- `true`: This effect is temporary; exclude it from the out-of-combat hero panel simulation. (Alternatively: this effect is never shown in the hero panel; exclude it from the out-of-combat hero panel simulation.)
+- `false`: Always include this effect.
+- `'activeOutOfCombat'`: This effect is temporary, but it reasonably would or could be active at character idle (e.g. utility writs, signet passive effects, "when wielding a rifle" conditional effects). Include this effect in the the out-of-combat hero panel simulation, ignoring its `amountData` field.
+
+This `activeOutOfCombat` implementation errs on the side of **including** both "when wielding a two-handed weapon" and "when wielding a one-handed weapon" buffs on e.g. dragonhunter, both "when in air attunement" and "when in fire attunement" on elementalist, etc. This can be inaccurate to the ingame hero panel. **Excluding** all of those effects would, of course, also be inaccurate to the ingame hero panel in some cases.
+
+We can come up with standard rules for this in some cases for more consistency, but it will never be perfect (a condi ranger could plausibly have any combination of axe, torch, and dagger; good luck).
+
+Currently used rules:
+
+- Elementalist: assume the user is in fire attunement, not air (arbitrary, but seems common)
+- Guardian: assume the user is on a dual-wield set (simulates better than the reverse if it's a full dual-wield build; a greatsword-only or staff-only build is less likely)
+- Warrior: assume the user is on a dual-wield set (simulates better than the reverse if it's a full dual-wield build; a greatsword-only build is less likely)

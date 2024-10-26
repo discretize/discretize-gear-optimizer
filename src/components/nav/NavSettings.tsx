@@ -15,9 +15,9 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import { stopCalc } from '../../state/async/calculationThunks';
 import { stopCalculationParallel } from '../../state/optimizer-parallel/calculate';
 import { useAppDispatch } from '../../state/redux-hooks';
-import SagaTypes from '../../state/sagas/sagaTypes';
 import {
   changeHeuristics,
   changeHwThreads,
@@ -117,7 +117,7 @@ export default function NavSettings({
               <Switch
                 checked={expertMode}
                 onChange={(e) => {
-                  dispatch({ type: SagaTypes.Stop });
+                  dispatch(stopCalc);
                   dispatch(changeExpertMode(e.target.checked));
                 }}
                 name="checked"
@@ -191,10 +191,10 @@ export default function NavSettings({
               <Checkbox
                 onChange={(e) => {
                   if (!enableMulticore) {
-                    dispatch({ type: SagaTypes.Stop });
+                    dispatch(stopCalc);
                   } else {
                     // workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
-                    stopCalculationParallel(dispatch);
+                    dispatch(stopCalculationParallel);
                   }
 
                   const newMulticore = e.target.checked;

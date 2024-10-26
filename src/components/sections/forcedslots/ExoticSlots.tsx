@@ -37,14 +37,14 @@ const ExoticSlots = () => {
   const dispatch = useDispatch();
   const forcedSlots = useSelector(getForcedSlots);
   const excludedSlots = useSelector(getExclusionData);
-  const dualWielded = useSelector(getWeaponType);
+  const weaponType = useSelector(getWeaponType);
   const affixes = useSelector(getAffixes);
   const exoticsData = useSelector(getExoticsData);
 
-  const exotics = pick(exoticsData, affixes);
+  const exotics = pick(exoticsData, affixes) as typeof exoticsData;
 
   let SLOTS = GEAR_SLOTS;
-  if (dualWielded !== WeaponTypes.dualWield) {
+  if (weaponType !== WeaponTypes.dualWield) {
     SLOTS = GEAR_SLOTS.slice(0, 13);
   }
 

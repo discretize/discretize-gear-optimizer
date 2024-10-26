@@ -33,12 +33,12 @@ const ExcludedSlots = () => {
 
   const dispatch = useDispatch();
   const forcedSlots = useSelector(getForcedSlots);
-  const dualWielded = useSelector(getWeaponType);
+  const weaponType = useSelector(getWeaponType);
   const affixes = useSelector(getAffixes);
   const exclusions = useSelector(getExclusionData);
 
   let SLOTS = GEAR_SLOTS;
-  if (dualWielded !== WeaponTypes.dualWield) {
+  if (weaponType !== WeaponTypes.dualWield) {
     SLOTS = GEAR_SLOTS.slice(0, 13);
   }
 

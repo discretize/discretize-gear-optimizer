@@ -4,13 +4,13 @@ import { createSelector, createSlice, original } from '@reduxjs/toolkit';
 import type { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
 import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
 import type { ParseFunction } from '../../utils/usefulFunctions';
-import { parseNumber } from '../../utils/usefulFunctions';
+import { objectKeys, parseNumber } from '../../utils/usefulFunctions';
 import { isFirefox } from '../optimizer/detectFirefox';
 import type { Character } from '../optimizer/optimizerCore';
 import type { OptimizerStatus } from '../optimizer/status';
 import { RUNNING, RUNNING_HEURISTICS, WAITING } from '../optimizer/status';
-import type { RootState } from '../store';
 import { reduxSideEffect } from '../redux-hooks';
+import type { RootState } from '../store';
 
 const roundThree = (num: number) => Math.round(num * 1000) / 1000;
 
@@ -22,18 +22,18 @@ const logAttributeDiff = (newCharacter: Character | null, oldCharacter: Characte
     newCharacter?.baseAttributes
   ) {
     console.groupCollapsed('Selected Character Comparison');
-    const baseAttributeComparisonEntries = Object.keys(newCharacter.baseAttributes)
+    const baseAttributeComparisonEntries = objectKeys(newCharacter.baseAttributes)
       .map(
         (key) =>
           [
             key,
             {
               value: roundThree(
-                newCharacter.baseAttributes[key] - oldCharacter.baseAttributes[key],
+                newCharacter.baseAttributes[key]! - oldCharacter.baseAttributes[key]!,
               ),
               percent: roundThree(
-                ((newCharacter.baseAttributes[key] - oldCharacter.baseAttributes[key]) /
-                  oldCharacter.baseAttributes[key]) *
+                ((newCharacter.baseAttributes[key]! - oldCharacter.baseAttributes[key]!) /
+                  oldCharacter.baseAttributes[key]!) *
                   100,
               ),
             },
@@ -42,16 +42,16 @@ const logAttributeDiff = (newCharacter: Character | null, oldCharacter: Characte
       .filter(([_key, value]) => value.value);
     console.log('Base attributes changed (not including modifiers):');
     console.table(Object.fromEntries(baseAttributeComparisonEntries));
-    const attributeComparisonEntries = Object.keys(newCharacter.attributes)
+    const attributeComparisonEntries = objectKeys(newCharacter.attributes)
       .map(
         (key) =>
           [
             key,
             {
-              value: roundThree(newCharacter.attributes[key] - oldCharacter.attributes[key]),
+              value: roundThree(newCharacter.attributes[key]! - oldCharacter.attributes[key]!),
               percent: roundThree(
-                ((newCharacter.attributes[key] - oldCharacter.attributes[key]) /
-                  oldCharacter.attributes[key]) *
+                ((newCharacter.attributes[key]! - oldCharacter.attributes[key]!) /
+                  oldCharacter.attributes[key]!) *
                   100,
               ),
             },
@@ -81,7 +81,7 @@ export type ExtraFilterMode =
   | 'Nourishment'
   | 'Enhancement';
 
-type DisplayAttributes = ('Toughness' | 'Boon Duration' | 'Health' | 'Critical Chance')[];
+export type DisplayAttributes = ('Toughness' | 'Boon Duration' | 'Health' | 'Critical Chance')[];
 
 export const emptyFilteredLists = {
   Combinations: [],
@@ -288,7 +288,7 @@ export const getHeuristics = (state: RootState) => state.optimizer.control.heuri
 export const defaultRustThreads = navigator.hardwareConcurrency || 4; // 4 seems to be a sensible default
 
 export const defaultJsThreads = isFirefox
-  ? 4 // to investigate: high thread count performance degradation in firefox
+  ? Math.min(defaultRustThreads, 4) // firefox's memory allocation slows with high thread count
   : defaultRustThreads;
 
 export const parseHwThreads: ParseFunction<undefined> = (text) =>
