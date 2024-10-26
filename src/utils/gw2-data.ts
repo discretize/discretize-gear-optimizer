@@ -50,22 +50,73 @@ export type AffixName =
   | 'DireRabid'
   | 'Custom';
 
-export interface AffixDataEntry {
-  type: 'triple' | 'quadruple' | 'celestial' | 'ascendedMismatchedTrinket';
-  category: string;
-  bonuses: {
-    major: GearAttributeName[];
-    minor: GearAttributeName[];
-    jewelMajor?: GearAttributeName[];
-    jewelMinor?: GearAttributeName[];
-  };
-  wvwBonuses?: {
-    major: GearAttributeName[];
-    minor: GearAttributeName[];
-    jewelMajor?: GearAttributeName[];
-    jewelMinor?: GearAttributeName[];
-  };
-}
+export type AffixDataEntry =
+  | {
+      type: 'triple' | 'quadruple';
+      category: string;
+      bonuses: {
+        major: GearAttributeName[];
+        minor: GearAttributeName[];
+      };
+      wvwBonuses?: {
+        major: GearAttributeName[];
+        minor: GearAttributeName[];
+      };
+    }
+  | {
+      type: 'celestial';
+      category: string;
+      bonuses: {
+        minor: GearAttributeName[];
+        exoticJewel: GearAttributeName[];
+      };
+      wvwBonuses?: {
+        minor: GearAttributeName[];
+        exoticJewel: GearAttributeName[];
+      };
+    }
+  | {
+      type: 'ascendedMismatchedTrinket';
+      category: string;
+      bonuses: {
+        major: GearAttributeName[];
+        minor: GearAttributeName[];
+        jewelMajor: GearAttributeName[];
+        jewelMinor: GearAttributeName[];
+      };
+      wvwBonuses?: {
+        major: GearAttributeName[];
+        minor: GearAttributeName[];
+        jewelMajor: GearAttributeName[];
+        jewelMinor: GearAttributeName[];
+      };
+    };
+
+/*
+type Stats = Record<
+  string,
+  {
+    triple: {
+      major: number;
+      minor: number;
+    };
+    quadruple: {
+      major: number;
+      minor: number;
+    };
+    celestial: {
+      minor: number;
+      exoticJewel: number;
+    };
+    ascendedMismatchedTrinket: {
+      major: number;
+      minor: number;
+      jewelMajor: number;
+      jewelMinor: number;
+    };
+  }
+>;
+*/
 
 // referenced in discretize.eu-rewrite
 export const Affix: Record<AffixName, AffixDataEntry> = {
@@ -281,12 +332,47 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
     type: 'celestial',
     category: 'Hybrid',
     bonuses: {
-      major: ['Power', 'Precision', 'Toughness', 'Vitality'],
-      minor: ['Ferocity', 'Condition Damage', 'Expertise', 'Concentration', 'Healing Power'],
+      minor: [
+        'Power',
+        'Precision',
+        'Toughness',
+        'Vitality',
+        'Ferocity',
+        'Condition Damage',
+        'Expertise',
+        'Concentration',
+        'Healing Power',
+      ],
+      exoticJewel: [
+        'Power',
+        'Precision',
+        'Toughness',
+        'Vitality',
+        'Ferocity',
+        'Condition Damage',
+        'Healing Power',
+        // Exquisite Charged Quartz Jewel missing stats
+      ],
     },
     wvwBonuses: {
-      major: ['Power', 'Precision', 'Toughness', 'Vitality'],
-      minor: ['Ferocity', 'Condition Damage', 'Healing Power'],
+      minor: [
+        'Power',
+        'Precision',
+        'Toughness',
+        'Vitality',
+        'Ferocity',
+        'Condition Damage',
+        'Healing Power',
+      ],
+      exoticJewel: [
+        'Power',
+        'Precision',
+        'Toughness',
+        'Vitality',
+        'Ferocity',
+        'Condition Damage',
+        'Healing Power',
+      ],
     },
   },
   Diviner: {
@@ -428,8 +514,8 @@ export const exoticStats = {
       minor: 28,
     },
     celestial: {
-      major: 28,
       minor: 28,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -448,8 +534,8 @@ export const exoticStats = {
       minor: 21,
     },
     celestial: {
-      major: 21,
       minor: 21,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -468,8 +554,8 @@ export const exoticStats = {
       minor: 63,
     },
     celestial: {
-      major: 63,
       minor: 63,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -488,8 +574,8 @@ export const exoticStats = {
       minor: 21,
     },
     celestial: {
-      major: 21,
       minor: 21,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -508,8 +594,8 @@ export const exoticStats = {
       minor: 42,
     },
     celestial: {
-      major: 42,
       minor: 42,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -528,8 +614,8 @@ export const exoticStats = {
       minor: 21,
     },
     celestial: {
-      major: 21,
       minor: 21,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -548,8 +634,8 @@ export const exoticStats = {
       minor: 66,
     },
     celestial: {
-      major: 68,
-      minor: 68,
+      minor: 56,
+      exoticJewel: 12,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -568,8 +654,8 @@ export const exoticStats = {
       minor: 52,
     },
     celestial: {
-      major: 54,
-      minor: 54,
+      minor: 42,
+      exoticJewel: 12,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -588,8 +674,8 @@ export const exoticStats = {
       minor: 45,
     },
     celestial: {
-      major: 47,
-      minor: 47,
+      minor: 35,
+      exoticJewel: 12,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -608,8 +694,8 @@ export const exoticStats = {
       minor: 24,
     },
     celestial: {
-      major: 26,
-      minor: 26,
+      minor: 14,
+      exoticJewel: 12,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -628,8 +714,8 @@ export const exoticStats = {
       minor: 56,
     },
     celestial: {
-      major: 56,
       minor: 56,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -648,8 +734,8 @@ export const exoticStats = {
       minor: 113,
     },
     celestial: {
-      major: 113,
       minor: 113,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -671,8 +757,8 @@ export const ascendedStats = {
       minor: 30,
     },
     celestial: {
-      major: 30,
       minor: 30,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -691,8 +777,8 @@ export const ascendedStats = {
       minor: 22,
     },
     celestial: {
-      major: 22,
       minor: 22,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -711,8 +797,8 @@ export const ascendedStats = {
       minor: 67,
     },
     celestial: {
-      major: 67,
       minor: 67,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -731,8 +817,8 @@ export const ascendedStats = {
       minor: 22,
     },
     celestial: {
-      major: 22,
       minor: 22,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -751,8 +837,8 @@ export const ascendedStats = {
       minor: 44,
     },
     celestial: {
-      major: 44,
       minor: 44,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -771,8 +857,8 @@ export const ascendedStats = {
       minor: 22,
     },
     celestial: {
-      major: 22,
       minor: 22,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -791,8 +877,8 @@ export const ascendedStats = {
       minor: 71,
     },
     celestial: {
-      major: 72,
       minor: 72,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 157 - 32,
@@ -811,8 +897,8 @@ export const ascendedStats = {
       minor: 56,
     },
     celestial: {
-      major: 57,
       minor: 57,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 126 - 32,
@@ -831,8 +917,8 @@ export const ascendedStats = {
       minor: 49,
     },
     celestial: {
-      major: 50,
       minor: 50,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 110 - 32,
@@ -851,8 +937,8 @@ export const ascendedStats = {
       minor: 27,
     },
     celestial: {
-      major: 28,
       minor: 28,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -871,8 +957,8 @@ export const ascendedStats = {
       minor: 59,
     },
     celestial: {
-      major: 59,
       minor: 59,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,
@@ -891,8 +977,8 @@ export const ascendedStats = {
       minor: 118,
     },
     celestial: {
-      major: 118,
       minor: 118,
+      exoticJewel: 0,
     },
     ascendedMismatchedTrinket: {
       major: 0,

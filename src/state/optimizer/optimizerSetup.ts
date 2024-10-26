@@ -255,7 +255,7 @@ export function createSettingsPerCalculation(
 
   const specialization = getCurrentSpecialization(reduxState);
 
-  const customAffixData: Omit<typeof rawAffix.Custom, 'category'> = getCustomAffixData(reduxState);
+  const customAffixData = getCustomAffixData(reduxState);
 
   // display extras in table if they have multiple options
   const shouldDisplayExtras = mapValues(
@@ -372,7 +372,7 @@ export function createSettingsPerCalculation(
 
   const Affix: typeof rawAffix = {
     ...rawAffix,
-    Custom: { ...rawAffix.Custom, ...customAffixData },
+    Custom: customAffixData,
   };
 
   const slotData = allSlotData[weaponType];

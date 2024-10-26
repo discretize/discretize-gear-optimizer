@@ -74,11 +74,6 @@ export default function Affixes() {
               'Exotic weapons are not simulated correctly because of their reduced weapon strength. Adjust the power coefficient a bit less than 5% lower for more accurate results.',
             )}
           </Info>
-          <Info icon={<WarningAmberIcon />}>
-            {t(
-              'Exotic celestial trinket simulation is currently incorrect due to inconsistent jewel stats ingame (missing concentration and expertise).',
-            )}
-          </Info>
         </Box>
       )}
       {customSelected && (
