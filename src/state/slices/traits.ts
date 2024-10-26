@@ -75,7 +75,7 @@ export const traitsSlice = createSlice({
     },
     toggleTraitModifier: (
       state,
-      action: PayloadAction<{ index: number; id: number; enabled: boolean }>,
+      action: PayloadAction<{ index: number; id: string; enabled: boolean }>,
     ) => {
       const { index, id, enabled } = action.payload;
 
@@ -90,7 +90,7 @@ export const traitsSlice = createSlice({
     },
     setTraitModiferAmount: (
       state,
-      action: PayloadAction<{ index: number; id: number; amount: string }>,
+      action: PayloadAction<{ index: number; id: string; amount: string }>,
     ) => {
       const { index, id, amount } = action.payload;
 

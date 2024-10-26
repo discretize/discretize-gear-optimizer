@@ -12,6 +12,7 @@ import type {
   ConditionName,
   DamagingConditionName,
   DerivedAttributeName,
+  GearAttributeName,
   IndicatorName,
   InfusionName,
   PrimaryAttributeName,
@@ -156,10 +157,10 @@ export interface OptimizerCoreSettingsPerCalculation {
   slots: number; // The length of the former slots array
   runsAfterThisSlot: number[];
   affixesArray: AffixName[][];
-  affixStatsArray: [AttributeName, number][][][];
+  affixStatsArray: [GearAttributeName, number][][][];
 
   affixes: AffixName[];
-  jsHeuristicsData?: [AttributeName, number][][];
+  jsHeuristicsData?: [GearAttributeName, number][][];
 
   shouldDisplayExtras: ShouldDisplayExtras;
   cachedFormState: CachedFormState;
@@ -194,6 +195,7 @@ export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &
     extrasCombination: ExtrasCombination;
   };
 
+// only supply character with settings it uses to render
 export type OptimizerCoreMinimalSettings = Pick<
   OptimizerCoreSettings,
   | 'cachedFormState'
@@ -208,7 +210,7 @@ export type OptimizerCoreMinimalSettings = Pick<
   | 'gameMode'
 >;
 export type Gear = AffixName[];
-export type GearStats = Partial<Record<AttributeName, number>>;
+export type GearStats = Partial<Record<GearAttributeName, number>>;
 interface CoefficientHelperValue {
   slope: number;
   intercept: number;
@@ -225,9 +227,8 @@ interface Results {
   coefficientHelper?: Partial<Record<DistributionNameInternal, CoefficientHelperValue>>;
   unbuffedAttributes?: Attributes;
 }
-export interface CharacterUnprocessed {
+interface CharacterUnprocessed {
   id?: string;
-  settings: OptimizerCoreMinimalSettings;
   attributes?: Attributes;
   gear: Gear;
   gearStats: GearStats;
@@ -237,11 +238,17 @@ export interface CharacterUnprocessed {
   infusions: Partial<Record<InfusionName, number>>;
   results?: Results;
 }
-export interface Character extends CharacterUnprocessed {
+interface CharacterProcessed extends CharacterUnprocessed {
   // note: this is not actually accurate
   // (we convince typescript every attribute is defined via a type predicate in calcStats)
   // TODO: improve this
   attributes: Required<Attributes>;
+}
+interface CharacterWithResults extends CharacterProcessed {
+  results: Results;
+}
+export interface Character extends CharacterWithResults {
+  settings: OptimizerCoreMinimalSettings;
 }
 
 export type CalculateGenerator = ReturnType<OptimizerCore['calculate']>;
@@ -250,7 +257,6 @@ export const UPDATE_MS = 90;
 
 export class OptimizerCore {
   settings: OptimizerCoreSettings;
-  minimalSettings: OptimizerCoreMinimalSettings;
   applyInfusionsFunction: (
     this: OptimizerCore,
     gear: Gear,
@@ -260,7 +266,7 @@ export class OptimizerCore {
 
   condiResultCache = new Map<number, number>();
   worstScore: number = 0;
-  list: Character[] = [];
+  list: CharacterProcessed[] = [];
   isChanged = true;
   uniqueIDCounter = 0;
   randomId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
@@ -268,19 +274,6 @@ export class OptimizerCore {
 
   constructor(settings: OptimizerCoreSettings) {
     this.settings = settings;
-    // only supply character with settings it uses to render
-    this.minimalSettings = {
-      cachedFormState: settings.cachedFormState,
-      profession: settings.profession,
-      specialization: settings.specialization,
-      weaponType: settings.weaponType,
-      appliedModifiers: settings.appliedModifiers,
-      rankby: settings.rankby,
-      shouldDisplayExtras: settings.shouldDisplayExtras,
-      extrasCombination: settings.extrasCombination,
-      modifiers: settings.modifiers,
-      gameMode: settings.gameMode,
-    };
     this.conditionData = settings.gameMode === 'wvw' ? conditionDataWvW : conditionData;
 
     let applyInfusionsFunction: OptimizerCore['applyInfusionsFunction'];
@@ -337,11 +330,10 @@ export class OptimizerCore {
 
       // pause to update UI
       if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
-        this.list.forEach(this.calcResults, this);
         yield {
           isChanged: this.isChanged,
           calculationRuns,
-          newList: this.isChanged ? this.list : undefined,
+          newList: this.isChanged ? this.getListWithResults() : undefined,
         };
         this.isChanged = false;
         iterationTimer = Date.now();
@@ -413,11 +405,10 @@ export class OptimizerCore {
       calculationStatsQueue.push(gearStats);
     }
 
-    this.list.forEach(this.calcResults, this);
     yield {
       isChanged: this.isChanged,
       calculationRuns,
-      newList: this.isChanged ? this.list : undefined,
+      newList: this.isChanged ? this.getListWithResults() : undefined,
     };
   }
 
@@ -458,11 +449,10 @@ export class OptimizerCore {
 
       // pause to update UI
       if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
-        this.list.forEach(this.calcResults, this);
         yield {
           isChanged: this.isChanged,
           calculationRuns,
-          newList: this.isChanged ? this.list : undefined,
+          newList: this.isChanged ? this.getListWithResults() : undefined,
         };
         this.isChanged = false;
         iterationTimer = Date.now();
@@ -491,11 +481,10 @@ export class OptimizerCore {
       this.applyInfusionsFunction([], gearStats, { gearDescription: percentages });
     }
 
-    this.list.forEach(this.calcResults, this);
     yield {
       isChanged: this.isChanged,
       calculationRuns,
-      newList: this.isChanged ? this.list : undefined,
+      newList: this.isChanged ? this.getListWithResults() : undefined,
     };
   }
 
@@ -508,7 +497,6 @@ export class OptimizerCore {
     const character: CharacterUnprocessed = {
       gear, // passed by reference
       infusions, // passed by reference
-      settings: this.minimalSettings, // passed by reference
       gearStats, // passed by reference
       attributes: undefined,
       valid: true,
@@ -636,7 +624,7 @@ export class OptimizerCore {
     return temp.attributes[settings.rankby] > this.worstScore;
   }
 
-  insertCharacter(character: Character) {
+  insertCharacter(character: CharacterProcessed) {
     const { settings } = this;
 
     if (
@@ -687,7 +675,7 @@ export class OptimizerCore {
   updateAttributes(
     character: CharacterUnprocessed,
     noRounding = false,
-  ): asserts character is Character {
+  ): asserts character is CharacterProcessed {
     const { modifiers } = this.settings;
     const { damageMultiplier } = modifiers;
 
@@ -715,7 +703,7 @@ export class OptimizerCore {
   updateAttributesFast(
     character: CharacterUnprocessed,
     skipValidation = false,
-  ): asserts character is Character {
+  ): asserts character is CharacterProcessed {
     const { settings } = this;
     const { modifiers } = this.settings;
     const { damageMultiplier } = modifiers;
@@ -762,7 +750,7 @@ export class OptimizerCore {
     character: CharacterUnprocessed,
     modifiers: Modifiers,
     noRounding = false,
-  ): asserts character is Character {
+  ): asserts character is CharacterProcessed {
     const { settings } = this;
 
     const round = noRounding ? (val: number) => val : roundEven;
@@ -839,7 +827,7 @@ export class OptimizerCore {
     }
   }
 
-  checkInvalid(character: Character) {
+  checkInvalid(character: CharacterProcessed) {
     const { settings } = this;
     const { attributes } = character;
 
@@ -865,7 +853,7 @@ export class OptimizerCore {
     return invalid;
   }
 
-  checkInvalidIndicators(character: Character) {
+  checkInvalidIndicators(character: CharacterProcessed) {
     const { settings } = this;
     const { attributes } = character;
 
@@ -881,7 +869,7 @@ export class OptimizerCore {
     return invalid;
   }
 
-  calcPower(character: Character, damageMultiplier: DamageMultiplier) {
+  calcPower(character: CharacterProcessed, damageMultiplier: DamageMultiplier) {
     const { settings } = this;
     const { attributes } = character;
 
@@ -961,7 +949,7 @@ export class OptimizerCore {
     (this.conditionData[condition].factor * cdmg + this.conditionData[condition].baseDamage) * mult;
 
   calcCondi(
-    character: Character,
+    character: CharacterProcessed,
     damageMultiplier: DamageMultiplier,
     relevantConditions: readonly DamagingConditionName[],
   ) {
@@ -1007,7 +995,7 @@ export class OptimizerCore {
     return condiDamageScore;
   }
 
-  calcSurvivability(character: Character, damageMultiplier: DamageMultiplier) {
+  calcSurvivability(character: CharacterProcessed, damageMultiplier: DamageMultiplier) {
     const { attributes } = character;
 
     attributes['Effective Health'] =
@@ -1016,7 +1004,7 @@ export class OptimizerCore {
     attributes['Survivability'] = attributes['Effective Health'] / 1967;
   }
 
-  calcHealing(character: Character) {
+  calcHealing(character: CharacterProcessed) {
     const { attributes } = character;
 
     // reasonably representative skill: druid celestial avatar 4 pulse
@@ -1027,7 +1015,7 @@ export class OptimizerCore {
     attributes['Healing'] = attributes['Effective Healing'];
   }
 
-  calcResults(character: Character) {
+  calcResults(character: CharacterProcessed): asserts character is CharacterWithResults {
     if (character.results) return;
 
     const { settings } = this;
@@ -1139,6 +1127,12 @@ export class OptimizerCore {
     }
   }
 
+  getListWithResults = () =>
+    this.list.map((character) => {
+      this.calcResults(character);
+      return character;
+    });
+
   /**
    * Clones a character. baseAttributes is cloned by value, so it can be mutated. Please
    * don't directly mutate character.attributes; it's passed by reference so the clone shares
@@ -1149,7 +1143,6 @@ export class OptimizerCore {
    */
   clone(character: CharacterUnprocessed): CharacterUnprocessed {
     return {
-      settings: character.settings, // passed by reference
       attributes: character.attributes, // passed by reference
       gear: character.gear, // passed by reference
       gearStats: character.gearStats, // passed by reference
@@ -1163,8 +1156,8 @@ export class OptimizerCore {
 
 // returns a positive value if B is better than A
 export function characterLT(
-  a: Character | undefined,
-  b: Character | undefined,
+  a: CharacterProcessed | undefined,
+  b: CharacterProcessed | undefined,
   rankby: IndicatorName,
 ): number {
   if (!a && !b) return 0;

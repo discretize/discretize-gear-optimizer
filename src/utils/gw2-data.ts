@@ -55,40 +55,40 @@ export type AffixDataEntry =
       type: 'triple' | 'quadruple';
       category: string;
       bonuses: {
-        major: (PrimaryAttributeName | SecondaryAttributeName)[];
-        minor: (PrimaryAttributeName | SecondaryAttributeName)[];
+        major: GearAttributeName[];
+        minor: GearAttributeName[];
       };
       wvwBonuses?: {
-        major: (PrimaryAttributeName | SecondaryAttributeName)[];
-        minor: (PrimaryAttributeName | SecondaryAttributeName)[];
+        major: GearAttributeName[];
+        minor: GearAttributeName[];
       };
     }
   | {
       type: 'celestial';
       category: string;
       bonuses: {
-        minor: (PrimaryAttributeName | SecondaryAttributeName)[];
-        exoticJewel: (PrimaryAttributeName | SecondaryAttributeName)[];
+        minor: GearAttributeName[];
+        exoticJewel: GearAttributeName[];
       };
       wvwBonuses?: {
-        minor: (PrimaryAttributeName | SecondaryAttributeName)[];
-        exoticJewel: (PrimaryAttributeName | SecondaryAttributeName)[];
+        minor: GearAttributeName[];
+        exoticJewel: GearAttributeName[];
       };
     }
   | {
       type: 'ascendedMismatchedTrinket';
       category: string;
       bonuses: {
-        major: (PrimaryAttributeName | SecondaryAttributeName)[];
-        minor: (PrimaryAttributeName | SecondaryAttributeName)[];
-        jewelMajor: (PrimaryAttributeName | SecondaryAttributeName)[];
-        jewelMinor: (PrimaryAttributeName | SecondaryAttributeName)[];
+        major: GearAttributeName[];
+        minor: GearAttributeName[];
+        jewelMajor: GearAttributeName[];
+        jewelMinor: GearAttributeName[];
       };
       wvwBonuses?: {
-        major: (PrimaryAttributeName | SecondaryAttributeName)[];
-        minor: (PrimaryAttributeName | SecondaryAttributeName)[];
-        jewelMajor: (PrimaryAttributeName | SecondaryAttributeName)[];
-        jewelMinor: (PrimaryAttributeName | SecondaryAttributeName)[];
+        major: GearAttributeName[];
+        minor: GearAttributeName[];
+        jewelMajor: GearAttributeName[];
+        jewelMinor: GearAttributeName[];
       };
     };
 
@@ -1643,6 +1643,8 @@ export type AttributeName =
   | ProfessionAttributeName
   | SiphonAttributeName
   | MiscAttributeName;
+
+export type GearAttributeName = PrimaryAttributeName | SecondaryAttributeName;
 
 // #endregion
 

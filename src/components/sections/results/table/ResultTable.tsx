@@ -8,6 +8,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import type { Character } from '../../../../state/optimizer/optimizerCore';
 import {
   getCompareByPercent,
   getDisplayAttributes,
@@ -20,6 +21,8 @@ import {
   getSelectedCharacter,
   getTallTable,
 } from '../../../../state/slices/controlsSlice';
+import type { ExtrasType } from '../../../../state/slices/extras';
+import type { AffixName } from '../../../../utils/gw2-data';
 import { maxSlotsLength } from '../../../../utils/gw2-data';
 import ResultTableHeaderRow from './ResultTableHeaderRow';
 import ResultTableRow from './ResultTableRow';
@@ -36,38 +39,23 @@ const useStyles = makeStyles()((theme) => ({
   tallTable: {
     maxHeight: '90vh',
   },
-  tablehead: {
-    backgroundColor: theme.palette.background.paper,
-  },
   tableCollapse: {
-    borderCollapse: 'collapse !important',
+    borderCollapse: 'collapse !important' as 'collapse',
     marginBottom: '0px !important',
   },
   underline: {
     borderBottom: `5px solid ${theme.palette.divider}`,
   },
-  gearColumn: {
-    minWidth: '3em',
-  },
-  infusionColumn: {
-    minWidth: '1.8em',
-  },
-  extrasColumn: {
-    minWidth: '2.2em',
-  },
-  attributesColumn: {
-    minWidth: '2.8em',
-  },
 }));
 
 // finds the most common element in an array
-const mode = (array) => {
-  const counters = {};
+const mode = <T extends string | number>(array: T[]) => {
+  const counters: Partial<Record<T, number>> = {};
   let highestCounter = 0;
-  let best = null;
+  let best: T | undefined;
   for (const element of array) {
     counters[element] = (counters[element] || 0) + 1;
-    if (counters[element] > highestCounter) {
+    if (counters[element]! > highestCounter) {
       highestCounter = counters[element];
       best = element;
     }
@@ -75,7 +63,7 @@ const mode = (array) => {
   return best;
 };
 
-const emptyArray = [];
+const emptyList: Character[] = [];
 
 const StickyHeadTable = () => {
   const { classes, cx } = useStyles();
@@ -84,7 +72,7 @@ const StickyHeadTable = () => {
   const selectedCharacter = useSelector(getSelectedCharacter);
   const normalList = useSelector(getList);
   const filteredLists = useSelector(getFilteredLists);
-  const saved = useSelector(getSaved) || emptyArray;
+  const saved = useSelector(getSaved) || emptyList;
   const compareByPercent = useSelector(getCompareByPercent);
   const highlightDiffering = useSelector(getHighlightDiffering);
   const filterMode = useSelector(getFilterMode);
@@ -96,8 +84,8 @@ const StickyHeadTable = () => {
     ...filteredLists,
   }[filterMode];
 
-  let mostCommonAffix = null;
-  let mostCommonRarity = null;
+  let mostCommonAffix: AffixName | undefined;
+  let mostCommonRarity: 'exotic' | 'ascended' | undefined;
   if (/* status !== RUNNING && */ list[0]) {
     mostCommonAffix = mode(list[0].gear);
     const [exo, asc] = Object.entries(
@@ -116,8 +104,8 @@ const StickyHeadTable = () => {
   const unhighlightedAffixes = React.useMemo(
     () =>
       highlightDiffering
-        ? selectedCharacter && selectedCharacter.gear
-        : Array(maxSlotsLength).fill(mostCommonAffix),
+        ? selectedCharacter?.gear
+        : (Array(maxSlotsLength).fill(mostCommonAffix) as (typeof mostCommonAffix)[]),
     [highlightDiffering, mostCommonAffix, selectedCharacter],
   );
 
@@ -128,7 +116,7 @@ const StickyHeadTable = () => {
 
   const selectedValue = selectedCharacter?.results?.value;
 
-  const shouldDisplay = (type) => {
+  const shouldDisplay = (type: ExtrasType) => {
     // display extras in a column if any displayed character was run in multiselect mode
     if (
       firstCharacter?.settings?.shouldDisplayExtras?.[type] ||
@@ -182,8 +170,6 @@ const StickyHeadTable = () => {
           <Table stickyHeader aria-label="sticky table" className={classes.tableCollapse}>
             <TableHead>
               <ResultTableHeaderRow
-                classes={classes}
-                cx={cx}
                 weaponType={weaponType}
                 infusions={infusions}
                 rankBy={rankBy}
@@ -211,7 +197,7 @@ const StickyHeadTable = () => {
                     saved={saved.some(({ id }) => character.id === id)}
                     unhighlightedAffixes={unhighlightedAffixes}
                     mostCommonRarity={mostCommonRarity}
-                    underlineClass={underline ? classes.underline : null}
+                    underlineClass={underline ? classes.underline : undefined}
                     selectedValue={selectedValue}
                     compareByPercent={compareByPercent}
                     displayExtras={displayExtras}
@@ -238,8 +224,6 @@ const StickyHeadTable = () => {
               >
                 <TableHead style={savedHeader ? {} : { visibility: 'collapse' }}>
                   <ResultTableHeaderRow
-                    classes={classes}
-                    cx={cx}
                     weaponType={weaponType}
                     infusions={infusions}
                     rankBy={rankBy}
@@ -252,7 +236,7 @@ const StickyHeadTable = () => {
                     cursor: 'pointer',
                   }}
                 >
-                  {saved.map((character, i) => {
+                  {saved.map((character) => {
                     return (
                       <ResultTableRow
                         character={character}
@@ -261,7 +245,6 @@ const StickyHeadTable = () => {
                         saved={saved.some(({ id }) => character.id === id)}
                         unhighlightedAffixes={unhighlightedAffixes}
                         mostCommonRarity={mostCommonRarity}
-                        underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
                         selectedValue={selectedValue}
                         compareByPercent={compareByPercent}
                         displayExtras={displayExtras}

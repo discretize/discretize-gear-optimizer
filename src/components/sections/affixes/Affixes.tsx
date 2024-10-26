@@ -34,7 +34,6 @@ export default function Affixes() {
             text={t(
               'Affixes (stats) you are interested in. The optimizer will try out every combination and return the best results. More than three affixes might take a long time.',
             )}
-            size="small"
           />
         </Typography>
         <AffixesSelect
@@ -53,7 +52,6 @@ export default function Affixes() {
               text={t(
                 'Allows you to exclude an affix from being chosen for any gear slot. Example: select the amulet/ritualist checkbox to prevent ritualist from being assigned to the amulet slot.',
               )}
-              size="small"
             />
           </Typography>
           <ExcludedSlots />
@@ -65,7 +63,6 @@ export default function Affixes() {
             {t('Use exotic rarity')}{' '}
             <HelperIcon
               text={t('Allows you to use exotic rarity instead of ascended for any gear slot.')}
-              size="small"
             />
           </Typography>
           <ExoticSlots />
@@ -85,7 +82,6 @@ export default function Affixes() {
             {t('Custom Affix Data')}{' '}
             <HelperIcon
               text={t('Specify any attributes to simulate with the "custom" affix type.')}
-              size="small"
             />
           </Typography>
           <CustomAffix />
