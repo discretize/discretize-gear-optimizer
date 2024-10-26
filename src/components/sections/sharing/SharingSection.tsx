@@ -13,6 +13,8 @@ const SharingSection = () => {
   const { t } = useTranslation();
   const character = useSelector(getSelectedCharacter);
 
+  if (!character) return;
+
   const exoticsEnabled = character?.settings?.cachedFormState?.priorities?.exotics?.enabled;
 
   return (

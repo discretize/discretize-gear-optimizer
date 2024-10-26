@@ -32,7 +32,7 @@ const useStyles = makeStyles()((theme) => ({
 interface BuildShareModalProps {
   children: (handleOpen: () => void) => React.ReactNode;
   title?: string;
-  character: Character | null;
+  character: Character;
 }
 
 const BuildShareModal = ({ children, title, character }: BuildShareModalProps) => {
