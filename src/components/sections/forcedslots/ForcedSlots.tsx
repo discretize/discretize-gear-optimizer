@@ -17,10 +17,6 @@ const ForcedSlots = () => {
     SLOTS = GEAR_SLOTS.slice(0, 13);
   }
 
-  const handleChange = (index) => (event, newInput) => {
-    dispatch(changeForcedSlot({ index, value: newInput?.label || null }));
-  };
-
   return (
     <Grid
       container
@@ -34,7 +30,9 @@ const ForcedSlots = () => {
           <AffixesSelect
             // i18next-extract-mark-context-next-line {{slotName}}
             name={t('slotName', { context: slot.name })}
-            onChange={handleChange(index)}
+            onChange={(event, newInput) => {
+              dispatch(changeForcedSlot({ index, value: newInput?.label || null }));
+            }}
             value={forcedSlots[index]}
           />
         </Grid>
