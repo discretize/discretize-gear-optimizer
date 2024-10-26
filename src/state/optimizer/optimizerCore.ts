@@ -17,6 +17,7 @@ import type {
   InfusionName,
   PrimaryAttributeName,
   ProfessionName,
+  ProfessionOrSpecializationName,
   SecondaryAttributeName,
   WeaponHandednessType,
 } from '../../utils/gw2-data';
@@ -125,7 +126,7 @@ const roundOne = (num: number) => Math.round(num * 10) / 10;
 export interface OptimizerCoreSettingsPerCalculation {
   // these are direct copies or slight modifications of OptimizerInput
   profession: ProfessionName;
-  specialization: string;
+  specialization: ProfessionOrSpecializationName;
   weaponType: WeaponHandednessType;
   forcedAffixes: (AffixName | null)[]; // array of specific affix names for each slot, or '' for unspecfied
   rankby: IndicatorName;
