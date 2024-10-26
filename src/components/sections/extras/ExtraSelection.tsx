@@ -23,6 +23,8 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { allExtrasModifiersById, placeholderItem } from '../../../assets/modifierdata';
+import type { ModifierData } from '../../../assets/modifierdata/metadata';
+import type { ExtrasType } from '../../../state/slices/extras';
 import {
   changeExtraAmount,
   changeExtraIds,
@@ -35,13 +37,14 @@ import Label from '../../baseComponents/Label';
 import ModalContent from './ModalContent';
 import { formatApiText, joinWith } from './helpers';
 
-// const roundPrice = (num) => Math.round(num / 100) * 100;
-const roundPrice = (num) => Math.round(num / 10) * 10;
-// const roundPrice = (num) => num;
+// const roundPrice = (num: number) => Math.round(num / 100) * 100;
+const roundPrice = (num: number) => Math.round(num / 10) * 10;
+// const roundPrice = (num: number) => num;
 
 const useStyles = makeStyles()((theme) => ({
   list: {
     width: '100%',
+    // @ts-expect-error: mui theme override needed
     backgroundColor: theme.palette.background.embossed,
     marginBottom: theme.spacing(2),
   },
@@ -54,8 +57,30 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-export default function ExtraSelection(props) {
-  const { type, label, modifierData, modifierDataById: data, text: labelText } = props;
+type PricesAPI = {
+  id: number;
+  whitelisted: boolean;
+  buys: {
+    quantity: number;
+    unit_price: number;
+  };
+  sells: {
+    quantity: number;
+    unit_price: number;
+  };
+}[][];
+
+export type PriceData = Record<string, { price: number; cheapestId?: number }>;
+
+interface ExtraSelectionProps {
+  type: ExtrasType;
+  label: React.ReactNode;
+  modifierData: ModifierData;
+  text: string;
+}
+
+export default function ExtraSelection(props: ExtraSelectionProps) {
+  const { type, label, modifierData, text: labelText } = props;
 
   const { classes } = useStyles();
   const dispatch = useDispatch();
@@ -69,6 +94,7 @@ export default function ExtraSelection(props) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  /*
   const descriptionElementRef = React.useRef(null);
   React.useEffect(() => {
     if (open) {
@@ -78,46 +104,44 @@ export default function ExtraSelection(props) {
       }
     }
   }, [open]);
+  */
   // end modal stuff
 
   const currentIds = useSelector(getExtrasIds)[type] || [];
   const extrasData = useSelector(getExtrasData);
 
-  const handleAmountChange = (id) => (e) => {
-    dispatch(changeExtraAmount({ type, id, amount: e.target.value }));
-  };
-
-  const handleDelete = (id) => (e) => {
-    dispatch(changeExtraIds({ type, ids: currentIds.filter((id0) => id0 !== id) }));
-  };
-
   const deleteAll = () => {
     dispatch(changeExtraIds({ type, ids: [] }));
   };
 
-  const [priceData, setPriceData] = React.useState({});
+  const [priceData, setPriceData] = React.useState<PriceData>({});
   const [showPriceData, setShowPriceData] = React.useState(false);
   const [showAttributes, setShowAttributes] = React.useState(type === 'Runes');
 
   const getPriceData = React.useCallback(async () => {
     const allItems = modifierData
       .flatMap(({ items }) => items)
-      .map(({ id, gw2id, priceIds }) => ({ id, gw2id, priceIds, gw2ids: priceIds ?? [gw2id] }));
-    const allIds = allItems.flatMap((item) => item.gw2ids);
-    const apiDataChunks = await Promise.all(
+      .map(({ id, gw2id, priceIds }) => ({
+        id,
+        gw2id,
+        priceIds,
+        gw2ids: priceIds ?? (gw2id ? [gw2id] : []),
+      }));
+    const allIds = allItems.flatMap((item) => item.gw2ids).filter(Boolean);
+    const apiDataChunks = (await Promise.all(
       chunkArray(allIds, 200).map((ids) =>
         fetch(`https://api.guildwars2.com/v2/commerce/prices?ids=${ids.join(',')}`).then(
           (response) => response.json(),
         ),
       ),
-    );
+    )) as PricesAPI;
     const apiDataEntries = apiDataChunks
       .flat()
-      .map(({ id, sells: { unit_price: price } = {} }) => [id, roundPrice(price)]);
+      .map(({ id, sells: { unit_price: price } = {} }) => [id, roundPrice(price ?? 0)] as const);
     const apiData = Object.fromEntries(apiDataEntries);
 
     const priceDataEntries = allItems
-      .map(({ id, gw2id, gw2ids = [] }) => {
+      .map(({ id, gw2id, gw2ids }) => {
         let price = Infinity;
         let cheapestId;
 
@@ -128,7 +152,7 @@ export default function ExtraSelection(props) {
             if (thisId !== gw2id) cheapestId = thisId;
           }
         });
-        return [id, { price, cheapestId }];
+        return [id, { price, cheapestId }] as const;
       })
       .filter(([_id, { price }]) => price !== Infinity);
 
@@ -136,15 +160,15 @@ export default function ExtraSelection(props) {
   }, [modifierData]);
 
   const handlePriceChange = React.useCallback(
-    (e) => {
-      if (e.target.checked) getPriceData();
-      setShowPriceData(e.target.checked);
+    (e: unknown, checked: boolean) => {
+      if (checked) getPriceData();
+      setShowPriceData(checked);
     },
     [getPriceData],
   );
 
   React.useEffect(() => {
-    function handleKeyEvent(e) {
+    function handleKeyEvent(e: KeyboardEvent) {
       // shortcut to show prices
       if (e.ctrlKey && e.code === 'KeyP') {
         setShowPriceData((prev) => {
@@ -175,7 +199,7 @@ export default function ExtraSelection(props) {
       <List className={classes.list} disablePadding>
         {currentIds.length > 0 ? (
           currentIds.map((extraId) => {
-            const { gw2id, displayIds, subText, textOverride } = data[extraId];
+            const { gw2id, displayIds, subText, textOverride } = allExtrasModifiersById[extraId];
             const { amountData } = allExtrasModifiersById[extraId];
             const amount = extrasData[type][extraId]?.amount || '';
 
@@ -183,7 +207,15 @@ export default function ExtraSelection(props) {
               <ListItem
                 key={extraId}
                 secondaryAction={
-                  <IconButton edge="end" aria-label="delete" onClick={handleDelete(extraId)}>
+                  <IconButton
+                    edge="end"
+                    aria-label="delete"
+                    onClick={(e) => {
+                      dispatch(
+                        changeExtraIds({ type, ids: currentIds.filter((id) => id !== extraId) }),
+                      );
+                    }}
+                  >
                     <ClearIcon />
                   </IconButton>
                 }
@@ -241,7 +273,11 @@ export default function ExtraSelection(props) {
                           placeholder={amountData.default}
                           // i18next-extract-mark-context-next-line {{amountLabel}}
                           endLabel={t('amountLabel', { context: amountData.label })}
-                          handleAmountChange={handleAmountChange(extraId)}
+                          handleAmountChange={(e) => {
+                            dispatch(
+                              changeExtraAmount({ type, id: extraId, amount: e.target.value }),
+                            );
+                          }}
                           value={amount}
                           maxWidth={38}
                         />

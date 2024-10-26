@@ -17,9 +17,12 @@ import React, { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { placeholderItem } from '../../../assets/modifierdata';
+import { allExtrasModifiersById, placeholderItem } from '../../../assets/modifierdata';
+import type { ModifierData } from '../../../assets/modifierdata/metadata';
+import type { ExtrasType } from '../../../state/slices/extras';
 import { changeExtraIds, getExtrasIds } from '../../../state/slices/extras';
 import Label from '../../baseComponents/Label';
+import type { PriceData } from './ExtraSelection';
 import { formatApiText, joinWith } from './helpers';
 
 const useStyles = makeStyles()((theme) => ({
@@ -37,17 +40,27 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-function groupBy(xs, key) {
-  // eslint-disable-next-line id-length
-  return xs.reduce(function (rv, x) {
-    (rv[x[key]] = rv[x[key]] || []).push(x);
-    return rv;
-  }, {});
+function groupBy<K extends keyof any, T>(xs: T[], cb: (el: T) => K) {
+  return xs.reduce(
+    // eslint-disable-next-line id-length
+    function (rv, x) {
+      (rv[cb(x)] = rv[cb(x)] || []).push(x);
+      return rv;
+    },
+    {} as Record<K, T[]>,
+  );
 }
 
-function ModalContent(props) {
-  const { type, modifierData, modifierDataById: data, priceData, showAttributes } = props;
+interface ModalContentProps {
+  type: ExtrasType;
+  label: React.ReactNode;
+  modifierData: ModifierData;
+  text: string;
+  priceData: PriceData;
+  showAttributes: boolean;
+}
 
+function ModalContent({ type, modifierData, priceData, showAttributes }: ModalContentProps) {
   const { classes } = useStyles();
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -56,17 +69,17 @@ function ModalContent(props) {
   const currentIds = useSelector(getExtrasIds)[type] || [];
 
   const [search, setSearch] = React.useState('');
-  const searchRef = React.useRef();
+  const searchRef = React.useRef<HTMLInputElement>();
 
   const grouped = React.useMemo(
     () =>
       groupBy(
         modifierData
           .flatMap(({ items }) => items.map((item) => item.id))
-          .map((id) => ({ id, ...data[id] })),
-        'section',
+          .map((id) => ({ id, ...allExtrasModifiersById[id] })),
+        (val) => val.section,
       ),
-    [data, modifierData],
+    [modifierData],
   );
 
   const searchTerms = search.split(',').map((term) => term.trim().toLowerCase());
@@ -75,26 +88,13 @@ function ModalContent(props) {
     const searched = options.filter(({ text, gw2id, modifiers = {} }) =>
       searchTerms.some(
         (term) =>
-          text.toLowerCase().includes(term) ||
+          text?.toLowerCase().includes(term) ||
           `${gw2id}`.includes(term) ||
           JSON.stringify(modifiers).toLowerCase().includes(term),
       ),
     );
-    return [label, searched];
+    return [label, searched] as const;
   });
-
-  const handleCheckboxChange = (event) => {
-    const ids = [...currentIds.filter((id) => id !== event.target.name || event.target.checked)];
-    if (event.target.checked) {
-      ids.push(event.target.name);
-    }
-
-    dispatch(changeExtraIds({ type, ids }));
-  };
-
-  const handleSearchChange = (event) => {
-    setSearch(event.target.value);
-  };
 
   const selectAllVisible = React.useCallback(() => {
     const tmp = filteredItems.flatMap((array) => array[1]).map(({ id }) => id);
@@ -102,9 +102,9 @@ function ModalContent(props) {
   }, [filteredItems, dispatch, currentIds, type]);
 
   const toggleAllInSection = React.useCallback(
-    (sectionLabel) => {
+    (sectionLabel: string) => {
       const idsInSection = filteredItems
-        .find(([label]) => label === sectionLabel)[1]
+        .find(([label]) => label === sectionLabel)![1]
         .map(({ id }) => id);
       const allSelected = idsInSection.every((id) => currentIds.includes(id));
 
@@ -125,9 +125,9 @@ function ModalContent(props) {
   }, [filteredItems, currentIds, dispatch, type]);
 
   React.useEffect(() => {
-    function handleKeyEvent(e) {
+    function handleKeyEvent(e: KeyboardEvent) {
       if (e.ctrlKey && e.code === 'KeyK') {
-        searchRef.current.focus();
+        searchRef.current?.focus();
         e.preventDefault();
       }
       if (e.ctrlKey && e.code === 'KeyS') {
@@ -156,7 +156,9 @@ function ModalContent(props) {
         className={classes.textfield}
         inputRef={searchRef}
         value={search}
-        onChange={handleSearchChange}
+        onChange={(event) => {
+          setSearch(event.target.value);
+        }}
         slotProps={{
           input: {
             endAdornment: (
@@ -220,7 +222,18 @@ function ModalContent(props) {
                             <Checkbox
                               name={id}
                               checked={currentIds.includes(id)}
-                              onChange={handleCheckboxChange}
+                              onChange={(event) => {
+                                const ids = [
+                                  ...currentIds.filter(
+                                    (curId) => curId !== event.target.name || event.target.checked,
+                                  ),
+                                ];
+                                if (event.target.checked) {
+                                  ids.push(event.target.name);
+                                }
+
+                                dispatch(changeExtraIds({ type, ids }));
+                              }}
                             />
                           }
                           label={
