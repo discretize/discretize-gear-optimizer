@@ -7,7 +7,14 @@ import type { AppliedModifier } from '../optimizer/optimizerSetup';
 import type { RootState } from '../store';
 import { changeAll, getJsHeuristicsTarget, setBuildTemplate } from './controlsSlice';
 
-export const extrasTypes = ['Sigil1', 'Sigil2', 'Runes', 'Relics', 'Nourishment', 'Enhancement'];
+export const extrasTypes = [
+  'Sigil1',
+  'Sigil2',
+  'Runes',
+  'Relics',
+  'Nourishment',
+  'Enhancement',
+] as const;
 
 export const lifestealData = {
   id: 'food-lifesteal-effect',
