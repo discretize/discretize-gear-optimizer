@@ -5,6 +5,7 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classModifiers, traitSectionsById } from '../../../assets/modifierdata';
+import type { ModifierItem, Section } from '../../../assets/modifierdata/metadata';
 import { getProfession } from '../../../state/slices/controlsSlice';
 import {
   changeTrait,
@@ -25,8 +26,6 @@ const Traits = () => {
   const { t } = useTranslation();
   const profession = useSelector(getProfession);
 
-  const data = classModifiers[profession]?.filter((section) => section.id > 0) ?? [];
-
   // selected trait lines
   const traitlines = useSelector(getTraitLines);
   // 2D array: traits[n] is the n-th selected trait line. So the trait id in traitlines[i] has the selected values traits[i]
@@ -37,45 +36,31 @@ const Traits = () => {
   const showAll = useSelector(getShowAllTraits);
   const hiddenCss = showAll ? { opacity: 0.5 } : { display: 'none' };
 
-  // Handles a change from one traitline to another.
-  const handleTraitlineChange = (index) => (e) => {
-    const newTraitLine = e.target.value;
-    dispatch(changeTraitLine({ index, newTraitLine }));
-  };
-
-  // Handles a change from one trait to another within a traitline.
-  const handleTraitChange = (index) => (e) => {
-    const { tier, id: newTrait } = e;
-    dispatch(changeTrait({ index, tier, newTrait }));
-  };
-
-  // handles a modifer's checkbox being toggled on or off.
-  // Checkboxes which pop up for selected traits are necessary because some traits contain different conditional values.
-  const handleCheckboxChange = (index, id) => (e) => {
-    dispatch(toggleTraitModifier({ index, id, enabled: e.target.checked }));
-  };
-
-  const handleAmountChange = (index, id) => (e) => {
-    dispatch(setTraitModiferAmount({ index, id, amount: e.target.value }));
-  };
+  const data = profession
+    ? (classModifiers[profession].filter((section) => section.id && section.id > 0) as (Section & {
+        id: number;
+      })[])
+    : [];
 
   const traitSections = [1, 2, 3].map((lineNr, index) => {
     const traitlineIdString = traitlines[index];
     const traitlineId = traitlineIdString ? parseInt(traitlineIdString, 10) : null;
 
     // hide checkboxes for minor traits without configuration or subtext
-    const checkboxModis = [];
-    const noCheckboxModis = [];
-    traitSectionsById[traitlineId]?.items.forEach((itemData) => {
-      const { minor, subText, amountData } = itemData;
-      if (minor && !subText && !amountData) {
-        noCheckboxModis.push(itemData);
-      } else {
-        checkboxModis.push(itemData);
-      }
-    });
+    const checkboxModis: ModifierItem[] = [];
+    const noCheckboxModis: ModifierItem[] = [];
+    if (traitlineId) {
+      traitSectionsById[traitlineId]?.items.forEach((itemData) => {
+        const { minor, subText, amountData } = itemData;
+        if (minor && !subText && !amountData) {
+          noCheckboxModis.push(itemData);
+        } else {
+          checkboxModis.push(itemData);
+        }
+      });
+    }
 
-    const note = traitSectionsById[traitlineId]?.note;
+    const note = traitlineId && traitSectionsById[traitlineId]?.note;
 
     const key = `traitNr${lineNr}`;
     return (
@@ -90,10 +75,13 @@ const Traits = () => {
           <InputLabel id={`Traitline${lineNr}`}>{t('Traitline', { lineNr })}</InputLabel>
           <Select
             label={t('Traitline', { lineNr })}
-            labeldid={`Traitline${lineNr}`}
+            labelId={`Traitline${lineNr}`}
             value={traitlineIdString}
             input={<Input name={t(`Traitline`, { lineNr })} id={key} />}
-            onChange={handleTraitlineChange(index)}
+            onChange={(e) => {
+              const newTraitLine = e.target.value;
+              dispatch(changeTraitLine({ index, newTraitLine }));
+            }}
             renderValue={(selected) => (
               <Specialization
                 id={parseInt(selected, 10)}
@@ -117,7 +105,10 @@ const Traits = () => {
             id={traitlineId}
             selectable
             selected={selectedTraits[index]}
-            onSelect={handleTraitChange(index)}
+            onSelect={(e) => {
+              const { tier, id: newTrait } = e;
+              dispatch(changeTrait({ index, tier, newTrait }));
+            }}
           />
         ) : (
           <br />
@@ -145,7 +136,7 @@ const Traits = () => {
           // Major traits, that the user might want to enable or not
           checkboxModis.map((itemData) => {
             const { id, gw2id, minor, subText, amountData } = itemData;
-            const visible = minor || selectedTraits[index].includes(gw2id);
+            const visible = minor || selectedTraits[index].includes(gw2id as number); // typescript why.
             const enabled = Boolean(items[index][id]);
             const amount = items[index][id]?.amount;
             return (
@@ -169,7 +160,9 @@ const Traits = () => {
                         </Typography>
                       </>
                     }
-                    onChange={handleCheckboxChange(index, id)}
+                    onChange={(e) => {
+                      dispatch(toggleTraitModifier({ index, id, enabled: e.target.checked }));
+                    }}
                     disabled={!visible}
                   />
                 </Box>
@@ -180,7 +173,9 @@ const Traits = () => {
                       placeholder={amountData.default}
                       // i18next-extract-mark-context-next-line {{amountLabel}}
                       endLabel={t('amountLabel', { context: amountData.label })}
-                      handleAmountChange={handleAmountChange(index, id)}
+                      handleAmountChange={(e) => {
+                        dispatch(setTraitModiferAmount({ index, id, amount: e.target.value }));
+                      }}
                       value={amount}
                       disabled={!visible || !enabled}
                       maxWidth={amountData?.label === 'dps' ? 58 : 38}
@@ -205,9 +200,8 @@ const Traits = () => {
     );
   });
 
-  const classNote = classModifiers[profession]?.find(
-    (section) => section.section === 'Skills',
-  )?.note;
+  const classNote =
+    profession && classModifiers[profession]?.find((section) => section.section === 'Skills')?.note;
 
   return (
     <>
