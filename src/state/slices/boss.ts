@@ -3,7 +3,12 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
 import { changeAll } from './controlsSlice';
 
-const initialState = {
+export interface BossSlice {
+  attackRate: string;
+  movementUptime: string;
+}
+
+const initialState: BossSlice = {
   attackRate: '0.4',
   movementUptime: '0',
 };

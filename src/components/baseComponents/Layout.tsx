@@ -3,7 +3,7 @@ import React from 'react';
 
 interface LayoutProps {
   children: React.ReactNode;
-  ContainerProps: Partial<React.ComponentProps<typeof Container>>;
+  ContainerProps?: Partial<React.ComponentProps<typeof Container>>;
   disableContainer?: boolean;
 }
 

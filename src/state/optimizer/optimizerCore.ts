@@ -12,6 +12,7 @@ import type {
   ConditionName,
   DamagingConditionName,
   DerivedAttributeName,
+  GearAttributeName,
   IndicatorName,
   InfusionName,
   PrimaryAttributeName,
@@ -156,10 +157,10 @@ export interface OptimizerCoreSettingsPerCalculation {
   slots: number; // The length of the former slots array
   runsAfterThisSlot: number[];
   affixesArray: AffixName[][];
-  affixStatsArray: [AttributeName, number][][][];
+  affixStatsArray: [GearAttributeName, number][][][];
 
   affixes: AffixName[];
-  jsHeuristicsData?: [AttributeName, number][][];
+  jsHeuristicsData?: [GearAttributeName, number][][];
 
   shouldDisplayExtras: ShouldDisplayExtras;
   cachedFormState: CachedFormState;
@@ -209,7 +210,7 @@ export type OptimizerCoreMinimalSettings = Pick<
   | 'gameMode'
 >;
 export type Gear = AffixName[];
-export type GearStats = Partial<Record<AttributeName, number>>;
+export type GearStats = Partial<Record<GearAttributeName, number>>;
 interface CoefficientHelperValue {
   slope: number;
   intercept: number;
@@ -226,7 +227,7 @@ interface Results {
   coefficientHelper?: Partial<Record<DistributionNameInternal, CoefficientHelperValue>>;
   unbuffedAttributes?: Attributes;
 }
-export interface CharacterUnprocessed {
+interface CharacterUnprocessed {
   id?: string;
   attributes?: Attributes;
   gear: Gear;
@@ -237,13 +238,16 @@ export interface CharacterUnprocessed {
   infusions: Partial<Record<InfusionName, number>>;
   results?: Results;
 }
-export interface CharacterProcessed extends CharacterUnprocessed {
+interface CharacterProcessed extends CharacterUnprocessed {
   // note: this is not actually accurate
   // (we convince typescript every attribute is defined via a type predicate in calcStats)
   // TODO: improve this
   attributes: Required<Attributes>;
 }
-export interface Character extends CharacterProcessed {
+interface CharacterWithResults extends CharacterProcessed {
+  results: Results;
+}
+export interface Character extends CharacterWithResults {
   settings: OptimizerCoreMinimalSettings;
 }
 
@@ -326,11 +330,10 @@ export class OptimizerCore {
 
       // pause to update UI
       if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
-        this.list.forEach(this.calcResults, this);
         yield {
           isChanged: this.isChanged,
           calculationRuns,
-          newList: this.isChanged ? this.list : undefined,
+          newList: this.isChanged ? this.getListWithResults() : undefined,
         };
         this.isChanged = false;
         iterationTimer = Date.now();
@@ -402,11 +405,10 @@ export class OptimizerCore {
       calculationStatsQueue.push(gearStats);
     }
 
-    this.list.forEach(this.calcResults, this);
     yield {
       isChanged: this.isChanged,
       calculationRuns,
-      newList: this.isChanged ? this.list : undefined,
+      newList: this.isChanged ? this.getListWithResults() : undefined,
     };
   }
 
@@ -447,11 +449,10 @@ export class OptimizerCore {
 
       // pause to update UI
       if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
-        this.list.forEach(this.calcResults, this);
         yield {
           isChanged: this.isChanged,
           calculationRuns,
-          newList: this.isChanged ? this.list : undefined,
+          newList: this.isChanged ? this.getListWithResults() : undefined,
         };
         this.isChanged = false;
         iterationTimer = Date.now();
@@ -480,11 +481,10 @@ export class OptimizerCore {
       this.applyInfusionsFunction([], gearStats, { gearDescription: percentages });
     }
 
-    this.list.forEach(this.calcResults, this);
     yield {
       isChanged: this.isChanged,
       calculationRuns,
-      newList: this.isChanged ? this.list : undefined,
+      newList: this.isChanged ? this.getListWithResults() : undefined,
     };
   }
 
@@ -1015,7 +1015,7 @@ export class OptimizerCore {
     attributes['Healing'] = attributes['Effective Healing'];
   }
 
-  calcResults(character: CharacterProcessed) {
+  calcResults(character: CharacterProcessed): asserts character is CharacterWithResults {
     if (character.results) return;
 
     const { settings } = this;
@@ -1126,6 +1126,12 @@ export class OptimizerCore {
       results.unbuffedAttributes = temp.attributes;
     }
   }
+
+  getListWithResults = () =>
+    this.list.map((character) => {
+      this.calcResults(character);
+      return character;
+    });
 
   /**
    * Clones a character. baseAttributes is cloned by value, so it can be mutated. Please

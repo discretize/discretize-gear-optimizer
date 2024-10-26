@@ -54,16 +54,16 @@ export interface AffixDataEntry {
   type: 'triple' | 'quadruple' | 'celestial' | 'ascendedMismatchedTrinket';
   category: string;
   bonuses: {
-    major: (PrimaryAttributeName | SecondaryAttributeName)[];
-    minor: (PrimaryAttributeName | SecondaryAttributeName)[];
-    jewelMajor?: (PrimaryAttributeName | SecondaryAttributeName)[];
-    jewelMinor?: (PrimaryAttributeName | SecondaryAttributeName)[];
+    major: GearAttributeName[];
+    minor: GearAttributeName[];
+    jewelMajor?: GearAttributeName[];
+    jewelMinor?: GearAttributeName[];
   };
   wvwBonuses?: {
-    major: (PrimaryAttributeName | SecondaryAttributeName)[];
-    minor: (PrimaryAttributeName | SecondaryAttributeName)[];
-    jewelMajor?: (PrimaryAttributeName | SecondaryAttributeName)[];
-    jewelMinor?: (PrimaryAttributeName | SecondaryAttributeName)[];
+    major: GearAttributeName[];
+    minor: GearAttributeName[];
+    jewelMajor?: GearAttributeName[];
+    jewelMinor?: GearAttributeName[];
   };
 }
 
@@ -1557,6 +1557,8 @@ export type AttributeName =
   | ProfessionAttributeName
   | SiphonAttributeName
   | MiscAttributeName;
+
+export type GearAttributeName = PrimaryAttributeName | SecondaryAttributeName;
 
 // #endregion
 

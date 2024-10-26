@@ -24,7 +24,7 @@ import {
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
-import type { AffixName, AttributeName, ForcedSlotName } from '../../utils/gw2-data';
+import type { AffixName, ForcedSlotName, GearAttributeName } from '../../utils/gw2-data';
 import {
   allSlotData,
   Classes,
@@ -45,12 +45,14 @@ import {
   parseInfusionCount,
   parsePriority,
 } from '../../utils/usefulFunctions';
+import type { BossSlice } from '../slices/boss';
 import { getAttackRate, getMovementUptime } from '../slices/boss';
+import type { BuffsSlice } from '../slices/buffs';
 import { getBuffsModifiers } from '../slices/buffs';
 import { getProfession } from '../slices/controlsSlice';
 import { getDistributionNew } from '../slices/distribution';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
-import type { ExtrasCombination } from '../slices/extras';
+import type { ExtrasCombination, ExtrasSlice } from '../slices/extras';
 import { getExtrasCombinationsAndModifiers, getExtrasIds } from '../slices/extras';
 import { getForcedSlots } from '../slices/forcedSlots';
 import {
@@ -58,6 +60,7 @@ import {
   getMaxInfusions,
   getValidInfusionOptions,
 } from '../slices/infusions';
+import type { PrioritiesSlice } from '../slices/priorities';
 import {
   getAffixes,
   getConstraint,
@@ -67,7 +70,9 @@ import {
   getOptimizeFor,
   getWeaponType,
 } from '../slices/priorities';
+import type { SkillsSlice } from '../slices/skills';
 import { getSkillsModifiers } from '../slices/skills';
+import type { TraitsSlice } from '../slices/traits';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { getGameMode } from '../slices/userSettings';
 import type { RootState } from '../store';
@@ -167,12 +172,12 @@ export interface Modifiers {
 export type InfusionMode = 'None' | 'Primary' | 'Few' | 'Secondary' | 'SecondaryNoDuplicates';
 
 export interface CachedFormState {
-  traits: Record<string, any>;
-  skills: Record<string, any>;
-  extras: Record<string, any>;
-  buffs: Record<string, any>;
-  priorities: Record<string, any>;
-  boss: Record<string, any>;
+  traits: TraitsSlice;
+  skills: SkillsSlice;
+  extras: ExtrasSlice;
+  buffs: BuffsSlice;
+  priorities: PrioritiesSlice;
+  boss: BossSlice;
 }
 
 // interface OptimizerInput {
@@ -454,7 +459,7 @@ export function createSettingsPerCalculation(
   const affixStatsArray: OptimizerCoreSettings['affixStatsArray'] = affixesArray.map(
     (possibleAffixes, slotindex) =>
       possibleAffixes.map((affix) => {
-        const statTotals: Partial<Record<AttributeName, number>> = {};
+        const statTotals: Partial<Record<GearAttributeName, number>> = {};
         const item = exotics?.[affix]?.[slotindex]
           ? slotData[slotindex].exo
           : slotData[slotindex].asc;
@@ -476,10 +481,10 @@ export function createSettingsPerCalculation(
   // for heuristics
   // like affixes, but each entry is an array of stats given by using that affix in every available slot
   // e.g. berserker with no forced affixes -> [[Power, 1381],[Precision, 961],[Ferocity, 961]]
-  let jsHeuristicsData: [AttributeName, number][][] | undefined;
+  let jsHeuristicsData: [GearAttributeName, number][][] | undefined;
   try {
     jsHeuristicsData = affixes.map((forcedAffix) => {
-      const statTotals: Partial<Record<AttributeName, number>> = {};
+      const statTotals: Partial<Record<GearAttributeName, number>> = {};
       affixesArray.forEach((possibleAffixes, slotindex) => {
         if (!possibleAffixes.includes(forcedAffix) && possibleAffixes.length !== 1) {
           throw new Error();

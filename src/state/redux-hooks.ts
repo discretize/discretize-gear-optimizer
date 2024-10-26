@@ -1,4 +1,5 @@
-import { createListenerMiddleware, ThunkAction, UnknownAction } from '@reduxjs/toolkit';
+import type { ThunkAction, UnknownAction } from '@reduxjs/toolkit';
+import { createListenerMiddleware } from '@reduxjs/toolkit';
 import type { TypedUseSelectorHook } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
 import type { AppDispatch, RootState } from './store';

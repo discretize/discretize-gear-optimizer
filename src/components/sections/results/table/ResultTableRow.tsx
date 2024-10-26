@@ -8,11 +8,28 @@ import isEqual from 'react-fast-compare';
 import { useDispatch } from 'react-redux';
 import { allExtrasModifiersById, placeholderItem } from '../../../../assets/modifierdata';
 import { percents } from '../../../../assets/modifierdata/metadata';
+import type { Character } from '../../../../state/optimizer/optimizerCore';
+import type { DisplayAttributes } from '../../../../state/slices/controlsSlice';
 import { changeSelectedCharacter, toggleSaved } from '../../../../state/slices/controlsSlice';
+import type { ExtrasType } from '../../../../state/slices/extras';
 import { extrasTypes } from '../../../../state/slices/extras';
+import type { AffixName } from '../../../../utils/gw2-data';
 import { maxSlotsLength } from '../../../../utils/gw2-data';
 
-const roundTwo = (num) => Math.round(num * 100) / 100;
+const roundTwo = (num: number) => Math.round(num * 100) / 100;
+
+interface ResultTableRowProps {
+  character: Character;
+  selected: boolean;
+  saved: boolean;
+  unhighlightedAffixes?: (AffixName | undefined)[];
+  mostCommonRarity?: 'exotic' | 'ascended';
+  underlineClass?: string;
+  selectedValue?: number;
+  compareByPercent: boolean;
+  displayExtras: Record<ExtrasType, boolean>;
+  displayAttributes: DisplayAttributes;
+}
 
 const ResultTableRow = ({
   character,
@@ -25,7 +42,7 @@ const ResultTableRow = ({
   compareByPercent,
   displayExtras,
   displayAttributes,
-}) => {
+}: ResultTableRowProps) => {
   const dispatch = useDispatch();
 
   const { value } = character.results;
@@ -33,16 +50,16 @@ const ResultTableRow = ({
 
   const comparisonText = comparisonValue
     ? ` ${comparisonValue > 0 ? '+' : '-'}${
-        compareByPercent
+        compareByPercent && selectedValue
           ? `${((100 * Math.abs(comparisonValue)) / selectedValue).toFixed(1)}%`
           : Math.round(Math.abs(comparisonValue))
       }`
     : '';
-  const exoticRarity = (affix, index) =>
+  const exoticRarity = (affix: AffixName, index: number) =>
     character.settings.cachedFormState.priorities?.exotics.data?.[affix]?.[index];
 
   const emptyCell = <TableCell align="center" padding="none" />;
-  const padCellArray = (minLength, array) => {
+  const padCellArray = (minLength: number, array: React.ReactNode[]) => {
     const resultArray =
       array.length < minLength
         ? [...array, ...Array(minLength - array.length).fill(emptyCell)]
@@ -55,7 +72,7 @@ const ResultTableRow = ({
   return (
     <TableRow
       selected={selected}
-      style={selected ? { backgroundColor: 'rgba(0, 204, 204, 0.2)' } : null}
+      style={selected ? { backgroundColor: 'rgba(0, 204, 204, 0.2)' } : {}}
       onClick={(e) => dispatch(changeSelectedCharacter(character))}
       hover
       className={underlineClass}
