@@ -45,12 +45,14 @@ import {
   parseInfusionCount,
   parsePriority,
 } from '../../utils/usefulFunctions';
+import type { BossSlice } from '../slices/boss';
 import { getAttackRate, getMovementUptime } from '../slices/boss';
+import type { BuffsSlice } from '../slices/buffs';
 import { getBuffsModifiers } from '../slices/buffs';
 import { getProfession } from '../slices/controlsSlice';
 import { getDistributionNew } from '../slices/distribution';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
-import type { ExtrasCombination } from '../slices/extras';
+import type { ExtrasCombination, ExtrasSlice } from '../slices/extras';
 import { getExtrasCombinationsAndModifiers, getExtrasIds } from '../slices/extras';
 import { getForcedSlots } from '../slices/forcedSlots';
 import {
@@ -58,6 +60,7 @@ import {
   getMaxInfusions,
   getValidInfusionOptions,
 } from '../slices/infusions';
+import type { PrioritiesSlice } from '../slices/priorities';
 import {
   getAffixes,
   getConstraint,
@@ -67,7 +70,9 @@ import {
   getOptimizeFor,
   getWeaponType,
 } from '../slices/priorities';
+import type { SkillsSlice } from '../slices/skills';
 import { getSkillsModifiers } from '../slices/skills';
+import type { TraitsSlice } from '../slices/traits';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { getGameMode } from '../slices/userSettings';
 import type { RootState } from '../store';
@@ -167,12 +172,12 @@ export interface Modifiers {
 export type InfusionMode = 'None' | 'Primary' | 'Few' | 'Secondary' | 'SecondaryNoDuplicates';
 
 export interface CachedFormState {
-  traits: Record<string, any>;
-  skills: Record<string, any>;
-  extras: Record<string, any>;
-  buffs: Record<string, any>;
-  priorities: Record<string, any>;
-  boss: Record<string, any>;
+  traits: TraitsSlice;
+  skills: SkillsSlice;
+  extras: ExtrasSlice;
+  buffs: BuffsSlice;
+  priorities: PrioritiesSlice;
+  boss: BossSlice;
 }
 
 // interface OptimizerInput {
