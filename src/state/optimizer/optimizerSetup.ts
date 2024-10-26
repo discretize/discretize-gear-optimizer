@@ -24,7 +24,7 @@ import {
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
-import type { AffixName, AttributeName, ForcedSlotName } from '../../utils/gw2-data';
+import type { AffixName, ForcedSlotName, GearAttributeName } from '../../utils/gw2-data';
 import {
   allSlotData,
   Classes,
@@ -454,7 +454,7 @@ export function createSettingsPerCalculation(
   const affixStatsArray: OptimizerCoreSettings['affixStatsArray'] = affixesArray.map(
     (possibleAffixes, slotindex) =>
       possibleAffixes.map((affix) => {
-        const statTotals: Partial<Record<AttributeName, number>> = {};
+        const statTotals: Partial<Record<GearAttributeName, number>> = {};
         const item = exotics?.[affix]?.[slotindex]
           ? slotData[slotindex].exo
           : slotData[slotindex].asc;
@@ -476,10 +476,10 @@ export function createSettingsPerCalculation(
   // for heuristics
   // like affixes, but each entry is an array of stats given by using that affix in every available slot
   // e.g. berserker with no forced affixes -> [[Power, 1381],[Precision, 961],[Ferocity, 961]]
-  let jsHeuristicsData: [AttributeName, number][][] | undefined;
+  let jsHeuristicsData: [GearAttributeName, number][][] | undefined;
   try {
     jsHeuristicsData = affixes.map((forcedAffix) => {
-      const statTotals: Partial<Record<AttributeName, number>> = {};
+      const statTotals: Partial<Record<GearAttributeName, number>> = {};
       affixesArray.forEach((possibleAffixes, slotindex) => {
         if (!possibleAffixes.includes(forcedAffix) && possibleAffixes.length !== 1) {
           throw new Error();

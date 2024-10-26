@@ -12,6 +12,7 @@ import type {
   ConditionName,
   DamagingConditionName,
   DerivedAttributeName,
+  GearAttributeName,
   IndicatorName,
   InfusionName,
   PrimaryAttributeName,
@@ -156,10 +157,10 @@ export interface OptimizerCoreSettingsPerCalculation {
   slots: number; // The length of the former slots array
   runsAfterThisSlot: number[];
   affixesArray: AffixName[][];
-  affixStatsArray: [AttributeName, number][][][];
+  affixStatsArray: [GearAttributeName, number][][][];
 
   affixes: AffixName[];
-  jsHeuristicsData?: [AttributeName, number][][];
+  jsHeuristicsData?: [GearAttributeName, number][][];
 
   shouldDisplayExtras: ShouldDisplayExtras;
   cachedFormState: CachedFormState;
@@ -209,7 +210,7 @@ export type OptimizerCoreMinimalSettings = Pick<
   | 'gameMode'
 >;
 export type Gear = AffixName[];
-export type GearStats = Partial<Record<AttributeName, number>>;
+export type GearStats = Partial<Record<GearAttributeName, number>>;
 interface CoefficientHelperValue {
   slope: number;
   intercept: number;
