@@ -43,8 +43,7 @@
     "wasm-build-data": "tsx generateRustMappings.ts",
     "wasmCheck": "cd wasm_module && cargo check --all-targets",
     "enable-hooks": "husky",
-    "disable-hooks": "git config --unset core.hooksPath",
-    "generate-pwa-splash": "pnpx pwa-asset-generator public/logo.png public/ --type png --background \"#2f3136\" --splash-only"
+    "disable-hooks": "git config --unset core.hooksPath"
   },
   "resolutions": {
     "axios@0.26.1": "^0.28.1"
