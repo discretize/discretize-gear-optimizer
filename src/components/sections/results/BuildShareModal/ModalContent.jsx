@@ -2,7 +2,6 @@ import { Error, Icon, Item, Progress } from '@discretize/gw2-ui-new';
 import { firstUppercase } from '@discretize/react-discretize-components';
 import DoneIcon from '@mui/icons-material/Done';
 import { Box, Button, ButtonGroup, MenuItem, Select, Typography } from '@mui/material';
-import axios from 'axios';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -59,9 +58,9 @@ export default function ModalContent({ character, buttons }) {
   };
 
   React.useEffect(() => {
-    axios
-      .get(`https://api.guildwars2.com/v2/professions/${firstUppercase(profession)}`)
-      .then((res) => setState({ error: undefined, skills: res.data.skills }))
+    fetch(`https://api.guildwars2.com/v2/professions/${firstUppercase(profession)}`)
+      .then((response) => response.json())
+      .then((res) => setState({ error: undefined, skills: res.skills }))
       .catch((e) => {
         console.error(e);
         setState({ error: e.message });

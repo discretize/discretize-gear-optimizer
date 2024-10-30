@@ -1,4 +1,3 @@
-import axios from 'axios';
 import type { TFunction } from 'i18next';
 import JsonUrl from 'json-url';
 import pako from 'pako';
@@ -90,14 +89,15 @@ const getShortUrl = async (exportData: unknown) => {
   const binaryData = pako.deflate(JSON.stringify(exportData));
   console.timeEnd('Compressed binary data in:');
 
-  const response = await axios.post(`share/create`, binaryData).catch(console.error);
-  if (response?.data?.Status !== 200) {
-    console.log(
-      `URL shortener returned status ${response?.data?.Status}! Falling back to long URL.`,
-    );
+  const response = await fetch(`share/create`, { method: 'POST', body: binaryData })
+    .then((response) => response.json<{ Status: number; Message: string; Key: string | null }>())
+    .catch(console.error);
+
+  if (!response || response?.Status !== 200) {
+    console.log(`URL shortener returned status ${response?.Status}! Falling back to long URL.`);
     throw new Error('failure');
   }
-  const { Key } = response.data;
+  const { Key } = response;
 
   const urlObject = new URL(window.location.href);
   urlObject.searchParams.set(PARAMS.SHORTENER_KEY, `${Key}v1`);

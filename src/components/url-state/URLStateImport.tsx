@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React from 'react';
 import { importFormState } from '../../state/async/formStateThunks';
 import { useAppDispatch } from '../../state/redux-hooks';
@@ -63,10 +62,10 @@ const URLStateImport = ({ clearUrlOnSuccess }: URLStateImportProps) => {
       // found shortened link, resolve the data.
       // cf-function can be found in /functions/share/load.ts
       const key = shortenerKey.slice(0, -2);
-      axios
-        .get(`share/load?${PARAMS.SHORTENER_KEY}=${key}`, { responseType: 'arraybuffer' })
+      fetch(`share/load?${PARAMS.SHORTENER_KEY}=${key}`)
+        .then((response) => response.arrayBuffer())
         .then((response) => {
-          const binaryData = new Uint8Array(response.data);
+          const binaryData = new Uint8Array(response);
           console.log(binaryData);
 
           dispatch(importFormState({ binaryData, onSuccess: onLoadSuccess, onError: onLoadError }));
