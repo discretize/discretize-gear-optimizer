@@ -1,7 +1,11 @@
+import { compress, init } from '@bokuweb/zstd-wasm';
 import axios from 'axios';
+import brotliInit from 'brotli-wasm';
 import type { TFunction } from 'i18next';
 import JsonUrl from 'json-url';
+import messagepack from 'msgpack-lite';
 import pako from 'pako';
+import { uint8ArrayToBase64 } from 'uint8array-extras';
 import { PARAMS } from '../../utils/queryParam';
 import type { AppThunk } from '../redux-hooks';
 // import { changeBuildPage } from '../slices/buildPage';
@@ -9,6 +13,8 @@ import { changeAll, emptyFilteredLists } from '../slices/controlsSlice';
 import type { RootState } from '../store';
 
 const lib = JsonUrl('lzma');
+const zstdInit = init();
+const textEncoder = new TextEncoder();
 
 // hard coded temporarily!
 const version = 0;
@@ -113,13 +119,76 @@ const getLongUrl = async (
   onFailure: (msg: string) => void,
   t: TFunction,
 ): Promise<string> => {
+  const jsonString = JSON.stringify(exportData);
+  console.log(`jsonString.length`, jsonString.length);
+
+  /*
   console.time('Compressed json-url data in:');
   const jsonUrlData = await lib.compress(exportData);
+  // console.log('json-url string', jsonUrlData);
+  console.log('json-url length', jsonUrlData.length);
   console.timeEnd('Compressed json-url data in:');
+  */
+
+  console.time(`Compressed pakoData data in:`);
+  const pakoData = uint8ArrayToBase64(pako.deflate(JSON.stringify(exportData)), {
+    urlSafe: true,
+  });
+  // console.log(`pakoData string`, pakoData);
+  console.log(`pakoData length`, pakoData.length);
+  console.timeEnd(`Compressed pakoData data in:`);
+
+  const brotli = await brotliInit;
+
+  for (const quality of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) {
+    console.time(`Compressed brotli ${quality} data in:`);
+    const brotliData = uint8ArrayToBase64(
+      brotli.compress(textEncoder.encode(jsonString), { quality }),
+      {
+        urlSafe: true,
+      },
+    );
+    // console.log(`brotliData ${quality} string`, brotliData);
+    console.log(`brotliData ${quality} length`, brotliData.length);
+    console.timeEnd(`Compressed brotli ${quality} data in:`);
+
+    console.time(`Compressed brotli ${quality}m data in:`);
+    const brotliDataMsg = uint8ArrayToBase64(
+      brotli.compress(messagepack.encode(exportData), { quality }),
+      {
+        urlSafe: true,
+      },
+    );
+    // console.log(`brotliData ${quality}m string`, brotliDataMsg);
+    console.log(`brotliData ${quality}m length`, brotliDataMsg.length);
+    console.timeEnd(`Compressed brotli ${quality}m data in:`);
+  }
+
+  await zstdInit;
+
+  for (const quality of Array(22)
+    .fill(0)
+    .map((_, i) => i)) {
+    console.time(`Compressed zstd ${quality} data in:`);
+    const zstdData = uint8ArrayToBase64(compress(textEncoder.encode(jsonString), quality), {
+      urlSafe: true,
+    });
+    // console.log(`zstd ${quality} string`, zstdData);
+    console.log(`zstd ${quality} length`, zstdData.length);
+    console.timeEnd(`Compressed zstd ${quality} data in:`);
+
+    console.time(`Compressed zstd ${quality}m data in:`);
+    const zstdDataMsg = uint8ArrayToBase64(compress(messagepack.encode(exportData), quality), {
+      urlSafe: true,
+    });
+    // console.log(`zstd ${quality}m string`, zstdDataMsg);
+    console.log(`zstd ${quality}m length`, zstdDataMsg.length);
+    console.timeEnd(`Compressed zstd ${quality}m data in:`);
+  }
 
   const urlObject = new URL(window.location.href);
-  urlObject.searchParams.set(PARAMS.VERSION, String(version));
-  urlObject.searchParams.set(PARAMS.DATA, jsonUrlData);
+  // urlObject.searchParams.set(PARAMS.VERSION, String(version));
+  // urlObject.searchParams.set(PARAMS.DATA, );
   const longUrl = urlObject.href;
 
   if (longUrl.length > 8000) {
@@ -150,20 +219,14 @@ export const exportFormState =
     try {
       const reduxState = getState();
 
-      const exportData = modifyState(reduxState.optimizer);
+      const exportData = reduxState.optimizer;
       console.log(exportData);
 
-      let successMessage = import.meta.env.VITE_HAS_CF
-        ? t('Copied link to clipboard!')
-        : t('Copied long link to clipboard! (Link shortener requires cloudflare environment.)');
+      const successMessage = t(
+        'Copied long link to clipboard! (Link shortener requires cloudflare environment.)',
+      );
 
-      const urlPromise = import.meta.env.VITE_HAS_CF
-        ? getShortUrl(exportData).catch((e) => {
-            // fall back to long URL on link shortner failure
-            successMessage = t('Copied long link to clipboard! (Link shortener failed.)');
-            return getLongUrl(exportData, onFailure, t);
-          })
-        : getLongUrl(exportData, onFailure, t);
+      const urlPromise = getLongUrl(exportData, onFailure, t);
 
       // iOS browsers and desktop Safari require the use of the async clipboard API, calling
       // navigator.clipboard.write synchronously and passing it a Promise
