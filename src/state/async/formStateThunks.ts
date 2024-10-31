@@ -222,17 +222,11 @@ export const exportFormState =
       const exportData = reduxState.optimizer;
       console.log(exportData);
 
-      let successMessage = import.meta.env.VITE_HAS_CF
-        ? t('Copied link to clipboard!')
-        : t('Copied long link to clipboard! (Link shortener requires cloudflare environment.)');
+      const successMessage = t(
+        'Copied long link to clipboard! (Link shortener requires cloudflare environment.)',
+      );
 
-      const urlPromise = import.meta.env.VITE_HAS_CF
-        ? getShortUrl(exportData).catch((e) => {
-            // fall back to long URL on link shortner failure
-            successMessage = t('Copied long link to clipboard! (Link shortener failed.)');
-            return getLongUrl(exportData, onFailure, t);
-          })
-        : getLongUrl(exportData, onFailure, t);
+      const urlPromise = getLongUrl(exportData, onFailure, t);
 
       // iOS browsers and desktop Safari require the use of the async clipboard API, calling
       // navigator.clipboard.write synchronously and passing it a Promise
