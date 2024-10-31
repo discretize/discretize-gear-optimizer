@@ -26,4 +26,10 @@ export default defineConfig({
     format: 'iife',
     plugins: () => [comlink(), yamlImporter(), wasm()],
   },
+  optimizeDeps: {
+    exclude: ['brotli-wasm', '@bokuweb/zstd-wasm'],
+    esbuildOptions: {
+      target: 'es2020',
+    },
+  },
 });

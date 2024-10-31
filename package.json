@@ -49,6 +49,7 @@
     "axios@0.26.1": "^0.28.1"
   },
   "dependencies": {
+    "@bokuweb/zstd-wasm": "0.0.21-alpha.5",
     "@discretize/globals": "^0.0.4",
     "@discretize/gw2-ui-new": "^0.1.7",
     "@discretize/object-compression": "^1.0.3",
@@ -60,6 +61,7 @@
     "@mui/material": "^6.1.5",
     "@reduxjs/toolkit": "^2.3.0",
     "axios": "^1.7.7",
+    "brotli-wasm": "^3.0.1",
     "comlink": "^4.4.1",
     "i18next": "^23.16.4",
     "js-yaml": "^4.1.0",
