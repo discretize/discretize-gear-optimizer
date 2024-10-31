@@ -3,6 +3,7 @@ import axios from 'axios';
 import brotliInit from 'brotli-wasm';
 import type { TFunction } from 'i18next';
 import JsonUrl from 'json-url';
+import messagepack from 'msgpack-lite';
 import pako from 'pako';
 import { uint8ArrayToBase64 } from 'uint8array-extras';
 import { PARAMS } from '../../utils/queryParam';
@@ -150,6 +151,17 @@ const getLongUrl = async (
     // console.log(`brotliData ${quality} string`, brotliData);
     console.log(`brotliData ${quality} length`, brotliData.length);
     console.timeEnd(`Compressed brotli ${quality} data in:`);
+
+    console.time(`Compressed brotli ${quality}m data in:`);
+    const brotliDataMsg = uint8ArrayToBase64(
+      brotli.compress(messagepack.encode(exportData), { quality }),
+      {
+        urlSafe: true,
+      },
+    );
+    // console.log(`brotliData ${quality}m string`, brotliDataMsg);
+    console.log(`brotliData ${quality}m length`, brotliDataMsg.length);
+    console.timeEnd(`Compressed brotli ${quality}m data in:`);
   }
 
   await zstdInit;
@@ -164,6 +176,14 @@ const getLongUrl = async (
     // console.log(`zstd ${quality} string`, zstdData);
     console.log(`zstd ${quality} length`, zstdData.length);
     console.timeEnd(`Compressed zstd ${quality} data in:`);
+
+    console.time(`Compressed zstd ${quality}m data in:`);
+    const zstdDataMsg = uint8ArrayToBase64(compress(messagepack.encode(exportData), quality), {
+      urlSafe: true,
+    });
+    // console.log(`zstd ${quality}m string`, zstdDataMsg);
+    console.log(`zstd ${quality}m length`, zstdDataMsg.length);
+    console.timeEnd(`Compressed zstd ${quality}m data in:`);
   }
 
   const urlObject = new URL(window.location.href);
