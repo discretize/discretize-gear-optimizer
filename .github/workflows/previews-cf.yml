@@ -88,7 +88,7 @@ jobs:
           wranglerVersion: '3'
 
       - name: Comment PR
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@v3
         with:
           message: |
             Deployed ${{ steps.pages-action.outputs.environment }} build to Cloudflare!
@@ -98,5 +98,5 @@ jobs:
             | **Last commit:**        | ${{ github.event.pull_request.head.sha || github.event.workflow_run.head_sha || github.sha }} |
             | **Preview URL**:        | ${{ steps.pages-action.outputs.url }} |
             | **Branch Preview URL**: | https://${{ github.head_ref || github.ref_name }}.${{ env.PAGES_PROJECT_URL_SLUG }}.pages.dev |
-          comment_tag: deployment
+          comment-tag: deployment
           mode: upsert
