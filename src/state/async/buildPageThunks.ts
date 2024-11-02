@@ -7,7 +7,8 @@ import { buffsDict } from '../../components/url-state/schema/SchemaDicts';
 import { PARAMS } from '../../utils/queryParam';
 import { objectKeys } from '../../utils/usefulFunctions';
 import type { AppThunk } from '../redux-hooks';
-import { changeBuildPage, changeCharacter, getSkills, getWeapons } from '../slices/buildPage';
+import type { BuildPageData } from '../slices/buildPage';
+import { changeBuildPage, getSkills, getWeapons } from '../slices/buildPage';
 import { getProfession, getSelectedCharacter } from '../slices/controlsSlice';
 import { getGameMode } from '../slices/userSettings';
 
@@ -65,7 +66,7 @@ export const exportStateCharacter =
       },
     };
 
-    dispatch(changeCharacter(minimalCharacter));
+    // dispatch(changeCharacter(minimalCharacter));
 
     // create bit map for buffs
     const conv = (val: unknown) => (val ? 1 : 0);
@@ -75,7 +76,7 @@ export const exportStateCharacter =
       conv(buffs[0]),
     );
 
-    const object = {
+    const object: BuildPageData = {
       character: minimalCharacter,
       skills,
       traits: { lines, selected },
@@ -123,7 +124,7 @@ export const importStateCharacter =
         `../../components/url-state/schema/BuildPageSchema_v${version}.js`
       );
 
-      const result = await new Promise((resolve) => {
+      const result: BuildPageData = await new Promise((resolve) => {
         decompress({
           string: input,
           schema,

@@ -230,16 +230,15 @@ export default function ExtraSelection(props: ExtraSelectionProps) {
                               <Item
                                 key={id ?? placeholderItem}
                                 id={id ?? placeholderItem}
-                                text={formatApiText}
+                                text={textOverride || formatApiText}
                                 disableText={!id}
-                                {...(textOverride
-                                  ? {
-                                      text: textOverride,
-                                      tooltipProps: {
+                                tooltipProps={
+                                  textOverride
+                                    ? {
                                         content: textOverride,
-                                      },
-                                    }
-                                  : {})}
+                                      }
+                                    : undefined
+                                }
                               />
                             )),
                             ' / ',
@@ -247,16 +246,15 @@ export default function ExtraSelection(props: ExtraSelectionProps) {
                         ) : (
                           <Item
                             id={gw2id ?? placeholderItem}
-                            text={formatApiText}
+                            text={textOverride || formatApiText}
                             disableText={!gw2id}
-                            {...(textOverride
-                              ? {
-                                  text: textOverride,
-                                  tooltipProps: {
+                            tooltipProps={
+                              textOverride
+                                ? {
                                     content: textOverride,
-                                  },
-                                }
-                              : {})}
+                                  }
+                                : undefined
+                            }
                           />
                         )}
                       </Box>

@@ -95,7 +95,9 @@ const BuildPage = () => {
       traitLookup[traitLine.id!] = traitLine.section;
     });
 
-  let assumedBuffs = buffModifiers.flatMap((buff) => buff.items).filter((buff) => buffs[buff.id]);
+  let assumedBuffs = buffs
+    ? buffModifiers.flatMap((buff) => buff.items).filter((buff) => buffs[buff.id])
+    : [];
 
   if (assumedBuffs.find((buff) => buff.id.includes('jade-bot-')))
     assumedBuffs = assumedBuffs.concat({

@@ -3,6 +3,7 @@ import { NoSelection } from '@discretize/react-discretize-components';
 import { MenuItem, Select } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import type { SkillTypeId } from '../../../../state/slices/buildPage';
 import { changeSkill } from '../../../../state/slices/buildPage';
 
 const useStyles = makeStyles()((theme) => ({
@@ -13,20 +14,26 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-export default function SkillSelect({ name, value, skillList }) {
+export default function SkillSelect({
+  name,
+  value,
+  skillList,
+}: {
+  name: SkillTypeId;
+  value: number | '';
+  skillList: { id: number }[];
+}) {
   const dispatch = useDispatch();
   const { classes } = useStyles();
 
-  const handleChangeSkill = (e) => {
-    dispatch(changeSkill({ key: e.target.name, value: e.target.value }));
-  };
-
   return (
-    <Select
+    <Select<number | ''>
       variant="standard"
       value={value}
       name={name}
-      onChange={handleChangeSkill}
+      onChange={(e) => {
+        dispatch(changeSkill({ key: name, value: e.target.value as number | '' }));
+      }}
       className={classes.skillSelect}
       renderValue={(skill) =>
         skill === '' ? (

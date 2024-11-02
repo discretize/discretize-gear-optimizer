@@ -245,16 +245,15 @@ function ModalContent({ type, modifierData, priceData, showAttributes }: ModalCo
                                       id={displayId ?? placeholderItem}
                                       key={displayId ?? placeholderItem}
                                       disableLink
-                                      text={formatApiText}
+                                      text={textOverride || formatApiText}
                                       disableText={!displayId}
-                                      {...(textOverride
-                                        ? {
-                                            text: textOverride,
-                                            tooltipProps: {
+                                      tooltipProps={
+                                        textOverride
+                                          ? {
                                               content: textOverride,
-                                            },
-                                          }
-                                        : {})}
+                                            }
+                                          : undefined
+                                      }
                                     />
                                   )),
                                   ' / ',
@@ -263,16 +262,15 @@ function ModalContent({ type, modifierData, priceData, showAttributes }: ModalCo
                                 <Item
                                   id={gw2id ?? placeholderItem}
                                   disableLink
-                                  text={formatApiText}
+                                  text={textOverride || formatApiText}
                                   disableText={!gw2id}
-                                  {...(textOverride
-                                    ? {
-                                        text: textOverride,
-                                        tooltipProps: {
+                                  tooltipProps={
+                                    textOverride
+                                      ? {
                                           content: textOverride,
-                                        },
-                                      }
-                                    : {})}
+                                        }
+                                      : undefined
+                                  }
                                 />
                               )}
                               {subText && (

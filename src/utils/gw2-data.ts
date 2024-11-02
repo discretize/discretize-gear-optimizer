@@ -1235,7 +1235,7 @@ export const WEAPONS = {
   SHIELD: { name: 'Shield', type: 'offHand', gw2id: 30696 },
   TORCH: { name: 'Torch', type: 'offHand', gw2id: 30700 },
   WARHORN: { name: 'Warhorn', type: 'offHand', gw2id: 30702 },
-};
+} as const;
 export type WeaponType = keyof typeof WEAPONS;
 
 // referenced in discretize.eu-rewrite
@@ -1398,7 +1398,7 @@ export const Classes = {
       offHand: [WEAPONS.FOCUS, WEAPONS.DAGGER, WEAPONS.WARHORN],
     },
   },
-};
+} as const;
 export type ProfessionName = keyof typeof Classes;
 
 function firstUppercase(text: string | undefined | null): string {
