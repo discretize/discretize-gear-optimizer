@@ -1,12 +1,15 @@
 import { Error, Icon, Item, Progress } from '@discretize/gw2-ui-new';
 import { firstUppercase } from '@discretize/react-discretize-components';
 import DoneIcon from '@mui/icons-material/Done';
+import type { SelectChangeEvent } from '@mui/material';
 import { Box, Button, ButtonGroup, MenuItem, Select, Typography } from '@mui/material';
 import axios from 'axios';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import type { Character } from '../../../../state/optimizer/optimizerCore';
+import type { WeaponTypeId } from '../../../../state/slices/buildPage';
 import { changeWeapon, getSkills, getWeapons } from '../../../../state/slices/buildPage';
 import { Classes, WEAPONS } from '../../../../utils/gw2-data';
 import SkillSelect from './SkillSelect';
@@ -26,7 +29,16 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-export default function ModalContent({ character, buttons }) {
+interface ModalContentProps {
+  character: Character;
+  buttons: {
+    label: string;
+    onClick: () => void;
+    icon: React.ElementType;
+  }[];
+}
+
+export default function ModalContent({ character, buttons }: ModalContentProps) {
   const dispatch = useDispatch();
   const { classes } = useStyles();
   const { t } = useTranslation();
@@ -37,25 +49,31 @@ export default function ModalContent({ character, buttons }) {
   const { mainhand1, mainhand2, offhand1, offhand2 } = weapons;
   const { healId, utility1Id, utility2Id, utility3Id, eliteId } = skills;
 
-  const [state, setState] = React.useState({ skills: undefined, error: undefined });
+  const [state, setState] = React.useState<{
+    skills?: { id: number; type: string }[];
+    error?: string;
+  }>({
+    skills: undefined,
+    error: undefined,
+  });
   const [buttonState, setButtonState] = React.useState(new Array(buttons.length));
 
   const { profession } = character.settings;
   const { weapons: useableWeapons } = Classes[profession];
 
-  const handleChangeWeapon = (e) => {
+  const handleChangeWeapon = (key: WeaponTypeId) => (e: SelectChangeEvent<number>) => {
     if (
       useableWeapons.mainHand.find((weapon) => weapon.gw2id === e.target.value)?.type ===
       'two-handed'
     ) {
-      if (e.target.name === 'mainhand1') dispatch(changeWeapon({ key: 'offhand1', value: '' }));
-      if (e.target.name === 'mainhand2') dispatch(changeWeapon({ key: 'offhand2', value: '' }));
+      if (key === 'mainhand1') dispatch(changeWeapon({ key: 'offhand1', value: '' }));
+      if (key === 'mainhand2') dispatch(changeWeapon({ key: 'offhand2', value: '' }));
     }
-    dispatch(changeWeapon({ key: e.target.name, value: e.target.value }));
+    dispatch(changeWeapon({ key, value: e.target.value as number }));
   };
 
-  const getWeaponId = (weaponName) => {
-    return WEAPONS[weaponName.toUpperCase().replace(' ', '')]?.gw2id;
+  const getWeaponId = (weaponName: string): number => {
+    return WEAPONS[weaponName.toUpperCase().replace(' ', '') as keyof typeof WEAPONS]?.gw2id;
   };
 
   React.useEffect(() => {
@@ -78,7 +96,7 @@ export default function ModalContent({ character, buttons }) {
           variant="standard"
           value={mainhand1}
           name="mainhand1"
-          onChange={handleChangeWeapon}
+          onChange={handleChangeWeapon('mainhand1')}
           className={classes.weaponSelect}
         >
           {React.Children.toArray(
@@ -96,7 +114,7 @@ export default function ModalContent({ character, buttons }) {
             variant="standard"
             value={offhand1}
             name="offhand1"
-            onChange={handleChangeWeapon}
+            onChange={handleChangeWeapon('offhand1')}
             className={classes.weaponSelect}
           >
             {React.Children.toArray(
@@ -118,7 +136,7 @@ export default function ModalContent({ character, buttons }) {
           variant="standard"
           value={mainhand2}
           name="mainhand2"
-          onChange={handleChangeWeapon}
+          onChange={handleChangeWeapon('mainhand2')}
           className={classes.weaponSelect}
         >
           {React.Children.toArray(
@@ -136,7 +154,7 @@ export default function ModalContent({ character, buttons }) {
             variant="standard"
             value={offhand2}
             name="offhand2"
-            onChange={handleChangeWeapon}
+            onChange={handleChangeWeapon('offhand2')}
             className={classes.weaponSelect}
           >
             {React.Children.toArray(
