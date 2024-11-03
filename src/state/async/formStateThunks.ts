@@ -5,7 +5,7 @@ import type { TFunction } from 'i18next';
 import JsonUrl from 'json-url';
 import messagepack from 'msgpack-lite';
 import pako from 'pako';
-import { uint8ArrayToBase64 } from 'uint8array-extras';
+// import { uint8ArrayToBase64 } from 'uint8array-extras';
 import { PARAMS } from '../../utils/queryParam';
 import type { AppThunk } from '../redux-hooks';
 // import { changeBuildPage } from '../slices/buildPage';
@@ -15,6 +15,8 @@ import type { RootState } from '../store';
 const lib = JsonUrl('lzma');
 const zstdInit = init();
 const textEncoder = new TextEncoder();
+
+const uint8ArrayToBase64 = (a: Uint8Array, b: unknown) => a;
 
 // hard coded temporarily!
 const version = 0;
