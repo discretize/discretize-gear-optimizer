@@ -1,4 +1,5 @@
 import { compress, init } from '@bokuweb/zstd-wasm';
+import { ZstdInit } from '@oneidentity/zstd-js/wasm';
 import axios from 'axios';
 import brotliInit from 'brotli-wasm';
 import type { TFunction } from 'i18next';
@@ -15,6 +16,8 @@ import type { RootState } from '../store';
 const lib = JsonUrl('lzma');
 const zstdInit = init();
 const textEncoder = new TextEncoder();
+
+const zstdInit2 = ZstdInit();
 
 const uint8ArrayToBase64 = (a: Uint8Array, b: unknown) => a;
 
@@ -186,6 +189,34 @@ const getLongUrl = async (
     // console.log(`zstd ${quality}m string`, zstdDataMsg);
     console.log(`zstd ${quality}m length`, zstdDataMsg.length);
     console.timeEnd(`Compressed zstd ${quality}m data in:`);
+  }
+
+  const { ZstdSimple } = await zstdInit2;
+
+  for (const quality of Array(22)
+    .fill(0)
+    .map((_, i) => i)) {
+    console.time(`Compressed zstd-js ${quality} data in:`);
+    const zstdData = uint8ArrayToBase64(
+      ZstdSimple.compress(textEncoder.encode(jsonString), quality),
+      {
+        urlSafe: true,
+      },
+    );
+    // console.log(`zstd ${quality} string`, zstdData);
+    console.log(`zstd-js ${quality} length`, zstdData.length);
+    console.timeEnd(`Compressed zstd-js ${quality} data in:`);
+
+    console.time(`Compressed zstd-js ${quality}m data in:`);
+    const zstdDataMsg = uint8ArrayToBase64(
+      ZstdSimple.compress(messagepack.encode(exportData), quality),
+      {
+        urlSafe: true,
+      },
+    );
+    // console.log(`zstd ${quality}m string`, zstdDataMsg);
+    console.log(`zstd-js ${quality}m length`, zstdDataMsg.length);
+    console.timeEnd(`Compressed zstd-js ${quality}m data in:`);
   }
 
   const urlObject = new URL(window.location.href);

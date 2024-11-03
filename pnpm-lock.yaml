@@ -129,6 +129,9 @@ importers:
       '@cloudflare/workers-types':
         specifier: ^4.20241022.0
         version: 4.20241022.0
+      '@oneidentity/zstd-js':
+        specifier: ^1.0.3
+        version: 1.0.3
       '@total-typescript/ts-reset':
         specifier: ^0.6.1
         version: 0.6.1
@@ -1188,6 +1191,9 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
+  '@oneidentity/zstd-js@1.0.3':
+    resolution: {integrity: sha512-Jm6sawqxLzBrjC4sg2BeXToa33yPzUmq20CKsehKY2++D/gHb/oSwVjNgT+RH4vys+r8FynrgcNzGwhZWMLzfQ==}
+
   '@pkgr/core@0.1.1':
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
@@ -1316,6 +1322,9 @@ packages:
 
   '@types/babel__traverse@7.20.6':
     resolution: {integrity: sha512-r1bzfrm0tomOI8g1SzvCaQHo6Lcv6zu0EA+W2kHrt8dyrHQxGzBBL4kdkzIS+jBMV+EYcMAEAqXqYaLJq5rOZg==}
+
+  '@types/emscripten@1.39.13':
+    resolution: {integrity: sha512-cFq+fO/isvhvmuP/+Sl4K4jtU6E23DoivtbO4r50e3odaxAiVdbfSYRDdJ4gCdxx+3aRjhphS5ZMwIH4hFy/Cw==}
 
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
@@ -4426,6 +4435,10 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
+  '@oneidentity/zstd-js@1.0.3':
+    dependencies:
+      '@types/emscripten': 1.39.13
+
   '@pkgr/core@0.1.1': {}
 
   '@popperjs/core@2.11.8': {}
@@ -4520,6 +4533,8 @@ snapshots:
   '@types/babel__traverse@7.20.6':
     dependencies:
       '@babel/types': 7.26.0
+
+  '@types/emscripten@1.39.13': {}
 
   '@types/estree@1.0.6': {}
 

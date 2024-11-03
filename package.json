@@ -90,6 +90,7 @@
     "@babel/preset-typescript": "^7.26.0",
     "@babel/types": "^7.26.0",
     "@cloudflare/workers-types": "^4.20241022.0",
+    "@oneidentity/zstd-js": "^1.0.3",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/babel__core": "^7.20.5",
     "@types/js-yaml": "^4.0.9",
