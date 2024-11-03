@@ -97,13 +97,11 @@ const unModifyState = (importData: any): RootState['optimizer'] => {
 };
 
 const getShortUrl = async (exportData: unknown) => {
-  // console.time('Compressed binary data in:');
-  // const binaryData = pako.deflate(JSON.stringify(exportData));
-  // console.timeEnd('Compressed binary data in:');
+  console.time('Compressed binary data in:');
+  const binaryData = pako.deflate(JSON.stringify(exportData));
+  console.timeEnd('Compressed binary data in:');
 
-  const response = await axios
-    .post(`share/create`, JSON.stringify(exportData))
-    .catch(console.error);
+  const response = await axios.post(`share/create`, binaryData).catch(console.error);
   if (response?.data?.Status !== 200) {
     console.log(
       `URL shortener returned status ${response?.data?.Status}! Falling back to long URL.`,
@@ -257,17 +255,11 @@ export const exportFormState =
       const exportData = reduxState.optimizer;
       console.log(exportData);
 
-      let successMessage = import.meta.env.VITE_HAS_CF
-        ? t('Copied link to clipboard!')
-        : t('Copied long link to clipboard! (Link shortener requires cloudflare environment.)');
+      const successMessage = t(
+        'Copied long link to clipboard! (Link shortener requires cloudflare environment.)',
+      );
 
-      const urlPromise = import.meta.env.VITE_HAS_CF
-        ? getShortUrl(exportData).catch((e) => {
-            // fall back to long URL on link shortner failure
-            successMessage = t('Copied long link to clipboard! (Link shortener failed.)');
-            return getLongUrl(exportData, onFailure, t);
-          })
-        : getLongUrl(exportData, onFailure, t);
+      const urlPromise = getLongUrl(exportData, onFailure, t);
 
       // iOS browsers and desktop Safari require the use of the async clipboard API, calling
       // navigator.clipboard.write synchronously and passing it a Promise

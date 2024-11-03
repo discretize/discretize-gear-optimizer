@@ -2,7 +2,6 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-lonely-if */
 import { areUint8ArraysEqual, uint8ArrayToBase64 } from 'uint8array-extras';
-import zlib from 'node:zlib';
 
 interface Env {
   SHORT_LINKS: KVNamespace;
@@ -44,58 +43,31 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     request,
     env, // same as existing Worker API
   } = context;
-  const data = await request.arrayBuffer();
-
-  console.log(new Uint8Array(data).length);
-
-  for (const level of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) {
-    console.time(`brotli compression ${level}`);
-    const compressed = zlib.brotliCompressSync(data, {
-      params: { [zlib.constants.BROTLI_PARAM_QUALITY]: level },
-    });
-    console.timeEnd(`brotli compression ${level}`);
-    console.log(`brotli compression ${level}`, compressed.length);
-  }
-
-  for (const level of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
-    console.time(`deflate compression ${level}`);
-    const compressed = zlib.deflateSync(data, { level });
-    console.timeEnd(`deflate compression ${level}`);
-    console.log(`deflate compression ${level}`, compressed.length);
-  }
-
-  for (const level of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
-    console.time(`gzip compression ${level}`);
-    const compressed = zlib.gzipSync(data, { level });
-    console.timeEnd(`gzip compression ${level}`);
-    console.log(`gzip compression ${level}`, compressed.length);
-  }
-
-  return;
+  const dataBuffer = await request.arrayBuffer();
 
   const KV: KVNamespace = env.SHORT_LINKS;
 
   try {
     // generate the based on the buffer. The first 8 symbols of the hash will be our key
-    let key = await generate_hash(data);
+    let key = await generate_hash(dataBuffer);
 
     // check if there is an existing entry for this specific key - dont insert duplicates
     const existingValueBuffer = await KV.get(key, { type: 'arrayBuffer' });
     if (!existingValueBuffer) {
       // no duplicate, insert value
       console.log(`writing new key: ${key}`);
-      await KV.put(key, data, { metadata: { timestamp: Date.now() } });
+      await KV.put(key, dataBuffer, { metadata: { timestamp: Date.now() } });
     } else {
       // duplicate detected.
       // checks if the saved buffer in KV is equals with what was transmitted in the request
-      if (areUint8ArraysEqual(new Uint8Array(data), new Uint8Array(existingValueBuffer))) {
+      if (areUint8ArraysEqual(new Uint8Array(dataBuffer), new Uint8Array(existingValueBuffer))) {
         console.log(`returning saved key: ${key}`);
         // in case we have a duplicate, we dont need to do anything - the key is already stored in the key variable
       } else {
         // this should probably never happen unless developing?
         key = await generate_rand(KV, 0);
         console.warn(`current key has mismatched data! writing new key: ${key}`);
-        await KV.put(key, data, { metadata: { timestamp: Date.now() } });
+        await KV.put(key, dataBuffer, { metadata: { timestamp: Date.now() } });
       }
     }
 

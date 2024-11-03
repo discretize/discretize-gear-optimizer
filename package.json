@@ -18,7 +18,7 @@
     "develop": "vite",
     "dev": "vite",
     "start": "vite",
-    "dev-cf": "VITE_HAS_CF=true wrangler pages dev --kv SHORT_LINKS --compatibility-flag=nodejs_compat --compatibility-date=2024-11-03 -- pnpm dev",
+    "dev-cf": "VITE_HAS_CF=true wrangler pages dev --kv SHORT_LINKS -- pnpm dev",
     "build": "vite build",
     "serve": "vite preview --host",
     "build-cf": "VITE_HAS_CF=true vite build",
