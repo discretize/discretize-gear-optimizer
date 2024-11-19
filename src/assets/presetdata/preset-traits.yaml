@@ -3810,7 +3810,9 @@ list:
             "hardened-auras": {
               "amount": ""
             },
-            "elemental-empowerment": {},
+            "elemental-empowerment": {
+              "amount": ""
+            },
             "empowering-auras": {
               "amount": "4.6"
             },
@@ -3892,7 +3894,9 @@ list:
             "hardened-auras": {
               "amount": ""
             },
-            "elemental-empowerment": {},
+            "elemental-empowerment": {
+              "amount": ""
+            },
             "empowering-auras": {
               "amount": "4.8"
             },
