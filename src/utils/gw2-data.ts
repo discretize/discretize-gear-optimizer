@@ -14,6 +14,7 @@ export type AffixName =
   | 'Minstrel'
   | 'Magi'
   | 'Marauder'
+  | 'Demolisher'
   | 'Cleric'
   | 'Nomad'
   | 'Zealot'
@@ -182,6 +183,14 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
     bonuses: {
       major: ['Power', 'Precision'],
       minor: ['Vitality', 'Ferocity'],
+    },
+  },
+  Demolisher: {
+    type: 'quadruple',
+    category: 'Open World',
+    bonuses: {
+      major: ['Power', 'Precision'],
+      minor: ['Toughness', 'Ferocity'],
     },
   },
   Cleric: {

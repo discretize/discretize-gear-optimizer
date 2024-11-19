@@ -41,6 +41,7 @@ export const gearDict = [
   'BerserkerValkyrie',
   'RabidApothecary',
   'DireRabid',
+  'Demolisher',
 ];
 
 export const professionDict = [

@@ -46,6 +46,7 @@ pub enum Affix {
     BerserkerValkyrie = 39,
     RabidApothecary = 40,
     DireRabid = 41,
+    Demolisher = 42,
     #[default]
     None = 255,
 }
@@ -95,6 +96,7 @@ impl Affix {
             Affix::BerserkerValkyrie => "BerserkerValkyrie".to_string(),
             Affix::RabidApothecary => "RabidApothecary".to_string(),
             Affix::DireRabid => "DireRabid".to_string(),
+            Affix::Demolisher => "Demolisher".to_string(),
             Affix::None => "".to_string(),
         }
     }
