@@ -122,9 +122,9 @@
     - id: balrior-relic
       text: Relic of Mount Balrior
       amountData:
-        label: '/10s'
-        default: 0.333
-        quantityEntered: 1.6667 # 10 / 6
+        label: '% uptime'
+        default: 20
+        quantityEntered: 100
       modifiers:
         damage:
           Outgoing Strike Damage: [15%, unknown]
