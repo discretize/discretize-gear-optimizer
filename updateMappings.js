@@ -177,6 +177,7 @@ function fetchItems(itemstatMapping) {
             (item.details &&
               item.rarity === 'Exotic' &&
               ['Sigil', 'Rune'].includes(item.details.type)) ||
+            ['Relic'].includes(item.type) ||
             // Match special ids for consumables
             [49940, 78978, 44642, 78786, 8764, 8801, 8686, 8664, 8759, 8678, 8732, 85244].includes(
               item.id,
