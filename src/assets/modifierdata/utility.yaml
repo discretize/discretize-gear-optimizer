@@ -162,7 +162,7 @@
   items:
 
     - id: toxic-focusing-crystal
-      text: Toxic Focusing Crystal
+      text: Toxic Tuning Crystal
       modifiers:
         conversion:
           Condition Damage: {Power: 3%, Precision: 3%}
