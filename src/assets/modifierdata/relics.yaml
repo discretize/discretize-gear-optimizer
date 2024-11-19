@@ -119,6 +119,17 @@
     #   modifiers: {}
     #   # gw2id intentionally omitted
 
+    - id: balrior-relic
+      text: Relic of Mount Balrior
+      amountData:
+        label: '/10s'
+        default: 0.333
+        quantityEntered: 1.6667 # 10 / 6
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [15%, unknown]
+      gw2id: 103872
+
 - section: Hybrid Relics
   items:
 
