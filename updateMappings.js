@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable id-length */
 import axios from 'axios';
-import fs from 'node:fs';
+import fs from 'node:fs/promises';
 // eslint-disable-next-line import/no-unresolved
 // const itemstatMapping = require('./src/utils/mapping/itemstats.json');
 // const specializationMapping = require('./src/utils/mapping/specializations.json');
@@ -27,14 +27,14 @@ const groupBy = function (xs, key) {
 function fetchSpecializations() {
   console.log('Fetching specializations...');
   // get item stats (affixes)
-  axios
+  return axios
     .get('https://api.guildwars2.com/v2/specializations', { 'Cache-Control': 'no-cache' })
-    .then((res) => {
+    .then((res) =>
       axios
         .get(`https://api.guildwars2.com/v2/specializations?ids=${res.data}`, {
           'Cache-Control': 'no-cache',
         })
-        .then((response) => {
+        .then(async (response) => {
           const specs = response.data.map((spec) => {
             return {
               id: spec.id,
@@ -45,26 +45,21 @@ function fetchSpecializations() {
             };
           });
           // write to disk
-          fs.writeFile(
+          await fs.writeFile(
             `${MAPPINGS_PATH}specializations.json`,
             JSON.stringify(specs, null, 2),
             { flag: 'w+' },
-            (err) => {
-              if (err) {
-                console.error(err);
-              } else {
-                console.log('Successfully wrote specializations.json');
-              }
-            },
           );
+          console.log('Successfully wrote specializations.json');
+          return specs;
         })
         .catch((error) => {
           console.log(error);
-        });
-    });
+        }),
+    );
 }
-/*
-function fetchTraits() {
+
+function fetchTraits(specializationMapping) {
   console.log('Fetching traits...');
   // get item stats (affixes)
   axios.get('https://api.guildwars2.com/v2/traits', { 'Cache-Control': 'no-cache' }).then((res) => {
@@ -91,18 +86,9 @@ function fetchTraits() {
               };
             });
           // write to disk
-          fs.writeFile(
-            `${MAPPINGS_PATH}traits.json`,
-            JSON.stringify(traits, null, 2),
-            { flag: 'w+' },
-            (err) => {
-              if (err) {
-                console.error(err);
-              } else {
-                console.log('Successfully wrote traits.json');
-              }
-            },
-          );
+          fs.writeFile(`${MAPPINGS_PATH}traits.json`, JSON.stringify(traits, null, 2), {
+            flag: 'w+',
+          }).then(() => console.log('Successfully wrote traits.json'));
         }),
       )
       .catch((e) => {});
@@ -135,18 +121,9 @@ function fetchSkills() {
               };
             });
           // write to disk
-          fs.writeFile(
-            `${MAPPINGS_PATH}skills.json`,
-            JSON.stringify(skills, null, 2),
-            { flag: 'w+' },
-            (err) => {
-              if (err) {
-                console.error(err);
-              } else {
-                console.log('Successfully wrote skills.json');
-              }
-            },
-          );
+          fs.writeFile(`${MAPPINGS_PATH}skills.json`, JSON.stringify(skills, null, 2), {
+            flag: 'w+',
+          }).then(() => console.log('Successfully wrote skills.json'));
         }),
       )
       .catch((e) => {});
@@ -156,14 +133,14 @@ function fetchSkills() {
 function fetchItemStats() {
   console.log('Fetching itemStats...');
   // get item stats (affixes)
-  axios
+  return axios
     .get('https://api.guildwars2.com/v2/itemstats', { 'Cache-Control': 'no-cache' })
-    .then((res) => {
+    .then((res) =>
       axios
         .get(`https://api.guildwars2.com/v2/itemstats?ids=${res.data}`, {
           'Cache-Control': 'no-cache',
         })
-        .then((response) => {
+        .then(async (response) => {
           const itemStats = response.data;
           const grouped = groupBy(itemStats, 'name');
           const statsFinal = Object.keys(grouped)
@@ -172,26 +149,20 @@ function fetchItemStats() {
               return { name: normalize(i.replace("'s", '')), ids: grouped[i].map((t) => t.id) };
             });
           // write to disk
-          fs.writeFile(
-            `${MAPPINGS_PATH}itemstats.json`,
-            JSON.stringify(statsFinal, null, 2),
-            { flag: 'w+' },
-            (err) => {
-              if (err) {
-                console.error(err);
-              } else {
-                console.log('Successfully wrote itemstats.json');
-              }
-            },
-          );
+          await fs
+            .writeFile(`${MAPPINGS_PATH}itemstats.json`, JSON.stringify(statsFinal, null, 2), {
+              flag: 'w+',
+            })
+            .then(() => console.log('Successfully wrote itemstats.json'));
+          return statsFinal;
         })
         .catch((error) => {
           console.log(error);
-        });
-    });
+        }),
+    );
 }
 
-function fetchItems() {
+function fetchItems(itemstatMapping) {
   console.log('Fetching items...');
   // get item stats (affixes)
   axios
@@ -278,26 +249,15 @@ function fetchItems() {
         });
 
       // write to disk
-      fs.writeFile(
-        `${MAPPINGS_PATH}items.json`,
-        JSON.stringify(items, null, 2),
-        { flag: 'w+' },
-        (err) => {
-          if (err) {
-            console.error(err);
-          } else {
-            console.log('Successfully wrote items.json');
-          }
-        },
-      );
+      fs.writeFile(`${MAPPINGS_PATH}items.json`, JSON.stringify(items, null, 2), {
+        flag: 'w+',
+      }).then(() => console.log('Successfully wrote items.json'));
     })
     .catch((error) => {
       console.log(error);
     });
 }
-*/
-fetchSpecializations();
-// fetchTraits();
-// fetchSkills();
-// fetchItemStats();
-// fetchItems();
+
+fetchSpecializations().then(fetchTraits);
+fetchSkills();
+fetchItemStats().then(fetchItems);
