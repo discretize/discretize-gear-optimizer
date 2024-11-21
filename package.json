@@ -46,7 +46,7 @@
     "disable-hooks": "git config --unset core.hooksPath"
   },
   "resolutions": {
-    "axios@0.26.1": "^0.28.1"
+    "axios@0.26.1": "^0.29.0"
   },
   "dependencies": {
     "@discretize/globals": "^0.0.4",
