@@ -54,6 +54,7 @@ jobs:
           apiToken: ${{ secrets.CI_CF_PAGES }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           command: pages deploy dist-cf --project-name=${{ env.PAGES_PROJECT_NAME }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Github Pages
         uses: actions/configure-pages@v5
