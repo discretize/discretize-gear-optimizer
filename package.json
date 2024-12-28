@@ -97,7 +97,7 @@
     "@typescript-eslint/eslint-plugin": "^8.18.2",
     "@typescript-eslint/parser": "^8.18.2",
     "@vitejs/plugin-react": "^4.3.4",
-    "babel-plugin-i18next-extract": "^0.10.0",
+    "babel-plugin-i18next-extract": "^1.0.0",
     "concurrently": "^9.1.1",
     "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
