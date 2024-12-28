@@ -1,4 +1,3 @@
-import { globals } from '@discretize/globals';
 import '@discretize/gw2-ui-new/dist/default_style.css';
 import '@discretize/gw2-ui-new/dist/index.css';
 import '@discretize/react-discretize-components/dist/index.css';
@@ -7,6 +6,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { globals } from '../src/utils/globals';
 import IndexPage from '../src/pages/build/index';
 import store from '../src/state/store';
 import muiTheme from '../src/utils/placeholder-unused-theme';

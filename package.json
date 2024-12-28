@@ -49,7 +49,6 @@
     "axios@0.26.1": "^0.29.0"
   },
   "dependencies": {
-    "@discretize/globals": "^0.0.4",
     "@discretize/gw2-ui-new": "^0.1.7",
     "@discretize/object-compression": "^1.0.3",
     "@discretize/react-discretize-components": "^3.0.3",
