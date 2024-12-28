@@ -12,14 +12,14 @@ importers:
   .:
     dependencies:
       '@discretize/gw2-ui-new':
-        specifier: ^0.1.7
-        version: 0.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^3.1.0
+        version: 3.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@discretize/object-compression':
         specifier: ^1.0.3
         version: 1.0.3
       '@discretize/react-discretize-components':
-        specifier: ^3.0.3
-        version: 3.0.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^3.1.0
+        version: 3.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@discretize/typeface-menomonia':
         specifier: ^0.1.3
         version: 0.1.3
@@ -440,20 +440,21 @@ packages:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
 
-  '@discretize/gw2-ui-new@0.1.7':
-    resolution: {integrity: sha512-FTCGhWz+52SCxgRUVwT6KVridPXVkXRQBnZoxIGTXE83hiqty4IFQb9R4af7ynjK8P0LlQ9SeX+jsNIBmvWxuA==}
+  '@discretize/gw2-ui-new@3.1.0':
+    resolution: {integrity: sha512-b3fWM9atu2t82l4bnxKL4zuaTY97Pjdmz51TvQ5AQqxjC3IRj4K1SooAX3Cvt9wXRcbNOrL0N3sMOPL2xmsMiA==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
-      react: ^18.0.0
-      react-dom: ^18.0.0
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
 
   '@discretize/object-compression@1.0.3':
     resolution: {integrity: sha512-i027RlKeir6EnSbAuH6Ne9QRW91guiJJ5qLWKBfe7w9M8t8Awtwl/BBLPC5cOIlE93nkjdDeBQUvyH+0BEA8kQ==}
 
-  '@discretize/react-discretize-components@3.0.3':
-    resolution: {integrity: sha512-VtbS0JxcqyZTkgsUQF0OhnYUi+DuSyL4vuskb2O5GZjfcKLePjFKX5B4suoFTGkbt3mXsb+LY0f7PlO0HR0B1Q==}
+  '@discretize/react-discretize-components@3.1.0':
+    resolution: {integrity: sha512-Dvkt2UPvZmFrbB61iXXEPuGOfROP3LI5qg8NDIDcfpHT6ks1d61HS2RzqeBFqeIeZgZ1ILNVdE/sa7z1RBO2Dg==}
     peerDependencies:
-      react: ^18.0.0
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
 
   '@discretize/typeface-menomonia@0.1.3':
     resolution: {integrity: sha512-ySpM/tSXGFGGgBuv5KEHTVwdOYjcXCAmB8wwgKUCgWCsU0XlGGBPpoBwJUMxsW6fFCP/8a8Pv89Tpj5YMLt2Sw==}
@@ -3782,7 +3783,7 @@ snapshots:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
 
-  '@discretize/gw2-ui-new@0.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@discretize/gw2-ui-new@3.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@discretize/typeface-menomonia': 0.1.3
       '@floating-ui/react-dom': 1.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -3793,17 +3794,16 @@ snapshots:
     dependencies:
       json-url: 3.1.0
 
-  '@discretize/react-discretize-components@3.0.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@discretize/react-discretize-components@3.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@discretize/gw2-ui-new': 0.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@discretize/gw2-ui-new': 3.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@discretize/typeface-menomonia': 0.1.3
       classnames: 2.5.1
       react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
       typeface-fira-mono: 0.0.72
       typeface-muli: 1.1.13
       typeface-raleway: 1.1.13
-    transitivePeerDependencies:
-      - react-dom
 
   '@discretize/typeface-menomonia@0.1.3': {}
 
