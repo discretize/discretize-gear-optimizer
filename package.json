@@ -34,7 +34,6 @@
     "sass": "^1.79.3"
   },
   "engines": {
-    "node": "18",
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm"
   },
