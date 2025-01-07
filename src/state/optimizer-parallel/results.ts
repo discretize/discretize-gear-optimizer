@@ -1,9 +1,12 @@
 import type {
+  AppliedModifier,
+  ExtrasCombinationEntry,
+} from '../optimizer/types/optimizerSetupTypes';
+import type {
   Character,
   OptimizerCoreMinimalSettings,
   OptimizerCoreSettings,
-} from '../optimizer/optimizerCore';
-import type { AppliedModifier, ExtrasCombinationEntry } from '../optimizer/optimizerSetup';
+} from '../optimizer/types/optimizerTypes';
 import { getBuffsModifiers } from '../slices/buffs';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
 import { getInfusionsModifiers } from '../slices/infusions';

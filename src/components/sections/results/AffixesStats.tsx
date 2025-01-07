@@ -1,6 +1,6 @@
 import { Attribute } from '@discretize/gw2-ui-new';
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
-import type { Character } from '../../../state/optimizer/optimizerCore';
+import type { Character } from '../../../state/optimizer/types/optimizerTypes';
 import { objectEntries } from '../../../utils/usefulFunctions';
 
 const AffixesStats = ({ data, title }: { data: Character['gearStats']; title: string }) => {

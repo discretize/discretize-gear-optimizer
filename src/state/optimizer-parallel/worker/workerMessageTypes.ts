@@ -1,4 +1,4 @@
-import type { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
+import type { ExtrasCombinationEntry } from '../../optimizer/types/optimizerSetupTypes';
 import type { RootState } from '../../store';
 import type { CalculationSettings, CombinationSettings } from '../optimizerSetup';
 

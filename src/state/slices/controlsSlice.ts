@@ -6,9 +6,9 @@ import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils
 import type { ParseFunction } from '../../utils/usefulFunctions';
 import { objectKeys, parseNumber } from '../../utils/usefulFunctions';
 import { isFirefox } from '../optimizer/detectFirefox';
-import type { Character } from '../optimizer/optimizerCore';
 import type { OptimizerStatus } from '../optimizer/status';
 import { RUNNING, RUNNING_HEURISTICS, WAITING } from '../optimizer/status';
+import type { Character } from '../optimizer/types/optimizerTypes';
 import { reduxSideEffect } from '../redux-hooks';
 import type { RootState } from '../store';
 

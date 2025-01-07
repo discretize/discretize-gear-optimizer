@@ -7,7 +7,7 @@ import {
 } from '../../assets/modifierdata';
 import { SPECIALIZATIONS } from '../../utils/gw2-data';
 import { enumArrayIncludes } from '../../utils/usefulFunctions';
-import type { AppliedModifier } from '../optimizer/optimizerSetup';
+import type { AppliedModifier } from '../optimizer/types/optimizerSetupTypes';
 import type { RootState } from '../store';
 import { changeAll, changeProfession, getProfession, setBuildTemplate } from './controlsSlice';
 

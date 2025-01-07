@@ -5,22 +5,7 @@
 /* eslint-disable dot-notation */
 
 import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
-import type {
-  AffixName,
-  AttributeName,
-  ConditionCoefficientAttributeName,
-  ConditionName,
-  DamagingConditionName,
-  DerivedAttributeName,
-  GearAttributeName,
-  IndicatorName,
-  InfusionName,
-  PrimaryAttributeName,
-  ProfessionName,
-  ProfessionOrSpecializationName,
-  SecondaryAttributeName,
-  WeaponHandednessType,
-} from '../../utils/gw2-data';
+import type { ConditionName, DamagingConditionName, IndicatorName } from '../../utils/gw2-data';
 import {
   INFUSION_BONUS,
   conditionData,
@@ -29,17 +14,19 @@ import {
   indicatorAttributes,
 } from '../../utils/gw2-data';
 import { enumArrayIncludes, objectEntries, objectKeys } from '../../utils/usefulFunctions';
-import type { ExtrasCombination, ShouldDisplayExtras } from '../slices/extras';
-import type { GameMode } from '../slices/userSettings';
 import { iteratePartitions } from './combinatorics';
+import type { DamageMultiplier, Modifiers } from './types/optimizerSetupTypes';
 import type {
-  AppliedModifier,
-  CachedFormState,
-  DamageMultiplier,
-  DistributionNameInternal,
-  InfusionMode,
-  Modifiers,
-} from './optimizerSetup';
+  Character,
+  CharacterProcessed,
+  CharacterUnprocessed,
+  CharacterWithResults,
+  EffectiveDistributionKey,
+  Gear,
+  GearStats,
+  OptimizerCoreSettings,
+  Results,
+} from './types/optimizerTypes';
 
 /**
  * Scales a modifier value linearly up or down by a user-specified amount, in accordance with the
@@ -121,136 +108,6 @@ const roundOne = (num: number) => Math.round(num * 10) / 10;
  * Core Optimizer Logic
  * ------------------------------------------------------------------------
  */
-
-// settings that do not vary based on extras combination
-export interface OptimizerCoreSettingsPerCalculation {
-  // these are direct copies or slight modifications of OptimizerInput
-  profession: ProfessionName;
-  specialization: ProfessionOrSpecializationName;
-  weaponType: WeaponHandednessType;
-  forcedAffixes: (AffixName | null)[]; // array of specific affix names for each slot, or '' for unspecfied
-  rankby: IndicatorName;
-  minBoonDuration: number | undefined;
-  minHealingPower: number | undefined;
-  minToughness: number | undefined;
-  maxToughness: number | undefined;
-  minHealth: number | undefined;
-  minCritChance: number | undefined;
-  minDamage: number | undefined;
-  minHealing: number | undefined;
-  minOutgoingHealing: number | undefined;
-  minQuicknessDuration: number | undefined;
-  minSurvivability: number | undefined;
-  maxResults: number;
-  infusionOptions: { type: InfusionName; count: number }[];
-  maxInfusions: number;
-  distribution: Record<DistributionNameInternal, number>;
-  attackRate: number;
-  movementUptime: number;
-  gameMode: GameMode;
-
-  // these are in addition to the input
-  infusionMode: InfusionMode;
-  identicalRing: boolean;
-  identicalAcc: boolean;
-  identicalWep: boolean;
-  identicalArmor: boolean;
-  slots: number; // The length of the former slots array
-  runsAfterThisSlot: number[];
-  affixesArray: AffixName[][];
-  affixStatsArray: [GearAttributeName, number][][][];
-
-  affixes: AffixName[];
-  jsHeuristicsData?: [GearAttributeName, number][][];
-
-  shouldDisplayExtras: ShouldDisplayExtras;
-  cachedFormState: CachedFormState;
-}
-
-type GuaranteedBaseAttributes = Record<
-  | PrimaryAttributeName
-  | SecondaryAttributeName
-  | DerivedAttributeName
-  | 'Power Coefficient'
-  | 'Power2 Coefficient'
-  | ConditionCoefficientAttributeName
-  | 'Flat DPS',
-  number
->;
-
-export type Attributes = GuaranteedBaseAttributes & Partial<Record<AttributeName, number>>;
-
-// settings that **do** vary based on extras combination
-export interface OptimizerCoreSettingsPerCombination {
-  baseAttributes: Attributes;
-  modifiers: Modifiers;
-  disableCondiResultCache: boolean;
-  relevantConditions: DamagingConditionName[];
-  appliedModifiers: AppliedModifier[];
-}
-
-export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &
-  OptimizerCoreSettingsPerCombination & {
-    unbuffedBaseAttributes?: Attributes;
-    unbuffedModifiers?: Modifiers;
-    extrasCombination: ExtrasCombination;
-  };
-
-// only supply character with settings it uses to render
-export type OptimizerCoreMinimalSettings = Pick<
-  OptimizerCoreSettings,
-  | 'cachedFormState'
-  | 'profession'
-  | 'specialization'
-  | 'weaponType'
-  | 'appliedModifiers'
-  | 'rankby'
-  | 'shouldDisplayExtras'
-  | 'extrasCombination'
-  | 'modifiers'
-  | 'gameMode'
->;
-export type Gear = AffixName[];
-export type GearStats = Partial<Record<GearAttributeName, number>>;
-interface CoefficientHelperValue {
-  slope: number;
-  intercept: number;
-}
-type EffectiveDistributionKey = DistributionNameInternal | 'Siphon';
-type GainLossKey = 'Power' | 'Precision' | 'Ferocity' | 'Condition Damage' | 'Expertise';
-interface Results {
-  value: number;
-  indicators: Record<IndicatorName, number>;
-  effectivePositiveValues?: Partial<Record<GainLossKey, number>>;
-  effectiveNegativeValues?: Partial<Record<GainLossKey, number>>;
-  effectiveDamageDistribution?: Partial<Record<EffectiveDistributionKey, string | number>>;
-  damageBreakdown?: Partial<Record<EffectiveDistributionKey, number>>;
-  coefficientHelper?: Partial<Record<DistributionNameInternal, CoefficientHelperValue>>;
-  unbuffedAttributes?: Attributes;
-}
-interface CharacterUnprocessed {
-  id?: string;
-  attributes?: Attributes;
-  gear: Gear;
-  gearStats: GearStats;
-  gearDescription?: string;
-  valid: boolean;
-  baseAttributes: Attributes;
-  infusions: Partial<Record<InfusionName, number>>;
-  results?: Results;
-}
-interface CharacterProcessed extends CharacterUnprocessed {
-  // note: this is not actually accurate
-  // (we convince typescript every attribute is defined via a type predicate in calcStats)
-  // TODO: improve this
-  attributes: Required<Attributes>;
-}
-interface CharacterWithResults extends CharacterProcessed {
-  results: Results;
-}
-export interface Character extends CharacterWithResults {
-  settings: OptimizerCoreMinimalSettings;
-}
 
 export type CalculateGenerator = ReturnType<OptimizerCore['calculate']>;
 

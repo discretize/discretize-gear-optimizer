@@ -5,7 +5,7 @@ import TableRow from '@mui/material/TableRow';
 import React, { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
-import type { Character } from '../../../../state/optimizer/optimizerCore';
+import type { Character } from '../../../../state/optimizer/types/optimizerTypes';
 import type { DisplayAttributes } from '../../../../state/slices/controlsSlice';
 import type { ExtrasType } from '../../../../state/slices/extras';
 import { extrasTypes } from '../../../../state/slices/extras';

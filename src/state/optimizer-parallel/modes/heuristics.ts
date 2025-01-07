@@ -1,5 +1,5 @@
-import type { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import { RUNNING_HEURISTICS } from '../../optimizer/status';
+import type { ExtrasCombinationEntry } from '../../optimizer/types/optimizerSetupTypes';
 import { changeStatus } from '../../slices/controlsSlice';
 import type { AppDispatch, RootState } from '../../store';
 import type { WorkerWrapper } from '../calculate';

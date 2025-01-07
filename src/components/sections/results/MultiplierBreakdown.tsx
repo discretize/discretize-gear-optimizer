@@ -1,6 +1,6 @@
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'react-i18next';
-import type { Character } from '../../../state/optimizer/optimizerCore';
+import type { Character } from '../../../state/optimizer/types/optimizerTypes';
 
 const roundFour = (num: number) => Math.round(num * 10000) / 10000;
 

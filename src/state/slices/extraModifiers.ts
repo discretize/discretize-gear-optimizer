@@ -1,6 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import type { AppliedModifier } from '../optimizer/optimizerSetup';
+import type { AppliedModifier } from '../optimizer/types/optimizerSetupTypes';
 import type { RootState } from '../store';
 import { changeAll } from './controlsSlice';
 

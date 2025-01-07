@@ -7,7 +7,10 @@ import init, {
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import type { AffixName } from '../../../utils/gw2-data';
 import { objectEntries } from '../../../utils/usefulFunctions';
-import type { AppliedModifier, ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
+import type {
+  AppliedModifier,
+  ExtrasCombinationEntry,
+} from '../../optimizer/types/optimizerSetupTypes';
 import type { ExtrasCombination } from '../../slices/extras';
 import {
   allowedDuplicateSigils,

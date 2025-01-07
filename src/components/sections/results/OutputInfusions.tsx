@@ -2,7 +2,7 @@ import { Item } from '@discretize/gw2-ui-new';
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
 import { Trans } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
-import type { Character } from '../../../state/optimizer/optimizerCore';
+import type { Character } from '../../../state/optimizer/types/optimizerTypes';
 import { INFUSION_IDS } from '../../../utils/gw2-data';
 import { objectEntries } from '../../../utils/usefulFunctions';
 
