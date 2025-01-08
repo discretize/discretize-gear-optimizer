@@ -8,7 +8,7 @@ import isEqual from 'react-fast-compare';
 import { useDispatch } from 'react-redux';
 import { allExtrasModifiersById, placeholderItem } from '../../../../assets/modifierdata';
 import { percents } from '../../../../assets/modifierdata/metadata';
-import type { Character } from '../../../../state/optimizer/optimizerCore';
+import type { Character } from '../../../../state/optimizer/types/optimizerTypes';
 import type { DisplayAttributes } from '../../../../state/slices/controlsSlice';
 import { changeSelectedCharacter, toggleSaved } from '../../../../state/slices/controlsSlice';
 import type { ExtrasType } from '../../../../state/slices/extras';

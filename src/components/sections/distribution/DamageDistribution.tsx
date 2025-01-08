@@ -3,7 +3,7 @@ import { Box, FormControl, Input, InputAdornment, InputLabel, Slider } from '@mu
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import type { DistributionNameUI } from '../../../state/optimizer/optimizerSetup';
+import type { DistributionNameUI } from '../../../state/optimizer/types/optimizerSetupTypes';
 import {
   changeDistributionNew,
   changeTextBoxes,

@@ -1,7 +1,7 @@
 import { Attribute } from '@discretize/gw2-ui-new';
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import type { Character } from '../../../state/optimizer/optimizerCore';
+import type { Character } from '../../../state/optimizer/types/optimizerTypes';
 import { objectKeys } from '../../../utils/usefulFunctions';
 
 const EffectiveGainLoss = ({ character }: { character: Character }) => {

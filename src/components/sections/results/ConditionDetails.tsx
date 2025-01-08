@@ -2,7 +2,7 @@ import { Condition } from '@discretize/gw2-ui-new';
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
-import type { Character } from '../../../state/optimizer/optimizerCore';
+import type { Character } from '../../../state/optimizer/types/optimizerTypes';
 import { damagingConditions } from '../../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({

@@ -8,7 +8,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import type { Character } from '../../../../state/optimizer/optimizerCore';
+import type { Character } from '../../../../state/optimizer/types/optimizerTypes';
 import {
   getCompareByPercent,
   getDisplayAttributes,

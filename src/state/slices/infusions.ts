@@ -3,7 +3,7 @@ import { createSelector, createSlice } from '@reduxjs/toolkit';
 import type { InfusionName } from '../../utils/gw2-data';
 import { agonyInfusionIds, MAX_INFUSIONS, omnipotionModifiers } from '../../utils/gw2-data';
 import { parseAmount, parseAr, parseInfusionCount } from '../../utils/usefulFunctions';
-import type { AppliedModifier } from '../optimizer/optimizerSetup';
+import type { AppliedModifier } from '../optimizer/types/optimizerSetupTypes';
 import type { RootState } from '../store';
 import { changeAll } from './controlsSlice';
 import { changeGameMode, loadedSettings } from './userSettings';

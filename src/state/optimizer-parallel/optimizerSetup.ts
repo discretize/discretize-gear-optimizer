@@ -1,12 +1,12 @@
-import type {
-  OptimizerCoreSettingsPerCalculation,
-  OptimizerCoreSettingsPerCombination,
-} from '../optimizer/optimizerCore';
-import type { AppliedModifier } from '../optimizer/optimizerSetup';
 import {
   createSettingsPerCalculation,
   createSettingsPerCombination,
 } from '../optimizer/optimizerSetup';
+import type { AppliedModifier } from '../optimizer/types/optimizerSetupTypes';
+import type {
+  OptimizerCoreSettingsPerCalculation,
+  OptimizerCoreSettingsPerCombination,
+} from '../optimizer/types/optimizerTypes';
 import { getExtrasCombinationsAndModifiers } from '../slices/extras';
 import type { RootState } from '../store';
 

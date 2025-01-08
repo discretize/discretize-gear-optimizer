@@ -12,8 +12,8 @@ import {
 } from '@mui/material';
 import { Trans, useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
-import type { Character } from '../../../state/optimizer/optimizerCore';
-import { scaleValue } from '../../../state/optimizer/optimizerCore';
+import type { Character } from '../../../state/optimizer/types/optimizerTypes';
+import { scaleValue } from '../../../state/optimizer/utils/utils';
 import { parseAmount } from '../../../utils/usefulFunctions';
 
 const useStyles = makeStyles()((theme) => ({

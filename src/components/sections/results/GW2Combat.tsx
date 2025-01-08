@@ -1,7 +1,7 @@
 import { Button, Typography } from '@mui/material';
 import React from 'react';
 import { Trans } from 'react-i18next';
-import type { Character } from '../../../state/optimizer/optimizerCore';
+import type { Character } from '../../../state/optimizer/types/optimizerTypes';
 import { copyGw2CombatData } from './gw2CombatBackend';
 
 const GW2Combat = ({ character }: { character: Character }) => {

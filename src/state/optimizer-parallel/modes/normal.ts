@@ -1,7 +1,7 @@
-import type { Character } from '../../optimizer/optimizerCore';
 import { characterLT } from '../../optimizer/optimizerCore';
-import type { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
-import { ERROR, RUNNING, SUCCESS } from '../../optimizer/status';
+import type { ExtrasCombinationEntry } from '../../optimizer/types/optimizerSetupTypes';
+import type { Character } from '../../optimizer/types/optimizerTypes';
+import { ERROR, RUNNING, SUCCESS } from '../../optimizer/utils/status';
 import {
   changeList,
   changeProgress,

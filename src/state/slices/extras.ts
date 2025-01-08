@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSelector, createSlice, original } from '@reduxjs/toolkit';
 import { allExtrasModifiersById } from '../../assets/modifierdata';
 import { mapValues, objectEntries, parseNumber } from '../../utils/usefulFunctions';
-import type { AppliedModifier } from '../optimizer/optimizerSetup';
+import type { AppliedModifier } from '../optimizer/types/optimizerSetupTypes';
 import type { RootState } from '../store';
 import { changeAll, getJsHeuristicsTarget, setBuildTemplate } from './controlsSlice';
 

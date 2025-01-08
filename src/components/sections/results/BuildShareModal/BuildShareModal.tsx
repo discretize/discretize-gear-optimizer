@@ -8,7 +8,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
 import { exportStateCharacter } from '../../../../state/async/buildPageThunks';
-import type { Character } from '../../../../state/optimizer/optimizerCore';
+import type { Character } from '../../../../state/optimizer/types/optimizerTypes';
 import { useAppDispatch } from '../../../../state/redux-hooks';
 import ModalContent from './ModalContent';
 

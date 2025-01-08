@@ -1,4 +1,4 @@
-import { STOPPED } from '../optimizer/status';
+import { STOPPED } from '../optimizer/utils/status';
 import type { AppThunk } from '../redux-hooks';
 import {
   changeFilteredLists,
