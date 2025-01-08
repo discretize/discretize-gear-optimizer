@@ -3,10 +3,10 @@ import { Box, Chip } from '@mui/material';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
+import { templates } from 'data/presetdata';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
-import data from '../../utils/data';
 import type { ProfessionName } from '../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({
@@ -57,7 +57,7 @@ export default function NavAccordion({ handleTemplateSelect }: NavAccordionProps
     setExpanded(newExpanded ? panel : '');
   };
 
-  return data.templates.list.map((prof) => (
+  return templates.list.map((prof) => (
     <MuiAccordion
       classes={{ root: classes.accordionRoot }}
       square

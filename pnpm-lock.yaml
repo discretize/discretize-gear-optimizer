@@ -44,6 +44,9 @@ importers:
       comlink:
         specifier: ^4.4.2
         version: 4.4.2
+      data:
+        specifier: workspace:./packages/data
+        version: link:packages/data
       i18next:
         specifier: ^24.2.0
         version: 24.2.0(typescript@5.7.2)
@@ -210,6 +213,16 @@ importers:
       wrangler:
         specifier: ^3.99.0
         version: 3.99.0(@cloudflare/workers-types@4.20241230.0)
+
+  packages/data:
+    dependencies:
+      js-yaml:
+        specifier: ^4.1.0
+        version: 4.1.0
+    devDependencies:
+      typia:
+        specifier: ^7.5.1
+        version: 7.5.1(@samchon/openapi@2.3.1)(typescript@5.7.2)
 
 packages:
 

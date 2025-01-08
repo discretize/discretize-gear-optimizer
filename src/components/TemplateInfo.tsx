@@ -1,12 +1,12 @@
 import { Profession } from '@discretize/gw2-ui-new';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { Link } from '@mui/material';
+import type { Credit, PresetDistributionEntry } from 'data/presetdata';
+import { creditData, presetDistribution } from 'data/presetdata';
 import { Fragment } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import type { Credit, PresetDistributionEntry } from '../assets/presetdata/metadata';
 import { getSelectedDistribution } from '../state/slices/distribution';
-import data from '../utils/data';
 import Info from './baseComponents/Info';
 
 const TemplateLabel = ({ preset }: { preset: PresetDistributionEntry }) => {
@@ -23,7 +23,7 @@ const TemplateLabel = ({ preset }: { preset: PresetDistributionEntry }) => {
 };
 
 const Author = ({ name }: { name: string }) => {
-  const url = data.creditData[name]?.authorUrl;
+  const url = creditData[name]?.authorUrl;
   return url ? (
     <Link href={url} target="_blank" rel="noopener">
       {name}
@@ -45,7 +45,7 @@ const EndingLinks = ({ credit }: { credit: Credit[] }) =>
 export default function TemplateInfo() {
   const selectedDistribution = useSelector(getSelectedDistribution);
 
-  const distributionData = data.presetDistribution.list.find(
+  const distributionData = presetDistribution.list.find(
     (entry) => entry.name === selectedDistribution,
   );
   const credit = distributionData?.credit;
@@ -66,7 +66,7 @@ export default function TemplateInfo() {
         </Trans>
       )}
       {credit
-        .filter((entry) => data.creditData[entry.author]?.authorUrl && entry.url)
+        .filter((entry) => creditData[entry.author]?.authorUrl && entry.url)
         .map((entry) => (
           <Fragment key={`${entry.url}`}>
             {' '}

@@ -1,8 +1,8 @@
 import { Boon, Condition } from '@discretize/gw2-ui-new';
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
+import { boons, damagingConditions } from 'data/modifierdata';
 import { Trans } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
-import { boons, damagingConditions } from '../../../assets/modifierdata/metadata';
 import type { Attributes } from '../../../state/optimizer/types/optimizerTypes';
 
 // const boonDurations = boons.map((name) => `${name} Duration`);

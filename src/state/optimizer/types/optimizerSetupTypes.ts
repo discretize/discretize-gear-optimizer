@@ -6,7 +6,7 @@ import type {
   ConversionDestinationKey,
   ConversionSourceKey,
   Modifiers as YamlModifiers,
-} from '../../../assets/modifierdata/metadata';
+} from 'data/modifierdata';
 import type { ExtrasCombination } from '../../slices/extras';
 
 export interface ExtrasCombinationEntry {

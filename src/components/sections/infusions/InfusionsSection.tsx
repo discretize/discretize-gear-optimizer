@@ -1,10 +1,10 @@
+import type { PresetInfusionsEntry } from 'data/presetdata';
+import { presetInfusions } from 'data/presetdata';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import type { PresetInfusionsEntry } from '../../../assets/presetdata/metadata';
 import { changeInfusionOptions } from '../../../state/slices/infusions';
 import { getGameMode } from '../../../state/slices/userSettings';
-import data from '../../../utils/data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Infusions from './Infusions';
@@ -16,7 +16,7 @@ const InfusionsSection = () => {
 
   const isFractals = gamemode === 'fractals';
 
-  const infusionPresets = data.presetInfusions.list;
+  const infusionPresets = presetInfusions.list;
 
   const onTemplateClickInfusions = React.useCallback(
     (value: PresetInfusionsEntry) => dispatch(changeInfusionOptions(value.value)),

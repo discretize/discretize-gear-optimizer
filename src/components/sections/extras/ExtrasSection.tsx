@@ -10,10 +10,11 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import type { PresetExtrasEntry } from 'data/presetdata';
+import { presetExtras } from 'data/presetdata';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import type { PresetExtrasEntry } from '../../../assets/presetdata/metadata';
 import {
   changeJsHeuristicsEnabled,
   changeJsHeuristicsTarget,
@@ -28,7 +29,6 @@ import {
   getJsHeuristicsDefault,
   getParsedJsHeuristicsTarget,
 } from '../../../state/slices/extras';
-import data from '../../../utils/data';
 import { SPECIALIZATIONS } from '../../../utils/gw2-data';
 import Info from '../../baseComponents/Info';
 import Presets from '../../baseComponents/Presets';
@@ -48,7 +48,7 @@ const ExtrasSection = () => {
   let extrasPresets;
   if (profession) {
     const eliteSpecializations = SPECIALIZATIONS[profession];
-    extrasPresets = data.presetExtras.list.filter((preset) => {
+    extrasPresets = presetExtras.list.filter((preset) => {
       return (
         !preset.profession ||
         preset.profession === profession ||

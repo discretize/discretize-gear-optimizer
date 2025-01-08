@@ -1,9 +1,9 @@
+import type { PresetBuffsEntry } from 'data/presetdata';
+import { presetBuffs } from 'data/presetdata';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import type { PresetBuffsEntry } from '../../../assets/presetdata/metadata';
 import { replaceBuffs } from '../../../state/slices/buffs';
-import data from '../../../utils/data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Buffs from './Buffs';
@@ -22,7 +22,7 @@ const BuffsSection = () => {
       title={t('Buffs & Boons')}
       extraInfo={
         <Presets
-          data={data.presetBuffs.list}
+          data={presetBuffs.list}
           handleClick={handleTemplateClickBuffs}
           presetCategory="buff"
         />

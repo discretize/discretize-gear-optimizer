@@ -14,7 +14,7 @@ import {
   relicsDict,
   runesDict,
   sigilDict,
-} from '../components/url-state/schema/SchemaDicts';
+} from '../../src/components/url-state/schema/SchemaDicts';
 
 // import specializationData from '../utils/mapping/specializations.json' assert { type: 'json' };
 import {
@@ -55,7 +55,7 @@ const schemaKeys = {
   'buffs.yaml': buffsDict,
 };
 
-const modifierDirectory = './src/assets/modifierdata/';
+const modifierDirectory = './packages/data/modifierdata/';
 
 const allTraitIds = new Set();
 const allExtrasIds = new Set();
@@ -487,7 +487,7 @@ function parseNumber(value, key, id) {
  * test presets
  */
 
-const presetDirectory = './src/assets/presetdata/';
+const presetDirectory = './packages/data/presetdata/';
 
 // const types = {
 //   name

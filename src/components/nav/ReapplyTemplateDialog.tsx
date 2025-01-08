@@ -6,16 +6,16 @@ import {
   DialogContentText,
   DialogTitle,
 } from '@mui/material';
+import data from 'data/presetdata';
+import { getBuildTemplateData } from 'data/presetdata/templateTransform';
 import { Trans } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
 import {
   getProfession,
   getSelectedTemplate,
   setBuildTemplate,
 } from '../../state/slices/controlsSlice';
 import { getGameMode } from '../../state/slices/userSettings';
-import data from '../../utils/data';
 
 interface ReapplyTemplateDialogProps {
   open: boolean;

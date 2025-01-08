@@ -1,12 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Box, Link } from '@mui/material';
+import type { PresetDistributionEntry } from 'data/presetdata';
+import { presetDistribution } from 'data/presetdata';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import type { PresetDistributionEntry } from '../../../assets/presetdata/metadata';
 import { getProfession } from '../../../state/slices/controlsSlice';
 import { changeAllDistributions } from '../../../state/slices/distribution';
-import data from '../../../utils/data';
 import { SPECIALIZATIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
@@ -20,7 +20,7 @@ const DistributionSection = () => {
   let distributionPresets;
   if (profession) {
     const eliteSpecializations = SPECIALIZATIONS[profession];
-    distributionPresets = data.presetDistribution.list.filter((preset) => {
+    distributionPresets = presetDistribution.list.filter((preset) => {
       if (preset.name === 'None') return false;
       return (
         !preset.profession ||

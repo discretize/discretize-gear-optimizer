@@ -15,6 +15,8 @@ import Thief from './thief.yaml';
 import utility from './utility.yaml';
 import Warrior from './warrior.yaml';
 
+export * from './metadata';
+
 // combines items in all sections into one object
 const byId = (sections: Section[]) => {
   const sectionsFlat = sections.flatMap(({ section, items }) =>

@@ -4,7 +4,7 @@
 /* eslint-disable no-console */
 /* eslint-disable dot-notation */
 
-import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
+import { allAttributePointKeys } from 'data/modifierdata';
 import type { ConditionName, DamagingConditionName, IndicatorName } from '../../utils/gw2-data';
 import {
   INFUSION_BONUS,

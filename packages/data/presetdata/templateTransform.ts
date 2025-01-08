@@ -1,5 +1,5 @@
-import type { PresetData } from '../../utils/data';
-import type { ProfessionName } from '../../utils/gw2-data';
+import type data from 'data/presetdata';
+import type { ProfessionName } from '../../../src/utils/gw2-data';
 import type { TemplateEntry } from './metadata';
 
 const defaultBoonTemplates = {
@@ -28,7 +28,7 @@ interface getBuildTemplateDataProps {
   selectedTemplate: string;
   isFractals: boolean;
   profession: ProfessionName | '';
-  data: PresetData;
+  data: typeof data;
 }
 
 export function getBuildTemplateData({

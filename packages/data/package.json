@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./modifierdata": "./modifierdata/index.ts",
+    "./presetdata": "./presetdata/index.ts",
+    "./presetdata/templateTransform": "./presetdata/templateTransform.ts"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "typia": "^7.5.1"
+  }
+}

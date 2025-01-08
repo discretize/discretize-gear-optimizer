@@ -7,10 +7,10 @@ import {
   Grid2 as Grid,
   Typography,
 } from '@mui/material';
+import { allExtrasModifiersById, buffModifiers } from 'data/modifierdata';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { allExtrasModifiersById, buffModifiers } from '../../../assets/modifierdata';
 import { getSkills, getWeapons } from '../../../state/slices/buildPage';
 import { getTraitLines, getTraits } from '../../../state/slices/traits';
 import { getGameMode } from '../../../state/slices/userSettings';

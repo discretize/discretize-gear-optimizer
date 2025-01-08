@@ -1,11 +1,11 @@
 import { Specialization, Trait, TraitLine } from '@discretize/gw2-ui-new';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import { Box, FormControl, Input, InputLabel, MenuItem, Select, Typography } from '@mui/material';
+import type { ModifierItem, Section } from 'data/modifierdata';
+import { classModifiers, traitSectionsById } from 'data/modifierdata';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { classModifiers, traitSectionsById } from '../../../assets/modifierdata';
-import type { ModifierItem, Section } from '../../../assets/modifierdata/metadata';
 import { getProfession } from '../../../state/slices/controlsSlice';
 import {
   changeTrait,

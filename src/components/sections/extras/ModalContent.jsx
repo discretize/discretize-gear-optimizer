@@ -13,11 +13,11 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import { placeholderItem } from 'data/modifierdata';
 import React, { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { placeholderItem } from '../../../assets/modifierdata';
 import { changeExtraIds, getExtrasIds } from '../../../state/slices/extras';
 import Label from '../../baseComponents/Label';
 import { formatApiText, joinWith } from './helpers';

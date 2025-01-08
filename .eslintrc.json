@@ -15,7 +15,7 @@
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
-  "ignorePatterns": ["/plugins/*", "src/assets/typevalidation/output", "wasm_module/"],
+  "ignorePatterns": ["/plugins/*", "packages/data/typevalidation/output", "wasm_module/"],
   "settings": {
     "import/parsers": {
       "@typescript-eslint/parser": [".ts", ".tsx"]

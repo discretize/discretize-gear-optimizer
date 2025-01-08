@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSelector, createSlice, original } from '@reduxjs/toolkit';
-import type { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
+import type { getBuildTemplateData } from 'data/presetdata/templateTransform';
 import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
 import type { ParseFunction } from '../../utils/usefulFunctions';
 import { objectKeys, parseNumber } from '../../utils/usefulFunctions';

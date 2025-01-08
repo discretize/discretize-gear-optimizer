@@ -12,6 +12,8 @@ import {
   Typography,
   useMediaQuery,
 } from '@mui/material';
+import data, { templates } from 'data/presetdata';
+import { getBuildTemplateData } from 'data/presetdata/templateTransform';
 import Menu from 'material-ui-popup-state/HoverMenu';
 import type { PopupState } from 'material-ui-popup-state/hooks';
 import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hooks';
@@ -22,7 +24,6 @@ import { makeStyles } from 'tss-react/mui';
 import fractalImg from '../../assets/images/icons/fractals.png';
 import raidImg from '../../assets/images/icons/raids.png';
 import wvwImg from '../../assets/images/icons/wvw.png';
-import { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
 import { stopCalc } from '../../state/async/calculationThunks';
 import { useAppDispatch } from '../../state/redux-hooks';
 import {
@@ -33,7 +34,6 @@ import {
   setBuildTemplate,
 } from '../../state/slices/controlsSlice';
 import { changeGameMode, getExpertMode, getGameMode } from '../../state/slices/userSettings';
-import data from '../../utils/data';
 import type { ProfessionName } from '../../utils/gw2-data';
 import { PROFESSIONS } from '../../utils/gw2-data';
 import NavAccordion from './NavAccordion';
@@ -57,7 +57,7 @@ const Navbar = () => {
   const selectedSpecialization = useSelector(getSelectedSpecialization);
   const selectedTemplateName = useSelector(getSelectedTemplate);
 
-  const selectedTemplate = data.templates.list
+  const selectedTemplate = templates.list
     .find((elem) => elem.class === profession)
     ?.builds?.find((elem) => elem.name === selectedTemplateName);
 

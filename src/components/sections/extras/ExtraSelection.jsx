@@ -18,11 +18,11 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material';
+import { allExtrasModifiersById, placeholderItem } from 'data/modifierdata';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { allExtrasModifiersById, placeholderItem } from '../../../assets/modifierdata';
 import {
   changeExtraAmount,
   changeExtraIds,

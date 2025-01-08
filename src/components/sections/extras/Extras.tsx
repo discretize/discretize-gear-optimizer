@@ -1,9 +1,9 @@
 import { ConsumableEffect, Item } from '@discretize/gw2-ui-new';
 import { Box, Typography } from '@mui/material';
+import { allExtrasModifiersById, extrasModifiers } from 'data/modifierdata';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { allExtrasModifiersById, extrasModifiers } from '../../../assets/modifierdata';
 import {
   changeLifestealAmount,
   getExtrasIds,

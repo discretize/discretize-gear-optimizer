@@ -1,8 +1,9 @@
 import { Box, Chip, FormControlLabel, Switch } from '@mui/material';
+import type { PresetAffixesEntry } from 'data/presetdata';
+import { presetAffixes } from 'data/presetdata';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import type { PresetAffixesEntry } from '../../../assets/presetdata/metadata';
 import {
   changeAffixes,
   changeExclusion,
@@ -13,7 +14,6 @@ import {
   getExclusionsEnabled,
   getExoticsEnabled,
 } from '../../../state/slices/priorities';
-import data from '../../../utils/data';
 import { maxSlotsLength } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
@@ -82,7 +82,7 @@ const AffixesSection = () => {
       extraInfo={
         <>
           <Presets
-            data={data.presetAffixes.list}
+            data={presetAffixes.list}
             handleClick={handleTemplateClickPriorities}
             presetCategory="affix"
             maxChips={Infinity}

@@ -1,9 +1,9 @@
 import { TextDivider } from '@discretize/react-discretize-components';
 import { Grid2 as Grid } from '@mui/material';
+import { buffModifiers } from 'data/modifierdata';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { buffModifiers } from '../../../assets/modifierdata';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { getGameMode } from '../../../state/slices/userSettings';
 import { createAssumedBuffs } from '../../../utils/toLazyToType-usefulFunctions';

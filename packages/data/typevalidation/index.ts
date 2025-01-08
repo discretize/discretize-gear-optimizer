@@ -26,8 +26,8 @@ const gentleAssert = (condition: boolean, message: string) => {
   }
 };
 
-const modifierDirectory = './src/assets/modifierdata/';
-const presetDirectory = './src/assets/presetdata/';
+const modifierDirectory = './packages/data/modifierdata/';
+const presetDirectory = './packages/data/presetdata/';
 
 const testModifiers = async () => {
   const files = (await fs.readdir(modifierDirectory)).filter(

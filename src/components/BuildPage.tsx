@@ -4,8 +4,8 @@ import { Box, Paper, Typography } from '@mui/material';
 import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { buffModifiers, classModifiers } from '../assets/modifierdata';
-import type { ModifierItem } from '../assets/modifierdata/metadata';
+import { buffModifiers, classModifiers } from '../../packages/data/modifierdata';
+import type { ModifierItem } from '../../packages/data/modifierdata/metadata';
 import { importStateCharacter } from '../state/async/buildPageThunks';
 import { useAppDispatch } from '../state/redux-hooks';
 import {

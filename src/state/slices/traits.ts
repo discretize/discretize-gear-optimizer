@@ -1,10 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  allClassModifiersById,
-  classModifiers,
-  traitSectionsById,
-} from '../../assets/modifierdata';
+import { allClassModifiersById, classModifiers, traitSectionsById } from 'data/modifierdata';
 import { SPECIALIZATIONS } from '../../utils/gw2-data';
 import { enumArrayIncludes } from '../../utils/usefulFunctions';
 import type { AppliedModifier } from '../optimizer/types/optimizerSetupTypes';

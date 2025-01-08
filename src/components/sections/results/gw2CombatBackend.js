@@ -3,8 +3,7 @@
 /* eslint-disable dot-notation */
 /* eslint-disable import/prefer-default-export */
 
-import { allExtrasModifiersById, traitSectionsById } from '../../../assets/modifierdata/index';
-import { damagingConditions } from '../../../assets/modifierdata/metadata';
+import { allExtrasModifiersById, damagingConditions, traitSectionsById } from 'data/modifierdata';
 
 const formatCharacterData = async (character) => {
   const {

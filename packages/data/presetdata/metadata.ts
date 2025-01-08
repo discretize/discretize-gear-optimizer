@@ -1,15 +1,15 @@
-import type { BuffsSlice } from '../../state/slices/buffs';
-import type { Distribution } from '../../state/slices/distribution';
-import type { ExtrasSlice } from '../../state/slices/extras';
-import type { PrioritiesSlice } from '../../state/slices/priorities';
-import type { SkillsSlice } from '../../state/slices/skills';
-import type { TraitsSlice } from '../../state/slices/traits';
+import type { BuffsSlice } from '../../../src/state/slices/buffs';
+import type { Distribution } from '../../../src/state/slices/distribution';
+import type { ExtrasSlice } from '../../../src/state/slices/extras';
+import type { PrioritiesSlice } from '../../../src/state/slices/priorities';
+import type { SkillsSlice } from '../../../src/state/slices/skills';
+import type { TraitsSlice } from '../../../src/state/slices/traits';
 import type {
   InfusionName,
   ProfessionName,
   ProfessionOrSpecializationName,
   WeaponHandednessType,
-} from '../../utils/gw2-data';
+} from '../../../src/utils/gw2-data';
 
 interface TemplateEntryBase {
   name: string;

@@ -15,13 +15,13 @@ import type {
   DamageMode,
   DamageValue,
   Percent,
-} from '../../assets/modifierdata/metadata';
+} from 'data/modifierdata';
 import {
   allAttributeCoefficientKeys,
   allAttributePercentKeys,
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
-} from '../../assets/modifierdata/metadata';
+} from 'data/modifierdata';
 import type { AffixName, ForcedSlotName, GearAttributeName } from '../../utils/gw2-data';
 import {
   allSlotData,

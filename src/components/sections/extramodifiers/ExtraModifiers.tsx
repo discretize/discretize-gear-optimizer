@@ -7,10 +7,10 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import { exampleModifiers, exampleModifiersJson } from 'data/modifierdata';
 import yaml from 'js-yaml';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { exampleModifiers, exampleModifiersJson } from '../../../assets/modifierdata/metadata';
 import {
   changeExtraModifiers,
   changeExtraModifiersError,

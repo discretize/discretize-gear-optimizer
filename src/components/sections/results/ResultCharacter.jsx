@@ -1,6 +1,6 @@
 import { Character, firstUppercase } from '@discretize/react-discretize-components';
 import { FormControlLabel, Switch } from '@mui/material';
-import { allExtrasModifiersById } from '../../../assets/modifierdata';
+import { allExtrasModifiersById } from 'data/modifierdata';
 import {
   Classes,
   INFUSION_IDS,

@@ -1,12 +1,12 @@
 import { Box, FormControlLabel, Switch } from '@mui/material';
+import type { PresetTraitsEntry } from 'data/presetdata';
+import { presetTraits } from 'data/presetdata';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import type { PresetTraitsEntry } from '../../../assets/presetdata/metadata';
 import { getProfession } from '../../../state/slices/controlsSlice';
 import { changeSkills } from '../../../state/slices/skills';
 import { changeTraits, getShowAllTraits, toggleShowAll } from '../../../state/slices/traits';
-import data from '../../../utils/data';
 import { SPECIALIZATIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
@@ -22,7 +22,7 @@ const TraitsSection = () => {
   let traitsPresets;
   if (profession) {
     const eliteSpecializations = SPECIALIZATIONS[profession];
-    traitsPresets = data.presetTraits.list.filter((preset) => {
+    traitsPresets = presetTraits.list.filter((preset) => {
       return (
         !preset.profession ||
         preset.profession === profession ||
