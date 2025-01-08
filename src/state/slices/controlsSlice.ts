@@ -5,10 +5,10 @@ import type { getBuildTemplateData } from '../../assets/presetdata/templateTrans
 import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
 import type { ParseFunction } from '../../utils/usefulFunctions';
 import { objectKeys, parseNumber } from '../../utils/usefulFunctions';
-import { isFirefox } from '../optimizer/detectFirefox';
-import type { OptimizerStatus } from '../optimizer/status';
-import { RUNNING, RUNNING_HEURISTICS, WAITING } from '../optimizer/status';
 import type { Character } from '../optimizer/types/optimizerTypes';
+import { isFirefox } from '../optimizer/utils/detectFirefox';
+import type { OptimizerStatus } from '../optimizer/utils/status';
+import { RUNNING, RUNNING_HEURISTICS, WAITING } from '../optimizer/utils/status';
 import { reduxSideEffect } from '../redux-hooks';
 import type { RootState } from '../store';
 

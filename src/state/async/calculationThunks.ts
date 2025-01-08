@@ -2,8 +2,8 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-console */
 import { freeze } from '@reduxjs/toolkit';
-import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
 import type { Character } from '../optimizer/types/optimizerTypes';
+import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/utils/status';
 import type { AppThunk } from '../redux-hooks';
 import type { ExtraFilterMode } from '../slices/controlsSlice';
 import {

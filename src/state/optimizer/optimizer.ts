@@ -5,7 +5,6 @@ import type { ExtraFilterMode } from '../slices/controlsSlice';
 import { defaultJsThreads } from '../slices/controlsSlice';
 import type { ExtrasType } from '../slices/extras';
 import type { RootState } from '../store';
-import { iteratePartitionCount } from './combinatorics';
 import { characterLT, UPDATE_MS } from './optimizerCore';
 import { setupCombinations } from './optimizerSetup';
 import type { ExtrasCombinationEntry } from './types/optimizerSetupTypes';
@@ -14,6 +13,7 @@ import type {
   OptimizerCoreMinimalSettings,
   OptimizerCoreSettings,
 } from './types/optimizerTypes';
+import { iteratePartitionCount } from './utils/combinatorics';
 
 export interface Combination extends ExtrasCombinationEntry {
   index: number;

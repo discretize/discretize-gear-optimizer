@@ -11,7 +11,7 @@ import BackgroundImage from '../../components/baseComponents/BackgroundImage';
 import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
 import Layout from '../../components/baseComponents/Layout';
 import URLStateImport from '../../components/url-state/URLStateImport';
-import { isFirefox } from '../../state/optimizer/detectFirefox';
+import { isFirefox } from '../../state/optimizer/utils/detectFirefox';
 import { getMulticore } from '../../state/slices/controlsSlice';
 import { getGameMode } from '../../state/slices/userSettings';
 

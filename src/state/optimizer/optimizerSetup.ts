@@ -68,7 +68,6 @@ import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { getGameMode } from '../slices/userSettings';
 import type { RootState } from '../store';
-import { clamp, scaleValue } from './optimizerCore';
 import type {
   AppliedModifier,
   DamageMultiplier,
@@ -82,6 +81,7 @@ import type {
   OptimizerCoreSettingsPerCalculation,
   OptimizerCoreSettingsPerCombination,
 } from './types/optimizerTypes';
+import { clamp, scaleValue } from './utils/utils';
 
 type CollectedAttributeModifiers = Partial<Record<AttributeKey, number>>;
 

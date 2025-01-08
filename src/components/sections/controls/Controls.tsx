@@ -20,7 +20,7 @@ import {
   STOPPED,
   SUCCESS,
   WAITING,
-} from '../../../state/optimizer/status';
+} from '../../../state/optimizer/utils/status';
 import { useAppDispatch } from '../../../state/redux-hooks';
 import {
   changeError,
