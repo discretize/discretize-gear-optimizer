@@ -11,7 +11,7 @@ env:
 jobs:
   # see https://github.com/orgs/community/discussions/26726, https://stackoverflow.com/a/70249520
   check-secrets:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     outputs:
       exists: ${{ steps.check-secret-step.outputs.exists }}
     steps:
@@ -26,7 +26,7 @@ jobs:
 
   deployment:
     needs: [check-secrets]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     permissions:
       contents: read
       deployments: write
