@@ -986,7 +986,7 @@ import {
 
   // Infusion presets
   $(`${Selector.SELECT.INFUSION}-presets button`).click(function () {
-    const infusions = $(this).text() === 'None' ? ['None', 'None'] : $(this).text().split(' + ');
+    const infusions = $(this).text() === 'None' ? ['None', 'None'] : $(this).text().split(' + ').map(text => text.trim());
     $('#go-select-infusion-primary .dropdown-item').each(function () {
       if ($(this).text().trim() === infusions[0]) {
         $(this).click();
