@@ -17,6 +17,58 @@ concurrency:
 jobs:
   test:
     if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up PNPM
+        uses: pnpm/action-setup@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Cache Rust Output
+        id: rust-output-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            wasm_module/pkg
+            wasm_module/target
+          key: rust-output-${{ env.NODE_VERSION }}-${{ hashFiles('wasm_module', '**/pnpm-lock.yaml') }}
+          restore-keys: rust-output-
+      - name: Cache Rust Dependencies
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: wasm_module
+        if: steps.rust-output-cache.outputs.cache-hit != 'true'
+      - name: Compile Rust
+        run: pnpm wasm
+        if: steps.rust-output-cache.outputs.cache-hit != 'true'
+
+      - name: Test modifier and preset data
+        run: pnpm testData
+
+      - name: Validate modifier and preset data types
+        run: pnpm validateDataTypes
+
+      - name: Lint with ESLint
+        run: pnpm eslint
+
+      - name: Format with prettier
+        run: pnpm prettierCheck
+
+      - name: Typecheck with tsc
+        run: pnpm typeCheck
+
+  test-arm:
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 5
 
