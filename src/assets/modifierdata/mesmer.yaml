@@ -354,7 +354,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Condition Damage: [150, buff]
+          {} # todo: implement this!
       minor: true
       gw2id: 2069
       defaultEnabled: true
@@ -389,7 +389,7 @@
         quantityEntered: 1
       modifiers:
         conversionAfterBuffs:
-          Bleeding Coefficient: {Critical Chance: 450%}
+          Bleeding Coefficient: {Critical Chance: 400%}
       wvwModifiers:
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 300%}
@@ -456,6 +456,9 @@
         defaultInput: ???
         quantityEntered: 100
       modifiers:
+        damage:
+          Outgoing Strike Damage: [7%, mult] # unconfirmed
+      wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, mult] # unconfirmed
       gw2id: 2206
