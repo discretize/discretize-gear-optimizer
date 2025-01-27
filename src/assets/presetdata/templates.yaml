@@ -48,7 +48,7 @@ list:
         raid:
           extras: Power (Raid, furious)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Power Virtuoso GS
         id: pvirt-gs
@@ -76,7 +76,7 @@ list:
         raid:
           extras: Power Boon (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Boon Power Chrono GS
         id: pchrono-boon-gs
@@ -90,7 +90,7 @@ list:
         raid:
           extras: Power Boon (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Boon Condi Chrono
         id: condi-chrono-stm
@@ -129,7 +129,7 @@ list:
         raid:
           extras: Power (Raid, furious)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       # - name: Power Chrono DT Focus
       #   id: pchrono-dt-focus
