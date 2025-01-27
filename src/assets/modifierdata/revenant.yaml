@@ -110,8 +110,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, add]
-          Outgoing Condition Damage: [15%, add] #unconfirmed
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [5%, add] #unconfirmed
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, add]
@@ -528,7 +528,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Outgoing Strike Damage: [1.5%, mult]
+          Outgoing Strike Damage: [1%, mult]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [1%, mult]
@@ -544,7 +544,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [20%, add] # add according to wiki
+          Outgoing Strike Damage: [25%, add] # add according to wiki
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [15%, add] # add according to wiki
@@ -560,7 +560,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Outgoing Strike Damage: [7%, add] # add according to wiki
+          Outgoing Strike Damage: [10%, add] # add according to wiki
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [4%, add]
@@ -611,7 +611,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, add] # https://discord.com/channels/380901000200060929/380904097592901635/1255204952398102549
+          Outgoing Strike Damage: [15%, add] # https://discord.com/channels/380901000200060929/380904097592901635/1255204952398102549
       gw2id: 2108
       defaultEnabled: true
 
