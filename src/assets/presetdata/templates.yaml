@@ -675,7 +675,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Weaver Pistol
+      - name: Condi Weaver Pistol (Approx.)
         id: cwea-pi
         specialization: Weaver
         boonType: Condi
