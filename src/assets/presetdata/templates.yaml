@@ -1106,7 +1106,7 @@ list:
         traits: Condi Holo
         extras: Condi Holo
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       # - name: Alacrity Power Mech (inaccurate)
       #   id: mech-alac-power
