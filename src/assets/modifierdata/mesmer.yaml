@@ -17,6 +17,19 @@
       gw2id: 10234
       temporaryBuff: false
 
+    - id: fractured-glass
+      text: Fractured Glass
+      subText: with Mirage Mantle
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [25%, unknown]
+      gw2id: 73067
+
 - section: Domination
   id: 10
   items:
