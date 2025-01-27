@@ -115,6 +115,7 @@
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, add]
+          Outgoing Condition Damage: [7%, add] #unconfirmed
       gw2id: 28113
 
     - id: vengeful-hammers
