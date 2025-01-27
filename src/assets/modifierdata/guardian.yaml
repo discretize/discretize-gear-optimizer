@@ -462,6 +462,9 @@
       minor: true
       modifiers:
         damage:
+          Outgoing Strike Damage: [10%, mult]
+      wvwModifiers:
+        damage:
           Outgoing Strike Damage: [5%, mult]
       gw2id: 1926
       defaultEnabled: true
@@ -481,7 +484,7 @@
       subText: against defiant foes, base
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [15%, unknown]
       gw2id: 1963
       defaultEnabled: true
 
@@ -507,7 +510,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [20%, unknown]
       gw2id: 1963
       defaultEnabled: false
 
@@ -519,7 +522,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [20%, mult]
+          Outgoing Strike Damage: [25%, mult]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [15%, mult]
