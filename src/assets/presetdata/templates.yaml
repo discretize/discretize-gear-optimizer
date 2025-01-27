@@ -619,7 +619,7 @@ list:
         traits: Alacrity Condi Tempest Pistol
         extras: Condi Tempest
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Alacrity Power Tempest Scepter
         id: ptemp-alac
@@ -644,7 +644,7 @@ list:
         traits: Condi Tempest Pistol
         extras: Condi Tempest
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Tempest Scepter
         id: ptemp
@@ -658,7 +658,7 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Weaver Sword
         id: pwea
@@ -673,7 +673,7 @@ list:
           traits: Power Weaver Raid
           extras: Power (Raid, fireworks)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Weaver Pistol
         id: cwea-pi
