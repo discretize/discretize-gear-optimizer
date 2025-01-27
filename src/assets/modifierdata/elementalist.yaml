@@ -243,11 +243,11 @@
       text: Persisting Flames
       amountData:
         label: 'stacks'
-        default: 9
+        default: 5
         quantityEntered: 1
       modifiers:
         damage:
-          Outgoing Strike Damage: [1%, add]
+          Outgoing Strike Damage: [2%, add]
       gw2id: 1510
       defaultEnabled: true
 
