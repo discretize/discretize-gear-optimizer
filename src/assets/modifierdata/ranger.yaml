@@ -160,7 +160,7 @@
           Outgoing Strike Damage: [10%, mult]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1000
       defaultEnabled: true
 
@@ -172,7 +172,7 @@
           Outgoing Strike Damage: [25%, mult]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [15%, mult]
+          Outgoing Strike Damage: [25%, mult]
       gw2id: 1000
       defaultEnabled: false
 
@@ -694,7 +694,7 @@
           Outgoing Strike Damage: [25%, unknown]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [20%, unknown]
       minor: true
       gw2id: 2269
       defaultEnabled: true
@@ -707,7 +707,7 @@
           Damage Reduction: [25%, unknown]
       wvwModifiers:
         damage:
-          Damage Reduction: [10%, unknown]
+          Damage Reduction: [15%, unknown]
       minor: true
       gw2id: 2269
       defaultEnabled: false
