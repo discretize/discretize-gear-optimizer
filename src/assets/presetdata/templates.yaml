@@ -501,7 +501,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Power Bladesworn (Approx.)
+      - name: Power Bladesworn
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
@@ -513,7 +513,7 @@ list:
         raid:
           extras: Bladesworn
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Quickness Condi Berserker
         id: cbers
@@ -535,7 +535,7 @@ list:
         traits: Condi Berserker
         extras: Condi Berserker
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Quickness Power Berserker GS A/A
         id: pbers-quick
