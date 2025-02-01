@@ -140,13 +140,13 @@ pub fn clamp(input: f32, min: f32, max: f32) -> f32 {
 /// # Returns
 /// An array of affixes
 pub fn get_random_affix_combination(affixes_array: &[Vec<Affix>; 14], slots: usize) -> [Affix; 14] {
-    let mut rng = rand::thread_rng();
+    let mut rng = rand::rng();
 
     let mut result: [Affix; 14] = [Affix::None; 14];
     for i in 0..slots {
         let affixes = &affixes_array[i];
 
-        let random_index = rng.gen_range(0..affixes.len()) as usize;
+        let random_index = rng.random_range(0..affixes.len()) as usize;
         result[i] = affixes[random_index];
     }
     result
