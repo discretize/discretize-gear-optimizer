@@ -15,7 +15,7 @@ default = ["console_error_panic_hook"]
 [dependencies]
 # deps to compile for web
 wasm-bindgen = {version = "0.2.97", features = []}
-js-sys = "0.3.74"
+js-sys = "0.3.77"
 web-sys = {version = "0.3.74", features = ["console", "DedicatedWorkerGlobalScope", "MessageEvent"]}
 criterion = {version = "0.5.1", default-features = false}
 
@@ -28,8 +28,8 @@ serde = { version = "1.0.217", features = ["derive"] }
 serde_repr = "0.1" # required for c-like enums
 enum-iterator = "2.1.0"
 
-rand = { version = "0.8.5", features = [] }
-getrandom = { version = "0.2", features = ["js"] }
+rand = { version = "0.9.0", features = [] }
+getrandom = { version = "0.3", features = ["wasm_js"] }
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.47"
