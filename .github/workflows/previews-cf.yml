@@ -94,6 +94,6 @@ jobs:
             | ----------------------- | - |
             | **Last commit:**        | ${{ github.event.pull_request.head.sha || github.event.workflow_run.head_sha || github.sha }} |
             | **Preview URL**:        | ${{ steps.wrangler-action.outputs.deployment-url }} |
-            | **Branch Preview URL**: | https://${{ github.head_ref || github.ref_name }}.${{ env.PAGES_PROJECT_URL_SLUG }}.pages.dev |
+            | **Branch Preview URL**: | ${{ steps.wrangler-action.outputs.pages-deployment-alias-url }} |
           comment-tag: deployment
           mode: upsert
