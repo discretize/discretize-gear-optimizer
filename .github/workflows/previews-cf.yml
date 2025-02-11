@@ -5,7 +5,6 @@ on:
   
 env:
   PAGES_PROJECT_NAME: optimizer
-  PAGES_PROJECT_URL_SLUG: discretize-gear-optimizer
   NODE_VERSION: 18
   
 jobs:
