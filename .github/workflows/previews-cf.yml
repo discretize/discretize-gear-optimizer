@@ -76,27 +76,24 @@ jobs:
         run: pnpm build-cf
 
       - name: Deploy preview to Cloudflare
-        uses: cloudflare/pages-action@1
-        id: pages-action
+        uses: cloudflare/wrangler-action@v3
+        id: wrangler-action
         with:
           apiToken: ${{ secrets.CI_CF_PAGES }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: ${{ env.PAGES_PROJECT_NAME }}
-          directory: dist
-          branch: ${{ github.head_ref || github.ref_name }} 
+          command: pages deploy dist --project-name=${{ env.PAGES_PROJECT_NAME }} --branch=${{ github.head_ref || github.ref_name }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          wranglerVersion: '3'
 
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v3
         with:
           message: |
-            Deployed ${{ steps.pages-action.outputs.environment }} build to Cloudflare!
+            Deployed build to Cloudflare!
 
             |                         |   |
             | ----------------------- | - |
             | **Last commit:**        | ${{ github.event.pull_request.head.sha || github.event.workflow_run.head_sha || github.sha }} |
-            | **Preview URL**:        | ${{ steps.pages-action.outputs.url }} |
-            | **Branch Preview URL**: | https://${{ github.head_ref || github.ref_name }}.${{ env.PAGES_PROJECT_URL_SLUG }}.pages.dev |
+            | **Preview URL**:        | ${{ steps.wrangler-action.outputs.deployment-url }} |
+            | **Branch Preview URL**: | ${{ steps.wrangler-action.outputs.pages-deployment-alias-url }} |
           comment-tag: deployment
           mode: upsert
