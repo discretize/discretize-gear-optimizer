@@ -353,8 +353,9 @@
         default: 100
         quantityEntered: 100
       modifiers:
-        attributes:
-          {} # todo: implement this!
+        damage:
+          Outgoing Strike Damage: [10%, add] # unconfirmed
+          Outgoing Condition Damage: [10%, add] # unconfirmed
       minor: true
       gw2id: 2069
       defaultEnabled: true
