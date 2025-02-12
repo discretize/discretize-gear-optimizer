@@ -17,6 +17,19 @@
       gw2id: 10234
       temporaryBuff: false
 
+    - id: fractured-glass
+      text: Fractured Glass
+      subText: with Mirage Mantle
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [25%, unknown]
+      gw2id: 73067
+
 - section: Domination
   id: 10
   items:
@@ -340,8 +353,9 @@
         default: 100
         quantityEntered: 100
       modifiers:
-        attributes:
-          Condition Damage: [150, buff]
+        damage:
+          Outgoing Strike Damage: [10%, add] # unconfirmed
+          Outgoing Condition Damage: [10%, add] # unconfirmed
       minor: true
       gw2id: 2069
       defaultEnabled: true
@@ -376,7 +390,7 @@
         quantityEntered: 1
       modifiers:
         conversionAfterBuffs:
-          Bleeding Coefficient: {Critical Chance: 450%}
+          Bleeding Coefficient: {Critical Chance: 400%}
       wvwModifiers:
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 300%}
@@ -443,6 +457,9 @@
         defaultInput: ???
         quantityEntered: 100
       modifiers:
+        damage:
+          Outgoing Strike Damage: [7%, mult] # unconfirmed
+      wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, mult] # unconfirmed
       gw2id: 2206

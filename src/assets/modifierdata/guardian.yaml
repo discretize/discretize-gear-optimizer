@@ -462,6 +462,9 @@
       minor: true
       modifiers:
         damage:
+          Outgoing Strike Damage: [7%, mult]
+      wvwModifiers:
+        damage:
           Outgoing Strike Damage: [5%, mult]
       gw2id: 1926
       defaultEnabled: true
@@ -480,6 +483,9 @@
       text: Heavy Light
       subText: against defiant foes, base
       modifiers:
+        damage:
+          Outgoing Strike Damage: [15%, unknown]
+      wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, unknown]
       gw2id: 1963
@@ -507,6 +513,9 @@
         quantityEntered: 100
       modifiers:
         damage:
+          Outgoing Strike Damage: [20%, unknown]
+      wvwModifiers:
+        damage:
           Outgoing Strike Damage: [15%, unknown]
       gw2id: 1963
       defaultEnabled: false
@@ -519,7 +528,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [20%, mult]
+          Outgoing Strike Damage: [25%, mult]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [15%, mult]

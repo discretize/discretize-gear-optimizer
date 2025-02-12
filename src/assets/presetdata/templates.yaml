@@ -48,7 +48,7 @@ list:
         raid:
           extras: Power (Raid, furious)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Power Virtuoso GS
         id: pvirt-gs
@@ -76,7 +76,7 @@ list:
         raid:
           extras: Power Boon (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Boon Power Chrono GS
         id: pchrono-boon-gs
@@ -90,7 +90,7 @@ list:
         raid:
           extras: Power Boon (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Boon Condi Chrono
         id: condi-chrono-stm
@@ -129,7 +129,7 @@ list:
         raid:
           extras: Power (Raid, furious)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       # - name: Power Chrono DT Focus
       #   id: pchrono-dt-focus
@@ -501,7 +501,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Power Bladesworn (Approx.)
+      - name: Power Bladesworn
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
@@ -513,7 +513,7 @@ list:
         raid:
           extras: Bladesworn
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Quickness Condi Berserker
         id: cbers
@@ -535,7 +535,7 @@ list:
         traits: Condi Berserker
         extras: Condi Berserker
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Quickness Power Berserker GS A/A
         id: pbers-quick
@@ -619,7 +619,7 @@ list:
         traits: Alacrity Condi Tempest Pistol
         extras: Condi Tempest
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Alacrity Power Tempest Scepter
         id: ptemp-alac
@@ -644,7 +644,7 @@ list:
         traits: Condi Tempest Pistol
         extras: Condi Tempest
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Tempest Scepter
         id: ptemp
@@ -658,7 +658,7 @@ list:
         raid:
           extras: Power (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Weaver Sword
         id: pwea
@@ -673,9 +673,9 @@ list:
           traits: Power Weaver Raid
           extras: Power (Raid, fireworks)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
-      - name: Condi Weaver Pistol
+      - name: Condi Weaver Pistol (Approx.)
         id: cwea-pi
         specialization: Weaver
         boonType: Condi
@@ -1106,7 +1106,7 @@ list:
         traits: Condi Holo
         extras: Condi Holo
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       # - name: Alacrity Power Mech (inaccurate)
       #   id: mech-alac-power
