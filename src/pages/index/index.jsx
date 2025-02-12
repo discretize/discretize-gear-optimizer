@@ -29,7 +29,7 @@ const IndexPage = () => {
       🎉 Janthir Wilds has been released! 🎉
       <br />
       <br />
-      Core game changes are updated for the October 8th game patch.
+      Core game changes are updated for the February 11th game patch.
     </Trans>,
     <Trans>
       The gear optimizer is still being developed! Please report issues or suggest improvements in
