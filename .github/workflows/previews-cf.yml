@@ -3,42 +3,9 @@ on:
   pull_request:
     types: [opened, reopened, synchronize, ready_for_review]
   
-env:
-  PAGES_PROJECT_NAME: optimizer
-  NODE_VERSION: 18
-  
 jobs:
-  # see https://github.com/orgs/community/discussions/26726, https://stackoverflow.com/a/70249520
-  check-secrets:
+  pnpm:
     runs-on: ubuntu-latest
-    outputs:
-      exists: ${{ steps.check-secret-step.outputs.exists }}
-    steps:
-      - name: Check that secrets exist
-        id: check-secret-step
-        run: |
-          if [ "${{ secrets.CI_CF_PAGES }}" != '' ]; then
-            echo "exists=true" >> $GITHUB_OUTPUT;
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT;
-          fi
-
-  deployment:
-    needs: [check-secrets]
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      deployments: write
-      pull-requests: write 
-
-    if: >
-      needs.check-secrets.outputs.exists == 'true' &&
-      github.event.pull_request.head.repo.full_name == github.event.pull_request.base.repo.full_name &&
-      !contains(github.event.head_commit.message, 'skip ci') &&
-      !contains(github.event.pull_request.body, '[no previews]') &&
-      (contains(github.event.pull_request.body, '[draft previews]') || github.event.pull_request.draft == false)
-    timeout-minutes: 15
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,50 +16,46 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
       - name: Install dependencies
         run: pnpm install
 
-      - name: Cache Rust Output
-        id: rust-output-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            wasm_module/pkg
-            wasm_module/target
-          key: rust-output-${{ env.NODE_VERSION }}-${{ hashFiles('wasm_module', '**/pnpm-lock.yaml') }}
-          restore-keys: rust-output-
-      - name: Cache Rust Dependencies
-        uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: wasm_module
-        if: steps.rust-output-cache.outputs.cache-hit != 'true'
-      - name: Compile Rust
-        run: pnpm wasm
-        if: steps.rust-output-cache.outputs.cache-hit != 'true'
+  bun:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Build Cloudflare
-        run: pnpm build-cf
-
-      - name: Deploy preview to Cloudflare
-        uses: cloudflare/wrangler-action@v3
-        id: wrangler-action
+      - name: Set up bun
+        uses: oven-sh/setup-bun@v2
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
-          apiToken: ${{ secrets.CI_CF_PAGES }}
-          accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=${{ env.PAGES_PROJECT_NAME }} --branch=${{ github.head_ref || github.ref_name }}
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: bun install
 
-      - name: Comment PR
-        uses: thollander/actions-comment-pull-request@v3
+  yarnclassic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
-          message: |
-            Deployed build to Cloudflare!
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: yarn install
 
-            |                         |   |
-            | ----------------------- | - |
-            | **Last commit:**        | ${{ github.event.pull_request.head.sha || github.event.workflow_run.head_sha || github.sha }} |
-            | **Preview URL**:        | ${{ steps.wrangler-action.outputs.deployment-url }} |
-            | **Branch Preview URL**: | ${{ steps.wrangler-action.outputs.pages-deployment-alias-url }} |
-          comment-tag: deployment
-          mode: upsert
+  npm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: npm install
