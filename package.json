@@ -4,12 +4,7 @@
   "private": true,
   "description": "Discretize Gear Optimizer",
   "author": "marcustyphoon, gw2princeps, metagame",
-  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0",
-  "engines": {
-    "node": ">=16",
-    "npm": "please-use-pnpm",
-    "yarn": "please-use-pnpm"
-  },
+  "packageManager": "yarn@4.6.0",
   "type": "module",
   "browserslist": [
     "defaults and supports es6-module"
@@ -18,20 +13,20 @@
     "develop": "vite",
     "dev": "vite",
     "start": "vite",
-    "dev-cf": "VITE_HAS_CF=true wrangler pages dev --kv SHORT_LINKS -- pnpm dev",
+    "dev-cf": "VITE_HAS_CF=true wrangler pages dev --kv SHORT_LINKS -- yarn dev",
     "build": "vite build",
     "serve": "vite preview --host",
     "build-cf": "VITE_HAS_CF=true vite build",
-    "serve-cf": "VITE_HAS_CF=true wrangler pages dev --kv SHORT_LINKS -- pnpm serve",
+    "serve-cf": "VITE_HAS_CF=true wrangler pages dev --kv SHORT_LINKS -- yarn serve",
     "build-gh": "vite build --base /discretize-gear-optimizer/",
-    "build-all": "concurrently -g -c auto \"pnpm:build-cf --outDir dist-cf\" \"pnpm:build-gh --outDir dist-gh\"",
+    "build-all": "concurrently -g -c auto \"yarn:build-cf --outDir dist-cf\" \"yarn:build-gh --outDir dist-gh\"",
     "prettier": "prettier --write .",
     "prettierCheck": "prettier --check .",
     "eslint": "eslint --ignore-path .gitignore --max-warnings 0 \"**/*.{js,jsx,ts,tsx}\"",
     "typeCheck": "tsc --noEmit",
     "lint-staged": "lint-staged",
-    "checkStaged": "concurrently -g -c auto pnpm:testData pnpm:validateDataTypes pnpm:lint-staged",
-    "checkAll": "concurrently -g -c auto pnpm:testData pnpm:validateDataTypes pnpm:eslint pnpm:prettierCheck pnpm:typeCheck",
+    "checkStaged": "concurrently -g -c auto yarn:testData yarn:validateDataTypes yarn:lint-staged",
+    "checkAll": "concurrently -g -c auto yarn:testData yarn:validateDataTypes yarn:eslint yarn:prettierCheck yarn:typeCheck",
     "updateMappings": "node updateMappings.js",
     "testData": "tsx ./src/assets/testData.js",
     "validateDataTypes": "typia generate --input ./src/assets/typevalidation/ --output ./src/assets/typevalidation/output && tsx ./src/assets/typevalidation/output",
@@ -44,9 +39,6 @@
     "wasmCheck": "cd wasm_module && cargo check --all-targets",
     "enable-hooks": "husky",
     "disable-hooks": "git config --unset core.hooksPath"
-  },
-  "resolutions": {
-    "axios@0.26.1": "^0.29.0"
   },
   "dependencies": {
     "@discretize/gw2-ui-new": "^3.1.0",

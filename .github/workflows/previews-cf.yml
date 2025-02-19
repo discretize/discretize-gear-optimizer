@@ -43,15 +43,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up PNPM
-        uses: pnpm/action-setup@v4
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
+          cache: yarn
       - name: Install dependencies
-        run: pnpm install
+        run: yarn install
 
       - name: Cache Rust Output
         id: rust-output-cache
@@ -60,7 +58,7 @@ jobs:
           path: |
             wasm_module/pkg
             wasm_module/target
-          key: rust-output-${{ env.NODE_VERSION }}-${{ hashFiles('wasm_module', '**/pnpm-lock.yaml') }}
+          key: rust-output-${{ env.NODE_VERSION }}-${{ hashFiles('wasm_module', '**/yarn.lock') }}
           restore-keys: rust-output-
       - name: Cache Rust Dependencies
         uses: Swatinem/rust-cache@v2
@@ -68,11 +66,11 @@ jobs:
           workspaces: wasm_module
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
       - name: Compile Rust
-        run: pnpm wasm
+        run: yarn wasm
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
 
       - name: Build Cloudflare
-        run: pnpm build-cf
+        run: yarn build-cf
 
       - name: Deploy preview to Cloudflare
         uses: cloudflare/wrangler-action@v3

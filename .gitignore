@@ -137,7 +137,6 @@ _backup/
 misc/
 .history
 tmp/
-.yarn
 .wrangler
 dist-*
 
