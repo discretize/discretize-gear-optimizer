@@ -1,6 +1,17 @@
 - section: Power Relics
   items:
 
+    - id: eagle-relic
+      text: Relic of the Eagle
+      amountData:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, mult]
+      gw2id: 104241
+
     - id: thief-relic
       text: Relic of the Thief
       amountData:
@@ -70,6 +81,18 @@
         damage:
           Outgoing Strike Damage: [10%, unknown]
       gw2id: 100924
+
+    - id: fire-relic
+      text: Relic of Fire
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, unknown]
+      gw2id: 104501
 
     - id: citadel-relic
       text: 'Relic of the Citadel: not yet implemented'
@@ -220,6 +243,18 @@
       gw2id: 100368
       temporaryBuff: true
 
+    - id: thorns-relic
+      text: Relic of Thorns
+      amountData:
+        label: 'stacks'
+        default: 10
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Condition Damage: [50, converted]
+      gw2id: 104424
+      temporaryBuff: true
+
     - id: fractal-relic
       text: Relic of the Fractal
       amountData:
@@ -344,6 +379,42 @@
         attributes:
           Poison Coefficient: 3
       gw2id: 101166
+      temporaryBuff: true
+
+- section: Summon Relics
+  items:
+
+    - id: golemancer-relic
+      text: Relic of the Golemancer
+      modifiers:
+        attributes:
+          Flat DPS: 750 # copied from wiki
+      gw2id: 100403
+      temporaryBuff: true
+
+    - id: privateer-relic
+      text: Relic of the Privateer
+      modifiers:
+        attributes:
+          Flat DPS: 625
+      gw2id: 100479
+      temporaryBuff: true
+
+    - id: ogre-relic
+      text: Relic of the Ogre
+      modifiers:
+        attributes:
+          Flat DPS: 500 # copied from wiki
+      gw2id: 100311
+      temporaryBuff: true
+
+    - id: lich-relic
+      text: Relic of the Lich
+      modifiers:
+        attributes:
+          Flat DPS: 86
+          Bleeding Coefficient: 1.33 # .266 * 5
+      gw2id: 100238
       temporaryBuff: true
 
 - section: Support Relics

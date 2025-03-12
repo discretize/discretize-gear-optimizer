@@ -229,6 +229,13 @@ export const relicsDict = [
   'mercy-relic',
   'claw-relic',
   'balrior-relic',
+  'eagle-relic',
+  'fire-relic',
+  'thorns-relic',
+  'golemancer-relic',
+  'privateer-relic',
+  'ogre-relic',
+  'lich-relic',
 ];
 
 export const sigilDict = [
