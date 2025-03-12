@@ -236,6 +236,10 @@ export const relicsDict = [
   'privateer-relic',
   'ogre-relic',
   'lich-relic',
+  'stormsinger-relic',
+  'blightbringer-relic',
+  'beehive-relic',
+  'steamshrieker-relic',
 ];
 
 export const sigilDict = [

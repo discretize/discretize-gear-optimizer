@@ -58,6 +58,17 @@
           Outgoing Strike Damage: [10%, unknown]
       gw2id: 100527
 
+    - id: balrior-relic
+      text: Relic of Mount Balrior
+      amountData:
+        label: '% uptime'
+        default: 20
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [15%, unknown]
+      gw2id: 103872
+
     - id: weaver-relic
       text: Relic of the Weaver
       amountData:
@@ -142,16 +153,23 @@
     #   modifiers: {}
     #   # gw2id intentionally omitted
 
-    - id: balrior-relic
-      text: Relic of Mount Balrior
+    # 1.1 * 690.5 = 759.55
+    # 0.36 * 690.5 = 248.58
+    - id: stormsinger-relic
+      text: Relic of the Stormsinger
       amountData:
-        label: '% uptime'
-        default: 20
-        quantityEntered: 100
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
       modifiers:
-        damage:
-          Outgoing Strike Damage: [15%, unknown]
-      gw2id: 103872
+        attributes:
+          Power Coefficient: 759.55
+      wvwModifiers:
+        attributes:
+          Power Coefficient: 248.58
+      gw2id: 102595
+      temporaryBuff: true
 
 - section: Hybrid Relics
   items:
@@ -290,6 +308,21 @@
       gw2id: 100432
       temporaryBuff: true
 
+    - id: blightbringer-relic
+      text: Relic of the Blightbringer
+      amountData:
+        label: '/10s'
+        default: 1
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Poison Coefficient: 30
+      wvwModifiers:
+        attributes:
+          Poison Coefficient: 14
+      gw2id: 102199
+      temporaryBuff: true
+
     - id: vass-relic
       text: Relic of Vass
       amountData:
@@ -304,6 +337,21 @@
         attributes:
           Poison Coefficient: 9
       gw2id: 100775
+      temporaryBuff: true
+
+    # 4 * 690.5 = 2762
+    - id: beehive-relic
+      text: Relic of the Beehive
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Power Coefficient: 2762
+          Poison Coefficient: 32
+      gw2id: 103977
       temporaryBuff: true
 
     - id: sunless-relic
@@ -379,6 +427,22 @@
         attributes:
           Poison Coefficient: 3
       gw2id: 101166
+      temporaryBuff: true
+
+    - id: steamshrieker-relic
+      text: Relic of the Steamshrieker
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Burning Coefficient: 10
+      wvwModifiers:
+        attributes:
+          Burning Coefficient: 4
+      gw2id: 104022
       temporaryBuff: true
 
 - section: Summon Relics
