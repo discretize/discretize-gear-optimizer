@@ -1533,7 +1533,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Condi Thief Spear
+      - name: Condi Thief Spear (Approx.)
         id: cthief-spear
         specialization: Thief
         boonType: Condi
@@ -1544,7 +1544,7 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Condi Thief A/D
+      - name: Condi Thief A/D (Approx.)
         id: cthief-axe
         specialization: Thief
         boonType: Condi
