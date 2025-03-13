@@ -1533,6 +1533,28 @@ list:
         weaponType: Two-handed
         outdated: true
 
+      - name: Condi Thief Spear
+        id: cthief-spear
+        specialization: Thief
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Thief Spear
+        traits: Condi Thief Spear
+        extras: Condi Thief Spear
+        weaponType: Two-handed
+        outdated: false
+
+      - name: Condi Thief A/D
+        id: cthief-axe
+        specialization: Thief
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Thief A/D
+        traits: Condi Thief A/D
+        extras: Condi Thief A/D
+        weaponType: Dual wield
+        outdated: false
+
       - name: Heal Alacrity Specter
         id: heal-specter
         specialization: Specter

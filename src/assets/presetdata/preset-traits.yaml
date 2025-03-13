@@ -6788,6 +6788,136 @@ list:
         "skills": {}
       }
 
+  - name: Condi Thief Spear
+    profession: Thief
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "44",
+          "20"
+        ],
+        "selectedTraits": [
+          [
+            1164,
+            1292,
+            1291
+          ],
+          [
+            1252,
+            1190,
+            1706
+          ],
+          [
+            1284,
+            1130,
+            1135
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": {},
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "preparedness": {},
+            "lead-attacks": {
+              "amount": "14.4"
+            },
+            "deadly-ambush": {}
+          },
+          {
+            "cloaked-in-shadow": {
+              "amount": "???"
+            },
+            "shadow-siphoning": {
+              "amount": "0.24"
+            },
+            "leeching-venoms": {
+              "amount": "1.56"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {}
+      }
+
+  - name: Condi Thief A/D
+    profession: Thief
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "44",
+          "20"
+        ],
+        "selectedTraits": [
+          [
+            1164,
+            1292,
+            1291
+          ],
+          [
+            0,
+            0,
+            1706
+          ],
+          [
+            0,
+            1130,
+            1135
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": {},
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "preparedness": {},
+            "lead-attacks": {
+              "amount": "13.7"
+            },
+            "deadly-ambush": {}
+          },
+          {
+            "cloaked-in-shadow": {
+              "amount": "???"
+            },
+            "shadow-siphoning": {
+              "amount": "0.22"
+            },
+            "leeching-venoms": {
+              "amount": "0.96"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {}
+      }
+
   - name: Power Staff Daredevil
     profession: Daredevil
     traits:
