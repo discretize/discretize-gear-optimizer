@@ -2374,6 +2374,91 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Condi Thief Spear
+    profession: Thief
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "earth": {
+              "amount": ""
+            }
+          },
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {},
+            "tormenting": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            },
+            "blightbringer-relic": {
+              "amount": ""
+            }
+          },
+          "Nourishment": {
+            "plate-of-kimchi-pancakes": {},
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {},
+            "master-tuning-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Condi Thief A/D
+    profession: Thief
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "earth": {
+              "amount": ""
+            }
+          },
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {},
+            "tormenting": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Nourishment": {
+            "plate-of-kimchi-pancakes": {},
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {},
+            "master-tuning-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Deadeye (Raid)
     profession: Deadeye
     value:

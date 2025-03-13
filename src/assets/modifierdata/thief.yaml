@@ -245,10 +245,12 @@
 
 - section: Shadow Arts
   id: 20
+  note: Leeching venoms siphons applied by allies use allies' power stats.
   items:
 
     - id: leeching-venoms
       text: Leeching Venoms
+      subText: applied by player
       amountData:
         label: 'proc/s'
         default: 0
