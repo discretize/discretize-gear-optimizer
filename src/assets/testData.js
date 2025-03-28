@@ -567,6 +567,12 @@ const testPresets = async () => {
         );
       }
       if (type === 'distribution') {
+        if (
+          ['Chronomancer', 'Mirage', 'Virtuoso', 'Mesmer'].includes(entry.profession) &&
+          !entry.value.values2.Power2
+        ) {
+          console.log(`note: ${entry.name} has 0 clone/phantasm damage! is this intentional?`);
+        }
         if (!entry.noCreditOkay) {
           if (entry.credit && Array.isArray(entry.credit)) {
             entry.credit.forEach((creditEntry) => {
