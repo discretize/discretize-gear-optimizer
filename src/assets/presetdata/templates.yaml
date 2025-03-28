@@ -515,24 +515,24 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Quickness Condi Berserker
+      - name: Quickness Condi Berserker Blademaster
         id: cbers
         specialization: Berserker
         boonType: Condi
         priority: Condi Quickness Berserker 44.7%
-        distribution: Condi Quickness Bers
-        traits: Condi Quickness Berserker
+        distribution: Condi Quickness Berserker Blademaster
+        traits: Condi Quickness Berserker Blademaster
         extras: Condi Quickness Bers
         weaponType: Two-handed
         outdated: true
 
-      - name: Condi Berserker
+      - name: Condi Berserker Blademaster
         id: cbers-dps
         specialization: Berserker
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Berserker
-        traits: Condi Berserker
+        distribution: Condi Berserker Blademaster
+        traits: Condi Berserker Blademaster
         extras: Condi Berserker
         weaponType: Two-handed
         outdated: true

@@ -72,7 +72,7 @@ list:
         log: https://dps.report/MloE-20240205-165918_golem
 
   # includes sigils
-  - name: Condi Quickness Bers
+  - name: Condi Quickness Berserker Blademaster
     profession: Berserker
     value:
       {
@@ -84,7 +84,7 @@ list:
         log: https://dps.report/tNb1-20231014-165434_golem
 
   # includes sigils
-  - name: Condi Berserker
+  - name: Condi Berserker Blademaster
     profession: Berserker
     value:
       {
