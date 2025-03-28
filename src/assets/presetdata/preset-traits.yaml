@@ -468,6 +468,78 @@ list:
         }
       }
 
+  - name: Power Mirage
+    profession: Mirage
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "59"
+        ],
+        "selectedTraits": [
+          [
+            682,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            2141,
+            2174,
+            2070
+          ]
+        ],
+        "items": [
+          {
+            "empowered-illusions": {},
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            }
+          },
+          {
+            "fencers-finesse": {
+              "amount": "7.2"
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "sharper-images-clone": {
+              "amount": "2.7"
+            },
+            "sharper-images-phantasm": {
+              "amount": "0.9"
+            },
+            "phantasmal-fury": {}
+          },
+          {
+            "nomads-endurance": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "fractured-glass": {
+            "amount": "53"
+          }
+        }
+      }
+
   - name: Boon Condi Chrono
     profession: Chronomancer
     traits:

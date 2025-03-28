@@ -932,6 +932,17 @@ list:
         url: https://www.youtube.com/watch?v=uzQnOVI7QBc
         log: https://dps.report/q02e-20231004-212315_golem
 
+  - name: Power Mirage
+    profession: Mirage
+    value:
+      {
+        "values2": { "Power": 3842, "Power2": 849, "Burning": 0, "Bleeding": 6, "Poisoned": 0, "Torment": 4.49, "Confusion": 3.58 }
+      }
+    credit:
+      - author: beng / L3m0n
+        url: https://www.youtube.com/watch?v=FxyrdWkW0dU
+        log: https://dps.report/IiDV-20250305-162949_golem
+
   # rit: shoulders coat gloves leggings, domi midnight, mischief, rendang icicle
   - name: Boon Condi Chrono
     profession: Chronomancer

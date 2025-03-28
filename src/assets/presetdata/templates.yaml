@@ -204,6 +204,20 @@ list:
         weaponType: Dual wield
         outdated: true
 
+      - name: Power Mirage
+        id: mirage-power
+        specialization: Mirage
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Mirage
+        traits: Power Mirage
+        fractal:
+          extras: Power Mirage (Fractal)
+        raid:
+          extras: Power Mirage (Raid)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Heal Boon Chrono
         id: heal-boon-chrono
         specialization: Chronomancer
