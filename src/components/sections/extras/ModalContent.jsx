@@ -205,7 +205,16 @@ function ModalContent(props) {
               </FormLabel>
               <FormGroup>
                 {options.map(
-                  ({ id, gw2id, displayIds, subText, textOverride, modifiers, amountData }) => (
+                  ({
+                    id,
+                    gw2id,
+                    displayIds,
+                    subText,
+                    textOverride,
+                    modifiers,
+                    amountData,
+                    hasLifesteal,
+                  }) => (
                     <Fragment key={id}>
                       <Box
                         sx={{
@@ -349,6 +358,7 @@ function ModalContent(props) {
                                     .map(([key]) => `Conversion to ${key}`)
                                     .join(', ')}`
                                 : '',
+                              hasLifesteal ? 'Life Stealing' : '',
                             ]
                               .filter(Boolean)
                               .join(', ') + (amountData ? ` ${t('(varies)')}` : '')
