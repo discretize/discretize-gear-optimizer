@@ -509,8 +509,8 @@
       temporaryBuff: false
 
     - id: dragon's-revelry-starcake
-      text: Oyster Soup
-      textOverride: Oyster Soup
+      text: Flight of Sushi
+      subText: / generic oyster soup
       modifiers:
         attributes:
           Power: [45, converted]
@@ -522,7 +522,7 @@
           Expertise: [45, converted]
           Ferocity: [45, converted]
           Healing Power: [45, converted]
-      gw2id: 92471
+      gw2id: 97200
       temporaryBuff: false
 
     - id: dragons-revelry-starcake-bugged
