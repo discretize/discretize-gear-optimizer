@@ -6245,6 +6245,79 @@ list:
         "skills": {}
       }
 
+  - name: Power Engineer
+    profession: Engineer
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "38",
+          "6",
+          "21"
+        ],
+        "selectedTraits": [
+          [
+            1914,
+            1923,
+            526
+          ],
+          [
+            1882,
+            482,
+            1947
+          ],
+          [
+            532,
+            1832,
+            1679
+          ]
+        ],
+        "items": [
+          {
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "thermal-vision-buff": {},
+            "no-scope": {
+              "amount": ""
+            },
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "4"
+            }
+          },
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {
+            "takedown-round": {
+              "amount": "100"
+            },
+            "excessive-energy": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {}
+      }
   - name: Heal Mechanist
     profession: Mechanist
     traits:

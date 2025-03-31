@@ -1250,6 +1250,20 @@ list:
         weaponType: Dual wield
         outdated: false
 
+      - name: Power Engineer (Approx.)
+        id: engy-core
+        specialization: Engineer
+        boonType: Power
+        priority: Power DPS
+        distribution: 100% Power
+        traits: Power Engineer
+        fractal:
+          extras: Power (Fractal, fireworks)
+        raid:
+          extras: Power (Raid, fireworks)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Heal Alacrity Mech
         id: healmech
         specialization: Mechanist
