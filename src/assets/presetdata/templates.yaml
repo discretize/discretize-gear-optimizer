@@ -551,8 +551,19 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Condi Berserker Blademaster
+      - name: Condi Berserker UF
         id: cbers-dps
+        specialization: Berserker
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Berserker UF
+        traits: Condi Berserker UF
+        extras: Condi Berserker
+        weaponType: Two-handed
+        outdated: false
+
+      - name: Condi Berserker Blademaster
+        id: cbers-dps-bl
         specialization: Berserker
         boonType: Condi
         priority: Condi DPS

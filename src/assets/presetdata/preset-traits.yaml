@@ -2305,6 +2305,87 @@ list:
         "skills": {}
       }
 
+  - name: Condi Berserker UF
+    profession: Berserker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "36",
+          "51",
+          "18"
+        ],
+        "selectedTraits": [
+          [
+            1455,
+            1315,
+            1346
+          ],
+          [
+            1413,
+            1709,
+            1369
+          ],
+          [
+            2039,
+            2011,
+            2038
+          ]
+        ],
+        "items": [
+          {
+            "furious-burst": {},
+            "wounding-precision": {},
+            "signet-mastery": {
+              "amount": ""
+            },
+            "deep-strikes-fury": {
+              "amount": ""
+            },
+            "deep-strikes-bleeding": {},
+            "unsuspecting-foe-full": {},
+            "burst-precision": {
+              "amount": ""
+            },
+            "blade-master": {},
+            "blade-master-2": {
+              "amount": ""
+            },
+            "bloodlust": {},
+            "furious": {
+              "amount": "24"
+            },
+            "bloodlust-on-crit": {
+              "amount": "3"
+            }
+          },
+          {
+            "warriors-sprint": {
+              "amount": ""
+            },
+            "axe-mastery-one": {}
+          },
+          {
+            "blood-reaction-base": {},
+            "blood-reaction-with": {
+              "amount": "98"
+            },
+            "fatal-frenzy-power-condi": {
+              "amount": "98"
+            },
+            "fatal-frenzy-toughness": {},
+            "bloody-roar": {
+              "amount": ""
+            },
+            "king-of-fires": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {}
+      }
+
   - name: Condi Berserker Blademaster
     profession: Berserker
     traits:

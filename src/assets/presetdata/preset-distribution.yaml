@@ -84,6 +84,18 @@ list:
         log: https://dps.report/tNb1-20231014-165434_golem
 
   # includes sigils
+  - name: Condi Berserker UF
+    profession: Berserker
+    value:
+      {
+        "values2": { "Power": 2274, "Power2": 0, "Burning": 10.93, "Bleeding": 12.95, "Poisoned": 2.12, "Torment": 1.78, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Costa Primo'
+        url: https://www.youtube.com/watch?v=wMtYIqSivxY
+        log: https://dps.report/xPFw-20250217-171746_golem
+
+  # includes sigils
   - name: Condi Berserker Blademaster
     profession: Berserker
     value:
