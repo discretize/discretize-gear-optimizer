@@ -939,6 +939,7 @@
   "traitNote_Damage dealt by the mechanist mech is not currently simulated accurately. It inherits some, but not all, player stats and bonuses.": "Damage dealt by the mechanist mech is not currently simulated accurately. It inherits some, but not all, player stats and bonuses.",
   "traitNote_Farsighted currently breaks air and hydromancy sigil simulation, and possibly some other effects.": "Farsighted currently breaks air and hydromancy sigil simulation, and possibly some other effects.",
   "traitNote_Leeching venoms siphons applied by allies use allies' power stats.": "Leeching venoms siphons applied by allies use allies' power stats.",
+  "traitNote_Non-100% Chaotic Potency with-staff values combined with Toxic Maintenance Oil/Enhanced Lucent Oil result in inconsistent boon duration between weapon sets, which will be averaged.": "Non-100% Chaotic Potency with-staff values combined with Toxic Maintenance Oil/Enhanced Lucent Oil result in inconsistent boon duration between weapon sets, which will be averaged.",
   "traitNote_Non-constant critical chance is not currently simulated. Using dragon gear to take advantage of >100% critical chance with full berserker may be a DPS loss in reality.": "Non-constant critical chance is not currently simulated. Using dragon gear to take advantage of >100% critical chance with full berserker may be a DPS loss in reality.",
   "traitNote_Pet damage is not currently simulated.": "Pet damage is not currently simulated.",
   "traitSubText": "",

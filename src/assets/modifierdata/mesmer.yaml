@@ -196,6 +196,7 @@
 
 - section: Chaos
   id: 45
+  note: Non-100% Chaotic Potency with-staff values combined with Toxic Maintenance Oil/Enhanced Lucent Oil result in inconsistent boon duration between weapon sets, which will be averaged.
   items:
 
     - id: illusionary-membrane
@@ -224,14 +225,14 @@
       defaultEnabled: true
       temporaryBuff: false
 
-    # no configurable amount; causes scaled boon duration with toxic oil
+    # causes scaled boon duration with toxic oil
     - id: chaotic-potency-2
       text: Chaotic Potency
       subText: with staff
-      # amountData:
-      #   label: '% uptime'
-      #   default: 100
-      #   quantityEntered: 100
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Condition Damage: [120, converted] # tested by marcus
