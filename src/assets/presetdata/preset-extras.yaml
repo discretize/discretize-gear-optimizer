@@ -665,6 +665,44 @@ list:
         }
       }
 
+  - name: Condi Chrono (Approx.)
+    profession: Chronomancer
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {},
+            "leadership": {}
+          },
+          "Relics": {
+            "no-item-relic": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {},
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {},
+            "salsa-topped-veggie-flatbread": {},
+            "meaty-asparagus-skewer": {},
+            "meaty-rice-bowl": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Chrono DPS
     profession: Chronomancer
     value:

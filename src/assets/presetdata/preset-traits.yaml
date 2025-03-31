@@ -540,6 +540,68 @@ list:
         }
       }
 
+  - name: Condi Chrono
+    profession: Chronomancer
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "45",
+          "24",
+          "40"
+        ],
+        "selectedTraits": [
+          [
+            670,
+            669,
+            1687
+          ],
+          [
+            691,
+            1690,
+            753
+          ],
+          [
+            1995,
+            1978,
+            1890
+          ]
+        ],
+        "items": [
+          {
+            "illusionary-membrane": {
+              "amount": "82"
+            },
+            "chaotic-potency": {},
+            "chaotic-persistence": {},
+            "chaotic-potency-2": {
+              "amount": "50"
+            }
+          },
+          {
+            "compounding-power": {
+              "amount": ""
+            },
+            "Phantasmal Force": {
+              "amount": ""
+            },
+            "malicious-sorcery": {}
+          },
+          {
+            "danger-time": {},
+            "improved-alacrity": {},
+            "chronophantasma": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
+        }
+      }
+
   - name: Boon Condi Chrono Scepter
     profession: Chronomancer
     traits:

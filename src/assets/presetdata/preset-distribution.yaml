@@ -965,6 +965,17 @@ list:
         url: https://www.youtube.com/watch?v=FxyrdWkW0dU
         log: https://dps.report/IiDV-20250305-162949_golem
 
+  - name: Condi Chrono (Approx.)
+    profession: Chronomancer
+    value:
+      {
+        "values2": { "Power": 1712, "Power2": 478, "Burning": 2.26, "Bleeding": 1.25, "Poisoned": 1.29, "Torment": 28.41, "Confusion": 16.22 }
+      }
+    credit:
+      - author: 'Ryan'
+        url: https://www.youtube.com/watch?v=eYWEYECuU30
+        log: https://dps.report/ErKq-20240818-033730_golem
+
   # rit: shoulders coat gloves leggings, domi midnight, mischief, rendang icicle
   - name: Boon Condi Chrono Scepter
     profession: Chronomancer

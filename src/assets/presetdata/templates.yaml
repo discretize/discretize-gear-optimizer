@@ -103,6 +103,17 @@ list:
         weaponType: Dual wield
         outdated: true
 
+      - name: Condi Chrono (Approx.)
+        id: condi-chrono
+        specialization: Chronomancer
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Chrono (Approx.)
+        traits: Condi Chrono
+        extras: Condi Chrono (Approx.)
+        weaponType: Two-handed
+        outdated: false
+
       # - name: Alacrity Power Chrono GS
       #   id: pchrono-alac-gs
       #   specialization: Chronomancer
