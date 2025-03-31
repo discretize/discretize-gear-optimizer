@@ -791,22 +791,22 @@ list:
         specialization: Catalyst
         boonType: Power
         priority: Power Quickness Catalyst 8.3%
-        distribution: Power Catalyst
-        traits: Power Quickness Catalyst
+        distribution: Power Catalyst Hammer
+        traits: Power Quickness Catalyst Hammer
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power Quickness Catalyst (Raid)
+          extras: Power Quickness Catalyst Hammer (Raid)
         weaponType: Two-handed
         outdated: true
 
-      - name: Power Catalyst
+      - name: Power Catalyst Hammer
         id: power-cat
         specialization: Catalyst
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Catalyst
-        traits: Power Catalyst
+        distribution: Power Catalyst Hammer
+        traits: Power Catalyst Hammer
         fractal:
           extras: Power (Fractal)
         raid:

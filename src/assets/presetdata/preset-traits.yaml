@@ -3982,7 +3982,7 @@ list:
         }
       }
 
-  - name: Power Catalyst
+  - name: Power Catalyst Hammer
     profession: Catalyst
     traits:
       {
@@ -4072,7 +4072,7 @@ list:
         }
       }
 
-  - name: Power Quickness Catalyst
+  - name: Power Quickness Catalyst Hammer
     profession: Catalyst
     traits:
       {

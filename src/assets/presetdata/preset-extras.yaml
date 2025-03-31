@@ -1545,7 +1545,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Power Quickness Catalyst (Raid)
+  - name: Power Quickness Catalyst Hammer (Raid)
     profession: Catalyst
     value:
       {

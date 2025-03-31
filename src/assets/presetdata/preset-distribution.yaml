@@ -514,7 +514,7 @@ list:
         url: https://www.youtube.com/watch?v=ZhhoRrW22Ks
         log: https://dps.report/L6zb-20250313-171138_golem
 
-  - name: Power Catalyst
+  - name: Power Catalyst Hammer
     profession: Catalyst
     value:
       {
@@ -525,7 +525,7 @@ list:
         url: https://www.youtube.com/watch?v=a405zazuMZw
         log: https://dps.report/9pYO-20221213-215347_golem
 
-  - name: Power Quickness Catalyst
+  - name: Power Quickness Catalyst Hammer
     profession: Catalyst
     value:
       {
