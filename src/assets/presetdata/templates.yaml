@@ -786,7 +786,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Quickness Power Catalyst
+      - name: Quickness Power Catalyst Hammer
         id: power-cat-quick
         specialization: Catalyst
         boonType: Power
