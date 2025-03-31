@@ -966,7 +966,7 @@ list:
         log: https://dps.report/IiDV-20250305-162949_golem
 
   # rit: shoulders coat gloves leggings, domi midnight, mischief, rendang icicle
-  - name: Boon Condi Chrono
+  - name: Boon Condi Chrono Scepter
     profession: Chronomancer
     value:
       {

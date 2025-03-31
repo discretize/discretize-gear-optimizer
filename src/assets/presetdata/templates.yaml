@@ -92,14 +92,14 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Boon Condi Chrono
+      - name: Boon Condi Chrono Scepter
         id: condi-chrono-stm
         specialization: Chronomancer
         boonType: Condi
-        priority: Boon Condi Chrono 10%
-        distribution: Boon Condi Chrono
-        traits: Boon Condi Chrono
-        extras: Boon Condi Chrono
+        priority: Boon Condi Chrono Scepter 10%
+        distribution: Boon Condi Chrono Scepter
+        traits: Boon Condi Chrono Scepter
+        extras: Boon Condi Chrono Scepter
         weaponType: Dual wield
         outdated: true
 

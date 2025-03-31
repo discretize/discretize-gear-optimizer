@@ -636,7 +636,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Boon Condi Chrono
+  - name: Boon Condi Chrono Scepter
     profession: Chronomancer
     value:
       {

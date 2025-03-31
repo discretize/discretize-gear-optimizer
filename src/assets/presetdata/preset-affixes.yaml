@@ -205,7 +205,7 @@ list:
         "minQuicknessDuration": "78"
       }
 
-  - name: Boon Condi Chrono 10%
+  - name: Boon Condi Chrono Scepter 10%
     hidden: true
     value:
       {
