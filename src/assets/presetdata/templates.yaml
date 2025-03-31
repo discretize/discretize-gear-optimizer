@@ -512,6 +512,20 @@ list:
   - class: Warrior
     builds:
 
+      - name: Alacrity Power Bladesworn Signets (Approx.)
+        id: bls-alac-signets
+        specialization: Bladesworn
+        boonType: Power
+        priority: Power DPS
+        distribution: 100% Power
+        traits: Alacrity Bladesworn Signets
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Bladesworn
+        weaponType: Dual wield
+        outdated: false
+
       - name: Alacrity Power Bladesworn
         id: bls-alac
         specialization: Bladesworn
