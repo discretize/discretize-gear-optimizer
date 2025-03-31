@@ -721,7 +721,7 @@ list:
         distribution: Power Weaver (BTTH, small)
         fractal:
           traits: Power Weaver Stormsoul Fractal
-          extras: Power (Fractal)
+          extras: Power (Fractal, fireworks)
         raid:
           traits: Power Weaver Raid
           extras: Power (Raid, fireworks)
@@ -889,7 +889,7 @@ list:
         distribution: Power Soulbeast
         traits: Power Soulbeast
         fractal:
-          extras: Power (Fractal)
+          extras: Power (Fractal, fireworks)
         raid:
           extras: Power (Raid, fireworks)
         weaponType: Two-handed
@@ -1091,7 +1091,7 @@ list:
         distribution: Power Scrapper
         traits: Quickness Power Scrapper
         fractal:
-          extras: Power (Fractal)
+          extras: Power (Fractal, fireworks)
         raid:
           extras: Power (Raid, fireworks)
         weaponType: Two-handed
@@ -1116,7 +1116,7 @@ list:
         distribution: Power Scrapper
         traits: Power Scrapper
         fractal:
-          extras: Power (Fractal)
+          extras: Power (Fractal, fireworks)
         raid:
           extras: Power (Raid, fireworks)
         weaponType: Two-handed
@@ -1286,7 +1286,7 @@ list:
         distribution: Quickness Power Harbinger
         traits: Quickness Power Harbinger
         fractal:
-          extras: Power (Fractal)
+          extras: Power (Fractal, fireworks)
         raid:
           extras: Power (Raid, fireworks)
         weaponType: Two-handed
@@ -1311,7 +1311,7 @@ list:
         distribution: Power Harbinger
         traits: Power Harbinger
         fractal:
-          extras: Power (Fractal)
+          extras: Power (Fractal, fireworks)
         raid:
           extras: Power (Raid, fireworks)
         weaponType: Two-handed
@@ -1347,7 +1347,7 @@ list:
         distribution: Power Reaper
         traits: Power Reaper
         fractal:
-          extras: Power (Fractal)
+          extras: Power (Fractal, fireworks)
         raid:
           extras: Power (Raid, fireworks)
         weaponType: Two-handed
