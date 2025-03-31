@@ -4943,7 +4943,7 @@ list:
         "skills": {}
       }
 
-  - name: Condi Alac Ren Invo
+  - name: Alacrity Condi Ren SB Invo
     profession: Renegade
     traits:
       {
@@ -5005,7 +5005,7 @@ list:
         "skills": {}
       }
 
-  - name: Condi DPS Ren Invo
+  - name: Condi Renegade SB Invocation
     profession: Renegade
     traits:
       {

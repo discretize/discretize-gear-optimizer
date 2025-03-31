@@ -547,7 +547,7 @@ list:
         url: https://www.youtube.com/watch?v=s1OXN6HRLTo
         log: https://dps.report/8LBy-20230515-192958_golem
 
-  - name: Alacrity Condi Renegade
+  - name: Alacrity Condi Renegade SB
     profession: Renegade
     value:
       {
@@ -571,7 +571,7 @@ list:
 
   # add razorclaw casts every 20sec to simulate allies
   # 4 players * 10 pulses * 2 seconds / 20 sec = 4.00 avg bleed
-  - name: Condi Renegade Devastation
+  - name: Condi Renegade SB Devastation
     profession: Renegade
     value:
       {
@@ -583,7 +583,7 @@ list:
         log: https://dps.report/kByf-20220314-131547_golem
 
   # AP, full viper, asparagus food
-  - name: Condi Renegade Devastation (no allies)
+  - name: Condi Renegade SB Devastation (no allies)
     profession: Renegade
     value:
       {
@@ -596,7 +596,7 @@ list:
 
   # add razorclaw casts every 20sec to simulate allies
   # 4 players * 10 pulses * 2 seconds / 20 sec = 4.00 avg bleed
-  - name: Condi Renegade Invocation
+  - name: Condi Renegade SB Invocation
     profession: Renegade
     value:
       {
@@ -607,7 +607,7 @@ list:
         url: https://www.youtube.com/watch?v=9wOyiE2Bvts
         log: https://dps.report/EeYd-20221008-182313_golem
 
-  - name: Condi Renegade Invocation (no allies)
+  - name: Condi Renegade SB Invocation (no allies)
     profession: Renegade
     value:
       {
