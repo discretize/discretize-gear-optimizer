@@ -3739,6 +3739,173 @@ list:
         }
       }
 
+  - name: Alacrity Power Tempest Sword Fire
+    profession: Tempest
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "48"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1510
+          ],
+          [
+            232,
+            1502,
+            1503
+          ],
+          [
+            1886,
+            1891,
+            2033
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "16"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "16"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            }
+          },
+          {
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "77"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": "47"
+            },
+            "zephyrs-speed": {}
+          },
+          {
+            "gathered-focus": {},
+            "hardy-conduit": {},
+            "transcendent-tempest": {
+              "amount": "98"
+            },
+            "tempestuous-aria": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {}
+        }
+      }
+
+  - name: Alacrity Power Tempest Hammer Fire
+    profession: Tempest
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "48"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1510
+          ],
+          [
+            232,
+            1502,
+            1503
+          ],
+          [
+            1886,
+            1891,
+            2033
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "7.7"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "7.7"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            }
+          },
+          {
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "84"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": "51"
+            },
+            "zephyrs-speed": {}
+          },
+          {
+            "gathered-focus": {},
+            "hardy-conduit": {},
+            "transcendent-tempest": {
+              "amount": "98"
+            },
+            "tempestuous-aria": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "flame-wheel": {
+            "amount": "87"
+          },
+          "crescent-wind": {}
+        }
+      }
+
   - name: Alacrity Power Tempest Arcane
     profession: Tempest
     traits:

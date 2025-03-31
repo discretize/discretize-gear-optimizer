@@ -335,6 +335,26 @@ list:
         "minQuicknessDuration": "0"
       }
 
+  - name: Alacrity Power Tempest 34%
+    hidden: true
+    value:
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": "34.4",
+        "minQuicknessDuration": "0"
+      }
+
+  - name: Alacrity Power Tempest 31%
+    hidden: true
+    value:
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": "31.7",
+        "minQuicknessDuration": "0"
+      }
+
   - name: Alacrity Power Tempest 28%
     hidden: true
     value:

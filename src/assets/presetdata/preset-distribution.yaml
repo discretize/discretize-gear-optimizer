@@ -492,6 +492,28 @@ list:
         url: https://www.youtube.com/watch?v=I5H5GZm-56E
         log: https://dps.report/qZCK-20240717-155857_golem
 
+  - name: Alacrity Power Tempest Sword
+    profession: Tempest
+    value:
+      {
+        "values2": { "Power": 4294, "Power2": 0, "Burning": 3.73, "Bleeding": 3.45, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Black'
+        url: https://www.youtube.com/watch?v=oa6wuN7jqec
+        log: https://dps.report/G5ap-20250211-205455_golem
+
+  - name: Alacrity Power Tempest Hammer
+    profession: Tempest
+    value:
+      {
+        "values2": { "Power": 3792, "Power2": 0, "Burning": 3.6, "Bleeding": 4.29, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Black'
+        url: https://www.youtube.com/watch?v=ZhhoRrW22Ks
+        log: https://dps.report/L6zb-20250313-171138_golem
+
   - name: Power Catalyst
     profession: Catalyst
     value:

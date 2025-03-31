@@ -635,6 +635,34 @@ list:
         weaponType: Dual wield
         outdated: true
 
+      - name: Alacrity Power Tempest Sword
+        id: ptemp-alac-sw
+        specialization: Tempest
+        boonType: Power
+        priority: Alacrity Power Tempest 34%
+        distribution: Alacrity Power Tempest Sword
+        traits: Alacrity Power Tempest Sword Fire
+        fractal:
+          extras: Power Boon (Fractal, fireworks)
+        raid:
+          extras: Power Boon (Raid, fireworks)
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Alacrity Power Tempest Hammer
+        id: ptemp-alac-ham
+        specialization: Tempest
+        boonType: Power
+        priority: Alacrity Power Tempest 31%
+        distribution: Alacrity Power Tempest Hammer
+        traits: Alacrity Power Tempest Hammer Fire
+        fractal:
+          extras: Power Boon (Fractal, fireworks)
+        raid:
+          extras: Power Boon (Raid, fireworks)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Alacrity Power Tempest Scepter
         id: ptemp-alac
         specialization: Tempest
