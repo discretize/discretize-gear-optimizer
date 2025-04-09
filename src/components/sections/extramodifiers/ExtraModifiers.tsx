@@ -3,7 +3,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Grid2 as Grid,
+  Grid,
   TextField,
   Typography,
 } from '@mui/material';
