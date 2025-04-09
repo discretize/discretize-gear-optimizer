@@ -1,15 +1,7 @@
 import { Attribute, Item } from '@discretize/gw2-ui-new';
 import { HelperIcon } from '@discretize/react-discretize-components';
 import AddIcon from '@mui/icons-material/Add';
-import {
-  Button,
-  FormControl,
-  Grid2 as Grid,
-  Input,
-  InputLabel,
-  MenuItem,
-  Select,
-} from '@mui/material';
+import { Button, FormControl, Grid, Input, InputLabel, MenuItem, Select } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';

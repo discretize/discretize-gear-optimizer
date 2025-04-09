@@ -5,7 +5,7 @@ import {
   AccordionDetails,
   AccordionSummary,
   Divider,
-  Grid2 as Grid,
+  Grid,
   Typography,
 } from '@mui/material';
 import React from 'react';
