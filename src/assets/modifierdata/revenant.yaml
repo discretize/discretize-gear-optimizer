@@ -634,6 +634,9 @@
         quantityEntered: 1
       modifiers:
         damage:
+          Outgoing All Damage: [3%, add]
+      wvwModifiers:
+        damage:
           Outgoing All Damage: [1%, add]
       gw2id: 2100
       defaultEnabled: true

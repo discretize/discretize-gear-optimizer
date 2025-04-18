@@ -650,6 +650,9 @@
         quantityEntered: 100
       modifiers:
         attributes:
+          Power: [200, buff]
+      wvwModifiers:
+        attributes:
           Power: [120, buff]
       gw2id: 2081
       defaultEnabled: true
@@ -663,6 +666,9 @@
         default: 50
         quantityEntered: 100
       modifiers:
+        attributes:
+          Ferocity: [200, buff]
+      wvwModifiers:
         attributes:
           Ferocity: [120, buff]
       gw2id: 2081

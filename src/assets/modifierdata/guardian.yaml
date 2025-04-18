@@ -620,7 +620,7 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [3%, add] # as per Cat
-          Outgoing Condition Damage: [3%, add] # ???
+          Outgoing Condition Damage: [2%, add] # ???
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [2%, add] # as per Cat

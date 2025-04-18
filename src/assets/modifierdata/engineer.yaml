@@ -20,7 +20,10 @@
       text: Force Signet
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, add] # tested by Crone
+          Outgoing Strike Damage: [15%, add] # tested by Crone
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add]
       gw2id: 63253
 
     - id: force-signet-traited
@@ -28,7 +31,10 @@
       subText: traited
       modifiers:
         damage:
-          Outgoing Strike Damage: [12%, add] # tested by Crone
+          Outgoing Strike Damage: [18%, add] # tested by Crone
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [12%, add]
       gw2id: 63253
 
     - id: superconducting-signet
