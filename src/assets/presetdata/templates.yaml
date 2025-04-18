@@ -268,14 +268,14 @@ list:
       #   weaponType: Dual wield
       #   outdated: true
 
-      - name: Quickess Condi Firebrand P/T P/P
+      - name: Quickness Condi Firebrand P/T P/P (Approx.)
         id: cqfb-firebrand-40
         specialization: Firebrand
         boonType: Condi
         priority: Condi Quickbrand 40%
-        distribution: Quickess Condi Firebrand P/T P/P
-        traits: Quickess Condi Firebrand P/T P/P
-        extras: Quickess Condi Firebrand
+        distribution: Quickness Condi Firebrand P/T P/P
+        traits: Quickness Condi Firebrand P/T P/P
+        extras: Quickness Condi Firebrand
         weaponType: Dual wield
         outdated: false
 
@@ -322,7 +322,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Firebrand A/T
+      - name: Condi Firebrand A/T (Approx.)
         id: cfb-axe-only
         specialization: Firebrand
         boonType: Condi
@@ -386,7 +386,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Willbender P/T P/P
+      - name: Condi Willbender P/T P/P (Approx.)
         id: cwb-pistol
         specialization: Willbender
         boonType: Condi
@@ -1076,7 +1076,7 @@ list:
         raid:
           extras: DPS Vindicator (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Heal Alacrity Renegade
         id: healren
@@ -1462,7 +1462,7 @@ list:
         traits: Condi Specter Spear
         extras: Condi Specter Spear
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Condi Specter SC/D
         id: specter
@@ -1556,7 +1556,7 @@ list:
         raid:
           extras: Power Deadeye (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Condi Deadeye A/D
         id: cded
@@ -1595,7 +1595,7 @@ list:
         raid:
           extras: Power Deadeye (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       # - name: Power Deadeye Daggers BQoBK
       #   id: pded-daggers-bqobk
@@ -1625,7 +1625,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Condi Thief Spear (Approx.)
+      - name: Condi Thief Spear
         id: cthief-spear
         specialization: Thief
         boonType: Condi
@@ -1634,7 +1634,7 @@ list:
         traits: Condi Thief Spear
         extras: Condi Thief Spear
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Condi Thief A/D (Approx.)
         id: cthief-axe

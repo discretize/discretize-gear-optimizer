@@ -1320,7 +1320,7 @@ list:
         }
       }
 
-  - name: Quickess Condi Firebrand P/T P/P
+  - name: Quickness Condi Firebrand P/T P/P
     profession: Firebrand
     traits:
       {
@@ -4471,7 +4471,7 @@ list:
           },
           {
             "oakheart-salve": {},
-            "taste-for-danger": {},
+            "arachnophobia": {},
             "ambidexterity": {},
             "ambidexterity-2": {
               "amount": "100"
@@ -4737,7 +4737,7 @@ list:
           },
           {
             "oakheart-salve": {},
-            "taste-for-danger": {},
+            "arachnophobia": {},
             "ambidexterity": {},
             "ambidexterity-2": {
               "amount": "50"
@@ -4946,7 +4946,7 @@ list:
           },
           {
             "oakheart-salve": {},
-            "taste-for-danger": {},
+            "arachnophobia": {},
             "ambidexterity": {},
             "ambidexterity-2": {
               "amount": "100"

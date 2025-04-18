@@ -269,6 +269,9 @@
         quantityEntered: 1
       modifiers:
         attributes:
+          Condition Damage: [30, converted]
+      wvwModifiers:
+        attributes:
           Condition Damage: [50, converted]
       gw2id: 104424
       temporaryBuff: true

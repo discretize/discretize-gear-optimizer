@@ -301,20 +301,12 @@
       gw2id: 1086
       defaultEnabled: true
 
-    - id: taste-for-danger
-      text: Taste for Danger
+    - id: arachnophobia
+      text: Arachnophobia
+      subText: not including pet
       modifiers:
         attributes:
-          Vitality: [120, buff]
-          Expertise: [8, buff] # conversion of own 120 vitality
-        conversion:
-          Expertise: {Vitality: 7%}
-      wvwModifiers:
-        attributes:
-          Vitality: [120, buff]
-          Expertise: [5, buff] # conversion of own 120 vitality
-        conversion:
-          Expertise: {Vitality: 4%}
+          Expertise: [150, buff] # confirmed
       gw2id: 1099
       defaultEnabled: true
       temporaryBuff: false

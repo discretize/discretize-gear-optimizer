@@ -336,7 +336,7 @@
       text: Chronophantasma
       modifiers:
         damage:
-          Outgoing Phantasm Damage: [100%, mult]
+          Outgoing Phantasm Damage: [115%, mult]
       wvwModifiers:
         damage:
           Outgoing Phantasm Damage: [50%, mult]
