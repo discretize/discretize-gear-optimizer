@@ -131,6 +131,8 @@ export const importStateCharacter =
         });
       });
 
+      console.log('importing character data', result);
+
       dispatch(changeBuildPage(result));
     } catch (e) {
       console.log('Problem restoring template!');

@@ -54,8 +54,10 @@ export default function ResultCharacter({
   const sigil1Id = allExtrasModifiersById[sigil1]?.gw2id;
   const sigil2Id = allExtrasModifiersById[sigil2]?.gw2id;
   const rune = runeStringId ? allExtrasModifiersById[runeStringId] : undefined;
-  const isExotic = (index) =>
-    cachedFormState?.priorities?.exotics?.data?.[character.gear[index]]?.[index];
+  const isExotic = (index) => {
+    const affix = character.gear[index] ?? character.gear[index - 1]; // handle build page offhands in two-handed mode
+    return cachedFormState?.priorities?.exotics?.data?.[affix]?.[index];
+  };
   const getRarity = (index) => (isExotic(index) ? 'Exotic' : 'Ascended');
   // Calculate the props for the weapons component
   let wea1;
@@ -70,8 +72,8 @@ export default function ResultCharacter({
       weapon2OffId: weapons.offhand2,
       weapon1MainAffix: character.gear[12],
       weapon2MainAffix: character.gear[12],
-      weapon1OffAffix: character.gear[13],
-      weapon2OffAffix: character.gear[13],
+      weapon1OffAffix: character.gear[13] ?? character.gear[12], // handle build page offhands in two-handed mode
+      weapon2OffAffix: character.gear[13] ?? character.gear[12], // handle build page offhands in two-handed mode
       weapon1MainRarity: getRarity(12),
       weapon1OffRarity: getRarity(12),
       weapon2MainRarity: getRarity(13),
@@ -113,7 +115,7 @@ export default function ResultCharacter({
       weapon1MainSigil1Id: sigil1Id,
       weapon1OffId: isExotic(13) ? null : wea2.gw2id,
       weapon1OffType: wea2.name,
-      weapon1OffAffix: character.gear[13],
+      weapon1OffAffix: character.gear[13] ?? character.gear[12], // handle build page offhands in two-handed mode
       weapon1OffRarity: getRarity(13),
       weapon1OffInfusionId: isExotic(13) ? null : infusions[17],
       weapon1OffSigilId: sigil2Id,
