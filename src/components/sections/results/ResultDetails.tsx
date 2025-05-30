@@ -29,7 +29,6 @@ const ResultDetails = () => {
   const { t } = useTranslation();
 
   const character = useSelector(getSelectedCharacter);
-  const gameMode = useSelector(getGameMode);
 
   if (!character) {
     return null;
@@ -38,8 +37,8 @@ const ResultDetails = () => {
   const buffsRaw = buffModifiers
     .flatMap((buff) => buff.items)
     .filter((buff) => character.settings.cachedFormState.buffs.buffs[buff.id]);
-  // gamemode is technically not correct since the gamemode is not tied to a character at the moment.
-  const assumedBuffs = createAssumedBuffs({ buffsRaw, character, gameMode });
+
+  const assumedBuffs = createAssumedBuffs({ buffsRaw, character });
 
   const bonuses: Record<string, string> = {};
   objectEntries({

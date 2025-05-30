@@ -9,11 +9,9 @@ type AssumedBuff = Pick<ModifierItem, 'id' | 'gw2id' | 'type'>;
 export function createAssumedBuffs({
   buffsRaw,
   character,
-  gameMode,
 }: {
   buffsRaw: ModifierItem[];
   character: Character;
-  gameMode: GameMode;
 }): AssumedBuff[] {
   const assumedBuffs = buffsRaw.map(({ id, gw2id, type }) => ({ id, gw2id, type }));
 
@@ -38,7 +36,7 @@ export function createAssumedBuffs({
       gw2id: JADE_BOT_CORE_IDS[jadeBotTier - 1],
     });
 
-  if (gameMode === 'fractals') {
+  if (character.settings.appliedModifiers.find(({ id }) => id === 'omnipotion')) {
     assumedBuffs.push({ type: 'Item', id: 'omnipotion', gw2id: 79722 });
   }
 

@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 import { allExtrasModifiersById, buffModifiers } from '../../../assets/modifierdata';
 import { getSkills, getWeapons } from '../../../state/slices/buildPage';
 import { getTraitLines, getTraits } from '../../../state/slices/traits';
-import { getGameMode } from '../../../state/slices/userSettings';
 import { createAssumedBuffs } from '../../../utils/assumedBuffs';
 import { MAX_INFUSIONS, WEAPONS, getWeight, statInfusionIds } from '../../../utils/gw2-data';
 import Section from '../../baseComponents/Section';
@@ -24,7 +23,6 @@ const TemplateHelperSections = ({ character }) => {
   const { t } = useTranslation();
   const weapons = useSelector(getWeapons);
   const skills = useSelector(getSkills);
-  const gameMode = useSelector(getGameMode);
   const traitSelection = useSelector(getTraits);
   const traitLines = useSelector(getTraitLines);
 
@@ -168,8 +166,8 @@ const TemplateHelperSections = ({ character }) => {
     };
 
     const buffsRaw = buffModifiers.flatMap((buff) => buff.items).filter((buff) => buffs[buff.id]);
-    // gamemode is technically not correct since the gamemode is not tied to a character at the moment.
-    const assumedBuffs = createAssumedBuffs({ buffsRaw, gameMode, character });
+
+    const assumedBuffs = createAssumedBuffs({ buffsRaw, character });
 
     const template = {
       attributes: {
