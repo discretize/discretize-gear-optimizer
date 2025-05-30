@@ -35,11 +35,11 @@ const ResultDetails = () => {
     return null;
   }
 
-  let assumedBuffs = buffModifiers
+  const buffsRaw = buffModifiers
     .flatMap((buff) => buff.items)
     .filter((buff) => character.settings.cachedFormState.buffs.buffs[buff.id]);
   // gamemode is technically not correct since the gamemode is not tied to a character at the moment.
-  assumedBuffs = createAssumedBuffs({ buffsRaw: assumedBuffs, character, gameMode });
+  const assumedBuffs = createAssumedBuffs({ buffsRaw, character, gameMode });
 
   const bonuses: Record<string, string> = {};
   objectEntries({

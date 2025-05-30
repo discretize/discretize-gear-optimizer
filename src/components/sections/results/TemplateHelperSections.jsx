@@ -167,9 +167,9 @@ const TemplateHelperSections = ({ character }) => {
       accessory2InfusionId: infusions[15],
     };
 
-    let assumedBuffs = buffModifiers.flatMap((buff) => buff.items).filter((buff) => buffs[buff.id]);
+    const buffsRaw = buffModifiers.flatMap((buff) => buff.items).filter((buff) => buffs[buff.id]);
     // gamemode is technically not correct since the gamemode is not tied to a character at the moment.
-    assumedBuffs = createAssumedBuffs({ buffsRaw: assumedBuffs, gameMode, character });
+    const assumedBuffs = createAssumedBuffs({ buffsRaw, gameMode, character });
 
     const template = {
       attributes: {
