@@ -1,6 +1,5 @@
 import type { ModifierItem } from '../assets/modifierdata/metadata';
 import type { Character } from '../state/optimizer/types/optimizerTypes';
-import type { GameMode } from '../state/slices/userSettings';
 import { JADE_BOT_CORE_IDS } from './gw2-data';
 
 type AssumedBuff = Pick<ModifierItem, 'id' | 'gw2id' | 'type'>;
