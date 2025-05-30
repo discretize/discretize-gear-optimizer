@@ -12,7 +12,9 @@ export function createAssumedBuffs({
   buffsRaw: ModifierItem[];
   character: Character;
 }): AssumedBuff[] {
-  const assumedBuffs = buffsRaw.map(({ id, gw2id, type }) => ({ id, gw2id, type }));
+  const assumedBuffs = buffsRaw
+    .filter((buff) => !buff.id.includes('jade-bot-'))
+    .map(({ id, gw2id, type }) => ({ id, gw2id, type }));
 
   const jadeBotModifier = character.settings.appliedModifiers.find(
     (modifier) => modifier.id === 'jade-bot-per-tier',
