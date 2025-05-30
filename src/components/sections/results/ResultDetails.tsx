@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { buffModifiers } from '../../../assets/modifierdata';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
-import { getGameMode } from '../../../state/slices/userSettings';
 import { createAssumedBuffs } from '../../../utils/assumedBuffs';
 import { objectEntries } from '../../../utils/usefulFunctions';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
