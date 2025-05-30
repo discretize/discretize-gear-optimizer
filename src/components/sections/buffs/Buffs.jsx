@@ -1,4 +1,12 @@
-import { Boon, CommonEffect, Condition, Item, Skill, Trait } from '@discretize/gw2-ui-new';
+import {
+  Augmentation,
+  Boon,
+  CommonEffect,
+  Condition,
+  Item,
+  Skill,
+  Trait,
+} from '@discretize/gw2-ui-new';
 import { firstUppercase } from '@discretize/react-discretize-components';
 import { Box, FormControl, FormGroup, FormLabel, Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -55,6 +63,7 @@ const Buffs = () => {
     CommonEffect,
     Condition,
     Item,
+    Augmentation,
   };
 
   return (
@@ -73,7 +82,7 @@ const Buffs = () => {
                 const { type, text, id, gw2id, subText, amountData } = buff;
 
                 const Component = components[type];
-                const name = ['Boon', 'Condition', 'CommonEffect'].includes(type)
+                const name = ['Boon', 'Condition', 'CommonEffect', 'Augmentation'].includes(type)
                   ? firstUppercase(id)
                   : undefined;
 

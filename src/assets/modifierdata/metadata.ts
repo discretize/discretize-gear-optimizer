@@ -300,7 +300,15 @@ export interface ModifierItem {
   displayIds?: number[];
   priceIds?: number[];
   defaultEnabled?: boolean;
-  type?: 'Boon' | 'Trait' | 'Skill' | 'CommonEffect' | 'Condition' | 'Text' | 'Item';
+  type?:
+    | 'Boon'
+    | 'Trait'
+    | 'Skill'
+    | 'CommonEffect'
+    | 'Condition'
+    | 'Text'
+    | 'Item'
+    | 'Augmentation';
   temporaryBuff?: true | false | 'activeOutOfCombat';
 }
 
