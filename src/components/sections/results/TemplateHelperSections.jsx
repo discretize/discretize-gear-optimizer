@@ -167,7 +167,10 @@ const TemplateHelperSections = ({ character }) => {
 
     const buffsRaw = buffModifiers.flatMap((buff) => buff.items).filter((buff) => buffs[buff.id]);
 
-    const assumedBuffs = createAssumedBuffs({ buffsRaw, character });
+    // exclude fractal title buffs for the website; they're not build-relevant
+    const assumedBuffs = createAssumedBuffs({ buffsRaw, character }).filter(
+      ({ type }) => type !== 'Augmentation',
+    );
 
     const template = {
       attributes: {

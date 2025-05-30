@@ -20,11 +20,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import {
   changeAR,
-  changeAttunement,
   changeFreeWvW,
   changeHelperEnabled,
   changeImpedence,
   changeMaxInfusions,
+  changeMistAttunement,
   changeOwnedMatrix,
   changeSingularity,
   changeSlots,
@@ -33,9 +33,15 @@ import {
   getHelperData,
   getHelperResult,
   getMaxInfusions,
+  getMistAttunementAR,
   getValidInfusionOptions,
 } from '../../../state/slices/infusions';
-import { agonyInfusionIds, MAX_INFUSIONS, statInfusionIds } from '../../../utils/gw2-data';
+import {
+  agonyInfusionIds,
+  MAX_INFUSIONS,
+  mistAttunementData,
+  statInfusionIds,
+} from '../../../utils/gw2-data';
 import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
@@ -108,9 +114,6 @@ const useStyles = makeStyles()((theme) => ({
   bigStyle: { fontSize: 17 },
   sliderMark: {
     transform: 'translateX(-100%)',
-    [theme.breakpoints.down('lg')]: {
-      display: 'none',
-    },
   },
 }));
 
@@ -119,11 +122,12 @@ const InfusionHelper = () => {
   const { classes } = useStyles();
   const { t } = useTranslation();
 
-  const ar = parseAr(useSelector(getAR)).value;
+  const targetAR = parseAr(useSelector(getAR)).value;
   const maxInfusions = parseInfusionCount(useSelector(getMaxInfusions)).value;
   const infusionOptions = useSelector(getValidInfusionOptions);
-  const { enabled, impedence, attunement, singularity, tear, slots, freeWvW, ownedMatrix } =
+  const { enabled, impedence, singularity, tear, slots, freeWvW, ownedMatrix } =
     useSelector(getHelperData);
+  const mistAttunementAR = useSelector(getMistAttunementAR);
   const { error, resultText, resultArray, cost, maxRequiredMatrix } = useSelector(getHelperResult);
 
   const handleEnabledChange = React.useCallback(
@@ -143,7 +147,12 @@ const InfusionHelper = () => {
     [dispatch],
   );
   const handleAttunementChange = React.useCallback(
-    (_e, value) => dispatch(changeAttunement(value)),
+    (_e, value) => {
+      const newMistAttunement = mistAttunementData.findIndex(({ ar }) => ar === value);
+      if (newMistAttunement !== -1) {
+        dispatch(changeMistAttunement(newMistAttunement));
+      }
+    },
     [dispatch],
   );
   const handleSlotsChange = React.useCallback(
@@ -183,7 +192,7 @@ const InfusionHelper = () => {
           mb={3.5}
         />
         <Slider
-          value={attunement}
+          value={mistAttunementAR}
           step={null}
           min={0}
           max={25}
@@ -225,7 +234,7 @@ const InfusionHelper = () => {
           <Trans>Target AR</Trans>
         </Typography>
         <Slider
-          value={ar}
+          value={targetAR}
           step={1}
           min={0}
           max={409}

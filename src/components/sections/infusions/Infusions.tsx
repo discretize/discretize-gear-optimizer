@@ -1,7 +1,20 @@
-import { Attribute, Item } from '@discretize/gw2-ui-new';
+import { Attribute, Augmentation, Item } from '@discretize/gw2-ui-new';
 import { HelperIcon } from '@discretize/react-discretize-components';
 import AddIcon from '@mui/icons-material/Add';
-import { Button, FormControl, Grid, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import {
+  Button,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Grid,
+  Input,
+  InputLabel,
+  MenuItem,
+  Radio,
+  RadioGroup,
+  Select,
+  Typography,
+} from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,15 +25,17 @@ import {
   changeInfusionOptionCount,
   changeInfusionOptionType,
   changeMaxInfusions,
+  changeMistAttunement,
   changeOmnipotion,
   getAR,
   getInfusionOptions,
   getMaxInfusions,
+  getMistAttunement,
   getOmniPotion,
 } from '../../../state/slices/infusions';
 import { getGameMode } from '../../../state/slices/userSettings';
 import type { InfusionName } from '../../../utils/gw2-data';
-import { INFUSION_IDS } from '../../../utils/gw2-data';
+import { INFUSION_IDS, mistAttunementData } from '../../../utils/gw2-data';
 import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
 import { AmountInputAuto } from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
@@ -76,6 +91,7 @@ const Infusions = () => {
   const { t } = useTranslation();
   const ar = useSelector(getAR);
   const omnipotion = useSelector(getOmniPotion);
+  const mistAttunement = useSelector(getMistAttunement);
 
   const maxInfusions = useSelector(getMaxInfusions);
   const infusionOptions = useSelector(getInfusionOptions);
@@ -120,7 +136,11 @@ const Infusions = () => {
               className={classes.formControl}
               parseFn={parseAr}
               handleAmountChange={handleARChange}
-              label={t('Agony Resistance')}
+              label={
+                <>
+                  {t('Agony Resistance')} <HelperIcon text={t('Including all account bonuses')} />
+                </>
+              }
               endLabel={<Attribute name="Agony Resistance" disableLink disableText />}
               autoCompleteProps={{
                 options: arOptions,
@@ -135,7 +155,7 @@ const Infusions = () => {
       )}
       <Grid
         container
-        size={12}
+        size={{ xs: 12, sm: 8, md: 6 }}
         spacing={2}
         direction="row"
         sx={{ justifyContent: 'flex-start', alignItems: 'center' }}
@@ -204,6 +224,39 @@ const Infusions = () => {
           </Button>
         )}
       </Grid>
+
+      {gameMode === 'fractals' && (
+        <Grid size={{ xs: 12, sm: 4, md: 6 }}>
+          <FormLabel id="mist-attunement-group">
+            <Trans>Mist Attunement:</Trans>
+          </FormLabel>
+
+          <RadioGroup
+            aria-labelledby="mist-attunement-group"
+            value={mistAttunement}
+            onChange={(e) => dispatch(changeMistAttunement(Number(e.target.value)))}
+            name="checked"
+            color="primary"
+          >
+            {mistAttunementData.map(({ name, subText }, i) => (
+              <FormControlLabel
+                value={i}
+                control={<Radio />}
+                label={
+                  name ? (
+                    <>
+                      <Augmentation name={name} disableLink />
+                      {subText && <Typography variant="caption"> ({subText})</Typography>}
+                    </>
+                  ) : (
+                    'None'
+                  )
+                }
+              />
+            ))}
+          </RadioGroup>
+        </Grid>
+      )}
 
       {gameMode === 'fractals' && (
         <Grid size={12}>

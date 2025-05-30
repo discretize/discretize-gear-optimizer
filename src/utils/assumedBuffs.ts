@@ -1,6 +1,6 @@
 import type { ModifierItem } from '../assets/modifierdata/metadata';
 import type { Character } from '../state/optimizer/types/optimizerTypes';
-import { JADE_BOT_CORE_IDS } from './gw2-data';
+import { JADE_BOT_CORE_IDS, mistAttunementData } from './gw2-data';
 
 type AssumedBuff = Pick<ModifierItem, 'id' | 'gw2id' | 'type'>;
 
@@ -39,6 +39,14 @@ export function createAssumedBuffs({
 
   if (character.settings.appliedModifiers.find(({ id }) => id === 'omnipotion')) {
     assumedBuffs.push({ type: 'Item', id: 'omnipotion', gw2id: 79722 });
+  }
+
+  const mistAttunement = mistAttunementData.find(({ id }) =>
+    character.settings.appliedModifiers.some((modifier) => modifier.id === id),
+  );
+
+  if (mistAttunement) {
+    assumedBuffs.push({ type: 'Augmentation', id: mistAttunement.name, gw2id: undefined });
   }
 
   return assumedBuffs;

@@ -1212,6 +1212,64 @@ export const omnipotionModifiers = {
   },
 };
 
+export const mistAttunementData = [
+  {
+    id: 'no-fractal-title',
+    name: '',
+    subText: '',
+    ar: 0,
+    modifiers: {},
+  },
+  {
+    id: 'fractal-savant',
+    name: 'Mist Attunement 1',
+    subText: 'savant',
+    ar: 5,
+    modifiers: {
+      damage: {
+        'Outgoing Strike Damage': ['1%', 'add'] as [string, 'add'],
+        'Outgoing Condition Damage': ['1%', 'add'] as [string, 'add'],
+      },
+    },
+  },
+  {
+    id: 'fractal-prodigy',
+    name: 'Mist Attunement 2',
+    subText: 'prodigy',
+    ar: 10,
+    modifiers: {
+      damage: {
+        'Outgoing Strike Damage': ['2%', 'add'] as [string, 'add'],
+        'Outgoing Condition Damage': ['2%', 'add'] as [string, 'add'],
+      },
+    },
+  },
+  {
+    id: 'fractal-champion',
+    name: 'Mist Attunement 3',
+    subText: 'champion',
+    ar: 15,
+    modifiers: {
+      damage: {
+        'Outgoing Strike Damage': ['4%', 'add'] as [string, 'add'],
+        'Outgoing Condition Damage': ['4%', 'add'] as [string, 'add'],
+      },
+    },
+  },
+  {
+    id: 'fractal-god',
+    name: 'Mist Attunement 4',
+    subText: 'god',
+    ar: 25,
+    modifiers: {
+      damage: {
+        'Outgoing Strike Damage': ['7%', 'add'] as [string, 'add'],
+        'Outgoing Condition Damage': ['7%', 'add'] as [string, 'add'],
+      },
+    },
+  },
+] as const;
+
 const healthValues = {
   LOW: 1645,
   MEDIUM: 5922,

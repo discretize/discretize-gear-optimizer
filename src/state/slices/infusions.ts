@@ -1,7 +1,12 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSelector, createSlice } from '@reduxjs/toolkit';
 import type { InfusionName } from '../../utils/gw2-data';
-import { agonyInfusionIds, MAX_INFUSIONS, omnipotionModifiers } from '../../utils/gw2-data';
+import {
+  agonyInfusionIds,
+  MAX_INFUSIONS,
+  mistAttunementData,
+  omnipotionModifiers,
+} from '../../utils/gw2-data';
 import { parseAmount, parseAr, parseInfusionCount } from '../../utils/usefulFunctions';
 import type { AppliedModifier } from '../optimizer/types/optimizerSetupTypes';
 import type { RootState } from '../store';
@@ -15,6 +20,7 @@ export type ValidInfusionOptions = { type: InfusionName; count: string }[];
 
 const initialState: {
   omnipotion: boolean;
+  mistAttunement: number;
   ar: string;
   maxInfusions: string;
   infusionOptions: InfusionOptions;
@@ -22,7 +28,6 @@ const initialState: {
     enabled: boolean;
     slots: number;
     impedence: number;
-    attunement: number;
     singularity: boolean;
     tear: boolean;
     freeWvW: boolean;
@@ -30,6 +35,7 @@ const initialState: {
   };
 } = {
   omnipotion: isFractal,
+  mistAttunement: 0,
   ar: isFractal ? '162' : '',
   maxInfusions: String(MAX_INFUSIONS),
   infusionOptions: [
@@ -40,7 +46,6 @@ const initialState: {
     enabled: false,
     slots: MAX_INFUSIONS,
     impedence: 0,
-    attunement: 0,
     singularity: false,
     tear: false,
     freeWvW: true,
@@ -57,6 +62,9 @@ export const infusionsSlice = createSlice({
     },
     changeOmnipotion: (state, action: PayloadAction<boolean>) => {
       state.omnipotion = action.payload;
+    },
+    changeMistAttunement: (state, action: PayloadAction<number>) => {
+      state.mistAttunement = action.payload;
     },
     changeMaxInfusions: (state, action: PayloadAction<string>) => {
       state.maxInfusions = action.payload;
@@ -94,9 +102,6 @@ export const infusionsSlice = createSlice({
     changeImpedence: (state, action: PayloadAction<number>) => {
       state.helperData.impedence = action.payload;
     },
-    changeAttunement: (state, action: PayloadAction<number>) => {
-      state.helperData.attunement = action.payload;
-    },
     changeSingularity: (state, action: PayloadAction<boolean>) => {
       state.helperData.singularity = action.payload;
     },
@@ -127,21 +132,25 @@ export const infusionsSlice = createSlice({
           };
         }
 
+        action.payload.form.mistAttunement ??= 0;
+
         return { ...state, ...action.payload.form.infusions };
       }
     });
 
     builder.addCase(changeGameMode, (state, action) => {
       if (action.payload === 'fractals') {
-        return { ...state, omnipotion: true, ar: '162' };
+        return { ...state, omnipotion: true, ar: '162', mistAttunement: 0 };
       }
-      return { ...state, omnipotion: false, ar: '0' };
+      return { ...state, omnipotion: false, ar: '0', mistAttunement: 0 };
     });
   },
 });
 
 export const getAR = (state: RootState) => state.optimizer.form.infusions.ar;
 export const getOmniPotion = (state: RootState) => state.optimizer.form.infusions.omnipotion;
+export const getMistAttunement = (state: RootState) =>
+  state.optimizer.form.infusions.mistAttunement;
 export const getMaxInfusions = (state: RootState) => state.optimizer.form.infusions.maxInfusions;
 export const getInfusionOptions = (state: RootState) =>
   state.optimizer.form.infusions.infusionOptions;
@@ -179,6 +188,14 @@ export const getInfusionsModifiers = (state: RootState): AppliedModifier[] => {
     result.push({
       id: 'omnipotion',
       modifiers: omnipotionModifiers,
+    });
+  }
+
+  if (infusions.mistAttunement) {
+    const { id, modifiers } = mistAttunementData[infusions.mistAttunement];
+    result.push({
+      id,
+      modifiers,
     });
   }
 
@@ -223,16 +240,22 @@ const calcAgonyInfusions = (slots: number, ar: number) => {
   return { agonyCost, agonyText, agonyArray };
 };
 
+export const getMistAttunementAR = createSelector(
+  getMistAttunement,
+  (mistAttunement) => mistAttunementData[mistAttunement].ar,
+);
+
 export const getHelperResult = createSelector(
   getAR,
   getMaxInfusions,
   getValidInfusionOptions,
   getHelperData,
-  (arString, maxInfusionsString, infusionOptions, helperData) => {
+  getMistAttunementAR,
+  (arString, maxInfusionsString, infusionOptions, helperData, attunement) => {
     const ar = parseAr(arString).value;
     const maxInfusions = parseInfusionCount(maxInfusionsString).value;
 
-    const { impedence, attunement, singularity, tear, slots, freeWvW, ownedMatrix } = helperData;
+    const { impedence, singularity, tear, slots, freeWvW, ownedMatrix } = helperData;
 
     let ARFromGear = ar - impedence - attunement - (singularity ? 5 : 0) - (tear ? 15 : 0);
 
@@ -355,6 +378,7 @@ export const getHelperResult = createSelector(
 export const {
   changeAR,
   changeOmnipotion,
+  changeMistAttunement,
   changeMaxInfusions,
   changeInfusionOptionType,
   changeInfusionOptionCount,
@@ -363,7 +387,6 @@ export const {
   changeHelperEnabled,
   changeSlots,
   changeImpedence,
-  changeAttunement,
   changeSingularity,
   changeTear,
   changeFreeWvW,
