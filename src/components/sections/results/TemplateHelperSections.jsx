@@ -8,8 +8,8 @@ import { allExtrasModifiersById, buffModifiers } from '../../../assets/modifierd
 import { getSkills, getWeapons } from '../../../state/slices/buildPage';
 import { getTraitLines, getTraits } from '../../../state/slices/traits';
 import { getGameMode } from '../../../state/slices/userSettings';
+import { createAssumedBuffs } from '../../../utils/assumedBuffs';
 import { MAX_INFUSIONS, WEAPONS, getWeight, statInfusionIds } from '../../../utils/gw2-data';
-import { createAssumedBuffs } from '../../../utils/toLazyToType-usefulFunctions';
 import Section from '../../baseComponents/Section';
 import ModalContent from './BuildShareModal/ModalContent';
 import GW2Combat from './GW2Combat';
@@ -167,9 +167,9 @@ const TemplateHelperSections = ({ character }) => {
       accessory2InfusionId: infusions[15],
     };
 
-    let assumedBuffs = buffModifiers.flatMap((buff) => buff.items).filter((buff) => buffs[buff.id]);
+    const buffsRaw = buffModifiers.flatMap((buff) => buff.items).filter((buff) => buffs[buff.id]);
     // gamemode is technically not correct since the gamemode is not tied to a character at the moment.
-    assumedBuffs = createAssumedBuffs({ buffsRaw: assumedBuffs, gameMode, character });
+    const assumedBuffs = createAssumedBuffs({ buffsRaw, gameMode, character });
 
     const template = {
       attributes: {

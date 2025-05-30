@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { buffModifiers } from '../../../assets/modifierdata';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { getGameMode } from '../../../state/slices/userSettings';
-import { createAssumedBuffs } from '../../../utils/toLazyToType-usefulFunctions';
+import { createAssumedBuffs } from '../../../utils/assumedBuffs';
 import { objectEntries } from '../../../utils/usefulFunctions';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 import AffixesStats from './AffixesStats';
@@ -35,11 +35,11 @@ const ResultDetails = () => {
     return null;
   }
 
-  let assumedBuffs = buffModifiers
+  const buffsRaw = buffModifiers
     .flatMap((buff) => buff.items)
     .filter((buff) => character.settings.cachedFormState.buffs.buffs[buff.id]);
   // gamemode is technically not correct since the gamemode is not tied to a character at the moment.
-  assumedBuffs = createAssumedBuffs({ buffsRaw: assumedBuffs, character, gameMode });
+  const assumedBuffs = createAssumedBuffs({ buffsRaw, character, gameMode });
 
   const bonuses: Record<string, string> = {};
   objectEntries({
