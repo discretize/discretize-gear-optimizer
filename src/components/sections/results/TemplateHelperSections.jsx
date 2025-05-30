@@ -8,8 +8,8 @@ import { allExtrasModifiersById, buffModifiers } from '../../../assets/modifierd
 import { getSkills, getWeapons } from '../../../state/slices/buildPage';
 import { getTraitLines, getTraits } from '../../../state/slices/traits';
 import { getGameMode } from '../../../state/slices/userSettings';
+import { createAssumedBuffs } from '../../../utils/assumedBuffs';
 import { MAX_INFUSIONS, WEAPONS, getWeight, statInfusionIds } from '../../../utils/gw2-data';
-import { createAssumedBuffs } from '../../../utils/toLazyToType-usefulFunctions';
 import Section from '../../baseComponents/Section';
 import ModalContent from './BuildShareModal/ModalContent';
 import GW2Combat from './GW2Combat';

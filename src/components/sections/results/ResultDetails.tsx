@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { buffModifiers } from '../../../assets/modifierdata';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { getGameMode } from '../../../state/slices/userSettings';
-import { createAssumedBuffs } from '../../../utils/toLazyToType-usefulFunctions';
+import { createAssumedBuffs } from '../../../utils/assumedBuffs';
 import { objectEntries } from '../../../utils/usefulFunctions';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 import AffixesStats from './AffixesStats';
