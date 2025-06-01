@@ -10,10 +10,10 @@
     "lint": "eslint --ignore-path .gitignore ."
   },
   "devDependencies": {
-    "@babel/core": "^7.27.1",
-    "@babel/preset-env": "^7.27.1",
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
     "browser-sync": "^3.0.4",
-    "cssnano": "^7.0.6",
+    "cssnano": "^7.0.7",
     "del": "^6.1.1",
     "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "15.0.0",
@@ -29,9 +29,9 @@
     "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
     "js-yaml": "^4.1.0",
-    "postcss": "^8.5.3",
+    "postcss": "^8.5.4",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "sass": "^1.87.0"
+    "sass": "^1.89.1"
   },
   "engines": {
     "npm": "please-use-pnpm",
