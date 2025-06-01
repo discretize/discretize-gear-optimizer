@@ -30,14 +30,14 @@ importers:
         specifier: 15.0.0
         version: 15.0.0(eslint-plugin-import@2.31.0(eslint@8.57.1))(eslint@8.57.1)
       eslint-config-prettier:
-        specifier: 9.1.0
-        version: 9.1.0(eslint@8.57.1)
+        specifier: 10.1.5
+        version: 10.1.5(eslint@8.57.1)
       eslint-plugin-import:
         specifier: ^2.31.0
         version: 2.31.0(eslint@8.57.1)
       eslint-plugin-unicorn:
-        specifier: ^55.0.0
-        version: 55.0.0(eslint@8.57.1)
+        specifier: ^56.0.1
+        version: 56.0.1(eslint@8.57.1)
       gulp:
         specifier: ^4.0.2
         version: 4.0.2
@@ -162,10 +162,6 @@ packages:
 
   '@babel/helper-string-parser@7.27.1':
     resolution: {integrity: sha512-qMlSxKbpRlAridDExk92nSobyDdpPijUq2DW6oDnUqd0iOGxmQjyqhMIihI9+zv4LPyZdRje2cavWPbCbWm3eA==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/helper-validator-identifier@7.25.9':
-    resolution: {integrity: sha512-Ed61U6XJc3CVRfkERJWDz4dJwKe7iLmmJsbOGu9wSloNSFttHV0I8g6UAgb7qnK5ly5bGLPd4oXZlxCdANBOWQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-validator-identifier@7.27.1':
@@ -568,6 +564,12 @@ packages:
 
   '@eslint-community/eslint-utils@4.5.1':
     resolution: {integrity: sha512-soEIOALTfTK6EjmKMMoLugwaP0rzkad90iIWd1hMO9ARkSAyjfMfkRRhLvD5qH7vvM0Cg72pieUfR6yh6XxC4w==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
+
+  '@eslint-community/eslint-utils@4.7.0':
+    resolution: {integrity: sha512-dyybb3AcajC7uha6CvhdVRJqaKyn7w2YKqKyAN37NKYgZT36w+iRb0Dymmc5qEJ549c/S31cMMSFd75bteCpCw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
@@ -986,11 +988,6 @@ packages:
     engines: {node: '>= 8.0.0'}
     hasBin: true
 
-  browserslist@4.24.4:
-    resolution: {integrity: sha512-KDi1Ny1gSePi1vm0q4oxSF8b4DR44GF4BbmS2YdhPLOEqd8pDviZOGH/GsmRwoWJ2+5Lr085X7naowMwKHDG1A==}
-    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
-    hasBin: true
-
   browserslist@4.25.0:
     resolution: {integrity: sha512-PJ8gYKeS5e/whHBh8xrwYK+dAvEj7JXtz6uTucnMRB8OiGTsKccFekoRrjajPBHV8oOY+2tI4uxeceSimKwMFA==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
@@ -1040,9 +1037,6 @@ packages:
 
   caniuse-api@3.0.0:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
-
-  caniuse-lite@1.0.30001716:
-    resolution: {integrity: sha512-49/c1+x3Kwz7ZIWt+4DvK3aMJy9oYXXG6/97JKsnjdCk/6n9vVyWL8NAwVt95Lwt9eigI10Hl782kDfZUUlRXw==}
 
   caniuse-lite@1.0.30001720:
     resolution: {integrity: sha512-Ec/2yV2nNPwb4DnTANEV99ZWwm3ZWfdlfkQbWSDDt+PsXEVYwlhPH8tdMaPunYTKKmz7AnHi2oNEi1GcmKCD8g==}
@@ -1172,9 +1166,6 @@ packages:
 
   copy-props@2.0.5:
     resolution: {integrity: sha512-XBlx8HSqrT0ObQwmSzM7WE5k8FxTV75h1DX1Z3n6NhQ/UYYAvInWYmG06vFt7hQZArE2fuO62aihiWIVQwh1sw==}
-
-  core-js-compat@3.41.0:
-    resolution: {integrity: sha512-RFsU9LySVue9RTwdDVX/T0e2Y6jRYWXERKElIjpuEOEnxaXffI0X7RUwVzfYLfzuLXSNJDYoRYUAmRUcyln20A==}
 
   core-js-compat@3.42.0:
     resolution: {integrity: sha512-bQasjMfyDGyaeWKBIu33lHh9qlSR0MFE/Nmc6nMjf/iU9b3rSMdAYz1Baxrv4lPdGUsTqZudHA4jIGSJy0SWZQ==}
@@ -1412,9 +1403,6 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.148:
-    resolution: {integrity: sha512-8uc1QXwwqayD4mblcsQYZqoi+cOc97A2XmKSBOIRbEAvbp6vrqmSYs4dHD2qVygUgn7Mi0qdKgPaJ9WC8cv63A==}
-
   electron-to-chromium@1.5.161:
     resolution: {integrity: sha512-hwtetwfKNZo/UlwHIVBlKZVdy7o8bIZxxKs0Mv/ROPiQQQmDgdm5a+KvKtBsxM8ZjFzTaCeLoodZ8jiBE3o9rA==}
 
@@ -1514,8 +1502,8 @@ packages:
       eslint: ^7.32.0 || ^8.2.0
       eslint-plugin-import: ^2.25.2
 
-  eslint-config-prettier@9.1.0:
-    resolution: {integrity: sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==}
+  eslint-config-prettier@10.1.5:
+    resolution: {integrity: sha512-zc1UmCpNltmVY34vuLRV61r1K27sWuX39E+uyUnY8xS2Bex88VV9cugG+UZbRSRGtGyFboj+D8JODyme1plMpw==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -1554,8 +1542,8 @@ packages:
       '@typescript-eslint/parser':
         optional: true
 
-  eslint-plugin-unicorn@55.0.0:
-    resolution: {integrity: sha512-n3AKiVpY2/uDcGrS3+QsYDkjPfaOrNrsfQxU9nt5nitd9KuvVXrfAvgCO9DYPSfap+Gqjw9EOrXIsBp5tlHZjA==}
+  eslint-plugin-unicorn@56.0.1:
+    resolution: {integrity: sha512-FwVV0Uwf8XPfVnKSGpMg7NtlZh0G0gBarCaFcMUOoqPxXryxdYxTRRv4kH6B9TFCVIrjRXG+emcxIk2ayZilog==}
     engines: {node: '>=18.18'}
     peerDependencies:
       eslint: '>=8.56.0'
@@ -3183,8 +3171,8 @@ packages:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
 
-  semver@7.7.1:
-    resolution: {integrity: sha512-hlq8tAfn0m/61p4BVRcPzIGr6LKiMwo4VM6dGi6pt4qcRkmNzTcWq6eCEjEh+qXjkMDvPlOFFSGwQjoEa6gyMA==}
+  semver@7.7.2:
+    resolution: {integrity: sha512-RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -3871,8 +3859,6 @@ snapshots:
 
   '@babel/helper-string-parser@7.27.1': {}
 
-  '@babel/helper-validator-identifier@7.25.9': {}
-
   '@babel/helper-validator-identifier@7.27.1': {}
 
   '@babel/helper-validator-option@7.27.1': {}
@@ -4378,6 +4364,11 @@ snapshots:
       eslint: 8.57.1
       eslint-visitor-keys: 3.4.3
 
+  '@eslint-community/eslint-utils@4.7.0(eslint@8.57.1)':
+    dependencies:
+      eslint: 8.57.1
+      eslint-visitor-keys: 3.4.3
+
   '@eslint-community/regexpp@4.12.1': {}
 
   '@eslint/eslintrc@2.1.4':
@@ -4849,13 +4840,6 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  browserslist@4.24.4:
-    dependencies:
-      caniuse-lite: 1.0.30001716
-      electron-to-chromium: 1.5.148
-      node-releases: 2.0.19
-      update-browserslist-db: 1.1.3(browserslist@4.24.4)
-
   browserslist@4.25.0:
     dependencies:
       caniuse-lite: 1.0.30001720
@@ -4912,8 +4896,6 @@ snapshots:
       caniuse-lite: 1.0.30001720
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
-
-  caniuse-lite@1.0.30001716: {}
 
   caniuse-lite@1.0.30001720: {}
 
@@ -5062,10 +5044,6 @@ snapshots:
     dependencies:
       each-props: 1.3.2
       is-plain-object: 5.0.0
-
-  core-js-compat@3.41.0:
-    dependencies:
-      browserslist: 4.24.4
 
   core-js-compat@3.42.0:
     dependencies:
@@ -5320,8 +5298,6 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.148: {}
-
   electron-to-chromium@1.5.161: {}
 
   emoji-regex@8.0.0: {}
@@ -5491,7 +5467,7 @@ snapshots:
       object.entries: 1.1.9
       semver: 6.3.1
 
-  eslint-config-prettier@9.1.0(eslint@8.57.1):
+  eslint-config-prettier@10.1.5(eslint@8.57.1):
     dependencies:
       eslint: 8.57.1
 
@@ -5539,13 +5515,13 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-unicorn@55.0.0(eslint@8.57.1):
+  eslint-plugin-unicorn@56.0.1(eslint@8.57.1):
     dependencies:
-      '@babel/helper-validator-identifier': 7.25.9
-      '@eslint-community/eslint-utils': 4.5.1(eslint@8.57.1)
+      '@babel/helper-validator-identifier': 7.27.1
+      '@eslint-community/eslint-utils': 4.7.0(eslint@8.57.1)
       ci-info: 4.2.0
       clean-regexp: 1.0.0
-      core-js-compat: 3.41.0
+      core-js-compat: 3.42.0
       eslint: 8.57.1
       esquery: 1.6.0
       globals: 15.15.0
@@ -5556,7 +5532,7 @@ snapshots:
       read-pkg-up: 7.0.1
       regexp-tree: 0.1.27
       regjsparser: 0.10.0
-      semver: 7.7.1
+      semver: 7.7.2
       strip-indent: 3.0.0
 
   eslint-scope@7.2.2:
@@ -7323,7 +7299,7 @@ snapshots:
 
   semver@6.3.1: {}
 
-  semver@7.7.1: {}
+  semver@7.7.2: {}
 
   send@0.19.0:
     dependencies:
@@ -7827,12 +7803,6 @@ snapshots:
       isobject: 3.0.1
 
   upath@1.2.0: {}
-
-  update-browserslist-db@1.1.3(browserslist@4.24.4):
-    dependencies:
-      browserslist: 4.24.4
-      escalade: 3.2.0
-      picocolors: 1.1.1
 
   update-browserslist-db@1.1.3(browserslist@4.25.0):
     dependencies:
