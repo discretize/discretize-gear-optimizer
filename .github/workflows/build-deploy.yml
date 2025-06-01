@@ -10,7 +10,7 @@ on:
 
 env:
   PAGES_PROJECT_NAME: optimizer
-  NODE_VERSION: 18
+  NODE_VERSION: 20
   
 concurrency:
   group: 'deploy'
