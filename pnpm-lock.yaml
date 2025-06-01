@@ -57,8 +57,8 @@ importers:
         specifier: ^1.1.4
         version: 1.1.4
       gulp-sass:
-        specifier: ^5.1.0
-        version: 5.1.0
+        specifier: ^6.0.1
+        version: 6.0.1
       gulp-uglify:
         specifier: ^3.0.2
         version: 3.0.2
@@ -1887,8 +1887,8 @@ packages:
     resolution: {integrity: sha512-SVSF7ikuWKhpAW4l4wapAqPPSToJoiNKsbDoUnRrSgwZHH7lH8pbPeQj1aOVYQrbZKhfSVBxVW+Py7vtulRktw==}
     engines: {node: '>=10'}
 
-  gulp-sass@5.1.0:
-    resolution: {integrity: sha512-7VT0uaF+VZCmkNBglfe1b34bxn/AfcssquLKVDYnCDJ3xNBaW7cUuI3p3BQmoKcoKFrs9jdzUxyb+u+NGfL4OQ==}
+  gulp-sass@6.0.1:
+    resolution: {integrity: sha512-4wonidxB8lGPHvahelpGavUBJAuERSl+OIVxPCyQthK4lSJhZ/u3/qjFcyAtnMIXDl6fXTn34H4BXsN7gt54kQ==}
     engines: {node: '>=12'}
 
   gulp-uglify@3.0.2:
@@ -6016,7 +6016,7 @@ snapshots:
       replacestream: 4.0.3
       yargs-parser: 21.1.1
 
-  gulp-sass@5.1.0:
+  gulp-sass@6.0.1:
     dependencies:
       lodash.clonedeep: 4.5.0
       picocolors: 1.1.1
