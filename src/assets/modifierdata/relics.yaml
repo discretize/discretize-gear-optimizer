@@ -1,6 +1,15 @@
 - section: Power Relics
   items:
 
+    - id: mistburn-relic
+      text: Relic of Mistburn
+      subText: 100% uptime
+      modifiers:
+        attributes:
+          Critical Chance: 10%
+      gw2id: 104994
+      temporaryBuff: true
+
     - id: eagle-relic
       text: Relic of the Eagle
       amountData:
@@ -104,6 +113,13 @@
         damage:
           Outgoing Strike Damage: [10%, unknown]
       gw2id: 104501
+
+    - id: bloodstone-relic
+      text: 'Relic of Bloodstone: not yet implemented'
+      subText: 'Relic of Bloodstone: not yet implemented'
+      textOverride: 'Relic of Bloodstone: not yet implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
 
     - id: citadel-relic
       text: 'Relic of the Citadel: not yet implemented'
@@ -218,6 +234,13 @@
           Outgoing Condition Damage: [25%, add] # tested by crone
           Damage Reduction: [15%, unknown]
       gw2id: 101191
+
+    - id: living-city-relic
+      text: 'Relic of the Living City: not yet implemented'
+      subText: 'Relic of the Living City: not yet implemented'
+      textOverride: 'Relic of the Living City: not yet implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
 
     - id: peitha-relic
       text: Relic of Peitha
@@ -447,6 +470,13 @@
           Burning Coefficient: 4
       gw2id: 104022
       temporaryBuff: true
+
+    - id: agony-relic
+      text: 'Relic of Agony: not yet implemented'
+      subText: 'Relic of Agony: not yet implemented'
+      textOverride: 'Relic of Agony: not yet implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
 
 - section: Summon Relics
   items:

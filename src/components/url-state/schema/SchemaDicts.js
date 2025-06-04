@@ -240,6 +240,10 @@ export const relicsDict = [
   'blightbringer-relic',
   'beehive-relic',
   'steamshrieker-relic',
+  'mistburn-relic',
+  'bloodstone-relic',
+  'living-city-relic',
+  'agony-relic',
 ];
 
 export const sigilDict = [
