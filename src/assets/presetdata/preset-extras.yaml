@@ -15,7 +15,8 @@ list:
             "ranger": {}
           },
           "Relics": {
-            "thief-relic": {}
+            "thief-relic": {},
+            "mistburn-relic": {}
           },
           "Sigil1": {
             "force": {}
@@ -84,7 +85,8 @@ list:
             "ranger": {}
           },
           "Relics": {
-            "thief-relic": {}
+            "thief-relic": {},
+            "mistburn-relic": {}
           },
           "Sigil1": {
             "force": {}
@@ -195,7 +197,8 @@ list:
             "ranger": {}
           },
           "Relics": {
-            "thief-relic": {}
+            "thief-relic": {},
+            "mistburn-relic": {}
           },
           "Sigil1": {
             "force": {}
@@ -231,7 +234,8 @@ list:
             "ranger": {}
           },
           "Relics": {
-            "thief-relic": {}
+            "thief-relic": {},
+            "mistburn-relic": {}
           },
           "Sigil1": {
             "force": {}
@@ -269,7 +273,8 @@ list:
             "ranger": {}
           },
           "Relics": {
-            "thief-relic": {}
+            "thief-relic": {},
+            "mistburn-relic": {}
           },
           "Sigil1": {
             "force": {}
@@ -306,7 +311,8 @@ list:
             "ranger": {}
           },
           "Relics": {
-            "thief-relic": {}
+            "thief-relic": {},
+            "mistburn-relic": {}
           },
           "Sigil1": {
             "force": {}
@@ -346,7 +352,8 @@ list:
             "leadership": {}
           },
           "Relics": {
-            "thief-relic": {}
+            "thief-relic": {},
+            "mistburn-relic": {}
           },
           "Sigil1": {
             "force": {},
@@ -390,7 +397,8 @@ list:
             "leadership": {}
           },
           "Relics": {
-            "thief-relic": {}
+            "thief-relic": {},
+            "mistburn-relic": {}
           },
           "Sigil1": {
             "force": {},
@@ -881,6 +889,7 @@ list:
           },
           "Relics": {
             "thief-relic": {},
+            "mistburn-relic": {},
             "dragonhunter-relic": {
               "amount": "73.6"
             }
@@ -921,6 +930,7 @@ list:
           },
           "Relics": {
             "thief-relic": {},
+            "mistburn-relic": {},
             "dragonhunter-relic": {
               "amount": "73.6"
             }
@@ -954,7 +964,10 @@ list:
             "infiltration": {},
             "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {},
+            "mistburn-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
@@ -986,7 +999,10 @@ list:
             "pack": {},
             "leadership": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {},
+            "mistburn-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
@@ -1716,7 +1732,8 @@ list:
             "firebrand": {}
           },
           "Relics": {
-            "thief-relic": {}
+            "thief-relic": {},
+            "mistburn-relic": {}
           },
           "Sigil1": {
             "force": {}
@@ -2049,7 +2066,8 @@ list:
             "firebrand": {}
           },
           "Relics": {
-            "thief-relic": {}
+            "thief-relic": {},
+            "mistburn-relic": {}
           },
           "Sigil1": {
             "force": {}
@@ -2091,7 +2109,10 @@ list:
             "fireworks": {},
             "firebrand": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {},
+            "mistburn-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
@@ -2789,7 +2810,10 @@ list:
             "fireworks": {},
             "firebrand": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {},
+            "mistburn-relic": {}
+          },
           "Sigil1": {
             "force": {}
           },
