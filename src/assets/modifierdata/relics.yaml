@@ -115,11 +115,26 @@
       gw2id: 104501
 
     - id: bloodstone-relic
-      text: 'Relic of Bloodstone: not yet implemented'
-      subText: 'Relic of Bloodstone: not yet implemented'
-      textOverride: 'Relic of Bloodstone: not yet implemented'
-      modifiers: {}
-      # gw2id intentionally omitted
+      text: Relic of Bloodstone
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [120%, mult]
+        attributes:
+          Power Coefficient: 3452.5 # 5.0 coefficient, 690.5 strength
+          Bleeding Coefficient: 36
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [80%, mult]
+        attributes:
+          Power Coefficient: 1381 # 2.0 coefficient, 690.5 strength
+          Bleeding Coefficient: 36
+      gw2id: 104800
+      temporaryBuff: true
 
     - id: citadel-relic
       text: 'Relic of the Citadel: not yet implemented'
