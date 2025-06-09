@@ -49,7 +49,8 @@ export type DistributionNameUI =
   | 'Bleeding'
   | 'Poisoned'
   | 'Torment'
-  | 'Confusion';
+  | 'Confusion'
+  | 'Reflect';
 export type DistributionNameInternal =
   | 'Power'
   | 'Power2'
@@ -57,7 +58,8 @@ export type DistributionNameInternal =
   | 'Bleeding'
   | 'Poison'
   | 'Torment'
-  | 'Confusion';
+  | 'Confusion'
+  | 'Reflect';
 
 interface MultiplierBreakdown {
   mult: number;

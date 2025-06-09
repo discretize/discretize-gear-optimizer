@@ -683,6 +683,16 @@ export class OptimizerCore {
 
     attributes['Power DPS'] = powerDamage;
 
+    const reflectEffectivePower = 1000 * (1 + critChance * (critDmg - 1));
+
+    const reflectPowerDamage =
+      (attributes['Reflect Coefficient'] / 2597) *
+      reflectEffectivePower *
+      damageMultiplier['Outgoing Strike Damage'];
+
+    attributes['Reflect DPS'] = reflectPowerDamage;
+    powerDamage += reflectPowerDamage;
+
     if (attributes['Power2 Coefficient']) {
       if (settings.profession === 'Mesmer') {
         // mesmer illusions: special bonuses are INSTEAD OF player attributes

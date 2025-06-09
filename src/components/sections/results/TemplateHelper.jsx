@@ -368,7 +368,7 @@ const TemplateHelper = ({ character }) => {
             {data.map(({ key }) => (
               <td key={key}>
                 {
-                  // i18next-extract-mark-context-next-line ["Power","Power2","Burning","Bleeding","Poison","Torment", "Confusion"]
+                  // i18next-extract-mark-context-next-line ["Power","Power2","Burning","Bleeding","Poison","Torment", "Confusion","Reflect"]
                   t('DPSType', { context: key })
                 }
               </td>

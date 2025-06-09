@@ -41,6 +41,7 @@ const DISTRIBUTION_NAMES = [
   { name: 'Poisoned', min: 0, max: 60, step: 0.1 },
   { name: 'Torment', min: 0, max: 60, step: 0.1 },
   { name: 'Confusion', min: 0, max: 60, step: 0.1 },
+  { name: 'Reflect', min: 0, max: 6000, step: 10, color: '#b1b1b5' },
 ] as const;
 
 const DamageDistribution = () => {
@@ -73,22 +74,33 @@ const DamageDistribution = () => {
         <Box>
           <FormControl className={classes.textbox} variant="standard">
             <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
-              {dist.name === 'Power' || dist.name === 'Power2' ? (
-                <Attribute
-                  name="Power"
-                  disableLink
-                  text={dist.name === 'Power2' ? alternativeDamageLabel : undefined}
-                />
-              ) : (
-                <Condition name={dist.name} disableLink />
-              )}
+              {
+                // eslint-disable-next-line no-nested-ternary
+                dist.name === 'Power' || dist.name === 'Power2' ? (
+                  <Attribute
+                    name="Power"
+                    disableLink
+                    text={dist.name === 'Power2' ? alternativeDamageLabel : undefined}
+                  />
+                ) : dist.name === 'Reflect' ? (
+                  <Attribute
+                    name="Power"
+                    disableLink
+                    disableTooltip
+                    // todo: translate this
+                    text="Opponent-Power Reflect"
+                  />
+                ) : (
+                  <Condition name={dist.name} disableLink />
+                )
+              }
             </InputLabel>
             <Input
               id={`input-with-icon-adornment-${index}`}
               value={textBoxes[dist.name]}
               endAdornment={
                 <InputAdornment position="end">
-                  {dist.name === 'Power' || dist.name === 'Power2' ? (
+                  {dist.name === 'Power' || dist.name === 'Power2' || dist.name === 'Reflect' ? (
                     <Attribute name="Power" disableLink disableText />
                   ) : (
                     <Condition name={dist.name} disableLink disableText />
