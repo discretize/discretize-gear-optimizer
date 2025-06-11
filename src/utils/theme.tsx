@@ -1,6 +1,30 @@
 import { Paper } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 
+declare module '@mui/material/styles' {
+  interface TypeBackground {
+    embossed?: string;
+  }
+  interface Palette {
+    themed?: Palette['primary'];
+    unthemed?: Palette['primary'];
+    subtleThemed?: Palette['primary'];
+    star?: string;
+  }
+  interface PaletteOptions {
+    themed?: PaletteOptions['primary'];
+    unthemed?: PaletteOptions['primary'];
+    subtleThemed?: PaletteOptions['primary'];
+    star?: string;
+  }
+}
+
+declare module '@mui/material/Alert' {
+  interface AlertPropsColorOverrides {
+    subtleThemed: true;
+  }
+}
+
 const theme = createTheme({
   palette: {
     mode: 'dark',
@@ -241,7 +265,7 @@ export default createTheme(theme, {
     },
     MuiAutocomplete: {
       defaultProps: {
-        PaperComponent: ({ children }) => (
+        PaperComponent: ({ children }: { children: React.ReactNode }) => (
           <Paper elevation={3} sx={{ background: theme.palette.background.paper }}>
             {children}
           </Paper>
