@@ -279,17 +279,22 @@ const Priorities = () => {
 
       <Grid container>{statConstraints}</Grid>
 
-      <Grid container>{resultConstraints}</Grid>
-
       {showWarning ? (
-        <MuiAlert elevation={6} variant="filled" severity="warning">
+        <MuiAlert
+          elevation={6}
+          variant="filled"
+          severity="info"
+          color="subtleThemed"
+          sx={{ color: '#fff' }}
+        >
           <Trans>
-            Forcing 100% critical chance is not recommended in most cases. If capping critical
-            chance is optimal, the optimizer will do so automatically, and if it is not, forcing it
-            will lead to a worse result!
+            Forcing 100% critical chance is only recommended on builds with certain on-crit effects,
+            as it can lead to wasted stat points.
           </Trans>
         </MuiAlert>
       ) : null}
+
+      <Grid container>{resultConstraints}</Grid>
     </>
   );
 };

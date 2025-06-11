@@ -94,7 +94,7 @@
   "For more information, <2>see the coefficients documentation on Github</2> or ask in Discord!": "For more information, <2>see the coefficients documentation on Github</2> or ask in Discord!",
   "For more information, <2>see the data format documentation on Github</2> or ask in Discord!": "For more information, <2>see the data format documentation on Github</2> or ask in Discord!",
   "Forced Slots": "Forced Slots",
-  "Forcing 100% critical chance is not recommended in most cases. If capping critical chance is optimal, the optimizer will do so automatically, and if it is not, forcing it will lead to a worse result!": "Forcing 100% critical chance is not recommended in most cases. If capping critical chance is optimal, the optimizer will do so automatically, and if it is not, forcing it will lead to a worse result!",
+  "Forcing 100% critical chance is only recommended on builds with certain on-crit effects, as it can lead to wasted stat points.": "Forcing 100% critical chance is only recommended on builds with certain on-crit effects, as it can lead to wasted stat points.",
   "Formatting examples": "Formatting examples",
   "Fractals": "Fractals",
   "Game Mode": "Game Mode",
