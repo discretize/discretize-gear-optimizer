@@ -72,7 +72,7 @@
       modifiers:
         conversion:
           Vitality: {Vitality: 5%} # tested: https://discord.com/channels/380901000200060929/380903574282174466/1025093797304090685
-          Armor: {Armor: 5%}
+          Armor: {Armor: 5%} # this is actually an increase to "defense" (from armor and shields); we add toughness to this value later
       wvwModifiers:
         conversion:
           Vitality: {Vitality: 1%}
