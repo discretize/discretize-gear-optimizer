@@ -64,7 +64,7 @@ const IndexPage = () => {
   ];
 
   return (
-    <APILanguageProvider value={language}>
+    <APILanguageProvider value={language as 'de' | 'en' | 'es' | 'fr' | 'zh'}>
       <BackgroundImage gameMode={gameMode} />
       <Layout>
         <URLStateImport clearUrlOnSuccess />
