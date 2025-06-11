@@ -403,6 +403,16 @@ export const nourishmentDict = [
   'tray-of-decade-desserts',
   'no-item-food',
   'ghost-pepper-popper-reaper',
+  'peppercorn-crusted-sous-vide-steak',
+  'plate-of-peppercorn-spiced-coq-au-vin',
+  'spiced-peppercorn-cheesecake',
+  'plate-of-peppercorn-spiced-beef-carpaccio',
+  'peppercorn-spiced-eggs-benedict',
+  'plate-of-peppercorn-spiced-poultry-aspic',
+  'peppercorn-and-veggie-flatbread',
+  'peppered-cured-meat-flatbread',
+  'spherified-peppercorn-spiced-oyster-soup',
+  'plate-of-peppered-clear-truffle-ravioli',
 ];
 
 export const buffsDict = [

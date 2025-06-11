@@ -11,6 +11,17 @@
       gw2id: 91805
       temporaryBuff: false
 
+    - id: peppercorn-crusted-sous-vide-steak
+      text: Peppercorn-Crusted Sous-Vide Steak
+      modifiers:
+        attributes:
+          Power: [100, converted]
+          Ferocity: [70, converted]
+        damage:
+          Damage Reduction: [10%, mult]
+      gw2id: 91734
+      temporaryBuff: false
+
     - id: sweet-and-spicy-butternut-squash-soup
       text: Sweet and Spicy Butternut Squash Soup / Spicy Moa Wings
       modifiers:
@@ -39,6 +50,17 @@
           Power: [100, converted]
           Precision: [70, converted]
       gw2id: 91709
+      temporaryBuff: false
+
+    - id: plate-of-peppercorn-spiced-coq-au-vin
+      text: Plate of Peppercorn-Spiced Coq Au Vin
+      modifiers:
+        attributes:
+          Power: [100, converted]
+          Precision: [70, converted]
+        damage:
+          Damage Reduction: [10%, mult]
+      gw2id: 91753
       temporaryBuff: false
 
     - id: truffle-steak
@@ -130,6 +152,16 @@
       gw2id: 91851
       temporaryBuff: false
 
+    - id: spiced-peppercorn-cheesecake
+      text: Spiced Peppercorn Cheesecake
+      modifiers:
+        attributes:
+          Concentration: [100, converted]
+        damage:
+          Damage Reduction: [10%, mult]
+      gw2id: 91835
+      temporaryBuff: false
+
     - id: fried-golden-dumpling
       text: Fried Golden Dumpling / Cheesecake
       modifiers:
@@ -171,6 +203,17 @@
       gw2id: 91862
       temporaryBuff: false
 
+    - id: plate-of-peppercorn-spiced-beef-carpaccio
+      text: Plate of Peppercorn-Spiced Beef Carpaccio
+      modifiers:
+        attributes:
+          Concentration: [100, converted]
+          Power: [70, converted]
+        damage:
+          Damage Reduction: [10%, mult]
+      gw2id: 91858
+      temporaryBuff: false
+
     - id: soul-pastry
       text: Soul Pastry
       modifiers:
@@ -188,6 +231,17 @@
           Concentration: [100, converted]
           Expertise: [70, converted]
       gw2id: 91847
+      temporaryBuff: false
+
+    - id: peppercorn-spiced-eggs-benedict
+      text: Peppercorn-Spiced Eggs Benedict
+      modifiers:
+        attributes:
+          Concentration: [100, converted]
+          Expertise: [70, converted]
+        damage:
+          Damage Reduction: [10%, mult]
+      gw2id: 91865
       temporaryBuff: false
 
     - id: eggs-benedict
@@ -208,6 +262,17 @@
           Concentration: [100, converted]
           Toughness: [70, converted]
       gw2id: 91704
+      temporaryBuff: false
+
+    - id: plate-of-peppercorn-spiced-poultry-aspic
+      text: Plate of Peppercorn-Spiced Poultry Aspic
+      modifiers:
+        attributes:
+          Concentration: [100, converted]
+          Toughness: [70, converted]
+        damage:
+          Damage Reduction: [10%, mult]
+      gw2id: 91794
       temporaryBuff: false
 
     - id: nopalitos-saute
@@ -284,6 +349,17 @@
       gw2id: 91876
       temporaryBuff: false
 
+    - id: peppercorn-and-veggie-flatbread
+      text: Peppercorn and Veggie Flatbread
+      modifiers:
+        attributes:
+          Expertise: [100, converted]
+          Condition Damage: [70, converted]
+        damage:
+          Damage Reduction: [10%, mult]
+      gw2id: 91771
+      temporaryBuff: false
+
     - id: rare-veggie-pizza
       text: Rare Veggie Pizza / Koi Cake
       modifiers:
@@ -303,6 +379,17 @@
           Condition Damage: [100, converted]
           Expertise: [70, converted]
       gw2id: 91878
+      temporaryBuff: false
+
+    - id: peppered-cured-meat-flatbread
+      text: Peppered Cured Meat Flatbread
+      modifiers:
+        attributes:
+          Condition Damage: [100, converted]
+          Expertise: [70, converted]
+        damage:
+          Damage Reduction: [10%, mult]
+      gw2id: 91848
       temporaryBuff: false
 
     - id: beef-rendang
@@ -490,6 +577,24 @@
       gw2id: 91804
       temporaryBuff: false
 
+    - id: spherified-peppercorn-spiced-oyster-soup
+      text: Spherified Peppercorn-Spiced Oyster Soup
+      modifiers:
+        attributes:
+          Power: [45, converted]
+          Precision: [45, converted]
+          Toughness: [45, converted]
+          Vitality: [45, converted]
+          Concentration: [45, converted]
+          Condition Damage: [45, converted]
+          Expertise: [45, converted]
+          Ferocity: [45, converted]
+          Healing Power: [45, converted]
+        damage:
+          Damage Reduction: [10%, mult]
+      gw2id: 91713
+      temporaryBuff: false
+
     - id: spherified-oyster-soup-with-mint-garnish
       text: Spherified Oyster Soup with Mint Garnish
       hasLifesteal: false
@@ -633,6 +738,17 @@
           Vitality: [100, converted]
           Toughness: [70, converted]
       gw2id: 91735
+      temporaryBuff: false
+
+    - id: plate-of-peppered-clear-truffle-ravioli
+      text: Plate of Peppered Clear Truffle Ravioli
+      modifiers:
+        attributes:
+          Vitality: [100, converted]
+          Toughness: [70, converted]
+        damage:
+          Damage Reduction: [10%, mult]
+      gw2id: 91770
       temporaryBuff: false
 
     - id: omnomberry-bread
