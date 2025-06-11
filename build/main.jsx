@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import { globals } from '../src/utils/globals';
 import IndexPage from '../src/pages/build/index';
 import store from '../src/state/store';
-import muiTheme from '../src/utils/placeholder-unused-theme';
+import muiTheme from '../src/utils/theme';
 import '../src/utils/rdc-styles.css';
 
 import '@discretize/typeface-menomonia';

@@ -13,7 +13,7 @@ import 'typeface-muli';
 import 'typeface-raleway';
 import store from '../../state/store';
 import '../../utils/i18n';
-import muiTheme from '../../utils/placeholder-unused-theme';
+import muiTheme from '../../utils/theme';
 import '../../utils/rdc-styles.css';
 import IndexPage from './index';
 
