@@ -123,6 +123,8 @@ const testModifiers = async () => {
           wvwModifiers,
           gw2id,
           type,
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          componentNameProp,
           minor,
           amountData,
           defaultEnabled,
