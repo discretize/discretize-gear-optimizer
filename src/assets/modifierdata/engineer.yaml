@@ -52,6 +52,14 @@
           Outgoing Condition Damage: [12%, add] #unconfirmed
       gw2id: 63113
 
+    - id: spectrum-shield
+      text: Spectrum Shield
+      subText: while active
+      modifiers:
+        damage:
+          Damage Reduction: [50%, mult]
+      gw2id: 41218
+
 - section: Explosives
   id: 6
   items:
@@ -397,6 +405,16 @@
 - section: Holosmith
   id: 57
   items:
+
+    - id: light-density-amplifier
+      text: Light Density Amplifier
+      subText: while active
+      modifiers:
+        damage:
+          Damage Reduction: [15%, mult]
+      gw2id: 2114
+      defaultEnabled: false
+
     - id: lasers-edge
       text: Laser's Edge
       amountData:

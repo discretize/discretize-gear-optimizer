@@ -153,7 +153,7 @@ export type ConversionAfterBuffsDestinationKey =
 
 // these values don't behave well if scaled up and down,
 // so disallow them in modifiers with an amount key
-export const damageKeysBlacklist = [] as const;
+export const damageKeysBlacklist = ['Damage Reduction'] as const;
 export const attributePointKeysBlacklist = [
   'Precision',
   'Toughness',

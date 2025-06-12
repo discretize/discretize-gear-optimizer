@@ -118,13 +118,6 @@
           Outgoing Condition Damage: [7%, add] #unconfirmed
       gw2id: 28113
 
-    - id: vengeful-hammers
-      text: Vengeful Hammers
-      modifiers:
-        damage:
-          Damage Reduction: [20%, mult]
-      gw2id: 26557
-
     - id: soulcleaves-summit
       text: Soulcleave's Summit
       subText: siphon only
@@ -161,6 +154,22 @@
           Siphon Coefficient: 0.3
       gw2id: 26937
       temporaryBuff: true
+
+    - id: vengeful-hammers
+      text: Vengeful Hammers
+      subText: damage reduction while active
+      modifiers:
+        damage:
+          Damage Reduction: [20%, mult]
+      gw2id: 26557
+
+    - id: forced-engagement
+      text: Forced Engagement
+      subText: damage reduction while active
+      modifiers:
+        damage:
+          Damage Reduction: [33%, mult]
+      gw2id: 26679
 
 - section: Corruption
   id: 14

@@ -238,6 +238,7 @@
 
     - id: relic-of-nourys
       text: Relic of Nourys
+      subText: damage reduction not included
       amountData:
         label: '% uptime'
         default: 0
@@ -247,7 +248,6 @@
         damage:
           Outgoing Strike Damage: [25%, add] # tested by crone
           Outgoing Condition Damage: [25%, add] # tested by crone
-          Damage Reduction: [15%, unknown]
       gw2id: 101191
 
     - id: living-city-relic
