@@ -26,6 +26,7 @@ import {
 } from '../../../state/slices/priorities';
 import { WeaponTypes } from '../../../utils/gw2-data';
 import { parsePriority } from '../../../utils/usefulFunctions';
+import { ToFHelper } from './ToFHelper';
 
 const useStyles = makeStyles()((theme) => ({
   text: {
@@ -295,6 +296,10 @@ const Priorities = () => {
       ) : null}
 
       <Grid container>{resultConstraints}</Grid>
+
+      <Grid container>
+        <ToFHelper />
+      </Grid>
     </>
   );
 };
