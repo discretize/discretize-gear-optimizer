@@ -88,6 +88,25 @@
           Siphon Coefficient: 0.2
       temporaryBuff: true
 
+    - id: rise-shout
+      text: "Rise!"
+      subText: damage reduction while active
+      modifiers:
+        damage:
+          Damage Reduction: [33%, mult]
+      gw2id: 30772
+
+    - id: infusing-terror
+      text: Infusing Terror
+      subText: damage reduction while active
+      modifiers:
+        damage:
+          Damage Reduction: [66%, mult]
+      wvwModifiers:
+        damage:
+          Damage Reduction: [20%, mult]
+      gw2id: 29958
+
 - section: Spite
   id: 53
   items:

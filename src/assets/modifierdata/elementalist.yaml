@@ -68,6 +68,17 @@
       gw2id: 62887
       temporaryBuff: true
 
+    - id: rocky-loop
+      text: Rocky Loop
+      subText: damage reduction while active
+      modifiers:
+        damage:
+          Damage Reduction: [15%, mult]
+      wvwModifiers:
+        damage:
+          Damage Reduction: [10%, mult]
+      gw2id: 62975
+
     - id: relentless-fire
       text: Relentless Fire
       amountData:
@@ -109,6 +120,22 @@
           Ferocity: [300, unknown]
       gw2id: 5635
       temporaryBuff: true
+
+    - id: grinding-stones
+      text: Grinding Stones
+      subText: damage reduction while active
+      modifiers:
+        damage:
+          Damage Reduction: [25%, mult]
+      gw2id: 40963
+
+    - id: woven-earth
+      text: Woven Earth
+      subText: damage reduction while earth active
+      modifiers:
+        damage:
+          Damage Reduction: [20%, mult]
+      gw2id: 43638
 
     # - id: flame-axe
     #   text: Flame Axe
@@ -357,7 +384,7 @@
     - id: stone-flesh
       text: Stone Flesh
       minor: true
-      subText: 100% earth attunement
+      subText: damage reduction while active
       modifiers:
         damage:
           Damage Reduction: [7%, unknown]

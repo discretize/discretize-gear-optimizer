@@ -639,13 +639,12 @@
 
     - id: deathless-courage
       text: Deathless Courage
-      amountData:
-        label: '% uptime'
-        default: 0
-        defaultInput: ???
-        quantityEntered: 100
+      subText: damage reduction while active
       modifiers:
         damage:
           Damage Reduction: [50%, unknown]
+      wvwModifiers:
+        damage:
+          Damage Reduction: [20%, unknown]
       gw2id: 2198
       defaultEnabled: true

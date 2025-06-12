@@ -147,6 +147,14 @@
           Outgoing Healing: 25%
       temporaryBuff: true
 
+    - id: dolyak-stance
+      text: Dolyak Stance
+      subText: while active
+      modifiers:
+        damage:
+          Damage Reduction: [33%, mult]
+      gw2id: 45789
+
 - section: Marksmanship
   id: 8
   note: Farsighted currently breaks air and hydromancy sigil simulation, and possibly some other effects.
@@ -341,7 +349,7 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, unknown]
-          Damage Reduction: [10%, unknown]
+          Damage Reduction: [5%, unknown]
       gw2id: 2032
       defaultEnabled: true
 
@@ -693,7 +701,7 @@
 
     - id: vow-of-the-untamed-pet
       text: Vow of the Untamed
-      subText: pet unleashed
+      subText: when pet unleashed
       modifiers:
         damage:
           Damage Reduction: [25%, unknown]
