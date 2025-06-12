@@ -308,7 +308,9 @@ export interface ModifierItem {
     | 'Condition'
     | 'Text'
     | 'Item'
-    | 'Augmentation';
+    | 'Augmentation'
+    | 'Aura';
+  componentNameProp?: string;
   temporaryBuff?: true | false | 'activeOutOfCombat';
 }
 

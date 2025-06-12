@@ -1,5 +1,6 @@
 import {
   Augmentation,
+  Aura,
   Boon,
   CommonEffect,
   Condition,
@@ -64,6 +65,7 @@ const Buffs = () => {
     Condition,
     Item,
     Augmentation,
+    Aura,
   };
 
   return (
@@ -79,12 +81,14 @@ const Buffs = () => {
             </FormLabel>
             <FormGroup>
               {section.items.map((buff) => {
-                const { type, text, id, gw2id, subText, amountData } = buff;
+                const { type, componentNameProp, text, id, gw2id, subText, amountData } = buff;
 
                 const Component = components[type];
-                const name = ['Boon', 'Condition', 'CommonEffect', 'Augmentation'].includes(type)
-                  ? firstUppercase(id)
-                  : undefined;
+                const name =
+                  componentNameProp ??
+                  (['Boon', 'Condition', 'CommonEffect', 'Augmentation', 'Aura'].includes(type)
+                    ? firstUppercase(id)
+                    : undefined);
 
                 const label =
                   type === 'Text' ? (
@@ -104,7 +108,15 @@ const Buffs = () => {
                       </Typography>
                     </>
                   ) : (
-                    <Component id={gw2id} name={name} disableLink className={classes.boon} />
+                    <>
+                      <Component id={gw2id} name={name} disableLink className={classes.boon} />
+                      {subText && (
+                        <Typography variant="caption" className={classes.tinyNote}>
+                          {' '}
+                          {subText}
+                        </Typography>
+                      )}
+                    </>
                   );
 
                 return (

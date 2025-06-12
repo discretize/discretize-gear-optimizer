@@ -296,9 +296,15 @@ Array of numerical GW2 ids to select the cheapest price from if "show prices" is
 
 > source: [src/components/sections/buffs/Buffs.jsx](../../../src/components/sections/buffs/Buffs.jsx)
 
-`Boon`, `Skill`, `Trait`, `CommonEffect`, `Condition`, or `Text`; used to specify what kind of component to use to render buffs.
+`Boon`, `Skill`, `Trait`, `CommonEffect`, `Condition`, `Aura`, or `Text`; used to specify what kind of component to use to render buffs.
 
 (Food, utilities, runes, and sigils are always items; skills are always skills; traits are always traits. This can be changed if needed.)
+
+#### componentNameProp (buffs only)
+
+> source: [src/components/sections/buffs/Buffs.jsx](../../../src/components/sections/buffs/Buffs.jsx)
+
+String used to set the "name" property passed to gw2-ui to render buffs.
 
 #### defaultEnabled (traits only)
 

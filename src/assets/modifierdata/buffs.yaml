@@ -44,6 +44,14 @@
           Outgoing Phantasm Damage: [1%, target]
       type: Condition
 
+    - id: frost-aura
+      text: Frost Aura
+      componentNameProp: Frost
+      modifiers:
+        damage:
+          Damage Reduction: [10%, mult]
+      type: Aura
+
 - section: Other buffs
   items:
     - id: jade-bot-base

@@ -40,6 +40,7 @@ const initialState: BuffsSlice = {
     riteDwarf: false,
     exposed: false,
     lightArmor: false,
+    'frost-aura': false,
   },
   amounts: {},
 };

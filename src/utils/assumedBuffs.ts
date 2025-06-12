@@ -14,6 +14,7 @@ export function createAssumedBuffs({
 }): AssumedBuff[] {
   const assumedBuffs = buffsRaw
     .filter((buff) => !buff.id.includes('jade-bot-'))
+    .filter((buff) => buff.type !== 'Aura') // would have to implement this in react-discretize-components
     .map(({ id, gw2id, type }) => ({ id, gw2id, type }));
 
   const jadeBotModifier = character.settings.appliedModifiers.find(
