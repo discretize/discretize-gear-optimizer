@@ -1692,6 +1692,13 @@ export const siphonAttributes = [
 ] as const;
 export type SiphonAttributeName = (typeof siphonAttributes)[number];
 
+export const reflectAttributes = [
+  'Reflect Coefficient',
+  'Reflect Base Coefficient',
+  'Reflect DPS',
+] as const;
+export type ReflectAttributeName = (typeof reflectAttributes)[number];
+
 export const miscAttributes = [
   'Maximum Health',
   'Outgoing Healing',
@@ -1720,6 +1727,7 @@ export type AttributeName =
   | AlternativeAttributeName
   | ProfessionAttributeName
   | SiphonAttributeName
+  | ReflectAttributeName
   | MiscAttributeName;
 
 export type GearAttributeName = PrimaryAttributeName | SecondaryAttributeName;
