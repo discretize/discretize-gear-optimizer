@@ -4032,6 +4032,86 @@ list:
         }
       }
 
+  - name: '"Fire Wizard"'
+    profession: Tempest
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "48"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1675
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            1886,
+            1891,
+            1839
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "100"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "100"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "gathered-focus": {},
+            "hardy-conduit": {},
+            "tempestuous-aria": {
+              "amount": ""
+            },
+            "transcendent-tempest": {
+              "amount": "43"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {}
+        }
+      }
+
   - name: Power Tempest Water
     profession: Tempest
     traits:
