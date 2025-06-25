@@ -1293,12 +1293,14 @@ list:
             "force": {},
             "accuracy": {},
             "smoldering": {},
-            "malice": {}
+            "malice": {},
+            "bursting": {}
           },
           "Sigil2": {
             "accuracy": {},
             "smoldering": {},
-            "impact/night/slaying-both": {}
+            "impact/night/slaying-both": {},
+            "bursting": {}
           },
           "Enhancement": {
             "superior-sharpening-stone": {},
@@ -1340,7 +1342,8 @@ list:
           "Sigil1": {
             "force": {},
             "accuracy": {},
-            "malice": {}
+            "malice": {},
+            "bursting": {}
           },
           "Sigil2": {
             "impact/night/slaying-only-3": {},
@@ -1383,12 +1386,14 @@ list:
           "Sigil1": {
             "force": {},
             "accuracy": {},
-            "smoldering": {}
+            "smoldering": {},
+            "bursting": {}
           },
           "Sigil2": {
             "accuracy": {},
             "smoldering": {},
-            "impact/night/slaying-both": {}
+            "impact/night/slaying-both": {},
+            "bursting": {}
           },
           "Enhancement": {
             "superior-sharpening-stone": {},
@@ -1426,7 +1431,8 @@ list:
           },
           "Sigil1": {
             "force": {},
-            "accuracy": {}
+            "accuracy": {},
+            "bursting": {}
           },
           "Sigil2": {
             "impact/night/slaying-only-3": {},
