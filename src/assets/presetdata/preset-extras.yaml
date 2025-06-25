@@ -1266,6 +1266,98 @@ list:
         }
       }
 
+  - name: Alacrity Power Tempest Bloodstone (Fractal)
+    profession: Tempest
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "flame-legion": {},
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.47"
+            },
+            "fireworks-relic": {
+              "amount": "100"
+            }
+          },
+          "Sigil1": {
+            "force": {},
+            "accuracy": {},
+            "smoldering": {}
+          },
+          "Sigil2": {
+            "accuracy": {},
+            "smoldering": {},
+            "impact/night/slaying-both": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {},
+            "fire-meat-chili": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Alacrity Power Tempest Bloodstone (Raid)
+    profession: Tempest
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "flame-legion": {},
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.47"
+            },
+            "fireworks-relic": {
+              "amount": "100"
+            }
+          },
+          "Sigil1": {
+            "force": {},
+            "accuracy": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "smoldering": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {},
+            "fire-meat-chili": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Tempest Bloodstone (Fractal)
     profession: Tempest
     value:
@@ -1303,7 +1395,8 @@ list:
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
             "plate-of-coq-au-vin-with-salsa": {},
-            "curry-butternut-squash-soup": {}
+            "curry-butternut-squash-soup": {},
+            "fire-meat-chili": {}
           }
         },
         "lifestealAmount": ""
@@ -1344,7 +1437,8 @@ list:
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
             "plate-of-coq-au-vin-with-salsa": {},
-            "curry-butternut-squash-soup": {}
+            "curry-butternut-squash-soup": {},
+            "fire-meat-chili": {}
           }
         },
         "lifestealAmount": ""

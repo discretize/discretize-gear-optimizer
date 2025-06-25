@@ -3877,6 +3877,78 @@ list:
         }
       }
 
+  - name: Alacrity Power Tempest Scepter Bloodstone
+    profession: Tempest
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "17",
+          "48"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1675
+          ],
+          [
+            363,
+            349,
+            361
+          ],
+          [
+            1886,
+            1891,
+            1986
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "97"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "97"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "piercing-shards": {},
+            "flow-like-water": {
+              "amount": ""
+            },
+            "aquamancers-training": {},
+            "soothing-power": {}
+          },
+          {
+            "gathered-focus": {},
+            "hardy-conduit": {},
+            "transcendent-tempest": {
+              "amount": "50"
+            },
+            "tempestuous-aria": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {}
+        }
+      }
+
+
   - name: Power Tempest Scepter Bloodstone
     profession: Tempest
     traits:

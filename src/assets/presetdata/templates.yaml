@@ -724,7 +724,21 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Power Tempest Scepter Bloodstone (Approx.)
+      - name: Alacrity Power Tempest Scepter Bloodstone
+        id: ptemp-blood-alac
+        specialization: Tempest
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Alacrity Power Tempest Scepter Bloodstone
+        traits: Alacrity Power Tempest Scepter Bloodstone
+        fractal:
+          extras: Alacrity Power Tempest Bloodstone (Fractal)
+        raid:
+          extras: Alacrity Power Tempest Bloodstone (Raid)
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Power Tempest Scepter Bloodstone
         id: ptemp-blood
         specialization: Tempest
         boonType: Power

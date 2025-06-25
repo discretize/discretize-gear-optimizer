@@ -493,6 +493,17 @@ list:
         url: https://www.youtube.com/watch?v=UI_DqbbBhWg
         log: https://dps.report/JJvS-20231203-145912_golem
 
+  - name: Alacrity Power Tempest Scepter Bloodstone
+    profession: Tempest
+    value:
+      {
+        "values2": { "Power": 2834, "Power2": 0, "Burning": 12.96, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: '[NA] Crone'
+        url: https://www.youtube.com/watch?v=OyH9ZpsXcp8
+        log: https://dps.report/nb3Q-20250624-223739_golem
+
   - name: Power Tempest Scepter Bloodstone
     profession: Tempest
     value:
