@@ -1,3 +1,4 @@
+import type { CalculationTweaks } from '../../../assets/modifierdata/metadata';
 import type {
   AffixName,
   AttributeName,
@@ -98,6 +99,7 @@ export interface OptimizerCoreSettingsPerCombination {
   disableCondiResultCache: boolean;
   relevantConditions: DamagingConditionName[];
   appliedModifiers: AppliedModifier[];
+  calculationTweaks: CalculationTweaks;
 }
 
 export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &

@@ -8,6 +8,7 @@ pub struct Combination {
     pub modifiers: Modifiers,
     pub relevantConditions: Vec<Condition>,
     pub disableCondiResultCache: bool,
+    pub calculationTweaks: CalculationTweaks,
 }
 
 #[allow(non_snake_case)]
@@ -40,4 +41,10 @@ impl Modifiers {
             _ => -1.0,
         }
     }
+}
+
+#[allow(non_snake_case)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct CalculationTweaks {
+    pub infernoBurningDamage: bool,
 }

@@ -5,6 +5,7 @@
 import type {
   AttributeKey,
   AttributePointMode,
+  CalculationTweaks,
   ConversionAfterBuffsDestinationKey,
   ConversionAfterBuffsSourceKey,
   ConversionAfterBuffsValue,
@@ -607,6 +608,8 @@ export function createSettingsPerCombination(
     }
   };
 
+  let allCalculationTweaks: CalculationTweaks = {};
+
   for (const item of appliedModifiers) {
     const {
       amount: amountText,
@@ -631,6 +634,7 @@ export function createSettingsPerCombination(
       attributes = {},
       conversion = {},
       conversionAfterBuffs = {},
+      calculationTweaks = {},
       // note,
       // ...otherModifiers
     } = isWvW ? (wvwModifiers ?? modifiers) : modifiers;
@@ -791,6 +795,8 @@ export function createSettingsPerCombination(
           (collectedModifiers['convertAfterBuffs'][attribute]![source] ?? 0) + scaledAmount;
       }
     }
+
+    allCalculationTweaks = { ...allCalculationTweaks, ...calculationTweaks };
   }
 
   const damageMultiplier = {} as DamageMultiplier;
@@ -833,10 +839,11 @@ export function createSettingsPerCombination(
       (baseAttributes[`${condition} Coefficient`] ?? 0) > 0 || extraRelevantConditions[condition],
   );
 
-  // if any condition coefficnents are the result of a conversion, the same cdmg + expertise does
-  // not mean the same condition dps; disable caching if so
+  // the condi result cache assumes the same cdmg + expertise values produce the same condition damage;
+  // disable it if any condition coefficients are the result of a conversion or if conditions scale in unusual ways
   const disableCondiResultCache: OptimizerCoreSettings['disableCondiResultCache'] =
-    Object.values(extraRelevantConditions).some(Boolean);
+    Object.values(extraRelevantConditions).some(Boolean) ||
+    !!allCalculationTweaks.infernoBurningDamage;
 
   const settings: OptimizerCoreSettingsPerCombination = {
     baseAttributes: { ...baseAttributes }, // object shape performance optimization
@@ -844,6 +851,7 @@ export function createSettingsPerCombination(
     relevantConditions,
     disableCondiResultCache,
     appliedModifiers,
+    calculationTweaks: allCalculationTweaks,
   };
 
   return settings;

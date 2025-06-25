@@ -212,6 +212,18 @@ Similar to `conversion`, but sourced after other buffs are applied. This is used
 - Clone Critical Chance
 - Phantasm Critical Chance
 
+## calculationTweaks
+
+`key: arbitrary value`
+
+This section contains flags that trigger arbitrary code paths in the simulation module that would otherwise be impossible to represent with this data format.
+
+*Note: if a calculation tweak key is used in multiple modifiers that could be applied at once, it should have the same value, as only one will be read and which one takes precedence is undefined behavior.*
+
+**Keys:**
+
+- `infernoBurningDamage: true` enables the Inferno trait's alternative power-scaling burning damage calculation. 
+
 # Amount Section
 
 The `amountData` object allows trait effects to specify that the user can change the amount of the effect in the optimizer UI. Effects will be linearly scaled up or down based on how the user-specified amount compares to the `quantityEntered` value.

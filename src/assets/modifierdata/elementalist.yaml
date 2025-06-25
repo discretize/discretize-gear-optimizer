@@ -264,6 +264,14 @@
       gw2id: 1510
       defaultEnabled: true
 
+    - id: inferno
+      text: Inferno
+      modifiers:
+        calculationTweaks:
+          infernoBurningDamage: true
+      gw2id: 1675
+      defaultEnabled: true
+
 - section: Air
   id: 41
   items:
