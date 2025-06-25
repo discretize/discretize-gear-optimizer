@@ -4102,9 +4102,7 @@ list:
       }
     skills:
       {
-        "skills": {
-          "signet-of-fire": {}
-        }
+        "skills": {}
       }
 
   - name: Power Tempest Water
