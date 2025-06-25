@@ -3943,11 +3943,8 @@ list:
       }
     skills:
       {
-        "skills": {
-          "signet-of-fire": {}
-        }
+        "skills": {}
       }
-
 
   - name: Power Tempest Scepter Bloodstone
     profession: Tempest
@@ -4027,9 +4024,7 @@ list:
       }
     skills:
       {
-        "skills": {
-          "signet-of-fire": {}
-        }
+        "skills": {}
       }
 
   - name: '"Fire Wizard"'
