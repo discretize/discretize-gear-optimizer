@@ -533,11 +533,7 @@ list:
       }
     skills:
       {
-        "skills": {
-          "fractured-glass": {
-            "amount": "53"
-          }
-        }
+        "skills": {}
       }
 
   - name: Condi Chrono

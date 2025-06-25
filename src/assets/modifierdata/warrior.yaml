@@ -333,6 +333,9 @@
         quantityEntered: 30
       modifiers:
         damage:
+          Outgoing Strike Damage: [25%, unknown]
+      wvwModifiers:
+        damage:
           Outgoing Strike Damage: [20%, unknown]
       gw2id: 1367
       defaultEnabled: true
@@ -354,6 +357,9 @@
         default: 100 # approximated from october hammer qspb log
         quantityEntered: 100
       modifiers:
+        damage:
+          Outgoing Strike Damage: [12.5%, unknown]
+      wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, unknown]
       gw2id: 1708

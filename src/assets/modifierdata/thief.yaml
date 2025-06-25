@@ -96,6 +96,9 @@
       modifiers:
         attributes:
           Power: [80, buff]
+      wvwModifiers:
+        attributes:
+          Power: [100, buff]
       gw2id: 1704
       defaultEnabled: true
       temporaryBuff: false
@@ -109,6 +112,9 @@
       modifiers:
         attributes:
           Power: [120, buff]
+      wvwModifiers:
+        attributes:
+          Power: [150, buff]
       gw2id: 1704
       defaultEnabled: false
       temporaryBuff: true
@@ -123,6 +129,9 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [2%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [3%, mult]
       gw2id: 1257
       defaultEnabled: true
 

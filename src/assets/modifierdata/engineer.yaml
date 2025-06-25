@@ -167,12 +167,15 @@
 
     - id: hematic-focus
       text: Hematic Focus
+      subText: 100% fury
       modifiers:
         attributes:
           Critical Chance: 15%
+          Ferocity: [150, buff] # tested by marcus
       wvwModifiers:
         attributes:
           Critical Chance: 10%
+          Ferocity: [150, buff] # tested by marcus
       minor: true
       gw2id: 536
       defaultEnabled: true
@@ -307,19 +310,6 @@
       gw2id: 413
       defaultEnabled: true
       temporaryBuff: false
-
-    - id: iron-blooded
-      text: Iron Blooded
-      amountData:
-        label: 'boons'
-        default: 10
-        quantityEntered: 1
-        disableBlacklist: true
-      modifiers:
-        damage:
-          Damage Reduction: [2%, unknown]
-      gw2id: 1854
-      defaultEnabled: true
 
 - section: Tools
   id: 21

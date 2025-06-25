@@ -48,11 +48,11 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, add] # probanly
-          Outgoing Condition Damage: [15%, add] #unconfirmed
+          Outgoing Strike Damage: [5%, add] # probably
+          Outgoing Condition Damage: [5%, add] #unconfirmed
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [10%, add] # probanly
+          Outgoing Strike Damage: [10%, add] # probably
           Outgoing Condition Damage: [10%, add] #unconfirmed
       gw2id: 62758
 
@@ -106,20 +106,6 @@
         damage:
           Outgoing Condition Damage: [5%, add] # unconfirmed
       gw2id: 71828
-
-    - id: arcane-power
-      text: Arcane Power
-      subText: ferocity only
-      amountData:
-        label: '% uptime'
-        default: 0
-        defaultInput: ???
-        quantityEntered: 100
-      modifiers:
-        attributes:
-          Ferocity: [300, unknown]
-      gw2id: 5635
-      temporaryBuff: true
 
     - id: grinding-stones
       text: Grinding Stones
