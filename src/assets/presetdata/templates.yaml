@@ -103,7 +103,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Chrono (Approx.)
+      - name: Condi Chrono
         id: condi-chrono
         specialization: Chronomancer
         boonType: Condi
@@ -112,7 +112,7 @@ list:
         traits: Condi Chrono
         extras: Condi Chrono (Approx.)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       # - name: Alacrity Power Chrono GS
       #   id: pchrono-alac-gs
@@ -227,7 +227,7 @@ list:
         raid:
           extras: Power Mirage (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Heal Boon Chrono
         id: heal-boon-chrono
@@ -599,7 +599,7 @@ list:
         raid:
           extras: Power Berserker
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Power Berserker GS A/A
         id: pbers
@@ -613,7 +613,7 @@ list:
         raid:
           extras: Power Berserker
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Power Spellbreaker GS
         id: spb-power-gs
@@ -697,7 +697,7 @@ list:
         raid:
           extras: Power Boon (Raid, fireworks)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Alacrity Power Tempest Scepter
         id: ptemp-alac
@@ -1451,7 +1451,7 @@ list:
         traits: Alacrity Specter D/D
         extras: Alacrity Specter
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Specter Spear
         id: specter-spear
@@ -1473,7 +1473,7 @@ list:
         traits: Condi Specter SC/D
         extras: Condi Specter SC/D
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Barrier "Carrion" Specter SC/D
         id: specter-carrion
@@ -1531,7 +1531,7 @@ list:
         raid:
           extras: Power Staff Daredevil
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Quickness Condi Deadeye Spear
         id: quick-cded-spear

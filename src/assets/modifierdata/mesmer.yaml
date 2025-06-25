@@ -17,19 +17,6 @@
       gw2id: 10234
       temporaryBuff: false
 
-    - id: fractured-glass
-      text: Fractured Glass
-      subText: with Mirage Mantle
-      amountData:
-        label: '% uptime'
-        default: 0
-        defaultInput: ???
-        quantityEntered: 100
-      modifiers:
-        damage:
-          Outgoing Strike Damage: [25%, unknown]
-      gw2id: 73067
-
 - section: Domination
   id: 10
   items:
@@ -311,25 +298,31 @@
   note: Be sure to change the power coefficient value below when adding or removing traits that change your rotation like improved alacrity.
   items:
 
-    - id: danger-time
-      text: Danger Time
-      subText: 100% slow
+    - id: flow-of-time
+      text: Flow of Time
+      subText: 100% alacrity
       modifiers:
         attributes:
           Critical Chance: 15%
-          Phantasm Critical Chance: 15%
+          Phantasm Critical Chance: 15% # confirmed (despite the trait description saying "you and your clones")
           Clone Critical Chance: 15%
-      gw2id: 2009
+      minor: true
+      gw2id: 1927
       defaultEnabled: true
       temporaryBuff: true
 
-    - id: improved-alacrity
-      text: Improved Alacrity
-      subText: critical damage bonus only
+    - id: danger-time
+      text: Danger Time
+      amountData:
+        label: '% slow'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Critical Damage: [10%, unknown]
-      gw2id: 1978
+          Outgoing Critical Damage: [15%, unknown]
+          Outgoing Phantasm Critical Damage: [15%, unknown]
+          # the optimizer currently doesn't calculate clone power damage
+      gw2id: 2009
       defaultEnabled: true
 
     - id: chronophantasma
@@ -361,6 +354,20 @@
       gw2id: 2069
       defaultEnabled: true
       temporaryBuff: true
+
+    - id: phantom-pain
+      text: Phantom Pain
+      amountData:
+        label: 'stacks'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [6.25%, add] #unconfirmed
+          Outgoing Condition Damage: [6.25%, add] #unconfirmed
+      gw2id: 2098
+      defaultEnabled: true
 
 - section: Virtuoso
   id: 66

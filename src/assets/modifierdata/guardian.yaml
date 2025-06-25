@@ -495,7 +495,7 @@
       text: Heavy Light
       subText: against defiant foes, bonus
       amountData:
-        label: '% disabled'
+        label: '% disabled/exposed'
         default: 0
         quantityEntered: 100
       modifiers:
@@ -508,7 +508,7 @@
       text: Heavy Light
       subText: against non-defiant foes, bonus
       amountData:
-        label: '% disabled'
+        label: '% disabled/exposed'
         default: 0
         quantityEntered: 100
       modifiers:
