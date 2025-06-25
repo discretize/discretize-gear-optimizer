@@ -51,6 +51,7 @@
   "Copy build": "Copy build",
   "Copy from selected character": "Copy from selected character",
   "Copy selected sigils to both slots": "Copy selected sigils to both slots",
+  "Core game changes are updated for the June 24th game patch.": "Core game changes are updated for the June 24th game patch.",
   "Create build templates that can be used for the gear optimizer.": "Create build templates that can be used for the gear optimizer.",
   "Create templates for the discretize.eu website. Please check the discretize-guides repo for more information.": "Create templates for the discretize.eu website. Please check the discretize-guides repo for more information.",
   "Ctrl+d": "Ctrl+d",
@@ -1066,6 +1067,5 @@
   "traitSubText_with shield": "with shield",
   "traitSubText_with staff": "with staff",
   "traitSubText_with sword": "with sword",
-  "traitSubText_with torch/dagger": "with torch/dagger",
-  "🎉 Janthir Wilds has been released! 🎉<br/><br/>Core game changes are updated for the April 15th game patch.": "🎉 Janthir Wilds has been released! 🎉<br/><br/>Core game changes are updated for the April 15th game patch."
+  "traitSubText_with torch/dagger": "with torch/dagger"
 }
