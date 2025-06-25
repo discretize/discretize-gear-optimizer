@@ -1504,6 +1504,10 @@ export const conditionData = {
     baseDamage: 131,
     factor: 0.155,
   },
+  BurningInferno: {
+    baseDamage: 131,
+    factor: 0.1,
+  },
   Bleeding: {
     baseDamage: 22,
     factor: 0.06,
@@ -1533,6 +1537,10 @@ export const conditionDataWvW = {
   Burning: {
     baseDamage: 131,
     factor: 0.155,
+  },
+  BurningInferno: {
+    baseDamage: 131,
+    factor: 0.06,
   },
   Bleeding: {
     baseDamage: 22,

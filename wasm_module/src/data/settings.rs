@@ -187,10 +187,25 @@ impl Condition {
         }
     }
 
+    /// Returns the damage scaling factor of a condition
+    ///
+    /// # Arguments
+    /// - `is_wvw` - whether the calculation is for wvw or not, by default assumes pve
+    /// - `is_special` - whether the calculation is for special/actions conditions or not, by default assumes not. Torment, Confusion, and Burning (inferno trait) have special variants
     pub fn get_factor(&self, is_wvw: bool, is_special: bool) -> f32 {
         match self {
             Condition::Bleeding => 0.06,
-            Condition::Burning => 0.155,
+            Condition::Burning => {
+                if is_special {
+                    if is_wvw {
+                        0.06
+                    } else {
+                        0.1
+                    }
+                } else {
+                    0.155
+                }
+            }
             Condition::Confusion => {
                 if is_special {
                     0.0325

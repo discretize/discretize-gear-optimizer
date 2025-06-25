@@ -280,8 +280,16 @@ const testModifiers = async () => {
         [modifiers, wvwModifiers].forEach((modifierData) => {
           if (!modifierData) return;
 
-          const { damage, attributes, conversion, conversionAfterBuffs, ...otherModifiers } =
-            modifierData;
+          const {
+            damage,
+            attributes,
+            conversion,
+            conversionAfterBuffs,
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            calculationTweaks,
+            ...otherModifiers
+          } = modifierData;
+
           gentleAssert(
             Object.keys(otherModifiers).length === 0,
             `err: invalid modifier type(s): ${Object.keys(otherModifiers)}`,

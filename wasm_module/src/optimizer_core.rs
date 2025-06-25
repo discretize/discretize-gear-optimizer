@@ -558,7 +558,17 @@ pub fn calc_condi(
             Condition::Burning => {
                 attributes.set_a(
                     Attribute::BurningDamageTick,
-                    condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false),
+                    if combination.calculationTweaks.infernoBurningDamage {
+                        condition_damage_tick(
+                            condition,
+                            attributes.get_a(Attribute::Power),
+                            mult,
+                            settings.is_wvw(),
+                            true,
+                        )
+                    } else {
+                        condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false)
+                    },
                 );
             }
             Condition::Bleeding => {

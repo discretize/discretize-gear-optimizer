@@ -752,7 +752,9 @@ export class OptimizerCore {
 
       switch (condition) {
         case 'Burning':
-          attributes['Burning Damage Tick'] = conditionDamageTick(data.Burning, cdmg, mult);
+          attributes['Burning Damage Tick'] = this.settings.calculationTweaks.infernoBurningDamage
+            ? conditionDamageTick(data.BurningInferno, attributes['Power'], mult)
+            : conditionDamageTick(data.Burning, cdmg, mult);
           break;
         case 'Bleeding':
           attributes['Bleeding Damage Tick'] = conditionDamageTick(data.Bleeding, cdmg, mult);

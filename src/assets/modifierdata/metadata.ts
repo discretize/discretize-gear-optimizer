@@ -271,11 +271,17 @@ export type ConversionAfterBuffsModifers = Partial<
   Record<ConversionAfterBuffsDestinationKey, ConversionAfterBuffsValue>
 >;
 
+export const allCalculationTweaks = ['infernoBurningDamage'] as const;
+export type CalculationTweak = (typeof allCalculationTweaks)[number];
+
+export type CalculationTweaks = Partial<Record<CalculationTweak, boolean | number | string>>;
+
 export interface Modifiers {
   damage?: DamageModifiers;
   attributes?: AttributeModifiers;
   conversion?: ConversionModifers;
   conversionAfterBuffs?: ConversionAfterBuffsModifers;
+  calculationTweaks?: CalculationTweaks;
 }
 
 export interface AmountData {

@@ -138,6 +138,7 @@ export function combinationtoWasmFormat(combination: CombinationSettings): any {
     baseAttributes: {},
     relevantConditions: [],
     disableCondiResultCache: combination.disableCondiResultCache,
+    calculationTweaks: combination.calculationTweaks,
   };
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
