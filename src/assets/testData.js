@@ -715,7 +715,10 @@ const testPresets = async () => {
               ) {
                 gentleAssert(false, `err: ${name} has the wrong impact sigil in ${mode} mode!`);
               }
-              if (extrasData.extras.Enhancement?.['superior-sharpening-stone']) {
+              if (
+                extrasData.extras.Enhancement?.['superior-sharpening-stone'] &&
+                !extrasData.extras.Enhancement?.['slaying-potion']
+              ) {
                 gentleAssert(false, `err: ${name} has no slaying potion in ${mode} mode!`);
               }
             } else {
