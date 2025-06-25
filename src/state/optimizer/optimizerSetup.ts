@@ -609,7 +609,6 @@ export function createSettingsPerCombination(
 
   for (const item of appliedModifiers) {
     const {
-      id = '[no id]',
       amount: amountText,
       // data: {
       modifiers,
@@ -685,8 +684,7 @@ export function createSettingsPerCombination(
             break;
 
           default:
-            const _: never = attribute;
-            throw new Error(`invalid damage modifier: ${attribute} in ${id}`);
+            attribute satisfies never;
         }
       }
     }

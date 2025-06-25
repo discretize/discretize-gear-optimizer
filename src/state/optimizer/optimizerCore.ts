@@ -5,7 +5,7 @@
 /* eslint-disable dot-notation */
 
 import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
-import type { ConditionName, DamagingConditionName, IndicatorName } from '../../utils/gw2-data';
+import type { DamagingConditionName, IndicatorName } from '../../utils/gw2-data';
 import {
   INFUSION_BONUS,
   conditionData,
@@ -13,6 +13,7 @@ import {
   damagingConditions,
   indicatorAttributes,
 } from '../../utils/gw2-data';
+import type { ValueOf } from '../../utils/usefulFunctions';
 import { enumArrayIncludes, objectEntries, objectKeys } from '../../utils/usefulFunctions';
 import type { DamageMultiplier, Modifiers } from './types/optimizerSetupTypes';
 import type {
@@ -731,15 +732,15 @@ export class OptimizerCore {
     return powerDamage + siphonDamage;
   }
 
-  conditionDamageTick = (condition: ConditionName, cdmg: number, mult: number): number =>
-    (this.conditionData[condition].factor * cdmg + this.conditionData[condition].baseDamage) * mult;
+  conditionDamageTick = (data: ValueOf<typeof conditionData>, cdmg: number, mult: number): number =>
+    (data.factor * cdmg + data.baseDamage) * mult;
 
   calcCondi(
     character: CharacterProcessed,
     damageMultiplier: DamageMultiplier,
     relevantConditions: readonly DamagingConditionName[],
   ) {
-    const { settings } = this;
+    const { settings, conditionData: data, conditionDamageTick } = this;
     const { attributes } = character;
 
     let condiDamageScore = 0;
@@ -750,18 +751,28 @@ export class OptimizerCore {
         damageMultiplier[`Outgoing ${condition} Damage`];
 
       switch (condition) {
+        case 'Burning':
+          attributes['Burning Damage Tick'] = conditionDamageTick(data.Burning, cdmg, mult);
+          break;
+        case 'Bleeding':
+          attributes['Bleeding Damage Tick'] = conditionDamageTick(data.Bleeding, cdmg, mult);
+          break;
+        case 'Poison':
+          attributes['Poison Damage Tick'] = conditionDamageTick(data.Poison, cdmg, mult);
+          break;
         case 'Torment':
           attributes[`Torment Damage Tick`] =
-            this.conditionDamageTick('Torment', cdmg, mult) * (1 - settings.movementUptime) +
-            this.conditionDamageTick('TormentMoving', cdmg, mult) * settings.movementUptime;
+            conditionDamageTick(data.Torment, cdmg, mult) * (1 - settings.movementUptime) +
+            conditionDamageTick(data.TormentMoving, cdmg, mult) * settings.movementUptime;
           break;
         case 'Confusion':
           attributes[`Confusion Damage Tick`] =
-            this.conditionDamageTick('Confusion', cdmg, mult) +
-            this.conditionDamageTick('ConfusionActive', cdmg, mult) * settings.attackRate;
+            conditionDamageTick(data.Confusion, cdmg, mult) +
+            conditionDamageTick(data.ConfusionActive, cdmg, mult) * settings.attackRate;
           break;
+
         default:
-          attributes[`${condition} Damage Tick`] = this.conditionDamageTick(condition, cdmg, mult);
+          condition satisfies never;
       }
 
       const duration =

@@ -1,5 +1,7 @@
 import { MAX_INFUSIONS } from './gw2-data';
 
+export type ValueOf<T> = T[keyof T];
+
 export function firstUppercase(text: string | undefined | null): string {
   if (typeof text === 'undefined' || text === null || text === '') return '';
 

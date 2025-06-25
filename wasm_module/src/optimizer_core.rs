@@ -555,6 +555,24 @@ pub fn calc_condi(
             * mods.get_dmg_multiplier(condition.get_damage_mod_attribute());
 
         match condition {
+            Condition::Burning => {
+                attributes.set_a(
+                    Attribute::BurningDamageTick,
+                    condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false),
+                );
+            }
+            Condition::Bleeding => {
+                attributes.set_a(
+                    Attribute::BleedingDamageTick,
+                    condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false),
+                );
+            }
+            Condition::Poison => {
+                attributes.set_a(
+                    Attribute::PoisonDamageTick,
+                    condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false),
+                );
+            }
             Condition::Confusion => {
                 attributes.set_a(
                     Attribute::ConfusionDamageTick,
@@ -572,10 +590,6 @@ pub fn calc_condi(
                             * settings.movementUptime,
                 );
             }
-            _ => attributes.set_a(
-                condition.get_damage_tick_attribute(),
-                condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false),
-            ),
         }
 
         let coeff = attributes.get_a(condition.get_coefficient_attribute());
