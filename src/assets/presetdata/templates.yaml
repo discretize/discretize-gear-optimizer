@@ -862,7 +862,7 @@ list:
         traits: Heal Tempest
         extras: Heal
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
   - class: Ranger
     builds:
@@ -1037,7 +1037,7 @@ list:
         traits: Alacrity Condi Ren SB Invo
         extras: Alacrity Condi Renegade
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Alacrity Power Renegade
         id: pren

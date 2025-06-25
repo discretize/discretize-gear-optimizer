@@ -306,6 +306,11 @@
           Critical Chance: 15%
           Phantasm Critical Chance: 15% # confirmed (despite the trait description saying "you and your clones")
           Clone Critical Chance: 15%
+      wvwModifiers:
+        attributes:
+          Critical Chance: 10%
+          Phantasm Critical Chance: 10%
+          Clone Critical Chance: 10%
       minor: true
       gw2id: 1927
       defaultEnabled: true
@@ -366,6 +371,10 @@
         damage:
           Outgoing Strike Damage: [6.25%, add] #unconfirmed
           Outgoing Condition Damage: [6.25%, add] #unconfirmed
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [3%, add] #unconfirmed
+          Outgoing Condition Damage: [3%, add] #unconfirmed
       gw2id: 2098
       defaultEnabled: true
 
