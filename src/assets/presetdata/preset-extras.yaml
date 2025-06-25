@@ -1292,7 +1292,8 @@ list:
           "Sigil1": {
             "force": {},
             "accuracy": {},
-            "smoldering": {}
+            "smoldering": {},
+            "malice": {}
           },
           "Sigil2": {
             "accuracy": {},
@@ -1338,7 +1339,8 @@ list:
           },
           "Sigil1": {
             "force": {},
-            "accuracy": {}
+            "accuracy": {},
+            "malice": {}
           },
           "Sigil2": {
             "impact/night/slaying-only-3": {},
