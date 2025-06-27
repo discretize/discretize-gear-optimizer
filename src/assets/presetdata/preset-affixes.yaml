@@ -365,6 +365,16 @@ list:
         "minQuicknessDuration": "0"
       }
 
+  - name: Alacrity Power Tempest Scepter Bloodstone 22%
+    hidden: true
+    value:
+      {
+        "affixes": ["Berserker", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": "22",
+        "minQuicknessDuration": "0"
+      }
+
   - name: Alacrity Condi Tempest 40%
     hidden: true
     value:

@@ -728,7 +728,7 @@ list:
         id: ptemp-blood-alac
         specialization: Tempest
         boonType: Power
-        priority: Power DPS (no dragon)
+        priority: Alacrity Power Tempest Scepter Bloodstone 22%
         distribution: Alacrity Power Tempest Scepter Bloodstone
         traits: Alacrity Power Tempest Scepter Bloodstone
         fractal:

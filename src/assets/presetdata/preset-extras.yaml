@@ -1274,12 +1274,8 @@ list:
           "Runes": {
             "flame-legion": {},
             "scholar": {},
-            "dragonhunter": {},
-            "golemancer": {},
             "deadeye": {},
-            "eagle": {},
-            "infiltration": {},
-            "ranger": {}
+            "infiltration": {}
           },
           "Relics": {
             "bloodstone-relic": {
@@ -1304,13 +1300,16 @@ list:
           },
           "Enhancement": {
             "superior-sharpening-stone": {},
+            "potent-lucent-oil": {},
             "slaying-potion": {}
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
             "plate-of-coq-au-vin-with-salsa": {},
             "truffle-steak": {},
-            "fire-meat-chili": {}
+            "fire-meat-chili": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
           }
         },
         "lifestealAmount": ""
@@ -1324,12 +1323,8 @@ list:
           "Runes": {
             "flame-legion": {},
             "scholar": {},
-            "dragonhunter": {},
-            "golemancer": {},
             "deadeye": {},
-            "eagle": {},
-            "infiltration": {},
-            "ranger": {}
+            "infiltration": {}
           },
           "Relics": {
             "bloodstone-relic": {
@@ -1351,13 +1346,16 @@ list:
             "accuracy": {}
           },
           "Enhancement": {
-            "superior-sharpening-stone": {}
+            "superior-sharpening-stone": {},
+            "potent-lucent-oil": {}
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
             "plate-of-coq-au-vin-with-salsa": {},
             "truffle-steak": {},
-            "fire-meat-chili": {}
+            "fire-meat-chili": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
           }
         },
         "lifestealAmount": ""
