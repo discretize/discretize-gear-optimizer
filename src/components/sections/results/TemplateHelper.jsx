@@ -277,26 +277,23 @@ const TemplateHelper = ({ character }) => {
             })
             .join('\n');
 
-          setInput({
+          const inputWithoutMinion = {
             Power: roundTwo(powerDPSWithoutLifesteal - clonePhantasmDamageSum - minionDamageSum),
             Power2: roundTwo(clonePhantasmDamageSum),
             ...conditionData,
-          });
+          };
+          const inputWithMinionPlayerDamage = {
+            Power: roundTwo(powerDPSWithoutLifesteal - clonePhantasmDamageSum),
+            Power2: roundTwo(clonePhantasmDamageSum),
+            ...conditionData,
+          };
+
+          setInput(inputWithoutMinion);
 
           if (minionDamageSum) {
             setInputOptions({
-              'minions: use player power stats': {
-                Power: roundTwo(powerDPSWithoutLifesteal - clonePhantasmDamageSum),
-                Power2: roundTwo(clonePhantasmDamageSum),
-                ...conditionData,
-              },
-              'minions: unaffected by stats': {
-                Power: roundTwo(
-                  powerDPSWithoutLifesteal - clonePhantasmDamageSum - minionDamageSum,
-                ),
-                Power2: roundTwo(clonePhantasmDamageSum),
-                ...conditionData,
-              },
+              'minions: unaffected by stats': inputWithoutMinion,
+              'minions: use player power stats': inputWithMinionPlayerDamage,
             });
           }
 
