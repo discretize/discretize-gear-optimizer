@@ -423,6 +423,7 @@ const TemplateHelper = ({ character }) => {
           {Object.entries(inputOptions).map(([label, newInput]) => (
             <Button onClick={() => setInput(newInput)}>{label}</Button>
           ))}
+          <Button disabled>something else (i.e. mechanist)</Button>
         </ButtonGroup>
       ) : undefined}
 
