@@ -493,11 +493,12 @@ list:
         url: https://www.youtube.com/watch?v=UI_DqbbBhWg
         log: https://dps.report/JJvS-20231203-145912_golem
 
+  # assassin boots, 2 precise (same as assassin back)
   - name: Alacrity Power Tempest Scepter Bloodstone
     profession: Tempest
     value:
       {
-        "values2": { "Power": 2988, "Power2": 0, "Burning": 12.96, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2784, "Power2": 0, "Burning": 12.96, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[NA] Crone'
@@ -508,7 +509,7 @@ list:
     profession: Tempest
     value:
       {
-        "values2": { "Power": 3964, "Power2": 0, "Burning": 10.68, "Bleeding": 4.54, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3795, "Power2": 0, "Burning": 10.68, "Bleeding": 4.54, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[NA] Crone'

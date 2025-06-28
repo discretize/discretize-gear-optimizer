@@ -3943,7 +3943,11 @@ list:
       }
     skills:
       {
-        "skills": {}
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1220"
+          }
+        }
       }
 
   - name: Power Tempest Scepter Bloodstone
@@ -4024,7 +4028,11 @@ list:
       }
     skills:
       {
-        "skills": {}
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1278"
+          }
+        }
       }
 
   - name: '"Fire Wizard"'
@@ -4102,7 +4110,11 @@ list:
       }
     skills:
       {
-        "skills": {}
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1220"
+          }
+        }
       }
 
   - name: Power Tempest Water
