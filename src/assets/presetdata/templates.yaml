@@ -757,7 +757,7 @@ list:
         specialization: Tempest
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Alacrity Power Tempest Scepter Bloodstone
+        distribution: '"Fire Wizard" (Approx.)'
         traits: '"Fire Wizard"'
         fractal:
           extras: Alacrity Power Tempest Bloodstone (Fractal)
