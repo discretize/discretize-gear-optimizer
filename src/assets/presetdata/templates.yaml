@@ -871,7 +871,10 @@ list:
         priority: Power DPS (no dragon)
         distribution: Power Catalyst Scepter
         traits: Power Catalyst Scepter
-        extras: Power Catalyst Scepter
+        fractal:
+          extras: Power Catalyst Scepter (Fractal)
+        raid:
+          extras: Power Catalyst Scepter (Raid)
         weaponType: Dual wield
         outdated: false
 
