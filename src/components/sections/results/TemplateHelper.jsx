@@ -278,7 +278,7 @@ const TemplateHelper = ({ character }) => {
             .join('\n');
 
           setInput({
-            Power: roundTwo(powerDPSWithoutLifesteal - clonePhantasmDamageSum),
+            Power: roundTwo(powerDPSWithoutLifesteal - clonePhantasmDamageSum - minionDamageSum),
             Power2: roundTwo(clonePhantasmDamageSum),
             ...conditionData,
           });
