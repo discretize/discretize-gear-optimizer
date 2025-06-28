@@ -1,4 +1,4 @@
-import { Alert, Button, TextField, Typography } from '@mui/material';
+import { Alert, Button, ButtonGroup, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
@@ -54,12 +54,15 @@ const TemplateHelper = ({ character }) => {
   const [input, setInput] = React.useState(initial);
 
   const [url, setUrl] = React.useState('');
+  const [inputOptions, setInputOptions] = React.useState(undefined);
   const [urlResult, setUrlResult] = React.useState('');
   const [probablyGolem, setProbablyGolem] = React.useState(false);
 
   React.useEffect(() => {
     async function fetchData() {
       setUrlResult('');
+      setInputOptions(undefined);
+
       if (url) {
         try {
           const permalink = url.split('/').slice(-1);
@@ -210,6 +213,7 @@ const TemplateHelper = ({ character }) => {
 
           let splitDamageTotal = 0;
           let clonePhantasmDamageSum = 0;
+          let minionDamageSum = 0;
           const powerDPSPlayer = playerData.dpsTargets?.[0]?.[0]?.actorPowerDps;
           splitDamageTotal += powerDPSPlayer;
           const minionDamageData = Object.entries(minionCounts)
@@ -217,10 +221,17 @@ const TemplateHelper = ({ character }) => {
             .map(([type, { damage }]) => {
               const dps = (damage ?? 0) / duration;
               splitDamageTotal += dps;
-              if (['Clone', 'Phantasm'].includes(type)) clonePhantasmDamageSum += dps;
+              if (['Clone', 'Phantasm'].includes(type)) {
+                clonePhantasmDamageSum += dps;
+              } else {
+                minionDamageSum += dps;
+              }
 
               return [`${type} DPS`, dps];
             });
+
+          clonePhantasmDamageSum = roundTwo(clonePhantasmDamageSum);
+          minionDamageSum = roundTwo(minionDamageSum);
 
           const result = [
             ['Duration (sec)', duration],
@@ -269,7 +280,27 @@ const TemplateHelper = ({ character }) => {
             })
             .join('\n');
 
-          setInput({ Power: powerDPSWithoutLifesteal, Power2: 0, ...conditionData });
+          setInput({
+            Power: powerDPSWithoutLifesteal - clonePhantasmDamageSum,
+            Power2: clonePhantasmDamageSum,
+            ...conditionData,
+          });
+
+          if (minionDamageSum) {
+            setInputOptions({
+              'minions: use player power stats': {
+                Power: powerDPSWithoutLifesteal - clonePhantasmDamageSum,
+                Power2: clonePhantasmDamageSum,
+                ...conditionData,
+              },
+              'minions: unaffected by stats': {
+                Power: powerDPSWithoutLifesteal - clonePhantasmDamageSum - minionDamageSum,
+                Power2: clonePhantasmDamageSum,
+                ...conditionData,
+              },
+            });
+          }
+
           setProbablyGolem(data.players.length <= 5);
           setUrlResult(resultAreaText);
         } catch (e) {
@@ -390,6 +421,15 @@ const TemplateHelper = ({ character }) => {
           setUrl(e.target.value);
         }}
       />
+
+      {inputOptions ? (
+        <ButtonGroup variant="outlined" size="small" color="primary" sx={{ mt: 1 }}>
+          {Object.entries(inputOptions).map(([label, newInput]) => (
+            <Button onClick={() => setInput(newInput)}>{label}</Button>
+          ))}
+        </ButtonGroup>
+      ) : undefined}
+
       <pre style={{ margin: '1rem' }}>{urlResult}</pre>
 
       <br />
