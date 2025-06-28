@@ -558,6 +558,17 @@ list:
         url: https://www.youtube.com/watch?v=ZhhoRrW22Ks
         log: https://dps.report/L6zb-20250313-171138_golem
 
+  - name: Power Catalyst Scepter
+    profession: Catalyst
+    value:
+      {
+        "values2": { "Power": 3653, "Power2": 0, "Burning": 7.69, "Bleeding": 6.17, "Poisoned": 0.44, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Kadenar'
+        url: https://www.youtube.com/watch?v=0rp7658OKt8
+        log: https://dps.report/jp4r-20250624-165901_golem
+
   - name: Power Catalyst Hammer
     profession: Catalyst
     value:

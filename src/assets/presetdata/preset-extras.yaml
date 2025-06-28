@@ -1819,6 +1819,95 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power Catalyst Scepter (Fractal)
+    profession: Catalyst
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "flame-legion": {},
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.72"
+            }
+          },
+          "Sigil1": {
+            "force": {},
+            "accuracy": {},
+            "smoldering": {},
+            "bursting": {}
+          },
+          "Sigil2": {
+            "accuracy": {},
+            "smoldering": {},
+            "impact/night/slaying-both": {},
+            "bursting": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "truffle-steak": {},
+            "fire-meat-chili": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Catalyst Scepter (Raid)
+    profession: Catalyst
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "flame-legion": {},
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.72"
+            }
+          },
+          "Sigil1": {
+            "force": {},
+            "accuracy": {},
+            "bursting": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "smoldering": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "truffle-steak": {},
+            "fire-meat-chili": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Quickness Catalyst Hammer (Raid)
     profession: Catalyst
     value:
