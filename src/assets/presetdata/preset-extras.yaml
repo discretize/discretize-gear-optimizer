@@ -1819,6 +1819,35 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power Catalyst Scepter
+    profession: Catalyst
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "smoldering": {}
+          },
+          "Runes": {
+            "flame-legion": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": ".72"
+            }
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Quickness Catalyst Hammer (Raid)
     profession: Catalyst
     value:

@@ -864,6 +864,17 @@ list:
         weaponType: Dual wield
         outdated: true
 
+      - name: Power Catalyst Scepter
+        id: power-cat-inferno
+        specialization: Catalyst
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Catalyst Scepter
+        traits: Power Catalyst Scepter
+        extras: Power Catalyst Scepter
+        weaponType: Dual wield
+        outdated: false
+
       - name: Quickness Power Catalyst Hammer
         id: power-cat-quick
         specialization: Catalyst

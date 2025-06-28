@@ -4423,6 +4423,94 @@ list:
         }
       }
 
+  - name: Power Catalyst Scepter
+    profession: Catalyst
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "67"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1675
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2252,
+            2247,
+            2241
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "39"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "39"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "10"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "hardened-auras": {
+              "amount": ""
+            },
+            "elemental-empowerment": {
+              "amount": ""
+            },
+            "empowering-auras": {
+              "amount": "5"
+            },
+            "spectacular-sphere": {},
+            "empowered-empowerment": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1128"
+          }
+        }
+      }
+
   - name: Power Catalyst Hammer
     profession: Catalyst
     traits:
