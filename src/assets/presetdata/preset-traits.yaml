@@ -266,7 +266,9 @@ list:
             }
           },
           {
-            "danger-time": {},
+            "danger-time": {
+              "amount": "74"
+            },
             "improved-alacrity": {},
             "chronophantasma": {},
             "flow-of-time": {}
