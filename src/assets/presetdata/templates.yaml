@@ -64,25 +64,39 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Boon Power Chrono Spear
-        id: pchrono-boon-spear
+      - name: Boon Power Chrono DT Spear
+        id: pchrono-boon-dt-spear
         specialization: Chronomancer
         boonType: Power
-        priority: Power DPS
-        distribution: Boon Power Chrono Spear
-        traits: Boon Power Chrono Spear
+        priority: Power DPS (no dragon)
+        distribution: Boon Power Chrono DT Spear
+        traits: Boon Power Chrono DT Spear
         fractal:
-          extras: Power Boon (Fractal)
+          extras: Boon Power Chrono (Fractal)
         raid:
-          extras: Power Boon (Raid)
+          extras: Boon Power Chrono (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
+
+      - name: Boon Power Chrono IA Spear
+        id: pchrono-boon-ia-spear
+        specialization: Chronomancer
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Boon Power Chrono IA Spear
+        traits: Boon Power Chrono IA Spear
+        fractal:
+          extras: Boon Power Chrono (Fractal)
+        raid:
+          extras: Boon Power Chrono (Raid)
+        weaponType: Two-handed
+        outdated: false
 
       - name: Boon Power Chrono GS
         id: pchrono-boon-gs
         specialization: Chronomancer
         boonType: Power
-        priority: Power DPS
+        priority: Power DPS (no dragon)
         distribution: Boon Power Chrono GS
         traits: Boon Power Chrono GS
         fractal:
@@ -127,6 +141,34 @@ list:
       #     extras: Power Boon (Raid)
       #   weaponType: Two-handed
       #   outdated: true
+
+      - name: Power Chrono DT Spear
+        id: pchrono-dt-spear
+        specialization: Chronomancer
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Chrono DT Spear
+        traits: Power Chrono DT Spear
+        fractal:
+          extras: Power Chrono DT (Fractal)
+        raid:
+          extras: Power Chrono DT (Raid)
+        weaponType: Two-handed
+        outdated: false
+
+      - name: Power Chrono IA Spear
+        id: pchrono-ia-spear
+        specialization: Chronomancer
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Chrono IA Spear
+        traits: Power Chrono IA Spear
+        fractal:
+          extras: Power Chrono IA (Fractal)
+        raid:
+          extras: Power Chrono IA (Raid)
+        weaponType: Two-handed
+        outdated: false
 
       - name: Power Chrono IA GS
         id: pchrono-ia-gs
