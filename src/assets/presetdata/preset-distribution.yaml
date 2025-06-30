@@ -963,6 +963,7 @@ list:
         url: https://www.youtube.com/watch?v=QumcjR3f3JU
         log: https://dps.report/mV8B-20231003-224244_golem
 
+  # https://discord.com/channels/380901000200060929/380903536424386560/1387195635517624513
   - name: Power Chrono IA Spear
     profession: Chronomancer
     value:
@@ -985,6 +986,7 @@ list:
         url: https://www.youtube.com/watch?v=36ifK9aG4VM
         log: https://dps.report/WtFG-20250627-141944_golem
 
+  # https://discord.com/channels/380901000200060929/380903536424386560/1387195635517624513
   - name: Boon Power Chrono IA Spear
     profession: Chronomancer
     value:
