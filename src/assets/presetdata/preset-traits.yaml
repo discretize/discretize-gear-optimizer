@@ -1,6 +1,146 @@
 GraphQL ID: presetTraits
 list:
 
+  - name: Power Chrono DT Spear
+    profession: Chronomancer
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "40"
+        ],
+        "selectedTraits": [
+          [
+            682,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            1838,
+            2009,
+            1890
+          ]
+        ],
+        "items": [
+          {
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            },
+            "empowered-illusions": {}
+          },
+          {
+            "fencers-finesse": {
+              "amount": "8.7"
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "phantasmal-fury": {},
+            "sharper-images-phantasm": {
+              "amount": "2.28"
+            },
+            "sharper-images-clone": {
+              "amount": "0.83"
+            }
+          },
+          {
+            "danger-time": {
+              "amount": "70.4"
+            },
+            "chronophantasma": {},
+            "improved-alacrity": {},
+            "flow-of-time": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {}
+      }
+
+  - name: Power Chrono IA Spear
+    profession: Chronomancer
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "40"
+        ],
+        "selectedTraits": [
+          [
+            686,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            1995,
+            1978,
+            1890
+          ]
+        ],
+        "items": [
+          {
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            },
+            "empowered-illusions": {}
+          },
+          {
+            "fencers-finesse": {
+              "amount": "9.1"
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "phantasmal-fury": {},
+            "sharper-images-phantasm": {
+              "amount": "2.74"
+            },
+            "sharper-images-clone": {
+              "amount": "0.75"
+            }
+          },
+          {
+            "danger-time": {},
+            "chronophantasma": {},
+            "improved-alacrity": {},
+            "flow-of-time": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {}
+      }
+
   - name: Power Chrono IA GS
     profession: Chronomancer
     traits:
@@ -69,7 +209,76 @@ list:
         "skills": {}
       }
 
-  - name: Boon Power Chrono Spear
+  - name: Boon Power Chrono DT Spear
+    profession: Chronomancer
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "40"
+        ],
+        "selectedTraits": [
+          [
+            682,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            1838,
+            2009,
+            0
+          ]
+        ],
+        "items": [
+          {
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            },
+            "empowered-illusions": {}
+          },
+          {
+            "fencers-finesse": {
+              "amount": "6.9"
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "phantasmal-fury": {},
+            "sharper-images-phantasm": {
+              "amount": "1.13"
+            },
+            "sharper-images-clone": {
+              "amount": "0.75"
+            }
+          },
+          {
+            "danger-time": {},
+            "improved-alacrity": {},
+            "chronophantasma": {},
+            "flow-of-time": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {}
+      }
+
+  - name: Boon Power Chrono IA Spear
     profession: Chronomancer
     traits:
       {
@@ -111,7 +320,7 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": "6.8"
+              "amount": "7.15"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
@@ -119,16 +328,17 @@ list:
             },
             "phantasmal-fury": {},
             "sharper-images-phantasm": {
-              "amount": "1.26"
+              "amount": "1.25"
             },
             "sharper-images-clone": {
-              "amount": "0.51"
+              "amount": "0.73"
             }
           },
           {
             "danger-time": {},
             "improved-alacrity": {},
-            "chronophantasma": {}
+            "chronophantasma": {},
+            "flow-of-time": {}
           }
         ]
       }

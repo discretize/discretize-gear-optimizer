@@ -941,6 +941,17 @@ list:
         url: https://www.youtube.com/watch?v=CqJpumNHF4E
         log: https://dps.report/eLRb-20230715-052530_golem
 
+  - name: Power Chrono DT Spear
+    profession: Chronomancer
+    value:
+      {
+        "values2": { "Power": 3224, "Power2": 1120, "Burning": 0, "Bleeding": 1.45, "Poisoned": 0, "Torment": 0, "Confusion": 1.02 }
+      }
+    credit:
+      - author: Cemox
+        url: https://www.youtube.com/watch?v=lVrvBuizuF8
+        log: https://dps.report/oRIi-20250627-124455_golem
+
   - name: Power Chrono IA GS
     profession: Chronomancer
     value:
@@ -952,17 +963,38 @@ list:
         url: https://www.youtube.com/watch?v=QumcjR3f3JU
         log: https://dps.report/mV8B-20231003-224244_golem
 
-  # impact
-  - name: Boon Power Chrono Spear
+  - name: Power Chrono IA Spear
     profession: Chronomancer
     value:
       {
-        "values2": { "Power": 4122, "Power2": 1026, "Burning": 0, "Bleeding": 0.63, "Poisoned": 0, "Torment": 0, "Confusion": 1.12 }
+        "values2": { "Power": 3484, "Power2": 1426, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 1.36 }
       }
     credit:
-      - author: '[CnD] Tipcat'
-        url: https://www.youtube.com/watch?v=YErx0w85N-0
-        log: https://dps.report/arbR-20240915-193047_golem
+      - author: Cemox
+        url: https://dps.report/uDWQ-20250624-184443_golem
+        log: https://dps.report/uDWQ-20250624-184443_golem
+
+  - name: Boon Power Chrono DT Spear
+    profession: Chronomancer
+    value:
+      {
+        "values2": { "Power": 3302, "Power2": 924, "Burning": 0, "Bleeding": 1.09, "Poisoned": 0, "Torment": 0, "Confusion": 0.85 }
+      }
+    credit:
+      - author: Cemox
+        url: https://www.youtube.com/watch?v=36ifK9aG4VM
+        log: https://dps.report/WtFG-20250627-141944_golem
+
+  - name: Boon Power Chrono IA Spear
+    profession: Chronomancer
+    value:
+      {
+        "values2": { "Power": 3646, "Power2": 1018, "Burning": 0, "Bleeding": 0.95, "Poisoned": 0, "Torment": 0, "Confusion": 1.25 }
+      }
+    credit:
+      - author: Cemox
+        url: https://dps.report/yosV-20250624-190121_golem
+        log: https://dps.report/yosV-20250624-190121_golem
 
   # impact
   - name: Boon Power Chrono GS

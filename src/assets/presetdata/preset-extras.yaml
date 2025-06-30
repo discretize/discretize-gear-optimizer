@@ -511,6 +511,254 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Boon Power Chrono (Raid)
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "leadership": {}
+          },
+          "Relics": {
+            "thief-relic": {},
+            "mistburn-relic": {},
+            "claw-relic": {
+              "amount": "89"
+            }
+          },
+          "Sigil1": {
+            "force": {},
+            "accuracy": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {},
+            "holographic-super-cheese": {},
+            "potent-lucent-oil": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Boon Power Chrono (Fractal)
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {},
+            "mistburn-relic": {},
+            "claw-relic": {
+              "amount": "89"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {},
+            "accuracy": {},
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Chrono DT (Fractal)
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {},
+            "mistburn-relic": {},
+            "claw-relic": {
+              "amount": "92.1"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {},
+            "accuracy": {},
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Chrono DT (Raid)
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {},
+            "mistburn-relic": {},
+            "claw-relic": {
+              "amount": "92.1"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Chrono IA (Fractal)
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {},
+            "mistburn-relic": {},
+            "fireworks-relic": {
+              "amount": "94"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {},
+            "accuracy": {},
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Chrono IA (Raid)
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {},
+            "mistburn-relic": {},
+            "fireworks-relic": {
+              "amount": "94"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   # no item sigil represents use of water sigil
   - name: Heal
     value:
