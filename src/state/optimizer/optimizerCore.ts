@@ -871,6 +871,7 @@ export class OptimizerCore {
     const effectiveDistributionKeys = [
       ...Object.keys(settings.distribution),
       'Siphon',
+      'Flat',
     ] as EffectiveDistributionKey[];
 
     // effective damage distribution

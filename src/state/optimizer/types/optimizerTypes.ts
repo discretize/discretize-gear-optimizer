@@ -129,7 +129,7 @@ interface CoefficientHelperValue {
   slope: number;
   intercept: number;
 }
-export type EffectiveDistributionKey = DistributionNameInternal | 'Siphon';
+export type EffectiveDistributionKey = DistributionNameInternal | 'Flat' | 'Siphon';
 type GainLossKey = 'Power' | 'Precision' | 'Ferocity' | 'Condition Damage' | 'Expertise';
 export interface Results {
   value: number;

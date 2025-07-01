@@ -25,6 +25,7 @@ const OutputDistribution = ({ character }: { character: Character }) => {
     Power: t('Power'),
     Power2: alternativeDamageLabel,
     Siphon: t('Life Siphon'),
+    Flat: t('Other'),
   };
 
   if (!character.results?.damageBreakdown) return;
@@ -58,17 +59,29 @@ const OutputDistribution = ({ character }: { character: Character }) => {
           {data.map((damageType) => (
             <TableRow hover key={damageType.name}>
               <TableCell>
-                {damageType.name === 'Power' ||
-                damageType.name === 'Power2' ||
-                damageType.name === 'Siphon' ? (
-                  <Attribute
-                    name="Power"
-                    className={classes.gw2Item}
-                    text={damageLabels[damageType.name] ?? damageType.name}
-                  />
-                ) : (
-                  <Condition name={damageType.name} className={classes.gw2Item} />
-                )}
+                {
+                  // eslint-disable-next-line no-nested-ternary
+                  damageType.name === 'Power' ||
+                  damageType.name === 'Power2' ||
+                  damageType.name === 'Siphon' ? (
+                    <Attribute
+                      name="Power"
+                      className={classes.gw2Item}
+                      text={damageLabels[damageType.name] ?? damageType.name}
+                    />
+                  ) : damageType.name === 'Flat' ? (
+                    <Attribute
+                      name="Power"
+                      disableIcon
+                      disableLink
+                      disableTooltip
+                      className={classes.gw2Item}
+                      text={damageLabels[damageType.name] ?? damageType.name}
+                    />
+                  ) : (
+                    <Condition name={damageType.name} className={classes.gw2Item} />
+                  )
+                }
               </TableCell>
               <TableCell align="right">{damageType.value.toFixed(1)}</TableCell>
               <TableCell align="right">{damageType.percent.toFixed(1)}%</TableCell>

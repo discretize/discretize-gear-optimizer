@@ -159,6 +159,7 @@ impl ResultCharacter {
             Attribute::PoisonDPS,
             Attribute::TormentDPS,
             Attribute::SiphonDPS,
+            Attribute::FlatDPS,
         ]
         .iter()
         .enumerate()
