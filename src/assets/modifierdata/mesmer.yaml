@@ -369,6 +369,25 @@
         quantityEntered: 1
       modifiers:
         damage:
+          Outgoing Strike Damage: [5%, add] #unconfirmed
+          Outgoing Condition Damage: [5%, add] #unconfirmed
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [3%, add] #unconfirmed
+          Outgoing Condition Damage: [3%, add] #unconfirmed
+      gw2id: 2098
+      defaultEnabled: true
+
+    - id: phantom-pain-prenerf
+      text: Phantom Pain
+      subText: pre-nerf
+      amountData:
+        label: 'stacks'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        damage:
           Outgoing Strike Damage: [6.25%, add] #unconfirmed
           Outgoing Condition Damage: [6.25%, add] #unconfirmed
       wvwModifiers:
@@ -376,7 +395,7 @@
           Outgoing Strike Damage: [3%, add] #unconfirmed
           Outgoing Condition Damage: [3%, add] #unconfirmed
       gw2id: 2098
-      defaultEnabled: true
+      defaultEnabled: false
 
 - section: Virtuoso
   id: 66
