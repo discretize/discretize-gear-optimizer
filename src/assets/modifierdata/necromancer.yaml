@@ -644,6 +644,24 @@
   id: 64
   items:
 
+    - id: blight
+      text: ''
+      subText: health reduction from blight
+      minor: true
+      amountData:
+        label: 'blight stacks'
+        default: 25
+        quantityEntered: 1
+        disableBlacklist: true
+      modifiers:
+        attributes:
+          Maximum Health: -1%
+      wvwModifiers:
+        attributes:
+          Maximum Health: -1.5%
+      defaultEnabled: true
+      temporaryBuff: true
+
     - id: wicked-corruption-base
       text: Wicked Corruption
       subText: base

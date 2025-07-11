@@ -7487,7 +7487,10 @@ list:
             "implacable-foe": {},
             "dark-gunslinger": {},
             "cascading-corruption": {},
-            "doom-approaches": {}
+            "doom-approaches": {},
+            "blight": {
+              "amount": ""
+            }
           }
         ]
       }
@@ -7559,7 +7562,10 @@ list:
             "dark-gunslinger": {},
             "cascading-corruption": {},
             "doom-approaches": {},
-            "twisted-medicine": {}
+            "twisted-medicine": {},
+            "blight": {
+              "amount": ""
+            }
           }
         ]
       }
@@ -7631,7 +7637,10 @@ list:
             "twisted-medicine": {},
             "dark-gunslinger": {},
             "cascading-corruption": {},
-            "doom-approaches": {}
+            "doom-approaches": {},
+            "blight": {
+              "amount": ""
+            }
           }
         ]
       }
@@ -7706,7 +7715,10 @@ list:
             "twisted-medicine": {},
             "dark-gunslinger": {},
             "cascading-corruption": {},
-            "doom-approaches": {}
+            "doom-approaches": {},
+            "blight": {
+              "amount": ""
+            }
           }
         ]
       }
