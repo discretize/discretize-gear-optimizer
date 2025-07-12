@@ -1898,10 +1898,15 @@ list:
             "fractal-relic": {}
           },
           "Sigil1": {
-            "earth": {}
+            "earth": {
+              "amount": ""
+            }
           },
           "Sigil2": {
-            "torment": {}
+            "torment": {
+              "amount": ""
+            },
+            "bursting": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
