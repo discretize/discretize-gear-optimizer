@@ -837,13 +837,13 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Weaver Pistol
+      - name: Condi Weaver P/D
         id: cwea-pi
         specialization: Weaver
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Weaver Pistol
-        traits: Condi Weaver Pistol
+        distribution: Condi Weaver P/D
+        traits: Condi Weaver P/D
         extras: Condi Weaver
         weaponType: Dual wield
         outdated: false
