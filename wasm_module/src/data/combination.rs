@@ -46,5 +46,5 @@ impl Modifiers {
 #[allow(non_snake_case)]
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct CalculationTweaks {
-    pub infernoBurningDamage: bool,
+    pub infernoBurningDamage: Option<bool>,
 }

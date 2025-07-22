@@ -558,7 +558,11 @@ pub fn calc_condi(
             Condition::Burning => {
                 attributes.set_a(
                     Attribute::BurningDamageTick,
-                    if combination.calculationTweaks.infernoBurningDamage {
+                    if combination
+                        .calculationTweaks
+                        .infernoBurningDamage
+                        .is_some_and(|x| x)
+                    {
                         condition_damage_tick(
                             condition,
                             attributes.get_a(Attribute::Power),
