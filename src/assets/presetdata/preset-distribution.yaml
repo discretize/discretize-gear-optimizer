@@ -1309,7 +1309,7 @@ list:
         log: https://dps.report/PMEO-20250629-050626_golem
 
   # messed up log start from mesmer existing
-  # scuffed approximation by multiplying with actual duration / log duration
+  # scuffed approximation by multiplying with full duration / target combat duration
   - name: Condi Daredevil
     profession: Daredevil
     value:
