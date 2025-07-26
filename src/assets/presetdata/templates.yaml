@@ -1615,7 +1615,7 @@ list:
         traits: Condi Daredevil
         extras: Condi Daredevil
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Power Daredevil Staff
         id: staffdd
