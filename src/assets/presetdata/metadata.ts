@@ -63,7 +63,7 @@ export interface Credit {
   log?: string;
 }
 export type PresetDistributionEntry = PresetEntry & {
-  value: { values2: Distribution };
+  value: { values2: Omit<Distribution, 'Reflect'> };
   noCreditOkay?: true;
   credit?: Credit[];
 };
