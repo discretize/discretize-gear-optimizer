@@ -7,6 +7,9 @@
       modifiers:
         attributes:
           Critical Chance: 10%
+      wvwModifiers:
+        attributes:
+          Critical Chance: 5%
       gw2id: 104994
       temporaryBuff: true
 
