@@ -743,3 +743,7 @@
       gw2id: 2236
       defaultEnabled: true
       temporaryBuff: true
+
+- section: Paragon
+  id: 74
+  items: []

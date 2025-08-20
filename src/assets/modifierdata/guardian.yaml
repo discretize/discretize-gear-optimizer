@@ -648,3 +648,7 @@
           Damage Reduction: [20%, unknown]
       gw2id: 2198
       defaultEnabled: true
+
+- section: Luminary
+  id: 81
+  items: []

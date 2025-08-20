@@ -775,3 +775,7 @@
       gw2id: 2203
       defaultEnabled: true
       temporaryBuff: false
+
+- section: Ritualist
+  id: 76
+  items: []

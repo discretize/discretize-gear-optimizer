@@ -424,3 +424,7 @@
   id: 70
   note: Damage dealt by the mechanist mech is not currently simulated accurately. It inherits some, but not all, player stats and bonuses.
   items: []
+
+- section: Amalgam
+  id: 75
+  items: []

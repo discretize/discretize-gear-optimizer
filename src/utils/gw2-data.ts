@@ -1757,15 +1757,15 @@ export const MAX_INFUSIONS = 18;
 export const INFUSION_BONUS = 5;
 
 export const SPECIALIZATIONS = {
-  Warrior: ['Spellbreaker', 'Berserker', 'Bladesworn'],
-  Revenant: ['Herald', 'Renegade', 'Vindicator'],
-  Guardian: ['Dragonhunter', 'Firebrand', 'Willbender'],
-  Ranger: ['Druid', 'Soulbeast', 'Untamed'],
-  Engineer: ['Scrapper', 'Holosmith', 'Mechanist'],
-  Elementalist: ['Tempest', 'Weaver', 'Catalyst'],
-  Mesmer: ['Chronomancer', 'Mirage', 'Virtuoso'],
-  Necromancer: ['Scourge', 'Reaper', 'Harbinger'],
-  Thief: ['Daredevil', 'Deadeye', 'Specter'],
+  Warrior: ['Spellbreaker', 'Berserker', 'Bladesworn', 'Paragon'],
+  Revenant: ['Herald', 'Renegade', 'Vindicator', 'Conduit'],
+  Guardian: ['Dragonhunter', 'Firebrand', 'Willbender', 'Luminary'],
+  Ranger: ['Druid', 'Soulbeast', 'Untamed', 'Galeshot'],
+  Engineer: ['Scrapper', 'Holosmith', 'Mechanist', 'Amalgam'],
+  Elementalist: ['Tempest', 'Weaver', 'Catalyst', 'Evoker'],
+  Mesmer: ['Chronomancer', 'Mirage', 'Virtuoso', 'Troubadour'],
+  Necromancer: ['Scourge', 'Reaper', 'Harbinger', 'Ritualist'],
+  Thief: ['Daredevil', 'Deadeye', 'Specter', 'Antiquary'],
 } as const;
 
 export const PROFESSIONS = objectKeys(SPECIALIZATIONS);

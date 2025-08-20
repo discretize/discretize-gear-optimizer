@@ -710,3 +710,7 @@
           Outgoing Strike Damage: [15%, add]
       gw2id: 2257
       defaultEnabled: true
+
+- section: Conduit
+  id: 79
+  items: []

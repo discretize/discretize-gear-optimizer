@@ -508,3 +508,7 @@
           Outgoing Bleeding Damage: [25%, mult] # unconfirmed
       gw2id: 2223
       defaultEnabled: true
+
+- section: Troubadour
+  id: 73
+  items: []

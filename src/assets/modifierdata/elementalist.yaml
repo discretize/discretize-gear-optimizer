@@ -819,3 +819,7 @@
       gw2id: 2241
       defaultEnabled: true
       temporaryBuff: true
+
+- section: Evoker
+  id: 80
+  items: []

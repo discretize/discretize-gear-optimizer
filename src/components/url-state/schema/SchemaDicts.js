@@ -93,6 +93,15 @@ export const specializationDict = [
   'Mesmer',
   'Necromancer',
   'Thief',
+  'Paragon',
+  'Conduit',
+  'Luminary',
+  'Galeshot',
+  'Amalgam',
+  'Evoker',
+  'Troubadour',
+  'Ritualist',
+  'Antiquary',
 ];
 
 export const weaponTypeDict = ['Dual wield', 'Two-handed'];
