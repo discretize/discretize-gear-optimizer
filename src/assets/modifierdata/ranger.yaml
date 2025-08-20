@@ -726,3 +726,7 @@
           Outgoing Strike Damage: [3%, unknown]
       gw2id: 2274
       defaultEnabled: true
+
+- section: Galeshot
+  id: 78
+  items: []

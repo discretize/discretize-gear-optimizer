@@ -3,504 +3,1701 @@
     "id": 1,
     "name": "dueling",
     "profession": "mesmer",
-    "minor_traits": [706, 710, 707],
-    "major_traits": [701, 705, 700, 1889, 1960, 708, 692, 1950, 704]
+    "minor_traits": [
+      706,
+      710,
+      707
+    ],
+    "major_traits": [
+      701,
+      705,
+      700,
+      1889,
+      1960,
+      708,
+      692,
+      1950,
+      704
+    ]
   },
   {
     "id": 2,
     "name": "deathmagic",
     "profession": "necromancer",
-    "minor_traits": [856, 839, 1929],
-    "major_traits": [820, 857, 1922, 858, 860, 855, 842, 1940, 1694]
+    "minor_traits": [
+      856,
+      839,
+      1929
+    ],
+    "major_traits": [
+      820,
+      857,
+      1922,
+      858,
+      860,
+      855,
+      842,
+      1940,
+      1694
+    ]
   },
   {
     "id": 3,
     "name": "invocation",
     "profession": "revenant",
-    "minor_traits": [1778, 1758, 1769],
-    "major_traits": [1732, 1761, 1784, 1774, 1760, 1781, 1749, 1791, 1719]
+    "minor_traits": [
+      1778,
+      1758,
+      1769
+    ],
+    "major_traits": [
+      1732,
+      1761,
+      1784,
+      1774,
+      1760,
+      1781,
+      1749,
+      1791,
+      1719
+    ]
   },
   {
     "id": 4,
     "name": "strength",
     "profession": "warrior",
-    "minor_traits": [1446, 1448, 1453],
-    "major_traits": [1447, 1451, 1444, 2000, 1338, 1449, 1437, 1454, 1440]
+    "minor_traits": [
+      1446,
+      1448,
+      1453
+    ],
+    "major_traits": [
+      1447,
+      1451,
+      1444,
+      2000,
+      1338,
+      1449,
+      1437,
+      1454,
+      1440
+    ]
   },
   {
     "id": 5,
     "name": "druid",
     "profession": "ranger",
-    "minor_traits": [1874, 1862, 1992],
-    "major_traits": [1868, 2016, 1935, 2053, 2001, 2056, 2057, 2058, 2055]
+    "minor_traits": [
+      1874,
+      1862,
+      1992
+    ],
+    "major_traits": [
+      1868,
+      2016,
+      1935,
+      2053,
+      2001,
+      2056,
+      2057,
+      2058,
+      2055
+    ]
   },
   {
     "id": 6,
     "name": "explosives",
     "profession": "engineer",
-    "minor_traits": [432, 517, 429],
-    "major_traits": [514, 525, 1882, 482, 1892, 1944, 1541, 505, 1947]
+    "minor_traits": [
+      432,
+      517,
+      429
+    ],
+    "major_traits": [
+      514,
+      525,
+      1882,
+      482,
+      1892,
+      1944,
+      1541,
+      505,
+      1947
+    ]
   },
   {
     "id": 7,
     "name": "daredevil",
     "profession": "thief",
-    "minor_traits": [1994, 1887, 1837],
-    "major_traits": [1933, 2023, 1949, 1884, 1893, 1975, 1833, 1964, 2047]
+    "minor_traits": [
+      1994,
+      1887,
+      1837
+    ],
+    "major_traits": [
+      1933,
+      2023,
+      1949,
+      1884,
+      1893,
+      1975,
+      1833,
+      1964,
+      2047
+    ]
   },
   {
     "id": 8,
     "name": "marksmanship",
     "profession": "ranger",
-    "minor_traits": [1010, 1009, 1011],
-    "major_traits": [1021, 1014, 986, 1001, 1000, 1070, 996, 1015, 1698]
+    "minor_traits": [
+      1010,
+      1009,
+      1011
+    ],
+    "major_traits": [
+      1021,
+      1014,
+      986,
+      1001,
+      1000,
+      1070,
+      996,
+      1015,
+      1698
+    ]
   },
   {
     "id": 9,
     "name": "retribution",
     "profession": "revenant",
-    "minor_traits": [1783, 1757, 1713],
-    "major_traits": [1811, 1728, 1810, 1766, 1782, 1740, 1779, 1770, 1790]
+    "minor_traits": [
+      1783,
+      1757,
+      1713
+    ],
+    "major_traits": [
+      1811,
+      1728,
+      1810,
+      1766,
+      1782,
+      1740,
+      1779,
+      1770,
+      1790
+    ]
   },
   {
     "id": 10,
     "name": "domination",
     "profession": "mesmer",
-    "minor_traits": [685, 694, 1941],
-    "major_traits": [686, 682, 687, 693, 713, 712, 681, 680, 1688]
+    "minor_traits": [
+      685,
+      694,
+      1941
+    ],
+    "major_traits": [
+      686,
+      682,
+      687,
+      693,
+      713,
+      712,
+      681,
+      680,
+      1688
+    ]
   },
   {
     "id": 11,
     "name": "tactics",
     "profession": "warrior",
-    "minor_traits": [1480, 1485, 1481],
-    "major_traits": [1469, 1474, 1471, 1486, 1479, 1482, 1667, 1470, 1711]
+    "minor_traits": [
+      1480,
+      1485,
+      1481
+    ],
+    "major_traits": [
+      1469,
+      1474,
+      1471,
+      1486,
+      1479,
+      1482,
+      1667,
+      1470,
+      1711
+    ]
   },
   {
     "id": 12,
     "name": "salvation",
     "profession": "revenant",
-    "minor_traits": [1816, 1821, 1814],
-    "major_traits": [1823, 1824, 1822, 1819, 1817, 1818, 1815, 1825, 1820]
+    "minor_traits": [
+      1816,
+      1821,
+      1814
+    ],
+    "major_traits": [
+      1823,
+      1824,
+      1822,
+      1819,
+      1817,
+      1818,
+      1815,
+      1825,
+      1820
+    ]
   },
   {
     "id": 13,
     "name": "valor",
     "profession": "guardian",
-    "minor_traits": [582, 594, 583],
-    "major_traits": [588, 581, 633, 580, 584, 1684, 585, 586, 589]
+    "minor_traits": [
+      582,
+      594,
+      583
+    ],
+    "major_traits": [
+      588,
+      581,
+      633,
+      580,
+      584,
+      1684,
+      585,
+      586,
+      589
+    ]
   },
   {
     "id": 14,
     "name": "corruption",
     "profession": "revenant",
-    "minor_traits": [1799, 1801, 1744],
-    "major_traits": [1793, 1789, 1741, 1727, 1726, 1714, 1795, 1720, 1721]
+    "minor_traits": [
+      1799,
+      1801,
+      1744
+    ],
+    "major_traits": [
+      1793,
+      1789,
+      1741,
+      1727,
+      1726,
+      1714,
+      1795,
+      1720,
+      1721
+    ]
   },
   {
     "id": 15,
     "name": "devastation",
     "profession": "revenant",
-    "minor_traits": [1808, 1724, 1792],
-    "major_traits": [1776, 1767, 1755, 1786, 1765, 1802, 1715, 1800, 1754]
+    "minor_traits": [
+      1808,
+      1724,
+      1792
+    ],
+    "major_traits": [
+      1776,
+      1767,
+      1755,
+      1786,
+      1765,
+      1802,
+      1715,
+      1800,
+      1754
+    ]
   },
   {
     "id": 16,
     "name": "radiance",
     "profession": "guardian",
-    "minor_traits": [572, 571, 568],
-    "major_traits": [577, 566, 574, 578, 567, 565, 1686, 579, 1683]
+    "minor_traits": [
+      572,
+      571,
+      568
+    ],
+    "major_traits": [
+      577,
+      566,
+      574,
+      578,
+      567,
+      565,
+      1686,
+      579,
+      1683
+    ]
   },
   {
     "id": 17,
     "name": "water",
     "profession": "elementalist",
-    "minor_traits": [350, 351, 1676],
-    "major_traits": [348, 363, 360, 364, 358, 349, 362, 361, 2028]
+    "minor_traits": [
+      350,
+      351,
+      1676
+    ],
+    "major_traits": [
+      348,
+      363,
+      360,
+      364,
+      358,
+      349,
+      362,
+      361,
+      2028
+    ]
   },
   {
     "id": 18,
     "name": "berserker",
     "profession": "warrior",
-    "minor_traits": [1831, 1993, 2046],
-    "major_traits": [2049, 2039, 1977, 2011, 2042, 2002, 1928, 2038, 2043]
+    "minor_traits": [
+      1831,
+      1993,
+      2046
+    ],
+    "major_traits": [
+      2049,
+      2039,
+      1977,
+      2011,
+      2042,
+      2002,
+      1928,
+      2038,
+      2307
+    ]
   },
   {
     "id": 19,
     "name": "bloodmagic",
     "profession": "necromancer",
-    "minor_traits": [792, 783, 1931],
-    "major_traits": [780, 788, 1876, 789, 799, 1844, 782, 1692, 778]
+    "minor_traits": [
+      792,
+      783,
+      1931
+    ],
+    "major_traits": [
+      780,
+      788,
+      1876,
+      789,
+      799,
+      1844,
+      782,
+      1692,
+      778
+    ]
   },
   {
     "id": 20,
     "name": "shadowarts",
     "profession": "thief",
-    "minor_traits": [1294, 1136, 1705],
-    "major_traits": [1160, 1293, 1284, 1297, 1130, 1300, 1134, 1135, 1162]
+    "minor_traits": [
+      1294,
+      1136,
+      1705
+    ],
+    "major_traits": [
+      1160,
+      1293,
+      1284,
+      1297,
+      1130,
+      1300,
+      1134,
+      1135,
+      1162
+    ]
   },
   {
     "id": 21,
     "name": "tools",
     "profession": "engineer",
-    "minor_traits": [1979, 1872, 1936],
-    "major_traits": [532, 1997, 531, 512, 1946, 1832, 1856, 523, 1679]
+    "minor_traits": [
+      1979,
+      1872,
+      1936
+    ],
+    "major_traits": [
+      532,
+      1997,
+      531,
+      512,
+      1946,
+      1832,
+      1856,
+      523,
+      1679
+    ]
   },
   {
     "id": 22,
     "name": "defense",
     "profession": "warrior",
-    "minor_traits": [1350, 1348, 1380],
-    "major_traits": [1376, 1488, 1372, 1368, 1379, 1367, 1375, 1649, 1708]
+    "minor_traits": [
+      1350,
+      1348,
+      1380
+    ],
+    "major_traits": [
+      1376,
+      1488,
+      1372,
+      1368,
+      1379,
+      1367,
+      1375,
+      1649,
+      1708
+    ]
   },
   {
     "id": 23,
     "name": "inspiration",
     "profession": "mesmer",
-    "minor_traits": [757, 1852, 1915],
-    "major_traits": [756, 738, 744, 751, 740, 1980, 2005, 1866, 752]
+    "minor_traits": [
+      757,
+      1852,
+      1915
+    ],
+    "major_traits": [
+      756,
+      738,
+      744,
+      751,
+      740,
+      1980,
+      2005,
+      1866,
+      752
+    ]
   },
   {
     "id": 24,
     "name": "illusions",
     "profession": "mesmer",
-    "minor_traits": [734, 723, 731],
-    "major_traits": [721, 1869, 691, 722, 729, 1690, 733, 2035, 753]
+    "minor_traits": [
+      734,
+      723,
+      731
+    ],
+    "major_traits": [
+      721,
+      1869,
+      691,
+      722,
+      729,
+      1690,
+      733,
+      2035,
+      753
+    ]
   },
   {
     "id": 25,
     "name": "naturemagic",
     "profession": "ranger",
-    "minor_traits": [1055, 1056, 1059],
-    "major_traits": [1062, 978, 1060, 1054, 965, 964, 1038, 1988, 1697]
+    "minor_traits": [
+      1055,
+      1056,
+      1059
+    ],
+    "major_traits": [
+      1062,
+      978,
+      1060,
+      1054,
+      965,
+      964,
+      1038,
+      1988,
+      1697
+    ]
   },
   {
     "id": 26,
     "name": "earth",
     "profession": "elementalist",
-    "minor_traits": [278, 279, 280],
-    "major_traits": [282, 1507, 289, 275, 281, 277, 1508, 287, 1674]
+    "minor_traits": [
+      278,
+      279,
+      280
+    ],
+    "major_traits": [
+      282,
+      1507,
+      289,
+      275,
+      281,
+      277,
+      1508,
+      287,
+      1674
+    ]
   },
   {
     "id": 27,
     "name": "dragonhunter",
     "profession": "guardian",
-    "minor_traits": [1848, 1896, 1926],
-    "major_traits": [1898, 1983, 1911, 2037, 1835, 1943, 1908, 1963, 1955]
+    "minor_traits": [
+      1848,
+      1896,
+      1926
+    ],
+    "major_traits": [
+      1898,
+      1983,
+      1911,
+      2037,
+      1835,
+      1943,
+      1908,
+      1963,
+      1955
+    ]
   },
   {
     "id": 28,
     "name": "deadlyarts",
     "profession": "thief",
-    "minor_traits": [1279, 1280, 1257],
-    "major_traits": [1245, 1276, 1164, 1169, 1292, 1704, 1291, 1167, 1269]
+    "minor_traits": [
+      1279,
+      1280,
+      1257
+    ],
+    "major_traits": [
+      1245,
+      1276,
+      1164,
+      1169,
+      1292,
+      1704,
+      1291,
+      1167,
+      1269
+    ]
   },
   {
     "id": 29,
     "name": "alchemy",
     "profession": "engineer",
-    "minor_traits": [468, 487, 413],
-    "major_traits": [396, 509, 521, 520, 469, 470, 473, 1871, 1854]
+    "minor_traits": [
+      468,
+      487,
+      413
+    ],
+    "major_traits": [
+      396,
+      509,
+      521,
+      520,
+      469,
+      470,
+      473,
+      1871,
+      1854
+    ]
   },
   {
     "id": 30,
     "name": "skirmishing",
     "profession": "ranger",
-    "minor_traits": [1080, 1083, 1068],
-    "major_traits": [1069, 1067, 1075, 1016, 1700, 1846, 1064, 1912, 1888]
+    "minor_traits": [
+      1080,
+      1083,
+      1068
+    ],
+    "major_traits": [
+      1069,
+      1067,
+      1075,
+      1016,
+      1700,
+      1846,
+      1064,
+      1912,
+      1888
+    ]
   },
   {
     "id": 31,
     "name": "fire",
     "profession": "elementalist",
-    "minor_traits": [320, 318, 319],
-    "major_traits": [296, 328, 335, 325, 340, 334, 1510, 294, 1675]
+    "minor_traits": [
+      320,
+      318,
+      319
+    ],
+    "major_traits": [
+      296,
+      328,
+      335,
+      325,
+      340,
+      334,
+      1510,
+      294,
+      1675
+    ]
   },
   {
     "id": 32,
     "name": "beastmastery",
     "profession": "ranger",
-    "minor_traits": [1900, 974, 1065],
-    "major_traits": [1861, 1072, 1606, 975, 1047, 970, 1945, 968, 1066]
+    "minor_traits": [
+      1900,
+      974,
+      1065
+    ],
+    "major_traits": [
+      1861,
+      1072,
+      1606,
+      975,
+      1047,
+      970,
+      1945,
+      968,
+      1066
+    ]
   },
   {
     "id": 33,
     "name": "wildernesssurvival",
     "profession": "ranger",
-    "minor_traits": [1096, 1090, 1089],
-    "major_traits": [1098, 1086, 1099, 1101, 2032, 1100, 1094, 1699, 1701]
+    "minor_traits": [
+      1096,
+      1090,
+      1089
+    ],
+    "major_traits": [
+      1098,
+      1086,
+      1099,
+      1101,
+      2032,
+      1100,
+      1094,
+      1699,
+      1701
+    ]
   },
   {
     "id": 34,
     "name": "reaper",
     "profession": "necromancer",
-    "minor_traits": [1905, 1879, 2018],
-    "major_traits": [1974, 2020, 2026, 1969, 2008, 2031, 1932, 1919, 2021]
+    "minor_traits": [
+      1905,
+      1879,
+      2018
+    ],
+    "major_traits": [
+      1974,
+      2020,
+      2026,
+      1969,
+      2008,
+      2031,
+      1932,
+      1919,
+      2021
+    ]
   },
   {
     "id": 35,
     "name": "criticalstrikes",
     "profession": "thief",
-    "minor_traits": [1281, 1210, 1282],
-    "major_traits": [1209, 1267, 1268, 1170, 1272, 1299, 1904, 1215, 1702]
+    "minor_traits": [
+      1281,
+      1210,
+      1282
+    ],
+    "major_traits": [
+      1209,
+      1267,
+      1268,
+      1170,
+      1272,
+      1299,
+      1904,
+      1215,
+      1702
+    ]
   },
   {
     "id": 36,
     "name": "arms",
     "profession": "warrior",
-    "minor_traits": [1342, 1343, 1337],
-    "major_traits": [1455, 1344, 1334, 1315, 1316, 1333, 1336, 1346, 1707]
+    "minor_traits": [
+      1342,
+      1343,
+      1337
+    ],
+    "major_traits": [
+      1455,
+      1344,
+      1334,
+      1315,
+      1316,
+      1333,
+      1336,
+      1346,
+      1707
+    ]
   },
   {
     "id": 37,
     "name": "arcane",
     "profession": "elementalist",
-    "minor_traits": [268, 264, 2004],
-    "major_traits": [253, 266, 1487, 265, 1673, 257, 238, 263, 1511]
+    "minor_traits": [
+      268,
+      264,
+      2004
+    ],
+    "major_traits": [
+      253,
+      266,
+      1487,
+      265,
+      1673,
+      257,
+      238,
+      263,
+      1511
+    ]
   },
   {
     "id": 38,
     "name": "firearms",
     "profession": "engineer",
-    "minor_traits": [515, 536, 516],
-    "major_traits": [1878, 1930, 1914, 1984, 2006, 1923, 510, 526, 433]
+    "minor_traits": [
+      515,
+      536,
+      516
+    ],
+    "major_traits": [
+      1878,
+      1930,
+      1914,
+      1984,
+      2006,
+      1923,
+      510,
+      526,
+      433
+    ]
   },
   {
     "id": 39,
     "name": "curses",
     "profession": "necromancer",
-    "minor_traits": [802, 803, 810],
-    "major_traits": [1883, 2013, 815, 816, 1693, 812, 813, 1696, 801]
+    "minor_traits": [
+      802,
+      803,
+      810
+    ],
+    "major_traits": [
+      1883,
+      2013,
+      815,
+      816,
+      1693,
+      812,
+      813,
+      1696,
+      801
+    ]
   },
   {
     "id": 40,
     "name": "chronomancer",
     "profession": "mesmer",
-    "minor_traits": [2030, 1927, 1859],
-    "major_traits": [1838, 1995, 1987, 2009, 1913, 1978, 1942, 2022, 1890]
+    "minor_traits": [
+      2030,
+      1927,
+      1859
+    ],
+    "major_traits": [
+      1838,
+      1995,
+      1987,
+      2009,
+      1913,
+      1978,
+      1942,
+      2022,
+      1890
+    ]
   },
   {
     "id": 41,
     "name": "air",
     "profession": "elementalist",
-    "minor_traits": [221, 222, 223],
-    "major_traits": [227, 224, 232, 229, 214, 1502, 226, 1503, 1672]
+    "minor_traits": [
+      221,
+      222,
+      223
+    ],
+    "major_traits": [
+      227,
+      224,
+      232,
+      229,
+      214,
+      1502,
+      226,
+      1503,
+      1672
+    ]
   },
   {
     "id": 42,
     "name": "zeal",
     "profession": "guardian",
-    "minor_traits": [648, 646, 649],
-    "major_traits": [563, 634, 1925, 628, 653, 1556, 635, 637, 2017]
+    "minor_traits": [
+      648,
+      646,
+      649
+    ],
+    "major_traits": [
+      563,
+      634,
+      1925,
+      628,
+      653,
+      1556,
+      635,
+      637,
+      2017
+    ]
   },
   {
     "id": 43,
     "name": "scrapper",
     "profession": "engineer",
-    "minor_traits": [1959, 2014, 1877],
-    "major_traits": [1917, 1971, 1867, 1954, 1999, 1860, 1981, 2052, 1849]
+    "minor_traits": [
+      1959,
+      2014,
+      1877
+    ],
+    "major_traits": [
+      1917,
+      1971,
+      1867,
+      1954,
+      1999,
+      1860,
+      1981,
+      2052,
+      1849
+    ]
   },
   {
     "id": 44,
     "name": "trickery",
     "profession": "thief",
-    "minor_traits": [1137, 1232, 1157],
-    "major_traits": [1159, 1252, 1163, 1277, 1286, 1190, 1187, 1158, 1706]
+    "minor_traits": [
+      1137,
+      1232,
+      1157
+    ],
+    "major_traits": [
+      1159,
+      1252,
+      1163,
+      1277,
+      1286,
+      1190,
+      1187,
+      1158,
+      1706
+    ]
   },
   {
     "id": 45,
     "name": "chaos",
     "profession": "mesmer",
-    "minor_traits": [666, 667, 1865],
-    "major_traits": [670, 675, 677, 673, 668, 669, 671, 674, 1687]
+    "minor_traits": [
+      666,
+      667,
+      1865
+    ],
+    "major_traits": [
+      670,
+      675,
+      677,
+      673,
+      668,
+      669,
+      671,
+      674,
+      1687
+    ]
   },
   {
     "id": 46,
     "name": "virtues",
     "profession": "guardian",
-    "minor_traits": [621, 604, 620],
-    "major_traits": [624, 625, 617, 603, 610, 587, 622, 554, 612]
+    "minor_traits": [
+      621,
+      604,
+      620
+    ],
+    "major_traits": [
+      624,
+      625,
+      617,
+      603,
+      610,
+      587,
+      622,
+      554,
+      612
+    ]
   },
   {
     "id": 47,
     "name": "inventions",
     "profession": "engineer",
-    "minor_traits": [518, 508, 519],
-    "major_traits": [394, 1901, 507, 1678, 1834, 445, 472, 1680, 1916]
+    "minor_traits": [
+      518,
+      508,
+      519
+    ],
+    "major_traits": [
+      394,
+      1901,
+      507,
+      1678,
+      1834,
+      445,
+      472,
+      1680,
+      1916
+    ]
   },
   {
     "id": 48,
     "name": "tempest",
     "profession": "elementalist",
-    "minor_traits": [2025, 1938, 1948],
-    "major_traits": [1952, 1962, 1886, 1891, 1902, 2015, 1839, 2033, 1986]
+    "minor_traits": [
+      2025,
+      1938,
+      1948
+    ],
+    "major_traits": [
+      1952,
+      1962,
+      1886,
+      1891,
+      1902,
+      2015,
+      1839,
+      2033,
+      1986
+    ]
   },
   {
     "id": 49,
     "name": "honor",
     "profession": "guardian",
-    "minor_traits": [564, 551, 1685],
-    "major_traits": [1899, 559, 654, 557, 549, 562, 553, 558, 1682]
+    "minor_traits": [
+      564,
+      551,
+      1685
+    ],
+    "major_traits": [
+      1899,
+      559,
+      654,
+      557,
+      549,
+      562,
+      553,
+      558,
+      1682
+    ]
   },
   {
     "id": 50,
     "name": "soulreaping",
     "profession": "necromancer",
-    "minor_traits": [887, 891, 874],
-    "major_traits": [875, 898, 888, 894, 861, 892, 889, 893, 905]
+    "minor_traits": [
+      887,
+      891,
+      874
+    ],
+    "major_traits": [
+      875,
+      898,
+      888,
+      894,
+      861,
+      892,
+      889,
+      893,
+      905
+    ]
   },
   {
     "id": 51,
     "name": "discipline",
     "profession": "warrior",
-    "minor_traits": [1415, 1416, 1417],
-    "major_traits": [1329, 1413, 1381, 1484, 1489, 1709, 1369, 1317, 1657]
+    "minor_traits": [
+      1415,
+      1416,
+      1417
+    ],
+    "major_traits": [
+      1329,
+      1413,
+      1381,
+      1484,
+      1489,
+      1709,
+      1369,
+      1317,
+      1657
+    ]
   },
   {
     "id": 52,
     "name": "herald",
     "profession": "revenant",
-    "minor_traits": [1777, 1737, 1788],
-    "major_traits": [1813, 1806, 1716, 1738, 1743, 1730, 1746, 1772, 1803]
+    "minor_traits": [
+      1777,
+      1737,
+      1788
+    ],
+    "major_traits": [
+      1813,
+      1806,
+      1716,
+      1738,
+      1743,
+      1730,
+      1746,
+      1772,
+      1803
+    ]
   },
   {
     "id": 53,
     "name": "spite",
     "profession": "necromancer",
-    "minor_traits": [913, 915, 917],
-    "major_traits": [914, 916, 1863, 899, 829, 909, 919, 853, 903]
+    "minor_traits": [
+      913,
+      915,
+      917
+    ],
+    "major_traits": [
+      914,
+      916,
+      1863,
+      899,
+      829,
+      909,
+      919,
+      853,
+      903
+    ]
   },
   {
     "id": 54,
     "name": "acrobatics",
     "profession": "thief",
-    "minor_traits": [1240, 1234, 1242],
-    "major_traits": [1112, 1289, 1237, 1241, 1192, 1290, 1238, 1295, 1703]
+    "minor_traits": [
+      1240,
+      1234,
+      1242
+    ],
+    "major_traits": [
+      1112,
+      1289,
+      1237,
+      1241,
+      1192,
+      1290,
+      1238,
+      1295,
+      1703
+    ]
   },
   {
     "id": 55,
     "name": "soulbeast",
     "profession": "ranger",
-    "minor_traits": [2151, 2156, 2127],
-    "major_traits": [2134, 2071, 2072, 2119, 2085, 2161, 2155, 2128, 2143]
+    "minor_traits": [
+      2151,
+      2156,
+      2127
+    ],
+    "major_traits": [
+      2134,
+      2071,
+      2072,
+      2119,
+      2085,
+      2161,
+      2155,
+      2128,
+      2143
+    ]
   },
   {
     "id": 56,
     "name": "weaver",
     "profession": "elementalist",
-    "minor_traits": [2109, 2077, 2081],
-    "major_traits": [2177, 2165, 2115, 2180, 2061, 2170, 2131, 2090, 2138]
+    "minor_traits": [
+      2109,
+      2077,
+      2081
+    ],
+    "major_traits": [
+      2177,
+      2165,
+      2115,
+      2180,
+      2061,
+      2170,
+      2131,
+      2090,
+      2138
+    ]
   },
   {
     "id": 57,
     "name": "holosmith",
     "profession": "engineer",
-    "minor_traits": [2158, 2135, 2122],
-    "major_traits": [2114, 2157, 2106, 2103, 2152, 2091, 2066, 2137, 2064]
+    "minor_traits": [
+      2158,
+      2135,
+      2122
+    ],
+    "major_traits": [
+      2114,
+      2157,
+      2106,
+      2103,
+      2152,
+      2091,
+      2066,
+      2137,
+      2064
+    ]
   },
   {
     "id": 58,
     "name": "deadeye",
     "profession": "thief",
-    "minor_traits": [2171, 2172, 2084],
-    "major_traits": [2145, 2173, 2136, 2118, 2078, 2160, 2111, 2093, 2146]
+    "minor_traits": [
+      2171,
+      2172,
+      2084
+    ],
+    "major_traits": [
+      2145,
+      2173,
+      2136,
+      2118,
+      2078,
+      2160,
+      2111,
+      2093,
+      2146
+    ]
   },
   {
     "id": 59,
     "name": "mirage",
     "profession": "mesmer",
-    "minor_traits": [2150, 2069, 2117],
-    "major_traits": [2141, 2082, 2110, 2178, 2174, 2098, 2070, 2113, 2169]
+    "minor_traits": [
+      2150,
+      2069,
+      2117
+    ],
+    "major_traits": [
+      2141,
+      2082,
+      2110,
+      2178,
+      2174,
+      2098,
+      2070,
+      2113,
+      2169
+    ]
   },
   {
     "id": 60,
     "name": "scourge",
     "profession": "necromancer",
-    "minor_traits": [2147, 2121, 2096],
-    "major_traits": [2167, 2074, 2102, 2059, 2067, 2123, 2112, 2164, 2080]
+    "minor_traits": [
+      2147,
+      2121,
+      2096
+    ],
+    "major_traits": [
+      2167,
+      2074,
+      2102,
+      2059,
+      2067,
+      2123,
+      2112,
+      2164,
+      2080
+    ]
   },
   {
     "id": 61,
     "name": "spellbreaker",
     "profession": "warrior",
-    "minor_traits": [2175, 2162, 2130],
-    "major_traits": [2107, 2153, 2140, 2126, 2097, 2095, 2163, 2168, 2060]
+    "minor_traits": [
+      2175,
+      2162,
+      2130
+    ],
+    "major_traits": [
+      2107,
+      2153,
+      2140,
+      2126,
+      2097,
+      2095,
+      2163,
+      2168,
+      2060
+    ]
   },
   {
     "id": 62,
     "name": "firebrand",
     "profession": "guardian",
-    "minor_traits": [2089, 2062, 2148],
-    "major_traits": [2075, 2101, 2086, 2063, 2076, 2116, 2105, 2179, 2159]
+    "minor_traits": [
+      2089,
+      2062,
+      2148
+    ],
+    "major_traits": [
+      2075,
+      2101,
+      2086,
+      2063,
+      2076,
+      2116,
+      2105,
+      2179,
+      2159
+    ]
   },
   {
     "id": 63,
     "name": "renegade",
     "profession": "revenant",
-    "minor_traits": [2181, 2154, 2142],
-    "major_traits": [2166, 2079, 2120, 2133, 2092, 2108, 2094, 2100, 2182]
+    "minor_traits": [
+      2181,
+      2154,
+      2142
+    ],
+    "major_traits": [
+      2166,
+      2079,
+      2120,
+      2133,
+      2092,
+      2108,
+      2094,
+      2100,
+      2182
+    ]
   },
   {
     "id": 64,
     "name": "harbinger",
     "profession": "necromancer",
-    "minor_traits": [2183, 2186, 2217],
-    "major_traits": [2188, 2219, 2185, 2192, 2220, 2209, 2218, 2194, 2203]
+    "minor_traits": [
+      2183,
+      2186,
+      2217
+    ],
+    "major_traits": [
+      2188,
+      2219,
+      2185,
+      2192,
+      2220,
+      2209,
+      2218,
+      2194,
+      2203
+    ]
   },
   {
     "id": 65,
     "name": "willbender",
     "profession": "guardian",
-    "minor_traits": [2200, 2222, 2189],
-    "major_traits": [2191, 2190, 2187, 2197, 2210, 2199, 2195, 2201, 2198]
+    "minor_traits": [
+      2200,
+      2222,
+      2189
+    ],
+    "major_traits": [
+      2191,
+      2190,
+      2187,
+      2197,
+      2210,
+      2199,
+      2195,
+      2201,
+      2198
+    ]
   },
   {
     "id": 66,
     "name": "virtuoso",
     "profession": "mesmer",
-    "minor_traits": [2216, 2204, 2193],
-    "major_traits": [2212, 2208, 2202, 2215, 2205, 2207, 2211, 2206, 2223]
+    "minor_traits": [
+      2216,
+      2204,
+      2193
+    ],
+    "major_traits": [
+      2212,
+      2208,
+      2202,
+      2215,
+      2205,
+      2207,
+      2211,
+      2206,
+      2223
+    ]
   },
   {
     "id": 67,
     "name": "catalyst",
     "profession": "elementalist",
-    "minor_traits": [2227, 2250, 2231],
-    "major_traits": [2230, 2252, 2224, 2247, 2249, 2234, 2233, 2241, 2251]
+    "minor_traits": [
+      2227,
+      2250,
+      2231
+    ],
+    "major_traits": [
+      2230,
+      2252,
+      2224,
+      2247,
+      2249,
+      2234,
+      2233,
+      2241,
+      2251
+    ]
   },
   {
     "id": 68,
     "name": "bladesworn",
     "profession": "warrior",
-    "minor_traits": [2226, 2242, 2236],
-    "major_traits": [2237, 2260, 2225, 2253, 2302, 2303, 2261, 2239, 2245]
+    "minor_traits": [
+      2226,
+      2242,
+      2236
+    ],
+    "major_traits": [
+      2237,
+      2260,
+      2225,
+      2253,
+      2302,
+      2303,
+      2261,
+      2239,
+      2245
+    ]
   },
   {
     "id": 69,
     "name": "vindicator",
     "profession": "revenant",
-    "minor_traits": [2262, 2254, 2229],
-    "major_traits": [2258, 2248, 2228, 2259, 2243, 2255, 2257, 2232, 2238]
+    "minor_traits": [
+      2262,
+      2254,
+      2229
+    ],
+    "major_traits": [
+      2258,
+      2248,
+      2228,
+      2259,
+      2243,
+      2255,
+      2257,
+      2232,
+      2238
+    ]
   },
   {
     "id": 70,
     "name": "mechanist",
     "profession": "engineer",
-    "minor_traits": [2291, 2266, 2267],
-    "major_traits": [2282, 2296, 2279, 2270, 2276, 2294, 2292, 2281, 2298]
+    "minor_traits": [
+      2291,
+      2266,
+      2267
+    ],
+    "major_traits": [
+      2282,
+      2296,
+      2279,
+      2270,
+      2276,
+      2294,
+      2292,
+      2281,
+      2298
+    ]
   },
   {
     "id": 71,
     "name": "specter",
     "profession": "thief",
-    "minor_traits": [2184, 2272, 2280],
-    "major_traits": [2284, 2299, 2275, 2290, 2288, 2285, 2264, 2300, 2289]
+    "minor_traits": [
+      2184,
+      2272,
+      2280
+    ],
+    "major_traits": [
+      2284,
+      2299,
+      2275,
+      2290,
+      2288,
+      2285,
+      2264,
+      2300,
+      2289
+    ]
   },
   {
     "id": 72,
     "name": "untamed",
     "profession": "ranger",
-    "minor_traits": [2268, 2286, 2269],
-    "major_traits": [2297, 2277, 2301, 2263, 2287, 2278, 2271, 2283, 2274]
+    "minor_traits": [
+      2268,
+      2286,
+      2269
+    ],
+    "major_traits": [
+      2297,
+      2277,
+      2301,
+      2263,
+      2287,
+      2278,
+      2271,
+      2283,
+      2274
+    ]
+  },
+  {
+    "id": 73,
+    "name": "troubadour",
+    "profession": "mesmer",
+    "minor_traits": [
+      2386,
+      2424,
+      2374
+    ],
+    "major_traits": [
+      2427,
+      2326,
+      2432,
+      2343,
+      2367,
+      2422,
+      2353,
+      2414,
+      2441
+    ]
+  },
+  {
+    "id": 74,
+    "name": "paragon",
+    "profession": "warrior",
+    "minor_traits": [
+      2373,
+      2418,
+      2340
+    ],
+    "major_traits": [
+      2345,
+      2433,
+      2357,
+      2385,
+      2426,
+      2399,
+      2369,
+      2375,
+      2428
+    ]
+  },
+  {
+    "id": 75,
+    "name": "amalgam",
+    "profession": "engineer",
+    "minor_traits": [
+      2377,
+      2389,
+      2356
+    ],
+    "major_traits": [
+      2366,
+      2395,
+      2434,
+      2383,
+      2420,
+      2349,
+      2406,
+      2387,
+      2334
+    ]
+  },
+  {
+    "id": 76,
+    "name": "ritualist",
+    "profession": "necromancer",
+    "minor_traits": [
+      2338,
+      2371,
+      2398
+    ],
+    "major_traits": [
+      2327,
+      2378,
+      2339,
+      2384,
+      2405,
+      2421,
+      2376,
+      2333,
+      2392
+    ]
+  },
+  {
+    "id": 77,
+    "name": "antiquary",
+    "profession": "thief",
+    "minor_traits": [
+      2403,
+      2337,
+      2362
+    ],
+    "major_traits": [
+      2423,
+      2365,
+      2346,
+      2400,
+      2431,
+      2350,
+      2409,
+      2393,
+      2348
+    ]
+  },
+  {
+    "id": 78,
+    "name": "galeshot",
+    "profession": "ranger",
+    "minor_traits": [
+      2359,
+      2363,
+      2341
+    ],
+    "major_traits": [
+      2402,
+      2370,
+      2360,
+      2408,
+      2413,
+      2396,
+      2425,
+      2336,
+      2372
+    ]
+  },
+  {
+    "id": 79,
+    "name": "conduit",
+    "profession": "revenant",
+    "minor_traits": [
+      2364,
+      2331,
+      2440
+    ],
+    "major_traits": [
+      2390,
+      2355,
+      2407,
+      2411,
+      2358,
+      2416,
+      2429,
+      2379,
+      2352
+    ]
+  },
+  {
+    "id": 80,
+    "name": "evoker",
+    "profession": "elementalist",
+    "minor_traits": [
+      2344,
+      2382,
+      2351
+    ],
+    "major_traits": [
+      2391,
+      2415,
+      2354,
+      2342,
+      2380,
+      2438,
+      2335,
+      2436,
+      2437
+    ]
+  },
+  {
+    "id": 81,
+    "name": "luminary",
+    "profession": "guardian",
+    "minor_traits": [
+      2381,
+      2394,
+      2435
+    ],
+    "major_traits": [
+      2410,
+      2417,
+      2329,
+      2330,
+      2401,
+      2419,
+      2368,
+      2328,
+      2388
+    ]
   }
 ]
