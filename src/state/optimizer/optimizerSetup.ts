@@ -531,6 +531,7 @@ export function createSettingsPerCombination(
 
     'Power Coefficient': distribution.Power,
     'Power2 Coefficient': distribution.Power2,
+    'Reflect Coefficient': distribution.Reflect,
     'Burning Coefficient': distribution.Burning,
     'Bleeding Coefficient': distribution.Bleeding,
     'Poison Coefficient': distribution.Poisoned, // renamed
