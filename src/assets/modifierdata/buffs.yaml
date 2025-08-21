@@ -88,6 +88,37 @@
       type: CommonEffect
       temporaryBuff: false
 
+    - id: facet-of-nature-dwarf
+      text: Facet of Nature—Dwarf
+      modifiers:
+        damage:
+          Damage Reduction: [10%, mult]
+      type: Text
+
+    - id: rite-of-the-great-dwarf
+      text: Rite of the Great Dwarf
+      modifiers:
+        damage:
+          Damage Reduction: [50%, mult]
+      type: Skill
+      gw2id: 27975
+
+    - id: guard-shout-buff
+      text: '"Guard!"'
+      modifiers:
+        damage:
+          Damage Reduction: [33%, mult]
+      type: Skill
+      gw2id: 12632
+
+    - id: relic-of-sorrow-buff
+      text: Relic of Sorrow
+      modifiers:
+        damage:
+          Damage Reduction: [20%, mult]
+      type: Item
+      gw2id: 103424
+
 - section: Effects
   items:
     - id: exposed
