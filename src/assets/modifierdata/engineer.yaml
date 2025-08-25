@@ -171,11 +171,9 @@
       modifiers:
         attributes:
           Critical Chance: 15%
-          Ferocity: [150, buff] # tested by marcus
       wvwModifiers:
         attributes:
           Critical Chance: 10%
-          Ferocity: [150, buff] # tested by marcus
       minor: true
       gw2id: 536
       defaultEnabled: true
