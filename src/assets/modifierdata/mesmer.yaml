@@ -330,6 +330,17 @@
       gw2id: 2009
       defaultEnabled: true
 
+    - id: danger-time-bugged-critical-chance
+      text: Danger Time
+      subText: 'bug: additional illusion critical chance (check both)'
+      modifiers:
+        attributes:
+          Phantasm Critical Chance: 15%
+          Clone Critical Chance: 15%
+      gw2id: 2009
+      defaultEnabled: false
+      temporaryBuff: true
+
     - id: chronophantasma
       text: Chronophantasma
       modifiers:
