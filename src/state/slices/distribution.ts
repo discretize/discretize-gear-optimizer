@@ -16,6 +16,7 @@ export interface Distribution {
   Poisoned: number;
   Torment: number;
   Confusion: number;
+  Reflect: number;
 }
 
 interface DistributionText {
@@ -26,6 +27,7 @@ interface DistributionText {
   Poisoned: string | number;
   Torment: string | number;
   Confusion: string | number;
+  Reflect: string | number;
 }
 
 const initialState: {
@@ -46,6 +48,7 @@ const initialState: {
     Poisoned: 0,
     Torment: 0,
     Confusion: 0,
+    Reflect: 0,
   },
   textBoxes: {
     Power: '3000',
@@ -55,6 +58,7 @@ const initialState: {
     Poisoned: '0',
     Torment: '0',
     Confusion: '0',
+    Reflect: '0',
   },
 };
 
@@ -87,15 +91,15 @@ export const distributionSlice = createSlice({
     },
     changeAllDistributions: (
       state,
-      action: PayloadAction<{ name: string; value: { values2: Distribution } }>,
+      action: PayloadAction<{ name: string; value: { values2: Omit<Distribution, 'Reflect'> } }>,
     ) => {
       const { name, value: distributionPreset } = action.payload;
       try {
         return {
           ...state,
           selectedDistribution: name,
-          values2: distributionPreset.values2,
-          textBoxes: distributionPreset.values2,
+          values2: { Reflect: 0, ...distributionPreset.values2 },
+          textBoxes: { Reflect: 0, ...distributionPreset.values2 },
         };
       } catch (e) {
         console.error(e);
@@ -110,6 +114,8 @@ export const distributionSlice = createSlice({
         const newState = clone(action.payload.form.distribution);
         newState.values2.Power2 ??= 0;
         newState.textBoxes.Power2 ??= '0';
+        newState.values2.Reflect ??= 0;
+        newState.textBoxes.Reflect ??= '0';
 
         return { ...state, ...newState };
       }
@@ -123,8 +129,8 @@ export const distributionSlice = createSlice({
           selectedDistribution,
           version: 2,
           values1: {},
-          values2: distributionPreset.values2,
-          textBoxes: distributionPreset.values2,
+          values2: { Reflect: 0, ...distributionPreset.values2 },
+          textBoxes: { Reflect: 0, ...distributionPreset.values2 },
         };
       }
       return state;
