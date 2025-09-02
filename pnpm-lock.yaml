@@ -51,8 +51,8 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
       json-url:
-        specifier: ^3.1.0
-        version: 3.1.0
+        specifier: ^4.0.0
+        version: 4.0.0
       material-ui-popup-state:
         specifier: ^5.3.6
         version: 5.3.6(@mui/material@7.3.1(@emotion/react@11.14.0(@types/react@19.1.12)(react@19.1.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.1.12)(react@19.1.1))(@types/react@19.1.12)(react@19.1.1))(@types/react@19.1.12)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(@types/react@19.1.12)(react@19.1.1)
@@ -394,8 +394,8 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
 
-  '@babel/runtime-corejs2@7.27.6':
-    resolution: {integrity: sha512-WgvlQpGnm1rmvgrm+H+cVcAckEPlwURUCvv1ZVSFr9J9yixgFbNlu7+CjVKKAd4xQtMijPwxwcSi5SFFHKlmDw==}
+  '@babel/runtime-corejs2@7.28.3':
+    resolution: {integrity: sha512-+1b3F+6P7ewZRsGVD/8sOTsq2YLpwr6ziqkUZ7vOQrW+jWZ/K2dv92LRcdlwta46z93g6IC/v66CzpSzms7U2A==}
     engines: {node: '>=6.9.0'}
 
   '@babel/runtime@7.27.6':
@@ -1563,6 +1563,9 @@ packages:
   bl@4.1.0:
     resolution: {integrity: sha512-1W07cM9gS6DcLperZfFSj+bWLtaPGSOHWhPiGzXmvVJbRLdG82sH/Kn8EtW1VqWVA54AKf2h5k5BbnIbwF3h6w==}
 
+  bl@5.1.0:
+    resolution: {integrity: sha512-tv1ZJHLfTDnXE6tMHv73YgSJaWR2AFuPwMntBe7XL/GBFHnT0CLnsHMogfk5+GzCDC5ZWarSCYaIGATZt9dNsQ==}
+
   blake3-wasm@2.1.5:
     resolution: {integrity: sha512-F1+K8EbfOZE49dtoPtmxUQrpXaBIl3ICvasLh+nJta0xkz+9kF/7uet9fLnwKqhDrmj6g+6K3Tw9yQPUg2ka5g==}
 
@@ -1586,6 +1589,9 @@ packages:
 
   buffer@5.7.1:
     resolution: {integrity: sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ==}
+
+  buffer@6.0.3:
+    resolution: {integrity: sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==}
 
   call-bind-apply-helpers@1.0.2:
     resolution: {integrity: sha512-Sp1ablJ0ivDkSzjcaJdxEunN5/XvksFJ2sMBFfq6x0ryhQV/2b/KwFe21cMpmHtPOSij8K99/wSfoEuTObmuMQ==}
@@ -2460,6 +2466,9 @@ packages:
   json-url@3.1.0:
     resolution: {integrity: sha512-fhmtxBOQYJCshMV/omtzjBLv0ruLBz4dt+28y2+959fM45Oc8s+uL1jdLu/4yGeKATylgV022gAPfxCwQ5KgFA==}
 
+  json-url@4.0.0:
+    resolution: {integrity: sha512-OUmiNE8LR3OgfVnCk82ikdUwPkqwTArUZyBwojwl32p98wUQj42j1eZRuAuivgrpC+54C7XUH8dIu7TTsZaOww==}
+
   json5@1.0.2:
     resolution: {integrity: sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA==}
     hasBin: true
@@ -2631,6 +2640,9 @@ packages:
 
   msgpack5@4.5.1:
     resolution: {integrity: sha512-zC1vkcliryc4JGlL6OfpHumSYUHWFGimSI+OgfRCjTFLmKA2/foR9rMTOhWiqfOrfxJOctrpWPvrppf8XynJxw==}
+
+  msgpack5@6.0.2:
+    resolution: {integrity: sha512-kBSpECAWslrciRF3jy6HkMckNa14j3VZwNUUe1ONO/yihs19MskiFnsWXm0Q0aPkDYDBRFvTKkEuEDY+HVxBvQ==}
 
   mute-stream@0.0.8:
     resolution: {integrity: sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==}
@@ -3753,7 +3765,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/runtime-corejs2@7.27.6':
+  '@babel/runtime-corejs2@7.28.3':
     dependencies:
       core-js: 2.6.12
 
@@ -4800,6 +4812,12 @@ snapshots:
       inherits: 2.0.4
       readable-stream: 3.6.2
 
+  bl@5.1.0:
+    dependencies:
+      buffer: 6.0.3
+      inherits: 2.0.4
+      readable-stream: 3.6.2
+
   blake3-wasm@2.1.5: {}
 
   bluebird@3.7.2: {}
@@ -4825,6 +4843,11 @@ snapshots:
       update-browserslist-db: 1.1.3(browserslist@4.25.3)
 
   buffer@5.7.1:
+    dependencies:
+      base64-js: 1.5.1
+      ieee754: 1.2.1
+
+  buffer@6.0.3:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
@@ -5871,11 +5894,21 @@ snapshots:
 
   json-url@3.1.0:
     dependencies:
-      '@babel/runtime-corejs2': 7.27.6
+      '@babel/runtime-corejs2': 7.28.3
       bluebird: 3.7.2
       lz-string: 1.5.0
       lzma: 2.3.2
       msgpack5: 4.5.1
+      node-lzw: 0.3.1
+      urlsafe-base64: 1.0.0
+
+  json-url@4.0.0:
+    dependencies:
+      '@babel/runtime-corejs2': 7.28.3
+      bluebird: 3.7.2
+      lz-string: 1.5.0
+      lzma: 2.3.2
+      msgpack5: 6.0.2
       node-lzw: 0.3.1
       urlsafe-base64: 1.0.0
 
@@ -6061,6 +6094,13 @@ snapshots:
       bl: 2.2.1
       inherits: 2.0.4
       readable-stream: 2.3.8
+      safe-buffer: 5.2.1
+
+  msgpack5@6.0.2:
+    dependencies:
+      bl: 5.1.0
+      inherits: 2.0.4
+      readable-stream: 3.6.2
       safe-buffer: 5.2.1
 
   mute-stream@0.0.8: {}
