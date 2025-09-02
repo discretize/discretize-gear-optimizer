@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up PNPM
         uses: pnpm/action-setup@v4
@@ -76,7 +76,7 @@ jobs:
       - name: Setup Github Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: './dist-gh'
       - name: Deploy to GitHub Pages
