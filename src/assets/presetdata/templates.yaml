@@ -948,6 +948,17 @@ list:
         weaponType: Two-handed
         outdated: true
 
+      - name: Quickness Condi Catalyst P/D
+        id: condi-cat-quick-pd
+        specialization: Catalyst
+        boonType: Condi
+        priority: Condi Boon
+        distribution: Condi Quickness Catalyst P/D
+        traits: Condi Quickness Catalyst P/D
+        extras: Condi Quickness Catalyst P/D
+        weaponType: Dual wield
+        outdated: false
+
       - name: Heal Alacrity Tempest
         id: healtemp
         specialization: Tempest

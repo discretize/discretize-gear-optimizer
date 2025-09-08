@@ -4914,6 +4914,83 @@ list:
         }
       }
 
+  - name: Condi Quickness Catalyst P/D
+    profession: Catalyst
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "67"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            294
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            2252,
+            2234,
+            2251
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "41"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            }
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "hardened-auras": {
+              "amount": ""
+            },
+            "elemental-empowerment": {
+              "amount": ""
+            },
+            "empowering-auras": {
+              "amount": ""
+            },
+            "spectacular-sphere": {},
+            "empowered-empowerment": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {},
+          "signet-of-earth": {},
+          "ele-summon-dps": {
+            "amount": "1422"
+          },
+          "raging-ricochet": {
+            "amount": "68"
+          }
+        }
+      }
+
   - name: Heal Tempest
     profession: Tempest
     traits:
