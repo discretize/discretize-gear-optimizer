@@ -2243,6 +2243,48 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Condi Quickness Catalyst P/W
+    profession: Catalyst
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "smoldering": {},
+            "earth": {},
+            "malice": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "salsa-topped-veggie-flatbread": {},
+            "plate-of-kimchi-pancakes": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Quickness Untamed
     profession: Untamed
     value:

@@ -602,6 +602,17 @@ list:
         url: https://www.youtube.com/watch?v=8vYl6GI5yNc
         log: https://dps.report/5hQt-20250717-212648_golem
 
+  - name: Condi Quickness Catalyst P/W
+    profession: Catalyst
+    value:
+      {
+        "values2": { "Power": 1950, "Power2": 0, "Burning": 8.79, "Bleeding": 25.29, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=d1PZfUiaIpQ
+        log: https://dps.report/Y4GP-20250811-220229_golem
+
   - name: Alacrity Renegade
     profession: Renegade
     value:
