@@ -95,7 +95,7 @@
     "@types/react-dom": "^19.1.9",
     "@typescript-eslint/eslint-plugin": "^8.43.0",
     "@typescript-eslint/parser": "^8.43.0",
-    "@vitejs/plugin-react": "^4.7.0",
+    "@vitejs/plugin-react": "^5.0.2",
     "babel-plugin-i18next-extract": "^1.1.0",
     "concurrently": "^9.2.1",
     "eslint": "^8.57.1",
