@@ -21,6 +21,7 @@
       "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "import/resolver": {
+      "typescript": true,
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
