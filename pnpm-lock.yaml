@@ -66,8 +66,8 @@ importers:
         specifier: ^19.1.1
         version: 19.1.1(react@19.1.1)
       react-error-boundary:
-        specifier: ^5.0.0
-        version: 5.0.0(react@19.1.1)
+        specifier: ^6.0.0
+        version: 6.0.0(react@19.1.1)
       react-fast-compare:
         specifier: ^3.2.2
         version: 3.2.2
@@ -2990,8 +2990,8 @@ packages:
     peerDependencies:
       react: ^19.1.1
 
-  react-error-boundary@5.0.0:
-    resolution: {integrity: sha512-tnjAxG+IkpLephNcePNA7v6F/QpWLH8He65+DmedchDwg162JZqx4NmbXj0mlAYVVEd81OW7aFhmbsScYfiAFQ==}
+  react-error-boundary@6.0.0:
+    resolution: {integrity: sha512-gdlJjD7NWr0IfkPlaREN2d9uUZUlksrfOx7SX62VRerwXbMY6ftGCIZua1VG1aXFNOimhISsTq+Owp725b9SiA==}
     peerDependencies:
       react: '>=16.13.1'
 
@@ -5038,7 +5038,7 @@ snapshots:
 
   babel-plugin-macros@3.1.0:
     dependencies:
-      '@babel/runtime': 7.27.6
+      '@babel/runtime': 7.28.4
       cosmiconfig: 7.1.0
       resolve: 1.22.10
 
@@ -6556,9 +6556,9 @@ snapshots:
       react: 19.1.1
       scheduler: 0.26.0
 
-  react-error-boundary@5.0.0(react@19.1.1):
+  react-error-boundary@6.0.0(react@19.1.1):
     dependencies:
-      '@babel/runtime': 7.27.6
+      '@babel/runtime': 7.28.4
       react: 19.1.1
 
   react-fast-compare@3.2.2: {}
