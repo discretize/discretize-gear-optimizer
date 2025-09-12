@@ -384,12 +384,12 @@ list:
     profession: Weaver
     value:
       {
-        "values2": { "Power": 3844, "Power2": 0, "Burning": 6.58, "Bleeding": 4.02, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4001, "Power2": 0, "Burning": 5.85, "Bleeding": 3.54, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Ryan'
-        url: https://www.youtube.com/watch?v=j1hJg6g1i1E
-        log: https://dps.report/SbRf-20231003-025202_golem
+      - author: 'jkerkhoven'
+        url: https://www.youtube.com/watch?v=UXJ8fLNkfYg
+        log: https://dps.report/WIHR-20250828-114002_golem
 
   - name: Condi Weaver P/D
     profession: Weaver
