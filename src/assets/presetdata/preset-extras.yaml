@@ -1902,7 +1902,8 @@ list:
             "earth": {}
           },
           "Sigil2": {
-            "smoldering": {}
+            "smoldering": {},
+            "bursting": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}

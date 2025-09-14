@@ -868,7 +868,7 @@ list:
         traits: Condi Weaver Scepter
         extras: Condi Weaver Scepter
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Weaver Sword
         id: cwea-sw

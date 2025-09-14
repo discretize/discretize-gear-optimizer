@@ -442,12 +442,12 @@ list:
     profession: Weaver
     value:
       {
-        "values2": { "Power": 2226, "Power2": 0, "Burning": 13.49, "Bleeding": 12.29, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2766, "Power2": 0, "Burning": 12.85, "Bleeding": 16.74, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Ryan
-        url: https://www.youtube.com/watch?v=PJZrqru4f6I
-        log: https://dps.report/JIUx-20231008-232724_golem
+        url: https://www.youtube.com/watch?v=6q4FtT66xwI
+        log: https://dps.report/0ix2-20250630-030645_golem
 
   - name: Hybrid Weaver
     profession: Weaver
