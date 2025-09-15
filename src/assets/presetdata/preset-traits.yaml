@@ -3246,13 +3246,13 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "49.3"
+              "amount": "51.3"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "49.3"
+              "amount": "51.3"
             },
             "pyromancers-training": {},
             "persisting-flames": {
@@ -3269,7 +3269,7 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "43"
+              "amount": "42.8"
             },
             "bolt-to-the-heart": {
               "amount": ""
@@ -3288,10 +3288,10 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "76.9"
+              "amount": "77.5"
             },
             "elemental-polyphony-air": {
-              "amount": "65.2"
+              "amount": "64.5"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
@@ -3304,10 +3304,10 @@ list:
       {
         "skills": {
           "woven-fire": {
-            "amount": "50.1"
+            "amount": "46.4"
           },
           "woven-air": {
-            "amount": "53.1"
+            "amount": "49.3"
           }
         }
       }
@@ -3649,7 +3649,7 @@ list:
           [
             296,
             325,
-            1510
+            294
           ],
           [
             1507,
@@ -3665,7 +3665,7 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "66.3"
+              "amount": "68.3"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -3692,14 +3692,14 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "95.8"
+              "amount": "98"
             },
             "elemental-polyphony-air": {
-              "amount": "7.5"
+              "amount": "8.3"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
-              "amount": "83.6"
+              "amount": "85.3"
             }
           }
         ]
@@ -3708,12 +3708,13 @@ list:
       {
         "skills": {
           "woven-fire": {
-            "amount": "53.2"
+            "amount": "50.7"
           },
           "woven-air": {
-            "amount": "54.1"
+            "amount": "51.2"
           },
-          "signet-of-fire": {}
+          "signet-of-fire": {},
+          "signet-of-earth": {}
         }
       }
 
@@ -4910,6 +4911,160 @@ list:
           "crescent-wind": {},
           "relentless-fire": {
             "amount": "38.4"
+          }
+        }
+      }
+
+  - name: Condi Quickness Catalyst P/D
+    profession: Catalyst
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "67"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            294
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            2252,
+            2234,
+            2251
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "41"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            }
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "hardened-auras": {
+              "amount": ""
+            },
+            "elemental-empowerment": {
+              "amount": ""
+            },
+            "empowering-auras": {
+              "amount": ""
+            },
+            "spectacular-sphere": {},
+            "empowered-empowerment": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {},
+          "signet-of-earth": {},
+          "ele-summon-dps": {
+            "amount": "1422"
+          },
+          "raging-ricochet": {
+            "amount": "68"
+          }
+        }
+      }
+
+  - name: Condi Quickness Catalyst P/W
+    profession: Catalyst
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "67"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            2252,
+            2234,
+            2251
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "38"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            }
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "hardened-auras": {
+              "amount": ""
+            },
+            "elemental-empowerment": {
+              "amount": ""
+            },
+            "empowering-auras": {
+              "amount": ""
+            },
+            "spectacular-sphere": {},
+            "empowered-empowerment": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {},
+          "signet-of-earth": {},
+          "ele-summon-dps": {
+            "amount": "1269"
+          },
+          "raging-ricochet": {
+            "amount": "72.5"
           }
         }
       }

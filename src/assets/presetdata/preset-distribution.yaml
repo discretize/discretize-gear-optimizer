@@ -384,12 +384,12 @@ list:
     profession: Weaver
     value:
       {
-        "values2": { "Power": 3844, "Power2": 0, "Burning": 6.58, "Bleeding": 4.02, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4001, "Power2": 0, "Burning": 5.85, "Bleeding": 3.54, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Ryan'
-        url: https://www.youtube.com/watch?v=j1hJg6g1i1E
-        log: https://dps.report/SbRf-20231003-025202_golem
+      - author: 'jkerkhoven'
+        url: https://www.youtube.com/watch?v=UXJ8fLNkfYg
+        log: https://dps.report/WIHR-20250828-114002_golem
 
   - name: Condi Weaver P/D
     profession: Weaver
@@ -442,12 +442,12 @@ list:
     profession: Weaver
     value:
       {
-        "values2": { "Power": 2226, "Power2": 0, "Burning": 13.49, "Bleeding": 12.29, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2766, "Power2": 0, "Burning": 12.85, "Bleeding": 16.74, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Ryan
-        url: https://www.youtube.com/watch?v=PJZrqru4f6I
-        log: https://dps.report/JIUx-20231008-232724_golem
+        url: https://www.youtube.com/watch?v=6q4FtT66xwI
+        log: https://dps.report/0ix2-20250630-030645_golem
 
   - name: Hybrid Weaver
     profession: Weaver
@@ -590,6 +590,28 @@ list:
       - author: Cody
         url: https://www.youtube.com/watch?v=92XCBnuU5jM
         log: https://dps.report/MtKD-20221221-124558_golem
+
+  - name: Condi Quickness Catalyst P/D
+    profession: Catalyst
+    value:
+      {
+        "values2": { "Power": 2395, "Power2": 0, "Burning": 8.61, "Bleeding": 23.29, "Poisoned": 0.15, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Maragon
+        url: https://www.youtube.com/watch?v=8vYl6GI5yNc
+        log: https://dps.report/5hQt-20250717-212648_golem
+
+  - name: Condi Quickness Catalyst P/W
+    profession: Catalyst
+    value:
+      {
+        "values2": { "Power": 1950, "Power2": 0, "Burning": 8.79, "Bleeding": 25.29, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=d1PZfUiaIpQ
+        log: https://dps.report/Y4GP-20250811-220229_golem
 
   - name: Alacrity Renegade
     profession: Renegade

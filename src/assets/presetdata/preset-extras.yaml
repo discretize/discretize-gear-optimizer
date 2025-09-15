@@ -1777,6 +1777,44 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power Weaver (Raid)
+    profession: Weaver
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "fireworks-relic": {
+              "amount": "92.5"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        }
+      }
+
   - name: Condi Weaver Sword
     profession: Weaver
     value:
@@ -1864,7 +1902,8 @@ list:
             "earth": {}
           },
           "Sigil2": {
-            "smoldering": {}
+            "smoldering": {},
+            "bursting": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
@@ -2193,6 +2232,93 @@ list:
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
             "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Condi Quickness Catalyst P/D
+    profession: Catalyst
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            },
+            "steamshrieker-relic": {
+              "amount": "4"
+            }
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "smoldering": {},
+            "earth": {},
+            "malice": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "salsa-topped-veggie-flatbread": {},
+            "plate-of-kimchi-pancakes": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Condi Quickness Catalyst P/W
+    profession: Catalyst
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "smoldering": {},
+            "earth": {},
+            "malice": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "salsa-topped-veggie-flatbread": {},
+            "plate-of-kimchi-pancakes": {},
+            "cilantro-and-cured-meat-flatbread": {}
           }
         },
         "lifestealAmount": ""

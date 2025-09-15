@@ -833,9 +833,9 @@ list:
           extras: Power (Fractal, fireworks)
         raid:
           traits: Power Weaver Raid
-          extras: Power (Raid, fireworks)
+          extras: Power Weaver (Raid)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Weaver P/D
         id: cwea-pi
@@ -868,7 +868,7 @@ list:
         traits: Condi Weaver Scepter
         extras: Condi Weaver Scepter
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Weaver Sword
         id: cwea-sw
@@ -947,6 +947,28 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
         outdated: true
+
+      - name: Quickness Condi Catalyst P/D
+        id: condi-cat-quick-pd
+        specialization: Catalyst
+        boonType: Condi
+        priority: Condi Boon
+        distribution: Condi Quickness Catalyst P/D
+        traits: Condi Quickness Catalyst P/D
+        extras: Condi Quickness Catalyst P/D
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Quickness Condi Catalyst P/W
+        id: condi-cat-quick-pw
+        specialization: Catalyst
+        boonType: Condi
+        priority: Condi Boon
+        distribution: Condi Quickness Catalyst P/W
+        traits: Condi Quickness Catalyst P/W
+        extras: Condi Quickness Catalyst P/W
+        weaponType: Dual wield
+        outdated: false
 
       - name: Heal Alacrity Tempest
         id: healtemp
