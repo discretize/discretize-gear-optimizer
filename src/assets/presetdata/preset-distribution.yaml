@@ -725,7 +725,7 @@ list:
     profession: Herald
     value:
       {
-        "values2": { "Power": 2148, "Power2": 0, "Burning": 4.75, "Bleeding": 6.5, "Poisoned": 4.9, "Torment": 15.63, "Confusion": 0 }
+        "values2": { "Power": 2331, "Power2": 0, "Burning": 5.18, "Bleeding": 7.01, "Poisoned": 5.29, "Torment": 16.95, "Confusion": 0 }
       }
     credit:
       - author: Botinator

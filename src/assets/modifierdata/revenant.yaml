@@ -589,7 +589,9 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Outgoing All Damage: [2%, add]
+          Outgoing Strike Damage: [2%, add]
+          Outgoing Condition Damage: [2%, add]
+          Outgoing Siphon Damage: [2%, add]
       gw2id: 2181
       defaultEnabled: true
 
@@ -643,10 +645,14 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Outgoing All Damage: [3%, add]
+          Outgoing Strike Damage: [3%, add]
+          Outgoing Condition Damage: [1%, add]
+          Outgoing Siphon Damage: [1%, add]
       wvwModifiers:
         damage:
-          Outgoing All Damage: [1%, add]
+          Outgoing Strike Damage: [1%, add]
+          Outgoing Condition Damage: [1%, add]
+          Outgoing Siphon Damage: [1%, add]
       gw2id: 2100
       defaultEnabled: true
 
