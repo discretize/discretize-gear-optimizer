@@ -112,7 +112,7 @@ export function settingsToWorkerString(settings: CalculationSettings): string {
 
 // replace string values with their corresponding IDs.
 // in rust we use enums, which are i32 indexed, so we need to convert the strings to numbers
-export function combinationsToWorkerString(combinations: CombinationSettings[]): any {
+export function combinationsToWorkerString(combinations: CombinationSettings[]): string {
   // deep copy combinations
   const toReturn = combinations.map(combinationtoWasmFormat); // JSON.parse(JSON.stringify(combinations));
 
@@ -125,9 +125,9 @@ export function combinationsToWorkerString(combinations: CombinationSettings[]):
  * the strings to numbers.
  *
  * @param {CombinationSettings} combination the combination to convert
- * @returns {any} the combination in the format expected by the wasm code
+ * @returns {object} the combination in the format expected by the wasm code
  */
-export function combinationtoWasmFormat(combination: CombinationSettings): any {
+export function combinationtoWasmFormat(combination: CombinationSettings): object {
   const toReturn = {
     modifiers: {
       buff: [],
@@ -205,7 +205,7 @@ export function getTotalCombinations<T>(array: T[][], combinationCount: number):
  * Transform the redux state into an array containing arrays of extras ids.
  * Reason being so that the order in the array is always the same.
  *
- * @param {any} reduxState redux state
+ * @param {object} reduxState redux state
  * @returns {string[][]} array of arrays of extras ids
  */
 export function getExtrasIdsCombinations(reduxState: RootState): string[][] {
