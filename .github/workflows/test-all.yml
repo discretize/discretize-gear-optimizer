@@ -48,10 +48,6 @@ jobs:
         with:
           workspaces: wasm_module
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
-
-      - name: Output rust version for educational purposes
-        run: rustup --version
-
       - name: Compile Rust
         run: pnpm wasm
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
