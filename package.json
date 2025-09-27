@@ -46,7 +46,7 @@
     "disable-hooks": "git config --unset core.hooksPath"
   },
   "resolutions": {
-    "axios@0.26.1": "^0.30.0"
+    "axios@0.26.1": "^0.30.2"
   },
   "dependencies": {
     "@discretize/gw2-ui-new": "^3.3.1",
