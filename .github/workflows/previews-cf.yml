@@ -69,7 +69,7 @@ jobs:
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
 
       - name: Uninstall Rust
-        run: rustup self uninstall --no-prompt
+        run: rustup self uninstall -y
       - name: Install Rust
         run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
