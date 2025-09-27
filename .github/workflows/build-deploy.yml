@@ -58,6 +58,9 @@ jobs:
         with:
           workspaces: wasm_module
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
+
+      - name: Install Rust platform
+        run: rustup target add wasm32-unknown-unknown
       - name: Compile Rust
         run: pnpm wasm
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
