@@ -43,6 +43,8 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install
+      - name: Install rust toolchain
+        run: rustup show active-toolchain || rustup toolchain install
 
       - name: Cache Rust Output
         id: rust-output-cache
