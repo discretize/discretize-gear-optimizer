@@ -48,6 +48,9 @@ jobs:
         with:
           workspaces: wasm_module
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
+
+      - name: ???
+        run: rustup default
       - name: Compile Rust
         run: pnpm wasm
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
