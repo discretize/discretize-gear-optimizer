@@ -71,7 +71,7 @@ jobs:
       - name: Uninstall Rust
         run: rustup self uninstall -y
       - name: Install Rust
-        run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
       - name: Compile Rust
         run: pnpm wasm
