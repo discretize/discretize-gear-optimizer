@@ -58,12 +58,6 @@ jobs:
         with:
           workspaces: wasm_module
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
-
-      - name: Uninstall Rust
-        run: rustup self uninstall -y
-      - name: Install Rust
-        run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-
       - name: Compile Rust
         run: pnpm wasm
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
