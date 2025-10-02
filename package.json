@@ -69,7 +69,7 @@
     "react-dom": "^19.2.0",
     "react-error-boundary": "^6.0.0",
     "react-fast-compare": "^3.2.2",
-    "react-i18next": "^15.7.4",
+    "react-i18next": "^16.0.0",
     "react-redux": "^9.2.0",
     "redux": "^5.0.1",
     "tss-react": "^4.9.19",
