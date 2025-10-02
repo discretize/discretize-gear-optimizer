@@ -24,13 +24,11 @@ import {
   changeDisplayAttributes,
   changeFilterMode,
   changeHighlightDiffering,
-  changeSavedHeader,
   changeTallTable,
   getCompareByPercent,
   getDisplayAttributes,
   getFilterMode,
   getHighlightDiffering,
-  getSavedHeader,
   getTallTable,
 } from '../../../state/slices/controlsSlice';
 import Settings from '../../baseComponents/Settings';
@@ -53,7 +51,6 @@ export default function ResultTableSettings() {
   const highlightDiffering = useSelector(getHighlightDiffering);
 
   const tallTable = useSelector(getTallTable);
-  const savedHeader = useSelector(getSavedHeader);
   const filterMode = useSelector(getFilterMode);
   const displayAttributes = useSelector(getDisplayAttributes);
 
@@ -89,21 +86,6 @@ export default function ResultTableSettings() {
             />
           }
           label={t('Increase table height')}
-          classes={{ label: classes.comparisonLabel }}
-        />
-      </Box>
-
-      <Box sx={{ mt: 1.5 }}>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={savedHeader}
-              onChange={(e) => dispatch(changeSavedHeader(e.target.checked))}
-              name="checked"
-              color="primary"
-            />
-          }
-          label={t('Show saved results table header')}
           classes={{ label: classes.comparisonLabel }}
         />
       </Box>
