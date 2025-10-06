@@ -1,7 +1,7 @@
 name: 'Self-hosted Deploy: Cloudflare and Github Pages'
 
 on:
-  
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -15,10 +15,10 @@ concurrency:
 jobs:
   deploy:
     runs-on: [self-hosted]
-    
-    container: 
+
+    container:
       image: ghcr.io/${{ github.repository }}-build:main
-      credentials: 
+      credentials:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
     environment:
@@ -39,10 +39,10 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-      
+
       - name: Compile WASM
         run: pnpm wasm
-        env: 
+        env:
           PATH: /home/discretize/.cargo/bin/:/usr/local/bin:/usr/bin:/bin
 
       - name: Build

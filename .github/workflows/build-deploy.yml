@@ -4,14 +4,14 @@ on:
   push:
     branches:
       - main
-  
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 env:
   PAGES_PROJECT_NAME: optimizer
   NODE_VERSION: 20
-  
+
 concurrency:
   group: 'deploy'
   cancel-in-progress: true

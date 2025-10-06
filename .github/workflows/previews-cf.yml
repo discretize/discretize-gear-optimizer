@@ -2,11 +2,11 @@ name: 'Deploy: Cloudflare PR Preview'
 on:
   pull_request:
     types: [opened, reopened, synchronize, ready_for_review]
-  
+
 env:
   PAGES_PROJECT_NAME: optimizer
   NODE_VERSION: 20
-  
+
 jobs:
   # see https://github.com/orgs/community/discussions/26726, https://stackoverflow.com/a/70249520
   check-secrets:
@@ -29,7 +29,7 @@ jobs:
     permissions:
       contents: read
       deployments: write
-      pull-requests: write 
+      pull-requests: write
 
     if: >
       needs.check-secrets.outputs.exists == 'true' &&
