@@ -815,6 +815,8 @@
           Ferocity: {Ferocity: 3%}
           Healing Power: {Healing Power: 3%}
       gw2id: 98924
+      displayIds: [98924, 105402]
+      priceIds: [98924, 105402]
       temporaryBuff: false
 
 - section: Placeholder Items
