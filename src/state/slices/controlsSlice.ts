@@ -103,7 +103,6 @@ const initialState: {
   compareByPercent: boolean;
   highlightDiffering: boolean;
   tallTable: boolean;
-  savedHeader: boolean;
   filterMode: FilterMode;
   displayAttributes: DisplayAttributes;
   progress: number;
@@ -126,7 +125,6 @@ const initialState: {
   compareByPercent: true,
   highlightDiffering: false,
   tallTable: false,
-  savedHeader: false,
   filterMode: 'None',
   displayAttributes: [],
   progress: 0,
@@ -209,6 +207,12 @@ export const controlSlice = createSlice({
         state.saved.push(action.payload);
       }
     },
+    addToSaved: (state, action: PayloadAction<Character>) => {
+      state.saved.push(action.payload);
+    },
+    removeFromSaved: (state, action: PayloadAction<Character>) => {
+      state.saved = state.saved.filter((character) => character.id !== action.payload.id);
+    },
     changeCompareByPercent: (state, action: PayloadAction<boolean>) => {
       state.compareByPercent = action.payload;
     },
@@ -223,9 +227,6 @@ export const controlSlice = createSlice({
     },
     changeTallTable: (state, action: PayloadAction<boolean>) => {
       state.tallTable = action.payload;
-    },
-    changeSavedHeader: (state, action: PayloadAction<boolean>) => {
-      state.savedHeader = action.payload;
     },
     changeSelectedCharacter: (state, action: PayloadAction<Character | null>) => {
       console.log('Selected Character Data:', action.payload);
@@ -275,7 +276,6 @@ export const getHighlightDiffering = (state: RootState) =>
 export const getFilterMode = (state: RootState) => state.optimizer.control.filterMode;
 export const getDisplayAttributes = (state: RootState) => state.optimizer.control.displayAttributes;
 export const getTallTable = (state: RootState) => state.optimizer.control.tallTable;
-export const getSavedHeader = (state: RootState) => state.optimizer.control.savedHeader;
 export const getSelectedCharacter = (state: RootState) => state.optimizer.control.selectedCharacter;
 export const getError = (state: RootState) => state.optimizer.control.error;
 export const getJsHeuristicsEnabled = (state: RootState) =>
@@ -326,8 +326,9 @@ export const {
   changeFilterMode,
   changeDisplayAttributes,
   changeTallTable,
-  changeSavedHeader,
   toggleSaved,
+  addToSaved,
+  removeFromSaved,
   changeCompareByPercent,
   changeHighlightDiffering,
   setBuildTemplate,
