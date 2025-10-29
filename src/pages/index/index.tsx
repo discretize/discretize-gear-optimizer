@@ -25,10 +25,16 @@ const IndexPage = () => {
   const [alertOpen, setAlertOpen] = React.useState([true, true, true]);
 
   const ALERTS = [
-    <Trans>Core game changes are updated for the June 24th game patch.</Trans>,
     <Trans>
-      The gear optimizer is still being developed! Please report issues or suggest improvements in
-      the Discretize{' '}
+      🎉 Visions of Eternity has been released! 🎉
+      <br />
+      <br />
+      <i>
+        The gear optimizer is <b>not</b> updated for the Visions of Eternity game patch yet.
+      </i>
+    </Trans>,
+    <Trans>
+      Report gear optimizer issues and suggest improvements in the Discretize{' '}
       <Link
         href="https://discord.gg/Qdt7nFY"
         target="_blank"
@@ -46,15 +52,10 @@ const IndexPage = () => {
       >
         <GitHubIcon fontSize="small" /> Github
       </Link>
-      .
+      !
     </Trans>,
     ...(isFirefox
-      ? [
-          <Trans>
-            Note: Some large calculations may take longer in Firefox for reasons that are currently
-            unclear.
-          </Trans>,
-        ]
+      ? [<Trans>Note: Some large calculations may take longer in Firefox.</Trans>]
       : []),
   ];
 
