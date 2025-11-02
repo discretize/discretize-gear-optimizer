@@ -221,7 +221,7 @@ export default function ResultCharacter({
             src={`${
               import.meta.env.BASE_URL
             }images/professions/${specialization.toLowerCase()}.png`}
-            alt="Profession"
+            alt={specialization.toLowerCase()}
           />
         }
         switchElement={CustomSwitch}
