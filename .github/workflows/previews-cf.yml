@@ -6,6 +6,7 @@ on:
 env:
   PAGES_PROJECT_NAME: optimizer
   NODE_VERSION: 20
+  ACTIONS_STEP_DEBUG: true
 
 jobs:
   # see https://github.com/orgs/community/discussions/26726, https://stackoverflow.com/a/70249520
