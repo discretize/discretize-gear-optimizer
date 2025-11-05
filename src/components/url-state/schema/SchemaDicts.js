@@ -453,4 +453,8 @@ export const buffsDict = [
   'lightArmor3',
   'reinforced-armor',
   'frost-aura',
+  'facet-of-nature-dwarf',
+  'rite-of-the-great-dwarf',
+  'guard-shout-buff',
+  'relic-of-sorrow-buff',
 ];
