@@ -50,6 +50,23 @@
       gw2id: 73063
       temporaryBuff: true
 
+    - id: distracting-throw
+      text: Distracting Throw
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [7%, add]
+          Outgoing Condition Damage: [7%, add]
+      gw2id: 72927
+
 - section: Deadly Arts
   id: 28
   items:
