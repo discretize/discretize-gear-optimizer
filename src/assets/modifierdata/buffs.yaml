@@ -52,6 +52,14 @@
           Damage Reduction: [10%, mult]
       type: Aura
 
+    - id: luminarys-blessing
+      text: Luminary's Blessing
+      modifiers:
+        damage:
+          Damage Reduction: [10%, mult]
+      type: Skill
+      gw2id: 77333
+
 - section: Other buffs
   items:
     - id: jade-bot-base

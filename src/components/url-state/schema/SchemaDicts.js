@@ -453,4 +453,5 @@ export const buffsDict = [
   'lightArmor3',
   'reinforced-armor',
   'frost-aura',
+  'luminarys-blessing',
 ];
