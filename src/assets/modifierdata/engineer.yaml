@@ -425,4 +425,6 @@
 
 - section: Amalgam
   id: 75
+  note: >-
+    Not currently implemented. Evolve gives temporary precision/expertise, which are not currently well-simulated.
   items: []

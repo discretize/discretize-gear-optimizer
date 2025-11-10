@@ -719,4 +719,6 @@
 
 - section: Conduit
   id: 79
+  note: >-
+    Not currently implemented. Cosmic Wisdom: Dervish and Cosmic Wisdom: Mesmer without Perpetual Wisdom give temporary expertise, which is not currently well-simulated.
   items: []

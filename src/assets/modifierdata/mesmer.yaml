@@ -522,4 +522,6 @@
 
 - section: Troubadour
   id: 73
+  note: >-
+    Not currently implemented. Fortissimo gives temporary precision/expertise, which is not currently well-simulated.
   items: []
