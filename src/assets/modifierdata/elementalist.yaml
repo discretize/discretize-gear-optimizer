@@ -822,4 +822,121 @@
 
 - section: Evoker
   id: 80
-  items: []
+  items:
+
+    - id: familiar-passive-hare
+      subText: 'Familiar Passive: Hare, with fury'
+      modifiers:
+        attributes:
+          Ferocity: [75, unknown]
+      minor: true
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: familiar-active-hare
+      subText: 'Familiar Active: Hare'
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Critical Damage: [4%, unknown]
+      minor: true
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: fiery-might
+      text: Fiery Might
+      modifiers:
+        damage:
+          Outgoing Burning Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, unknown]
+      gw2id: 2391
+      defaultEnabled: true
+
+    - id: enhanced-potency-fox
+      text: Enhanced Potency
+      subText: fox
+      minor: true
+      amountData:
+        label: 'might'
+        default: 25
+        quantityEntered: 25
+      modifiers:
+        attributes:
+          Power: [250, buff]
+      gw2id: 2382
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: enhanced-potency-hare
+      text: Enhanced Potency
+      subText: hare, with fury
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 15%
+      gw2id: 2382
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: familiars-focus-fox
+      text: Familiar's Focus
+      subText: fox
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Condition Damage: [25%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Condition Damage: [20%, add]
+      gw2id: 2342
+      defaultEnabled: false
+
+    - id: familiars-focus-hare
+      text: Familiar's Focus
+      subText: hare
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [25%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [20%, add]
+      gw2id: 2342
+      defaultEnabled: false
+
+    - id: familiars-prowess-fox
+      text: Familiar's Prowess
+      subText: fox, without Familiar's Focus
+      minor: true
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Condition Damage: [7%, add]
+      gw2id: 2351
+      defaultEnabled: false
+
+    - id: familiars-prowess-hare
+      text: Familiar's Prowess
+      subText: hare, without Familiar's Focus
+      minor: true
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [7%, add]
+      gw2id: 2351
+      defaultEnabled: false
