@@ -60,6 +60,7 @@
          conversion:
           Condition Damage: {Condition Damage: 5%} # increases condition damage attribute rather than outgoing condition damage
       gw2id: 27014
+      temporaryBuff: true
 
     - id: facet-of-strength-draconic-echo
       text: Facet of Strength

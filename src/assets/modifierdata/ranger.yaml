@@ -277,7 +277,7 @@
       subText: base
       modifiers:
         attributes:
-          Power: [120, conveted]
+          Power: [120, converted]
       gw2id: 1700
       defaultEnabled: true
       temporaryBuff: false
