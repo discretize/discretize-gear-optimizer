@@ -244,7 +244,7 @@
         attributes:
           Power: [175, converted]
           Boon Duration: 15%
-          Precision: [125, converted] # unconfirmed; was buff before SotU
+          Precision: [125, converted]
       gw2id: 24702
       temporaryBuff: false
 

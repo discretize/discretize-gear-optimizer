@@ -364,8 +364,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, add] # unconfirmed
-          Outgoing Condition Damage: [10%, add] # unconfirmed
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
       minor: true
       gw2id: 2069
       defaultEnabled: true
@@ -380,12 +380,12 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Outgoing Strike Damage: [5%, add] #unconfirmed
-          Outgoing Condition Damage: [5%, add] #unconfirmed
+          Outgoing Strike Damage: [6.25%, add]
+          Outgoing Condition Damage: [5%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [3%, add] #unconfirmed
-          Outgoing Condition Damage: [3%, add] #unconfirmed
+          Outgoing Strike Damage: [3%, add]
+          Outgoing Condition Damage: [3%, add]
       gw2id: 2098
       defaultEnabled: true
 
@@ -399,12 +399,12 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Outgoing Strike Damage: [6.25%, add] #unconfirmed
-          Outgoing Condition Damage: [6.25%, add] #unconfirmed
+          Outgoing Strike Damage: [6.25%, add]
+          Outgoing Condition Damage: [6.25%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [3%, add] #unconfirmed
-          Outgoing Condition Damage: [3%, add] #unconfirmed
+          Outgoing Strike Damage: [3%, add]
+          Outgoing Condition Damage: [3%, add]
       gw2id: 2098
       defaultEnabled: false
 
@@ -456,8 +456,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [5%, add] # probably
-          Outgoing Condition Damage: [5%, add] #unconfirmed
+          Outgoing Strike Damage: [5%, add]
+          Outgoing Condition Damage: [5%, add]
       gw2id: 2204
       defaultEnabled: true
 
@@ -466,7 +466,7 @@
       subText: 100% fury
       modifiers:
         attributes:
-          Expertise: [150, unknown]
+          Expertise: [150, buff]
       gw2id: 2207
       defaultEnabled: true
       temporaryBuff: true
@@ -505,10 +505,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [7%, mult] # unconfirmed
+          Outgoing Strike Damage: [7%, mult]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [10%, mult] # unconfirmed
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 2206
       defaultEnabled: true
 
@@ -516,7 +516,7 @@
       text: Bloodsong
       modifiers:
         damage:
-          Outgoing Bleeding Damage: [25%, mult] # unconfirmed
+          Outgoing Bleeding Damage: [25%, mult]
       gw2id: 2223
       defaultEnabled: true
 

@@ -54,11 +54,11 @@
         default: 20
         quantityEntered: 100
       modifiers:
-        damage:
-          Outgoing Condition Damage: [10%, add] #unconfirmed
+        conversion:
+          Condition Damage: {Condition Damage: 10%} # increases condition damage attribute rather than outgoing condition damage
       wvwModifiers:
-        damage:
-          Outgoing Condition Damage: [5%, add] #unconfirmed
+         conversion:
+          Condition Damage: {Condition Damage: 5%} # increases condition damage attribute rather than outgoing condition damage
       gw2id: 27014
 
     - id: facet-of-strength-draconic-echo
@@ -70,10 +70,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [5%, unknown]
+          Outgoing Strike Damage: [5%, add]
       gw2id: 26644
 
     - id: facet-of-chaos-draconic-echo
@@ -111,11 +111,11 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, add]
-          Outgoing Condition Damage: [5%, add] #unconfirmed
+          Outgoing Condition Damage: [5%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, add]
-          Outgoing Condition Damage: [7%, add] #unconfirmed
+          Outgoing Condition Damage: [7%, add]
       gw2id: 28113
 
     - id: soulcleaves-summit
