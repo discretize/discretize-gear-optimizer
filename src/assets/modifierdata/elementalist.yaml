@@ -850,8 +850,8 @@
       text: Fiery Might
       modifiers:
         damage:
-          Outgoing Burning Damage: [10%, mult]
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Burning Damage: [5%, mult]
+          Outgoing Strike Damage: [5%, unknown]
       gw2id: 2391
       defaultEnabled: true
 
@@ -865,7 +865,7 @@
         quantityEntered: 25
       modifiers:
         attributes:
-          Power: [250, buff]
+          Condition Damage: [250, buff]
       gw2id: 2382
       defaultEnabled: false
       temporaryBuff: true
