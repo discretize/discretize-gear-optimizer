@@ -32,7 +32,7 @@
         quantityEntered: 5
       modifiers:
         damage:
-          Outgoing Strike Damage: [5%, unknown]
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 100916
 
     - id: fireworks-relic
@@ -44,7 +44,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [7%, unknown]
+          Outgoing Strike Damage: [7%, mult]
       gw2id: 100947
 
     - id: claw-relic
@@ -56,7 +56,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [7%, unknown]
+          Outgoing Strike Damage: [7%, mult]
       gw2id: 103574
 
     - id: brawler-relic
@@ -67,7 +67,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 100527
 
     - id: balrior-relic
@@ -78,7 +78,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, mult]
       gw2id: 103872
 
     - id: weaver-relic
@@ -90,7 +90,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 100194
 
     - id: deadeye-relic
@@ -102,7 +102,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 100924
 
     - id: fire-relic
@@ -114,7 +114,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, add]
       gw2id: 104501
 
     - id: bloodstone-relic
@@ -240,7 +240,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
         attributes:
           # this is additive but uncapped; see https://github.com/discretize/discretize-gear-optimizer/pull/677
           Condition Duration Uncapped: 10%
@@ -255,7 +255,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
         attributes:
           # this is additive but uncapped; see https://github.com/discretize/discretize-gear-optimizer/pull/677
           Condition Duration Uncapped: 10%
@@ -563,7 +563,7 @@
       subText: 10 stacks
       modifiers:
         attributes:
-          Concentration: [250, unknown]
+          Concentration: [250, converted]
       gw2id: 100219
       temporaryBuff: true
 

@@ -216,7 +216,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Ferocity: [250, unknown]
+          Ferocity: [250, converted]
       gw2id: 1336
       defaultEnabled: true
       temporaryBuff: true
@@ -333,10 +333,10 @@
         quantityEntered: 30
       modifiers:
         damage:
-          Outgoing Strike Damage: [25%, unknown]
+          Outgoing Strike Damage: [25%, mult]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [20%, unknown]
+          Outgoing Strike Damage: [20%, mult]
       gw2id: 1367
       defaultEnabled: true
 
@@ -358,10 +358,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [12.5%, unknown]
+          Outgoing Strike Damage: [12.5%, mult]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1708
       defaultEnabled: true
 
@@ -739,7 +739,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Ferocity: [250, unknown]
+          Ferocity: [250, buff]
       gw2id: 2236
       defaultEnabled: true
       temporaryBuff: true

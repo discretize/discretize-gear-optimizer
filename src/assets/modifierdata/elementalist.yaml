@@ -50,7 +50,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, add]
       gw2id: 43638
 
     - id: flame-wheel
@@ -61,12 +61,12 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [5%, add] # probably
-          Outgoing Condition Damage: [5%, add] #unconfirmed
+          Outgoing Strike Damage: [5%, add]
+          Outgoing Condition Damage: [5%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [10%, add] # probably
-          Outgoing Condition Damage: [10%, add] #unconfirmed
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
       gw2id: 62758
 
     - id: crescent-wind
@@ -100,12 +100,12 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, add] # probanly
-          Outgoing Condition Damage: [10%, add] #unconfirmed
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [15%, add] # probanly
-          Outgoing Condition Damage: [15%, add] #unconfirmed
+          Outgoing Strike Damage: [15%, add]
+          Outgoing Condition Damage: [15%, add]
       gw2id: 62965
 
     - id: raging-ricochet
@@ -117,7 +117,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Condition Damage: [5%, add] # unconfirmed
+          Outgoing Condition Damage: [5%, add]
       gw2id: 71828
 
     - id: grinding-stones
@@ -467,7 +467,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [5%, mult] # unconfirmed
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 349
       defaultEnabled: false
 
@@ -598,11 +598,11 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, add] # per Crone
-          Outgoing Condition Damage: [5%, add] # unconfirmed
+          Outgoing Condition Damage: [5%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, add] # per Crone
-          Outgoing Condition Damage: [7%, add] # unconfirmed
+          Outgoing Condition Damage: [7%, add]
       gw2id: 1891
       defaultEnabled: true
 
@@ -787,11 +787,11 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [2%, add] # per Crone
-          Outgoing Condition Damage: [2%, add] #unconfirmed
+          Outgoing Condition Damage: [2%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [2%, add] # per Crone
-          Outgoing Condition Damage: [2%, add] #unconfirmed
+          Outgoing Condition Damage: [2%, add]
       gw2id: 2247
       defaultEnabled: true
 

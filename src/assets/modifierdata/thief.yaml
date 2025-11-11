@@ -156,12 +156,12 @@
       text: Potent Poison
       modifiers:
         damage:
-          Outgoing Poison Damage: [33%, mult] # unconfirmed
+          Outgoing Poison Damage: [33%, mult]
         attributes:
           Poison Duration: 33%
       wvwModifiers:
         damage:
-          Outgoing Poison Damage: [20%, mult] # unconfirmed
+          Outgoing Poison Damage: [20%, mult]
         attributes:
           Poison Duration: 5%
       gw2id: 1291
@@ -342,7 +342,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, add]
       gw2id: 1242
       defaultEnabled: true
 
@@ -377,7 +377,7 @@
       text: Deadly Ambush
       modifiers:
         damage:
-          Outgoing Bleeding Damage: [25%, mult] # unconfirmed
+          Outgoing Bleeding Damage: [25%, mult]
       gw2id: 1706
       defaultEnabled: true
 
@@ -440,7 +440,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, mult]
       gw2id: 1893
       defaultEnabled: true
 
@@ -565,7 +565,7 @@
         conversion:
           Healing Power: {Condition Damage: 7%}
         attributes:
-          Condition Damage: [90, unknown]
+          Condition Damage: [90, converted]
       gw2id: 2284
       defaultEnabled: true
       temporaryBuff: false
@@ -579,7 +579,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Condition Damage: [90, unknown]
+          Condition Damage: [90, converted]
       gw2id: 2284
       defaultEnabled: true
       temporaryBuff: activeOutOfCombat # sometimes...
@@ -619,12 +619,12 @@
         conversion:
           Expertise: {Vitality: 13%}
         damage:
-          Outgoing Torment Damage: [20%, mult] # unconfirmed
+          Outgoing Torment Damage: [20%, mult]
       wvwModifiers:
         conversion:
           Expertise: {Vitality: 13%}
         damage:
-          Outgoing Torment Damage: [25%, mult] # unconfirmed
+          Outgoing Torment Damage: [25%, mult]
       gw2id: 2264
       defaultEnabled: true
       temporaryBuff: false
