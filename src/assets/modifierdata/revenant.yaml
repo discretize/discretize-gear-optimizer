@@ -171,6 +171,90 @@
           Damage Reduction: [33%, mult]
       gw2id: 26679
 
+    - id: cosmic-wisdom-assassin
+      text: Cosmic Wisdom
+      subText: Assassin with Bolstered Bonds
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Power: [150, buff]
+          Ferocity: [150, buff]
+      gw2id: 77371
+
+    - id: cosmic-wisdom-centaur
+      text: Cosmic Wisdom
+      subText: Centaur with Bolstered Bonds
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Healing Power: [150, buff]
+          Concentration: [150, buff]
+      gw2id: 77371
+
+    - id: cosmic-wisdom-Demon
+      text: Cosmic Wisdom
+      subText: Demon with Bolstered Bonds
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Condition Damage: [150, buff]
+          Expertise: [150, buff]
+      gw2id: 77371
+
+    - id: cosmic-wisdom-dwarf
+      text: Cosmic Wisdom
+      subText: Dwarf with Bolstered Bonds
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Toughness: [150, buff]
+          Vitality: [150, buff]
+      gw2id: 77371
+
+    - id: cosmic-wisdom-entity
+      text: Cosmic Wisdom
+      subText: Entity with Bolstered Bonds
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Power: [75, buff]
+          Precision: [75, buff]
+          Toughness: [75, buff]
+          Vitality: [75, buff]
+          Concentration: [75, buff]
+          Condition Damage: [75, buff]
+          Expertise: [75, buff]
+          Ferocity: [75, buff]
+          Healing Power: [75, buff]
+      gw2id: 77371
+
+    - id: shielding-hands
+      text: Shielding Hands
+      subText: with Centaur
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Damage Reduction: [75%, mult]
+      gw2id: 77043
+
 - section: Corruption
   id: 14
   items:
@@ -254,8 +338,11 @@
 
     - id: determined-resolution
       text: Determined Resolution
-      subText: 100% resolution
       minor: true
+      amountData:
+        label: '% resolution'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Damage Reduction: [10%, mult]
@@ -720,5 +807,120 @@
 - section: Conduit
   id: 79
   note: >-
-    Not currently implemented. Cosmic Wisdom: Dervish and Cosmic Wisdom: Mesmer without Perpetual Wisdom give temporary expertise, which is not currently well-simulated.
-  items: []
+    Cosmic Wisdom: Dervish and Cosmic Wisdom: Mesmer without Perpetual Wisdom give temporary expertise, which is not currently well-simulated.
+  items:
+
+    - id: bolstered-bonds-assassin
+      text: Bolstered Bonds
+      subText: Assassin
+      minor: true
+      modifiers:
+        attributes:
+          Power: [150, buff]
+          Ferocity: [150, buff]
+      gw2id: 2331
+      defaultEnabled: false
+
+    - id: bolstered-bonds-centaur
+      text: Bolstered Bonds
+      subText: Centaur
+      minor: true
+      modifiers:
+        attributes:
+          Healing Power: [150, buff]
+          Concentration: [150, buff]
+      gw2id: 2331
+      defaultEnabled: false
+
+    - id: bolstered-bonds-demon
+      text: Bolstered Bonds
+      subText: Demon
+      minor: true
+      modifiers:
+        attributes:
+          Condition Damage: [150, buff]
+          Expertise: [150, buff]
+      gw2id: 2331
+      defaultEnabled: false
+
+    - id: bolstered-bonds-dwarf
+      text: Bolstered Bonds
+      subText: Dwarf
+      minor: true
+      modifiers:
+        attributes:
+          Toughness: [150, buff]
+          Vitality: [150, buff]
+      gw2id: 2331
+      defaultEnabled: false
+
+    - id: bolstered-bonds-entity
+      text: Bolstered Bonds
+      subText: Entity
+      minor: true
+      modifiers:
+        attributes:
+          Power: [75, buff]
+          Precision: [75, buff]
+          Toughness: [75, buff]
+          Vitality: [75, buff]
+          Concentration: [75, buff]
+          Condition Damage: [75, buff]
+          Expertise: [75, buff]
+          Ferocity: [75, buff]
+          Healing Power: [75, buff]
+      gw2id: 2331
+      defaultEnabled: false
+
+    - id: numinous-gift-yearning-empowerment
+      text: Yearning Empowerment
+      subText: with Numinous Gift
+      minor: true
+      modifiers:
+        attributes:
+          Condition Duration: 5%
+      gw2id: 1744
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: numinous-gift-determined-resolution
+      text: Determined Resolution
+      subText: with Numinous Gift
+      minor: true
+      amountData:
+        label: '% resolution'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Damage Reduction: [4.55%, mult] # changes 10% mult to 15% mult
+      gw2id: 1713
+      defaultEnabled: false
+
+    - id: numinous-gift-targeted-destruction
+      text: Targeted Destruction
+      subText: with Numinous Gift
+      minor: true
+      amountData:
+        label: '% vulnerability'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [5%, mult]
+      gw2id: 1792
+      defaultEnabled: false
+
+    - id: numinous-gift-serene-rejuvenation
+      text: Serene Rejuvenation
+      subText: with Numinous Gift
+      minor: true
+      modifiers:
+        attributes:
+          Outgoing Healing: 5%
+      wvwModifiers:
+        attributes:
+          Outgoing Healing: 3%
+      gw2id: 1814
+      defaultEnabled: true
+      temporaryBuff: false
