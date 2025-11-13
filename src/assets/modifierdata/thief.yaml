@@ -631,4 +631,37 @@
 
 - section: Antiquary
   id: 77
-  items: []
+  items:
+
+    - id: exhilarating-ephemera
+      text: Exhilarating Ephemera
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [15%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add]
+      gw2id: 2350
+      defaultEnabled: true
+
+    - id: combat-high
+      text: Combat High
+      amountData:
+        label: 'stacks'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [3%, add]
+          Outgoing Condition Damage: [3%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [2%, add]
+          Outgoing Condition Damage: [2%, add]
+      gw2id: 2348
+      defaultEnabled: true
