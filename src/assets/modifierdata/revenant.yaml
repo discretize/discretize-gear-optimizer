@@ -183,6 +183,7 @@
           Power: [150, buff]
           Ferocity: [150, buff]
       gw2id: 77371
+      temporaryBuff: true
 
     - id: cosmic-wisdom-centaur
       text: Cosmic Wisdom
@@ -196,6 +197,7 @@
           Healing Power: [150, buff]
           Concentration: [150, buff]
       gw2id: 77371
+      temporaryBuff: true
 
     - id: cosmic-wisdom-Demon
       text: Cosmic Wisdom
@@ -209,6 +211,7 @@
           Condition Damage: [150, buff]
           Expertise: [150, buff]
       gw2id: 77371
+      temporaryBuff: true
 
     - id: cosmic-wisdom-dwarf
       text: Cosmic Wisdom
@@ -222,6 +225,7 @@
           Toughness: [150, buff]
           Vitality: [150, buff]
       gw2id: 77371
+      temporaryBuff: true
 
     - id: cosmic-wisdom-entity
       text: Cosmic Wisdom
@@ -242,6 +246,7 @@
           Ferocity: [75, buff]
           Healing Power: [75, buff]
       gw2id: 77371
+      temporaryBuff: true
 
     - id: shielding-hands
       text: Shielding Hands
@@ -251,7 +256,7 @@
         default: 100
         quantityEntered: 100
       modifiers:
-        attributes:
+        damage:
           Damage Reduction: [75%, mult]
       gw2id: 77043
 
@@ -820,6 +825,7 @@
           Ferocity: [150, buff]
       gw2id: 2331
       defaultEnabled: false
+      temporaryBuff: false
 
     - id: bolstered-bonds-centaur
       text: Bolstered Bonds
@@ -831,6 +837,7 @@
           Concentration: [150, buff]
       gw2id: 2331
       defaultEnabled: false
+      temporaryBuff: false
 
     - id: bolstered-bonds-demon
       text: Bolstered Bonds
@@ -842,6 +849,7 @@
           Expertise: [150, buff]
       gw2id: 2331
       defaultEnabled: false
+      temporaryBuff: false
 
     - id: bolstered-bonds-dwarf
       text: Bolstered Bonds
@@ -853,6 +861,7 @@
           Vitality: [150, buff]
       gw2id: 2331
       defaultEnabled: false
+      temporaryBuff: false
 
     - id: bolstered-bonds-entity
       text: Bolstered Bonds
@@ -871,6 +880,7 @@
           Healing Power: [75, buff]
       gw2id: 2331
       defaultEnabled: false
+      temporaryBuff: false
 
     - id: numinous-gift-yearning-empowerment
       text: Yearning Empowerment

@@ -67,7 +67,7 @@
         default: 100
         quantityEntered: 100
       modifiers:
-        attributes:
+        conversion:
           Power: {Power: 10%}
           Precision: {Precision: 10%}
           Toughness: {Toughness: 10%}
@@ -482,6 +482,7 @@
       minor: true
       gw2id: 2389
       defaultEnabled: true
+      temporaryBuff: false
 
     - id: carbolic-composition
       text: Carbolic Composition
@@ -515,13 +516,12 @@
 
     - id: double-helix
       text: Double Helix
-      subText:
       amountData:
         label: '% evolved'
         default: 100
         quantityEntered: 100
       modifiers:
-        attributes:
+        conversion:
           Power: {Power: 5%}
           Precision: {Precision: 5%}
           Toughness: {Toughness: 5%}

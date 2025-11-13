@@ -27,14 +27,14 @@
         attributes:
           Outgoing Healing: 10%
         damage:
-          Outoing Strike Damage: [10%, add]
-          Outoing Condition Damage: [10%, add]
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
       wvwModifiers:
         attributes:
           Outgoing Healing: 10%
         damage:
-          Outoing Strike Damage: [5%, add]
-          Outoing Condition Damage: [5%, add]
+          Outgoing Strike Damage: [5%, add]
+          Outgoing Condition Damage: [5%, add]
       gw2id: 76552
       temporaryBuff: true
 
@@ -570,10 +570,11 @@
         default: 100
         quantityEntered: 100
       modifiers:
-        attributes:
+        damage:
           Damage Reduction: [10%, unknown]
       gw2id: 2422
       defaultEnabled: true
+      temporaryBuff: true
 
     - id: fortissimo
       text: Fortissimo
@@ -582,7 +583,7 @@
         default: 4
         quantityEntered: 1
       modifiers:
-        attributes:
+        conversion:
           Power: {Power: 4%}
           Precision: {Precision: 4%}
           Toughness: {Toughness: 4%}
