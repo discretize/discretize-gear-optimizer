@@ -828,7 +828,10 @@
       subText: 'Familiar Passive: Hare, with fury'
       modifiers:
         attributes:
-          Ferocity: [75, unknown]
+          Ferocity: [75, buff]
+      wvwModifiers:
+        attributes:
+          Ferocity: [120, buff]
       minor: true
       defaultEnabled: false
       temporaryBuff: true
@@ -851,7 +854,7 @@
       modifiers:
         damage:
           Outgoing Burning Damage: [5%, mult]
-          Outgoing Strike Damage: [5%, unknown]
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 2391
       defaultEnabled: true
 
@@ -862,10 +865,10 @@
       amountData:
         label: 'might'
         default: 25
-        quantityEntered: 25
+        quantityEntered: 1
       modifiers:
         attributes:
-          Condition Damage: [250, buff]
+          Condition Damage: [5, buff]
       gw2id: 2382
       defaultEnabled: false
       temporaryBuff: true

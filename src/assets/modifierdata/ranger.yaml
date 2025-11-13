@@ -740,20 +740,33 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
       minor: true
       gw2id: 2363
       defaultEnabled: true
 
+    - id: gale-force-wind-force
+      text: Gale Force
+      subText: Wind Force
+      amountData:
+        label: 'stacks'
+        default: 5
+        quantityEntered: 1
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [5%, add]
+      gw2id: 2336
+      defaultEnabled: true
+
     - id: gale-force
       text: Gale Force
-      subText: (simplified implementation)
+      subText: Gale Force
       amountData:
         label: '% uptime'
         default: 100
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [25%, unknown]
+          Outgoing Strike Damage: [25%, add]
       gw2id: 2336
       defaultEnabled: true

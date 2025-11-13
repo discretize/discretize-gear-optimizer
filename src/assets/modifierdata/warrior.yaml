@@ -34,11 +34,11 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, add]
           Outgoing Condition Damage: [15%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, add]
           Outgoing Condition Damage: [10%, add]
       gw2id: 77342
 
@@ -781,11 +781,28 @@
       minor: true
       modifiers:
         attributes:
-          Concentration: [100, unknown]
+          Concentration: [180, buff]
       wvwModifiers:
         attributes:
-          Concentration: [60, unknown]
+          Concentration: [60, buff]
       gw2id: 2418
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: unyielding-resolve
+      text: Unyielding Resolve
+      minor: true
+      amountData:
+        label: 'motivation'
+        default: 10
+        quantityEntered: 1
+      modifiers:
+        damage:
+          Damage Reduction: [1.5%, mult]
+      wvwModifiers:
+        damage:
+          Damage Reduction: [1%, mult]
+      gw2id: 2340
       defaultEnabled: true
       temporaryBuff: false
 
@@ -794,7 +811,7 @@
       subText: 7-10 motivation
       modifiers:
         damage:
-          Outgoing Strike Damage: [25%, unknown]
+          Outgoing Strike Damage: [25%, add]
           Outgoing Condition Damage: [25%, add]
       gw2id: 2375
       defaultEnabled: false
@@ -804,7 +821,7 @@
       subText: 4-6 motivation
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, add]
           Outgoing Condition Damage: [15%, add]
       gw2id: 2375
       defaultEnabled: false
@@ -814,7 +831,7 @@
       subText: 1-3 motivation
       modifiers:
         damage:
-          Outgoing Strike Damage: [7.5%, unknown]
+          Outgoing Strike Damage: [7.5%, add]
           Outgoing Condition Damage: [7.5%, add]
       gw2id: 2375
       defaultEnabled: false
