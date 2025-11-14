@@ -173,11 +173,13 @@
 
     - id: cosmic-wisdom-assassin
       text: Cosmic Wisdom
-      subText: Assassin with Bolstered Bonds
+      subText: Bolstered Bonds with Assassin
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
+        disableBlacklist: true
       modifiers:
         attributes:
           Power: [150, buff]
@@ -187,11 +189,13 @@
 
     - id: cosmic-wisdom-centaur
       text: Cosmic Wisdom
-      subText: Centaur with Bolstered Bonds
+      subText: Bolstered Bonds with Centaur
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
+        disableBlacklist: true
       modifiers:
         attributes:
           Healing Power: [150, buff]
@@ -201,11 +205,13 @@
 
     - id: cosmic-wisdom-Demon
       text: Cosmic Wisdom
-      subText: Demon with Bolstered Bonds
+      subText: Bolstered Bonds with Demon
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
+        disableBlacklist: true
       modifiers:
         attributes:
           Condition Damage: [150, buff]
@@ -215,11 +221,13 @@
 
     - id: cosmic-wisdom-dwarf
       text: Cosmic Wisdom
-      subText: Dwarf with Bolstered Bonds
+      subText: Bolstered Bonds with Dwarf
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
+        disableBlacklist: true
       modifiers:
         attributes:
           Toughness: [150, buff]
@@ -229,11 +237,13 @@
 
     - id: cosmic-wisdom-entity
       text: Cosmic Wisdom
-      subText: Entity with Bolstered Bonds
+      subText: Bolstered Bonds with Entity
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
+        disableBlacklist: true
       modifiers:
         attributes:
           Power: [75, buff]
@@ -253,8 +263,10 @@
       subText: with Centaur
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
+        disableBlacklist: true
       modifiers:
         damage:
           Damage Reduction: [75%, mult]
@@ -348,6 +360,7 @@
         label: '% resolution'
         default: 100
         quantityEntered: 100
+        disableBlacklist: true
       modifiers:
         damage:
           Damage Reduction: [10%, mult]
@@ -817,7 +830,7 @@
 
     - id: bolstered-bonds-assassin
       text: Bolstered Bonds
-      subText: Assassin
+      subText: with Assassin
       minor: true
       modifiers:
         attributes:
@@ -829,7 +842,7 @@
 
     - id: bolstered-bonds-centaur
       text: Bolstered Bonds
-      subText: Centaur
+      subText: with Centaur
       minor: true
       modifiers:
         attributes:
@@ -841,7 +854,7 @@
 
     - id: bolstered-bonds-demon
       text: Bolstered Bonds
-      subText: Demon
+      subText: with Demon
       minor: true
       modifiers:
         attributes:
@@ -853,7 +866,7 @@
 
     - id: bolstered-bonds-dwarf
       text: Bolstered Bonds
-      subText: Dwarf
+      subText: with Dwarf
       minor: true
       modifiers:
         attributes:
@@ -865,7 +878,7 @@
 
     - id: bolstered-bonds-entity
       text: Bolstered Bonds
-      subText: Entity
+      subText: with Entity
       minor: true
       modifiers:
         attributes:
@@ -883,33 +896,34 @@
       temporaryBuff: false
 
     - id: numinous-gift-yearning-empowerment
-      text: Yearning Empowerment
-      subText: with Numinous Gift
+      text: Numinous Gift
+      subText: with Corruption
       minor: true
       modifiers:
         attributes:
           Condition Duration: 5%
-      gw2id: 1744
+      gw2id: 2440
       defaultEnabled: false
       temporaryBuff: true
 
     - id: numinous-gift-determined-resolution
-      text: Determined Resolution
-      subText: with Numinous Gift
+      text: Numinous Gift
+      subText: with Retribution
       minor: true
       amountData:
         label: '% resolution'
         default: 100
         quantityEntered: 100
+        disableBlacklist: true
       modifiers:
         damage:
           Damage Reduction: [4.55%, mult] # changes 10% mult to 15% mult
-      gw2id: 1713
+      gw2id: 2440
       defaultEnabled: false
 
     - id: numinous-gift-targeted-destruction
-      text: Targeted Destruction
-      subText: with Numinous Gift
+      text: Numinous Gift
+      subText: with Devastation
       minor: true
       amountData:
         label: '% vulnerability'
@@ -918,12 +932,12 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [5%, mult]
-      gw2id: 1792
+      gw2id: 2440
       defaultEnabled: false
 
     - id: numinous-gift-serene-rejuvenation
-      text: Serene Rejuvenation
-      subText: with Numinous Gift
+      text: Numinous Gift
+      subText: with Salvation
       minor: true
       modifiers:
         attributes:
@@ -931,6 +945,6 @@
       wvwModifiers:
         attributes:
           Outgoing Healing: 3%
-      gw2id: 1814
-      defaultEnabled: true
+      gw2id: 2440
+      defaultEnabled: false
       temporaryBuff: false

@@ -64,8 +64,10 @@
       text: Evolve
       amountData:
         label: '% evolved'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
+        disableBlacklist: true
       modifiers:
         conversion:
           Power: {Power: 10%}
@@ -85,7 +87,8 @@
       subText: (25 might)
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         attributes:
@@ -98,7 +101,8 @@
       text: Plasmatic State
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
@@ -500,7 +504,8 @@
       text: Willing Host
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
@@ -518,8 +523,10 @@
       text: Double Helix
       amountData:
         label: '% evolved'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
+        disableBlacklist: true
       modifiers:
         conversion:
           Power: {Power: 5%}

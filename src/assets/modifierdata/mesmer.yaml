@@ -21,7 +21,8 @@
       text: Lively Lute
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         attributes:
@@ -550,7 +551,8 @@
       text: Shredding
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
@@ -567,8 +569,10 @@
       text: Love Song
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
+        disableBlacklist: true
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
@@ -580,8 +584,10 @@
       text: Fortissimo
       amountData:
         label: 'instruments'
-        default: 4
+        default: 0
+        defaultInput: ???
         quantityEntered: 1
+        disableBlacklist: true
       modifiers:
         conversion:
           Power: {Power: 4%}
@@ -601,7 +607,8 @@
       text: Altered Chord
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
