@@ -789,10 +789,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [7%, unknown]
+          Outgoing Strike Damage: [7%, add]
       gw2id: 2339
       defaultEnabled: true
 
@@ -801,7 +801,10 @@
       minor: true
       modifiers:
         attributes:
-          Concentration: [180, unknown]
+          Concentration: [180, buff]
+      wvwModifiers:
+        attributes:
+          Concentration: [60, buff]
       defaultEnabled: true
       temporaryBuff: false
 
@@ -815,10 +818,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, add]
       gw2id: 2333
       defaultEnabled: true
 
