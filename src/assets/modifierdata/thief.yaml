@@ -71,13 +71,13 @@
       text: Summon Kryptis Turret
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         damage:
           Outgoing Strike Damage: [15%, mult]
       gw2id: 77192
-      defaultEnabled: true
 
 - section: Deadly Arts
   id: 28

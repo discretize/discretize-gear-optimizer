@@ -794,8 +794,9 @@
       minor: true
       amountData:
         label: 'motivation'
-        default: 10
+        default: 8
         quantityEntered: 1
+        disableBlacklist: true
       modifiers:
         damage:
           Damage Reduction: [1.5%, mult]

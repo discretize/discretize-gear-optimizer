@@ -750,8 +750,9 @@
       subText: Wind Force
       amountData:
         label: 'stacks'
-        default: 5
+        default: 0
         quantityEntered: 1
+        defaultInput: ???
       modifiers:
         damage:
           Outgoing Strike Damage: [5%, add]
@@ -763,8 +764,9 @@
       subText: Gale Force
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
         quantityEntered: 100
+        defaultInput: ???
       modifiers:
         damage:
           Outgoing Strike Damage: [25%, add]

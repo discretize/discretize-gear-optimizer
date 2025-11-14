@@ -160,10 +160,12 @@
       text: Stalwart Stance
       amountData:
         label: '% uptime'
-        default: 60
+        default: 0
         quantityEntered: 100
+        defaultInput: ???
+        disableBlacklist: true
       modifiers:
-        attributes:
+        damage:
           Damage Reduction: [33%, mult]
       gw2id: 77321
 
