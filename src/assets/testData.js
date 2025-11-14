@@ -185,6 +185,8 @@ const testModifiers = async () => {
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             disableBlacklist,
             defaultInput,
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            advancedUptimeSimulation,
             ...otherAmountKeys
           } = amountData;
 
@@ -337,7 +339,12 @@ function parseDamage(damage, id, amountData) {
       `invalid value for ${key} in ${id} (use 'unknown' if you don't know add/mult!)`,
     );
 
-    if (amountData && !amountData.disableBlacklist && damageKeysBlacklist.includes(key))
+    if (
+      amountData &&
+      !amountData.advancedUptimeSimulation &&
+      !amountData.disableBlacklist &&
+      damageKeysBlacklist.includes(key)
+    )
       gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
 
     // handle more than 2 pairs i.e. Outgoing Strike Damage: [3%, add, 7%, mult]
@@ -397,7 +404,12 @@ function parseAttributes(attributes, id, amountData) {
         `invalid value for ${key} in ${id} (use 'unknown' if you don't know if it's converted!)`,
       );
 
-      if (amountData && !amountData.disableBlacklist && attributePointKeysBlacklist.includes(key))
+      if (
+        amountData &&
+        !amountData.advancedUptimeSimulation &&
+        !amountData.disableBlacklist &&
+        attributePointKeysBlacklist.includes(key)
+      )
         gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
 
       // if (mayBeConvertedToBlacklist.includes(key) && amountData && allPairs.includes('converted'))
@@ -422,7 +434,12 @@ function parseAttributes(attributes, id, amountData) {
     } else if (allAttributeCoefficientKeys.includes(key)) {
       parseNumber(allPairs, key, id);
     } else if (allAttributePercentKeys.includes(key)) {
-      if (amountData && !amountData.disableBlacklist && attributePercentKeysBlacklist.includes(key))
+      if (
+        amountData &&
+        !amountData.advancedUptimeSimulation &&
+        !amountData.disableBlacklist &&
+        attributePercentKeysBlacklist.includes(key)
+      )
         gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
 
       parsePercent(allPairs, key, id);
@@ -439,7 +456,12 @@ function parseConversion(conversion, id, amountData) {
       `invalid conversion destination ${key} in ${id}`,
     );
 
-    if (amountData && !amountData.disableBlacklist && attributePointKeysBlacklist.includes(key))
+    if (
+      amountData &&
+      !amountData.advancedUptimeSimulation &&
+      !amountData.disableBlacklist &&
+      attributePointKeysBlacklist.includes(key)
+    )
       gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
 
     for (const [source, amount] of Object.entries(value)) {
@@ -459,7 +481,12 @@ function parseConversionAfterBuffs(conversion, id, amountData) {
       `invalid conversion destination ${key} in ${id}`,
     );
 
-    if (amountData && !amountData.disableBlacklist && attributePointKeysBlacklist.includes(key))
+    if (
+      amountData &&
+      !amountData.advancedUptimeSimulation &&
+      !amountData.disableBlacklist &&
+      attributePointKeysBlacklist.includes(key)
+    )
       gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
 
     for (const [source, amount] of Object.entries(value)) {

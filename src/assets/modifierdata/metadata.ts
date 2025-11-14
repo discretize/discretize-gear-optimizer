@@ -290,6 +290,7 @@ export interface AmountData {
   quantityEntered: number;
   defaultInput?: string;
   disableBlacklist?: boolean;
+  advancedUptimeSimulation?: boolean;
 }
 
 export interface ModifierItem {

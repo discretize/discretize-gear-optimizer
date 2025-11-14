@@ -22,6 +22,20 @@
       gw2id: 5542
       temporaryBuff: false
 
+    - id: signet-of-fire-partial
+      text: Signet of Fire
+      subText: Partial Uptime
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation: true
+      modifiers:
+        attributes:
+          Precision: [180, buff]
+      gw2id: 5542
+      temporaryBuff: false
+
     - id: signet-of-earth
       text: Signet of Earth
       modifiers:

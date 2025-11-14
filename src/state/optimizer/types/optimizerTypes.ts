@@ -94,12 +94,25 @@ export type Attributes = GuaranteedBaseAttributes & Partial<Record<AttributeName
 
 // settings that **do** vary based on extras combination
 export interface OptimizerCoreSettingsPerCombination {
-  baseAttributes: Attributes;
-  modifiers: Modifiers;
+  baseAttributes: Attributes; // not used after scenarios update; left for things like unbuffed calc
+  modifiers: Modifiers; // not used after scenarios update; left for things like unbuffed calc
+  scenarios: Scenario[];
   disableCondiResultCache: boolean;
   relevantConditions: DamagingConditionName[];
   appliedModifiers: AppliedModifier[];
   calculationTweaks: CalculationTweaks;
+}
+
+export interface ScenarioTemplate {
+  fraction: number;
+  baseAttributes: Attributes;
+  appliedModifiers: AppliedModifier[];
+}
+
+export interface Scenario {
+  fraction: number;
+  baseAttributes: Attributes;
+  modifiers: Modifiers;
 }
 
 export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &
