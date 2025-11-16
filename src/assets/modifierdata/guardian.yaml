@@ -158,12 +158,7 @@
 
     - id: stalwart-stance
       text: Stalwart Stance
-      amountData:
-        label: '% uptime'
-        default: 0
-        quantityEntered: 100
-        defaultInput: ???
-        disableBlacklist: true
+      subText: while active
       modifiers:
         damage:
           Damage Reduction: [33%, mult]
