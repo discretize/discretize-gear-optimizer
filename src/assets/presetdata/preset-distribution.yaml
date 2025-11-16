@@ -384,18 +384,19 @@ list:
     profession: Weaver
     value:
       {
-        "values2": { "Power": 4001, "Power2": 0, "Burning": 5.85, "Bleeding": 3.54, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4050, "Power2": 0, "Burning": 5.85, "Bleeding": 3.54, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'jkerkhoven'
         url: https://www.youtube.com/watch?v=UXJ8fLNkfYg
         log: https://dps.report/WIHR-20250828-114002_golem
 
+  # sini helm
   - name: Condi Weaver P/D
     profession: Weaver
     value:
       {
-        "values2": { "Power": 2020, "Power2": 0, "Burning": 8.98, "Bleeding": 32.66, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2023, "Power2": 0, "Burning": 8.98, "Bleeding": 32.66, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Ryan'
@@ -438,11 +439,12 @@ list:
         log: https://dps.report/5ShG-20230714-032530_golem
 
   # Without eles (distribution still comparable, lower rng)
+  # sini helm
   - name: Condi Weaver Scepter
     profession: Weaver
     value:
       {
-        "values2": { "Power": 2766, "Power2": 0, "Burning": 12.85, "Bleeding": 16.74, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2770, "Power2": 0, "Burning": 12.86, "Bleeding": 16.76, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Ryan
