@@ -626,11 +626,22 @@ list:
         url: https://www.youtube.com/watch?v=plek_AW5608
         log: https://dps.report/JrMs-20251114-144931_golem
 
-  - name: Condi Trailblazer Evoker SE Fox (Very approx.)
+  # trailblazer but without the bleed (i.e. casting earth signet but it not doing anything)
+  # real build would be higher than this
+  - name: Condi Evoker SE Fox (Approx.)
     profession: Evoker
     value:
       {
-        "values2": { "Power": 3758, "Power2": 0, "Burning": 20.59, "Bleeding": 3.82, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3380, "Power2": 0, "Burning": 22.09, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    noCreditOkay: true
+
+  # https://dps.report/Pa63-20251103-095923_golem
+  - name: Condi Trailblazer Evoker SE Fox
+    profession: Evoker
+    value:
+      {
+        "values2": { "Power": 3380, "Power2": 0, "Burning": 22.09, "Bleeding": 3.82, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 

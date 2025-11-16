@@ -989,7 +989,7 @@ list:
         specialization: Evoker
         boonType: Condi
         priority: Condi DPS
-        distribution: Inferno Evoker SE Fox
+        distribution: Condi Evoker SE Fox (Approx.)
         traits: Condi Evoker SE Fox
         extras: Condi Evoker SE Fox
         weaponType: Dual wield
@@ -1000,7 +1000,7 @@ list:
         specialization: Evoker
         boonType: Condi
         priority: Trailblazer/Dire
-        distribution: Condi Trailblazer Evoker SE Fox (Very approx.)
+        distribution: Condi Trailblazer Evoker SE Fox
         traits: Condi Trailblazer Evoker SE Fox
         extras: Condi Trailblazer Evoker SE Fox
         weaponType: Dual wield
