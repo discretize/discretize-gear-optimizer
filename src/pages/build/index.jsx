@@ -9,6 +9,9 @@ import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
 import NavSettings, { GAME_MODES } from '../../components/nav/NavSettings';
 import { getGameMode } from '../../state/slices/userSettings';
 
+// eslint-disable-next-line no-undef
+console.log('Gear Optimizer version:', __COMMIT_HASH__);
+
 const IndexPage = () => {
   const { i18n, t } = useTranslation();
   const { language } = i18n;
