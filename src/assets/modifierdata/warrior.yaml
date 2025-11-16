@@ -25,34 +25,6 @@
       gw2id: 14413
       temporaryBuff: false
 
-    - id: chant-of-action
-      text: Chant of Action
-      subText: with Strengthening Stanzas
-      amountData:
-        label: '% uptime'
-        default: 100
-        quantityEntered: 100
-      modifiers:
-        damage:
-          Outgoing Strike Damage: [15%, add]
-          Outgoing Condition Damage: [15%, add]
-      wvwModifiers:
-        damage:
-          Outgoing Strike Damage: [10%, add]
-          Outgoing Condition Damage: [10%, add]
-      gw2id: 77342
-
-    - id: chant-of-recuperation
-      text: Chant of Recuperation
-      subText: with Strengthening Stanzas
-      modifiers:
-        damage:
-          Damage Reduction: [15%, unknown]
-      wvwModifiers:
-        damage:
-          Damage Reduction: [7%, unknown]
-      gw2id: 76782
-
 - section: Strength
   id: 4
   items:
@@ -788,6 +760,36 @@
       gw2id: 2418
       defaultEnabled: true
       temporaryBuff: false
+
+    - id: strengthening-stanzas-action
+      text: Strengthening Stanzas
+      subText: Chant of Action
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [15%, add]
+          Outgoing Condition Damage: [15%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
+      gw2id: 2385
+      defaultEnabled: false
+
+    - id: strengthening-stanzas-recuperation
+      text: Chant of Recuperation
+      subText: Chant of Recuperation, while active
+      modifiers:
+        damage:
+          Damage Reduction: [15%, unknown]
+      wvwModifiers:
+        damage:
+          Damage Reduction: [7%, unknown]
+      gw2id: 2385
+      defaultEnabled: false
 
     - id: unyielding-resolve
       text: Unyielding Resolve
