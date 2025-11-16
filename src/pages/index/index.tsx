@@ -15,6 +15,8 @@ import { isFirefox } from '../../state/optimizer/utils/detectFirefox';
 import { getMulticore } from '../../state/slices/controlsSlice';
 import { getGameMode } from '../../state/slices/userSettings';
 
+console.log('Gear Optimizer version:', __COMMIT_HASH__);
+
 // markup
 const IndexPage = () => {
   const { i18n } = useTranslation();

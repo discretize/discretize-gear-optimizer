@@ -109,6 +109,11 @@ export default function NavSettings({
       <Typography variant="h6" sx={{ width: 300 }}>
         <Trans>Global Settings</Trans>
       </Typography>
+      {__COMMIT_HASH__ && (
+        <Typography variant="caption" color="textSecondary">
+          Optimizer version: {__COMMIT_HASH__}
+        </Typography>
+      )}
       <Divider className={classes.divider} />
       {!expertModeDisabled && (
         <>
