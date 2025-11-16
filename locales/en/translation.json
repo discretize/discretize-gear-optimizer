@@ -1139,5 +1139,5 @@
   "traitSubText_with staff": "with staff",
   "traitSubText_with sword": "with sword",
   "traitSubText_with torch/dagger": "with torch/dagger",
-  "🎉 Visions of Eternity has been released! 🎉<br/><br/><3>The gear optimizer is <1>not</1> updated for the Visions of Eternity game patch yet.</3>": "🎉 Visions of Eternity has been released! 🎉<br/><br/><3>The gear optimizer is <1>not</1> updated for the Visions of Eternity game patch yet.</3>"
+  "🎉 Visions of Eternity has been released! 🎉<br/><br/><i>Conduit, amalgam, and troubadour are not yet implemented, as each could yield inaccurate simulation results with current code.</i>": "🎉 Visions of Eternity has been released! 🎉<br/><br/><i>Conduit, amalgam, and troubadour are not yet implemented, as each could yield inaccurate simulation results with current code.</i>"
 }

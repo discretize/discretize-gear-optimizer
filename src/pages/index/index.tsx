@@ -30,7 +30,8 @@ const IndexPage = () => {
       <br />
       <br />
       <i>
-        The gear optimizer is <b>not</b> updated for the Visions of Eternity game patch yet.
+        Conduit, amalgam, and troubadour are not yet implemented, as each could yield inaccurate
+        simulation results with current code.
       </i>
     </Trans>,
     <Trans>
