@@ -747,7 +747,7 @@
 
     - id: gale-force-wind-force
       text: Gale Force
-      subText: Wind Force
+      subText: wind force
       amountData:
         label: 'stacks'
         default: 0
@@ -761,7 +761,7 @@
 
     - id: gale-force
       text: Gale Force
-      subText: Gale Force
+      subText: gale force
       amountData:
         label: '% uptime'
         default: 0

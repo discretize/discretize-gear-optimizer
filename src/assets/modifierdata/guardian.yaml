@@ -728,7 +728,7 @@
 
     - id: radiant-armaments-shield
       text: Radiant Armaments
-      subText: shield
+      subText: shield, while active
       minor: true
       modifiers:
         damage:
