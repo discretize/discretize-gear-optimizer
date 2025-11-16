@@ -615,6 +615,17 @@ list:
         url: https://www.youtube.com/watch?v=d1PZfUiaIpQ
         log: https://dps.report/Y4GP-20250811-220229_golem
 
+  - name: Inferno Evoker SE Fox
+    profession: Evoker
+    value:
+      {
+        "values2": { "Power": 3758, "Power2": 0, "Burning": 21.38, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=plek_AW5608
+        log: https://dps.report/JrMs-20251114-144931_golem
+
   - name: Alacrity Renegade
     profession: Renegade
     value:

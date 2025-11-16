@@ -970,6 +970,20 @@ list:
         weaponType: Dual wield
         outdated: false
 
+      - name: Inferno Evoker SE Fox
+        id: inferno-evoker-se-fox
+        specialization: Evoker
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Inferno Evoker SE Fox
+        traits: Inferno Evoker SE Fox
+        fractal:
+          extras: Inferno Evoker SE Fox (Fractal)
+        raid:
+          extras: Inferno Evoker SE Fox (Raid)
+        weaponType: Dual wield
+        outdated: false
+
       - name: Heal Alacrity Tempest
         id: healtemp
         specialization: Tempest

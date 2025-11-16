@@ -2324,6 +2324,74 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Inferno Evoker SE Fox (Fractal)
+    profession: Evoker
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "impact/night/slaying-both": {}
+          },
+          "Sigil2": {
+            "smoldering": {}
+          },
+          "Runes": {
+            "flame-legion": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.75"
+            }
+          },
+          "Nourishment": {
+            "fire-meat-chili": {},
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "slaying-potion": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Inferno Evoker SE Fox (Raid)
+    profession: Evoker
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "force": {}
+          },
+          "Sigil2": {
+            "smoldering": {}
+          },
+          "Runes": {
+            "flame-legion": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.75"
+            }
+          },
+          "Nourishment": {
+            "fire-meat-chili": {},
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Quickness Untamed
     profession: Untamed
     value:

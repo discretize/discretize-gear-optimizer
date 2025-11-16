@@ -5069,6 +5069,87 @@ list:
         }
       }
 
+  - name: Inferno Evoker SE Fox
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1675
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2391,
+            2342,
+            2437
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "100"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "100"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "enhanced-potency-fox": {
+              "amount": ""
+            },
+            "familiars-focus-fox": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1092"
+          }
+        }
+      }
+
   - name: Heal Tempest
     profession: Tempest
     traits:
