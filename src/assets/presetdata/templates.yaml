@@ -984,6 +984,28 @@ list:
         weaponType: Dual wield
         outdated: false
 
+      - name: Condi Evoker SE Fox (Approx.)
+        id: condi-evoker-se-fox
+        specialization: Evoker
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Inferno Evoker SE Fox
+        traits: Condi Evoker SE Fox
+        extras: Condi Evoker SE Fox
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Condi Trailblazer Evoker SE Fox (Approx.)
+        id: trailblazer-evoker-se-fox
+        specialization: Evoker
+        boonType: Condi
+        priority: Trailblazer/Dire
+        distribution: Condi Trailblazer Evoker SE Fox (Very approx.)
+        traits: Condi Trailblazer Evoker SE Fox
+        extras: Condi Trailblazer Evoker SE Fox
+        weaponType: Dual wield
+        outdated: false
+
       - name: Heal Alacrity Tempest
         id: healtemp
         specialization: Tempest

@@ -5150,6 +5150,158 @@ list:
         }
       }
 
+  - name: Condi Evoker SE Fox
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2391,
+            2342,
+            2437
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "100"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "100"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "enhanced-potency-fox": {
+              "amount": ""
+            },
+            "familiars-focus-fox": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1181"
+          }
+        }
+      }
+
+  - name: Condi Trailblazer Evoker SE Fox
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            1507,
+            275,
+            1508
+          ],
+          [
+            2391,
+            2342,
+            2437
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "100"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "100"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "fiery-might": {},
+            "enhanced-potency-fox": {
+              "amount": ""
+            },
+            "familiars-focus-fox": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1181"
+          },
+          "signet-of-fire": {},
+          "signet-of-earth": {}
+        }
+      }
+
   - name: Heal Tempest
     profession: Tempest
     traits:
