@@ -276,10 +276,10 @@
       text: Amplified Wrath
       modifiers:
         damage:
-          Outgoing Burning Damage: [10%, mult] # unconfirmed
+          Outgoing Burning Damage: [10%, mult]
       wvwModifiers:
         damage:
-          Outgoing Burning Damage: [15%, mult] # unconfirmed
+          Outgoing Burning Damage: [15%, mult]
       gw2id: 1686
       defaultEnabled: true
 
@@ -484,10 +484,10 @@
       subText: against defiant foes, base
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, mult]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1963
       defaultEnabled: true
 
@@ -500,7 +500,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [5%, unknown] # sure hope this is additive...?
+          Outgoing Strike Damage: [4.35%, mult] # replaces baseline 15% mult with 20% mult
       gw2id: 1963
       defaultEnabled: true
 
@@ -513,10 +513,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [20%, unknown]
+          Outgoing Strike Damage: [20%, mult]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, mult]
       gw2id: 1963
       defaultEnabled: false
 
@@ -569,7 +569,7 @@
       text: Searing Pact
       modifiers:
         attributes:
-          Condition Damage: [120, unknown]
+          Condition Damage: [120, converted]
       gw2id: 2191
       defaultEnabled: true
       temporaryBuff: false
@@ -578,7 +578,7 @@
       text: Power for Power
       modifiers:
         attributes:
-          Power: [120, unknown]
+          Power: [120, converted]
       gw2id: 2190
       defaultEnabled: true
       temporaryBuff: false

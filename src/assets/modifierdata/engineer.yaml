@@ -41,7 +41,7 @@
       text: Superconducting Signet
       modifiers:
         damage:
-          Outgoing Condition Damage: [10%, add] #unconfirmed
+          Outgoing Condition Damage: [10%, add]
       gw2id: 63113
 
     - id: superconducting-signet-traited
@@ -49,7 +49,7 @@
       subText: traited
       modifiers:
         damage:
-          Outgoing Condition Damage: [12%, add] #unconfirmed
+          Outgoing Condition Damage: [12%, add]
       gw2id: 63113
 
     - id: spectrum-shield
