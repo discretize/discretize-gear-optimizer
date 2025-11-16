@@ -805,6 +805,7 @@
       wvwModifiers:
         attributes:
           Concentration: [60, buff]
+      gw2id: 2371
       defaultEnabled: true
       temporaryBuff: false
 
