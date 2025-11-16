@@ -156,6 +156,14 @@
           Outgoing Strike Damage: [10%, add] # https://discord.com/channels/380901000200060929/380903704808652801/1433364198204899340
       gw2id: 77078
 
+    - id: stalwart-stance
+      text: Stalwart Stance
+      subText: while active
+      modifiers:
+        damage:
+          Damage Reduction: [33%, mult]
+      gw2id: 77321
+
 - section: Zeal
   id: 42
   items:
@@ -669,7 +677,7 @@
       minor: true
       modifiers:
         attributes:
-          Vitality: [180, unknown]
+          Vitality: [180, converted]
       gw2id: 2394
       defaultEnabled: true
       temporaryBuff: false
