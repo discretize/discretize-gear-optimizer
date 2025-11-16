@@ -778,4 +778,68 @@
 
 - section: Ritualist
   id: 76
-  items: []
+  items:
+
+    - id: explosive-growth
+      text: Explosive Growth
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [7%, add]
+      gw2id: 2339
+      defaultEnabled: true
+
+    - id: boon-of-creation
+      text: Boon of Creation
+      minor: true
+      modifiers:
+        attributes:
+          Concentration: [180, buff]
+      wvwModifiers:
+        attributes:
+          Concentration: [60, buff]
+      gw2id: 2371
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: lingering-spirits-anguish
+      text: Lingering Spirits
+      subText: anguish
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [15%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add]
+      gw2id: 2333
+      defaultEnabled: true
+
+    - id: lingering-spirits-preservation
+      text: Lingering Spirits
+      subText: preservation
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Outgoing Healing: 20%
+      wvwModifiers:
+        attributes:
+          Outgoing Healing: 15%
+      gw2id: 2333
+      defaultEnabled: true
+      temporaryBuff: true

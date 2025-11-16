@@ -729,4 +729,46 @@
 
 - section: Galeshot
   id: 78
-  items: []
+  note: Pet damage is not currently simulated.
+  items:
+
+    - id: bird-of-prey
+      text: Bird of Prey
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, mult]
+      minor: true
+      gw2id: 2363
+      defaultEnabled: true
+
+    - id: gale-force-wind-force
+      text: Gale Force
+      subText: wind force
+      amountData:
+        label: 'stacks'
+        default: 0
+        quantityEntered: 1
+        defaultInput: ???
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [5%, add]
+      gw2id: 2336
+      defaultEnabled: true
+
+    - id: gale-force
+      text: Gale Force
+      subText: gale force
+      amountData:
+        label: '% uptime'
+        default: 0
+        quantityEntered: 100
+        defaultInput: ???
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [25%, add]
+      gw2id: 2336
+      defaultEnabled: true
