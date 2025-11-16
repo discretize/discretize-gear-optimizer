@@ -8,6 +8,9 @@ import yamlImporter from './plugins/YAMLImporter';
 
 const getCommitHash = () => {
   try {
+    if (process.env.GITHUB_HEAD_REF) {
+      return `pull request (${process.env.GITHUB_HEAD_REF})`;
+    }
     return execSync('git rev-parse --short HEAD').toString();
   } catch {
     return undefined;
