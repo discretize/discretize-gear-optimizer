@@ -254,6 +254,7 @@ export const relicsDict = [
   'living-city-relic',
   'agony-relic',
   'bloodstone-relic-prenerf',
+  'bloodstone-relic-prenerf-2',
 ];
 
 export const sigilDict = [

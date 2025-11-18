@@ -496,6 +496,7 @@ list:
         log: https://dps.report/JJvS-20231203-145912_golem
 
   # assassin boots, 2 precise (same as assassin back)
+  # use bloodstone-relic-prenerf-2 if resimulating
   - name: Alacrity Power Tempest Scepter Bloodstone
     profession: Tempest
     value:
@@ -507,6 +508,7 @@ list:
         url: https://www.youtube.com/watch?v=OyH9ZpsXcp8
         log: https://dps.report/nb3Q-20250624-223739_golem
 
+  # use bloodstone-relic-prenerf-2 if resimulating
   - name: Power Tempest Scepter Bloodstone
     profession: Tempest
     value:
@@ -560,6 +562,7 @@ list:
         url: https://www.youtube.com/watch?v=ZhhoRrW22Ks
         log: https://dps.report/L6zb-20250313-171138_golem
 
+  # use bloodstone-relic-prenerf-2 if resimulating
   - name: Power Catalyst Scepter
     profession: Catalyst
     value:
@@ -615,6 +618,7 @@ list:
         url: https://www.youtube.com/watch?v=d1PZfUiaIpQ
         log: https://dps.report/Y4GP-20250811-220229_golem
 
+  # use bloodstone-relic-prenerf-2 if resimulating
   - name: Inferno Evoker SE Fox
     profession: Evoker
     value:

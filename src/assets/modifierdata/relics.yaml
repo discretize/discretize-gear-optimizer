@@ -126,13 +126,36 @@
         quantityEntered: 10
       modifiers:
         damage:
-          Outgoing Strike Damage: [80%, mult]
+          Outgoing Strike Damage: [56%, mult] # 8 seconds, 7%
         attributes:
           Power Coefficient: 2071.5 # 3.0 coefficient, 690.5 strength
           Bleeding Coefficient: 36
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [80%, mult]
+          Outgoing Strike Damage: [80%, mult] # 8 seconds, 10%
+        attributes:
+          Power Coefficient: 1381 # 2.0 coefficient, 690.5 strength
+          Bleeding Coefficient: 36
+      gw2id: 104800
+      temporaryBuff: true
+
+    - id: bloodstone-relic-prenerf-2
+      text: Relic of Bloodstone
+      subText: before nov 18 nerf
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [80%, mult] # 8 seconds, 10%
+        attributes:
+          Power Coefficient: 2071.5 # 3.0 coefficient, 690.5 strength
+          Bleeding Coefficient: 36
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [80%, mult] # 8 seconds, 10%
         attributes:
           Power Coefficient: 1381 # 2.0 coefficient, 690.5 strength
           Bleeding Coefficient: 36
@@ -141,7 +164,7 @@
 
     - id: bloodstone-relic-prenerf
       text: Relic of Bloodstone
-      subText: pre-nerf
+      subText: original
       amountData:
         label: '/10s'
         default: 0
