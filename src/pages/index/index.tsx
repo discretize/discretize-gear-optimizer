@@ -32,8 +32,8 @@ const IndexPage = () => {
       <br />
       <br />
       <i>
-        Conduit, amalgam, and troubadour are not yet implemented, as each could yield inaccurate
-        simulation results with current code.
+        Bloodstone relic is updated for the Nov 18 patch. Conduit, amalgam, and troubadour are not
+        yet implemented, as each could yield inaccurate simulation results with current code.
       </i>
     </Trans>,
     <Trans>
