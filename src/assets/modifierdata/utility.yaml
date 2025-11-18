@@ -355,6 +355,26 @@
       gw2id: 98893
       temporaryBuff: false
 
+    - id: fractal-sharpening-golem-enhancement
+      text: Fractal Sharpening Golem Enhancement
+      textOverride: Fractal Sharpening Golem Enhancement
+      subText: above 90%
+      modifiers:
+        conversion:
+          Power: {Power: 2%}
+          Precision: {Precision: 2%}
+          Toughness: {Toughness: 2%}
+          Vitality: {Vitality: 2%}
+          Concentration: {Concentration: 2%}
+          Condition Damage: {Condition Damage: 2%}
+          Expertise: {Expertise: 2%}
+          Ferocity: {Ferocity: 2%}
+          Healing Power: {Healing Power: 2%}
+        attributes:
+          Toughness: [100, unknown]
+      gw2id: 69862
+      temporaryBuff: false
+
 - section: Placeholder Items
   items:
 
