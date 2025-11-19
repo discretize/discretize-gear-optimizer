@@ -26,9 +26,11 @@ import type {
   GearStats,
   OptimizerCoreSettings,
   Results,
+  Scenario,
+  ScenarioProcessed,
 } from './types/optimizerTypes';
 import { iteratePartitions } from './utils/combinatorics';
-import { clamp, roundEven } from './utils/utils';
+import { clamp, cloneScenario, roundEven } from './utils/utils';
 
 const roundOne = (num: number) => Math.round(num * 10) / 10;
 
@@ -285,18 +287,21 @@ export class OptimizerCore {
       gear, // passed by reference
       infusions, // passed by reference
       gearStats, // passed by reference
-      attributes: undefined,
+      // attributes: undefined,
       valid: true,
-      baseAttributes: { ...this.settings.baseAttributes },
+      // baseAttributes: { ...this.settings.baseAttributes },
+      scenarios: this.settings.scenarios.map(cloneScenario),
       ...overrides,
     };
 
-    // apply gear and infusions
-    for (const [stat, value] of objectEntries(gearStats)) {
-      character.baseAttributes[stat] += value;
-    }
-    for (const [stat, count] of objectEntries(infusions)) {
-      character.baseAttributes[stat] += count * INFUSION_BONUS;
+    for (const scenario of character.scenarios) {
+      // apply gear and infusions
+      for (const [stat, value] of objectEntries(gearStats)) {
+        scenario.baseAttributes[stat] += value;
+      }
+      for (const [stat, count] of objectEntries(infusions)) {
+        scenario.baseAttributes[stat] += count * INFUSION_BONUS;
+      }
     }
 
     return character;
@@ -405,7 +410,9 @@ export class OptimizerCore {
     const temp = this.clone(character);
 
     settings.infusionOptions.forEach(({ type, count }) => {
-      temp.baseAttributes[type] += count * INFUSION_BONUS;
+      for (const scenario of temp.scenarios) {
+        scenario.baseAttributes[type] += count * INFUSION_BONUS;
+      }
     });
     this.updateAttributesFast(temp, true);
     return temp.attributes[settings.rankby] > this.worstScore;
@@ -463,19 +470,34 @@ export class OptimizerCore {
     character: CharacterUnprocessed,
     noRounding = false,
   ): asserts character is CharacterProcessed {
-    const { modifiers } = this.settings;
-    const { damageMultiplier } = modifiers;
-
     character.valid = true;
 
-    this.calcStats(character, modifiers, noRounding);
+    this.calcStats(character, noRounding);
 
-    const powerDamageScore = this.calcPower(character, damageMultiplier);
-    const condiDamageScore = this.calcCondi(character, damageMultiplier, damagingConditions);
+    const powerDamageScore = character.scenarios
+      .map(
+        (scenario) =>
+          this.calcPowerScenario(scenario, scenario.modifiers.damageMultiplier) * scenario.fraction,
+      )
+      .reduce((a, b) => a + b);
+    const condiDamageScore = character.scenarios
+      .map(
+        (scenario) =>
+          this.calcCondiScenario(
+            scenario,
+            scenario.modifiers.damageMultiplier,
+            damagingConditions,
+          ) * scenario.fraction,
+      )
+      .reduce((a, b) => a + b);
+
+    // todo: various things
+    character.attributes = character.scenarios[0].attributes;
+
     character.attributes['Damage'] =
       powerDamageScore + condiDamageScore + character.attributes['Flat DPS'];
 
-    this.calcSurvivability(character, damageMultiplier);
+    this.calcSurvivability(character);
     this.calcHealing(character);
   }
 
@@ -492,40 +514,67 @@ export class OptimizerCore {
     skipValidation = false,
   ): asserts character is CharacterProcessed {
     const { settings } = this;
-    const { modifiers } = this.settings;
-    const { damageMultiplier } = modifiers;
     character.valid = true;
 
-    this.calcStats(character, modifiers);
-
-    const { attributes } = character;
+    this.calcStats(character);
 
     if (!skipValidation && this.checkInvalid(character)) {
       return;
     }
 
     if (settings.rankby === 'Damage' || settings.minDamage) {
-      const powerDamageScore = this.calcPower(character, damageMultiplier);
+      const powerDamageScore = character.scenarios
+        .map(
+          (scenario) =>
+            this.calcPowerScenario(scenario, scenario.modifiers.damageMultiplier) *
+            scenario.fraction,
+        )
+        .reduce((a, b) => a + b);
 
       // cache condi result based on cdmg and expertise
       let condiDamageScore = 0;
       if (settings.disableCondiResultCache) {
-        condiDamageScore = this.calcCondi(character, damageMultiplier, settings.relevantConditions);
-      } else if (settings.relevantConditions.length > 0) {
-        const CONDI_CACHE_ID = attributes['Expertise'] + attributes['Condition Damage'] * 10000;
+        condiDamageScore = character.scenarios
+          .map(
+            (scenario) =>
+              this.calcCondiScenario(
+                scenario,
+                scenario.modifiers.damageMultiplier,
+                settings.relevantConditions,
+              ) * scenario.fraction,
+          )
+          .reduce((a, b) => a + b);
+      } else if (character.scenarios.length === 1 && settings.relevantConditions.length > 0) {
+        const CONDI_CACHE_ID =
+          character.scenarios[0].attributes['Expertise'] +
+          character.scenarios[0].attributes['Condition Damage'] * 10000;
         condiDamageScore =
           this.condiResultCache?.get(CONDI_CACHE_ID) ||
-          this.calcCondi(character, damageMultiplier, settings.relevantConditions);
+          character.scenarios
+            .map(
+              (scenario) =>
+                this.calcCondiScenario(
+                  scenario,
+                  scenario.modifiers.damageMultiplier,
+                  settings.relevantConditions,
+                ) * scenario.fraction,
+            )
+            .reduce((a, b) => a + b);
+
         this.condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
       }
 
-      attributes['Damage'] = powerDamageScore + condiDamageScore + character.attributes['Flat DPS'];
+      // todo: various things
+      character.attributes = character.scenarios[0].attributes;
+
+      character.attributes['Damage'] =
+        powerDamageScore + condiDamageScore + character.attributes['Flat DPS'];
     }
     if (settings.rankby === 'Healing' || settings.minHealing) {
       this.calcHealing(character);
     }
     if (settings.rankby === 'Survivability' || settings.minSurvivability) {
-      this.calcSurvivability(character, damageMultiplier);
+      this.calcSurvivability(character);
     }
 
     if (!skipValidation) {
@@ -535,15 +584,24 @@ export class OptimizerCore {
 
   calcStats(
     character: CharacterUnprocessed,
-    modifiers: Modifiers,
     noRounding = false,
   ): asserts character is CharacterProcessed {
+    character.scenarios.forEach((scenario) =>
+      this.calcStatsScenario(scenario, scenario.modifiers, noRounding),
+    );
+  }
+
+  calcStatsScenario(
+    scenario: Scenario,
+    modifiers: Modifiers,
+    noRounding = false,
+  ): asserts scenario is ScenarioProcessed {
     const { settings } = this;
 
     const round = noRounding ? (val: number) => val : roundEven;
 
-    character.attributes = { ...character.baseAttributes };
-    const { attributes, baseAttributes } = character;
+    scenario.attributes = { ...scenario.baseAttributes };
+    const { attributes, baseAttributes } = scenario;
 
     for (const [attribute, conversion] of modifiers['convert']) {
       const maybeRound = enumArrayIncludes(allAttributePointKeys, attribute)
@@ -616,7 +674,7 @@ export class OptimizerCore {
 
   checkInvalid(character: CharacterProcessed) {
     const { settings } = this;
-    const { attributes } = character;
+    const { attributes } = character.scenarios[0];
 
     const invalid =
       (settings.minBoonDuration !== undefined &&
@@ -642,7 +700,7 @@ export class OptimizerCore {
 
   checkInvalidIndicators(character: CharacterProcessed) {
     const { settings } = this;
-    const { attributes } = character;
+    const { attributes } = character.scenarios[0];
 
     const invalid =
       (settings.minDamage !== undefined && attributes['Damage'] < settings.minDamage) ||
@@ -656,9 +714,9 @@ export class OptimizerCore {
     return invalid;
   }
 
-  calcPower(character: CharacterProcessed, damageMultiplier: DamageMultiplier) {
+  calcPowerScenario(scenario: ScenarioProcessed, damageMultiplier: DamageMultiplier) {
     const { settings } = this;
-    const { attributes } = character;
+    const { attributes } = scenario;
 
     const critDmg = attributes['Critical Damage'] * damageMultiplier['Outgoing Critical Damage'];
     const critChance = clamp(attributes['Critical Chance'], 0, 1);
@@ -735,13 +793,13 @@ export class OptimizerCore {
   conditionDamageTick = (data: ValueOf<typeof conditionData>, cdmg: number, mult: number): number =>
     (data.factor * cdmg + data.baseDamage) * mult;
 
-  calcCondi(
-    character: CharacterProcessed,
+  calcCondiScenario(
+    scenario: ScenarioProcessed,
     damageMultiplier: DamageMultiplier,
     relevantConditions: readonly DamagingConditionName[],
   ) {
     const { settings, conditionData: data, conditionDamageTick } = this;
-    const { attributes } = character;
+    const { attributes } = scenario;
 
     let condiDamageScore = 0;
     for (const condition of relevantConditions) {
@@ -794,8 +852,14 @@ export class OptimizerCore {
     return condiDamageScore;
   }
 
-  calcSurvivability(character: CharacterProcessed, damageMultiplier: DamageMultiplier) {
-    const { attributes } = character;
+  calcSurvivability(character: CharacterProcessed) {
+    character.scenarios.forEach((scenario) =>
+      this.calcSurvivabilityScenario(scenario, scenario.modifiers.damageMultiplier),
+    );
+  }
+
+  calcSurvivabilityScenario(scenario: ScenarioProcessed, damageMultiplier: DamageMultiplier) {
+    const { attributes } = scenario;
 
     attributes['Effective Health'] =
       attributes['Health'] * attributes['Armor'] * (1 / damageMultiplier['Incoming Strike Damage']);
@@ -804,7 +868,11 @@ export class OptimizerCore {
   }
 
   calcHealing(character: CharacterProcessed) {
-    const { attributes } = character;
+    character.scenarios.forEach((scenario) => this.calcHealingScenario(scenario));
+  }
+
+  calcHealingScenario(scenario: ScenarioProcessed) {
+    const { attributes } = scenario;
 
     // reasonably representative skill: druid celestial avatar 4 pulse
     // 390 base, 0.3 coefficient
@@ -834,6 +902,8 @@ export class OptimizerCore {
 
     character.results = results;
 
+    character.baseAttributes = character.scenarios[0].baseAttributes;
+
     // baseline for comparing adding/subtracting +5 infusions
     const baseline = this.clone(character);
     this.updateAttributes(baseline, true);
@@ -850,7 +920,9 @@ export class OptimizerCore {
     results.effectivePositiveValues = {};
     for (const attribute of gainLossKeys) {
       const temp = this.clone(character);
-      temp.baseAttributes[attribute] += 5;
+      temp.scenarios.forEach((scenario) => {
+        scenario.baseAttributes[attribute] += 5;
+      });
 
       this.updateAttributes(temp, true);
       results.effectivePositiveValues[attribute] =
@@ -861,7 +933,9 @@ export class OptimizerCore {
     results.effectiveNegativeValues = {};
     for (const attribute of gainLossKeys) {
       const temp = this.clone(character);
-      temp.baseAttributes[attribute] = Math.max(temp.baseAttributes[attribute] - 5, 0);
+      temp.scenarios.forEach((scenario) => {
+        scenario.baseAttributes[attribute] = Math.max(scenario.baseAttributes[attribute] - 5, 0);
+      });
 
       this.updateAttributes(temp, true);
       results.effectiveNegativeValues[attribute] =
@@ -898,11 +972,16 @@ export class OptimizerCore {
 
     const attrsWithModifiedCoefficient = (newCoefficient: number) => {
       const newCharacter = this.clone(character);
-      newCharacter.baseAttributes = { ...character.baseAttributes };
-      objectKeys(settings.distribution).forEach((key) => {
-        newCharacter.baseAttributes[`${key} Coefficient`] -= settings.distribution[key];
-        newCharacter.baseAttributes[`${key} Coefficient`] += newCoefficient;
+
+      newCharacter.scenarios.forEach((scenario, i) => {
+        scenario.baseAttributes = { ...character.scenarios[i].baseAttributes };
+
+        objectKeys(settings.distribution).forEach((key) => {
+          scenario.baseAttributes[`${key} Coefficient`] -= settings.distribution[key];
+          scenario.baseAttributes[`${key} Coefficient`] += newCoefficient;
+        });
       });
+
       this.updateAttributes(newCharacter);
       return newCharacter.attributes;
     };
@@ -919,12 +998,26 @@ export class OptimizerCore {
 
     // out of combat hero panel simulation (overrides both baseAttributes and modifiers)
     if (settings.unbuffedBaseAttributes && settings.unbuffedModifiers) {
-      const temp = this.createCharacter(character.gear, character.gearStats, character.infusions, {
-        baseAttributes: { ...settings.unbuffedBaseAttributes },
-      });
-      this.calcStats(temp, settings.unbuffedModifiers);
+      // const temp = this.createCharacter(character.gear, character.gearStats, character.infusions, {
+      //   scenarios: [
+      //     {
+      //       ...cloneScenario(this.settings.scenarios[0]),
+      //       baseAttributes: { ...settings.unbuffedBaseAttributes },
+      //     },
+      //   ],
+      // });
+      // this.calcStatsScenario(temp.scenarios[0], settings.unbuffedModifiers);
+      // results.unbuffedAttributes = temp.scenarios[0].attributes;
+
+      const temp = cloneScenario(this.settings.scenarios[0]);
+      temp.baseAttributes = { ...settings.unbuffedBaseAttributes };
+      this.calcStatsScenario(temp, settings.unbuffedModifiers);
       results.unbuffedAttributes = temp.attributes;
     }
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    delete character.scenarios;
   }
 
   getListWithResults = () =>
@@ -943,12 +1036,13 @@ export class OptimizerCore {
    */
   clone(character: CharacterUnprocessed): CharacterUnprocessed {
     return {
-      attributes: character.attributes, // passed by reference
+      // attributes: character.attributes, // passed by reference
       gear: character.gear, // passed by reference
       gearStats: character.gearStats, // passed by reference
       valid: character.valid,
 
-      baseAttributes: { ...character.baseAttributes },
+      // baseAttributes: { ...character.baseAttributes },
+      scenarios: character.scenarios.map(cloneScenario),
       infusions: { ...character.infusions },
     };
   }

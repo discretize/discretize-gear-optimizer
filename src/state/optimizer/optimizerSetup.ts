@@ -81,8 +81,10 @@ import type {
   OptimizerCoreSettings,
   OptimizerCoreSettingsPerCalculation,
   OptimizerCoreSettingsPerCombination,
+  Scenario,
+  ScenarioTemplate,
 } from './types/optimizerTypes';
-import { clamp, scaleValue } from './utils/utils';
+import { clamp, cloneScenarioTemplate, scaleValue } from './utils/utils';
 
 type CollectedAttributeModifiers = Partial<Record<AttributeKey, number>>;
 
@@ -118,15 +120,15 @@ export function setupCombinations(reduxState: RootState) {
     const settings = {
       ...settingsPerCalculation,
       ...settingsPerCombination,
-      unbuffedBaseAttributes: unbuffedSettings.baseAttributes,
-      unbuffedModifiers: unbuffedSettings.modifiers,
+      unbuffedBaseAttributes: unbuffedSettings.scenarios[0].baseAttributes,
+      unbuffedModifiers: unbuffedSettings.scenarios[0].modifiers,
       extrasCombination,
     };
 
     console.log(`combination ${i}:`, {
       settingsPerCombination,
-      unbuffedBaseAttributes: unbuffedSettings.baseAttributes,
-      unbuffedModifiers: unbuffedSettings.modifiers,
+      unbuffedBaseAttributes: unbuffedSettings.scenarios[0].baseAttributes,
+      unbuffedModifiers: unbuffedSettings.scenarios[0].modifiers,
       extrasCombination,
       extrasModifiers,
     });
@@ -508,7 +510,7 @@ export function createSettingsPerCombination(
 
   /* Base Attributes */
 
-  const baseAttributes: OptimizerCoreSettings['baseAttributes'] = {
+  const baseAttributes: Scenario['baseAttributes'] = {
     'Power': 1000,
     'Precision': 1000,
     'Toughness': 1000,
@@ -545,6 +547,116 @@ export function createSettingsPerCombination(
     baseAttributes['Phantasm Critical Chance'] = 0.05;
     baseAttributes['Phantasm Critical Damage'] = 1.5;
   }
+
+  /* Set Up Scenarios */
+
+  // simulate scenarios with/without each of these, according to their uptime.
+  const advancedUptimeModifiers = appliedModifiers.filter(
+    (appliedModifier) => appliedModifier.amountData?.advancedUptimeSimulation,
+  );
+  // apply these to all scenarios.
+  const basicModifiers = appliedModifiers.filter(
+    (appliedModifier) => !advancedUptimeModifiers.includes(appliedModifier),
+  );
+
+  let scenarioTemplates: ScenarioTemplate[] = [
+    { fraction: 1, baseAttributes, appliedModifiers: basicModifiers },
+  ];
+
+  advancedUptimeModifiers.forEach((advancedUptimeModifier) => {
+    const { amount: amountText, amountData } = advancedUptimeModifier;
+    const { value: amountInput } = parseAmount(amountText);
+    const withUptime = scaleValue(1, amountInput, amountData);
+    const withoutUptime = 1 - withUptime;
+
+    const { amountData: _, ...appliedModifierWithoutAmountData } = advancedUptimeModifier;
+
+    scenarioTemplates = scenarioTemplates
+      .map((scenarioTemplate) => {
+        if (withUptime === 1) {
+          // well, this was kind of unnecessary.
+          scenarioTemplate.appliedModifiers.push(appliedModifierWithoutAmountData);
+          return [scenarioTemplate];
+        }
+        if (withUptime === 0) {
+          // well, this was *really* unnecessary.
+          return [scenarioTemplate];
+        }
+
+        const withoutTemplate = cloneScenarioTemplate(scenarioTemplate);
+        withoutTemplate.fraction *= withoutUptime;
+
+        const withTemplate = cloneScenarioTemplate(scenarioTemplate);
+        withTemplate.fraction *= withUptime;
+        withTemplate.appliedModifiers.push(appliedModifierWithoutAmountData);
+
+        return [withoutTemplate, withTemplate];
+      })
+      .flat();
+  });
+
+  console.log('scenario templates', scenarioTemplates);
+
+  /* Calculate Scenario Modifiers */
+
+  // variables shared between scenarios
+  const extraRelevantConditions = Object.fromEntries(
+    Object.keys(conditionData).map((condition) => [condition, false]),
+  );
+  const allCalculationTweaks: CalculationTweaks = {};
+
+  const scenarios: Scenario[] = scenarioTemplates.map((scenarioTemplate) => {
+    const modifiers = calculateScenarioModifiers(
+      scenarioTemplate,
+      simulateUnbuffed,
+      isWvW,
+      extraRelevantConditions,
+      allCalculationTweaks,
+    );
+
+    return {
+      fraction: scenarioTemplate.fraction,
+      baseAttributes: { ...scenarioTemplate.baseAttributes },
+      modifiers,
+    };
+  });
+
+  console.log('scenarios', scenarios);
+
+  /* Relevant Conditions + Condi Caching Toggle */
+
+  const relevantConditions: OptimizerCoreSettings['relevantConditions'] = damagingConditions.filter(
+    (condition) =>
+      (baseAttributes[`${condition} Coefficient`] ?? 0) > 0 || extraRelevantConditions[condition],
+  );
+
+  // the condi result cache assumes the same cdmg + expertise values produce the same condition damage;
+  // disable it if any condition coefficients are the result of a conversion or if conditions scale in unusual ways
+  const disableCondiResultCache: OptimizerCoreSettings['disableCondiResultCache'] =
+    Object.values(extraRelevantConditions).some(Boolean) ||
+    !!allCalculationTweaks.infernoBurningDamage;
+
+  const settings: OptimizerCoreSettingsPerCombination = {
+    baseAttributes, // not used after scenarios update; left for things like unbuffed calc
+    modifiers: scenarios[0].modifiers, // not used after scenarios update; left for things like unbuffed calc
+    scenarios,
+    relevantConditions,
+    disableCondiResultCache,
+    appliedModifiers,
+    calculationTweaks: allCalculationTweaks,
+  };
+
+  return settings;
+}
+
+const calculateScenarioModifiers = (
+  scenarioTemplate: ScenarioTemplate,
+  simulateUnbuffed: boolean,
+  isWvW: boolean,
+  extraRelevantConditions: Record<string, boolean>,
+  allCalculationTweaks: object,
+) => {
+  const { baseAttributes, appliedModifiers } = scenarioTemplate;
 
   /* Modifiers */
 
@@ -597,18 +709,12 @@ export function createSettingsPerCombination(
 
   // Special handler for conversions that convert to condi coefficients; ensures that
   // relevantConditions includes them even if their coefficient sliders are 0
-  //
-  const extraRelevantConditions = Object.fromEntries(
-    Object.keys(conditionData).map((condition) => [condition, false]),
-  );
   const makeConditionsRelevant = (attribute: string) => {
     const condition = attribute.replace(' Coefficient', '');
     if (extraRelevantConditions[condition] !== undefined) {
       extraRelevantConditions[condition] = true;
     }
   };
-
-  let allCalculationTweaks: CalculationTweaks = {};
 
   for (const item of appliedModifiers) {
     const {
@@ -796,7 +902,7 @@ export function createSettingsPerCombination(
       }
     }
 
-    allCalculationTweaks = { ...allCalculationTweaks, ...calculationTweaks };
+    Object.assign(allCalculationTweaks, calculationTweaks);
   }
 
   const damageMultiplier = {} as DamageMultiplier;
@@ -832,8 +938,10 @@ export function createSettingsPerCombination(
     convertAfterBuffs,
   } as Modifiers;
 
-  /* Relevant Conditions + Condi Caching Toggle */
+  return modifiers;
+};
 
+/*
   const relevantConditions: OptimizerCoreSettings['relevantConditions'] = damagingConditions.filter(
     (condition) =>
       (baseAttributes[`${condition} Coefficient`] ?? 0) > 0 || extraRelevantConditions[condition],
@@ -855,4 +963,5 @@ export function createSettingsPerCombination(
   };
 
   return settings;
-}
+};
+*/

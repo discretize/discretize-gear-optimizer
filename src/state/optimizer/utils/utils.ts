@@ -1,3 +1,5 @@
+import type { Scenario, ScenarioTemplate } from '../types/optimizerTypes';
+
 /**
  * Scales a modifier value linearly up or down by a user-specified amount, in accordance with the
  * amountData from the modifier data YAML.
@@ -70,3 +72,15 @@ export const clamp = (input: number, min: number, max: number): number => {
   if (input > max) return max;
   return input;
 };
+
+export const cloneScenarioTemplate = (scenarioTemplate: ScenarioTemplate) => ({
+  fraction: scenarioTemplate.fraction,
+  baseAttributes: { ...scenarioTemplate.baseAttributes },
+  appliedModifiers: [...scenarioTemplate.appliedModifiers],
+});
+
+export const cloneScenario = (scenario: Scenario) => ({
+  fraction: scenario.fraction,
+  baseAttributes: { ...scenario.baseAttributes },
+  modifiers: scenario.modifiers, // passed by reference; we (hopefully) don't modify these
+});

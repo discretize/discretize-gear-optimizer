@@ -177,6 +177,7 @@ export function enhanceResults(
       settings: characterSettings,
       results: charResults,
       valid: true,
+      scenarios: [],
     });
   });
 

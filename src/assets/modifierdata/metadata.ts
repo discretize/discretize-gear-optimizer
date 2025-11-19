@@ -284,12 +284,17 @@ export interface Modifiers {
   calculationTweaks?: CalculationTweaks;
 }
 
+export interface AdvancedUptimeSimulationData {
+  correlation?: false | string;
+}
+
 export interface AmountData {
   label: string;
   default: number;
   quantityEntered: number;
   defaultInput?: string;
   disableBlacklist?: boolean;
+  advancedUptimeSimulation?: AdvancedUptimeSimulationData;
 }
 
 export interface ModifierItem {

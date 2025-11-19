@@ -94,12 +94,33 @@ export type Attributes = GuaranteedBaseAttributes & Partial<Record<AttributeName
 
 // settings that **do** vary based on extras combination
 export interface OptimizerCoreSettingsPerCombination {
-  baseAttributes: Attributes;
-  modifiers: Modifiers;
+  baseAttributes: Attributes; // not used after scenarios update; left for things like unbuffed calc
+  modifiers: Modifiers; // not used after scenarios update; left for things like unbuffed calc
+  scenarios: Scenario[];
   disableCondiResultCache: boolean;
   relevantConditions: DamagingConditionName[];
   appliedModifiers: AppliedModifier[];
   calculationTweaks: CalculationTweaks;
+}
+
+export interface ScenarioTemplate {
+  fraction: number;
+  baseAttributes: Attributes;
+  appliedModifiers: AppliedModifier[];
+}
+
+export interface Scenario {
+  fraction: number;
+  baseAttributes: Attributes;
+  modifiers: Modifiers;
+  attributes?: Attributes;
+}
+
+export interface ScenarioProcessed extends Scenario {
+  // note: this is not actually accurate
+  // (we convince typescript every attribute is defined via a type predicate in calcStats)
+  // TODO: improve this
+  attributes: Required<Attributes>;
 }
 
 export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &
@@ -144,11 +165,12 @@ export interface Results {
 export interface CharacterUnprocessed {
   id?: string;
   attributes?: Attributes;
+  scenarios: Scenario[];
   gear: Gear;
   gearStats: GearStats;
   gearDescription?: string;
   valid: boolean;
-  baseAttributes: Attributes;
+  baseAttributes?: Attributes;
   infusions: Partial<Record<InfusionName, number>>;
   results?: Results;
 }
@@ -157,9 +179,11 @@ export interface CharacterProcessed extends CharacterUnprocessed {
   // (we convince typescript every attribute is defined via a type predicate in calcStats)
   // TODO: improve this
   attributes: Required<Attributes>;
+  scenarios: ScenarioProcessed[];
 }
 export interface CharacterWithResults extends CharacterProcessed {
   results: Results;
+  baseAttributes: Attributes; // not used after scenarios update; left for things like unbuffed calc
 }
 export interface Character extends CharacterWithResults {
   settings: OptimizerCoreMinimalSettings;
