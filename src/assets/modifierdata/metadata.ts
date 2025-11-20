@@ -284,8 +284,13 @@ export interface Modifiers {
   calculationTweaks?: CalculationTweaks;
 }
 
+interface Correlation {
+  category: string;
+  group: string;
+}
+
 export interface AdvancedUptimeSimulationData {
-  correlation?: false | string;
+  correlation: false | Correlation;
 }
 
 export interface AmountData {
