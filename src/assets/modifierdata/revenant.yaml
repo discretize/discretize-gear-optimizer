@@ -180,6 +180,10 @@
         default: 0
         defaultInput: ???
         quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: cosmic-wisdom
+            group: assassin
       modifiers:
         attributes:
           Power: [150, buff]
@@ -195,6 +199,10 @@
         default: 0
         defaultInput: ???
         quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: cosmic-wisdom
+            group: centaur
       modifiers:
         attributes:
           Healing Power: [150, buff]
@@ -210,6 +218,10 @@
         default: 0
         defaultInput: ???
         quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: cosmic-wisdom
+            group: demon
       modifiers:
         attributes:
           Condition Damage: [150, buff]
@@ -225,6 +237,10 @@
         default: 0
         defaultInput: ???
         quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: cosmic-wisdom
+            group: dwarf
       modifiers:
         attributes:
           Toughness: [150, buff]
@@ -240,6 +256,10 @@
         default: 0
         defaultInput: ???
         quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: cosmic-wisdom
+            group: entity
       modifiers:
         attributes:
           Power: [75, buff]
