@@ -646,7 +646,7 @@ export function createSettingsPerCombination(
 
   // Create scenarios for every combination of active/inactive for every advanced uptime modifier
   let scenarioTemplates: ScenarioTemplate[] = [
-    { fraction: 1, baseAttributes, appliedModifiers: basicModifiers },
+    { fraction: 1, baseAttributes, appliedModifiers: [] },
   ];
   categoryData.forEach(({ groupData }) => {
     // Yes, each category multiplies the number of scenarios by at least two.
@@ -663,7 +663,19 @@ export function createSettingsPerCombination(
       .flat();
   });
 
-  console.log('scenario templates', scenarioTemplates);
+  const roundTwo = (num: number) => Math.round(num * 100) / 100;
+
+  console.log(
+    'scenario template summary',
+    scenarioTemplates.map((scenarioTemplate) => [
+      roundTwo(scenarioTemplate.fraction * 100),
+      ...scenarioTemplate.appliedModifiers.map(({ id }) => id),
+    ]),
+  );
+
+  scenarioTemplates.forEach((scenarioTemplate) =>
+    scenarioTemplate.appliedModifiers.push(...basicModifiers),
+  );
 
   /* Calculate Scenario Modifiers */
 
