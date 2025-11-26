@@ -8,9 +8,11 @@ import type {
   GearAttributeName,
   IndicatorName,
   InfusionName,
+  NonScenarioAttributeName,
   PrimaryAttributeName,
   ProfessionName,
   ProfessionOrSpecializationName,
+  ScenarioAttributeName,
   SecondaryAttributeName,
   WeaponHandednessType,
 } from '../../../utils/gw2-data';
@@ -90,7 +92,13 @@ type GuaranteedBaseAttributes = Record<
   number
 >;
 
-export type Attributes = GuaranteedBaseAttributes & Partial<Record<AttributeName, number>>;
+export type ScenarioAttributes = GuaranteedBaseAttributes &
+  Partial<Record<ScenarioAttributeName, number>>;
+
+export type CharacterWithStatsAttributes = Record<NonScenarioAttributeName, number> &
+  Partial<Record<ScenarioAttributeName, number>>;
+
+export type Attributes = ScenarioAttributes & Partial<Record<AttributeName, number>>;
 
 // settings that **do** vary based on extras combination
 export interface OptimizerCoreSettingsPerCombination {
@@ -105,22 +113,22 @@ export interface OptimizerCoreSettingsPerCombination {
 
 export interface ScenarioTemplate {
   fraction: number;
-  baseAttributes: Attributes;
+  baseAttributes: ScenarioAttributes;
   appliedModifiers: AppliedModifier[];
 }
 
 export interface Scenario {
   fraction: number;
-  baseAttributes: Attributes;
+  baseAttributes: ScenarioAttributes;
   modifiers: Modifiers;
-  attributes?: Attributes;
+  attributes?: ScenarioAttributes;
 }
 
 export interface ScenarioProcessed extends Scenario {
   // note: this is not actually accurate
   // (we convince typescript every attribute is defined via a type predicate in calcStats)
   // TODO: improve this
-  attributes: Required<Attributes>;
+  attributes: Required<ScenarioAttributes>;
 }
 
 export type OptimizerCoreSettings = OptimizerCoreSettingsPerCalculation &
@@ -150,7 +158,7 @@ interface CoefficientHelperValue {
   slope: number;
   intercept: number;
 }
-export type EffectiveDistributionKey = DistributionNameInternal | 'Flat' | 'Siphon';
+export type EffectiveDistributionKey = DistributionNameInternal | 'Other' | 'Siphon';
 type GainLossKey = 'Power' | 'Precision' | 'Ferocity' | 'Condition Damage' | 'Expertise';
 export interface Results {
   value: number;
@@ -164,26 +172,26 @@ export interface Results {
 }
 export interface CharacterUnprocessed {
   id?: string;
-  attributes?: Attributes;
+  attributes?: CharacterWithStatsAttributes;
   scenarios: Scenario[];
   gear: Gear;
   gearStats: GearStats;
   gearDescription?: string;
   valid: boolean;
-  baseAttributes?: Attributes;
+  baseAttributes?: Attributes; // not used after scenarios update
   infusions: Partial<Record<InfusionName, number>>;
   results?: Results;
 }
 export interface CharacterProcessed extends CharacterUnprocessed {
+  attributes: CharacterWithStatsAttributes;
+  scenarios: ScenarioProcessed[];
+}
+export interface CharacterWithResults extends CharacterProcessed {
   // note: this is not actually accurate
   // (we convince typescript every attribute is defined via a type predicate in calcStats)
   // TODO: improve this
   attributes: Required<Attributes>;
-  scenarios: ScenarioProcessed[];
-}
-export interface CharacterWithResults extends CharacterProcessed {
   results: Results;
-  baseAttributes: Attributes; // not used after scenarios update; left for things like unbuffed calc
 }
 export interface Character extends CharacterWithResults {
   settings: OptimizerCoreMinimalSettings;

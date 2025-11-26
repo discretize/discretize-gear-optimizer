@@ -15,7 +15,7 @@ import {
 } from '../../utils/gw2-data';
 import type { ValueOf } from '../../utils/usefulFunctions';
 import { enumArrayIncludes, objectEntries, objectKeys } from '../../utils/usefulFunctions';
-import type { DamageMultiplier, Modifiers } from './types/optimizerSetupTypes';
+import type { Modifiers } from './types/optimizerSetupTypes';
 import type {
   Character,
   CharacterProcessed,
@@ -475,30 +475,24 @@ export class OptimizerCore {
     this.calcStats(character, noRounding);
 
     const powerDamageScore = character.scenarios
-      .map(
-        (scenario) =>
-          this.calcPowerScenario(scenario, scenario.modifiers.damageMultiplier) * scenario.fraction,
-      )
+      .map((scenario) => this.calcPowerScenario(scenario, character) * scenario.fraction)
       .reduce((a, b) => a + b);
     const condiDamageScore = character.scenarios
       .map(
         (scenario) =>
-          this.calcCondiScenario(
-            scenario,
-            scenario.modifiers.damageMultiplier,
-            damagingConditions,
-          ) * scenario.fraction,
+          this.calcCondiScenario(scenario, character, damagingConditions) * scenario.fraction,
       )
       .reduce((a, b) => a + b);
 
-    // todo: various things
-    character.attributes = character.scenarios[0].attributes;
+    character.attributes['Damage'] = powerDamageScore + condiDamageScore;
 
-    character.attributes['Damage'] =
-      powerDamageScore + condiDamageScore + character.attributes['Flat DPS'];
+    character.attributes['Healing'] = character.scenarios
+      .map((scenario) => this.calcHealingScenario(scenario) * scenario.fraction)
+      .reduce((a, b) => a + b);
 
-    this.calcSurvivability(character);
-    this.calcHealing(character);
+    character.attributes['Survivability'] = character.scenarios
+      .map((scenario) => this.calcSurvivabilityScenario(scenario) * scenario.fraction)
+      .reduce((a, b) => a + b);
   }
 
   /**
@@ -524,27 +518,20 @@ export class OptimizerCore {
 
     if (settings.rankby === 'Damage' || settings.minDamage) {
       const powerDamageScore = character.scenarios
-        .map(
-          (scenario) =>
-            this.calcPowerScenario(scenario, scenario.modifiers.damageMultiplier) *
-            scenario.fraction,
-        )
+        .map((scenario) => this.calcPowerScenario(scenario, character) * scenario.fraction)
         .reduce((a, b) => a + b);
 
       // cache condi result based on cdmg and expertise
       let condiDamageScore = 0;
-      if (settings.disableCondiResultCache) {
+      if (settings.disableCondiResultCache || character.scenarios.length !== 1) {
         condiDamageScore = character.scenarios
           .map(
             (scenario) =>
-              this.calcCondiScenario(
-                scenario,
-                scenario.modifiers.damageMultiplier,
-                settings.relevantConditions,
-              ) * scenario.fraction,
+              this.calcCondiScenario(scenario, character, settings.relevantConditions) *
+              scenario.fraction,
           )
           .reduce((a, b) => a + b);
-      } else if (character.scenarios.length === 1 && settings.relevantConditions.length > 0) {
+      } else if (settings.relevantConditions.length > 0) {
         const CONDI_CACHE_ID =
           character.scenarios[0].attributes['Expertise'] +
           character.scenarios[0].attributes['Condition Damage'] * 10000;
@@ -553,28 +540,25 @@ export class OptimizerCore {
           character.scenarios
             .map(
               (scenario) =>
-                this.calcCondiScenario(
-                  scenario,
-                  scenario.modifiers.damageMultiplier,
-                  settings.relevantConditions,
-                ) * scenario.fraction,
+                this.calcCondiScenario(scenario, character, settings.relevantConditions) *
+                scenario.fraction,
             )
             .reduce((a, b) => a + b);
 
         this.condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
       }
 
-      // todo: various things
-      character.attributes = character.scenarios[0].attributes;
-
-      character.attributes['Damage'] =
-        powerDamageScore + condiDamageScore + character.attributes['Flat DPS'];
+      character.attributes['Damage'] = powerDamageScore + condiDamageScore;
     }
     if (settings.rankby === 'Healing' || settings.minHealing) {
-      this.calcHealing(character);
+      character.attributes['Healing'] = character.scenarios
+        .map((scenario) => this.calcHealingScenario(scenario) * scenario.fraction)
+        .reduce((a, b) => a + b);
     }
     if (settings.rankby === 'Survivability' || settings.minSurvivability) {
-      this.calcSurvivability(character);
+      character.attributes['Survivability'] = character.scenarios
+        .map((scenario) => this.calcSurvivabilityScenario(scenario) * scenario.fraction)
+        .reduce((a, b) => a + b);
     }
 
     if (!skipValidation) {
@@ -589,6 +573,23 @@ export class OptimizerCore {
     character.scenarios.forEach((scenario) =>
       this.calcStatsScenario(scenario, scenario.modifiers, noRounding),
     );
+
+    character.attributes = {
+      'Damage': 0,
+      'Survivability': 0,
+      'Healing': 0,
+
+      'Power DPS': 0,
+      'Power2 DPS': 0,
+      'Siphon DPS': 0,
+      'Other DPS': 0,
+
+      'Bleeding DPS': 0,
+      'Burning DPS': 0,
+      'Confusion DPS': 0,
+      'Poison DPS': 0,
+      'Torment DPS': 0,
+    };
   }
 
   calcStatsScenario(
@@ -700,7 +701,7 @@ export class OptimizerCore {
 
   checkInvalidIndicators(character: CharacterProcessed) {
     const { settings } = this;
-    const { attributes } = character.scenarios[0];
+    const { attributes } = character;
 
     const invalid =
       (settings.minDamage !== undefined && attributes['Damage'] < settings.minDamage) ||
@@ -714,9 +715,13 @@ export class OptimizerCore {
     return invalid;
   }
 
-  calcPowerScenario(scenario: ScenarioProcessed, damageMultiplier: DamageMultiplier) {
+  calcPowerScenario(scenario: ScenarioProcessed, character: CharacterProcessed) {
     const { settings } = this;
-    const { attributes } = scenario;
+    const {
+      attributes,
+      modifiers: { damageMultiplier },
+      fraction,
+    } = scenario;
 
     const critDmg = attributes['Critical Damage'] * damageMultiplier['Outgoing Critical Damage'];
     const critChance = clamp(attributes['Critical Chance'], 0, 1);
@@ -730,8 +735,10 @@ export class OptimizerCore {
 
     attributes['Effective Power'] = attributes['Power'] * (1 + critChance * (critDmg - 1));
 
+    let result = 0;
+
     // 2597: standard enemy armor value, also used for ingame damage tooltips
-    let powerDamage =
+    const powerDamage =
       (attributes['Power Coefficient'] / 2597) *
         attributes['Effective Power'] *
         damageMultiplier['Outgoing Strike Damage'] +
@@ -739,7 +746,8 @@ export class OptimizerCore {
         attributes['Power'] *
         damageMultiplier['Outgoing Strike Damage'];
 
-    attributes['Power DPS'] = powerDamage;
+    character.attributes['Power DPS'] += powerDamage * fraction;
+    result += powerDamage;
 
     if (attributes['Power2 Coefficient']) {
       if (settings.profession === 'Mesmer') {
@@ -756,8 +764,8 @@ export class OptimizerCore {
           (attributes['Power2 Coefficient'] / 2597) *
           attributes['Phantasm Effective Power'] *
           damageMultiplier['Outgoing Phantasm Damage'];
-        attributes['Power2 DPS'] = phantasmPowerDamage;
-        powerDamage += phantasmPowerDamage;
+        character.attributes['Power2 DPS'] += phantasmPowerDamage * fraction;
+        result += phantasmPowerDamage;
       } else {
         // necromancer shroud: special bonuses are IN ADDITION TO player attributes
         attributes['Alternative Critical Damage'] *=
@@ -774,20 +782,23 @@ export class OptimizerCore {
           attributes['Alternative Effective Power'] *
           damageMultiplier['Outgoing Strike Damage'] *
           damageMultiplier['Outgoing Alternative Damage'];
-        attributes['Power2 DPS'] = alternativePowerDamage;
-        powerDamage += alternativePowerDamage;
+        character.attributes['Power2 DPS'] += alternativePowerDamage * fraction;
+        result += alternativePowerDamage;
       }
-    } else {
-      attributes['Power2 DPS'] = 0;
     }
 
     const siphonDamage =
       ((attributes['Siphon Base Coefficient'] || 0) +
         (attributes['Siphon Coefficient'] || 0) * attributes['Power']) *
       damageMultiplier['Outgoing Siphon Damage'];
-    attributes['Siphon DPS'] = siphonDamage;
+    character.attributes['Siphon DPS'] += siphonDamage * fraction;
+    result += siphonDamage;
 
-    return powerDamage + siphonDamage;
+    const flatDamage = attributes['Flat DPS'];
+    character.attributes['Other DPS'] += flatDamage * fraction;
+    result += flatDamage;
+
+    return result;
   }
 
   conditionDamageTick = (data: ValueOf<typeof conditionData>, cdmg: number, mult: number): number =>
@@ -795,13 +806,17 @@ export class OptimizerCore {
 
   calcCondiScenario(
     scenario: ScenarioProcessed,
-    damageMultiplier: DamageMultiplier,
+    character: CharacterProcessed,
     relevantConditions: readonly DamagingConditionName[],
   ) {
     const { settings, conditionData: data, conditionDamageTick } = this;
-    const { attributes } = scenario;
+    const {
+      attributes,
+      modifiers: { damageMultiplier },
+      fraction,
+    } = scenario;
 
-    let condiDamageScore = 0;
+    let result = 0;
     for (const condition of relevantConditions) {
       const cdmg = attributes['Condition Damage'];
       const mult =
@@ -844,31 +859,24 @@ export class OptimizerCore {
       attributes[`${condition} Stacks`] = stacks;
 
       const DPS = stacks * (attributes[`${condition} Damage Tick`] || 1);
-      attributes[`${condition} DPS`] = DPS;
+      character.attributes[`${condition} DPS`] += DPS * fraction;
 
-      condiDamageScore += DPS;
+      result += DPS;
     }
 
-    return condiDamageScore;
+    return result;
   }
 
-  calcSurvivability(character: CharacterProcessed) {
-    character.scenarios.forEach((scenario) =>
-      this.calcSurvivabilityScenario(scenario, scenario.modifiers.damageMultiplier),
-    );
-  }
-
-  calcSurvivabilityScenario(scenario: ScenarioProcessed, damageMultiplier: DamageMultiplier) {
-    const { attributes } = scenario;
+  calcSurvivabilityScenario(scenario: ScenarioProcessed) {
+    const {
+      attributes,
+      modifiers: { damageMultiplier },
+    } = scenario;
 
     attributes['Effective Health'] =
       attributes['Health'] * attributes['Armor'] * (1 / damageMultiplier['Incoming Strike Damage']);
 
-    attributes['Survivability'] = attributes['Effective Health'] / 1967;
-  }
-
-  calcHealing(character: CharacterProcessed) {
-    character.scenarios.forEach((scenario) => this.calcHealingScenario(scenario));
+    return attributes['Effective Health'] / 1967;
   }
 
   calcHealingScenario(scenario: ScenarioProcessed) {
@@ -879,14 +887,17 @@ export class OptimizerCore {
     attributes['Effective Healing'] =
       (attributes['Healing Power'] * 0.3 + 390) * (1 + (attributes['Outgoing Healing'] || 0));
 
-    attributes['Healing'] = attributes['Effective Healing'];
+    return attributes['Effective Healing'];
   }
 
   calcResults(character: CharacterProcessed): asserts character is CharacterWithResults {
     if (character.results) return;
 
     const { settings } = this;
-    const { attributes } = character;
+    const { attributes, scenarios } = character;
+
+    // copy attributes from first scenario
+    Object.assign(attributes, scenarios[0].attributes);
 
     const value = character.attributes[settings.rankby];
 
@@ -901,8 +912,6 @@ export class OptimizerCore {
     };
 
     character.results = results;
-
-    character.baseAttributes = character.scenarios[0].baseAttributes;
 
     // baseline for comparing adding/subtracting +5 infusions
     const baseline = this.clone(character);
@@ -945,7 +954,7 @@ export class OptimizerCore {
     const effectiveDistributionKeys = [
       ...Object.keys(settings.distribution),
       'Siphon',
-      'Flat',
+      'Other',
     ] as EffectiveDistributionKey[];
 
     // effective damage distribution
