@@ -75,7 +75,6 @@ export const clamp = (input: number, min: number, max: number): number => {
 
 export const cloneScenarioTemplate = (scenarioTemplate: ScenarioTemplate) => ({
   fraction: scenarioTemplate.fraction,
-  baseAttributes: { ...scenarioTemplate.baseAttributes },
   appliedModifiers: [...scenarioTemplate.appliedModifiers],
 });
 

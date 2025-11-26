@@ -113,7 +113,6 @@ export interface OptimizerCoreSettingsPerCombination {
 
 export interface ScenarioTemplate {
   fraction: number;
-  baseAttributes: ScenarioAttributes;
   appliedModifiers: AppliedModifier[];
 }
 
