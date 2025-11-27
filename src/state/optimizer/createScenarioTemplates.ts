@@ -99,7 +99,7 @@ export function createScenarioTemplates(
           .join('/')}!`,
       );
     }
-    byGroup.push({ modifiers: [], uptime: 1 - categoryTotalUptime });
+    byGroup.unshift({ modifiers: [], uptime: 1 - categoryTotalUptime });
   });
 
   // Create scenarios for every combination of active/inactive for every advanced uptime modifier
