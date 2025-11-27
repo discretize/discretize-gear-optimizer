@@ -4,7 +4,10 @@ import type { ScenarioTemplate } from './types/optimizerTypes';
 import { clamp, cloneScenarioTemplate, scaleValue } from './utils/utils';
 
 /* eslint-disable import/prefer-default-export */
-export function createScenarioTemplates(appliedModifiers: AppliedModifier[]): ScenarioTemplate[] {
+export function createScenarioTemplates(
+  appliedModifiers: AppliedModifier[],
+  withLogging = false,
+): ScenarioTemplate[] {
   // simulate scenarios with/without each of these, according to their uptime.
   const advancedUptimeModifiers = appliedModifiers.filter(
     (appliedModifier) => appliedModifier.amountData?.advancedUptimeSimulation,
@@ -118,13 +121,15 @@ export function createScenarioTemplates(appliedModifiers: AppliedModifier[]): Sc
 
   const roundTwo = (num: number) => Math.round(num * 100) / 100;
 
-  console.log(
-    'scenario template summary',
-    scenarioTemplates.map((scenarioTemplate) => [
-      roundTwo(scenarioTemplate.fraction * 100),
-      ...scenarioTemplate.appliedModifiers.map(({ id }) => id),
-    ]),
-  );
+  if (withLogging) {
+    console.log(
+      'scenario template summary',
+      scenarioTemplates.map((scenarioTemplate) => [
+        roundTwo(scenarioTemplate.fraction * 100),
+        ...scenarioTemplate.appliedModifiers.map(({ id }) => id),
+      ]),
+    );
+  }
 
   scenarioTemplates.forEach((scenarioTemplate) =>
     scenarioTemplate.appliedModifiers.push(...basicModifiers),
