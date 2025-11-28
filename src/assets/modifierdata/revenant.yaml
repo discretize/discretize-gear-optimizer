@@ -190,7 +190,7 @@
         advancedUptimeSimulation:
           correlation:
             category: cosmic-wisdom
-            group: assassin
+            group: cosmic-wisdom
       modifiers:
         attributes:
           Power: [150, buff]
@@ -209,7 +209,7 @@
         advancedUptimeSimulation:
           correlation:
             category: cosmic-wisdom
-            group: centaur
+            group: cosmic-wisdom
       modifiers:
         attributes:
           Healing Power: [150, buff]
@@ -228,7 +228,7 @@
         advancedUptimeSimulation:
           correlation:
             category: cosmic-wisdom
-            group: demon
+            group: cosmic-wisdom
       modifiers:
         attributes:
           Condition Damage: [150, buff]
@@ -247,7 +247,7 @@
         advancedUptimeSimulation:
           correlation:
             category: cosmic-wisdom
-            group: dwarf
+            group: cosmic-wisdom
       modifiers:
         attributes:
           Toughness: [150, buff]
@@ -266,7 +266,7 @@
         advancedUptimeSimulation:
           correlation:
             category: cosmic-wisdom
-            group: entity
+            group: cosmic-wisdom
       modifiers:
         attributes:
           Power: [75, buff]
