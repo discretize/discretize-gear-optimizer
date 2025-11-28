@@ -304,6 +304,7 @@ export const sigilDict = [
   'draining-sigil',
   'leeching-sigil',
   'geomancy-doom-alac-specter',
+  'vision',
 ];
 
 export const enhancementDict = [

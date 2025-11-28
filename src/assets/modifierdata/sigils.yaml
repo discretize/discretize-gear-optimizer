@@ -96,6 +96,21 @@
       gw2id: 24597
       temporaryBuff: true
 
+    - id: vision
+      text: Superior Sigil of Vision
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
+      modifiers:
+        attributes:
+          Critical Chance: 100%
+      gw2id: 24600
+      temporaryBuff: true
+
     - id: blood-sigil
       text: Superior Sigil of Blood
       amountData:

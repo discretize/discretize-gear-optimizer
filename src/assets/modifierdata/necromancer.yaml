@@ -445,8 +445,13 @@
 
     - id: sand-sage-active
       text: Sand Sage
-      subText: with active shade
       minor: true
+      amountData:
+        label: '% with shade'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Concentration: [225, converted]

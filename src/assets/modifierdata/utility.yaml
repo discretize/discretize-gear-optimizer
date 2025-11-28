@@ -290,7 +290,14 @@
 
     - id: writ-of-masterful-accuracy
       text: Writ of Masterful Accuracy
-      subText: (100% uptime)
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: scholar
+            group: scholar
       modifiers:
         attributes:
           Precision: [200, converted]
@@ -299,7 +306,14 @@
 
     - id: writ-of-learned-accuracy
       text: Writ of Learned Accuracy
-      subText: (100% uptime)
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: scholar
+            group: scholar
       modifiers:
         attributes:
           Precision: [160, converted]
@@ -308,7 +322,14 @@
 
     - id: writ-of-calculated-accuracy
       text: Writ of Calculated Accuracy
-      subText: (100% uptime)
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: scholar
+            group: scholar
       modifiers:
         attributes:
           Precision: [120, converted]

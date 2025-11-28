@@ -247,7 +247,13 @@
 
     - id: light-on-your-feet
       text: Light on your Feet
-      subText: 100% uptime
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, mult]

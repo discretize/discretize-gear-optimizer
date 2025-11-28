@@ -11,11 +11,17 @@
 
     - id: signet-of-midnight
       text: Signet of Midnight
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Expertise: [180, buff]
       gw2id: 10234
-      temporaryBuff: false
+      temporaryBuff: activeOutOfCombat
 
 - section: Domination
   id: 10
@@ -230,7 +236,12 @@
     - id: chaotic-persistence
       text: Chaotic Persistence
       minor: true
-      subText: 100% regeneration
+      amountData:
+        label: '% regeneration'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Concentration: [250, converted]

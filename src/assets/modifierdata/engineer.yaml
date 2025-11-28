@@ -185,7 +185,12 @@
 
     - id: high-caliber
       text: High Caliber
-      subText: 100% melee
+      amountData:
+        label: '% melee'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Critical Chance: 15%
