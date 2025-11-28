@@ -18,8 +18,7 @@
       text: Signet of Fire
       amountData:
         label: '% uptime'
-        default: 0
-        defaultInput: ???
+        default: 100
         quantityEntered: 100
         advancedUptimeSimulation:
           correlation: false
@@ -27,7 +26,7 @@
         attributes:
           Precision: [180, buff]
       gw2id: 5542
-      temporaryBuff: false
+      temporaryBuff: activeOutOfCombat
 
     - id: signet-of-earth
       text: Signet of Earth
