@@ -185,7 +185,6 @@ const testModifiers = async () => {
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             disableBlacklist,
             defaultInput,
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             advancedUptimeSimulation,
             ...otherAmountKeys
           } = amountData;
@@ -209,6 +208,13 @@ const testModifiers = async () => {
             gentleAssert(
               !amountDefault,
               `err: ${id}'s defaultInput overrides a nonzero default amount`,
+            );
+          }
+
+          if (advancedUptimeSimulation) {
+            gentleAssert(
+              temporaryBuff !== false,
+              `err: ${id} has advancedUptimeSimulation and temporaryBuff: false! it should probably be activeOutOfCombat.`,
             );
           }
         }
