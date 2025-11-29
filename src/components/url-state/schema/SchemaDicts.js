@@ -262,7 +262,7 @@ export const sigilDict = [
   'accuracy',
   'impact/night/slaying-both',
   'impact/night/slaying-only-3',
-  'severance-perma',
+  'severance',
   'concentration',
   'transference',
   'malice',

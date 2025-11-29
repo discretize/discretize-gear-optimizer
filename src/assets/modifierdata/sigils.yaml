@@ -59,7 +59,7 @@
       gw2id: 24548
       temporaryBuff: true
 
-    - id: severance-perma
+    - id: severance
       text: Superior Sigil of Severance
       amountData:
         label: '% uptime'
