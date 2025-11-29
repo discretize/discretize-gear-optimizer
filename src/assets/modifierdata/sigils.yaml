@@ -61,7 +61,13 @@
 
     - id: severance-perma
       text: Superior Sigil of Severance
-      subText: (100% uptime)
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Precision: [250, buff] # tested unconverted by Snappy Joe
