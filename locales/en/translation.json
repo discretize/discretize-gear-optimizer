@@ -1028,6 +1028,7 @@
   "traitNote_Not currently implemented. Evolve gives temporary precision/expertise, which are not currently well-simulated.": "Not currently implemented. Evolve gives temporary precision/expertise, which are not currently well-simulated.",
   "traitNote_Not currently implemented. Fortissimo gives temporary precision/expertise, which is not currently well-simulated.": "Not currently implemented. Fortissimo gives temporary precision/expertise, which is not currently well-simulated.",
   "traitNote_Pet damage is not currently simulated.": "Pet damage is not currently simulated.",
+  "traitNote_Spirit damage formulas are not currently known.": "Spirit damage formulas are not currently known.",
   "traitSubText": "",
   "traitSubText_1-3 motivation": "1-3 motivation",
   "traitSubText_100%": "100%",
