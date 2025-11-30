@@ -250,7 +250,7 @@
         advancedUptimeSimulation:
           correlation:
             category: scholar
-            group: scholar
+            group: true
       modifiers:
         attributes:
           Power: [120, converted]
@@ -267,7 +267,7 @@
         advancedUptimeSimulation:
           correlation:
             category: scholar
-            group: scholar
+            group: true
       modifiers:
         attributes:
           Condition Damage: [200, converted]
@@ -284,7 +284,7 @@
         advancedUptimeSimulation:
           correlation:
             category: scholar
-            group: scholar
+            group: true
       modifiers:
         attributes:
           Condition Damage: [160, converted]
@@ -312,7 +312,7 @@
         advancedUptimeSimulation:
           correlation:
             category: scholar
-            group: scholar
+            group: true
       modifiers:
         attributes:
           Precision: [200, converted]
@@ -328,7 +328,7 @@
         advancedUptimeSimulation:
           correlation:
             category: scholar
-            group: scholar
+            group: true
       modifiers:
         attributes:
           Precision: [160, converted]
@@ -344,7 +344,7 @@
         advancedUptimeSimulation:
           correlation:
             category: scholar
-            group: scholar
+            group: true
       modifiers:
         attributes:
           Precision: [120, converted]
