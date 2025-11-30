@@ -33,15 +33,10 @@ const getSharedModifiersInfo = memoize((state: RootState) => {
       ...getTraitsModifiers(state),
     ].filter(({ amountData }) => amountData?.advancedUptimeSimulation);
 
-    const extrasCombinationsAndModifiers = getExtrasCombinationsAndModifiers(state)
-      .map(({ extrasModifiers }) =>
+    const extrasCombinationsAndModifiers = getExtrasCombinationsAndModifiers(state).map(
+      ({ extrasModifiers }) =>
         extrasModifiers.filter(({ amountData }) => amountData?.advancedUptimeSimulation),
-      )
-      .filter((advancedUptimeExtrasModifiers) => advancedUptimeExtrasModifiers.length);
-
-    if (extrasCombinationsAndModifiers.length === 0) {
-      extrasCombinationsAndModifiers.push([]);
-    }
+    );
 
     const results = extrasCombinationsAndModifiers.map((extrasModifiers) => {
       const templates = createScenarioTemplates([
@@ -83,7 +78,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   pre: {
     fontSize: '1em',
-    whiteSpace: 'pre-line',
+    whiteSpace: 'pre-wrap',
   },
 }));
 
