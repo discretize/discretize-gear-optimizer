@@ -227,7 +227,7 @@
         advancedUptimeSimulation:
           correlation:
             category: scholar
-            group: scholar
+            group: true
       modifiers:
         attributes:
           Critical Chance: 5%
@@ -245,7 +245,7 @@
         advancedUptimeSimulation:
           correlation:
             category: scholar
-            group: scholar
+            group: true
       modifiers:
         damage:
           Outgoing Critical Damage: [7%, unknown]
