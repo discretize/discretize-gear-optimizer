@@ -34,6 +34,7 @@ import { AmountInput } from '../../baseComponents/AmountInput';
 import Label from '../../baseComponents/Label';
 import ModalContent from './ModalContent';
 import { formatApiText, joinWith } from './helpers';
+import AdvancedUptimeIndicator from '../../baseComponents/AdvancedUptimeIndicator';
 
 // const roundPrice = (num) => Math.round(num / 100) * 100;
 const roundPrice = (num) => Math.round(num / 10) * 10;
@@ -236,6 +237,7 @@ export default function ExtraSelection(props) {
                       )}
 
                       <Box sx={{ flexGrow: 1 }} />
+                      <AdvancedUptimeIndicator amount={amount} amountData={amountData} />
                       {amountData && (
                         <AmountInput
                           placeholder={amountData.default}
