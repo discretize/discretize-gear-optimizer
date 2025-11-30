@@ -286,7 +286,7 @@ export interface Modifiers {
 
 interface Correlation {
   category: string;
-  group: string;
+  group: string | boolean;
 }
 
 export interface AdvancedUptimeSimulationData {

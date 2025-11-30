@@ -30,7 +30,7 @@ export function createScenarioTemplates(
   const categoryData: {
     category?: string;
     groupData: {
-      group?: string;
+      group?: string | boolean;
       modifiers: AppliedModifier[];
       uptime: number;
     }[];
