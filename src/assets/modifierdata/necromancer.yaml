@@ -107,6 +107,20 @@
           Damage Reduction: [20%, mult]
       gw2id: 29958
 
+    - id: painful-bond-tick
+      text: Painful Bond
+      subText: Painful Bond damage ticks
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 200
+          Siphon Coefficient: 0.4
+      temporaryBuff: true
+
 - section: Spite
   id: 53
   items:
