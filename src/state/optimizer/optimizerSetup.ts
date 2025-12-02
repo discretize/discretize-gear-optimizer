@@ -588,7 +588,7 @@ export function createSettingsPerCombination(
     !!allCalculationTweaks.infernoBurningDamage;
 
   const settings: OptimizerCoreSettingsPerCombination = {
-    baseAttributes, // not used after scenarios update; left for things like unbuffed calc
+    baseAttributes: scenarios[0].baseAttributes, // not used after scenarios update; left for things like unbuffed calc
     modifiers: scenarios[0].modifiers, // not used after scenarios update; left for things like unbuffed calc
     scenarios,
     relevantConditions,
