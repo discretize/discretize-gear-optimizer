@@ -576,7 +576,9 @@ export function createSettingsPerCombination(
 
   const relevantConditions: OptimizerCoreSettings['relevantConditions'] = damagingConditions.filter(
     (condition) =>
-      (baseAttributes[`${condition} Coefficient`] ?? 0) > 0 || extraRelevantConditions[condition],
+      scenarios.some(
+        (scenario) => (scenario.baseAttributes[`${condition} Coefficient`] ?? 0) > 0,
+      ) || extraRelevantConditions[condition],
   );
 
   // the condi result cache assumes the same cdmg + expertise values produce the same condition damage;
