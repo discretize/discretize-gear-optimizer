@@ -24,7 +24,7 @@ import type { RootState } from '../../state/store';
 
 const roundTwo = (num: number) => Math.round(num * 100) / 100;
 
-const getSharedModifiersInfo = memoize((state: RootState) => {
+export const getSharedModifiersInfo = memoize((state: RootState) => {
   try {
     const sharedAdvancedUptimeModifiers = [
       ...getBuffsModifiers(state),
