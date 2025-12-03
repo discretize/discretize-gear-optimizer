@@ -105,6 +105,7 @@ export interface OptimizerCoreSettingsPerCombination {
   baseAttributes: Attributes; // not used after scenarios update; left for things like unbuffed calc
   modifiers: Modifiers; // not used after scenarios update; left for things like unbuffed calc
   scenarios: Scenario[];
+  nonDefaultScenarioModifiers?: string[];
   disableCondiResultCache: boolean;
   relevantConditions: DamagingConditionName[];
   appliedModifiers: AppliedModifier[];
@@ -150,6 +151,7 @@ export type OptimizerCoreMinimalSettings = Pick<
   | 'extrasCombination'
   | 'modifiers'
   | 'gameMode'
+  | 'nonDefaultScenarioModifiers'
 >;
 export type Gear = AffixName[];
 export type GearStats = Partial<Record<GearAttributeName, number>>;

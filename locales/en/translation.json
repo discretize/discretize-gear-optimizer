@@ -202,6 +202,7 @@
   "Target AR": "Target AR",
   "Target settings": "Target settings",
   "There was an error exporting the state!": "There was an error exporting the state!",
+  "These modifers are simulated as fluctuating or having inconsistent uptimes; their stat bonuses will not be shown here:": "These modifers are simulated as fluctuating or having inconsistent uptimes; their stat bonuses will not be shown here:",
   "This class does not appear to have skills with extra buffs": "This class does not appear to have skills with extra buffs",
   "This data represents your rotation. If we don't supply a template for a build, you can calculate the correct coefficients so that a tested build matches a golem log using the tool under \"development\" below, or calculate them manually.": "This data represents your rotation. If we don't supply a template for a build, you can calculate the correct coefficients so that a tested build matches a golem log using the tool under \"development\" below, or calculate them manually.",
   "Threads": "Threads",

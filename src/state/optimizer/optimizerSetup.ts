@@ -551,7 +551,12 @@ export function createSettingsPerCombination(
 
   /* Set Up Scenarios */
 
-  const scenarioTemplates = createScenarioTemplates(appliedModifiers);
+  const scenarioTemplates = createScenarioTemplates(appliedModifiers, true);
+
+  const defaultScenarioModifiers = scenarioTemplates[0].appliedModifiers.map(({ id }) => id);
+  const nonDefaultScenarioModifiers = appliedModifiers
+    .map(({ id }) => id)
+    .filter((id) => !defaultScenarioModifiers.includes(id));
 
   // variables shared between scenarios
   const extraRelevantConditions = Object.fromEntries(
@@ -591,6 +596,7 @@ export function createSettingsPerCombination(
     baseAttributes: scenarios[0].baseAttributes, // not used after scenarios update; left for things like unbuffed calc
     modifiers: scenarios[0].modifiers, // not used after scenarios update; left for things like unbuffed calc
     scenarios,
+    nonDefaultScenarioModifiers,
     relevantConditions,
     disableCondiResultCache,
     appliedModifiers,
