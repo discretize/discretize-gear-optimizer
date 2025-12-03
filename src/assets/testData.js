@@ -29,9 +29,8 @@ import {
   allDamageKeys,
   allDamageModes,
   alternateStats,
-  attributePercentKeysBlacklist,
-  attributePointKeysBlacklist,
-  damageKeysBlacklist,
+  keysBlacklist,
+  shouldUseAdvancedUptimeKeysBlacklist,
 } from './modifierdata/metadata';
 
 // causes the script to fail if condition is false, but does not stop execution
@@ -337,6 +336,22 @@ const testModifiers = async () => {
   }
 };
 
+const testBlacklist = (amountData, key, id) => {
+  if (amountData && !amountData.advancedUptimeSimulation && !amountData.disableBlacklist) {
+    if (shouldUseAdvancedUptimeKeysBlacklist.includes(key)) {
+      gentleAssert(
+        false,
+        `err: amount-based modifier ${id} affects ${key}; use advancedUptimeSimulation! (or set disableBlacklist: true if this is intended.)`,
+      );
+    } else if (keysBlacklist.includes(key)) {
+      gentleAssert(
+        false,
+        `err: amount-based modifier ${id} affects ${key}. set disableBlacklist: true if this is intended!`,
+      );
+    }
+  }
+};
+
 function parseDamage(damage, id, amountData) {
   for (const [key, allPairs] of Object.entries(damage)) {
     gentleAssert(allDamageKeys.includes(key), `invalid damage key ${key} in ${id}`);
@@ -345,13 +360,7 @@ function parseDamage(damage, id, amountData) {
       `invalid value for ${key} in ${id} (use 'unknown' if you don't know add/mult!)`,
     );
 
-    if (
-      amountData &&
-      !amountData.advancedUptimeSimulation &&
-      !amountData.disableBlacklist &&
-      damageKeysBlacklist.includes(key)
-    )
-      gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
+    testBlacklist(amountData, key, id);
 
     // handle more than 2 pairs i.e. Outgoing Strike Damage: [3%, add, 7%, mult]
     const allPairsMut = [...allPairs];
@@ -410,13 +419,7 @@ function parseAttributes(attributes, id, amountData) {
         `invalid value for ${key} in ${id} (use 'unknown' if you don't know if it's converted!)`,
       );
 
-      if (
-        amountData &&
-        !amountData.advancedUptimeSimulation &&
-        !amountData.disableBlacklist &&
-        attributePointKeysBlacklist.includes(key)
-      )
-        gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
+      testBlacklist(amountData, key, id);
 
       // if (mayBeConvertedToBlacklist.includes(key) && amountData && allPairs.includes('converted'))
       //   console.log(`❓ careful, ${id} may convert ${key} to a blacklisted amount`);
@@ -440,13 +443,7 @@ function parseAttributes(attributes, id, amountData) {
     } else if (allAttributeCoefficientKeys.includes(key)) {
       parseNumber(allPairs, key, id);
     } else if (allAttributePercentKeys.includes(key)) {
-      if (
-        amountData &&
-        !amountData.advancedUptimeSimulation &&
-        !amountData.disableBlacklist &&
-        attributePercentKeysBlacklist.includes(key)
-      )
-        gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
+      testBlacklist(amountData, key, id);
 
       parsePercent(allPairs, key, id);
     } else {
@@ -462,13 +459,7 @@ function parseConversion(conversion, id, amountData) {
       `invalid conversion destination ${key} in ${id}`,
     );
 
-    if (
-      amountData &&
-      !amountData.advancedUptimeSimulation &&
-      !amountData.disableBlacklist &&
-      attributePointKeysBlacklist.includes(key)
-    )
-      gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
+    testBlacklist(amountData, key, id);
 
     for (const [source, amount] of Object.entries(value)) {
       gentleAssert(
@@ -487,13 +478,7 @@ function parseConversionAfterBuffs(conversion, id, amountData) {
       `invalid conversion destination ${key} in ${id}`,
     );
 
-    if (
-      amountData &&
-      !amountData.advancedUptimeSimulation &&
-      !amountData.disableBlacklist &&
-      attributePointKeysBlacklist.includes(key)
-    )
-      gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
+    testBlacklist(amountData, key, id);
 
     for (const [source, amount] of Object.entries(value)) {
       gentleAssert(
