@@ -19,6 +19,8 @@
   "Account AR": "Account AR",
   "Add": "Add",
   "Adds 150% of your Agony Resistance to Vitality, Toughness, and Concentration.": "Adds 150% of your Agony Resistance to Vitality, Toughness, and Concentration.",
+  "Advanced uptime simulation enabled. Select \"scenarios\" below for details. This will decrease calculation performance.": "Advanced uptime simulation enabled. Select \"scenarios\" below for details. This will decrease calculation performance.",
+  "Advanced uptime simulation will be enabled only with <100% uptime.": "Advanced uptime simulation will be enabled only with <100% uptime.",
   "Affixes": "Affixes",
   "Affixes (stats) you are interested in. The optimizer will try out every combination and return the best results. More than three affixes might take a long time.": "Affixes (stats) you are interested in. The optimizer will try out every combination and return the best results. More than three affixes might take a long time.",
   "Affixes / Stat options": "Affixes / Stat options",
