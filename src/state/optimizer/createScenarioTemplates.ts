@@ -17,16 +17,20 @@ export function createScenarioTemplates(
     (appliedModifier) => !advancedUptimeModifiers.includes(appliedModifier),
   );
 
-  // Modifiers with the same category AND same group are simulated as always overlapping.
-  // (They must have the same uptime.)
+  /**
+   * Modifiers with the same category AND same group are simulated as always overlapping.
+   * They must have the same uptime.
+   *
+   * Modifiers with the same category in a different group (i.e. different revenant legends) are
+   * simulated as never overlapping. They must have uptimes that sum to ≤1.
+   *
+   * @see {@link /docs/Contributing/Data Format/Modifiers.md}
+   *
+   * Calculate advanced uptime modifier uptimes and discard their amount data;
+   * within scenarios, they are 100% effective.
+   * Sort them by correlation category and group.
+   */
 
-  // Modifiers with the same category in a different group (i.e. different revenant legends)
-  // are simulated as never overlapping.
-  // (They must have uptimes that sum to ≤1.)
-
-  // Calculate advanced uptime modifier uptimes and discard their amount data;
-  // within scenarios, they are 100% effective.
-  // Sort them by correlation category and group.
   const categoryData: {
     category?: string;
     groupData: {

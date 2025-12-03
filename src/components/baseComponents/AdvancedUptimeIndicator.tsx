@@ -1,8 +1,8 @@
 import { Tooltip } from '@discretize/gw2-ui-new';
-import DataSaverOn from '@mui/icons-material/DataSaverOn';
+import DataSaverOnIcon from '@mui/icons-material/DataSaverOn';
 import { useTranslation } from 'react-i18next';
 import type { AmountData } from '../../assets/modifierdata/metadata';
-import { clamp, scaleValue } from '../../state/optimizer/utils/utils';
+import { scaleValue } from '../../state/optimizer/utils/utils';
 import { parseAmount } from '../../utils/usefulFunctions';
 
 export default function AdvancedUptimeIndicator({
@@ -16,7 +16,7 @@ export default function AdvancedUptimeIndicator({
 
   if (amountData?.advancedUptimeSimulation) {
     const { value: amountInput } = parseAmount(amount);
-    const uptime = clamp(scaleValue(1, amountInput, amountData), 0, 1);
+    const uptime = scaleValue(1, amountInput, amountData);
 
     const active = uptime > 0 && uptime < 1;
 
@@ -30,7 +30,7 @@ export default function AdvancedUptimeIndicator({
             : t('Advanced uptime simulation will be enabled only with <100% uptime.')
         }
       >
-        <DataSaverOn
+        <DataSaverOnIcon
           color={active ? 'info' : undefined}
           fontSize="small"
           sx={{
