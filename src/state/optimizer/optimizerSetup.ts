@@ -850,7 +850,7 @@ export function createSettingsPerCombination(
 
     return {
       fraction: scenarioTemplate.fraction,
-      baseAttributes,
+      baseAttributes: { ...baseAttributes }, // object shape performance optimization
       modifiers,
     };
   });
