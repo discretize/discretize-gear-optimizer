@@ -246,11 +246,6 @@
         label: '% uptime'
         default: 100
         quantityEntered: 100
-        # only because fell beacon converts this to expertise
-        advancedUptimeSimulation:
-          correlation:
-            category: scholar
-            group: true
       modifiers:
         attributes:
           Power: [120, converted]
@@ -263,7 +258,7 @@
         label: '% uptime'
         default: 100
         quantityEntered: 100
-        # only because fell beacon converts this to expertise
+        # fell beacon converts this to expertise
         advancedUptimeSimulation:
           correlation:
             category: scholar
@@ -280,7 +275,7 @@
         label: '% uptime'
         default: 100
         quantityEntered: 100
-        # only because fell beacon converts this to expertise
+        # fell beacon converts this to expertise
         advancedUptimeSimulation:
           correlation:
             category: scholar
@@ -297,6 +292,11 @@
         label: '% uptime'
         default: 100
         quantityEntered: 100
+        # fell beacon converts this to expertise
+        advancedUptimeSimulation:
+          correlation:
+            category: scholar
+            group: true
       modifiers:
         attributes:
           Condition Damage: [120, converted]
