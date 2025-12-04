@@ -67,16 +67,6 @@ jobs:
         with:
           workspaces: wasm_module
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
-
-        # fixes error[E0463]: can't find crate for `core`
-        # reason: unknown. see: https://stackoverflow.com/a/77852953
-      - name: Remove pre-installed Rust
-        run: rustup self uninstall -y
-        if: steps.rust-output-cache.outputs.cache-hit != 'true'
-      - name: Reinstall Rust
-        run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-        if: steps.rust-output-cache.outputs.cache-hit != 'true'
-
       - name: Compile Rust
         run: pnpm wasm
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
