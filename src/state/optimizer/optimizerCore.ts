@@ -520,7 +520,7 @@ export class OptimizerCore {
 
       // cache condi result based on cdmg and expertise
       let condiDamageScore = 0;
-      if (settings.disableCondiResultCache || character.scenarios.length !== 1) {
+      if (settings.disableCondiResultCache) {
         condiDamageScore = character.scenarios
           .map(
             (scenario) =>
