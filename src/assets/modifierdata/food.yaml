@@ -819,6 +819,23 @@
       priceIds: [98924, 105402]
       temporaryBuff: false
 
+    - id: fractal-cooking-golem-nourishment
+      text: Fractal Cooking Golem Nourishment
+      textOverride: Fractal Cooking Golem Nourishment
+      modifiers:
+        conversion:
+          Power: {Power: 2%}
+          Precision: {Precision: 2%}
+          Toughness: {Toughness: 2%}
+          Vitality: {Vitality: 2%}
+          Concentration: {Concentration: 2%}
+          Condition Damage: {Condition Damage: 2%}
+          Expertise: {Expertise: 2%}
+          Ferocity: {Ferocity: 2%}
+          Healing Power: {Healing Power: 2%}
+      gw2id: 69862
+      temporaryBuff: false
+
 - section: Placeholder Items
   items:
 
