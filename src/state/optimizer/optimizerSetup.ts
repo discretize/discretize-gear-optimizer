@@ -83,7 +83,6 @@ import type {
   OptimizerCoreSettingsPerCalculation,
   OptimizerCoreSettingsPerCombination,
   Scenario,
-  ScenarioTemplate,
 } from './types/optimizerTypes';
 import { clamp, scaleValue } from './utils/utils';
 
@@ -496,7 +495,7 @@ export function createSettingsPerCombination(
     ...(getTraitsModifiers(reduxState) || []),
   ];
 
-  const appliedModifiers = [...sharedModifiers, ...extrasModifiers];
+  const combinationAppliedModifiers = [...sharedModifiers, ...extrasModifiers];
 
   const profession = getProfession(reduxState);
   const distribution = getDistributionNew(reduxState);
@@ -511,7 +510,7 @@ export function createSettingsPerCombination(
 
   /* Base Attributes */
 
-  const baseAttributes: Scenario['baseAttributes'] = {
+  const combinationBaseAttributes: Scenario['baseAttributes'] = {
     'Power': 1000,
     'Precision': 1000,
     'Toughness': 1000,
@@ -544,17 +543,17 @@ export function createSettingsPerCombination(
   };
 
   if (profession === 'Mesmer') {
-    baseAttributes['Clone Critical Chance'] = 0.05;
-    baseAttributes['Phantasm Critical Chance'] = 0.05;
-    baseAttributes['Phantasm Critical Damage'] = 1.5;
+    combinationBaseAttributes['Clone Critical Chance'] = 0.05;
+    combinationBaseAttributes['Phantasm Critical Chance'] = 0.05;
+    combinationBaseAttributes['Phantasm Critical Damage'] = 1.5;
   }
 
   /* Set Up Scenarios */
 
-  const scenarioTemplates = createScenarioTemplates(appliedModifiers, true);
+  const scenarioTemplates = createScenarioTemplates(combinationAppliedModifiers, true);
 
   const defaultScenarioModifiers = scenarioTemplates[0].appliedModifiers.map(({ id }) => id);
-  const nonDefaultScenarioModifiers = appliedModifiers
+  const nonDefaultScenarioModifiers = combinationAppliedModifiers
     .map(({ id }) => id)
     .filter((id) => !defaultScenarioModifiers.includes(id));
 
@@ -564,16 +563,297 @@ export function createSettingsPerCombination(
   );
   const allCalculationTweaks: CalculationTweaks = {};
 
-  const scenarios: Scenario[] = scenarioTemplates.map((scenarioTemplate) =>
-    createScenario(
-      scenarioTemplate,
+  const scenarios: Scenario[] = scenarioTemplates.map((scenarioTemplate) => {
+    const { appliedModifiers } = scenarioTemplate;
+
+    const baseAttributes = { ...combinationBaseAttributes };
+
+    /* Modifiers */
+
+    const collectedModifiers: CollectedModifiers = {
+      buff: {},
+      convert: {},
+      convertAfterBuffs: {},
+    };
+    const initialMultipliers: Record<MultiplierName, number> = {
+      'Outgoing Strike Damage': 1,
+      'Outgoing Condition Damage': 1,
+      'Outgoing Siphon Damage': 1,
+      'Incoming Strike Damage': 1,
+      'Outgoing Critical Damage': 1,
+      'Outgoing Bleeding Damage': 1,
+      'Outgoing Burning Damage': 1,
+      'Outgoing Confusion Damage': 1,
+      'Outgoing Poison Damage': 1,
+      'Outgoing Torment Damage': 1,
+      'Outgoing Alternative Damage': 1,
+      'Outgoing Alternative Critical Damage': 1,
+      'Outgoing Phantasm Damage': 1,
+      'Outgoing Phantasm Critical Damage': 1,
+    };
+    const allDmgMult = {
+      mult: { ...initialMultipliers },
+      add: { ...initialMultipliers },
+      target: { ...initialMultipliers },
+    };
+    const dmgBuff = (
+      attribute: keyof typeof initialMultipliers,
+      amount: number,
+      addOrMult: 'add' | 'target' | 'mult' | 'unknown',
+    ) => {
+      switch (addOrMult) {
+        case 'add':
+          allDmgMult.add[attribute] += amount;
+          break;
+        case 'target':
+          allDmgMult.target[attribute] += amount;
+          break;
+        case 'mult':
+        default:
+          allDmgMult.mult[attribute] *= 1 + amount;
+          break;
+      }
+    };
+
+    const parsePercent = (percentValue: string) => Number(percentValue.replace('%', '')) / 100;
+
+    // Special handler for conversions that convert to condi coefficients; ensures that
+    // relevantConditions includes them even if their coefficient sliders are 0
+    const makeConditionsRelevant = (attribute: string) => {
+      const condition = attribute.replace(' Coefficient', '');
+      if (extraRelevantConditions[condition] !== undefined) {
+        extraRelevantConditions[condition] = true;
+      }
+    };
+
+    for (const item of appliedModifiers) {
+      const {
+        amount: amountText,
+        // data: {
+        modifiers,
+        wvwModifiers,
+        amountData: realAmountData,
+        temporaryBuff,
+        // },
+      } = item;
+
+      // unbuffed mode: remove temporary buffs that will not affect the hero panel out of combat
+      if (simulateUnbuffed && temporaryBuff === true) {
+        continue;
+      }
+      // unbuffed mode: ignore amounts when *not* removing active-out-of-combat buffs, e.g. signet passive effects
+      const amountData =
+        simulateUnbuffed && temporaryBuff === 'activeOutOfCombat' ? undefined : realAmountData;
+
+      const {
+        damage = {},
+        attributes = {},
+        conversion = {},
+        conversionAfterBuffs = {},
+        calculationTweaks = {},
+        // note,
+        // ...otherModifiers
+      } = isWvW ? (wvwModifiers ?? modifiers) : modifiers;
+
+      const { value: amountInput } = parseAmount(amountText);
+
+      for (const [attribute, allPairs] of Object.entries(damage) as [DamageKey, DamageValue][]) {
+        // damage, i.e.
+        //   Outgoing Strike Damage: [3%, add, 7%, mult]
+
+        const allPairsMut = [...allPairs];
+        while (allPairsMut.length) {
+          const pairs = allPairsMut.splice(0, 2);
+          const [percentAmount, addOrMult] = pairs as [string, DamageMode];
+
+          const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
+
+          switch (attribute) {
+            case 'Outgoing Strike Damage':
+            case 'Outgoing Condition Damage':
+            case 'Outgoing Bleeding Damage':
+            case 'Outgoing Burning Damage':
+            case 'Outgoing Confusion Damage':
+            case 'Outgoing Poison Damage':
+            case 'Outgoing Torment Damage':
+            case 'Outgoing Alternative Damage':
+            case 'Outgoing Phantasm Damage':
+            case 'Outgoing Siphon Damage':
+              dmgBuff(attribute, scaledAmount, addOrMult);
+              break;
+            case 'Outgoing All Damage':
+              dmgBuff('Outgoing Strike Damage', scaledAmount, addOrMult);
+              dmgBuff('Outgoing Condition Damage', scaledAmount, addOrMult);
+              dmgBuff('Outgoing Siphon Damage', scaledAmount, addOrMult);
+              break;
+            case 'Damage Reduction':
+              const negativeAmount = -scaledAmount;
+              dmgBuff('Incoming Strike Damage', negativeAmount, addOrMult);
+              break;
+            case 'Outgoing Critical Damage':
+              // assuming multiplicative until someone tests  twin fangs + ferocious strikes
+              dmgBuff('Outgoing Critical Damage', scaledAmount, 'mult');
+              break;
+            case 'Outgoing Alternative Critical Damage':
+              // as of this comment, this is only death perception
+              dmgBuff('Outgoing Alternative Critical Damage', scaledAmount, 'mult');
+              break;
+            case 'Outgoing Phantasm Critical Damage':
+              // currently unused as far as I know
+              dmgBuff('Outgoing Phantasm Critical Damage', scaledAmount, 'mult');
+              break;
+
+            default:
+              attribute satisfies never;
+          }
+        }
+      }
+
+      for (const [attribute, allPairs] of Object.entries(attributes) as [AttributeKey, any][]) {
+        if (enumArrayIncludes(allAttributePointKeys, attribute)) {
+          // stat, i.e.
+          //   Concentration: [70, converted, 100, buff]
+
+          const allPairsMut = [...allPairs];
+          while (allPairsMut.length) {
+            const pairs = allPairsMut.splice(0, 2);
+            const [amount, convertedOrBuff] = pairs as [number, AttributePointMode];
+
+            const scaledAmount = scaleValue(amount, amountInput, amountData);
+
+            switch (convertedOrBuff) {
+              case 'converted':
+                baseAttributes[attribute] = (baseAttributes[attribute] || 0) + scaledAmount;
+                break;
+              case 'buff':
+              case 'unknown':
+              default:
+                collectedModifiers['buff'][attribute] =
+                  (collectedModifiers['buff'][attribute] ?? 0) + scaledAmount;
+                break;
+            }
+          }
+        } else if (enumArrayIncludes(allAttributeCoefficientKeys, attribute)) {
+          // coefficient, i.e.
+          //   Power Coefficient: 69.05
+
+          const value: number = Array.isArray(allPairs) ? allPairs[0] : allPairs;
+          const scaledAmount = scaleValue(value, amountInput, amountData);
+          baseAttributes[attribute] = (baseAttributes[attribute] || 0) + scaledAmount;
+        } else if (enumArrayIncludes(allAttributePercentKeys, attribute)) {
+          // percent, i.e.
+          //   Torment Duration: 15%
+
+          const value: string = Array.isArray(allPairs) ? allPairs[0] : allPairs;
+          const scaledAmount = scaleValue(parsePercent(value), amountInput, amountData);
+          // unconfirmed if +max health mods are mult but ¯\_(ツ)_/¯
+          // +outgoing healing is assumed additive
+          if (attribute === 'Maximum Health') {
+            baseAttributes[attribute] =
+              ((baseAttributes[attribute] || 0) + 1) * (1 + scaledAmount) - 1;
+          } else {
+            baseAttributes[attribute] = (baseAttributes[attribute] || 0) + scaledAmount;
+          }
+        } else {
+          // eslint-disable-next-line no-alert
+          alert(`invalid attribute ${attribute}`);
+        }
+      }
+
+      for (const [attribute, val] of Object.entries(conversion) as [
+        ConversionDestinationKey,
+        ConversionValue,
+      ][]) {
+        // conversion, i.e.
+        //   Power: {Condition Damage: 6%, Expertise: 8%}
+
+        makeConditionsRelevant(attribute);
+
+        if (!collectedModifiers['convert'][attribute]) {
+          collectedModifiers['convert'][attribute] = {};
+        }
+        baseAttributes[attribute] ??= 0;
+
+        for (const [source, percentAmount] of Object.entries(val) as [
+          ConversionSourceKey,
+          Percent,
+        ][]) {
+          const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
+
+          collectedModifiers['convert'][attribute]![source] =
+            (collectedModifiers['convert'][attribute]![source] ?? 0) + scaledAmount;
+        }
+      }
+
+      for (const [attribute, val] of Object.entries(conversionAfterBuffs) as [
+        ConversionAfterBuffsDestinationKey,
+        ConversionAfterBuffsValue,
+      ][]) {
+        // conversion after buffs, i.e.
+        //   Power: {Condition Damage: 6%, Expertise: 8%}
+
+        makeConditionsRelevant(attribute);
+
+        if (!collectedModifiers['convertAfterBuffs'][attribute]) {
+          collectedModifiers['convertAfterBuffs'][attribute] = {};
+        }
+        for (const [source, percentAmount] of Object.entries(val) as [
+          ConversionAfterBuffsSourceKey,
+          Percent,
+        ][]) {
+          const valid = enumArrayIncludes(allConversionAfterBuffsSourceKeys, source);
+          // eslint-disable-next-line no-alert
+          if (!valid) alert(`Unsupported after-buff conversion source: ${source}`);
+
+          const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
+
+          collectedModifiers['convertAfterBuffs'][attribute]![source] =
+            (collectedModifiers['convertAfterBuffs'][attribute]![source] ?? 0) + scaledAmount;
+        }
+      }
+
+      Object.assign(allCalculationTweaks, calculationTweaks);
+    }
+
+    const damageMultiplier = {} as DamageMultiplier;
+    const damageMultiplierBreakdown = {} as DamageMultiplierBreakdown;
+
+    objectKeys(initialMultipliers).forEach((attribute) => {
+      damageMultiplier[attribute] =
+        allDmgMult.mult[attribute] * allDmgMult.add[attribute] * allDmgMult.target[attribute];
+
+      damageMultiplierBreakdown[attribute] = {
+        mult: allDmgMult.mult[attribute],
+        add: allDmgMult.add[attribute],
+        target: allDmgMult.target[attribute],
+        total: damageMultiplier[attribute],
+      };
+    });
+
+    // convert modifiers to arrays for simpler iteration
+    const buff = Object.entries(collectedModifiers['buff']);
+    const convert = Object.entries(collectedModifiers['convert']).map(([attribute, conversion]) => [
+      attribute,
+      Object.entries(conversion),
+    ]);
+    const convertAfterBuffs = Object.entries(collectedModifiers['convertAfterBuffs']).map(
+      ([attribute, conversion]) => [attribute, Object.entries(conversion)],
+    );
+
+    const modifiers = {
+      damageMultiplier,
+      damageMultiplierBreakdown,
+      buff,
+      convert,
+      convertAfterBuffs,
+    } as Modifiers;
+
+    return {
+      fraction: scenarioTemplate.fraction,
       baseAttributes,
-      simulateUnbuffed,
-      isWvW,
-      extraRelevantConditions,
-      allCalculationTweaks,
-    ),
-  );
+      modifiers,
+    };
+  });
 
   console.log('scenarios', scenarios);
 
@@ -599,308 +879,9 @@ export function createSettingsPerCombination(
     nonDefaultScenarioModifiers,
     relevantConditions,
     disableCondiResultCache,
-    appliedModifiers,
+    appliedModifiers: combinationAppliedModifiers,
     calculationTweaks: allCalculationTweaks,
   };
 
   return settings;
 }
-
-const createScenario = (
-  scenarioTemplate: ScenarioTemplate,
-  combinationBaseAttributes: Scenario['baseAttributes'],
-  simulateUnbuffed: boolean,
-  isWvW: boolean,
-  extraRelevantConditions: Record<string, boolean>,
-  allCalculationTweaks: object,
-) => {
-  const { appliedModifiers } = scenarioTemplate;
-
-  const baseAttributes = { ...combinationBaseAttributes };
-
-  /* Modifiers */
-
-  const collectedModifiers: CollectedModifiers = {
-    buff: {},
-    convert: {},
-    convertAfterBuffs: {},
-  };
-  const initialMultipliers: Record<MultiplierName, number> = {
-    'Outgoing Strike Damage': 1,
-    'Outgoing Condition Damage': 1,
-    'Outgoing Siphon Damage': 1,
-    'Incoming Strike Damage': 1,
-    'Outgoing Critical Damage': 1,
-    'Outgoing Bleeding Damage': 1,
-    'Outgoing Burning Damage': 1,
-    'Outgoing Confusion Damage': 1,
-    'Outgoing Poison Damage': 1,
-    'Outgoing Torment Damage': 1,
-    'Outgoing Alternative Damage': 1,
-    'Outgoing Alternative Critical Damage': 1,
-    'Outgoing Phantasm Damage': 1,
-    'Outgoing Phantasm Critical Damage': 1,
-  };
-  const allDmgMult = {
-    mult: { ...initialMultipliers },
-    add: { ...initialMultipliers },
-    target: { ...initialMultipliers },
-  };
-  const dmgBuff = (
-    attribute: keyof typeof initialMultipliers,
-    amount: number,
-    addOrMult: 'add' | 'target' | 'mult' | 'unknown',
-  ) => {
-    switch (addOrMult) {
-      case 'add':
-        allDmgMult.add[attribute] += amount;
-        break;
-      case 'target':
-        allDmgMult.target[attribute] += amount;
-        break;
-      case 'mult':
-      default:
-        allDmgMult.mult[attribute] *= 1 + amount;
-        break;
-    }
-  };
-
-  const parsePercent = (percentValue: string) => Number(percentValue.replace('%', '')) / 100;
-
-  // Special handler for conversions that convert to condi coefficients; ensures that
-  // relevantConditions includes them even if their coefficient sliders are 0
-  const makeConditionsRelevant = (attribute: string) => {
-    const condition = attribute.replace(' Coefficient', '');
-    if (extraRelevantConditions[condition] !== undefined) {
-      extraRelevantConditions[condition] = true;
-    }
-  };
-
-  for (const item of appliedModifiers) {
-    const {
-      amount: amountText,
-      // data: {
-      modifiers,
-      wvwModifiers,
-      amountData: realAmountData,
-      temporaryBuff,
-      // },
-    } = item;
-
-    // unbuffed mode: remove temporary buffs that will not affect the hero panel out of combat
-    if (simulateUnbuffed && temporaryBuff === true) {
-      continue;
-    }
-    // unbuffed mode: ignore amounts when *not* removing active-out-of-combat buffs, e.g. signet passive effects
-    const amountData =
-      simulateUnbuffed && temporaryBuff === 'activeOutOfCombat' ? undefined : realAmountData;
-
-    const {
-      damage = {},
-      attributes = {},
-      conversion = {},
-      conversionAfterBuffs = {},
-      calculationTweaks = {},
-      // note,
-      // ...otherModifiers
-    } = isWvW ? (wvwModifiers ?? modifiers) : modifiers;
-
-    const { value: amountInput } = parseAmount(amountText);
-
-    for (const [attribute, allPairs] of Object.entries(damage) as [DamageKey, DamageValue][]) {
-      // damage, i.e.
-      //   Outgoing Strike Damage: [3%, add, 7%, mult]
-
-      const allPairsMut = [...allPairs];
-      while (allPairsMut.length) {
-        const pairs = allPairsMut.splice(0, 2);
-        const [percentAmount, addOrMult] = pairs as [string, DamageMode];
-
-        const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
-
-        switch (attribute) {
-          case 'Outgoing Strike Damage':
-          case 'Outgoing Condition Damage':
-          case 'Outgoing Bleeding Damage':
-          case 'Outgoing Burning Damage':
-          case 'Outgoing Confusion Damage':
-          case 'Outgoing Poison Damage':
-          case 'Outgoing Torment Damage':
-          case 'Outgoing Alternative Damage':
-          case 'Outgoing Phantasm Damage':
-          case 'Outgoing Siphon Damage':
-            dmgBuff(attribute, scaledAmount, addOrMult);
-            break;
-          case 'Outgoing All Damage':
-            dmgBuff('Outgoing Strike Damage', scaledAmount, addOrMult);
-            dmgBuff('Outgoing Condition Damage', scaledAmount, addOrMult);
-            dmgBuff('Outgoing Siphon Damage', scaledAmount, addOrMult);
-            break;
-          case 'Damage Reduction':
-            const negativeAmount = -scaledAmount;
-            dmgBuff('Incoming Strike Damage', negativeAmount, addOrMult);
-            break;
-          case 'Outgoing Critical Damage':
-            // assuming multiplicative until someone tests  twin fangs + ferocious strikes
-            dmgBuff('Outgoing Critical Damage', scaledAmount, 'mult');
-            break;
-          case 'Outgoing Alternative Critical Damage':
-            // as of this comment, this is only death perception
-            dmgBuff('Outgoing Alternative Critical Damage', scaledAmount, 'mult');
-            break;
-          case 'Outgoing Phantasm Critical Damage':
-            // currently unused as far as I know
-            dmgBuff('Outgoing Phantasm Critical Damage', scaledAmount, 'mult');
-            break;
-
-          default:
-            attribute satisfies never;
-        }
-      }
-    }
-
-    for (const [attribute, allPairs] of Object.entries(attributes) as [AttributeKey, any][]) {
-      if (enumArrayIncludes(allAttributePointKeys, attribute)) {
-        // stat, i.e.
-        //   Concentration: [70, converted, 100, buff]
-
-        const allPairsMut = [...allPairs];
-        while (allPairsMut.length) {
-          const pairs = allPairsMut.splice(0, 2);
-          const [amount, convertedOrBuff] = pairs as [number, AttributePointMode];
-
-          const scaledAmount = scaleValue(amount, amountInput, amountData);
-
-          switch (convertedOrBuff) {
-            case 'converted':
-              baseAttributes[attribute] = (baseAttributes[attribute] || 0) + scaledAmount;
-              break;
-            case 'buff':
-            case 'unknown':
-            default:
-              collectedModifiers['buff'][attribute] =
-                (collectedModifiers['buff'][attribute] ?? 0) + scaledAmount;
-              break;
-          }
-        }
-      } else if (enumArrayIncludes(allAttributeCoefficientKeys, attribute)) {
-        // coefficient, i.e.
-        //   Power Coefficient: 69.05
-
-        const value: number = Array.isArray(allPairs) ? allPairs[0] : allPairs;
-        const scaledAmount = scaleValue(value, amountInput, amountData);
-        baseAttributes[attribute] = (baseAttributes[attribute] || 0) + scaledAmount;
-      } else if (enumArrayIncludes(allAttributePercentKeys, attribute)) {
-        // percent, i.e.
-        //   Torment Duration: 15%
-
-        const value: string = Array.isArray(allPairs) ? allPairs[0] : allPairs;
-        const scaledAmount = scaleValue(parsePercent(value), amountInput, amountData);
-        // unconfirmed if +max health mods are mult but ¯\_(ツ)_/¯
-        // +outgoing healing is assumed additive
-        if (attribute === 'Maximum Health') {
-          baseAttributes[attribute] =
-            ((baseAttributes[attribute] || 0) + 1) * (1 + scaledAmount) - 1;
-        } else {
-          baseAttributes[attribute] = (baseAttributes[attribute] || 0) + scaledAmount;
-        }
-      } else {
-        // eslint-disable-next-line no-alert
-        alert(`invalid attribute ${attribute}`);
-      }
-    }
-
-    for (const [attribute, val] of Object.entries(conversion) as [
-      ConversionDestinationKey,
-      ConversionValue,
-    ][]) {
-      // conversion, i.e.
-      //   Power: {Condition Damage: 6%, Expertise: 8%}
-
-      makeConditionsRelevant(attribute);
-
-      if (!collectedModifiers['convert'][attribute]) {
-        collectedModifiers['convert'][attribute] = {};
-      }
-      baseAttributes[attribute] ??= 0;
-
-      for (const [source, percentAmount] of Object.entries(val) as [
-        ConversionSourceKey,
-        Percent,
-      ][]) {
-        const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
-
-        collectedModifiers['convert'][attribute]![source] =
-          (collectedModifiers['convert'][attribute]![source] ?? 0) + scaledAmount;
-      }
-    }
-
-    for (const [attribute, val] of Object.entries(conversionAfterBuffs) as [
-      ConversionAfterBuffsDestinationKey,
-      ConversionAfterBuffsValue,
-    ][]) {
-      // conversion after buffs, i.e.
-      //   Power: {Condition Damage: 6%, Expertise: 8%}
-
-      makeConditionsRelevant(attribute);
-
-      if (!collectedModifiers['convertAfterBuffs'][attribute]) {
-        collectedModifiers['convertAfterBuffs'][attribute] = {};
-      }
-      for (const [source, percentAmount] of Object.entries(val) as [
-        ConversionAfterBuffsSourceKey,
-        Percent,
-      ][]) {
-        const valid = enumArrayIncludes(allConversionAfterBuffsSourceKeys, source);
-        // eslint-disable-next-line no-alert
-        if (!valid) alert(`Unsupported after-buff conversion source: ${source}`);
-
-        const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
-
-        collectedModifiers['convertAfterBuffs'][attribute]![source] =
-          (collectedModifiers['convertAfterBuffs'][attribute]![source] ?? 0) + scaledAmount;
-      }
-    }
-
-    Object.assign(allCalculationTweaks, calculationTweaks);
-  }
-
-  const damageMultiplier = {} as DamageMultiplier;
-  const damageMultiplierBreakdown = {} as DamageMultiplierBreakdown;
-
-  objectKeys(initialMultipliers).forEach((attribute) => {
-    damageMultiplier[attribute] =
-      allDmgMult.mult[attribute] * allDmgMult.add[attribute] * allDmgMult.target[attribute];
-
-    damageMultiplierBreakdown[attribute] = {
-      mult: allDmgMult.mult[attribute],
-      add: allDmgMult.add[attribute],
-      target: allDmgMult.target[attribute],
-      total: damageMultiplier[attribute],
-    };
-  });
-
-  // convert modifiers to arrays for simpler iteration
-  const buff = Object.entries(collectedModifiers['buff']);
-  const convert = Object.entries(collectedModifiers['convert']).map(([attribute, conversion]) => [
-    attribute,
-    Object.entries(conversion),
-  ]);
-  const convertAfterBuffs = Object.entries(collectedModifiers['convertAfterBuffs']).map(
-    ([attribute, conversion]) => [attribute, Object.entries(conversion)],
-  );
-
-  const modifiers = {
-    damageMultiplier,
-    damageMultiplierBreakdown,
-    buff,
-    convert,
-    convertAfterBuffs,
-  } as Modifiers;
-
-  return {
-    fraction: scenarioTemplate.fraction,
-    baseAttributes,
-    modifiers,
-  };
-};
