@@ -95,15 +95,15 @@ type GuaranteedBaseAttributes = Record<
 export type ScenarioAttributes = GuaranteedBaseAttributes &
   Partial<Record<ScenarioAttributeName, number>>;
 
-export type CharacterWithStatsAttributes = Record<NonScenarioAttributeName, number> &
+export type CombineScenarioAttributes = Record<NonScenarioAttributeName, number> &
   Partial<Record<ScenarioAttributeName, number>>;
 
 export type Attributes = ScenarioAttributes & Partial<Record<AttributeName, number>>;
 
 // settings that **do** vary based on extras combination
 export interface OptimizerCoreSettingsPerCombination {
-  baseAttributes: Attributes; // not used after scenarios update; left for things like unbuffed calc
-  modifiers: Modifiers; // not used after scenarios update; left for things like unbuffed calc
+  baseAttributes: Attributes; // not used internally after scenarios update, but copied from scenarios[0] and used for rust mode
+  modifiers: Modifiers; // not used internally after scenarios update, but copied from scenarios[0] and used for results display
   scenarios: Scenario[];
   nonDefaultScenarioModifiers?: string[];
   disableCondiResultCache: boolean;
@@ -149,7 +149,7 @@ export type OptimizerCoreMinimalSettings = Pick<
   | 'rankby'
   | 'shouldDisplayExtras'
   | 'extrasCombination'
-  | 'modifiers'
+  | 'modifiers' // not used internally after scenarios update, but copied from scenarios[0] and used for results display
   | 'gameMode'
   | 'nonDefaultScenarioModifiers'
 >;
@@ -173,27 +173,35 @@ export interface Results {
 }
 export interface CharacterUnprocessed {
   id?: string;
-  attributes?: CharacterWithStatsAttributes;
+  attributes?: CombineScenarioAttributes;
   scenarios: Scenario[];
   gear: Gear;
   gearStats: GearStats;
   gearDescription?: string;
   valid: boolean;
-  baseAttributes?: Attributes; // not used after scenarios update
+  baseAttributes?: Attributes; // not used internally after scenarios update, but copied from scenarios[0] and used for troubleshooting
   infusions: Partial<Record<InfusionName, number>>;
   results?: Results;
 }
+// see calcStats: scenarios contains attributes; character.attributes contains scenario-shared attributes only
 export interface CharacterProcessed extends CharacterUnprocessed {
-  attributes: CharacterWithStatsAttributes;
+  attributes: CombineScenarioAttributes;
   scenarios: ScenarioProcessed[];
 }
+
+// see calcResults: character contains attributes and baseAttributes copied from scenarios[0]; results
 export interface CharacterWithResults extends CharacterProcessed {
   // note: this is not actually accurate
   // (we convince typescript every attribute is defined via a type predicate in calcStats)
   // TODO: improve this
   attributes: Required<Attributes>;
+  baseAttributes: Attributes; // not used internally after scenarios update, but copied from scenarios[0] and used for troubleshooting
   results: Results;
 }
+
+// see optimizer.ts: character contains settings
+// (if this were attached in optimizerCore.ts it would be done in worker threads and each character
+// would have a separate cloned settings object; this is a performance/memory optimization)
 export interface Character extends CharacterWithResults {
   settings: OptimizerCoreMinimalSettings;
 }

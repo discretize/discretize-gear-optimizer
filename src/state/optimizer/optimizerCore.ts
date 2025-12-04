@@ -287,9 +287,7 @@ export class OptimizerCore {
       gear, // passed by reference
       infusions, // passed by reference
       gearStats, // passed by reference
-      // attributes: undefined,
       valid: true,
-      // baseAttributes: { ...this.settings.baseAttributes },
       scenarios: this.settings.scenarios.map(cloneScenario),
       ...overrides,
     };
@@ -896,8 +894,9 @@ export class OptimizerCore {
     const { settings } = this;
     const { attributes, scenarios } = character;
 
-    // copy attributes from first scenario
+    // copy attributes/baseAttributes from first scenario
     Object.assign(attributes, scenarios[0].attributes);
+    character.baseAttributes = scenarios[0].baseAttributes;
 
     const value = character.attributes[settings.rankby];
 
@@ -1036,21 +1035,16 @@ export class OptimizerCore {
     });
 
   /**
-   * Clones a character. baseAttributes is cloned by value, so it can be mutated. Please
-   * don't directly mutate character.attributes; it's passed by reference so the clone shares
-   * the old one until updateAttributes is called on it.
+   * Clones a character. Scenarios' baseAttributes are cloned by value, so they can be mutated.
    *
    * @param {object} character
    * @returns {object} character
    */
   clone(character: CharacterUnprocessed): CharacterUnprocessed {
     return {
-      // attributes: character.attributes, // passed by reference
       gear: character.gear, // passed by reference
       gearStats: character.gearStats, // passed by reference
       valid: character.valid,
-
-      // baseAttributes: { ...character.baseAttributes },
       scenarios: character.scenarios.map(cloneScenario),
       infusions: { ...character.infusions },
     };

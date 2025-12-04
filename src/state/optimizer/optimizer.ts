@@ -111,7 +111,7 @@ export async function* calculate(
           rankby: settings.rankby,
           shouldDisplayExtras: settings.shouldDisplayExtras,
           extrasCombination: settings.extrasCombination,
-          modifiers: settings.modifiers,
+          modifiers: settings.modifiers, // not used internally after scenarios update, but copied from scenarios[0] and used for results display
           gameMode: settings.gameMode,
           nonDefaultScenarioModifiers: settings.nonDefaultScenarioModifiers,
         },
@@ -273,7 +273,7 @@ export async function* calculateHeuristic(
         rankby: settings.rankby,
         shouldDisplayExtras: settings.shouldDisplayExtras,
         extrasCombination: settings.extrasCombination,
-        modifiers: settings.modifiers,
+        modifiers: settings.modifiers, // not used internally after scenarios update, but copied from scenarios[0] and used for results display
         gameMode: settings.gameMode,
         nonDefaultScenarioModifiers: settings.nonDefaultScenarioModifiers,
       },
