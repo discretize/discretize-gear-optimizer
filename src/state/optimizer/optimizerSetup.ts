@@ -83,6 +83,7 @@ import type {
   OptimizerCoreSettingsPerCalculation,
   OptimizerCoreSettingsPerCombination,
   Scenario,
+  ScenarioTemplate,
 } from './types/optimizerTypes';
 import { clamp, scaleValue } from './utils/utils';
 
@@ -550,7 +551,14 @@ export function createSettingsPerCombination(
 
   /* Set Up Scenarios */
 
-  const scenarioTemplates = createScenarioTemplates(combinationAppliedModifiers, true);
+  const scenarioTemplates: ScenarioTemplate[] = simulateUnbuffed
+    ? [
+        {
+          fraction: 1,
+          appliedModifiers: combinationAppliedModifiers,
+        },
+      ]
+    : createScenarioTemplates(combinationAppliedModifiers, true);
 
   const defaultScenarioModifiers = scenarioTemplates[0].appliedModifiers.map(({ id }) => id);
   const nonDefaultScenarioModifiers = combinationAppliedModifiers
