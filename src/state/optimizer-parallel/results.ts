@@ -177,7 +177,6 @@ export function enhanceResults(
       settings: characterSettings,
       results: charResults,
       valid: true,
-      scenarios: [], // todo: remove this (it's to make ts happy)
     });
   });
 

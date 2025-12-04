@@ -189,8 +189,9 @@ export interface CharacterProcessed extends CharacterUnprocessed {
   scenarios: ScenarioProcessed[];
 }
 
-// see calcResults: character contains attributes and baseAttributes copied from scenarios[0]; results
-export interface CharacterWithResults extends CharacterProcessed {
+// see calcResults: character contains attributes and baseAttributes copied from scenarios[0];
+// results object; no scenarios data
+export interface CharacterWithResults extends Omit<CharacterProcessed, 'scenarios'> {
   // note: this is not actually accurate
   // (we convince typescript every attribute is defined via a type predicate in calcStats)
   // TODO: improve this
