@@ -222,6 +222,10 @@
         label: '% uptime'
         default: 100
         quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: scholar
+            group: true
       modifiers:
         attributes:
           Power: [200, converted]
@@ -234,6 +238,10 @@
         label: '% uptime'
         default: 100
         quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: scholar
+            group: true
       modifiers:
         attributes:
           Power: [160, converted]
@@ -246,6 +254,10 @@
         label: '% uptime'
         default: 100
         quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: scholar
+            group: true
       modifiers:
         attributes:
           Power: [120, converted]
