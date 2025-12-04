@@ -888,8 +888,8 @@ export class OptimizerCore {
     return attributes['Effective Healing'];
   }
 
-  calcResults(character: CharacterProcessed): asserts character is CharacterWithResults {
-    if (character.results) return;
+  calcResults(character: CharacterProcessed): CharacterWithResults {
+    if (character.results) return character as CharacterWithResults;
 
     const { settings } = this;
     const { attributes, scenarios } = character;
@@ -1026,13 +1026,11 @@ export class OptimizerCore {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     delete character.scenarios;
+
+    return character as CharacterWithResults;
   }
 
-  getListWithResults = () =>
-    this.list.map((character) => {
-      this.calcResults(character);
-      return character;
-    });
+  getListWithResults = () => this.list.map((character) => this.calcResults(character));
 
   /**
    * Clones a character. Scenarios' baseAttributes are cloned by value, so they can be mutated.
@@ -1053,8 +1051,8 @@ export class OptimizerCore {
 
 // returns a positive value if B is better than A
 export function characterLT(
-  a: CharacterProcessed | undefined,
-  b: CharacterProcessed | undefined,
+  a: CharacterProcessed | Character | undefined,
+  b: CharacterProcessed | Character | undefined,
   rankby: IndicatorName,
 ): number {
   if (!a && !b) return 0;
