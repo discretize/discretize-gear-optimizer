@@ -904,28 +904,3 @@ const createScenario = (
     modifiers,
   };
 };
-
-/*
-  const relevantConditions: OptimizerCoreSettings['relevantConditions'] = damagingConditions.filter(
-    (condition) =>
-      (baseAttributes[`${condition} Coefficient`] ?? 0) > 0 || extraRelevantConditions[condition],
-  );
-
-  // the condi result cache assumes the same cdmg + expertise values produce the same condition damage;
-  // disable it if any condition coefficients are the result of a conversion or if conditions scale in unusual ways
-  const disableCondiResultCache: OptimizerCoreSettings['disableCondiResultCache'] =
-    Object.values(extraRelevantConditions).some(Boolean) ||
-    !!allCalculationTweaks.infernoBurningDamage;
-
-  const settings: OptimizerCoreSettingsPerCombination = {
-    baseAttributes: { ...baseAttributes }, // object shape performance optimization
-    modifiers,
-    relevantConditions,
-    disableCondiResultCache,
-    appliedModifiers,
-    calculationTweaks: allCalculationTweaks,
-  };
-
-  return settings;
-};
-*/
