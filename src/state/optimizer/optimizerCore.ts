@@ -15,7 +15,6 @@ import {
 } from '../../utils/gw2-data';
 import type { ValueOf } from '../../utils/usefulFunctions';
 import { enumArrayIncludes, objectEntries, objectKeys } from '../../utils/usefulFunctions';
-import type { Modifiers } from './types/optimizerSetupTypes';
 import type {
   Character,
   CharacterProcessed,
@@ -281,7 +280,7 @@ export class OptimizerCore {
     gear: Gear,
     gearStats: GearStats,
     infusions: Character['infusions'],
-    overrides: Partial<Character> = {},
+    overrides: Partial<CharacterUnprocessed> = {},
   ) {
     const character: CharacterUnprocessed = {
       gear, // passed by reference
@@ -568,9 +567,7 @@ export class OptimizerCore {
     character: CharacterUnprocessed,
     noRounding = false,
   ): asserts character is CharacterProcessed {
-    character.scenarios.forEach((scenario) =>
-      this.calcStatsScenario(scenario, scenario.modifiers, noRounding),
-    );
+    character.scenarios.forEach((scenario) => this.calcStatsScenario(scenario, noRounding));
 
     character.attributes = {
       'Damage': 0,
@@ -590,12 +587,9 @@ export class OptimizerCore {
     };
   }
 
-  calcStatsScenario(
-    scenario: Scenario,
-    modifiers: Modifiers,
-    noRounding = false,
-  ): asserts scenario is ScenarioProcessed {
+  calcStatsScenario(scenario: Scenario, noRounding = false): asserts scenario is ScenarioProcessed {
     const { settings } = this;
+    const { modifiers } = scenario;
 
     const round = noRounding ? (val: number) => val : roundEven;
 
@@ -1006,21 +1000,16 @@ export class OptimizerCore {
 
     // out of combat hero panel simulation (overrides both baseAttributes and modifiers)
     if (settings.unbuffedBaseAttributes && settings.unbuffedModifiers) {
-      // const temp = this.createCharacter(character.gear, character.gearStats, character.infusions, {
-      //   scenarios: [
-      //     {
-      //       ...cloneScenario(this.settings.scenarios[0]),
-      //       baseAttributes: { ...settings.unbuffedBaseAttributes },
-      //     },
-      //   ],
-      // });
-      // this.calcStatsScenario(temp.scenarios[0], settings.unbuffedModifiers);
-      // results.unbuffedAttributes = temp.scenarios[0].attributes;
-
-      const temp = cloneScenario(this.settings.scenarios[0]);
-      temp.baseAttributes = { ...settings.unbuffedBaseAttributes };
-      this.calcStatsScenario(temp, settings.unbuffedModifiers);
-      results.unbuffedAttributes = temp.attributes;
+      const unbuffedScenario: Scenario = {
+        fraction: 1,
+        baseAttributes: { ...settings.unbuffedBaseAttributes },
+        modifiers: settings.unbuffedModifiers, // passed by reference; we (hopefully) don't modify these
+      };
+      const temp = this.createCharacter(character.gear, character.gearStats, character.infusions, {
+        scenarios: [unbuffedScenario],
+      });
+      this.calcStatsScenario(temp.scenarios[0]);
+      results.unbuffedAttributes = temp.scenarios[0].attributes;
     }
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
