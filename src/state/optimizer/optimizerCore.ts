@@ -564,12 +564,11 @@ export class OptimizerCore {
 
   calcStatsScenario(scenario: Scenario, noRounding = false): asserts scenario is ScenarioProcessed {
     const { settings } = this;
-    const { modifiers } = scenario;
 
     const round = noRounding ? (val: number) => val : roundEven;
 
     scenario.attributes = { ...scenario.baseAttributes };
-    const { attributes, baseAttributes } = scenario;
+    const { attributes, baseAttributes, modifiers } = scenario;
 
     for (const [attribute, conversion] of modifiers['convert']) {
       const maybeRound = enumArrayIncludes(allAttributePointKeys, attribute)
