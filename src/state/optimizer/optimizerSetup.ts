@@ -863,8 +863,6 @@ export function createSettingsPerCombination(
     };
   });
 
-  console.log('scenarios', scenarios);
-
   /* Relevant Conditions + Condi Caching Toggle */
 
   const relevantConditions: OptimizerCoreSettings['relevantConditions'] = damagingConditions.filter(
