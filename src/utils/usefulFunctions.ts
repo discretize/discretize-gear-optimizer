@@ -115,3 +115,11 @@ export const pick = (object: Record<string, unknown>, keysToPick: string[]) =>
   Object.fromEntries(keysToPick.filter((key) => key in object).map((key) => [key, object[key]]));
 
 export type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] };
+
+// useful for improving intellisense during development
+// https://stackoverflow.com/a/57683652
+export type ExpandRecursively<T> = T extends object
+  ? T extends infer O
+    ? { [K in keyof O]: ExpandRecursively<O[K]> }
+    : never
+  : T;

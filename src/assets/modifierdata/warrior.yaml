@@ -11,11 +11,17 @@
 
     - id: signet-of-fury
       text: Signet of Fury
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Precision: [180, buff]
       gw2id: 14410
-      temporaryBuff: false
+      temporaryBuff: activeOutOfCombat
 
     - id: dolyak-signet
       text: Dolyak Signet
@@ -200,7 +206,7 @@
 
     - id: unsuspecting-foe-full
       text: Unsuspecting Foe
-      subText: 100% uptime # variable crit chance would be inaccurate
+      subText: 100% uptime
       modifiers:
         attributes:
           Critical Chance: 25%
@@ -212,11 +218,15 @@
       text: Burst Precision
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Ferocity: [250, converted]
+          Critical Chance: 100%
       gw2id: 1336
       defaultEnabled: true
       temporaryBuff: true
@@ -536,7 +546,12 @@
 
     - id: smash-brawler-full
       text: Smash Brawler
-      subText: 100% uptime # variable crit chance would be inaccurate
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Critical Chance: 15%
@@ -545,7 +560,7 @@
           Critical Chance: 5%
       gw2id: 2049
       defaultEnabled: true
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat
 
     - id: blood-reaction-base
       text: Blood Reaction

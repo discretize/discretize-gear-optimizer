@@ -63,22 +63,12 @@ pub enum Attribute {
     EffectivePower,
     EffectiveHealth,
     EffectiveHealing,
-    // indicators
-    Damage,
-    Survivability,
-    Healing,
     // condition stacks
     BleedingStacks,
     BurningStacks,
     ConfusionStacks,
     PoisonStacks,
     TormentStacks,
-    //condition dps
-    BleedingDPS,
-    BurningDPS,
-    ConfusionDPS,
-    PoisonDPS,
-    TormentDPS,
     // alternative power, no idea whats that for
     AltPower,
     AltPrecision,
@@ -94,18 +84,30 @@ pub enum Attribute {
     // siphon
     SiphonCoefficient,
     SiphonBaseCoefficient,
-    SiphonDPS,
-
     // misc
     MaxHealth,
     OutgoingHealing,
     PowerCoefficient,
     NonCritPowerCoefficient,
-    Power2DPS,
     Power2Coefficient,
     FlatDPS,
-    PowerDPS,
     PlayerCriticalDamage,
+
+    // indicators
+    Damage,
+    Survivability,
+    Healing,
+    // dps
+    PowerDPS,
+    Power2DPS,
+    SiphonDPS,
+    OtherDPS,
+    //condition dps
+    BleedingDPS,
+    BurningDPS,
+    ConfusionDPS,
+    PoisonDPS,
+    TormentDPS,
 
     #[default]
     None = 255,
@@ -149,8 +151,8 @@ impl Attribute {
             Attribute::Precision => "Precision",
             Attribute::Toughness => "Toughness",
             Attribute::Vitality => "Vitality",
-            Attribute::Ferocity => "Ferocity",
 
+            Attribute::Ferocity => "Ferocity",
             Attribute::ConditionDamage => "Condition Damage",
             Attribute::Expertise => "Expertise",
             Attribute::Concentration => "Concentration",
@@ -200,21 +202,11 @@ impl Attribute {
             Attribute::EffectiveHealth => "Effective Health",
             Attribute::EffectiveHealing => "Effective Healing",
 
-            Attribute::Damage => "Damage",
-            Attribute::Survivability => "Survivability",
-            Attribute::Healing => "Healing",
-
             Attribute::BleedingStacks => "Bleeding Stacks",
             Attribute::BurningStacks => "Burning Stacks",
             Attribute::ConfusionStacks => "Confusion Stacks",
             Attribute::PoisonStacks => "Poison Stacks",
             Attribute::TormentStacks => "Torment Stacks",
-
-            Attribute::BleedingDPS => "Bleeding DPS",
-            Attribute::BurningDPS => "Burning DPS",
-            Attribute::ConfusionDPS => "Confusion DPS",
-            Attribute::PoisonDPS => "Poison DPS",
-            Attribute::TormentDPS => "Torment DPS",
 
             Attribute::AltPower => "Alt Power",
             Attribute::AltPrecision => "Alt Precision",
@@ -230,17 +222,29 @@ impl Attribute {
 
             Attribute::SiphonCoefficient => "Siphon Coefficient",
             Attribute::SiphonBaseCoefficient => "Siphon Base Coefficient",
-            Attribute::SiphonDPS => "Siphon DPS",
 
             Attribute::MaxHealth => "Max Health",
             Attribute::OutgoingHealing => "Outgoing Healing",
             Attribute::PowerCoefficient => "Power Coefficient",
             Attribute::NonCritPowerCoefficient => "Non Crit Power Coefficient",
-            Attribute::Power2DPS => "Power2 DPS",
             Attribute::Power2Coefficient => "Power2 Coefficient",
             Attribute::FlatDPS => "Flat DPS",
-            Attribute::PowerDPS => "Power DPS",
             Attribute::PlayerCriticalDamage => "Player Critical Damage",
+
+            Attribute::Damage => "Damage",
+            Attribute::Survivability => "Survivability",
+            Attribute::Healing => "Healing",
+
+            Attribute::PowerDPS => "Power DPS",
+            Attribute::Power2DPS => "Power2 DPS",
+            Attribute::SiphonDPS => "Siphon DPS",
+            Attribute::OtherDPS => "Other DPS",
+
+            Attribute::BleedingDPS => "Bleeding DPS",
+            Attribute::BurningDPS => "Burning DPS",
+            Attribute::ConfusionDPS => "Confusion DPS",
+            Attribute::PoisonDPS => "Poison DPS",
+            Attribute::TormentDPS => "Torment DPS",
 
             Attribute::None => "None",
         }

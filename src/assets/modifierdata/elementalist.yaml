@@ -16,11 +16,17 @@
 
     - id: signet-of-fire
       text: Signet of Fire
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Precision: [180, buff]
       gw2id: 5542
-      temporaryBuff: false
+      temporaryBuff: activeOutOfCombat
 
     - id: signet-of-earth
       text: Signet of Earth
@@ -71,7 +77,12 @@
 
     - id: crescent-wind
       text: Crescent Wind
-      subText: 100% uptime
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Critical Chance: 15%
@@ -163,14 +174,21 @@
     #       Condition Damage: [180, buff]
     #   gw2id: 5516
 
-    # - id: lightning-hammer
-    #   text: Lightning Hammer
-    #   subText: when equipped
-    #   modifiers:
-    #     attributes:
-    #       Precision: [180, buff]
-    #       Ferocity: [75, buff]
-    #   gw2id: 5624
+    - id: lightning-hammer
+      text: Lightning Hammer
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
+      modifiers:
+        attributes:
+          Precision: [180, buff]
+          Ferocity: [75, buff]
+      gw2id: 5624
+      temporaryBuff: true
 
     # - id: frost-bow
     #   text: Frost Bow
@@ -612,7 +630,12 @@
 
     - id: superior-elements
       text: Superior Elements
-      subText: 100% uptime
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Critical Chance: 15%
