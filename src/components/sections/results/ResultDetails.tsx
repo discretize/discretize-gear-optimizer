@@ -65,7 +65,7 @@ const ResultDetails = () => {
           {t(
             'These modifers are simulated as fluctuating or having inconsistent uptimes; their stat bonuses will not be shown here:',
           )}{' '}
-          {character.settings.nonDefaultScenarioModifiers.join()}
+          {character.settings.nonDefaultScenarioModifiers.join(', ')}
         </Info>
       ) : undefined}
 
