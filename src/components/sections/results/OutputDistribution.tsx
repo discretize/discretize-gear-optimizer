@@ -25,6 +25,7 @@ const OutputDistribution = ({ character }: { character: Character }) => {
     Power: t('Power'),
     Power2: alternativeDamageLabel,
     Siphon: t('Life Siphon'),
+    Reflect: t('Reflect'),
     Flat: t('Other'),
   };
 
@@ -63,7 +64,8 @@ const OutputDistribution = ({ character }: { character: Character }) => {
                   // eslint-disable-next-line no-nested-ternary
                   damageType.name === 'Power' ||
                   damageType.name === 'Power2' ||
-                  damageType.name === 'Siphon' ? (
+                  damageType.name === 'Siphon' ||
+                  damageType.name === 'Reflect' ? (
                     <Attribute
                       name="Power"
                       className={classes.gw2Item}
