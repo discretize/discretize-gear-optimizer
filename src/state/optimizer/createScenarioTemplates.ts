@@ -32,9 +32,9 @@ export function createScenarioTemplates(
    */
 
   const categoryData: {
-    category?: string;
+    category: string | undefined;
     groupData: {
-      group?: string | boolean;
+      group: string | boolean | undefined;
       modifiers: AppliedModifier[];
       uptime: number;
     }[];
@@ -51,7 +51,8 @@ export function createScenarioTemplates(
     const { correlation } = advancedUptimeModifier.amountData!.advancedUptimeSimulation!;
     if (!correlation) {
       categoryData.push({
-        groupData: [{ modifiers: [modifierWithoutAmountData], uptime }],
+        category: undefined,
+        groupData: [{ group: undefined, modifiers: [modifierWithoutAmountData], uptime }],
       });
     } else {
       let categoryDataEntry = categoryData.find(
@@ -103,7 +104,7 @@ export function createScenarioTemplates(
           .join('/')}!`,
       );
     }
-    byGroup.unshift({ modifiers: [], uptime: 1 - categoryTotalUptime });
+    byGroup.unshift({ group: undefined, modifiers: [], uptime: 1 - categoryTotalUptime });
   });
 
   // Create scenarios for every combination of active/inactive for every advanced uptime modifier
