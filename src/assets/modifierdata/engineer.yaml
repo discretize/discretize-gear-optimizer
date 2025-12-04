@@ -68,6 +68,10 @@
         default: 0
         defaultInput: ???
         quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: evolve
+            group: true
       modifiers:
         attributes:
           Power: [125, buff] # 5 with 25 stacks
@@ -470,7 +474,9 @@
         defaultInput: ???
         quantityEntered: 100
         advancedUptimeSimulation:
-          correlation: false
+          correlation:
+            category: evolve
+            group: true
       modifiers:
         conversion:
           Power: {Power: 10%}
@@ -495,7 +501,9 @@
         defaultInput: ???
         quantityEntered: 100
         advancedUptimeSimulation:
-          correlation: false
+          correlation:
+            category: evolve
+            group: true
       modifiers:
         conversion:
           Power: {Power: 15%}
