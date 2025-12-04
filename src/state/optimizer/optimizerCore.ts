@@ -471,25 +471,12 @@ export class OptimizerCore {
 
     this.calcStats(character, noRounding);
 
-    const powerDamageScore = character.scenarios
-      .map((scenario) => this.calcPowerScenario(scenario, character) * scenario.fraction)
-      .reduce((a, b) => a + b);
-    const condiDamageScore = character.scenarios
-      .map(
-        (scenario) =>
-          this.calcCondiScenario(scenario, character, damagingConditions) * scenario.fraction,
-      )
-      .reduce((a, b) => a + b);
-
-    character.attributes['Damage'] = powerDamageScore + condiDamageScore;
-
-    character.attributes['Healing'] = character.scenarios
-      .map((scenario) => this.calcHealingScenario(scenario) * scenario.fraction)
-      .reduce((a, b) => a + b);
-
-    character.attributes['Survivability'] = character.scenarios
-      .map((scenario) => this.calcSurvivabilityScenario(scenario) * scenario.fraction)
-      .reduce((a, b) => a + b);
+    character.scenarios.forEach((scenario) => {
+      this.calcPowerScenario(scenario, character);
+      this.calcCondiScenario(scenario, character, damagingConditions);
+      this.calcHealingScenario(scenario, character);
+      this.calcSurvivabilityScenario(scenario, character);
+    });
   }
 
   /**
@@ -514,48 +501,36 @@ export class OptimizerCore {
     }
 
     if (settings.rankby === 'Damage' || settings.minDamage) {
-      const powerDamageScore = character.scenarios
-        .map((scenario) => this.calcPowerScenario(scenario, character) * scenario.fraction)
-        .reduce((a, b) => a + b);
+      character.scenarios.forEach((scenario) => this.calcPowerScenario(scenario, character));
 
       // cache condi result based on cdmg and expertise
-      let condiDamageScore = 0;
       if (settings.disableCondiResultCache) {
-        condiDamageScore = character.scenarios
-          .map(
-            (scenario) =>
-              this.calcCondiScenario(scenario, character, settings.relevantConditions) *
-              scenario.fraction,
-          )
-          .reduce((a, b) => a + b);
+        character.scenarios.forEach((scenario) =>
+          this.calcCondiScenario(scenario, character, settings.relevantConditions),
+        );
       } else if (settings.relevantConditions.length > 0) {
         const CONDI_CACHE_ID =
           character.scenarios[0].attributes['Expertise'] +
           character.scenarios[0].attributes['Condition Damage'] * 10000;
-        condiDamageScore =
-          this.condiResultCache?.get(CONDI_CACHE_ID) ||
-          character.scenarios
-            .map(
-              (scenario) =>
-                this.calcCondiScenario(scenario, character, settings.relevantConditions) *
-                scenario.fraction,
+
+        const cachedCondiDamageScore = this.condiResultCache?.get(CONDI_CACHE_ID);
+        if (cachedCondiDamageScore !== undefined) {
+          character.attributes['Damage'] += cachedCondiDamageScore;
+        } else {
+          const condiDamageScore = character.scenarios
+            .map((scenario) =>
+              this.calcCondiScenario(scenario, character, settings.relevantConditions),
             )
             .reduce((a, b) => a + b);
-
-        this.condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
+          this.condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
+        }
       }
-
-      character.attributes['Damage'] = powerDamageScore + condiDamageScore;
     }
     if (settings.rankby === 'Healing' || settings.minHealing) {
-      character.attributes['Healing'] = character.scenarios
-        .map((scenario) => this.calcHealingScenario(scenario) * scenario.fraction)
-        .reduce((a, b) => a + b);
+      character.scenarios.map((scenario) => this.calcHealingScenario(scenario, character));
     }
     if (settings.rankby === 'Survivability' || settings.minSurvivability) {
-      character.attributes['Survivability'] = character.scenarios
-        .map((scenario) => this.calcSurvivabilityScenario(scenario) * scenario.fraction)
-        .reduce((a, b) => a + b);
+      character.scenarios.map((scenario) => this.calcSurvivabilityScenario(scenario, character));
     }
 
     if (!skipValidation) {
@@ -790,7 +765,7 @@ export class OptimizerCore {
     character.attributes['Other DPS'] += flatDamage * fraction;
     result += flatDamage;
 
-    return result;
+    character.attributes['Damage'] += result * fraction;
   }
 
   conditionDamageTick = (data: ValueOf<typeof conditionData>, cdmg: number, mult: number): number =>
@@ -856,30 +831,34 @@ export class OptimizerCore {
       result += DPS;
     }
 
-    return result;
+    character.attributes['Damage'] += result * fraction;
+
+    // used for caching
+    return result * fraction;
   }
 
-  calcSurvivabilityScenario(scenario: ScenarioProcessed) {
+  calcSurvivabilityScenario(scenario: ScenarioProcessed, character: CharacterProcessed) {
     const {
       attributes,
       modifiers: { damageMultiplier },
+      fraction,
     } = scenario;
 
     attributes['Effective Health'] =
       attributes['Health'] * attributes['Armor'] * (1 / damageMultiplier['Incoming Strike Damage']);
 
-    return attributes['Effective Health'] / 1967;
+    character.attributes['Survivability'] += (attributes['Effective Health'] / 1967) * fraction;
   }
 
-  calcHealingScenario(scenario: ScenarioProcessed) {
-    const { attributes } = scenario;
+  calcHealingScenario(scenario: ScenarioProcessed, character: CharacterProcessed) {
+    const { attributes, fraction } = scenario;
 
     // reasonably representative skill: druid celestial avatar 4 pulse
     // 390 base, 0.3 coefficient
     attributes['Effective Healing'] =
       (attributes['Healing Power'] * 0.3 + 390) * (1 + (attributes['Outgoing Healing'] || 0));
 
-    return attributes['Effective Healing'];
+    character.attributes['Healing'] += attributes['Effective Healing'] * fraction;
   }
 
   calcResults(character: CharacterProcessed): CharacterWithResults {
