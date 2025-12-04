@@ -558,7 +558,7 @@ export function createSettingsPerCombination(
           appliedModifiers: combinationAppliedModifiers,
         },
       ]
-    : createScenarioTemplates(combinationAppliedModifiers, true);
+    : createScenarioTemplates(combinationAppliedModifiers, false, true);
 
   const defaultScenarioModifiers = scenarioTemplates[0].appliedModifiers.map(({ id }) => id);
   const nonDefaultScenarioModifiers = combinationAppliedModifiers

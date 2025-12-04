@@ -26,23 +26,15 @@ const roundTwo = (num: number) => Math.round(num * 100) / 100;
 
 export const getSharedModifiersInfo = memoize((state: RootState) => {
   try {
-    const sharedAdvancedUptimeModifiers = [
+    const sharedModifiers = [
       ...getBuffsModifiers(state),
       ...getExtraModifiersModifiers(state),
       ...getSkillsModifiers(state),
       ...getTraitsModifiers(state),
-    ].filter(({ amountData }) => amountData?.advancedUptimeSimulation);
+    ];
 
-    const extrasCombinationsAndModifiers = getExtrasCombinationsAndModifiers(state).map(
-      ({ extrasModifiers }) =>
-        extrasModifiers.filter(({ amountData }) => amountData?.advancedUptimeSimulation),
-    );
-
-    const results = extrasCombinationsAndModifiers.map((extrasModifiers) => {
-      const templates = createScenarioTemplates([
-        ...sharedAdvancedUptimeModifiers,
-        ...extrasModifiers,
-      ]);
+    const results = getExtrasCombinationsAndModifiers(state).map(({ extrasModifiers }) => {
+      const templates = createScenarioTemplates([...sharedModifiers, ...extrasModifiers], true);
       const text = templates
         .map(
           ({ fraction, appliedModifiers }) =>

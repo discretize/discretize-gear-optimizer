@@ -6,6 +6,7 @@ import { clamp, cloneScenarioTemplate, scaleValue } from './utils/utils';
 /* eslint-disable import/prefer-default-export */
 export function createScenarioTemplates(
   appliedModifiers: AppliedModifier[],
+  onlyAdvanced = false,
   withLogging = false,
 ): ScenarioTemplate[] {
   // collect non-advanced-uptime modifiers and apply them at the end to all scenarios
@@ -44,7 +45,9 @@ export function createScenarioTemplates(
     const { value: amountInput } = parseAmount(amountText);
     const uptime = clamp(scaleValue(1, amountInput, amountData), 0, 1);
 
-    if (uptime === 0) {
+    const { correlation } = appliedModifier.amountData.advancedUptimeSimulation;
+
+    if (uptime === 0 || (uptime === 1 && correlation === false)) {
       basicModifiers.push(appliedModifier);
       return;
     }
@@ -53,7 +56,6 @@ export function createScenarioTemplates(
 
     const { amountData: _, ...modifierWithoutAmountData } = appliedModifier;
 
-    const { correlation } = appliedModifier.amountData.advancedUptimeSimulation;
     if (!correlation) {
       categoryData.push({
         category: undefined,
@@ -139,6 +141,10 @@ export function createScenarioTemplates(
         ...scenarioTemplate.appliedModifiers.map(({ id }) => id),
       ]),
     );
+  }
+
+  if (onlyAdvanced) {
+    return scenarioTemplates;
   }
 
   scenarioTemplates.forEach((scenarioTemplate) =>
