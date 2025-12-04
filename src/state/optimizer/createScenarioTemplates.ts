@@ -8,16 +8,12 @@ export function createScenarioTemplates(
   appliedModifiers: AppliedModifier[],
   withLogging = false,
 ): ScenarioTemplate[] {
-  // simulate scenarios with/without each of these, according to their uptime.
-  const advancedUptimeModifiers = appliedModifiers.filter(
-    (appliedModifier) => appliedModifier.amountData?.advancedUptimeSimulation,
-  );
-  // apply these to all scenarios.
-  const basicModifiers = appliedModifiers.filter(
-    (appliedModifier) => !advancedUptimeModifiers.includes(appliedModifier),
-  );
+  // collect non-advanced-uptime modifiers and apply them at the end to all scenarios
+  const basicModifiers: AppliedModifier[] = [];
 
   /**
+   * Advanced uptime modifiers:
+   *
    * Modifiers with the same category AND same group are simulated as always overlapping.
    * They must have the same uptime.
    *
@@ -39,16 +35,25 @@ export function createScenarioTemplates(
       uptime: number;
     }[];
   }[] = [];
-  advancedUptimeModifiers.forEach((advancedUptimeModifier) => {
-    const { amount: amountText, amountData } = advancedUptimeModifier;
+  appliedModifiers.forEach((appliedModifier) => {
+    if (!appliedModifier.amountData?.advancedUptimeSimulation) {
+      basicModifiers.push(appliedModifier);
+      return;
+    }
+    const { amount: amountText, amountData } = appliedModifier;
     const { value: amountInput } = parseAmount(amountText);
     const uptime = clamp(scaleValue(1, amountInput, amountData), 0, 1);
 
-    if (uptime === 0) return;
+    if (uptime === 0) {
+      basicModifiers.push(appliedModifier);
+      return;
+    }
 
-    const { amountData: _, ...modifierWithoutAmountData } = advancedUptimeModifier;
+    // this is an advanced uptime modifier. simulate scenarios with/without each of these, according to their uptime.
 
-    const { correlation } = advancedUptimeModifier.amountData!.advancedUptimeSimulation!;
+    const { amountData: _, ...modifierWithoutAmountData } = appliedModifier;
+
+    const { correlation } = appliedModifier.amountData.advancedUptimeSimulation;
     if (!correlation) {
       categoryData.push({
         category: undefined,
@@ -80,7 +85,7 @@ export function createScenarioTemplates(
 
       if (groupDataEntry.uptime !== uptime) {
         throw new Error(
-          `Mismatched uptime chosen for correlated advanced uptime modifiers ${[advancedUptimeModifier, ...groupDataEntry.modifiers].map(({ id }) => id).join('/')}!`,
+          `Mismatched uptime chosen for correlated advanced uptime modifiers ${[appliedModifier, ...groupDataEntry.modifiers].map(({ id }) => id).join('/')}!`,
         );
       }
 
