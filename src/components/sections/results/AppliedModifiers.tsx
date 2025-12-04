@@ -15,6 +15,7 @@ import { makeStyles } from 'tss-react/mui';
 import type { Character } from '../../../state/optimizer/types/optimizerTypes';
 import { scaleValue } from '../../../state/optimizer/utils/utils';
 import { parseAmount } from '../../../utils/usefulFunctions';
+import { AppliedModifierAdvancedUptimeIndicator } from '../../baseComponents/AdvancedUptimeIndicator';
 
 const useStyles = makeStyles()((theme) => ({
   root: {
@@ -59,6 +60,14 @@ const AppliedModifiers = ({ character }: { character: Character }) => {
               return (
                 // eslint-disable-next-line react/no-array-index-key
                 <TableRow hover key={i}>
+                  <TableCell>
+                    {amountData?.advancedUptimeSimulation ? (
+                      <AppliedModifierAdvancedUptimeIndicator
+                        amount={amount}
+                        amountData={amountData}
+                      />
+                    ) : undefined}
+                  </TableCell>
                   <TableCell>
                     <Typography className={classes.gw2Item}> {id} </Typography>
                   </TableCell>
