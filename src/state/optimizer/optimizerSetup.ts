@@ -69,6 +69,7 @@ import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { getGameMode } from '../slices/userSettings';
 import type { RootState } from '../store';
+import { createScenarioTemplates } from './createScenarioTemplates';
 import type {
   AppliedModifier,
   DamageMultiplier,
@@ -81,6 +82,8 @@ import type {
   OptimizerCoreSettings,
   OptimizerCoreSettingsPerCalculation,
   OptimizerCoreSettingsPerCombination,
+  Scenario,
+  ScenarioTemplate,
 } from './types/optimizerTypes';
 import { clamp, scaleValue } from './utils/utils';
 
@@ -118,15 +121,15 @@ export function setupCombinations(reduxState: RootState) {
     const settings = {
       ...settingsPerCalculation,
       ...settingsPerCombination,
-      unbuffedBaseAttributes: unbuffedSettings.baseAttributes,
-      unbuffedModifiers: unbuffedSettings.modifiers,
+      unbuffedBaseAttributes: unbuffedSettings.scenarios[0].baseAttributes,
+      unbuffedModifiers: unbuffedSettings.scenarios[0].modifiers,
       extrasCombination,
     };
 
     console.log(`combination ${i}:`, {
       settingsPerCombination,
-      unbuffedBaseAttributes: unbuffedSettings.baseAttributes,
-      unbuffedModifiers: unbuffedSettings.modifiers,
+      unbuffedBaseAttributes: unbuffedSettings.scenarios[0].baseAttributes,
+      unbuffedModifiers: unbuffedSettings.scenarios[0].modifiers,
       extrasCombination,
       extrasModifiers,
     });
@@ -493,7 +496,7 @@ export function createSettingsPerCombination(
     ...(getTraitsModifiers(reduxState) || []),
   ];
 
-  const appliedModifiers = [...sharedModifiers, ...extrasModifiers];
+  const combinationAppliedModifiers = [...sharedModifiers, ...extrasModifiers];
 
   const profession = getProfession(reduxState);
   const distribution = getDistributionNew(reduxState);
@@ -508,7 +511,7 @@ export function createSettingsPerCombination(
 
   /* Base Attributes */
 
-  const baseAttributes: OptimizerCoreSettings['baseAttributes'] = {
+  const combinationBaseAttributes: Scenario['baseAttributes'] = {
     'Power': 1000,
     'Precision': 1000,
     'Toughness': 1000,
@@ -541,19 +544,40 @@ export function createSettingsPerCombination(
   };
 
   if (profession === 'Mesmer') {
-    baseAttributes['Clone Critical Chance'] = 0.05;
-    baseAttributes['Phantasm Critical Chance'] = 0.05;
-    baseAttributes['Phantasm Critical Damage'] = 1.5;
+    combinationBaseAttributes['Clone Critical Chance'] = 0.05;
+    combinationBaseAttributes['Phantasm Critical Chance'] = 0.05;
+    combinationBaseAttributes['Phantasm Critical Damage'] = 1.5;
   }
 
-  /* Modifiers */
+  /* Set Up Scenarios */
 
+  const scenarioTemplates: ScenarioTemplate[] = simulateUnbuffed
+    ? [
+        {
+          fraction: 1,
+          appliedModifiers: combinationAppliedModifiers,
+        },
+      ]
+    : createScenarioTemplates(combinationAppliedModifiers, false, true);
+
+  const defaultScenarioModifiers = scenarioTemplates[0].appliedModifiers.map(({ id }) => id);
+  const nonDefaultScenarioModifiers = combinationAppliedModifiers
+    .map(({ id }) => id)
+    .filter((id) => !defaultScenarioModifiers.includes(id));
+
+  // variables shared between scenarios
   const extraRelevantConditions = Object.fromEntries(
     Object.keys(conditionData).map((condition) => [condition, false]),
   );
   const allCalculationTweaks: CalculationTweaks = {};
 
-  const createModifiers = () => {
+  const scenarios: Scenario[] = scenarioTemplates.map((scenarioTemplate) => {
+    const { appliedModifiers } = scenarioTemplate;
+
+    const baseAttributes = { ...combinationBaseAttributes };
+
+    /* Modifiers */
+
     const collectedModifiers: CollectedModifiers = {
       buff: {},
       convert: {},
@@ -832,16 +856,20 @@ export function createSettingsPerCombination(
       convertAfterBuffs,
     } as Modifiers;
 
-    return modifiers;
-  };
-
-  const modifiers = createModifiers();
+    return {
+      fraction: scenarioTemplate.fraction,
+      baseAttributes: { ...baseAttributes }, // object shape performance optimization
+      modifiers,
+    };
+  });
 
   /* Relevant Conditions + Condi Caching Toggle */
 
   const relevantConditions: OptimizerCoreSettings['relevantConditions'] = damagingConditions.filter(
     (condition) =>
-      (baseAttributes[`${condition} Coefficient`] ?? 0) > 0 || extraRelevantConditions[condition],
+      scenarios.some(
+        (scenario) => (scenario.baseAttributes[`${condition} Coefficient`] ?? 0) > 0,
+      ) || extraRelevantConditions[condition],
   );
 
   // the condi result cache assumes the same cdmg + expertise values produce the same condition damage;
@@ -851,11 +879,13 @@ export function createSettingsPerCombination(
     !!allCalculationTweaks.infernoBurningDamage;
 
   const settings: OptimizerCoreSettingsPerCombination = {
-    baseAttributes: { ...baseAttributes }, // object shape performance optimization
-    modifiers,
+    baseAttributes: scenarios[0].baseAttributes, // not used internally after scenarios update, but copied from scenarios[0] and used for rust mode
+    modifiers: scenarios[0].modifiers, // not used internally after scenarios update, but copied from scenarios[0] and used for results display
+    scenarios,
+    nonDefaultScenarioModifiers,
     relevantConditions,
     disableCondiResultCache,
-    appliedModifiers,
+    appliedModifiers: combinationAppliedModifiers,
     calculationTweaks: allCalculationTweaks,
   };
 

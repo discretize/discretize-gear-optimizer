@@ -1,4 +1,5 @@
 import { TextDivider } from '@discretize/react-discretize-components';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import { Grid } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -8,6 +9,7 @@ import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { createAssumedBuffs } from '../../../utils/assumedBuffs';
 import { objectEntries } from '../../../utils/usefulFunctions';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
+import Info from '../../baseComponents/Info';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
 import Bonuses from './Bonuses';
@@ -57,6 +59,15 @@ const ResultDetails = () => {
   return (
     <ErrorBoundary location="ResultDetails" resetKeys={[character]}>
       <TextDivider text="Result Character" />
+
+      {character.settings.nonDefaultScenarioModifiers?.length ? (
+        <Info icon={<WarningAmberIcon />}>
+          {t(
+            'These modifers are simulated as fluctuating or having inconsistent uptimes; their stat bonuses will not be shown here:',
+          )}{' '}
+          {character.settings.nonDefaultScenarioModifiers.join(', ')}
+        </Info>
+      ) : undefined}
 
       <ResultCharacter character={character} assumedBuffs={assumedBuffs} />
       <Grid container spacing={2}>

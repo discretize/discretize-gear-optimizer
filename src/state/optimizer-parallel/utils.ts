@@ -4,48 +4,11 @@ import type {
   DamagingConditionName,
   WeaponHandednessType,
 } from '../../utils/gw2-data';
-import {
-  Affix,
-  alternativeAttributes,
-  boonDurationAttributes,
-  conditionCoefficientAttributes,
-  conditionDpsAttributes,
-  conditionDurationAttributes,
-  conditionStackAttributes,
-  conditionTickAttributes,
-  damagingConditions,
-  derivedAttributes,
-  effectiveAttributes,
-  indicatorAttributes,
-  miscAttributes,
-  primaryAttributes,
-  professionAttributes,
-  secondaryAttributes,
-  siphonAttributes,
-  WeaponTypes,
-} from '../../utils/gw2-data';
+import { Affix, damagingConditions, WeaponTypes, attributes } from '../../utils/gw2-data';
 import { objectKeys } from '../../utils/usefulFunctions';
 import { getExtrasIds } from '../slices/extras';
 import type { RootState } from '../store';
 import type { CalculationSettings, CombinationSettings } from './optimizerSetup';
-
-const attributes: AttributeName[] = [
-  ...primaryAttributes,
-  ...secondaryAttributes,
-  ...derivedAttributes,
-  ...boonDurationAttributes,
-  ...conditionDurationAttributes,
-  ...conditionCoefficientAttributes,
-  ...conditionTickAttributes,
-  ...effectiveAttributes,
-  ...indicatorAttributes,
-  ...conditionStackAttributes,
-  ...conditionDpsAttributes,
-  ...alternativeAttributes,
-  ...professionAttributes,
-  ...siphonAttributes,
-  ...miscAttributes,
-] as const;
 
 export const getAffixId = (affix: AffixName) => {
   const index = objectKeys(Affix).indexOf(affix);

@@ -16,12 +16,13 @@ const roundThree = (num: number) => Math.round(num * 1000) / 1000;
 
 const logAttributeDiff = (newCharacter: Character | null, oldCharacter: Character | null) => {
   if (
+    // oldCharacter?.baseAttributes &&
+    // newCharacter?.baseAttributes &&
     oldCharacter?.attributes &&
-    oldCharacter?.baseAttributes &&
-    newCharacter?.attributes &&
-    newCharacter?.baseAttributes
+    newCharacter?.attributes
   ) {
     console.groupCollapsed('Selected Character Comparison');
+    /*
     const baseAttributeComparisonEntries = objectKeys(newCharacter.baseAttributes)
       .map(
         (key) =>
@@ -42,6 +43,7 @@ const logAttributeDiff = (newCharacter: Character | null, oldCharacter: Characte
       .filter(([_key, value]) => value.value);
     console.log('Base attributes changed (not including modifiers):');
     console.table(Object.fromEntries(baseAttributeComparisonEntries));
+    */
     const attributeComparisonEntries = objectKeys(newCharacter.attributes)
       .map(
         (key) =>

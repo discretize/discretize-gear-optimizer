@@ -22,6 +22,7 @@ import {
 } from '../../../state/slices/buffs';
 import { AmountInput } from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
+import AdvancedUptimeIndicator from '../../baseComponents/AdvancedUptimeIndicator';
 
 const useStyles = makeStyles()((theme) => ({
   boon: {
@@ -132,6 +133,7 @@ const Buffs = () => {
                     </Box>
                     {amountData ? (
                       <Box sx={{ display: 'flex' }}>
+                        <AdvancedUptimeIndicator amount={amounts[id]} amountData={amountData} />
                         <AmountInput
                           placeholder={amountData.default}
                           endLabel={amountData.label}
