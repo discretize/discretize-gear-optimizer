@@ -62,7 +62,7 @@
 
     - id: titanic-strain
       text: Titanic Strain
-      subText: (25 might)
+      subText: Titanic Strain (25 might)
       amountData:
         label: '% uptime'
         default: 0
@@ -76,7 +76,6 @@
         attributes:
           Power: [125, buff] # 5 with 25 stacks
           Condition Damage: [125, buff] # 5 with 25 stacks
-      gw2id: 76806
       temporaryBuff: true
 
     - id: plasmatic-state
