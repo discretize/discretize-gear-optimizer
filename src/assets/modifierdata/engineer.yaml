@@ -60,6 +60,30 @@
           Damage Reduction: [50%, mult]
       gw2id: 41218
 
+    - id: evolve
+      text: Evolve
+      amountData:
+        label: '% evolved'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: evolve
+          group: true
+      modifiers:
+        conversion:
+          Power: {Power: 10%}
+          Precision: {Precision: 10%}
+          Toughness: {Toughness: 10%}
+          Vitality: {Vitality: 10%}
+          Concentration: {Concentration: 10%}
+          Condition Damage: {Condition Damage: 10%}
+          Expertise: {Expertise: 10%}
+          Ferocity: {Ferocity: 10%}
+          Healing Power: {Healing Power: 10%}
+      gw2id: 76642
+      temporaryBuff: true
+
     - id: titanic-strain
       text: Titanic Strain
       subText: Titanic Strain (25 might)
@@ -459,56 +483,6 @@
   id: 75
   items:
 
-    - id: evolve
-      text: Evolve
-      subText: Evolve (without Double Helix)
-      minor: true
-      amountData:
-        label: '% uptime'
-        default: 0
-        defaultInput: ???
-        quantityEntered: 100
-        advancedUptimeSimulation:
-          correlation: false
-      modifiers:
-        conversion:
-          Power: {Power: 10%}
-          Precision: {Precision: 10%}
-          Toughness: {Toughness: 10%}
-          Vitality: {Vitality: 10%}
-          Concentration: {Concentration: 10%}
-          Condition Damage: {Condition Damage: 10%}
-          Expertise: {Expertise: 10%}
-          Ferocity: {Ferocity: 10%}
-          Healing Power: {Healing Power: 10%}
-      defaultEnabled: false
-      temporaryBuff: true
-
-    - id: evolve-double-helix
-      text: Evolve
-      subText: Evolve (with Double Helix)
-      minor: true
-      amountData:
-        label: '% uptime'
-        default: 0
-        defaultInput: ???
-        quantityEntered: 100
-        advancedUptimeSimulation:
-          correlation: false
-      modifiers:
-        conversion:
-          Power: {Power: 15%}
-          Precision: {Precision: 15%}
-          Toughness: {Toughness: 15%}
-          Vitality: {Vitality: 15%}
-          Concentration: {Concentration: 15%}
-          Condition Damage: {Condition Damage: 15%}
-          Expertise: {Expertise: 15%}
-          Ferocity: {Ferocity: 15%}
-          Healing Power: {Healing Power: 15%}
-      defaultEnabled: false
-      temporaryBuff: true
-
     - id: hybrid-vigor
       text: Hybrid Vigor
       modifiers:
@@ -549,3 +523,28 @@
       minor: true
       gw2id: 2356
       defaultEnabled: true
+
+    - id: double-helix
+      text: Double Helix
+      amountData:
+        label: '% evolved'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: evolve
+          group: true
+      modifiers:
+        conversion:
+          Power: {Power: 5%}
+          Precision: {Precision: 5%}
+          Toughness: {Toughness: 5%}
+          Vitality: {Vitality: 5%}
+          Concentration: {Concentration: 5%}
+          Condition Damage: {Condition Damage: 5%}
+          Expertise: {Expertise: 5%}
+          Ferocity: {Ferocity: 5%}
+          Healing Power: {Healing Power: 5%}
+      gw2id: 2334
+      defaultEnabled: true
+      temporaryBuff: true

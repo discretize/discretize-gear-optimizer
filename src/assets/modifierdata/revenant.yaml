@@ -281,6 +281,14 @@
       gw2id: 77371
       temporaryBuff: true
 
+    - id: shielding-hands
+      text: Shielding Hands
+      subText: with Centaur, while active
+      modifiers:
+        damage:
+          Damage Reduction: [75%, mult]
+      gw2id: 77043
+
 - section: Corruption
   id: 14
   items:
@@ -914,6 +922,16 @@
       gw2id: 2440
       defaultEnabled: false
       temporaryBuff: true
+
+    - id: numinous-gift-determined-resolution
+      text: Numinous Gift
+      subText: with Retribution, 100% resolution
+      minor: true
+      modifiers:
+        damage:
+          Damage Reduction: [4.55%, mult] # changes 10% mult to 15% mult
+      gw2id: 2440
+      defaultEnabled: false
 
     - id: numinous-gift-targeted-destruction
       text: Numinous Gift
