@@ -151,21 +151,24 @@ export const allConversionAfterBuffsDestinationKeys = [
 export type ConversionAfterBuffsDestinationKey =
   (typeof allConversionAfterBuffsDestinationKeys)[number];
 
-// these values don't behave well if scaled up and down,
-// so disallow them in modifiers with an amount key
-export const damageKeysBlacklist = ['Damage Reduction'] as const;
-export const attributePointKeysBlacklist = [
+// these values affect attributes that can be capped
+// disallow them in modifiers with an amount key (without advancedUptimeSimulation)
+export const shouldUseAdvancedUptimeKeysBlacklist = [
   'Precision',
-  'Toughness',
   'Expertise',
-  'Concentration',
-] as const;
-export const attributePercentKeysBlacklist = [
   'Critical Chance',
-  'Boon Duration',
-  ...boonDurations,
   'Condition Duration',
   ...conditionDurations,
+] as const;
+
+// these values affect survivability/boon duration targets
+// disallow them in modifiers with an amount key (without disableBlacklist)
+export const keysBlacklist = [
+  'Damage Reduction',
+  'Toughness',
+  'Concentration',
+  'Boon Duration',
+  ...boonDurations,
   'Maximum Health',
 ] as const;
 
@@ -284,12 +287,22 @@ export interface Modifiers {
   calculationTweaks?: CalculationTweaks;
 }
 
+interface Correlation {
+  category: string;
+  group: string | boolean;
+}
+
+export interface AdvancedUptimeSimulationData {
+  correlation: false | Correlation;
+}
+
 export interface AmountData {
   label: string;
   default: number;
   quantityEntered: number;
   defaultInput?: string;
   disableBlacklist?: boolean;
+  advancedUptimeSimulation?: AdvancedUptimeSimulationData;
 }
 
 export interface ModifierItem {

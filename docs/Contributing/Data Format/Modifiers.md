@@ -226,21 +226,41 @@ This section contains flags that trigger arbitrary code paths in the simulation 
 
 # Amount Section
 
-The `amountData` object allows trait effects to specify that the user can change the amount of the effect in the optimizer UI. Effects will be linearly scaled up or down based on how the user-specified amount compares to the `quantityEntered` value.
+The `amountData` object allows trait effects to specify that the user can change the amount of the effect in the optimizer UI. This can be used for stacking effects/per-boon or per-condition effects, for effects that are triggered with some average frequency, or to simulate effects with non-100% uptimes. (Of course, simulating 60% uptime of an effect as having 60% of the effect impact is an approximation that is only accurate if a class' damage output isn't very spiky.)
 
-This can be used for stacking effects/effect-per-boon or to simulate effects with non-100% uptimes. Of course, simulating a 60% uptime of an effect as always having that effect at 60% strength is an approximation that is only accurate if a class' damage output isn't very spiky.
+**Special Considerations: Attribute Caps**
 
-amountData is currently supported only in traits (skills are definitely planned, extras... maybe, we'll see.)
+By default, effects will be *linearly scaled up or down* based on how the user-specified amount compares to the `quantityEntered` value. This is a perfect simulation of a stacking effect with a constant number of stacks, and a reasonable approximation of most stacking effects with a varying average number of stacks or most uptime-based effects. For example:
 
-> todo: make this true
->
-> Attributes affected by an uptime-based modifier at less than 100% uptime will be automatically marked in the results UI as approximate.
+<details>
+<summary>Examples:</summary>
 
-Using percentage uptimes on effects that can influence critical chance, boon/condition duration, toughness, damage reduction*, or maximum health* is not generally recommended. (Attributes with caps do not scale like this, and attributes that can be min/max filtered should be real.) This is enforced by the testModifers script. Use `disableBlacklist: true` to disable this check when it really does make sense to use it!
+- The damage dealt by a character with a **fluctating average of 10 might stacks** is generally equal to that of a character with **exactly 10 might stacks**, or **halfway between that dealt with 0 and with 20**, because the power attribute has a linear effect on DPS.
+- The damage dealt by a character with **100 extra power half the time** is generally equal to that of a character with **50 extra power all of the time**, or **halfway between that dealt with 0 and with 100 all of the time**, because the power attribute has a linear effect on DPS.
 
-> see [src/assets/modifierdata/metadata.js](../../../src/assets/modifierdata/metadata.js) for the actual blacklist
+</details>
 
-\*perhaps these are fine once a visual indicator is added
+This not true for the attributes that can hit a cap: critical chance, condition duration, and stat points that affect them (precision, expertise).
+
+<details>
+<summary>Examples:</summary>
+
+- The damage dealt by a character with a **fluctating average of 95% condition duration (of expertise points)** is not equal to that of a character with **exactly 95% condition duration**, or **halfway between that dealt with 85% and with 105%**, because they were over the cap some of the time and wasted some of their stat points.
+- The damage dealt by a character with **7% extra critical chance half the time** is not equal to that of a character with **3.5% extra critical chance all of the time**, or **halfway between that dealt with 0% and with 7% all of the time**... if their baseline critical chance was 96.5%, so they're always wasting half their bonus!
+
+</details>
+
+Modifiers that affect these attributes and which will fluctuate or have inconsistent uptimes enough that users will want to simulate them accurately should thus specify `advancedUptimeSimulation`, which will cause the optimizer not to scale them up and down. Instead, a *separate simulation will be run for both/all modifier states* (see below). This is slow and complicated, especially when multiple modifiers specify this, so only do so when it would be legitimately useful (where possible, create a modifier entry for 100% uptime or for exactly n stacks instead).
+
+Modifiers that affect these attributes for which the user's specified stack count can be assumed to always be accurate don't need this. Set `disableBlacklist: true` on a modifier to acknowledge and disable the warning given by the testModifers script when this is the case.
+
+**Special Considerations: Attribute Targets**
+
+In addition to damage optimization, the gear optimizer allows a boon duration target or survivability target to be set. This brings up questions such as whether having 100% boon duration half the time and 60% the other half of the time fulfill an 80% boon duration requirement. It depends!
+
+To prevent confusion, prefer entries for 100% uptime or for exactly n stacks of modifiers that fluctuate or have inconsistent uptimes and affect boon durations, toughness, damage reduction, or maximum health.
+
+Modifiers that affect these attributes for which the user's specified stack count can be assumed to always be accurate are fine. Set `disableBlacklist: true` on a modifier to acknowledge and disable the warning given by the testModifers script when this is the case.
 
 ### label
 
@@ -254,7 +274,7 @@ The default quantity to simulate if the user does not specify one. This is a jud
 
 ### defaultInput (optional)
 
-Initial text to fill the quantity box with; use `???` to indicate that the user definitely needs to specify this quantity manually to use this effect.
+Initial text to fill the quantity box with; use `???` (and set `default` to `0`) to indicate that the user definitely needs to specify this quantity manually to use this effect.
 
 ### quantityEntered
 
@@ -265,6 +285,50 @@ For example, might could be entered as `Power: [30, buff]` with `quantityEntered
 ### disableBlacklist (optional)
 
 This tells the testModifiers script not to warn you if you use amountData with the aforementioned values to be careful about. Don't be afraid to use this when it makes sense to, such as for Target the Weak (gain critical chance per condition on your opponent).
+
+### advancedUptimeSimulation
+
+When this property is set, separate simulations ("scenarios") will be run independently with and without this modifier, and a weighted average will be taken as the result. If multiple modifiers have this property set, scenarios will be run for each combination of having/not having each modifier.
+
+The value this property is set to determines how multiple advanced uptime modifiers will interact when creating scenarios. Modifers can be uncorrelated:
+
+```yaml
+        advancedUptimeSimulation:
+          correlation: false
+```
+
+Multiple uncorrelated modifiers are simulated as if they overlap according to their combined percentages. For example, 40% severance sigil uptime and 30% fire signet uptime would be simulated as *12% both, 28% just severance, 18% just fire, and 42% neither*. Note that this might not be correct—maybe the rotation overlaps them, and it should thus be *30% both, 10% just severance, 0% just fire, and 60% neither*—and if this is the case, the optimization result will be based on overestimating or underestimating how often and how much the user might be over the crit cap and won't be accurate.
+
+Modifers can also be correlated, taking a `category` and `group` value:
+
+```yaml
+        advancedUptimeSimulation:
+          correlation:
+            category: scholar
+            group: true
+```
+
+```yaml
+        advancedUptimeSimulation:
+          correlation:
+            category: troubadour-instruments
+            group: '1'
+```
+
+If two modifiers have the same category and the same group value, the optimizer enforces that the user-entered amounts are the same, and a single scenario will be created with both modifiers applied. For example, all "player is above 10% health" effects will thus be combined into a "player is above 10% health" scenario (and corresponding empty "player is not above 10% health" scenario).
+
+If two modifiers have the same category and a different group value, a set of non-overlapping scenarios will be created for each group value. For example, enabling multiple fortissimo modifier entries and entering 60% uptime on "1 troubador instrument" and 30% uptime on "2 troubador instruments" will produce exactly those two scenarios (and a corresponding empty scenario for the remaining 10% of the time—presumably "no troubador instruments").
+
+As a final example, entering 60% uptime on "1 troubador instrument", 30% uptime on "2 troubador instruments", and 50% uptime on "severance sigil" (which isn't coordinated) would produce:
+
+- 30% 1 instrument
+- 30% 1 instrument, severance
+- 15% 2 instruments
+- 15% 2 instruments, severance
+- 5% nothing
+- 5% severance
+
+Running the gear optimizer, selecting partial uptimes for the modifiers one is testing, and clicking the floating blue scenario info button to the lower right can be used to verify scenario functionality.
 
 ## Metadata
 

@@ -35,7 +35,14 @@
 
     - id: facet-of-darkness-draconic-echo
       text: Facet of Darkness
-      subText: draconic echo passive, 100% uptime
+      subText: draconic echo passive
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Critical Chance: 10%
@@ -631,12 +638,18 @@
       text: Brutal Momentum
       subText: full endurance
       minor: true
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Critical Chance: 33%
       gw2id: 2142
       defaultEnabled: true
-      temporaryBuff: false
+      temporaryBuff: activeOutOfCombat
 
     - id: lasting-legacy
       text: Lasting Legacy

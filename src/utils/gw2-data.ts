@@ -1647,6 +1647,8 @@ export const conditionTickAttributes: readonly ConditionTickAttributeName[] = [
   'Torment Damage Tick',
 ] as const;
 
+export const dpsAttributes = ['Power DPS', 'Power2 DPS', 'Siphon DPS', 'Other DPS'] as const;
+
 export const effectiveAttributes = [
   'Effective Power',
   'Effective Health',
@@ -1693,11 +1695,7 @@ export const professionAttributes = [
 ] as const;
 export type ProfessionAttributeName = (typeof professionAttributes)[number];
 
-export const siphonAttributes = [
-  'Siphon Coefficient',
-  'Siphon Base Coefficient',
-  'Siphon DPS',
-] as const;
+export const siphonAttributes = ['Siphon Coefficient', 'Siphon Base Coefficient'] as const;
 export type SiphonAttributeName = (typeof siphonAttributes)[number];
 
 export const miscAttributes = [
@@ -1705,30 +1703,37 @@ export const miscAttributes = [
   'Outgoing Healing',
   'Power Coefficient',
   'NonCrit Power Coefficient',
-  'Power2 DPS',
   'Power2 Coefficient',
   'Flat DPS',
-  'Power DPS',
   'Player Critical Damage',
 ] as const;
-type MiscAttributeName = (typeof miscAttributes)[number];
 
-export type AttributeName =
-  | PrimaryAttributeName
-  | SecondaryAttributeName
-  | DerivedAttributeName
-  | BoonDurationAttributeName
-  | ConditionDurationAttributeName
-  | ConditionCoefficientAttributeName
-  | ConditionTickAttributeName
-  | EffectiveAttributeName
-  | IndicatorName
-  | ConditionStackAttributeName
-  | ConditionDpsAttributeName
-  | AlternativeAttributeName
-  | ProfessionAttributeName
-  | SiphonAttributeName
-  | MiscAttributeName;
+export const scenarioAttributes = [
+  ...primaryAttributes,
+  ...secondaryAttributes,
+  ...derivedAttributes,
+  ...boonDurationAttributes,
+  ...conditionDurationAttributes,
+  ...conditionCoefficientAttributes,
+  ...conditionTickAttributes,
+  ...effectiveAttributes,
+  ...conditionStackAttributes,
+  ...alternativeAttributes,
+  ...professionAttributes,
+  ...siphonAttributes,
+  ...miscAttributes,
+];
+export type ScenarioAttributeName = (typeof scenarioAttributes)[number];
+
+export const nonScenarioAttributes = [
+  ...indicatorAttributes,
+  ...dpsAttributes,
+  ...conditionDpsAttributes,
+];
+export type NonScenarioAttributeName = (typeof nonScenarioAttributes)[number];
+
+export const attributes = [...scenarioAttributes, ...nonScenarioAttributes];
+export type AttributeName = ScenarioAttributeName | NonScenarioAttributeName;
 
 export type GearAttributeName = PrimaryAttributeName | SecondaryAttributeName;
 

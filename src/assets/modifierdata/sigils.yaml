@@ -59,9 +59,15 @@
       gw2id: 24548
       temporaryBuff: true
 
-    - id: severance-perma
+    - id: severance
       text: Superior Sigil of Severance
-      subText: (100% uptime)
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Precision: [250, buff] # tested unconverted by Snappy Joe
@@ -94,6 +100,21 @@
         attributes:
           Power Coefficient: 776.8
       gw2id: 24597
+      temporaryBuff: true
+
+    - id: vision
+      text: Superior Sigil of Vision
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
+      modifiers:
+        attributes:
+          Critical Chance: 100%
+      gw2id: 24600
       temporaryBuff: true
 
     - id: blood-sigil

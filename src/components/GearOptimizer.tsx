@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { getProfession } from '../state/slices/controlsSlice';
 import { getExpertMode } from '../state/slices/userSettings';
 import PageTitle from './baseComponents/PageTitle';
+import ScenarioInfo from './baseComponents/ScenarioInfo';
 import NavBar from './nav/NavBar';
 import AffixesSection from './sections/affixes/AffixesSection';
 import BossSection from './sections/boss/BossSection';
@@ -56,6 +57,7 @@ const GearOptimizer = () => {
                 <SkillsSection />
 
                 <ExtrasSection />
+                <ScenarioInfo />
 
                 <BuffsSection />
 
@@ -78,6 +80,7 @@ const GearOptimizer = () => {
                 <SkillsSection />
 
                 <ExtrasSection />
+                <ScenarioInfo />
 
                 <BuffsSection />
 

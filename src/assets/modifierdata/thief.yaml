@@ -29,11 +29,17 @@
 
     - id: signet-of-agility
       text: Signet of Agility
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Precision: [180, buff]
       gw2id: 13062
-      temporaryBuff: false
+      temporaryBuff: activeOutOfCombat
 
     - id: vampiric-slash
       text: Vampiric Slash
@@ -214,6 +220,14 @@
       text: Keen Observer
       subText: high health
       minor: true
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: scholar
+            group: true
       modifiers:
         attributes:
           Critical Chance: 5%
@@ -224,6 +238,14 @@
     - id: twin-fangs-scholar
       text: Twin Fangs
       subText: high health (check both)
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: scholar
+            group: true
       modifiers:
         damage:
           Outgoing Critical Damage: [7%, unknown]
@@ -278,6 +300,22 @@
         attributes:
           Ferocity: [300, buff]
       gw2id: 1904
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: hidden-killer
+      text: Hidden Killer
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
+      modifiers:
+        attributes:
+          Critical Chance: 100%
+      gw2id: 1215
       defaultEnabled: true
       temporaryBuff: true
 
@@ -506,6 +544,12 @@
     - id: silent-scope-rifle
       text: Silent Scope
       subText: with rifle
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Precision: [120, converted]
@@ -557,7 +601,12 @@
 
     - id: be-quick-or-be-killed
       text: Be Quick or Be Killed
-      subText: 100% quickness
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Power: [200, buff]

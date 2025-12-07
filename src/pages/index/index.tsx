@@ -132,6 +132,10 @@ const IndexPage = () => {
                 <b>Infusions.</b> They are not yet supported and are ignored in the calculation.
               </li>
               <li>
+                <b>Advanced uptime simulation</b> for modifers that can result in a character being
+                impacted by the critical chance/condition duration cap only some of the time.
+              </li>
+              <li>
                 <b>Displaying the best result for each combination.</b> This is not possible due to
                 the Rust implementation not calculating every combination.
               </li>

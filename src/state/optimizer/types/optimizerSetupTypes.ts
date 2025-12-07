@@ -31,7 +31,7 @@ export type MultiplierName =
   | 'Outgoing Phantasm Critical Damage';
 
 export interface AppliedModifier {
-  id?: string;
+  id: string;
   amount?: string;
   modifiers: YamlModifiers;
   wvwModifiers?: YamlModifiers;
