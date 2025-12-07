@@ -2324,6 +2324,151 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Inferno Evoker SE Fox (Fractal)
+    profession: Evoker
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "impact/night/slaying-both": {}
+          },
+          "Sigil2": {
+            "smoldering": {}
+          },
+          "Runes": {
+            "flame-legion": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.78"
+            }
+          },
+          "Nourishment": {
+            "fire-meat-chili": {},
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "slaying-potion": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Inferno Evoker SE Fox (Raid)
+    profession: Evoker
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "force": {}
+          },
+          "Sigil2": {
+            "smoldering": {}
+          },
+          "Runes": {
+            "flame-legion": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.78"
+            }
+          },
+          "Nourishment": {
+            "fire-meat-chili": {},
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Condi Evoker SE Fox
+    profession: Evoker
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "smoldering": {},
+            "torment": {
+              "amount": ""
+            }
+          },
+          "Sigil2": {
+            "earth": {
+              "amount": ""
+            }
+          },
+          "Runes": {
+            "balthazar": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {},
+            "salsa-topped-veggie-flatbread": {},
+            "fishy-rice-bowl": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Condi Trailblazer Evoker SE Fox
+    profession: Evoker
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "smoldering": {},
+            "torment": {
+              "amount": ""
+            }
+          },
+          "Sigil2": {
+            "earth": {
+              "amount": ""
+            }
+          },
+          "Runes": {
+            "balthazar": {},
+            "forgeman": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Nourishment": {
+            "peppercorn-and-veggie-flatbread": {},
+            "peppered-cured-meat-flatbread": {},
+            "spherified-peppercorn-spiced-oyster-soup": {}
+          },
+          "Enhancement": {
+            "magnanimous-tuning-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Quickness Untamed
     profession: Untamed
     value:

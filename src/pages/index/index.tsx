@@ -15,6 +15,8 @@ import { isFirefox } from '../../state/optimizer/utils/detectFirefox';
 import { getMulticore } from '../../state/slices/controlsSlice';
 import { getGameMode } from '../../state/slices/userSettings';
 
+console.log('Gear Optimizer version:', __COMMIT_HASH__);
+
 // markup
 const IndexPage = () => {
   const { i18n } = useTranslation();
@@ -30,7 +32,8 @@ const IndexPage = () => {
       <br />
       <br />
       <i>
-        The gear optimizer is <b>not</b> updated for the Visions of Eternity game patch yet.
+        Bloodstone relic is updated for the Nov 18 patch. Conduit, amalgam, and troubadour are not
+        yet implemented, as each could yield inaccurate simulation results with current code.
       </i>
     </Trans>,
     <Trans>
@@ -127,6 +130,10 @@ const IndexPage = () => {
               </li>
               <li>
                 <b>Infusions.</b> They are not yet supported and are ignored in the calculation.
+              </li>
+              <li>
+                <b>Advanced uptime simulation</b> for modifers that can result in a character being
+                impacted by the critical chance/condition duration cap only some of the time.
               </li>
               <li>
                 <b>Displaying the best result for each combination.</b> This is not possible due to

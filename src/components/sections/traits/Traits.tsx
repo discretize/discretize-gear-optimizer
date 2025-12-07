@@ -20,6 +20,7 @@ import {
 import { AmountInput } from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import Info from '../../baseComponents/Info';
+import AdvancedUptimeIndicator from '../../baseComponents/AdvancedUptimeIndicator';
 
 const Traits = () => {
   const dispatch = useDispatch();
@@ -169,6 +170,7 @@ const Traits = () => {
 
                 {amountData ? (
                   <Box>
+                    <AdvancedUptimeIndicator amount={amount} amountData={amountData} />
                     <AmountInput
                       placeholder={amountData.default}
                       // i18next-extract-mark-context-next-line {{amountLabel}}

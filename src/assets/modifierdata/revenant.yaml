@@ -35,7 +35,14 @@
 
     - id: facet-of-darkness-draconic-echo
       text: Facet of Darkness
-      subText: draconic echo passive, 100% uptime
+      subText: draconic echo passive
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Critical Chance: 10%
@@ -54,12 +61,13 @@
         default: 20
         quantityEntered: 100
       modifiers:
-        damage:
-          Outgoing Condition Damage: [10%, add] #unconfirmed
+        conversion:
+          Condition Damage: {Condition Damage: 10%} # increases condition damage attribute rather than outgoing condition damage
       wvwModifiers:
-        damage:
-          Outgoing Condition Damage: [5%, add] #unconfirmed
+         conversion:
+          Condition Damage: {Condition Damage: 5%} # increases condition damage attribute rather than outgoing condition damage
       gw2id: 27014
+      temporaryBuff: true
 
     - id: facet-of-strength-draconic-echo
       text: Facet of Strength
@@ -70,10 +78,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [5%, unknown]
+          Outgoing Strike Damage: [5%, add]
       gw2id: 26644
 
     - id: facet-of-chaos-draconic-echo
@@ -111,11 +119,11 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, add]
-          Outgoing Condition Damage: [5%, add] #unconfirmed
+          Outgoing Condition Damage: [5%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, add]
-          Outgoing Condition Damage: [7%, add] #unconfirmed
+          Outgoing Condition Damage: [7%, add]
       gw2id: 28113
 
     - id: soulcleaves-summit
@@ -735,12 +743,18 @@
       text: Brutal Momentum
       subText: full endurance
       minor: true
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Critical Chance: 33%
       gw2id: 2142
       defaultEnabled: true
-      temporaryBuff: false
+      temporaryBuff: activeOutOfCombat
 
     - id: lasting-legacy
       text: Lasting Legacy

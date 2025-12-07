@@ -384,18 +384,19 @@ list:
     profession: Weaver
     value:
       {
-        "values2": { "Power": 4001, "Power2": 0, "Burning": 5.85, "Bleeding": 3.54, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4050, "Power2": 0, "Burning": 5.85, "Bleeding": 3.54, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'jkerkhoven'
         url: https://www.youtube.com/watch?v=UXJ8fLNkfYg
         log: https://dps.report/WIHR-20250828-114002_golem
 
+  # sini helm
   - name: Condi Weaver P/D
     profession: Weaver
     value:
       {
-        "values2": { "Power": 2020, "Power2": 0, "Burning": 8.98, "Bleeding": 32.66, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2023, "Power2": 0, "Burning": 8.98, "Bleeding": 32.66, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Ryan'
@@ -438,11 +439,12 @@ list:
         log: https://dps.report/5ShG-20230714-032530_golem
 
   # Without eles (distribution still comparable, lower rng)
+  # sini helm
   - name: Condi Weaver Scepter
     profession: Weaver
     value:
       {
-        "values2": { "Power": 2766, "Power2": 0, "Burning": 12.85, "Bleeding": 16.74, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2770, "Power2": 0, "Burning": 12.86, "Bleeding": 16.76, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Ryan
@@ -494,6 +496,7 @@ list:
         log: https://dps.report/JJvS-20231203-145912_golem
 
   # assassin boots, 2 precise (same as assassin back)
+  # use bloodstone-relic-prenerf-2 if resimulating
   - name: Alacrity Power Tempest Scepter Bloodstone
     profession: Tempest
     value:
@@ -505,6 +508,7 @@ list:
         url: https://www.youtube.com/watch?v=OyH9ZpsXcp8
         log: https://dps.report/nb3Q-20250624-223739_golem
 
+  # use bloodstone-relic-prenerf-2 if resimulating
   - name: Power Tempest Scepter Bloodstone
     profession: Tempest
     value:
@@ -558,6 +562,7 @@ list:
         url: https://www.youtube.com/watch?v=ZhhoRrW22Ks
         log: https://dps.report/L6zb-20250313-171138_golem
 
+  # use bloodstone-relic-prenerf-2 if resimulating
   - name: Power Catalyst Scepter
     profession: Catalyst
     value:
@@ -612,6 +617,37 @@ list:
       - author: Kadenar
         url: https://www.youtube.com/watch?v=d1PZfUiaIpQ
         log: https://dps.report/Y4GP-20250811-220229_golem
+
+  # use bloodstone-relic-prenerf-2 if resimulating
+  - name: Inferno Evoker SE Fox
+    profession: Evoker
+    value:
+      {
+        "values2": { "Power": 3758, "Power2": 0, "Burning": 21.38, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=plek_AW5608
+        log: https://dps.report/JrMs-20251114-144931_golem
+
+  # trailblazer but without the bleed (i.e. casting earth signet but it not doing anything)
+  # real build would be higher than this
+  - name: Condi Evoker SE Fox (Approx.)
+    profession: Evoker
+    value:
+      {
+        "values2": { "Power": 3380, "Power2": 0, "Burning": 22.09, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    noCreditOkay: true
+
+  # https://dps.report/Pa63-20251103-095923_golem
+  - name: Condi Trailblazer Evoker SE Fox
+    profession: Evoker
+    value:
+      {
+        "values2": { "Power": 3380, "Power2": 0, "Burning": 22.09, "Bleeding": 3.82, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    noCreditOkay: true
 
   - name: Alacrity Renegade
     profession: Renegade

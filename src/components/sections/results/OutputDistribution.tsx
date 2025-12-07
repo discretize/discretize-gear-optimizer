@@ -25,7 +25,7 @@ const OutputDistribution = ({ character }: { character: Character }) => {
     Power: t('Power'),
     Power2: alternativeDamageLabel,
     Siphon: t('Life Siphon'),
-    Flat: t('Other'),
+    Other: t('Other'),
   };
 
   if (!character.results?.damageBreakdown) return;
@@ -69,7 +69,7 @@ const OutputDistribution = ({ character }: { character: Character }) => {
                       className={classes.gw2Item}
                       text={damageLabels[damageType.name] ?? damageType.name}
                     />
-                  ) : damageType.name === 'Flat' ? (
+                  ) : damageType.name === 'Other' ? (
                     <Attribute
                       name="Power"
                       disableIcon

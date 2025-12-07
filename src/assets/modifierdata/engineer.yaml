@@ -41,7 +41,7 @@
       text: Superconducting Signet
       modifiers:
         damage:
-          Outgoing Condition Damage: [10%, add] #unconfirmed
+          Outgoing Condition Damage: [10%, add]
       gw2id: 63113
 
     - id: superconducting-signet-traited
@@ -49,7 +49,7 @@
       subText: traited
       modifiers:
         damage:
-          Outgoing Condition Damage: [12%, add] #unconfirmed
+          Outgoing Condition Damage: [12%, add]
       gw2id: 63113
 
     - id: spectrum-shield
@@ -207,7 +207,12 @@
 
     - id: high-caliber
       text: High Caliber
-      subText: 100% melee
+      amountData:
+        label: '% melee'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Critical Chance: 15%

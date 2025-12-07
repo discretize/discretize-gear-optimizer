@@ -6,6 +6,7 @@ import type { ModifierItem } from '../../../assets/modifierdata/metadata';
 import { getSkills, setSkillAmount, toggleSkill } from '../../../state/slices/skills';
 import { AmountInput } from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
+import AdvancedUptimeIndicator from '../../baseComponents/AdvancedUptimeIndicator';
 
 const Skills = ({ data }: { data: ModifierItem[] }) => {
   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ const Skills = ({ data }: { data: ModifierItem[] }) => {
         </Box>
         {amountData ? (
           <Box>
+            <AdvancedUptimeIndicator amount={amount} amountData={amountData} />
             <AmountInput
               placeholder={amountData.default}
               // i18next-extract-mark-context-next-line {{amountLabel}}

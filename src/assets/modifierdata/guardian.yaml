@@ -145,6 +145,25 @@
       gw2id: 9147
       temporaryBuff: true
 
+    - id: piercing-stance
+      text: Piercing Stance
+      amountData:
+        label: '% uptime'
+        default: 60
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add] # https://discord.com/channels/380901000200060929/380903704808652801/1433364198204899340
+      gw2id: 77078
+
+    - id: stalwart-stance
+      text: Stalwart Stance
+      subText: while active
+      modifiers:
+        damage:
+          Damage Reduction: [33%, mult]
+      gw2id: 77321
+
 - section: Zeal
   id: 42
   items:
@@ -276,16 +295,21 @@
       text: Amplified Wrath
       modifiers:
         damage:
-          Outgoing Burning Damage: [10%, mult] # unconfirmed
+          Outgoing Burning Damage: [10%, mult]
       wvwModifiers:
         damage:
-          Outgoing Burning Damage: [15%, mult] # unconfirmed
+          Outgoing Burning Damage: [15%, mult]
       gw2id: 1686
       defaultEnabled: true
 
     - id: righteous-instincts
       text: Righteous Instincts
-      subText: 100% resolution
+      amountData:
+        label: '% resolution'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Critical Chance: 25%
@@ -484,10 +508,10 @@
       subText: against defiant foes, base
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, mult]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1963
       defaultEnabled: true
 
@@ -500,7 +524,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [5%, unknown] # sure hope this is additive...?
+          Outgoing Strike Damage: [4.35%, mult] # replaces baseline 15% mult with 20% mult
       gw2id: 1963
       defaultEnabled: true
 
@@ -513,10 +537,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [20%, unknown]
+          Outgoing Strike Damage: [20%, mult]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, mult]
       gw2id: 1963
       defaultEnabled: false
 
@@ -569,7 +593,7 @@
       text: Searing Pact
       modifiers:
         attributes:
-          Condition Damage: [120, unknown]
+          Condition Damage: [120, converted]
       gw2id: 2191
       defaultEnabled: true
       temporaryBuff: false
@@ -578,7 +602,7 @@
       text: Power for Power
       modifiers:
         attributes:
-          Power: [120, unknown]
+          Power: [120, converted]
       gw2id: 2190
       defaultEnabled: true
       temporaryBuff: false
@@ -651,4 +675,68 @@
 
 - section: Luminary
   id: 81
-  items: []
+  items:
+
+    - id: lights-gift
+      text: Light's Gift
+      minor: true
+      modifiers:
+        attributes:
+          Vitality: [180, converted]
+      gw2id: 2394
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: empowered-armaments
+      text: Empowered Armaments
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [15%, add] # https://discord.com/channels/380901000200060929/380903704808652801/1433364198204899340
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add]
+      gw2id: 2419
+      defaultEnabled: true
+
+    - id: radiant-armaments-hammer
+      text: Radiant Armaments
+      subText: hammer
+      minor: true
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add] # https://discord.com/channels/380901000200060929/380903704808652801/1433364198204899340
+      gw2id: 2435
+      defaultEnabled: false
+
+    - id: radiant-armaments-staff
+      text: Radiant Armaments
+      subText: staff
+      minor: true
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Outgoing Healing: 15%
+      gw2id: 2435
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: radiant-armaments-shield
+      text: Radiant Armaments
+      subText: shield, while active
+      minor: true
+      modifiers:
+        damage:
+          Damage Reduction: [10%, mult]
+      gw2id: 2435
+      defaultEnabled: false

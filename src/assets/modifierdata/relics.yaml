@@ -32,7 +32,7 @@
         quantityEntered: 5
       modifiers:
         damage:
-          Outgoing Strike Damage: [5%, unknown]
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 100916
 
     - id: fireworks-relic
@@ -44,7 +44,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [7%, unknown]
+          Outgoing Strike Damage: [7%, mult]
       gw2id: 100947
 
     - id: claw-relic
@@ -56,7 +56,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [7%, unknown]
+          Outgoing Strike Damage: [7%, mult]
       gw2id: 103574
 
     - id: brawler-relic
@@ -67,7 +67,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 100527
 
     - id: balrior-relic
@@ -78,7 +78,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, mult]
       gw2id: 103872
 
     - id: weaver-relic
@@ -90,7 +90,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 100194
 
     - id: deadeye-relic
@@ -102,7 +102,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 100924
 
     - id: fire-relic
@@ -114,7 +114,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, add]
       gw2id: 104501
 
     - id: bloodstone-relic
@@ -126,13 +126,36 @@
         quantityEntered: 10
       modifiers:
         damage:
-          Outgoing Strike Damage: [80%, mult]
+          Outgoing Strike Damage: [56%, mult] # 8 seconds, 7%
         attributes:
           Power Coefficient: 2071.5 # 3.0 coefficient, 690.5 strength
           Bleeding Coefficient: 36
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [80%, mult]
+          Outgoing Strike Damage: [80%, mult] # 8 seconds, 10%
+        attributes:
+          Power Coefficient: 1381 # 2.0 coefficient, 690.5 strength
+          Bleeding Coefficient: 36
+      gw2id: 104800
+      temporaryBuff: true
+
+    - id: bloodstone-relic-prenerf-2
+      text: Relic of Bloodstone
+      subText: before nov 18 nerf
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [80%, mult] # 8 seconds, 10%
+        attributes:
+          Power Coefficient: 2071.5 # 3.0 coefficient, 690.5 strength
+          Bleeding Coefficient: 36
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [80%, mult] # 8 seconds, 10%
         attributes:
           Power Coefficient: 1381 # 2.0 coefficient, 690.5 strength
           Bleeding Coefficient: 36
@@ -141,7 +164,7 @@
 
     - id: bloodstone-relic-prenerf
       text: Relic of Bloodstone
-      subText: pre-nerf
+      subText: original
       amountData:
         label: '/10s'
         default: 0
@@ -240,7 +263,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
         attributes:
           # this is additive but uncapped; see https://github.com/discretize/discretize-gear-optimizer/pull/677
           Condition Duration Uncapped: 10%
@@ -255,7 +278,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
         attributes:
           # this is additive but uncapped; see https://github.com/discretize/discretize-gear-optimizer/pull/677
           Condition Duration Uncapped: 10%
@@ -563,7 +586,7 @@
       subText: 10 stacks
       modifiers:
         attributes:
-          Concentration: [250, unknown]
+          Concentration: [250, converted]
       gw2id: 100219
       temporaryBuff: true
 

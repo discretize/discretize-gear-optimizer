@@ -107,6 +107,20 @@
           Damage Reduction: [20%, mult]
       gw2id: 29958
 
+    - id: painful-bond-tick
+      text: Painful Bond
+      subText: Painful Bond damage ticks
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 200
+          Siphon Coefficient: 0.4
+      temporaryBuff: true
+
 - section: Spite
   id: 53
   items:
@@ -275,7 +289,7 @@
       text: Putrid Defense
       modifiers:
         damage:
-          Outgoing Poison Damage: [15%, mult] # unconfirmed
+          Outgoing Poison Damage: [15%, mult]
       gw2id: 857
       defaultEnabled: true
 
@@ -417,12 +431,12 @@
       text: Fell Beacon
       modifiers:
         damage:
-          Outgoing Burning Damage: [10%, mult] # unconfirmed
+          Outgoing Burning Damage: [10%, mult]
         conversion:
           Expertise: {Condition Damage: 7%}
       wvwModifiers:
         damage:
-          Outgoing Burning Damage: [10%, mult] # unconfirmed
+          Outgoing Burning Damage: [10%, mult]
         conversion:
           Expertise: {Condition Damage: 4%}
       gw2id: 2074
@@ -431,8 +445,13 @@
 
     - id: sand-sage-active
       text: Sand Sage
-      subText: with active shade
       minor: true
+      amountData:
+        label: '% with shade'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Concentration: [225, converted]
@@ -550,10 +569,10 @@
       subText: torment only
       modifiers:
         damage:
-          Outgoing Torment Damage: [33%, mult] # unconfirmed
+          Outgoing Torment Damage: [33%, mult]
       wvwModifiers:
         damage:
-          Outgoing Torment Damage: [33%, mult] # unconfirmed
+          Outgoing Torment Damage: [33%, mult]
       gw2id: 2164
       defaultEnabled: true
 
@@ -778,4 +797,70 @@
 
 - section: Ritualist
   id: 76
-  items: []
+  note: >-
+    Spirit damage formulas are not currently known.
+  items:
+
+    - id: explosive-growth
+      text: Explosive Growth
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [7%, add]
+      gw2id: 2339
+      defaultEnabled: true
+
+    - id: boon-of-creation
+      text: Boon of Creation
+      minor: true
+      modifiers:
+        attributes:
+          Concentration: [180, buff]
+      wvwModifiers:
+        attributes:
+          Concentration: [60, buff]
+      gw2id: 2371
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: lingering-spirits-anguish
+      text: Lingering Spirits
+      subText: anguish
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [15%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add]
+      gw2id: 2333
+      defaultEnabled: true
+
+    - id: lingering-spirits-preservation
+      text: Lingering Spirits
+      subText: preservation
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Outgoing Healing: 20%
+      wvwModifiers:
+        attributes:
+          Outgoing Healing: 15%
+      gw2id: 2333
+      defaultEnabled: true
+      temporaryBuff: true

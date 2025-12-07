@@ -11,11 +11,17 @@
 
     - id: signet-of-fury
       text: Signet of Fury
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Precision: [180, buff]
       gw2id: 14410
-      temporaryBuff: false
+      temporaryBuff: activeOutOfCombat
 
     - id: dolyak-signet
       text: Dolyak Signet
@@ -200,7 +206,7 @@
 
     - id: unsuspecting-foe-full
       text: Unsuspecting Foe
-      subText: 100% uptime # variable crit chance would be inaccurate
+      subText: 100% uptime
       modifiers:
         attributes:
           Critical Chance: 25%
@@ -212,11 +218,15 @@
       text: Burst Precision
       amountData:
         label: '% uptime'
-        default: 100
+        default: 0
+        defaultInput: ???
         quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
-          Ferocity: [250, unknown]
+          Ferocity: [250, converted]
+          Critical Chance: 100%
       gw2id: 1336
       defaultEnabled: true
       temporaryBuff: true
@@ -333,10 +343,10 @@
         quantityEntered: 30
       modifiers:
         damage:
-          Outgoing Strike Damage: [25%, unknown]
+          Outgoing Strike Damage: [25%, mult]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [20%, unknown]
+          Outgoing Strike Damage: [20%, mult]
       gw2id: 1367
       defaultEnabled: true
 
@@ -358,10 +368,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [12.5%, unknown]
+          Outgoing Strike Damage: [12.5%, mult]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1708
       defaultEnabled: true
 
@@ -536,7 +546,12 @@
 
     - id: smash-brawler-full
       text: Smash Brawler
-      subText: 100% uptime # variable crit chance would be inaccurate
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Critical Chance: 15%
@@ -545,7 +560,7 @@
           Critical Chance: 5%
       gw2id: 2049
       defaultEnabled: true
-      temporaryBuff: true
+      temporaryBuff: activeOutOfCombat
 
     - id: blood-reaction-base
       text: Blood Reaction
@@ -739,11 +754,102 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Ferocity: [250, unknown]
+          Ferocity: [250, buff]
       gw2id: 2236
       defaultEnabled: true
       temporaryBuff: true
 
 - section: Paragon
   id: 74
-  items: []
+  items:
+
+    - id: inspiring-implements
+      text: Inspiring Implements
+      minor: true
+      modifiers:
+        attributes:
+          Concentration: [180, buff]
+      wvwModifiers:
+        attributes:
+          Concentration: [60, buff]
+      gw2id: 2418
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: strengthening-stanzas-action
+      text: Strengthening Stanzas
+      subText: Chant of Action
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [15%, add]
+          Outgoing Condition Damage: [15%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
+      gw2id: 2385
+      defaultEnabled: false
+
+    - id: strengthening-stanzas-recuperation
+      text: Chant of Recuperation
+      subText: Chant of Recuperation, while active
+      modifiers:
+        damage:
+          Damage Reduction: [15%, unknown]
+      wvwModifiers:
+        damage:
+          Damage Reduction: [7%, unknown]
+      gw2id: 2385
+      defaultEnabled: false
+
+    - id: unyielding-resolve
+      text: Unyielding Resolve
+      minor: true
+      amountData:
+        label: 'motivation'
+        default: 8
+        quantityEntered: 1
+        disableBlacklist: true
+      modifiers:
+        damage:
+          Damage Reduction: [1.5%, mult]
+      wvwModifiers:
+        damage:
+          Damage Reduction: [1%, mult]
+      gw2id: 2340
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: brisk-pacing-high
+      text: Brisk Pacing
+      subText: 7-10 motivation
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [25%, add]
+          Outgoing Condition Damage: [25%, add]
+      gw2id: 2375
+      defaultEnabled: false
+
+    - id: brisk-pacing-mid
+      text: Brisk Pacing
+      subText: 4-6 motivation
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [15%, add]
+          Outgoing Condition Damage: [15%, add]
+      gw2id: 2375
+      defaultEnabled: false
+
+    - id: brisk-pacing-low
+      text: Brisk Pacing
+      subText: 1-3 motivation
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [7.5%, add]
+          Outgoing Condition Damage: [7.5%, add]
+      gw2id: 2375
+      defaultEnabled: false

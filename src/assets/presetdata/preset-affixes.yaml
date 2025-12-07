@@ -103,6 +103,16 @@ list:
         "minQuicknessDuration": "0"
       }
 
+  - name: Trailblazer/Dire
+    hidden: true
+    value:
+      {
+        "affixes": ["Trailblazer", "Dire"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": "0",
+        "minQuicknessDuration": "0"
+      }
+
   - name: Condi Barrier Specter
     hidden: true
     value:

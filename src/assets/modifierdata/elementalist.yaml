@@ -16,11 +16,17 @@
 
     - id: signet-of-fire
       text: Signet of Fire
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Precision: [180, buff]
       gw2id: 5542
-      temporaryBuff: false
+      temporaryBuff: activeOutOfCombat
 
     - id: signet-of-earth
       text: Signet of Earth
@@ -50,7 +56,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, add]
       gw2id: 43638
 
     - id: flame-wheel
@@ -61,17 +67,22 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [5%, add] # probably
-          Outgoing Condition Damage: [5%, add] #unconfirmed
+          Outgoing Strike Damage: [5%, add]
+          Outgoing Condition Damage: [5%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [10%, add] # probably
-          Outgoing Condition Damage: [10%, add] #unconfirmed
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
       gw2id: 62758
 
     - id: crescent-wind
       text: Crescent Wind
-      subText: 100% uptime
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Critical Chance: 15%
@@ -100,12 +111,12 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, add] # probanly
-          Outgoing Condition Damage: [10%, add] #unconfirmed
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [15%, add] # probanly
-          Outgoing Condition Damage: [15%, add] #unconfirmed
+          Outgoing Strike Damage: [15%, add]
+          Outgoing Condition Damage: [15%, add]
       gw2id: 62965
 
     - id: raging-ricochet
@@ -117,7 +128,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Condition Damage: [5%, add] # unconfirmed
+          Outgoing Condition Damage: [5%, add]
       gw2id: 71828
 
     - id: grinding-stones
@@ -163,14 +174,21 @@
     #       Condition Damage: [180, buff]
     #   gw2id: 5516
 
-    # - id: lightning-hammer
-    #   text: Lightning Hammer
-    #   subText: when equipped
-    #   modifiers:
-    #     attributes:
-    #       Precision: [180, buff]
-    #       Ferocity: [75, buff]
-    #   gw2id: 5624
+    - id: lightning-hammer
+      text: Lightning Hammer
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
+      modifiers:
+        attributes:
+          Precision: [180, buff]
+          Ferocity: [75, buff]
+      gw2id: 5624
+      temporaryBuff: true
 
     # - id: frost-bow
     #   text: Frost Bow
@@ -467,7 +485,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [5%, mult] # unconfirmed
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 349
       defaultEnabled: false
 
@@ -598,11 +616,11 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, add] # per Crone
-          Outgoing Condition Damage: [5%, add] # unconfirmed
+          Outgoing Condition Damage: [5%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, add] # per Crone
-          Outgoing Condition Damage: [7%, add] # unconfirmed
+          Outgoing Condition Damage: [7%, add]
       gw2id: 1891
       defaultEnabled: true
 
@@ -612,7 +630,12 @@
 
     - id: superior-elements
       text: Superior Elements
-      subText: 100% uptime
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation: false
       modifiers:
         attributes:
           Critical Chance: 15%
@@ -787,11 +810,11 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [2%, add] # per Crone
-          Outgoing Condition Damage: [2%, add] #unconfirmed
+          Outgoing Condition Damage: [2%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [2%, add] # per Crone
-          Outgoing Condition Damage: [2%, add] #unconfirmed
+          Outgoing Condition Damage: [2%, add]
       gw2id: 2247
       defaultEnabled: true
 
@@ -822,4 +845,124 @@
 
 - section: Evoker
   id: 80
-  items: []
+  items:
+
+    - id: familiar-passive-hare
+      subText: 'Familiar Passive: Hare, with fury'
+      modifiers:
+        attributes:
+          Ferocity: [75, buff]
+      wvwModifiers:
+        attributes:
+          Ferocity: [120, buff]
+      minor: true
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: familiar-active-hare
+      subText: 'Familiar Active: Hare'
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Critical Damage: [4%, unknown]
+      minor: true
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: fiery-might
+      text: Fiery Might
+      modifiers:
+        damage:
+          Outgoing Burning Damage: [5%, mult]
+          Outgoing Strike Damage: [5%, mult]
+      gw2id: 2391
+      defaultEnabled: true
+
+    - id: enhanced-potency-fox
+      text: Enhanced Potency
+      subText: fox
+      minor: true
+      amountData:
+        label: 'might'
+        default: 25
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Condition Damage: [5, buff]
+      gw2id: 2382
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: enhanced-potency-hare
+      text: Enhanced Potency
+      subText: hare, with fury
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 15%
+      gw2id: 2382
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: familiars-focus-fox
+      text: Familiar's Focus
+      subText: fox
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Condition Damage: [25%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Condition Damage: [20%, add]
+      gw2id: 2342
+      defaultEnabled: false
+
+    - id: familiars-focus-hare
+      text: Familiar's Focus
+      subText: hare
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [25%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [20%, add]
+      gw2id: 2342
+      defaultEnabled: false
+
+    - id: familiars-prowess-fox
+      text: Familiar's Prowess
+      subText: fox, without Familiar's Focus
+      minor: true
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Condition Damage: [7%, add]
+      gw2id: 2351
+      defaultEnabled: false
+
+    - id: familiars-prowess-hare
+      text: Familiar's Prowess
+      subText: hare, without Familiar's Focus
+      minor: true
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [7%, add]
+      gw2id: 2351
+      defaultEnabled: false

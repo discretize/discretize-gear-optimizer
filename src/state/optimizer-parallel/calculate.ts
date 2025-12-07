@@ -1,3 +1,4 @@
+import { getSharedModifiersInfo } from '../../components/baseComponents/ScenarioInfo';
 import { STOPPED } from '../optimizer/utils/status';
 import type { AppThunk } from '../redux-hooks';
 import {
@@ -43,6 +44,16 @@ const terminateActiveWorkers = () => {
 export const calculateParallel: AppThunk = (dispatch, getState) => {
   const reduxState = getState();
   const selectedMaxThreads = getHwThreads(reduxState);
+
+  if (getSharedModifiersInfo(reduxState).count !== '1') {
+    const error =
+      'Experimental Rust/WebAssembly mode is currently incompatible with advanced uptime simulation.' +
+      '\n\n' +
+      'Disable it for this calculation, or set all modifiers with a blue advanced uptime indicator to 0% or 100% uptime.';
+    // eslint-disable-next-line no-alert
+    alert(error);
+    throw new Error(error);
+  }
 
   dispatch(changeList([]));
   dispatch(
