@@ -578,12 +578,7 @@
 
     - id: love-song
       text: Love Song
-      amountData:
-        label: '% uptime'
-        default: 0
-        defaultInput: ???
-        quantityEntered: 100
-        disableBlacklist: true
+      subText: while active
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]

@@ -268,13 +268,7 @@
 
     - id: shielding-hands
       text: Shielding Hands
-      subText: with Centaur
-      amountData:
-        label: '% uptime'
-        default: 0
-        defaultInput: ???
-        quantityEntered: 100
-        disableBlacklist: true
+      subText: with Centaur, while active
       modifiers:
         damage:
           Damage Reduction: [75%, mult]
@@ -363,12 +357,8 @@
 
     - id: determined-resolution
       text: Determined Resolution
+      subText: 100% resolution
       minor: true
-      amountData:
-        label: '% resolution'
-        default: 100
-        quantityEntered: 100
-        disableBlacklist: true
       modifiers:
         damage:
           Damage Reduction: [10%, mult]
@@ -922,13 +912,8 @@
 
     - id: numinous-gift-determined-resolution
       text: Numinous Gift
-      subText: with Retribution
+      subText: with Retribution, 100% resolution
       minor: true
-      amountData:
-        label: '% resolution'
-        default: 100
-        quantityEntered: 100
-        disableBlacklist: true
       modifiers:
         damage:
           Damage Reduction: [4.55%, mult] # changes 10% mult to 15% mult
