@@ -187,7 +187,10 @@
         default: 0
         defaultInput: ???
         quantityEntered: 100
-        disableBlacklist: true
+        advancedUptimeSimulation:
+          correlation:
+            category: cosmic-wisdom
+            group: true
       modifiers:
         attributes:
           Power: [150, buff]
@@ -203,7 +206,10 @@
         default: 0
         defaultInput: ???
         quantityEntered: 100
-        disableBlacklist: true
+        advancedUptimeSimulation:
+          correlation:
+            category: cosmic-wisdom
+            group: true
       modifiers:
         attributes:
           Healing Power: [150, buff]
@@ -219,7 +225,10 @@
         default: 0
         defaultInput: ???
         quantityEntered: 100
-        disableBlacklist: true
+        advancedUptimeSimulation:
+          correlation:
+            category: cosmic-wisdom
+            group: true
       modifiers:
         attributes:
           Condition Damage: [150, buff]
@@ -235,7 +244,10 @@
         default: 0
         defaultInput: ???
         quantityEntered: 100
-        disableBlacklist: true
+        advancedUptimeSimulation:
+          correlation:
+            category: cosmic-wisdom
+            group: true
       modifiers:
         attributes:
           Toughness: [150, buff]
@@ -251,7 +263,10 @@
         default: 0
         defaultInput: ???
         quantityEntered: 100
-        disableBlacklist: true
+        advancedUptimeSimulation:
+          correlation:
+            category: cosmic-wisdom
+            group: true
       modifiers:
         attributes:
           Power: [75, buff]

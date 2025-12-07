@@ -67,7 +67,9 @@
         default: 0
         defaultInput: ???
         quantityEntered: 100
-        disableBlacklist: true
+        advancedUptimeSimulation:
+          correlation: evolve
+          group: true
       modifiers:
         conversion:
           Power: {Power: 10%}
@@ -530,7 +532,9 @@
         default: 0
         defaultInput: ???
         quantityEntered: 100
-        disableBlacklist: true
+        advancedUptimeSimulation:
+          correlation: evolve
+          group: true
       modifiers:
         conversion:
           Power: {Power: 5%}

@@ -586,14 +586,18 @@
       defaultEnabled: true
       temporaryBuff: true
 
-    - id: fortissimo
+    - id: fortissimo-1
       text: Fortissimo
+      subText: 1 instrument
       amountData:
-        label: 'instruments'
+        label: '% uptime'
         default: 0
         defaultInput: ???
-        quantityEntered: 1
-        disableBlacklist: true
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: troubadour-instruments
+            group: '1'
       modifiers:
         conversion:
           Power: {Power: 4%}
@@ -605,6 +609,87 @@
           Expertise: {Expertise: 4%}
           Ferocity: {Ferocity: 4%}
           Healing Power: {Healing Power: 4%}
+      gw2id: 2353
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: fortissimo-2
+      text: Fortissimo
+      subText: 2 instruments
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: troubadour-instruments
+            group: '2'
+      modifiers:
+        conversion:
+          Power: {Power: 8%}
+          Precision: {Precision: 8%}
+          Toughness: {Toughness: 8%}
+          Vitality: {Vitality: 8%}
+          Concentration: {Concentration: 8%}
+          Condition Damage: {Condition Damage: 8%}
+          Expertise: {Expertise: 8%}
+          Ferocity: {Ferocity: 8%}
+          Healing Power: {Healing Power: 8%}
+      gw2id: 2353
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: fortissimo-3
+      text: Fortissimo
+      subText: 3 instruments
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: troubadour-instruments
+            group: '3'
+      modifiers:
+        conversion:
+          Power: {Power: 12%}
+          Precision: {Precision: 12%}
+          Toughness: {Toughness: 12%}
+          Vitality: {Vitality: 12%}
+          Concentration: {Concentration: 12%}
+          Condition Damage: {Condition Damage: 12%}
+          Expertise: {Expertise: 12%}
+          Ferocity: {Ferocity: 12%}
+          Healing Power: {Healing Power: 12%}
+      gw2id: 2353
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: fortissimo-4
+      text: Fortissimo
+      subText: 4 instruments
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: troubadour-instruments
+            group: '4'
+      modifiers:
+        conversion:
+          Power: {Power: 16%}
+          Precision: {Precision: 16%}
+          Toughness: {Toughness: 16%}
+          Vitality: {Vitality: 16%}
+          Concentration: {Concentration: 16%}
+          Condition Damage: {Condition Damage: 16%}
+          Expertise: {Expertise: 16%}
+          Ferocity: {Ferocity: 16%}
+          Healing Power: {Healing Power: 16%}
       gw2id: 2353
       defaultEnabled: true
       temporaryBuff: true
