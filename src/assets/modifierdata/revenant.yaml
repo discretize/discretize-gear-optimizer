@@ -843,8 +843,6 @@
 
 - section: Conduit
   id: 79
-  note: >-
-    Cosmic Wisdom: Dervish and Cosmic Wisdom: Mesmer without Perpetual Wisdom give temporary expertise, which is not currently well-simulated.
   items:
 
     - id: bolstered-bonds-assassin
