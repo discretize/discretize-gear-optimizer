@@ -683,7 +683,7 @@ list:
         raid:
           extras: Power (Raid, claw)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Heal Quickness Berserker
         id: heal-berserker
@@ -906,7 +906,7 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Power Catalyst Scepter
+      - name: Power Catalyst Scepter (Approx.)
         id: power-cat-inferno
         specialization: Catalyst
         boonType: Power
@@ -920,7 +920,7 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: Quickness Power Catalyst Hammer
+      - name: Quickness Power Catalyst Hammer (Approx.)
         id: power-cat-quick
         specialization: Catalyst
         boonType: Power
@@ -934,7 +934,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Power Catalyst Hammer
+      - name: Power Catalyst Hammer (Approx.)
         id: power-cat
         specialization: Catalyst
         boonType: Power
@@ -948,7 +948,7 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Quickness Condi Catalyst P/D
+      - name: Quickness Condi Catalyst P/D (Approx.)
         id: condi-cat-quick-pd
         specialization: Catalyst
         boonType: Condi
@@ -959,7 +959,7 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: Quickness Condi Catalyst P/W
+      - name: Quickness Condi Catalyst P/W (Approx.)
         id: condi-cat-quick-pw
         specialization: Catalyst
         boonType: Condi

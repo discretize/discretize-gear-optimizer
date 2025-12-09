@@ -761,7 +761,7 @@
 
 - section: Catalyst
   id: 67
-  note: Non-constant critical chance is not currently simulated. Using dragon gear to take advantage of >100% critical chance with full berserker may be a DPS loss in reality.
+  note: Enter identical uptimes for "regular" Elemental Empowerment and Empowered Empowerment, if applicable.
   items:
 
     - id: hardened-auras
@@ -777,14 +777,269 @@
       gw2id: 2230
       defaultEnabled: true
 
-    - id: elemental-empowerment
+    - id: elemental-empowerment-1
       text: Elemental Empowerment
-      subText: be careful not to overcap
+      subText: 1 stack
       amountData:
-        label: 'stacks'
-        default: 10
-        quantityEntered: 10
-        disableBlacklist: true
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '1'
+      minor: true
+      modifiers:
+        conversion:
+          Power: {Power: 1%}
+          Precision: {Precision: 1%}
+          Toughness: {Toughness: 1%}
+          Vitality: {Vitality: 1%}
+          Concentration: {Concentration: 1%}
+          Condition Damage: {Condition Damage: 1%}
+          Expertise: {Expertise: 1%}
+          Ferocity: {Ferocity: 1%}
+          Healing Power: {Healing Power: 1%}
+      gw2id: 2250
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: elemental-empowerment-2
+      text: Elemental Empowerment
+      subText: 2 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '2'
+      minor: true
+      modifiers:
+        conversion:
+          Power: {Power: 2%}
+          Precision: {Precision: 2%}
+          Toughness: {Toughness: 2%}
+          Vitality: {Vitality: 2%}
+          Concentration: {Concentration: 2%}
+          Condition Damage: {Condition Damage: 2%}
+          Expertise: {Expertise: 2%}
+          Ferocity: {Ferocity: 2%}
+          Healing Power: {Healing Power: 2%}
+      gw2id: 2250
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: elemental-empowerment-3
+      text: Elemental Empowerment
+      subText: 3 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '3'
+      minor: true
+      modifiers:
+        conversion:
+          Power: {Power: 3%}
+          Precision: {Precision: 3%}
+          Toughness: {Toughness: 3%}
+          Vitality: {Vitality: 3%}
+          Concentration: {Concentration: 3%}
+          Condition Damage: {Condition Damage: 3%}
+          Expertise: {Expertise: 3%}
+          Ferocity: {Ferocity: 3%}
+          Healing Power: {Healing Power: 3%}
+      gw2id: 2250
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: elemental-empowerment-4
+      text: Elemental Empowerment
+      subText: 4 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '4'
+      minor: true
+      modifiers:
+        conversion:
+          Power: {Power: 4%}
+          Precision: {Precision: 4%}
+          Toughness: {Toughness: 4%}
+          Vitality: {Vitality: 4%}
+          Concentration: {Concentration: 4%}
+          Condition Damage: {Condition Damage: 4%}
+          Expertise: {Expertise: 4%}
+          Ferocity: {Ferocity: 4%}
+          Healing Power: {Healing Power: 4%}
+      gw2id: 2250
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: elemental-empowerment-5
+      text: Elemental Empowerment
+      subText: 5 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '5'
+      minor: true
+      modifiers:
+        conversion:
+          Power: {Power: 5%}
+          Precision: {Precision: 5%}
+          Toughness: {Toughness: 5%}
+          Vitality: {Vitality: 5%}
+          Concentration: {Concentration: 5%}
+          Condition Damage: {Condition Damage: 5%}
+          Expertise: {Expertise: 5%}
+          Ferocity: {Ferocity: 5%}
+          Healing Power: {Healing Power: 5%}
+      gw2id: 2250
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: elemental-empowerment-6
+      text: Elemental Empowerment
+      subText: 6 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '6'
+      minor: true
+      modifiers:
+        conversion:
+          Power: {Power: 6%}
+          Precision: {Precision: 6%}
+          Toughness: {Toughness: 6%}
+          Vitality: {Vitality: 6%}
+          Concentration: {Concentration: 6%}
+          Condition Damage: {Condition Damage: 6%}
+          Expertise: {Expertise: 6%}
+          Ferocity: {Ferocity: 6%}
+          Healing Power: {Healing Power: 6%}
+      gw2id: 2250
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: elemental-empowerment-7
+      text: Elemental Empowerment
+      subText: 7 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '7'
+      minor: true
+      modifiers:
+        conversion:
+          Power: {Power: 7%}
+          Precision: {Precision: 7%}
+          Toughness: {Toughness: 7%}
+          Vitality: {Vitality: 7%}
+          Concentration: {Concentration: 7%}
+          Condition Damage: {Condition Damage: 7%}
+          Expertise: {Expertise: 7%}
+          Ferocity: {Ferocity: 7%}
+          Healing Power: {Healing Power: 7%}
+      gw2id: 2250
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: elemental-empowerment-8
+      text: Elemental Empowerment
+      subText: 8 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '8'
+      minor: true
+      modifiers:
+        conversion:
+          Power: {Power: 8%}
+          Precision: {Precision: 8%}
+          Toughness: {Toughness: 8%}
+          Vitality: {Vitality: 8%}
+          Concentration: {Concentration: 8%}
+          Condition Damage: {Condition Damage: 8%}
+          Expertise: {Expertise: 8%}
+          Ferocity: {Ferocity: 8%}
+          Healing Power: {Healing Power: 8%}
+      gw2id: 2250
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: elemental-empowerment-9
+      text: Elemental Empowerment
+      subText: 9 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '9'
+      minor: true
+      modifiers:
+        conversion:
+          Power: {Power: 9%}
+          Precision: {Precision: 9%}
+          Toughness: {Toughness: 9%}
+          Vitality: {Vitality: 9%}
+          Concentration: {Concentration: 9%}
+          Condition Damage: {Condition Damage: 9%}
+          Expertise: {Expertise: 9%}
+          Ferocity: {Ferocity: 9%}
+          Healing Power: {Healing Power: 9%}
+      gw2id: 2250
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: elemental-empowerment-10
+      text: Elemental Empowerment
+      subText: 10 stacks
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '10'
       minor: true
       modifiers:
         conversion:
@@ -825,9 +1080,260 @@
       gw2id: 2234
       defaultEnabled: true
 
-    - id: empowered-empowerment
+    - id: empowered-empowerment-1
       text: Empowered Empowerment
-      subText: 10x empowerment
+      subText: 1 stack
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '1'
+      modifiers:
+        conversion:
+          Power: {Power: 0.5%}
+          Precision: {Precision: 0.5%}
+          Toughness: {Toughness: 0.5%}
+          Vitality: {Vitality: 0.5%}
+          Concentration: {Concentration: 0.5%}
+          Condition Damage: {Condition Damage: 0.5%}
+          Expertise: {Expertise: 0.5%}
+          Ferocity: {Ferocity: 0.5%}
+          Healing Power: {Healing Power: 0.5%}
+      gw2id: 2241
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: empowered-empowerment-2
+      text: Empowered Empowerment
+      subText: 2 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '2'
+      modifiers:
+        conversion:
+          Power: {Power: 1%}
+          Precision: {Precision: 1%}
+          Toughness: {Toughness: 1%}
+          Vitality: {Vitality: 1%}
+          Concentration: {Concentration: 1%}
+          Condition Damage: {Condition Damage: 1%}
+          Expertise: {Expertise: 1%}
+          Ferocity: {Ferocity: 1%}
+          Healing Power: {Healing Power: 1%}
+      gw2id: 2241
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: empowered-empowerment-3
+      text: Empowered Empowerment
+      subText: 3 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '3'
+      modifiers:
+        conversion:
+          Power: {Power: 1.5%}
+          Precision: {Precision: 1.5%}
+          Toughness: {Toughness: 1.5%}
+          Vitality: {Vitality: 1.5%}
+          Concentration: {Concentration: 1.5%}
+          Condition Damage: {Condition Damage: 1.5%}
+          Expertise: {Expertise: 1.5%}
+          Ferocity: {Ferocity: 1.5%}
+          Healing Power: {Healing Power: 1.5%}
+      gw2id: 2241
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: empowered-empowerment-4
+      text: Empowered Empowerment
+      subText: 4 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '4'
+      modifiers:
+        conversion:
+          Power: {Power: 2%}
+          Precision: {Precision: 2%}
+          Toughness: {Toughness: 2%}
+          Vitality: {Vitality: 2%}
+          Concentration: {Concentration: 2%}
+          Condition Damage: {Condition Damage: 2%}
+          Expertise: {Expertise: 2%}
+          Ferocity: {Ferocity: 2%}
+          Healing Power: {Healing Power: 2%}
+      gw2id: 2241
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: empowered-empowerment-5
+      text: Empowered Empowerment
+      subText: 5 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '5'
+      modifiers:
+        conversion:
+          Power: {Power: 2.5%}
+          Precision: {Precision: 2.5%}
+          Toughness: {Toughness: 2.5%}
+          Vitality: {Vitality: 2.5%}
+          Concentration: {Concentration: 2.5%}
+          Condition Damage: {Condition Damage: 2.5%}
+          Expertise: {Expertise: 2.5%}
+          Ferocity: {Ferocity: 2.5%}
+          Healing Power: {Healing Power: 2.5%}
+      gw2id: 2241
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: empowered-empowerment-6
+      text: Empowered Empowerment
+      subText: 6 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '6'
+      modifiers:
+        conversion:
+          Power: {Power: 3%}
+          Precision: {Precision: 3%}
+          Toughness: {Toughness: 3%}
+          Vitality: {Vitality: 3%}
+          Concentration: {Concentration: 3%}
+          Condition Damage: {Condition Damage: 3%}
+          Expertise: {Expertise: 3%}
+          Ferocity: {Ferocity: 3%}
+          Healing Power: {Healing Power: 3%}
+      gw2id: 2241
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: empowered-empowerment-7
+      text: Empowered Empowerment
+      subText: 7 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '7'
+      modifiers:
+        conversion:
+          Power: {Power: 3.5%}
+          Precision: {Precision: 3.5%}
+          Toughness: {Toughness: 3.5%}
+          Vitality: {Vitality: 3.5%}
+          Concentration: {Concentration: 3.5%}
+          Condition Damage: {Condition Damage: 3.5%}
+          Expertise: {Expertise: 3.5%}
+          Ferocity: {Ferocity: 3.5%}
+          Healing Power: {Healing Power: 3.5%}
+      gw2id: 2241
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: empowered-empowerment-8
+      text: Empowered Empowerment
+      subText: 8 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '8'
+      modifiers:
+        conversion:
+          Power: {Power: 4%}
+          Precision: {Precision: 4%}
+          Toughness: {Toughness: 4%}
+          Vitality: {Vitality: 4%}
+          Concentration: {Concentration: 4%}
+          Condition Damage: {Condition Damage: 4%}
+          Expertise: {Expertise: 4%}
+          Ferocity: {Ferocity: 4%}
+          Healing Power: {Healing Power: 4%}
+      gw2id: 2241
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: empowered-empowerment-9
+      text: Empowered Empowerment
+      subText: 9 stacks
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '9'
+      modifiers:
+        conversion:
+          Power: {Power: 4.5%}
+          Precision: {Precision: 4.5%}
+          Toughness: {Toughness: 4.5%}
+          Vitality: {Vitality: 4.5%}
+          Concentration: {Concentration: 4.5%}
+          Condition Damage: {Condition Damage: 4.5%}
+          Expertise: {Expertise: 4.5%}
+          Ferocity: {Ferocity: 4.5%}
+          Healing Power: {Healing Power: 4.5%}
+      gw2id: 2241
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: empowered-empowerment-10
+      text: Empowered Empowerment
+      subText: 10 stacks
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: elemental-empowerment
+            group: '10'
       modifiers:
         conversion:
           Power: {Power: 10%}
