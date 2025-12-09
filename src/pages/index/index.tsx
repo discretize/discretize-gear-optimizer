@@ -31,10 +31,19 @@ const IndexPage = () => {
       🎉 Visions of Eternity has been released! 🎉
       <br />
       <br />
-      <i>
-        Bloodstone relic is updated for the Nov 18 patch. Conduit, amalgam, and troubadour are not
-        yet implemented, as each could yield inaccurate simulation results with current code.
-      </i>
+      All VoE elite specialization modifiers are now implemented, with new code to simulate
+      fluctuating player stats! Game data is updated for the <b>Nov 18, 2025 balance patch</b>.
+      <br />
+      <br />
+      <i>Dec 9 patch:</i>
+      <ul>
+        <li>
+          <i>Modifiers: outdated</i>
+        </li>
+        <li>
+          <i>Templates: outdated</i>
+        </li>
+      </ul>
     </Trans>,
     <Trans>
       Report gear optimizer issues and suggest improvements in the Discretize{' '}

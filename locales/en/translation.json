@@ -1178,5 +1178,5 @@
   "traitSubText_with staff": "with staff",
   "traitSubText_with sword": "with sword",
   "traitSubText_with torch/dagger": "with torch/dagger",
-  "🎉 Visions of Eternity has been released! 🎉<br/><br/><i>Bloodstone relic is updated for the Nov 18 patch. Conduit, amalgam, and troubadour are not yet implemented, as each could yield inaccurate simulation results with current code.</i>": "🎉 Visions of Eternity has been released! 🎉<br/><br/><i>Bloodstone relic is updated for the Nov 18 patch. Conduit, amalgam, and troubadour are not yet implemented, as each could yield inaccurate simulation results with current code.</i>"
+  "🎉 Visions of Eternity has been released! 🎉<br/><br/>All VoE elite specialization modifiers are now implemented, with new code to simulate fluctuating player stats! Game data is updated for the <4>Nov 18, 2025 balance patch</4>.<br/><br/><i>Dec 9 patch:</i><9><0><i>Modifiers: outdated</i></0><1><i>Templates: outdated</i></1></9>": "🎉 Visions of Eternity has been released! 🎉<br/><br/>All VoE elite specialization modifiers are now implemented, with new code to simulate fluctuating player stats! Game data is updated for the <4>Nov 18, 2025 balance patch</4>.<br/><br/><i>Dec 9 patch:</i><9><0><i>Modifiers: outdated</i></0><1><i>Templates: outdated</i></1></9>"
 }
