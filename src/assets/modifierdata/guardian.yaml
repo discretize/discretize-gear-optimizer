@@ -566,11 +566,8 @@
 
     - id: imbued-haste
       text: Imbued Haste
+      subText: 100% quickness
       minor: true
-      amountData:
-        label: '% quickness'
-        default: 100
-        quantityEntered: 100
       modifiers:
         attributes:
           Condition Damage: [250, converted]
