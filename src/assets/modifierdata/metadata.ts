@@ -169,6 +169,7 @@ export const keysBlacklist = [
   'Concentration',
   'Boon Duration',
   ...boonDurations,
+  'Vitality',
   'Maximum Health',
 ] as const;
 
