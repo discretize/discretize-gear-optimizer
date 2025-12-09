@@ -98,7 +98,8 @@ const TemplateHelper = ({ character }) => {
 
           const end = data.phases?.[0]?.end ?? 0;
           const start = data.phases?.[0]?.start ?? 0;
-          const duration = (end - start) / 1000;
+          const durationMs = end - start;
+          const duration = durationMs / 1000;
 
           let sum = 0;
           const powerDPS = playerData.dpsTargets?.[0]?.[0]?.powerDps;
@@ -230,6 +231,90 @@ const TemplateHelper = ({ character }) => {
               return [`${type} DPS`, dps];
             });
 
+          /**
+           * buff stack distribution
+           */
+
+          const allPersonalBuffIds = Object.values(data.personalBuffs ?? {}).flat();
+
+          const fortissimoBuffs = [
+            77297, // Lute Playing
+            77118, // Flute Playing
+            76719, // Drum Playing
+            76624, // Harp Playing
+          ];
+
+          const buffNames = {
+            fortissimo: 'Fortissimo instruments',
+            ...Object.fromEntries(
+              allPersonalBuffIds.map((id) => [
+                id,
+                `${data.buffMap[`b${id}`]?.name ?? 'unknown'} (${id})`,
+              ]),
+            ),
+          };
+
+          let currentTime = 0;
+          const currentState = Object.fromEntries(allPersonalBuffIds.map((id) => [id, 0]));
+          const collectedData = {
+            'fortissimo': {},
+            ...Object.fromEntries(allPersonalBuffIds.map((id) => [id, {}])),
+          };
+
+          const allStateChanges = allPersonalBuffIds
+            .map((id) => {
+              const states = playerData.buffUptimes?.find((buff) => buff.id === id)?.states;
+
+              if (!states?.length || !states.length) return;
+
+              const stateChanges = states.map(([time, count]) => ({ id, time, count }));
+              stateChanges.forEach((entry) => {
+                if (entry.time < 0) {
+                  entry.time = 0;
+                }
+              });
+              const lastEntry = stateChanges.at(-1);
+              if (lastEntry.time < durationMs) {
+                stateChanges.push({ id, time: durationMs, count: lastEntry.count });
+              }
+              return stateChanges;
+            })
+            .filter(Boolean)
+            .flat()
+            .sort((a, b) => a.time - b.time);
+
+          // iterate every state change in chronological order
+          allStateChanges.forEach(({ id: stateChangeId, time, count: stateChangeCount }) => {
+            const elapsed = time - currentTime;
+
+            if (elapsed) {
+              allPersonalBuffIds.forEach((id) => {
+                const count = currentState[id];
+                collectedData[id][count] ??= 0;
+                collectedData[id][count] += elapsed;
+              });
+
+              const fortissimoCount = fortissimoBuffs.reduce(
+                (prev, cur) => prev + (currentState[cur] ?? 0),
+                0,
+              );
+              collectedData.fortissimo[fortissimoCount] ??= 0;
+              collectedData.fortissimo[fortissimoCount] += elapsed;
+            }
+
+            currentState[stateChangeId] = stateChangeCount;
+            currentTime = time;
+          });
+
+          const buffStackDistribution = Object.entries(collectedData)
+            .map(([id, counts]) =>
+              Object.entries(counts)
+                .sort(([a], [b]) => a - b)
+                .map(([count, time]) => [`${count}x ${buffNames[id]}`, (100 * time) / durationMs]),
+            )
+            .filter((entries) => entries.length > 1)
+            .flatMap((entries) => ['\n', ...entries]);
+
           const result = [
             ['Duration (sec)', duration],
             '\n',
@@ -267,6 +352,9 @@ const TemplateHelper = ({ character }) => {
             '\n',
             ...minionData,
             `      (~95% multiplier discounts on-crit stacks that expire at phase end)`,
+            '\n',
+            '   -- buff stack distribution --',
+            ...buffStackDistribution,
           ];
 
           const resultAreaText = result
