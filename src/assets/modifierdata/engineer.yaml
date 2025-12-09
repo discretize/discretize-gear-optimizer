@@ -60,6 +60,58 @@
           Damage Reduction: [50%, mult]
       gw2id: 41218
 
+    - id: evolve
+      text: Evolve
+      amountData:
+        label: '% evolved'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: evolve
+            group: true
+      modifiers:
+        conversion:
+          Power: {Power: 10%}
+          Precision: {Precision: 10%}
+          Toughness: {Toughness: 10%}
+          Vitality: {Vitality: 10%}
+          Concentration: {Concentration: 10%}
+          Condition Damage: {Condition Damage: 10%}
+          Expertise: {Expertise: 10%}
+          Ferocity: {Ferocity: 10%}
+          Healing Power: {Healing Power: 10%}
+      gw2id: 76642
+      temporaryBuff: true
+
+    - id: titanic-strain
+      text: Titanic Strain
+      subText: Titanic Strain (25 might)
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Power: [125, buff] # 5 with 25 stacks
+          Condition Damage: [125, buff] # 5 with 25 stacks
+      temporaryBuff: true
+
+    - id: plasmatic-state
+      text: Plasmatic State
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [7%, add]
+          Outgoing Condition Damage: [7%, add]
+      gw2id: 77209
+
 - section: Explosives
   id: 6
   items:
@@ -430,6 +482,71 @@
 
 - section: Amalgam
   id: 75
-  note: >-
-    Not currently implemented. Evolve gives temporary precision/expertise, which are not currently well-simulated.
-  items: []
+  items:
+
+    - id: hybrid-vigor
+      text: Hybrid Vigor
+      modifiers:
+        attributes:
+          Vitality: [240, buff]
+      minor: true
+      gw2id: 2389
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: carbolic-composition
+      text: Carbolic Composition
+      modifiers:
+        attributes:
+          Poison Duration: 33%
+      wvwModifiers:
+        attributes:
+          Poison Duration: 10%
+      gw2id: 2383
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: willing-host
+      text: Willing Host
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [15%, add]
+          Outgoing Condition Damage: [7%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
+      minor: true
+      gw2id: 2356
+      defaultEnabled: true
+
+    - id: double-helix
+      text: Double Helix
+      amountData:
+        label: '% evolved'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: evolve
+            group: true
+      modifiers:
+        conversion:
+          Power: {Power: 5%}
+          Precision: {Precision: 5%}
+          Toughness: {Toughness: 5%}
+          Vitality: {Vitality: 5%}
+          Concentration: {Concentration: 5%}
+          Condition Damage: {Condition Damage: 5%}
+          Expertise: {Expertise: 5%}
+          Ferocity: {Ferocity: 5%}
+          Healing Power: {Healing Power: 5%}
+      gw2id: 2334
+      defaultEnabled: true
+      temporaryBuff: true
