@@ -1,6 +1,19 @@
 - section: Skills
   items:
 
+    - id: engineer-summon-dps
+      text: ''
+      subText: Total Flat Turret Damage (no modifiers)
+      amountData:
+        label: 'dps'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Flat DPS: 1
+      temporaryBuff: true
+
     - id: barrier-signet
       text: Barrier Signet
       modifiers:

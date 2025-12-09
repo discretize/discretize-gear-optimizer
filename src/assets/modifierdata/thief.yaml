@@ -1,6 +1,19 @@
 - section: Skills
   items:
 
+    - id: thief-summon-dps
+      text: ''
+      subText: Total Flat Summon Damage (no modifiers)
+      amountData:
+        label: 'dps'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Flat DPS: 1
+      temporaryBuff: true
+
     - id: assassins-signet
       text: Assassin's Signet
       subText: passive

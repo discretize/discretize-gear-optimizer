@@ -1,6 +1,19 @@
 - section: Skills
   items:
 
+    - id: necro-summon-dps
+      text: ''
+      subText: Total Flat Minion Damage (no modifiers)
+      amountData:
+        label: 'dps'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Flat DPS: 1
+      temporaryBuff: true
+
     - id: signet-of-spite
       text: Signet of Spite
       subText: passive
@@ -798,7 +811,7 @@
 - section: Ritualist
   id: 76
   note: >-
-    Spirit damage formulas are not currently known.
+    According to community testing, spirit cast attacks probably use normal damage calculation and can be treated as player skills, but spirit autoattacks are unaffected by player stats.
   items:
 
     - id: explosive-growth
