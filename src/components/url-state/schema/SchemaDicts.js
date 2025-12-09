@@ -345,6 +345,7 @@ export const enhancementDict = [
   'corsair-sharpening-stone',
   'decade-enhancement-station',
   'no-item-utility',
+  'fractal-sharpening-golem-enhancement',
 ];
 
 export const nourishmentDict = [
@@ -425,6 +426,7 @@ export const nourishmentDict = [
   'peppered-cured-meat-flatbread',
   'spherified-peppercorn-spiced-oyster-soup',
   'plate-of-peppered-clear-truffle-ravioli',
+  'fractal-cooking-golem-nourishment',
 ];
 
 export const buffsDict = [
