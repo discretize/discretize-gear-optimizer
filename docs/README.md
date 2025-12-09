@@ -23,9 +23,11 @@ If you have an idea for a feature or improvement or find a bug, create a new iss
 - Provide a specific toughness range, such as to become or avoid becoming the tank on raid bosses with toughness-based tanking.
 - Calculate the relative performance difference between setups. Estimate the value of stat infusions, buffs, or certain build changes! (Some limitations apply, see [How It Works](<How It Works.md>).)
 
-Supports all 9 classes and 26 of the 27 current elite specs, including power and condi builds with distribution information derived from game logs.
+Supports all 9 classes and 35 of the 36 current elite specs*, including power and condi builds with distribution information derived from game logs.
 
 Not-yet-implemented game mechanics include mechanist mech simulation and ranger pet damage.
+
+**sorry, mechanist.*
 
 ## Development and Contributing
 
