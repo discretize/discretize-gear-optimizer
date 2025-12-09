@@ -68,8 +68,9 @@
         defaultInput: ???
         quantityEntered: 100
         advancedUptimeSimulation:
-          correlation: evolve
-          group: true
+          correlation:
+            category: evolve
+            group: true
       modifiers:
         conversion:
           Power: {Power: 10%}
@@ -532,8 +533,9 @@
         defaultInput: ???
         quantityEntered: 100
         advancedUptimeSimulation:
-          correlation: evolve
-          group: true
+          correlation:
+            category: evolve
+            group: true
       modifiers:
         conversion:
           Power: {Power: 5%}
