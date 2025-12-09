@@ -2740,8 +2740,20 @@ list:
             "pure-strike-boonless": {
               "amount": ""
             },
-            "attackers-insight": {
-              "amount": "2.8"
+            "attackers-insight-1": {
+              "amount": "20"
+            },
+            "attackers-insight-2": {
+              "amount": "30"
+            },
+            "attackers-insight-3": {
+              "amount": "30"
+            },
+            "attackers-insight-4": {
+              "amount": "0"
+            },
+            "attackers-insight-5": {
+              "amount": "20"
             },
             "magebane-tether": {
               "amount": "75.3"
@@ -2822,8 +2834,14 @@ list:
             "pure-strike-boonless": {
               "amount": ""
             },
-            "attackers-insight": {
+            "attackers-insight-3": {
               "amount": "5"
+            },
+            "attackers-insight-4": {
+              "amount": "15"
+            },
+            "attackers-insight-5": {
+              "amount": "80"
             },
             "magebane-tether": {
               "amount": "74"
@@ -4720,14 +4738,16 @@ list:
             "hardened-auras": {
               "amount": ""
             },
-            "elemental-empowerment": {
+            "elemental-empowerment-10": {
               "amount": ""
             },
             "empowering-auras": {
               "amount": "5"
             },
             "spectacular-sphere": {},
-            "empowered-empowerment": {}
+            "empowered-empowerment-10": {
+              "amount": ""
+            }
           }
         ]
       }
@@ -4807,13 +4827,16 @@ list:
             "hardened-auras": {
               "amount": ""
             },
-            "elemental-empowerment": {
+            "elemental-empowerment-10": {
               "amount": ""
             },
             "empowering-auras": {
               "amount": "4.6"
             },
-            "empowered-empowerment": {}
+            "spectacular-sphere": {},
+            "empowered-empowerment-10": {
+              "amount": ""
+            }
           }
         ]
       }
@@ -4891,14 +4914,16 @@ list:
             "hardened-auras": {
               "amount": ""
             },
-            "elemental-empowerment": {
+            "elemental-empowerment-10": {
               "amount": ""
             },
             "empowering-auras": {
               "amount": "4.8"
             },
-            "empowered-empowerment": {},
-            "spectacular-sphere": {}
+            "spectacular-sphere": {},
+            "empowered-empowerment-10": {
+              "amount": ""
+            }
           }
         ]
       }
@@ -4967,14 +4992,16 @@ list:
             "hardened-auras": {
               "amount": ""
             },
-            "elemental-empowerment": {
+            "elemental-empowerment-10": {
               "amount": ""
             },
             "empowering-auras": {
               "amount": ""
             },
             "spectacular-sphere": {},
-            "empowered-empowerment": {}
+            "empowered-empowerment-10": {
+              "amount": ""
+            }
           }
         ]
       }
@@ -5044,14 +5071,16 @@ list:
             "hardened-auras": {
               "amount": ""
             },
-            "elemental-empowerment": {
+            "elemental-empowerment-10": {
               "amount": ""
             },
             "empowering-auras": {
               "amount": ""
             },
             "spectacular-sphere": {},
-            "empowered-empowerment": {}
+            "empowered-empowerment-10": {
+              "amount": ""
+            }
           }
         ]
       }

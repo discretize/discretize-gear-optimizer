@@ -690,16 +690,127 @@
       gw2id: 2095
       defaultEnabled: false
 
-    - id: attackers-insight
+    - id: attackers-insight-1
       text: Attacker's Insight
-      subText: be careful not to overcap
+      subText: 1 stack
       minor: true
       amountData:
-        label: 'stacks'
-        default: 5
-        quantityEntered: 5
-        disableBlacklist: true
-        # allowing dynamic critical chance per stack here
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: attackers-insight
+            group: '1'
+      modifiers:
+        attributes:
+          Ferocity: [50, buff]
+          Power: [50, buff]
+          Precision: [50, buff]
+      wvwModifiers:
+        attributes:
+          Ferocity: [30, buff]
+          Power: [30, buff]
+          Precision: [30, buff]
+      gw2id: 2130
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: attackers-insight-2
+      text: Attacker's Insight
+      subText: 2 stacks
+      minor: true
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: attackers-insight
+            group: '2'
+      modifiers:
+        attributes:
+          Ferocity: [100, buff]
+          Power: [100, buff]
+          Precision: [100, buff]
+      wvwModifiers:
+        attributes:
+          Ferocity: [60, buff]
+          Power: [60, buff]
+          Precision: [60, buff]
+      gw2id: 2130
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: attackers-insight-3
+      text: Attacker's Insight
+      subText: 3 stacks
+      minor: true
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: attackers-insight
+            group: '3'
+      modifiers:
+        attributes:
+          Ferocity: [150, buff]
+          Power: [150, buff]
+          Precision: [150, buff]
+      wvwModifiers:
+        attributes:
+          Ferocity: [90, buff]
+          Power: [90, buff]
+          Precision: [90, buff]
+      gw2id: 2130
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: attackers-insight-4
+      text: Attacker's Insight
+      subText: 4 stacks
+      minor: true
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: attackers-insight
+            group: '4'
+      modifiers:
+        attributes:
+          Ferocity: [200, buff]
+          Power: [200, buff]
+          Precision: [200, buff]
+      wvwModifiers:
+        attributes:
+          Ferocity: [120, buff]
+          Power: [120, buff]
+          Precision: [120, buff]
+      gw2id: 2130
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: attackers-insight-5
+      text: Attacker's Insight
+      subText: 5 stacks
+      minor: true
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: attackers-insight
+            group: '5'
       modifiers:
         attributes:
           Ferocity: [250, buff]
