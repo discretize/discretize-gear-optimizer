@@ -1374,6 +1374,9 @@
       modifiers:
         damage:
           Outgoing Critical Damage: [4%, unknown]
+      wvwModifiers:
+        damage:
+          Outgoing Critical Damage: [5%, unknown]
       minor: true
       defaultEnabled: false
       temporaryBuff: true
