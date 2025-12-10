@@ -32,18 +32,7 @@ const IndexPage = () => {
       <br />
       <br />
       All VoE elite specialization modifiers are now implemented, with new code to simulate
-      fluctuating player stats! Game data is updated for the <b>Nov 18, 2025 balance patch</b>.
-      <br />
-      <br />
-      <i>Dec 9 patch:</i>
-      <ul>
-        <li>
-          <i>Modifiers: outdated</i>
-        </li>
-        <li>
-          <i>Templates: outdated</i>
-        </li>
-      </ul>
+      fluctuating player stats! Game data is updated for the <b>Dec 9, 2025 balance patch</b>.
     </Trans>,
     <Trans>
       Report gear optimizer issues and suggest improvements in the Discretize{' '}
