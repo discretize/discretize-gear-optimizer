@@ -1373,7 +1373,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Critical Damage: [4%, unknown]
+          Outgoing Critical Damage: [3%, unknown]
       wvwModifiers:
         damage:
           Outgoing Critical Damage: [5%, unknown]
@@ -1385,7 +1385,6 @@
       text: Fiery Might
       modifiers:
         damage:
-          Outgoing Burning Damage: [5%, mult]
           Outgoing Strike Damage: [5%, mult]
       gw2id: 2391
       defaultEnabled: true
@@ -1425,7 +1424,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Condition Damage: [25%, add]
+          Outgoing Condition Damage: [15%, add]
       wvwModifiers:
         damage:
           Outgoing Condition Damage: [20%, add]
@@ -1441,7 +1440,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [25%, add]
+          Outgoing Strike Damage: [15%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [20%, add]
@@ -1458,6 +1457,9 @@
         quantityEntered: 100
       modifiers:
         damage:
+          Outgoing Condition Damage: [5%, add]
+      wvwModifiers:
+        damage:
           Outgoing Condition Damage: [7%, add]
       gw2id: 2351
       defaultEnabled: false
@@ -1471,6 +1473,9 @@
         default: 100
         quantityEntered: 100
       modifiers:
+        damage:
+          Outgoing Strike Damage: [5%, add]
+      wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, add]
       gw2id: 2351

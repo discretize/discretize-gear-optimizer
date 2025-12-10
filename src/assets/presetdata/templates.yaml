@@ -982,9 +982,9 @@ list:
         raid:
           extras: Inferno Evoker SE Fox (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
-      - name: Condi Evoker SE Fox (Approx.)
+      - name: Condi Evoker SE Fox
         id: condi-evoker-se-fox
         specialization: Evoker
         boonType: Condi
@@ -993,9 +993,9 @@ list:
         traits: Condi Evoker SE Fox
         extras: Condi Evoker SE Fox
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
-      - name: Condi Trailblazer Evoker SE Fox (Approx.)
+      - name: Condi Trailblazer Evoker SE Fox
         id: trailblazer-evoker-se-fox
         specialization: Evoker
         boonType: Condi
@@ -1004,7 +1004,7 @@ list:
         traits: Condi Trailblazer Evoker SE Fox
         extras: Condi Trailblazer Evoker SE Fox
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Heal Alacrity Tempest
         id: healtemp

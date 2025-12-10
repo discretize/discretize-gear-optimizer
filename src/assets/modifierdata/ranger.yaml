@@ -746,6 +746,9 @@
         quantityEntered: 100
       modifiers:
         damage:
+          Outgoing Strike Damage: [5%, mult]
+      wvwModifiers:
+        damage:
           Outgoing Strike Damage: [10%, mult]
       minor: true
       gw2id: 2363
