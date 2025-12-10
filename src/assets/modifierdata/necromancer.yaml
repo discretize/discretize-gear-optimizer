@@ -814,22 +814,6 @@
     According to community testing, spirit cast attacks probably use normal damage calculation and can be treated as player skills, but spirit autoattacks are unaffected by player stats.
   items:
 
-    - id: explosive-growth
-      text: Explosive Growth
-      amountData:
-        label: '% uptime'
-        default: 0
-        defaultInput: ???
-        quantityEntered: 100
-      modifiers:
-        damage:
-          Outgoing Strike Damage: [10%, add]
-      wvwModifiers:
-        damage:
-          Outgoing Strike Damage: [7%, add]
-      gw2id: 2339
-      defaultEnabled: true
-
     - id: boon-of-creation
       text: Boon of Creation
       minor: true
@@ -853,7 +837,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, add]
+          Outgoing Strike Damage: [7%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, add]

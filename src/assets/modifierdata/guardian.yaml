@@ -709,7 +709,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, add] # https://discord.com/channels/380901000200060929/380903704808652801/1433364198204899340
+          Outgoing Strike Damage: [7%, add] # add: https://discord.com/channels/380901000200060929/380903704808652801/1433364198204899340
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add]
       gw2id: 2435
       defaultEnabled: false
 

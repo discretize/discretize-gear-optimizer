@@ -528,8 +528,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, add]
-          Outgoing Condition Damage: [7%, add]
+          Outgoing Strike Damage: [5%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, add]
@@ -550,6 +549,17 @@
             category: evolve
             group: true
       modifiers:
+        conversion:
+          Power: {Power: 10%}
+          Precision: {Precision: 10%}
+          Toughness: {Toughness: 10%}
+          Vitality: {Vitality: 10%}
+          Concentration: {Concentration: 10%}
+          Condition Damage: {Condition Damage: 10%}
+          Expertise: {Expertise: 10%}
+          Ferocity: {Ferocity: 10%}
+          Healing Power: {Healing Power: 10%}
+      wvwModifiers:
         conversion:
           Power: {Power: 5%}
           Precision: {Precision: 5%}
