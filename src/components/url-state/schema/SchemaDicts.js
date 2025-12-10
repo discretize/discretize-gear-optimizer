@@ -343,7 +343,7 @@ export const enhancementDict = [
   'writ-of-calculated-strength',
   'corsair-tuning-crystal',
   'corsair-sharpening-stone',
-  'decade-enhancement-station',
+  'snow-diamond-ornament',
   'no-item-utility',
 ];
 
@@ -412,7 +412,7 @@ export const nourishmentDict = [
   'plate-of-poultry-aspic-with-salsa-garnish',
   'plate-of-clear-truffle-and-cilantro-ravioli',
   'spherified-oyster-soup-with-mint-garnish',
-  'tray-of-decade-desserts',
+  'popped-candy-corn',
   'no-item-food',
   'ghost-pepper-popper-reaper',
   'peppercorn-crusted-sous-vide-steak',
