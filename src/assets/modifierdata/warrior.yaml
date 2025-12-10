@@ -879,7 +879,7 @@
       minor: true
       modifiers:
         attributes:
-          Concentration: [180, buff]
+          Concentration: [100, buff]
       wvwModifiers:
         attributes:
           Concentration: [60, buff]
