@@ -557,7 +557,7 @@
       gw2id: 12479
       temporaryBuff: true
 
-- section: Hybrid Food
+- section: All Stats Food
   items:
 
     - id: spherified-cilantro-oyster-soup
@@ -662,6 +662,28 @@
           Healing Power: [40, buff]
       gw2id: 66961
       temporaryBuff: false
+
+    - id: popped-candy-corn
+      text: Bag of Popped Candy Corn / Tray of Decade Desserts
+      subText: (untested)
+      modifiers:
+        conversion:
+          Power: {Power: 3%}
+          Precision: {Precision: 3%}
+          Toughness: {Toughness: 3%}
+          Vitality: {Vitality: 3%}
+          Concentration: {Concentration: 3%}
+          Condition Damage: {Condition Damage: 3%}
+          Expertise: {Expertise: 3%}
+          Ferocity: {Ferocity: 3%}
+          Healing Power: {Healing Power: 3%}
+      gw2id: 105402
+      displayIds: [105402, 98924]
+      priceIds: [105402, 98924]
+      temporaryBuff: false
+
+- section: Hybrid Food
+  items:
 
     - id: passion-fruit-tapioca-pudding
       text: Bowl of Passion Fruit Tapioca Pudding
@@ -795,28 +817,6 @@
           Expertise: [100, converted]
           Toughness: [70, converted]
       gw2id: 82541
-      temporaryBuff: false
-
-- section: ???
-  items:
-
-    - id: tray-of-decade-desserts
-      text: Tray of Decade Desserts
-      subText: (untested)
-      modifiers:
-        conversion:
-          Power: {Power: 3%}
-          Precision: {Precision: 3%}
-          Toughness: {Toughness: 3%}
-          Vitality: {Vitality: 3%}
-          Concentration: {Concentration: 3%}
-          Condition Damage: {Condition Damage: 3%}
-          Expertise: {Expertise: 3%}
-          Ferocity: {Ferocity: 3%}
-          Healing Power: {Healing Power: 3%}
-      gw2id: 98924
-      displayIds: [98924, 105402]
-      priceIds: [98924, 105402]
       temporaryBuff: false
 
 - section: Placeholder Items

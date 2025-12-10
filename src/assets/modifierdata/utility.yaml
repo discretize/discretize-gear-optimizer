@@ -213,6 +213,28 @@
       gw2id: 67522
       temporaryBuff: false
 
+- section: All Stats Utilities
+  items:
+
+    - id: snow-diamond-ornament
+      text: Snow Diamond Ornament / Decade Enhancement Station
+      subText: (untested)
+      modifiers:
+        conversion:
+          Power: {Power: 3%}
+          Precision: {Precision: 3%}
+          Toughness: {Toughness: 3%}
+          Vitality: {Vitality: 3%}
+          Concentration: {Concentration: 3%}
+          Condition Damage: {Condition Damage: 3%}
+          Expertise: {Expertise: 3%}
+          Ferocity: {Ferocity: 3%}
+          Healing Power: {Healing Power: 3%}
+      gw2id: 106880
+      displayIds: [106880, 98893]
+      priceIds: [106880, 98893]
+      temporaryBuff: false
+
 - section: Writs
   items:
 
@@ -381,26 +403,6 @@
           Power: {Toughness: 3%}
           Expertise: {Toughness: 3%}
       gw2id: 86378
-      temporaryBuff: false
-
-- section: ???
-  items:
-
-    - id: decade-enhancement-station
-      text: Decade Enhancement Station
-      subText: (untested)
-      modifiers:
-        conversion:
-          Power: {Power: 3%}
-          Precision: {Precision: 3%}
-          Toughness: {Toughness: 3%}
-          Vitality: {Vitality: 3%}
-          Concentration: {Concentration: 3%}
-          Condition Damage: {Condition Damage: 3%}
-          Expertise: {Expertise: 3%}
-          Ferocity: {Ferocity: 3%}
-          Healing Power: {Healing Power: 3%}
-      gw2id: 98893
       temporaryBuff: false
 
 - section: Placeholder Items
