@@ -672,6 +672,8 @@
 
 - section: Luminary
   id: 81
+  note: >-
+    According to community testing, Empowered Armaments currently produces an undocumented 3% damage buff when the player has Luminary's Blessing.
   items:
 
     - id: lights-gift
@@ -696,6 +698,19 @@
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, add]
+      gw2id: 2419
+      defaultEnabled: true
+
+    - id: empowered-armaments-bugged
+      text: Empowered Armaments
+      subText: undocumented effect
+      amountData:
+        label: "% Luminary's Blessing"
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [3%, add]
       gw2id: 2419
       defaultEnabled: true
 
