@@ -705,6 +705,8 @@
 
 - section: Antiquary
   id: 77
+  note: >-
+    The durations of transferred self conditions (cannon backfire + generosity sigil) aren't simulated correctly.
   items:
 
     - id: exhilarating-ephemera

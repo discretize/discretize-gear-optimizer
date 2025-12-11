@@ -196,7 +196,8 @@
 
 - section: Curses
   id: 39
-  note: Be sure to change the condition coefficient values below when adding or removing traits without checkboxes that implement their full effects like lingering curse.
+  note: >-
+    The durations of transferred self conditions (plague sending, dagger 4, staff 4) aren't simulated correctly.
   items:
 
     - id: barbed-precision
