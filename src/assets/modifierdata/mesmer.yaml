@@ -555,6 +555,8 @@
 
 - section: Troubadour
   id: 73
+  note: >-
+    Call and Response damage isn't simulated correctly.
   items:
 
     - id: shredding
