@@ -442,6 +442,10 @@
 
 - section: Virtuoso
   id: 66
+  note: >-
+    With Jagged Mind and Master of Fragmentation, Bladesong Harmony should scale based off of "player critical
+    chance plus 25%." The optimizer doesn't support this, but it can be entered as if Bladesong Harmony hits
+    are always critical, which will be true with ≥75% player critical chance.
   items:
 
     - id: mental-focus
@@ -473,6 +477,24 @@
       wvwModifiers:
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 300%}
+      gw2id: 2202
+      defaultEnabled: false
+      temporaryBuff: true
+
+    - id: jagged-mind-perma-crit
+      text: Jagged Mind
+      subText: per always-crits blade hit
+      amountData:
+        label: 'hit/s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 1
+      modifiers:
+        conversionAfterBuffs:
+          Bleeding Coefficient: 4
+      wvwModifiers:
+        conversionAfterBuffs:
+          Bleeding Coefficient: 3
       gw2id: 2202
       defaultEnabled: false
       temporaryBuff: true
