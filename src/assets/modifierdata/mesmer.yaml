@@ -218,7 +218,7 @@
       text: Illusionary Membrane
       minor: true
       amountData:
-        label: '% chaos aura'
+        label: '% uptime'
         default: 100
         quantityEntered: 100
       modifiers:
@@ -292,7 +292,6 @@
 
     - id: compounding-power
       text: Compounding Power
-      subText: 5x
       amountData:
         label: 'stacks'
         default: 5
