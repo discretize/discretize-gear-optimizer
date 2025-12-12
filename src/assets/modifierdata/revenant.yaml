@@ -147,6 +147,7 @@
 
     - id: enchanted-daggers
       text: Enchanted Daggers
+      subText: or Form of the Assassin
       amountData:
         label: '/10s'
         default: 0
