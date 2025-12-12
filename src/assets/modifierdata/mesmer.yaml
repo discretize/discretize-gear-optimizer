@@ -490,10 +490,10 @@
         defaultInput: ???
         quantityEntered: 1
       modifiers:
-        conversionAfterBuffs:
+        attributes:
           Bleeding Coefficient: 4
       wvwModifiers:
-        conversionAfterBuffs:
+        attributes:
           Bleeding Coefficient: 3
       gw2id: 2202
       defaultEnabled: false
