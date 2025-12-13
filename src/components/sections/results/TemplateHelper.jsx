@@ -169,9 +169,27 @@ const TemplateHelper = ({ character }) => {
           const minions = playerData.minions ?? [];
 
           const minionCounts = {
-            'Clone': { names: new Set(), minionHits: 0, minionCrits: 0, damage: 0 },
-            'Phantasm': { names: new Set(), minionHits: 0, minionCrits: 0, damage: 0 },
-            'Minion': { names: new Set(), minionHits: 0, minionCrits: 0, damage: 0 },
+            'Clone': {
+              names: new Set(),
+              minionHits: 0,
+              minionCrits: 0,
+              powerDamage: 0,
+              conditionDamage: 0,
+            },
+            'Phantasm': {
+              names: new Set(),
+              minionHits: 0,
+              minionCrits: 0,
+              powerDamage: 0,
+              conditionDamage: 0,
+            },
+            'Minion': {
+              names: new Set(),
+              minionHits: 0,
+              minionCrits: 0,
+              powerDamage: 0,
+              conditionDamage: 0,
+            },
           };
 
           for (const { name, totalTargetDamage, targetDamageDist } of minions) {
@@ -190,7 +208,14 @@ const TemplateHelper = ({ character }) => {
               minionCounts[type].minionCrits += minionCrits ?? 0;
             }
 
-            minionCounts[type].damage += totalTargetDamage?.[0]?.[0] ?? 0;
+            for (const skill of targetDamageDist?.[0]?.[0] ?? []) {
+              const { indirectDamage, totalDamage } = skill;
+              if (indirectDamage) {
+                minionCounts[type].conditionDamage += totalDamage;
+              } else {
+                minionCounts[type].powerDamage += totalDamage;
+              }
+            }
           }
 
           const minionData = Object.entries(minionCounts)
@@ -215,17 +240,20 @@ const TemplateHelper = ({ character }) => {
           let splitDamageTotal = 0;
           let clonePhantasmDamageSum = 0;
           let minionDamageSum = 0;
+          let minionPowerDamageSum = 0; // value to subtract from power dps total to get player power dps
           const powerDPSPlayer = playerData.dpsTargets?.[0]?.[0]?.actorPowerDps;
           splitDamageTotal += powerDPSPlayer;
           const minionDamageData = Object.entries(minionCounts)
-            .filter(([_type, { damage }]) => damage)
-            .map(([type, { damage }]) => {
-              const dps = (damage ?? 0) / duration;
+            .filter(([_type, { powerDamage, conditionDamage }]) => powerDamage || conditionDamage)
+            .map(([type, { powerDamage, conditionDamage }]) => {
+              const dps = (powerDamage + conditionDamage) / duration;
+              const powerDps = powerDamage / duration;
               splitDamageTotal += dps;
               if (['Clone', 'Phantasm'].includes(type)) {
                 clonePhantasmDamageSum += dps;
               } else {
                 minionDamageSum += dps;
+                minionPowerDamageSum += powerDps;
               }
 
               return [`${type} DPS`, dps];
@@ -378,7 +406,9 @@ const TemplateHelper = ({ character }) => {
             .join('\n');
 
           const inputWithoutMinion = {
-            Power: roundTwo(powerDPSWithoutLifesteal - clonePhantasmDamageSum - minionDamageSum),
+            Power: roundTwo(
+              powerDPSWithoutLifesteal - clonePhantasmDamageSum - minionPowerDamageSum,
+            ),
             Power2: roundTwo(clonePhantasmDamageSum),
             ...conditionData,
           };
