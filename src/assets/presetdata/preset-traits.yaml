@@ -7104,6 +7104,69 @@ list:
         "skills": {}
       }
 
+  - name: Condition Conduit
+    profession: Conduit
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "14",
+          "3",
+          "79"
+        ],
+        "selectedTraits": [
+          [
+            1793,
+            1727,
+            1795
+          ],
+          [
+            1761,
+            1774,
+            1791
+          ],
+          [
+            2407,
+            2358,
+            2429
+          ]
+        ],
+        "items": [
+          {
+            "acolyte-of-torment": {},
+            "seething-malice": {},
+            "demonic-resistance": {},
+            "pact-of-pain": {},
+            "yearning-empowerment": {}
+          },
+          {
+            "rising-tide": {
+              "amount": ""
+            },
+            "ferocious-aggression": {
+              "amount": ""
+            },
+            "roiling-mists": {}
+          },
+          {
+            "bolstered-bonds-demon": {},
+            "bolstered-bonds-entity": {},
+            "numinous-gift-yearning-empowerment": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "cosmic-wisdom-entity": {
+            "amount": "41"
+          },
+          "cosmic-wisdom-demon": {
+            "amount": "41"
+          }
+        }
+      }
+
   - name: Power Holo ECSU
     profession: Holosmith
     traits:

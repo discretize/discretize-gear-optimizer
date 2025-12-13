@@ -1229,6 +1229,17 @@ list:
   - class: Revenant
     builds:
 
+      - name: Condition Conduit
+        id: conduit-condi
+        specialization: Conduit
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condition Conduit
+        traits: Condition Conduit
+        extras: Condition Conduit
+        weaponType: Two-handed
+        outdated: false
+
       - name: Quickness Power Herald
         id: herald-quick
         specialization: Herald

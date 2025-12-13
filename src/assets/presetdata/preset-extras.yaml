@@ -3333,6 +3333,43 @@ list:
         "lifestealAmount": "4.18"
       }
 
+  - name: Condition Conduit
+    profession: Conduit
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {},
+            "salsa-topped-veggie-flatbread": {},
+            "meaty-asparagus-skewer": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Alacrity Mechanist (Fractal, inaccurate)
     hidden: true
     profession: Mechanist

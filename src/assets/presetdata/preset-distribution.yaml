@@ -813,6 +813,17 @@ list:
         url: https://www.youtube.com/watch?v=tu56q1WZlOU
         log: https://dps.report/RlrB-20240222-163421_golem
 
+  - name: Condition Conduit
+    profession: Conduit
+    value:
+      {
+        "values2": { "Power": 2507, "Power2": 0, "Burning": 7.69, "Bleeding": 7.7, "Poisoned": 5.08, "Torment": 28.66, "Confusion": 6.07 }
+      }
+    credit:
+      - author: beng / L3m0n
+        url: https://www.youtube.com/watch?v=Lf2R-zkQjDI
+        log: https://dps.report/Iac9-20251210-122341_golem
+
   - name: Condi Quickness Untamed
     profession: Untamed
     value:
