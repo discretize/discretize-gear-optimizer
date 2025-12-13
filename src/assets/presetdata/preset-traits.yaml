@@ -6521,6 +6521,75 @@ list:
         }
       }
 
+  - name: Power Galeshot
+    profession: Galeshot
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "8",
+          "30",
+          "78"
+        ],
+        "selectedTraits": [
+          [
+            986,
+            1001,
+            996
+          ],
+          [
+            1069,
+            1700,
+            1888
+          ],
+          [
+            2360,
+            2396,
+            2336
+          ]
+        ],
+        "items": [
+          {
+            "wolfsong": {
+              "amount": ""
+            },
+            "farsighted": {},
+            "predators-onslaught": {
+              "amount": ""
+            }
+          },
+          {
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
+            "striders-strength": {},
+            "sharpened-edges": {
+              "amount": "6"
+            }
+          },
+          {
+            "bird-of-prey": {
+              "amount": ""
+            },
+            "gale-force-wind-force": {
+              "amount": "1.6"
+            },
+            "gale-force": {
+              "amount": "85"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-the-wild": {},
+          "pet-dps": {
+            "amount": "1108"
+          }
+        }
+      }
+
   - name: Heal Druid
     profession: Druid
     traits:

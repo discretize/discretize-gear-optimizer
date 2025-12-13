@@ -1121,6 +1121,20 @@ list:
   - class: Ranger
     builds:
 
+      - name: Power Galeshot
+        id: galeshot-power
+        specialization: Galeshot
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Galeshot
+        traits: Power Galeshot
+        fractal:
+          extras: Power (Fractal, claw)
+        raid:
+          extras: Power (Raid, claw)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Quickness Condi Untamed
         id: condi-quickness-untamed
         specialization: Untamed
