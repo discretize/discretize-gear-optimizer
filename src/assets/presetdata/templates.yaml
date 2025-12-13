@@ -4,6 +4,20 @@ list:
   - class: Mesmer
     builds:
 
+      - name: Power Troubadour
+        id: ptroub
+        specialization: Troubadour
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Troubadour
+        traits: Power Troubadour
+        fractal:
+          extras: Power (Fractal, claw)
+        raid:
+          extras: Power (Raid, claw)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Condi Virtuoso Dueling
         id: cvirt
         specialization: Virtuoso

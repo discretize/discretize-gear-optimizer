@@ -1161,6 +1161,91 @@ list:
         "skills": {}
       }
 
+  - name: Power Troubadour
+    profession: Troubadour
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "73"
+        ],
+        "selectedTraits": [
+          [
+            682,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            2432,
+            2343,
+            2353
+          ]
+        ],
+        "items": [
+          {
+            "empowered-illusions": {},
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            }
+          },
+          {
+            "fencers-finesse": {
+              "amount": "5.2"
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "phantasmal-fury": {},
+            "sharper-images-phantasm": {
+              "amount": "0.85"
+            }
+          },
+          {
+            "shredding": {
+              "amount": "100"
+            },
+            "love-song": {},
+            "fortissimo-1": {
+              "amount": "3"
+            },
+            "fortissimo-2": {
+              "amount": "0"
+            },
+            "fortissimo-3": {
+              "amount": "34"
+            },
+            "fortissimo-4": {
+              "amount": "63"
+            },
+            "altered-chord": {
+              "amount": "???"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "lively-lute": {
+            "amount": "100"
+          }
+        }
+      }
+
   - name: DH Radiance
     profession: Dragonhunter
     traits:

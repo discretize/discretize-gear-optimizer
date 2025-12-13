@@ -1184,6 +1184,18 @@ list:
         url: https://www.youtube.com/watch?v=dLs7hR9ZMFA
         log: https://dps.report/Wnpv-20230702-133715_golem
 
+  # assassin shoulders 6 precise
+  - name: Power Troubadour
+    profession: Troubadour
+    value:
+      {
+        "values2": { "Power": 3339, "Power2": 743, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 1.89, "Confusion": 0.91 }
+      }
+    credit:
+      - author: Cemox
+        url: https://www.youtube.com/watch?v=hf31Yf1tMM4
+        log: https://dps.report/9Pfz-20251117-165436_golem
+
   - name: Condi Alacrity Scourge
     profession: Scourge
     value:
