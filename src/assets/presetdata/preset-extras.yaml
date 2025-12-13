@@ -2506,7 +2506,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Power Evoker Hare PF (Fractal)
+  - name: Power Evoker PF (Fractal)
     profession: Evoker
     value:
       {
@@ -2545,7 +2545,7 @@ list:
         }
       }
 
-  - name: Power Evoker Hare PF (Raid)
+  - name: Power Evoker PF (Raid)
     profession: Evoker
     value:
       {

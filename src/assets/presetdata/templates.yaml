@@ -724,9 +724,9 @@ list:
         distribution: Power Evoker Hare PF
         traits: Quickness Power Evoker Hare PF
         fractal:
-          extras: Power Evoker Hare PF (Fractal)
+          extras: Power Evoker PF (Fractal)
         raid:
-          extras: Power Evoker Hare PF (Raid)
+          extras: Power Evoker PF (Raid)
         weaponType: Dual wield
         outdated: false
 
@@ -752,9 +752,9 @@ list:
         distribution: Power Evoker Hare PF
         traits: Power Evoker Hare PF
         fractal:
-          extras: Power Evoker Hare PF (Fractal)
+          extras: Power Evoker PF (Fractal)
         raid:
-          extras: Power Evoker Hare PF (Raid)
+          extras: Power Evoker PF (Raid)
         weaponType: Dual wield
         outdated: false
 
