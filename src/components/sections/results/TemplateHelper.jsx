@@ -192,7 +192,7 @@ const TemplateHelper = ({ character }) => {
             },
           };
 
-          for (const { name, totalTargetDamage, targetDamageDist } of minions) {
+          for (const { name, targetDamageDist } of minions) {
             let type = 'Minion';
             if (name.includes('Clone')) type = 'Clone';
             if (name?.startsWith('Illusionary')) type = 'Phantasm';
