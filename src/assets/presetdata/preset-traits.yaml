@@ -1161,6 +1161,91 @@ list:
         "skills": {}
       }
 
+  - name: Power Troubadour
+    profession: Troubadour
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "73"
+        ],
+        "selectedTraits": [
+          [
+            682,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            2432,
+            2343,
+            2353
+          ]
+        ],
+        "items": [
+          {
+            "empowered-illusions": {},
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            }
+          },
+          {
+            "fencers-finesse": {
+              "amount": "5.2"
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "phantasmal-fury": {},
+            "sharper-images-phantasm": {
+              "amount": "0.85"
+            }
+          },
+          {
+            "shredding": {
+              "amount": "100"
+            },
+            "love-song": {},
+            "fortissimo-1": {
+              "amount": "3"
+            },
+            "fortissimo-2": {
+              "amount": "0"
+            },
+            "fortissimo-3": {
+              "amount": "34"
+            },
+            "fortissimo-4": {
+              "amount": "63"
+            },
+            "altered-chord": {
+              "amount": "???"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "lively-lute": {
+            "amount": "100"
+          }
+        }
+      }
+
   - name: DH Radiance
     profession: Dragonhunter
     traits:
@@ -2273,6 +2358,88 @@ list:
         "skills": {
           "bane-signet": {
             "amount": ""
+          }
+        }
+      }
+
+  - name: Power Luminary
+    profession: Luminary
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "42",
+          "16",
+          "81"
+        ],
+        "selectedTraits": [
+          [
+            634,
+            653,
+            2017
+          ],
+          [
+            566,
+            565,
+            1683
+          ],
+          [
+            2329,
+            2419,
+            2328
+          ]
+        ],
+        "items": [
+          {
+            "fiery-wrath": {},
+            "symbolic-exposure": {},
+            "zealous-blade-base": {},
+            "zealous-blade-gs": {
+              "amount": ""
+            },
+            "kindled-zeal": {},
+            "symbolic-avenger": {}
+          },
+          {
+            "right-hand-strength": {},
+            "radiant-fire": {},
+            "retribution": {
+              "amount": ""
+            },
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {
+              "amount": ""
+            }
+          },
+          {
+            "lights-gift": {},
+            "empowered-armaments": {
+              "amount": ""
+            },
+            "empowered-armaments-bugged": {
+              "amount": "90"
+            },
+            "radiant-armaments-hammer": {
+              "amount": "86"
+            },
+            "radiant-armaments-staff": {
+              "amount": "4.5"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "bane-signet": {
+            "amount": ""
+          },
+          "piercing-stance": {
+            "amount": "60"
+          },
+          "binding-blade": {
+            "amount": "5.2"
           }
         }
       }
@@ -5331,6 +5498,431 @@ list:
         }
       }
 
+  - name: Power Evoker Hare PF
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1510
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2391,
+            2342,
+            2335
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "38"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "38"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "27"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "familiar-passive-hare": {},
+            "familiar-active-hare": {
+              "amount": ""
+            },
+            "enhanced-potency-hare": {},
+            "familiars-focus-hare": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {
+            "amount": ""
+          }
+        }
+      }
+
+  - name: Quickness Power Evoker Hare PF
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1510
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2391,
+            2342,
+            2335
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "38"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "38"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "27"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "familiar-passive-hare": {},
+            "familiar-active-hare": {
+              "amount": ""
+            },
+            "enhanced-potency-hare": {},
+            "familiars-prowess-hare": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {
+            "amount": ""
+          }
+        }
+      }
+
+  - name: Power Evoker Hare Inferno
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1675
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2391,
+            2342,
+            2335
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "40"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "40"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "25"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "familiar-passive-hare": {},
+            "familiar-active-hare": {
+              "amount": ""
+            },
+            "enhanced-potency-hare": {},
+            "familiars-focus-hare": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {
+            "amount": "32"
+          }
+        }
+      }
+
+  - name: Quickness Power Evoker Hare Inferno
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1675
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2391,
+            2380,
+            2335
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "40"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "40"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "25"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "familiar-passive-hare": {},
+            "familiar-active-hare": {
+              "amount": ""
+            },
+            "enhanced-potency-hare": {},
+            "familiars-focus-hare": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {
+            "amount": "32"
+          }
+        }
+      }
+
+  - name: Alacrity Power Evoker Toad
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1510
+          ],
+          [
+            232,
+            1502,
+            1672
+          ],
+          [
+            2391,
+            2380,
+            2335
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "38"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "38"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "9"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "familiars-focus-hare": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {
+            "amount": ""
+          }
+        }
+      }
+
   - name: Heal Tempest
     profession: Tempest
     traits:
@@ -6594,6 +7186,69 @@ list:
         "skills": {}
       }
 
+  - name: Condition Conduit
+    profession: Conduit
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "14",
+          "3",
+          "79"
+        ],
+        "selectedTraits": [
+          [
+            1793,
+            1727,
+            1795
+          ],
+          [
+            1761,
+            1774,
+            1791
+          ],
+          [
+            2407,
+            2358,
+            2429
+          ]
+        ],
+        "items": [
+          {
+            "acolyte-of-torment": {},
+            "seething-malice": {},
+            "demonic-resistance": {},
+            "pact-of-pain": {},
+            "yearning-empowerment": {}
+          },
+          {
+            "rising-tide": {
+              "amount": ""
+            },
+            "ferocious-aggression": {
+              "amount": ""
+            },
+            "roiling-mists": {}
+          },
+          {
+            "bolstered-bonds-demon": {},
+            "bolstered-bonds-entity": {},
+            "numinous-gift-yearning-empowerment": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "cosmic-wisdom-entity": {
+            "amount": "41"
+          },
+          "cosmic-wisdom-demon": {
+            "amount": "41"
+          }
+        }
+      }
+
   - name: Power Holo ECSU
     profession: Holosmith
     traits:
@@ -7303,6 +7958,91 @@ list:
     skills:
       {
         "skills": {}
+      }
+
+  - name: Alacrity Power Amalgam Silver Lining
+    profession: Amalgam
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "6",
+          "38",
+          "75"
+        ],
+        "selectedTraits": [
+          [
+            1882,
+            1892,
+            1947
+          ],
+          [
+            1914,
+            1923,
+            526
+          ],
+          [
+            2395,
+            2349,
+            2387
+          ]
+        ],
+        "items": [
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {
+            "chemical-rounds": {},
+            "high-caliber": {
+              "amount": ""
+            },
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "thermal-vision-buff": {
+              "amount": ""
+            },
+            "no-scope": {},
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "3.9"
+            }
+          },
+          {
+            "hybrid-vigor": {},
+            "carbolic-composition": {},
+            "willing-host": {
+              "amount": "100"
+            },
+            "double-helix": {
+              "amount": "???"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "evolve": {
+            "amount": "23"
+          },
+          "titanic-strain": {
+            "amount": "47"
+          }
+        }
       }
 
   - name: Heal Scrapper

@@ -4,6 +4,20 @@ list:
   - class: Mesmer
     builds:
 
+      - name: Power Troubadour
+        id: ptroub
+        specialization: Troubadour
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Troubadour
+        traits: Power Troubadour
+        fractal:
+          extras: Power (Fractal, claw)
+        raid:
+          extras: Power (Raid, claw)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Condi Virtuoso Dueling
         id: cvirt
         specialization: Virtuoso
@@ -287,6 +301,20 @@ list:
 
   - class: Guardian
     builds:
+
+      - name: Power Luminary SP/GS
+        id: luminary-power
+        specialization: Luminary
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Luminary SP/GS
+        traits: Power Luminary
+        fractal:
+          extras: Power (Fractal, claw)
+        raid:
+          extras: Power (Raid, claw)
+        weaponType: Two-handed
+        outdated: false
 
       # - name: Quickness Condi Firebrand 40%
       #   id: cqfb-firebrand-40
@@ -679,7 +707,7 @@ list:
         distribution: Power Spellbreaker Hammer
         traits: Power Spellbreaker Hammer
         fractal:
-          extras: Power (Fractal)
+          extras: Power (Fractal, claw)
         raid:
           extras: Power (Raid, claw)
         weaponType: Two-handed
@@ -701,6 +729,76 @@ list:
 
   - class: Elementalist
     builds:
+
+      - name: Quickness Power Evoker Hare PF
+        id: evoker-hare-pf-quick
+        specialization: Evoker
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Evoker Hare PF
+        traits: Quickness Power Evoker Hare PF
+        fractal:
+          extras: Power Evoker PF (Fractal)
+        raid:
+          extras: Power Evoker PF (Raid)
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Quickness Power Evoker Hare Inferno
+        id: evoker-hare-inferno-quick
+        specialization: Evoker
+        boonType: Power
+        priority: Berserker Only
+        distribution: Power Evoker Hare Inferno
+        traits: Quickness Power Evoker Hare Inferno
+        fractal:
+          extras: Power Evoker Hare Inferno (Fractal)
+        raid:
+          extras: Power Evoker Hare Inferno (Raid)
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Alacrity Power Evoker Toad
+        id: evoker-toad-alac
+        specialization: Evoker
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Alacrity Power Evoker Toad
+        traits: Alacrity Power Evoker Toad
+        fractal:
+          extras: Power Evoker PF (Fractal)
+        raid:
+          extras: Power Evoker PF (Raid)
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Power Evoker Hare PF
+        id: evoker-hare-pf
+        specialization: Evoker
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Evoker Hare PF
+        traits: Power Evoker Hare PF
+        fractal:
+          extras: Power Evoker PF (Fractal)
+        raid:
+          extras: Power Evoker PF (Raid)
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Power Evoker Hare Inferno
+        id: evoker-hare-inferno
+        specialization: Evoker
+        boonType: Power
+        priority: Berserker Only
+        distribution: Power Evoker Hare Inferno
+        traits: Power Evoker Hare Inferno
+        fractal:
+          extras: Power Evoker Hare Inferno (Fractal)
+        raid:
+          extras: Power Evoker Hare Inferno (Raid)
+        weaponType: Dual wield
+        outdated: false
 
       - name: Alacrity Condi Tempest Pistol
         id: ctemp-alac
@@ -910,7 +1008,7 @@ list:
         id: power-cat-inferno
         specialization: Catalyst
         boonType: Power
-        priority: Power DPS (no dragon)
+        priority: Berserker Only
         distribution: Power Catalyst Scepter
         traits: Power Catalyst Scepter
         fractal:
@@ -974,7 +1072,7 @@ list:
         id: inferno-evoker-se-fox
         specialization: Evoker
         boonType: Power
-        priority: Power DPS (no dragon)
+        priority: Berserker Only
         distribution: Inferno Evoker SE Fox
         traits: Inferno Evoker SE Fox
         fractal:
@@ -1145,6 +1243,17 @@ list:
   - class: Revenant
     builds:
 
+      - name: Condition Conduit
+        id: conduit-condi
+        specialization: Conduit
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condition Conduit
+        traits: Condition Conduit
+        extras: Condition Conduit
+        weaponType: Two-handed
+        outdated: false
+
       - name: Quickness Power Herald
         id: herald-quick
         specialization: Herald
@@ -1264,6 +1373,21 @@ list:
 
   - class: Engineer
     builds:
+
+      - name: Alacrity Power Amalgam
+        id: amalgam-power-alac
+        specialization: Amalgam
+        boonType: Power
+        priority: Power DPS
+        distribution: Alacrity Power Amalgam
+        traits: Alacrity Power Amalgam Silver Lining
+        fractal:
+          extras: Power (Fractal, bloodstone 0.6)
+        raid:
+          extras: Power (Raid, bloodstone 0.6)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Quickness Power Scrapper (Approx.)
         id: pqscrap
         specialization: Scrapper

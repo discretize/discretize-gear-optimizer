@@ -380,6 +380,17 @@ list:
       }
     noCreditOkay: true
 
+  - name: Power Luminary SP/GS
+    profession: Luminary
+    value:
+      {
+        "values2": { "Power": 5313, "Power2": 0, "Burning": 0.22, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Derm
+        url: https://www.youtube.com/watch?v=pcwUTPtR6nY
+        log: https://dps.report/1ymp-20251211-210829_golem
+
   - name: Power Weaver (BTTH, small)
     profession: Weaver
     value:
@@ -649,6 +660,39 @@ list:
       }
     noCreditOkay: true
 
+  - name: Power Evoker Hare PF
+    profession: Evoker
+    value:
+      {
+        "values2": { "Power": 4234, "Power2": 0, "Burning": 6.72, "Bleeding": 6.92, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=T1E8Pp6WCcw
+        log: https://dps.report/v6GX-20251210-163059_golem
+
+  - name: Power Evoker Hare Inferno
+    profession: Evoker
+    value:
+      {
+        "values2": { "Power": 4194, "Power2": 0, "Burning": 8.44, "Bleeding": 6.94, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=c6OE5O4a0CI
+        log: https://dps.report/5naZ-20251212-164914_golem
+
+  - name: Alacrity Power Evoker Toad
+    profession: Evoker
+    value:
+      {
+        "values2": { "Power": 4395, "Power2": 0, "Burning": 7.03, "Bleeding": 11.62, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=D5h7D_21srE
+        log: https://dps.report/wPC7-20251210-105904_golem
+
   - name: Alacrity Renegade
     profession: Renegade
     value:
@@ -779,6 +823,17 @@ list:
       - author: beng / L3m0n
         url: https://www.youtube.com/watch?v=tu56q1WZlOU
         log: https://dps.report/RlrB-20240222-163421_golem
+
+  - name: Condition Conduit
+    profession: Conduit
+    value:
+      {
+        "values2": { "Power": 2507, "Power2": 0, "Burning": 7.69, "Bleeding": 7.7, "Poisoned": 5.08, "Torment": 28.66, "Confusion": 6.07 }
+      }
+    credit:
+      - author: beng / L3m0n
+        url: https://www.youtube.com/watch?v=Lf2R-zkQjDI
+        log: https://dps.report/Iac9-20251210-122341_golem
 
   - name: Condi Quickness Untamed
     profession: Untamed
@@ -999,6 +1054,18 @@ list:
         url: https://www.youtube.com/watch?v=CqJpumNHF4E
         log: https://dps.report/eLRb-20230715-052530_golem
 
+  # dragon legs+back
+  - name: Alacrity Power Amalgam
+    profession: Amalgam
+    value:
+      {
+        "values2": { "Power": 3710, "Power2": 0, "Burning": 1.41, "Bleeding": 9.45, "Poisoned": 4.3, "Torment": 0, "Confusion": 2.94 }
+      }
+    credit:
+      - author: '[NA] Crone'
+        url: https://www.youtube.com/watch?v=KTEj3KhQ34c
+        log: https://dps.report/BMF2-20251209-140418_golem
+
   - name: Power Chrono DT Spear
     profession: Chronomancer
     value:
@@ -1183,6 +1250,18 @@ list:
       - author: beng / L3m0n
         url: https://www.youtube.com/watch?v=dLs7hR9ZMFA
         log: https://dps.report/Wnpv-20230702-133715_golem
+
+  # assassin shoulders 6 precise
+  - name: Power Troubadour
+    profession: Troubadour
+    value:
+      {
+        "values2": { "Power": 3339, "Power2": 743, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 1.89, "Confusion": 0.91 }
+      }
+    credit:
+      - author: Cemox
+        url: https://www.youtube.com/watch?v=hf31Yf1tMM4
+        log: https://dps.report/9Pfz-20251117-165436_golem
 
   - name: Condi Alacrity Scourge
     profession: Scourge
