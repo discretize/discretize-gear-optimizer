@@ -302,6 +302,20 @@ list:
   - class: Guardian
     builds:
 
+      - name: Power Luminary SP/GS
+        id: luminary-power
+        specialization: Luminary
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Luminary SP/GS
+        traits: Power Luminary
+        fractal:
+          extras: Power (Fractal, claw)
+        raid:
+          extras: Power (Raid, claw)
+        weaponType: Two-handed
+        outdated: false
+
       # - name: Quickness Condi Firebrand 40%
       #   id: cqfb-firebrand-40
       #   specialization: Firebrand

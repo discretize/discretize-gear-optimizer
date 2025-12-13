@@ -380,6 +380,17 @@ list:
       }
     noCreditOkay: true
 
+  - name: Power Luminary SP/GS
+    profession: Luminary
+    value:
+      {
+        "values2": { "Power": 5313, "Power2": 0, "Burning": 0.22, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Derm
+        url: https://www.youtube.com/watch?v=pcwUTPtR6nY
+        log: https://dps.report/1ymp-20251211-210829_golem
+
   - name: Power Weaver (BTTH, small)
     profession: Weaver
     value:
