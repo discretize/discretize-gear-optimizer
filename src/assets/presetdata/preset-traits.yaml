@@ -5760,6 +5760,87 @@ list:
         }
       }
 
+  - name: Alacrity Power Evoker Toad
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1510
+          ],
+          [
+            232,
+            1502,
+            1672
+          ],
+          [
+            2391,
+            2380,
+            2335
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "38"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "38"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "9"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "familiars-focus-hare": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {
+            "amount": ""
+          }
+        }
+      }
+
   - name: Heal Tempest
     profession: Tempest
     traits:

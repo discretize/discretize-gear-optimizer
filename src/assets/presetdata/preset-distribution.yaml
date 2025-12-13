@@ -671,6 +671,17 @@ list:
         url: https://www.youtube.com/watch?v=c6OE5O4a0CI
         log: https://dps.report/5naZ-20251212-164914_golem
 
+  - name: Alacrity Power Evoker Toad
+    profession: Evoker
+    value:
+      {
+        "values2": { "Power": 4395, "Power2": 0, "Burning": 7.03, "Bleeding": 11.62, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=D5h7D_21srE
+        log: https://dps.report/wPC7-20251210-105904_golem
+
   - name: Alacrity Renegade
     profession: Renegade
     value:
