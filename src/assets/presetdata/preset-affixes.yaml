@@ -103,6 +103,16 @@ list:
         "minQuicknessDuration": "0"
       }
 
+  - name: Berserker Only
+    hidden: true
+    value:
+      {
+        "affixes": ["Berserker"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": "0",
+        "minQuicknessDuration": "0"
+      }
+
   - name: Trailblazer/Dire
     hidden: true
     value:

@@ -924,7 +924,7 @@ list:
         id: power-cat-inferno
         specialization: Catalyst
         boonType: Power
-        priority: Power DPS (no dragon)
+        priority: Berserker Only
         distribution: Power Catalyst Scepter
         traits: Power Catalyst Scepter
         fractal:
@@ -988,7 +988,7 @@ list:
         id: inferno-evoker-se-fox
         specialization: Evoker
         boonType: Power
-        priority: Power DPS (no dragon)
+        priority: Berserker Only
         distribution: Inferno Evoker SE Fox
         traits: Inferno Evoker SE Fox
         fractal:
