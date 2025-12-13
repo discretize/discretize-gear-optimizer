@@ -7815,6 +7815,91 @@ list:
         "skills": {}
       }
 
+  - name: Alacrity Power Amalgam Silver Lining
+    profession: Amalgam
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "6",
+          "38",
+          "75"
+        ],
+        "selectedTraits": [
+          [
+            1882,
+            1892,
+            1947
+          ],
+          [
+            1914,
+            1923,
+            526
+          ],
+          [
+            2395,
+            2349,
+            2387
+          ]
+        ],
+        "items": [
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {
+            "chemical-rounds": {},
+            "high-caliber": {
+              "amount": ""
+            },
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "thermal-vision-buff": {
+              "amount": ""
+            },
+            "no-scope": {},
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "3.9"
+            }
+          },
+          {
+            "hybrid-vigor": {},
+            "carbolic-composition": {},
+            "willing-host": {
+              "amount": "100"
+            },
+            "double-helix": {
+              "amount": "???"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "evolve": {
+            "amount": "23"
+          },
+          "titanic-strain": {
+            "amount": "47"
+          }
+        }
+      }
+
   - name: Heal Scrapper
     profession: Scrapper
     traits:

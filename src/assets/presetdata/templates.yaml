@@ -1348,6 +1348,21 @@ list:
 
   - class: Engineer
     builds:
+
+      - name: Alacrity Power Amalgam
+        id: amalgam-power-alac
+        specialization: Amalgam
+        boonType: Power
+        priority: Power DPS
+        distribution: Alacrity Power Amalgam
+        traits: Alacrity Power Amalgam Silver Lining
+        fractal:
+          extras: Power (Fractal, bloodstone 0.6)
+        raid:
+          extras: Power (Raid, bloodstone 0.6)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Quickness Power Scrapper (Approx.)
         id: pqscrap
         specialization: Scrapper

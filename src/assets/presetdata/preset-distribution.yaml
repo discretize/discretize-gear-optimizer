@@ -1032,6 +1032,18 @@ list:
         url: https://www.youtube.com/watch?v=CqJpumNHF4E
         log: https://dps.report/eLRb-20230715-052530_golem
 
+  # dragon legs+back
+  - name: Alacrity Power Amalgam
+    profession: Amalgam
+    value:
+      {
+        "values2": { "Power": 3710, "Power2": 0, "Burning": 1.41, "Bleeding": 9.45, "Poisoned": 4.3, "Torment": 0, "Confusion": 2.94 }
+      }
+    credit:
+      - author: '[NA] Crone'
+        url: https://www.youtube.com/watch?v=KTEj3KhQ34c
+        log: https://dps.report/BMF2-20251209-140418_golem
+
   - name: Power Chrono DT Spear
     profession: Chronomancer
     value:
