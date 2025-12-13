@@ -229,7 +229,7 @@
 
     - id: hunters-tactics
       text: Hunter's Tactics
-      subText: 100% flanking
+      subText: 100% flanking/defiant
       modifiers:
         damage:
           Outgoing Strike Damage: [15%, mult]
