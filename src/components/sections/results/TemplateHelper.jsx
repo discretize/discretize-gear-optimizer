@@ -307,12 +307,24 @@ const TemplateHelper = ({ character }) => {
           });
 
           const buffStackDistribution = Object.entries(collectedData)
-            .map(([id, counts]) =>
-              Object.entries(counts)
-                .sort(([a], [b]) => a - b)
-                .map(([count, time]) => [`${count}x ${buffNames[id]}`, (100 * time) / durationMs]),
-            )
-            .filter((entries) => entries.length > 1)
+            .map(([id, counts]) => {
+              if (counts.length <= 2) return;
+
+              return [
+                ...Object.entries(counts)
+                  .sort(([a], [b]) => a - b)
+                  .map(([count, time]) => [
+                    `${count}x ${buffNames[id]}`,
+                    (100 * time) / durationMs,
+                  ]),
+                [
+                  'total average',
+                  Object.entries(counts).reduce((prev, [count, time]) => prev + count * time, 0) /
+                    durationMs,
+                ],
+              ];
+            })
+            .filter(Boolean)
             .flatMap((entries) => ['\n', ...entries]);
 
           const result = [
