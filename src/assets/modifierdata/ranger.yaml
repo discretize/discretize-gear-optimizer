@@ -160,6 +160,21 @@
   note: Farsighted currently breaks air and hydromancy sigil simulation, and possibly some other effects.
   items:
 
+    - id: wolfsong
+      text: Wolfsong
+      amountData:
+        label: '% vulnerability'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [5%, mult]
+      gw2id: 1001
+      defaultEnabled: true
+
     - id: farsighted
       text: Farsighted
       subText: melee, not accurate
