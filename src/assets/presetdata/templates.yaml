@@ -679,7 +679,7 @@ list:
         distribution: Power Spellbreaker Hammer
         traits: Power Spellbreaker Hammer
         fractal:
-          extras: Power (Fractal)
+          extras: Power (Fractal, claw)
         raid:
           extras: Power (Raid, claw)
         weaponType: Two-handed

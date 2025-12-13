@@ -70,6 +70,42 @@ list:
         }
       }
 
+  - name: Power (Fractal, claw)
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "claw-relic": {
+              "amount": "100"
+            },
+            "mistburn-relic": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        }
+      }
+
 
   - name: Power (Raid)
     value:
@@ -161,7 +197,8 @@ list:
           "Relics": {
             "claw-relic": {
               "amount": "100"
-            }
+            },
+            "mistburn-relic": {}
           },
           "Sigil1": {
             "force": {}
