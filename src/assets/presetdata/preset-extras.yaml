@@ -2506,6 +2506,167 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power Evoker Hare PF (Fractal)
+    profession: Evoker
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.7"
+            },
+            "fireworks-relic": {
+              "amount": "100"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        }
+      }
+
+  - name: Power Evoker Hare PF (Raid)
+    profession: Evoker
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.7"
+            },
+            "fireworks-relic": {
+              "amount": "100"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Evoker Hare Inferno (Fractal)
+    profession: Evoker
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "smoldering": {}
+          },
+          "Sigil2": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "smoldering": {},
+            "impact/night/slaying-both": {}
+          },
+          "Runes": {
+            "flame-legion": {},
+            "scholar": {},
+            "dragonhunter": {}
+          },
+          "Relics": {
+            "fireworks-relic": {
+              "amount": "100"
+            }
+          },
+          "Nourishment": {
+            "fire-meat-chili": {},
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Evoker Hare Inferno (Raid)
+    profession: Evoker
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "smoldering": {}
+          },
+          "Sigil2": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "smoldering": {},
+            "impact/night/slaying-only-3": {}
+          },
+          "Runes": {
+            "flame-legion": {},
+            "scholar": {},
+            "dragonhunter": {}
+          },
+          "Relics": {
+            "fireworks-relic": {
+              "amount": "100"
+            }
+          },
+          "Nourishment": {
+            "fire-meat-chili": {},
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Quickness Untamed
     profession: Untamed
     value:

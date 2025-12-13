@@ -649,6 +649,28 @@ list:
       }
     noCreditOkay: true
 
+  - name: Power Evoker Hare PF
+    profession: Evoker
+    value:
+      {
+        "values2": { "Power": 4234, "Power2": 0, "Burning": 6.72, "Bleeding": 6.92, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=T1E8Pp6WCcw
+        log: https://dps.report/v6GX-20251210-163059_golem
+
+  - name: Power Evoker Hare Inferno
+    profession: Evoker
+    value:
+      {
+        "values2": { "Power": 4194, "Power2": 0, "Burning": 8.44, "Bleeding": 6.94, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=c6OE5O4a0CI
+        log: https://dps.report/5naZ-20251212-164914_golem
+
   - name: Alacrity Renegade
     profession: Renegade
     value:

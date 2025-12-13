@@ -5416,6 +5416,350 @@ list:
         }
       }
 
+  - name: Power Evoker Hare PF
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1510
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2391,
+            2342,
+            2335
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "38"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "38"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "27"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "familiar-passive-hare": {},
+            "familiar-active-hare": {
+              "amount": ""
+            },
+            "enhanced-potency-hare": {},
+            "familiars-focus-hare": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {
+            "amount": ""
+          }
+        }
+      }
+
+  - name: Quickness Power Evoker Hare PF
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1510
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2391,
+            2342,
+            2335
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "38"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "38"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "27"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "familiar-passive-hare": {},
+            "familiar-active-hare": {
+              "amount": ""
+            },
+            "enhanced-potency-hare": {},
+            "familiars-prowess-hare": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {
+            "amount": ""
+          }
+        }
+      }
+
+  - name: Power Evoker Hare Inferno
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1675
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2391,
+            2342,
+            2335
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "40"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "40"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "25"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "familiar-passive-hare": {},
+            "familiar-active-hare": {
+              "amount": ""
+            },
+            "enhanced-potency-hare": {},
+            "familiars-focus-hare": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {
+            "amount": "32"
+          }
+        }
+      }
+
+  - name: Quickness Power Evoker Hare Inferno
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1675
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2391,
+            2380,
+            2335
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "40"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "40"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "25"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "familiar-passive-hare": {},
+            "familiar-active-hare": {
+              "amount": ""
+            },
+            "enhanced-potency-hare": {},
+            "familiars-focus-hare": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {
+            "amount": "32"
+          }
+        }
+      }
+
   - name: Heal Tempest
     profession: Tempest
     traits:

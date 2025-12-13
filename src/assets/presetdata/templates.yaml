@@ -716,6 +716,62 @@ list:
   - class: Elementalist
     builds:
 
+      - name: Quickness Power Evoker Hare PF
+        id: evoker-hare-pf-quick
+        specialization: Evoker
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Evoker Hare PF
+        traits: Quickness Power Evoker Hare PF
+        fractal:
+          extras: Power Evoker Hare PF (Fractal)
+        raid:
+          extras: Power Evoker Hare PF (Raid)
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Quickness Power Evoker Hare Inferno
+        id: evoker-hare-inferno-quick
+        specialization: Evoker
+        boonType: Power
+        priority: Berserker Only
+        distribution: Power Evoker Hare Inferno
+        traits: Quickness Power Evoker Hare Inferno
+        fractal:
+          extras: Power Evoker Hare Inferno (Fractal)
+        raid:
+          extras: Power Evoker Hare Inferno (Raid)
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Power Evoker Hare PF
+        id: evoker-hare-pf
+        specialization: Evoker
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Evoker Hare PF
+        traits: Power Evoker Hare PF
+        fractal:
+          extras: Power Evoker Hare PF (Fractal)
+        raid:
+          extras: Power Evoker Hare PF (Raid)
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Power Evoker Hare Inferno
+        id: evoker-hare-inferno
+        specialization: Evoker
+        boonType: Power
+        priority: Berserker Only
+        distribution: Power Evoker Hare Inferno
+        traits: Power Evoker Hare Inferno
+        fractal:
+          extras: Power Evoker Hare Inferno (Fractal)
+        raid:
+          extras: Power Evoker Hare Inferno (Raid)
+        weaponType: Dual wield
+        outdated: false
+
       - name: Alacrity Condi Tempest Pistol
         id: ctemp-alac
         specialization: Tempest
