@@ -7249,6 +7249,85 @@ list:
         }
       }
 
+  - name: Power Conduit
+    profession: Conduit
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "15",
+          "3",
+          "79"
+        ],
+        "selectedTraits": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1761,
+            1774,
+            1719
+          ],
+          [
+            2407,
+            2358,
+            2352
+          ]
+        ],
+        "items": [
+          {
+            "unsuspecting-strikes": {
+              "amount": ""
+            },
+            "destructive-impulses-base": {},
+            "destructive-impulses-dual": {
+              "amount": "100"
+            },
+            "notoriety": {
+              "amount": ""
+            },
+            "targeted-destruction": {
+              "amount": ""
+            },
+            "swift-termination": {
+              "amount": ""
+            }
+          },
+          {
+            "rising-tide": {
+              "amount": ""
+            },
+            "ferocious-aggression": {
+              "amount": ""
+            },
+            "roiling-mists": {}
+          },
+          {
+            "bolstered-bonds-assassin": {},
+            "bolstered-bonds-entity": {},
+            "numinous-gift-targeted-destruction": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "cosmic-wisdom-assassin": {
+            "amount": "100"
+          },
+          "cosmic-wisdom-entity": {
+            "amount": "100"
+          },
+          "enchanted-daggers": {
+            "amount": "???"
+          }
+        }
+      }
+
   - name: Power Holo ECSU
     profession: Holosmith
     traits:
