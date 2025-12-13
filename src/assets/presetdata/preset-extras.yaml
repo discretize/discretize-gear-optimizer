@@ -2938,6 +2938,47 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power Galeshot (Raid)
+    profession: Galeshot
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "claw-relic": {
+              "amount": "100"
+            },
+            "mistburn-relic": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "impact-only-3-hydro-galeshot": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Holo (Raid)
     profession: Holosmith
     value:

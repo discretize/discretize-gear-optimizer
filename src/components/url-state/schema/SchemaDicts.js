@@ -305,6 +305,8 @@ export const sigilDict = [
   'leeching-sigil',
   'geomancy-doom-alac-specter',
   'vision',
+  'impact-only-3-hydro-galeshot',
+  'impact-both-hydro-galeshot',
 ];
 
 export const enhancementDict = [

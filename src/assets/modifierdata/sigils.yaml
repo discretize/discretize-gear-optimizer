@@ -486,6 +486,33 @@
       priceIds: []
       temporaryBuff: true
 
+    # 50% uptime on impact/night/slaying, nearly full value from hydromancy
+    - id: impact-only-3-hydro-galeshot
+      text: '3% + Hydromancy Galeshot'
+      textOverride: '3% + Hydromancy Galeshot'
+      subText: approximate
+      modifiers:
+        attributes:
+          Power Coefficient: 62
+        damage:
+          Outgoing Strike Damage: [1.5%, add]
+      gw2id: 24597
+      priceIds: []
+      temporaryBuff: true
+
+    # 50% uptime on impact/night/slaying, nearly full value from hydromancy
+    - id: impact-both-hydro-galeshot
+      text: '10% + Hydromancy Galeshot'
+      textOverride: '10% + Hydromancy Galeshot'
+      subText: approximate
+      modifiers:
+        attributes:
+          Power Coefficient: 62
+        damage:
+          Outgoing Strike Damage: [1.5%, add, 3.5%, mult]
+      gw2id: 24597
+      priceIds: []
+      temporaryBuff: true
 
 - section: Stacking Sigils
   items:

@@ -956,7 +956,7 @@ list:
     profession: Galeshot
     value:
       {
-        "values2": { "Power": 4416, "Power2": 0, "Burning": 0, "Bleeding": 5.5, "Poisoned": 1.34, "Torment": 0, "Confusion": 0.45 }
+        "values2": { "Power": 3997, "Power2": 0, "Burning": 0, "Bleeding": 5.5, "Poisoned": 1.34, "Torment": 0, "Confusion": 0.45 }
       }
     credit:
       - author: ELDR

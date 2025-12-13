@@ -1131,7 +1131,7 @@ list:
         fractal:
           extras: Power (Fractal, claw)
         raid:
-          extras: Power (Raid, claw)
+          extras: Power Galeshot (Raid)
         weaponType: Two-handed
         outdated: false
 
