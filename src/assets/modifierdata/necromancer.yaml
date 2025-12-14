@@ -134,6 +134,11 @@
           Flat DPS: 200
         conversionAfterBuffs:
           Flat DPS: {Power: 40%}
+      wvwModifiers:
+        attributes:
+          Flat DPS: 160
+        conversionAfterBuffs:
+          Flat DPS: {Power: 5%}
       temporaryBuff: true
 
     - id: nightmare-weapon
