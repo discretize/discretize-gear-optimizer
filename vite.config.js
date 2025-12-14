@@ -21,7 +21,7 @@ const filterHotUpdate = () => ({
   name: 'filter-hot-update',
   handleHotUpdate({ file, modules }) {
     // don't full reload the page when updating translations
-    if (file.endsWith('translation.json')) {
+    if (file.endsWith('translation.json') || file.endsWith('.yaml')) {
       return [];
     }
     return modules;
