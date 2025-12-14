@@ -535,12 +535,26 @@
       gw2id: 104022
       temporaryBuff: true
 
+    # sort of like life steal: unaffected by opponent armor, player weapon strength, vulnerability, etc.
     - id: agony-relic
-      text: 'Relic of Agony: not yet implemented'
-      subText: 'Relic of Agony: not yet implemented'
-      textOverride: 'Relic of Agony: not yet implemented'
-      modifiers: {}
-      # gw2id intentionally omitted
+      text: Relic of Agony
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Flat DPS: 672.5 # 134.5 * 5
+        conversionAfterBuffs:
+          Flat DPS: {Condition Damage: 77.5%} # 0.155 * 5
+      wvwModifiers:
+        attributes:
+          Flat DPS: 403.5 # 134.5 * 3
+        conversionAfterBuffs:
+          Flat DPS: {Condition Damage: 46.5%} # 0.155 * 3
+      gw2id: 104849
+      temporaryBuff: true
 
 - section: Summon Relics
   items:
