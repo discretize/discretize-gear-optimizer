@@ -97,8 +97,8 @@
         quantityEntered: 10
       modifiers:
         attributes:
-          Siphon Base Coefficient: 3008
-          Siphon Coefficient: 0.2
+          Siphon Base Coefficient: 2256
+          Siphon Coefficient: 0.15
       temporaryBuff: true
 
     - id: rise-shout
