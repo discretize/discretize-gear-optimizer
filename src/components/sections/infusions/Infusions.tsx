@@ -241,6 +241,8 @@ const Infusions = () => {
             {mistAttunementData.map(({ name, subText }, i) => (
               <FormControlLabel
                 value={i}
+                // eslint-disable-next-line react/no-array-index-key
+                key={i}
                 control={<Radio />}
                 label={
                   name ? (

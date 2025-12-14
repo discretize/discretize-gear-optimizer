@@ -69,8 +69,14 @@ const ResultTableHeaderRow = ({
         ? [...array, ...Array(minLength - array.length).fill(emptyCell)]
         : array;
 
-    // eslint-disable-next-line react/no-array-index-key
-    return resultArray.map((element, i) => <Fragment key={i}>{element}</Fragment>);
+    return (
+      <>
+        {resultArray.map((element, i) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <Fragment key={i}>{element}</Fragment>
+        ))}
+      </>
+    );
   };
 
   return (
@@ -131,6 +137,7 @@ const ResultTableHeaderRow = ({
           className={cx(classes.tablehead, classes.attributesColumn)}
           align="center"
           padding="none"
+          key={attribute}
         >
           <Attribute name={attribute} disableLink disableText style={{ fontSize: 18 }} />
         </TableCell>

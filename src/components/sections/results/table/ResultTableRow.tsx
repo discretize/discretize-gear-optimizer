@@ -65,8 +65,14 @@ const ResultTableRow = ({
         ? [...array, ...Array(minLength - array.length).fill(emptyCell)]
         : array;
 
-    // eslint-disable-next-line react/no-array-index-key
-    return resultArray.map((element, i) => <Fragment key={i}>{element}</Fragment>);
+    return (
+      <>
+        {resultArray.map((element, i) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <Fragment key={i}>{element}</Fragment>
+        ))}
+      </>
+    );
   };
 
   return (
@@ -196,7 +202,7 @@ const ResultTableRow = ({
       )}
 
       {displayAttributes.map((attribute) => (
-        <TableCell align="center" padding="none">
+        <TableCell key={attribute} align="center" padding="none">
           <Typography variant="caption">
             {roundTwo(
               (character.attributes[attribute] ?? 0) * (percents.includes(attribute) ? 100 : 1),

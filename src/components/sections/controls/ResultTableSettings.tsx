@@ -157,13 +157,17 @@ export default function ResultTableSettings() {
             </li>
           )}
           renderTags={(value, getTagProps) =>
-            value.map((option, index) => (
-              <Chip
-                variant="outlined"
-                label={<Attribute name={option} disableLink disableText />}
-                {...getTagProps({ index })}
-              />
-            ))
+            value.map((option, index) => {
+              const { key, ...props } = getTagProps({ index });
+              return (
+                <Chip
+                  key={key}
+                  variant="outlined"
+                  label={<Attribute name={option} disableLink disableText />}
+                  {...props}
+                />
+              );
+            })
           }
         />
       </Box>
