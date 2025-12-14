@@ -137,7 +137,15 @@ export default function ResultTableSettings() {
           multiple
           disableCloseOnSelect
           value={displayAttributes}
-          options={['Toughness', 'Boon Duration', 'Health', 'Critical Chance'] as const}
+          options={
+            [
+              'Toughness',
+              'Boon Duration',
+              'Health',
+              'Critical Chance',
+              'Condition Duration',
+            ] as const
+          }
           onChange={(event, value) => dispatch(changeDisplayAttributes(value))}
           renderInput={(params) => (
             <TextField {...params} variant="standard" label={t('Show Attributes')} margin="dense" />
