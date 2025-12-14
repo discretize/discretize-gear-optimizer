@@ -15,6 +15,7 @@ const initial = {
   Confusion: 0,
 };
 
+const roundThree = (num) => Math.round(num * 1000) / 1000;
 const roundTwo = (num) => Math.round(num * 100) / 100;
 const roundZero = (num) => Math.round(num);
 
@@ -134,7 +135,7 @@ const TemplateHelper = ({ character }) => {
               if (!totalDamage) return;
 
               const dps = roundTwo((totalDamage ?? 0) / duration);
-              const hitsPerSecond = roundTwo(connectedHits / duration);
+              const hitsPerSecond = roundThree(connectedHits / duration);
 
               return [`${name} "Power" DPS (${hitsPerSecond} hit/sec)`, dps];
             })
