@@ -17,6 +17,17 @@ const getCommitHash = () => {
   }
 };
 
+const filterHotUpdate = () => ({
+  name: 'filter-hot-update',
+  handleHotUpdate({ file, modules }) {
+    // don't full reload the page when updating translations
+    if (file.endsWith('translation.json')) {
+      return [];
+    }
+    return modules;
+  },
+});
+
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
@@ -33,7 +44,7 @@ export default defineConfig({
     target: 'es2020',
     sourcemap: true,
   },
-  plugins: [comlink(), react(), yamlImporter(), wasm()],
+  plugins: [comlink(), react(), yamlImporter(), wasm(), filterHotUpdate()],
   worker: {
     format: 'iife',
     plugins: () => [comlink(), yamlImporter(), wasm()],
