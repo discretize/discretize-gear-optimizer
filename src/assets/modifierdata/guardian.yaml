@@ -126,6 +126,7 @@
     #   gw2id: 46148
     #   temporaryBuff: true
 
+    # like life steal: unaffected by opponent armor, player weapon strength, vulnerability, etc.
     - id: binding-blade
       text: Binding Blade
       subText: damage over time tick (approx.)
@@ -136,12 +137,14 @@
         quantityEntered: 10
       modifiers:
         attributes:
-          Siphon Base Coefficient: 160
-          Siphon Coefficient: 0.3
+          Flat DPS: 160
+        conversionAfterBuffs:
+          Flat DPS: {Power: 30%}
       wvwModifiers:
         attributes:
-          Siphon Base Coefficient: 160
-          Siphon Coefficient: 0.1
+          Flat DPS: 160
+        conversionAfterBuffs:
+          Flat DPS: {Power: 10%}
       gw2id: 9147
       temporaryBuff: true
 

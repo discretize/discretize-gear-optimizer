@@ -120,6 +120,7 @@
           Damage Reduction: [20%, mult]
       gw2id: 29958
 
+    # like life steal: unaffected by opponent armor, player weapon strength, vulnerability, etc.
     - id: painful-bond-tick
       text: Painful Bond
       subText: Painful Bond damage ticks
@@ -130,8 +131,14 @@
         quantityEntered: 10
       modifiers:
         attributes:
-          Siphon Base Coefficient: 200
-          Siphon Coefficient: 0.4
+          Flat DPS: 200
+        conversionAfterBuffs:
+          Flat DPS: {Power: 40%}
+      wvwModifiers:
+        attributes:
+          Flat DPS: 160
+        conversionAfterBuffs:
+          Flat DPS: {Power: 5%}
       temporaryBuff: true
 
     - id: nightmare-weapon
@@ -153,7 +160,8 @@
       gw2id: 76739
       temporaryBuff: true
 
-    - id: nightmare-weapon-2
+    # the same, except unaffected by soul barbs (these use the *ally's* siphon/all damage modifiers)
+    - id: nightmare-weapon-allies
       text: Nightmare Weapon
       subText: allies
       amountData:
@@ -163,12 +171,12 @@
         quantityEntered: 10
       modifiers:
         attributes:
-          Siphon Base Coefficient: 1207
-          Siphon Coefficient: 0.05
+          Flat DPS: 1207
+        conversionAfterBuffs:
+          Flat DPS: {Power: 5%}
       wvwModifiers:
         attributes:
-          Siphon Base Coefficient: 606
-          Siphon Coefficient: 0 # ...this is what the wiki says?
+          Flat DPS: 606
       gw2id: 76739
       temporaryBuff: true
 
@@ -854,9 +862,8 @@
     treated as player skills, but spirit autoattacks are unaffected by player stats.
 
 
-    Nightmare Weapon stacks on allies use the player power attribute but ally lifesteal damage/all damage
-    modifiers. Reduce the amount data entered for ally Nightmare Weapon if you have Soul Barbs and your
-    allies don't. (Increase it if your allies are revenants, have atrocity relic, etc.)
+    Nightmare Weapon stacks on allies are affected by ally lifesteal damage/all damage modifiers like Soul
+    Barbs, Relic of Atrocity, Lead Attacks, and numerous revenant traits.
   items:
 
     - id: boon-of-creation
