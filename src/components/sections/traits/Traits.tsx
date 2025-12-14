@@ -189,7 +189,7 @@ const Traits = () => {
           })
         }
         {note ? (
-          <Box sx={{ maxWidth: '648px', p: 1 }}>
+          <Box sx={{ maxWidth: '648px', p: 1, whiteSpace: 'pre-line' }}>
             <Info icon={<WarningAmberIcon />}>
               {
                 // i18next-extract-mark-context-next-line {{traitNote}}

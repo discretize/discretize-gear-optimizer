@@ -134,6 +134,44 @@
           Siphon Coefficient: 0.4
       temporaryBuff: true
 
+    - id: nightmare-weapon
+      text: Nightmare Weapon
+      subText: self
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 1207
+          Siphon Coefficient: 0.05
+      wvwModifiers:
+        attributes:
+          Siphon Base Coefficient: 606
+          Siphon Coefficient: 0 # ...this is what the wiki says?
+      gw2id: 76739
+      temporaryBuff: true
+
+    - id: nightmare-weapon-2
+      text: Nightmare Weapon
+      subText: allies
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 1207
+          Siphon Coefficient: 0.05
+      wvwModifiers:
+        attributes:
+          Siphon Base Coefficient: 606
+          Siphon Coefficient: 0 # ...this is what the wiki says?
+      gw2id: 76739
+      temporaryBuff: true
+
 - section: Spite
   id: 53
   items:
@@ -812,7 +850,13 @@
 - section: Ritualist
   id: 76
   note: >-
-    According to community testing, spirit cast attacks probably use normal damage calculation and can be treated as player skills, but spirit autoattacks are unaffected by player stats.
+    According to community testing, spirit cast attacks probably use normal damage calculation and can be
+    treated as player skills, but spirit autoattacks are unaffected by player stats.
+
+
+    Nightmare Weapon stacks on allies use the player power attribute but ally lifesteal damage/all damage
+    modifiers. Reduce the amount data entered for ally Nightmare Weapon if you have Soul Barbs and your
+    allies don't. (Increase it if your allies are revenants, have atrocity relic, etc.)
   items:
 
     - id: boon-of-creation
