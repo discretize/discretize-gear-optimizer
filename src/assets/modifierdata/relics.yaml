@@ -251,6 +251,13 @@
       gw2id: 102595
       temporaryBuff: true
 
+    - id: atrocity-relic
+      text: Relic of Atrocity
+      modifiers:
+        damage:
+          Outgoing Siphon Damage: [15%, add]
+      gw2id: 102245
+
 - section: Hybrid Relics
   items:
 
