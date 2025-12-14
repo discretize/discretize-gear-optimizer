@@ -800,6 +800,78 @@ list:
         weaponType: Dual wield
         outdated: false
 
+      - name: Quickness Fire SE Evoker Inferno
+        id: fire-se-evoker-inferno
+        specialization: Evoker
+        boonType: Power
+        priority: Berserker Only
+        distribution: Fire SE Evoker Inferno
+        traits: Quickness Fire SE Evoker Inferno
+        fractal:
+          extras: Fire SE Evoker Inferno (Fractal)
+        raid:
+          extras: Fire SE Evoker Inferno (Raid)
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Quickness Fire SE Evoker Condi
+        id: fire-se-evoker-condi-quick
+        specialization: Evoker
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Fire SE Evoker Condi
+        traits: Quickness Fire SE Evoker Condi
+        extras: Fire SE Evoker Condi
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Quickness Fire SE Evoker Trailblazer (Approx.)
+        id: fire-se-evoker-trailblazer-quick
+        specialization: Evoker
+        boonType: Condi
+        priority: Trailblazer/Dire
+        distribution: Fire SE Evoker Trailblazer (Approx.)
+        traits: Quickness Fire SE Evoker Trailblazer
+        extras: Fire SE Evoker Trailblazer
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Fire SE Evoker Inferno
+        id: fire-se-evoker-inferno-quickness
+        specialization: Evoker
+        boonType: Power
+        priority: Berserker Only
+        distribution: Fire SE Evoker Inferno
+        traits: Fire SE Evoker Inferno
+        fractal:
+          extras: Fire SE Evoker Inferno (Fractal)
+        raid:
+          extras: Fire SE Evoker Inferno (Raid)
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Fire SE Evoker Condi
+        id: fire-se-evoker-condi
+        specialization: Evoker
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Fire SE Evoker Condi
+        traits: Fire SE Evoker Condi
+        extras: Fire SE Evoker Condi
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Fire SE Evoker Trailblazer (Approx.)
+        id: fire-se-evoker-trailblazer
+        specialization: Evoker
+        boonType: Condi
+        priority: Trailblazer/Dire
+        distribution: Fire SE Evoker Trailblazer (Approx.)
+        traits: Fire SE Evoker Trailblazer
+        extras: Fire SE Evoker Trailblazer
+        weaponType: Dual wield
+        outdated: false
+
       - name: Alacrity Condi Tempest Pistol
         id: ctemp-alac
         specialization: Tempest
@@ -1067,42 +1139,6 @@ list:
         extras: Condi Quickness Catalyst P/W
         weaponType: Dual wield
         outdated: false
-
-      - name: Inferno Evoker SE Fox
-        id: inferno-evoker-se-fox
-        specialization: Evoker
-        boonType: Power
-        priority: Berserker Only
-        distribution: Inferno Evoker SE Fox
-        traits: Inferno Evoker SE Fox
-        fractal:
-          extras: Inferno Evoker SE Fox (Fractal)
-        raid:
-          extras: Inferno Evoker SE Fox (Raid)
-        weaponType: Dual wield
-        outdated: true
-
-      - name: Condi Evoker SE Fox
-        id: condi-evoker-se-fox
-        specialization: Evoker
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Evoker SE Fox (Approx.)
-        traits: Condi Evoker SE Fox
-        extras: Condi Evoker SE Fox
-        weaponType: Dual wield
-        outdated: true
-
-      - name: Condi Trailblazer Evoker SE Fox
-        id: trailblazer-evoker-se-fox
-        specialization: Evoker
-        boonType: Condi
-        priority: Trailblazer/Dire
-        distribution: Condi Trailblazer Evoker SE Fox
-        traits: Condi Trailblazer Evoker SE Fox
-        extras: Condi Trailblazer Evoker SE Fox
-        weaponType: Dual wield
-        outdated: true
 
       - name: Heal Alacrity Tempest
         id: healtemp

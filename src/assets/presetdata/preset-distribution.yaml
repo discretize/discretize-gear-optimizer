@@ -629,36 +629,49 @@ list:
         url: https://www.youtube.com/watch?v=d1PZfUiaIpQ
         log: https://dps.report/Y4GP-20250811-220229_golem
 
-  # use bloodstone-relic-prenerf-2 if resimulating
-  - name: Inferno Evoker SE Fox
+  - name: Fire SE Evoker Inferno
     profession: Evoker
     value:
       {
-        "values2": { "Power": 3758, "Power2": 0, "Burning": 21.38, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2883, "Power2": 0, "Burning": 16.04, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Kadenar
-        url: https://www.youtube.com/watch?v=plek_AW5608
-        log: https://dps.report/JrMs-20251114-144931_golem
+        url: https://www.youtube.com/watch?v=yKLioMzZm_I
+        log: https://dps.report/TCOY-20251213-151502_golem
 
-  # trailblazer but without the bleed (i.e. casting earth signet but it not doing anything)
-  # real build would be higher than this
-  - name: Condi Evoker SE Fox (Approx.)
+  # above log + burning rage + persisting flames
+  # add 0.11 conflagration/sec (all casts ticked out) * 8 burning/sunspot
+  # add 0.11 flamewall/sec (last cast not extended) * 2 extra flamewall ticks * 2.5 burning
+  # add 0.11 flamewall/sec (last cast not extended) * 2 extra flamewall ticks * 0.1 coefficient * 690.5 strength
+  - name: Fire SE Evoker Condi
     profession: Evoker
     value:
       {
-        "values2": { "Power": 3380, "Power2": 0, "Burning": 22.09, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2898, "Power2": 0, "Burning": 17.47, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=yKLioMzZm_I
+        log: https://dps.report/TCOY-20251213-151502_golem
 
-  # https://dps.report/Pa63-20251103-095923_golem
-  - name: Condi Trailblazer Evoker SE Fox
+  # above log + 6x earth signet - 4x firestorm (6 is a guess, this is approximate anyway)
+  # subtract 0.49 firestorm ticks/sec * 0.5 coefficient * 690.5 strength
+  # subtract 0.49 firestorm ticks/sec * 0.5 coefficient * 2 burning/tick
+  # add 0.0668 signet casts/sec * 36 bleed
+  # add 0.0668 signet casts/sec * 30 bleed
+  # add 0.0668 signet casts/sec * 0.5 coefficient * 690.5 strength
+  # 2898-0.49*0.5*690.5+0.0668*0.5*690.5
+  - name: Fire SE Evoker Trailblazer (Approx.)
     profession: Evoker
     value:
       {
-        "values2": { "Power": 3380, "Power2": 0, "Burning": 22.09, "Bleeding": 3.82, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2752, "Power2": 0, "Burning": 17.47, "Bleeding": 4.4, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=yKLioMzZm_I
+        log: https://dps.report/TCOY-20251213-151502_golem
 
   - name: Power Evoker Hare PF
     profession: Evoker

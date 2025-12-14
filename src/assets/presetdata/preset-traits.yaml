@@ -5265,7 +5265,7 @@ list:
         }
       }
 
-  - name: Inferno Evoker SE Fox
+  - name: Fire SE Evoker Inferno
     profession: Evoker
     traits:
       {
@@ -5341,12 +5341,99 @@ list:
       {
         "skills": {
           "ele-summon-dps": {
-            "amount": "1092"
+            "amount": "1037"
+          },
+          "signet-of-fire": {
+            "amount": "18"
           }
         }
       }
 
-  - name: Condi Evoker SE Fox
+  - name: Quickness Fire SE Evoker Inferno
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1675
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2391,
+            2380,
+            2437
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "100"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "100"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "enhanced-potency-fox": {
+              "amount": ""
+            },
+            "familiars-prowess-fox": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1037"
+          },
+          "signet-of-fire": {
+            "amount": "18"
+          }
+        }
+      }
+
+  - name: Fire SE Evoker Condi
     profession: Evoker
     traits:
       {
@@ -5422,12 +5509,99 @@ list:
       {
         "skills": {
           "ele-summon-dps": {
-            "amount": "1181"
+            "amount": "1037"
+          },
+          "signet-of-fire": {
+            "amount": "18"
           }
         }
       }
 
-  - name: Condi Trailblazer Evoker SE Fox
+  - name: Quickness Fire SE Evoker Condi
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2391,
+            2380,
+            2437
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "100"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "100"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "enhanced-potency-fox": {
+              "amount": ""
+            },
+            "familiars-prowess-fox": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1037"
+          },
+          "signet-of-fire": {
+            "amount": "18"
+          }
+        }
+      }
+
+  - name: Fire SE Evoker Trailblazer
     profession: Evoker
     traits:
       {
@@ -5491,7 +5665,78 @@ list:
       {
         "skills": {
           "ele-summon-dps": {
-            "amount": "1181"
+            "amount": "1037"
+          },
+          "signet-of-fire": {},
+          "signet-of-earth": {}
+        }
+      }
+
+  - name: Quickness Fire SE Evoker Trailblazer
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            1507,
+            275,
+            1508
+          ],
+          [
+            2391,
+            2380,
+            2437
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "100"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "100"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "fiery-might": {},
+            "enhanced-potency-fox": {
+              "amount": ""
+            },
+            "familiars-prowess-fox": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1037"
           },
           "signet-of-fire": {},
           "signet-of-earth": {}

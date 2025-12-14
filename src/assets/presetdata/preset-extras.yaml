@@ -2431,7 +2431,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Inferno Evoker SE Fox (Fractal)
+  - name: Fire SE Evoker Inferno (Fractal)
     profession: Evoker
     value:
       {
@@ -2449,8 +2449,8 @@ list:
             "flame-legion": {}
           },
           "Relics": {
-            "bloodstone-relic": {
-              "amount": "0.78"
+            "fireworks-relic": {
+              "amount": "100"
             }
           },
           "Nourishment": {
@@ -2466,7 +2466,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Inferno Evoker SE Fox (Raid)
+  - name: Fire SE Evoker Inferno (Raid)
     profession: Evoker
     value:
       {
@@ -2483,8 +2483,8 @@ list:
             "flame-legion": {}
           },
           "Relics": {
-            "bloodstone-relic": {
-              "amount": "0.78"
+            "fireworks-relic": {
+              "amount": "100"
             }
           },
           "Nourishment": {
@@ -2499,7 +2499,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Evoker SE Fox
+  - name: Fire SE Evoker Condi
     profession: Evoker
     value:
       {
@@ -2537,7 +2537,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Trailblazer Evoker SE Fox
+  - name: Fire SE Evoker Trailblazer
     profession: Evoker
     value:
       {
