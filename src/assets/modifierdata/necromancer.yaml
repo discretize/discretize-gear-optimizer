@@ -120,6 +120,7 @@
           Damage Reduction: [20%, mult]
       gw2id: 29958
 
+    # like life steal: unaffected by opponent armor, player weapon strength, vulnerability, etc.
     - id: painful-bond-tick
       text: Painful Bond
       subText: Painful Bond damage ticks
@@ -130,8 +131,9 @@
         quantityEntered: 10
       modifiers:
         attributes:
-          Siphon Base Coefficient: 200
-          Siphon Coefficient: 0.4
+          Flat DPS: 200
+        conversionAfterBuffs:
+          Flat DPS: {Power: 40%}
       temporaryBuff: true
 
     - id: nightmare-weapon
