@@ -558,7 +558,7 @@ const TemplateHelper = ({ character }) => {
         </ButtonGroup>
       ) : undefined}
 
-      <pre style={{ margin: '1rem' }}>{urlResult}</pre>
+      <pre style={{ overflowY: 'auto', maxHeight: '800px', margin: '1rem' }}>{urlResult}</pre>
 
       <br />
 
