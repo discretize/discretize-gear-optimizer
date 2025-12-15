@@ -596,7 +596,8 @@ const testPresets = async () => {
             entry.profession ||
             entry.name.startsWith('Power (') ||
             entry.name.startsWith('Power Boon (') ||
-            entry.name === 'Heal'
+            entry.name === 'Heal' ||
+            entry.name.startsWith('Heal (')
           )
         ) {
           console.log(`❓ ${entry.name} ${type} preset has no profession!`);

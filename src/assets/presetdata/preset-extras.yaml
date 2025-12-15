@@ -992,6 +992,33 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Heal (concentration)
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "monk": {},
+            "water": {}
+          },
+          "Relics": {},
+          "Sigil1": {
+            "concentration": {}
+          },
+          "Sigil2": {
+            "transference": {}
+          },
+          "Enhancement": {
+            "bountiful-maintenance-oil": {}
+          },
+          "Nourishment": {
+            "fruit-salad-mint-garnish": {},
+            "mint-creme-brulee": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+
   - name: Alacrity Staff Mirage
     profession: Mirage
     value:
