@@ -875,6 +875,17 @@ list:
         url: https://www.youtube.com/watch?v=Lf2R-zkQjDI
         log: https://dps.report/Iac9-20251210-122341_golem
 
+  - name: Power Conduit S/S
+    profession: Conduit
+    value:
+      {
+        "values2": { "Power": 3866, "Power2": 0, "Burning": 0, "Bleeding": 4.3, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Yurugani
+        url: https://www.youtube.com/watch?v=0DH0NXcqUrM
+        log: https://dps.report/BWYo-20251211-175030_golem
+
   - name: Condi Quickness Untamed
     profession: Untamed
     value:
