@@ -7833,7 +7833,7 @@ list:
             "amount": "100"
           },
           "enchanted-daggers": {
-            "amount": "???"
+            "amount": "0.5"
           }
         }
       }
