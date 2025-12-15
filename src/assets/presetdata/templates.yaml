@@ -1703,12 +1703,12 @@ list:
         raid:
           priority: Heal (Raid)
         distribution: None
-        traits: Heal Scrapper
+        traits: Heal Quickness Scrapper
         extras: Heal
         weaponType: Dual wield
         outdated: false
 
-      - name: Heal Alacrity Mech
+      - name: Heal Alacrity Mechanist
         id: healmech
         specialization: Mechanist
         boonType: Power
@@ -1717,7 +1717,21 @@ list:
         raid:
           priority: Heal (Raid)
         distribution: None
-        traits: Heal Mechanist
+        traits: Heal Alacrity Mechanist
+        extras: Heal
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Heal Alacrity Amalgam
+        id: healamalgam
+        specialization: Amalgam
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Alacrity Amalgam
         extras: Heal
         weaponType: Dual wield
         outdated: false

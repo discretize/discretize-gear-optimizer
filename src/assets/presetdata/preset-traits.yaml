@@ -9036,7 +9036,7 @@ list:
         }
       }
 
-  - name: Heal Scrapper
+  - name: Heal Quickness Scrapper
     profession: Scrapper
     traits:
       {
@@ -9161,7 +9161,8 @@ list:
       {
         "skills": {}
       }
-  - name: Heal Mechanist
+
+  - name: Heal Alacrity Mechanist
     profession: Mechanist
     traits:
       {
@@ -9197,6 +9198,58 @@ list:
             "compounding-chemicals": {}
           },
           {}
+        ]
+      }
+    skills:
+      {
+        "skills": {}
+      }
+
+  - name: Heal Alacrity Amalgam
+    profession: Amalgam
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "47",
+          "29",
+          "75"
+        ],
+        "selectedTraits": [
+          [
+            394,
+            1834,
+            1916
+          ],
+          [
+            521,
+            470,
+            473
+          ],
+          [
+            2395,
+            2349,
+            2387
+          ]
+        ],
+        "items": [
+          {
+            "over-shield": {},
+            "energy-amplifier": {}
+          },
+          {
+            "compounding-chemicals": {}
+          },
+          {
+            "hybrid-vigor": {},
+            "carbolic-composition": {},
+            "willing-host": {
+              "amount": "100"
+            },
+            "double-helix": {
+              "amount": "???"
+            }
+          }
         ]
       }
     skills:
