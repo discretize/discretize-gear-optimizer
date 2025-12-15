@@ -988,7 +988,7 @@ list:
         "values2": { "Power": 3997, "Power2": 0, "Burning": 0, "Bleeding": 5.5, "Poisoned": 1.34, "Torment": 0, "Confusion": 0.45 }
       }
     credit:
-      - author: ELDR
+      - author: EDLR
         url: https://www.youtube.com/watch?v=B6nX7mfxy_s
         log: https://dps.report/HFtG-20251213-094351_golem
 
