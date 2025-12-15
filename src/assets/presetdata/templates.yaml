@@ -1087,6 +1087,20 @@ list:
         weaponType: Dual wield
         outdated: true
 
+      - name: Quickness Power Catalyst Scepter Inferno
+        id: power-cat-quick-inferno
+        specialization: Catalyst
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Quickness Power Catalyst Scepter Inferno
+        traits: Quickness Power Catalyst Scepter Inferno
+        fractal:
+          extras: Power Catalyst Scepter Inferno (Fractal)
+        raid:
+          extras: Power Catalyst Scepter Inferno (Raid)
+        weaponType: Dual wield
+        outdated: false
+
       - name: Power Catalyst Scepter (Approx.)
         id: power-cat-inferno
         specialization: Catalyst

@@ -2353,6 +2353,84 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power Catalyst Scepter Inferno (Fractal)
+    profession: Catalyst
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "smoldering": {}
+          },
+          "Sigil2": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "smoldering": {},
+            "impact/night/slaying-both": {}
+          },
+          "Runes": {
+            "flame-legion": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.72"
+            }
+          },
+          "Nourishment": {
+            "fire-meat-chili": {},
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "spherified-cilantro-oyster-soup": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "slaying-potion": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Catalyst Scepter Inferno (Raid)
+    profession: Catalyst
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "smoldering": {}
+          },
+          "Sigil2": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "smoldering": {}
+          },
+          "Runes": {
+            "flame-legion": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.72"
+            }
+          },
+          "Nourishment": {
+            "fire-meat-chili": {},
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "spherified-cilantro-oyster-soup": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Quickness Catalyst Hammer (Raid)
     profession: Catalyst
     value:
@@ -2492,7 +2570,9 @@ list:
             "smoldering": {}
           },
           "Runes": {
-            "flame-legion": {}
+            "flame-legion": {},
+            "scholar": {},
+            "dragonhunter": {}
           },
           "Relics": {
             "fireworks-relic": {
