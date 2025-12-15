@@ -1814,6 +1814,17 @@ list:
         weaponType: Two-handed
         outdated: false
 
+      - name: Condi Antiquary Spear
+        id: antiq-condi-spear
+        specialization: Antiquary
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Antiquary Spear (Allies)
+        traits: Condi Antiquary Spear
+        extras: Condi Antiquary Spear Generosity
+        weaponType: Two-handed
+        outdated: false
+
       - name: Alacrity Specter SC/D 57%
         id: specter-alac
         specialization: Specter

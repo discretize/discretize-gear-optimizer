@@ -4469,3 +4469,47 @@ list:
         },
         "lifestealAmount": "2.6"
       }
+
+  - name: Condi Antiquary Spear Generosity
+    profession: Antiquary
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "smoldering": {},
+            "malice": {},
+            "bursting": {},
+            "earth": {
+              "amount": ""
+            },
+            "torment": {
+              "amount": ""
+            }
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
+          "Runes": {
+            "trapper": {},
+            "balthazar": {},
+            "nightmare": {},
+            "baelfire": {},
+            "afflicted": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Nourishment": {
+            "fishy-rice-bowl": {},
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {},
+            "master-tuning-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }

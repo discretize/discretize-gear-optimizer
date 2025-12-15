@@ -1646,3 +1646,27 @@ list:
       - author: '[LCs] Seisan'
         url: https://www.youtube.com/watch?v=wSr8WlnZIKE
         log: https://dps.report/dIE0-20251211-204328_golem
+
+  - name: Condi Antiquary Spear (Solo)
+    profession: Antiquary
+    value:
+      {
+        "values2": { "Power": 4449, "Power2": 0, "Burning": 11.26, "Bleeding": 8.56, "Poisoned": 12.78, "Torment": 2.81, "Confusion": 0 }
+      }
+    credit:
+      - author: '[LCs] Seisan'
+        url: https://www.youtube.com/watch?v=5IRgdbTrpzg
+        log: https://dps.report/3MAR-20251214-150318_golem
+
+
+  # add: 4 spider venom casts * 6 stacks * 3s poison * 4 allies in 71s = 4.06 poison coefficient
+  - name: Condi Antiquary Spear (Allies)
+    profession: Antiquary
+    value:
+      {
+        "values2": { "Power": 4449, "Power2": 0, "Burning": 11.26, "Bleeding": 8.56, "Poisoned": 16.84, "Torment": 2.81, "Confusion": 0 }
+      }
+    credit:
+      - author: '[LCs] Seisan'
+        url: https://www.youtube.com/watch?v=5IRgdbTrpzg
+        log: https://dps.report/3MAR-20251214-150318_golem

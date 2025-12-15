@@ -10863,6 +10863,72 @@ list:
         }
       }
 
+  - name: Condi Antiquary Spear
+    profession: Antiquary
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "44",
+          "77"
+        ],
+        "selectedTraits": [
+          [
+            1164,
+            1292,
+            1291
+          ],
+          [
+            1252,
+            1190,
+            1706
+          ],
+          [
+            2346,
+            2431,
+            2348
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": {},
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "preparedness": {},
+            "lead-attacks": {
+              "amount": "14"
+            },
+            "deadly-ambush": {}
+          },
+          {
+            "exhilarating-ephemera": {
+              "amount": ""
+            },
+            "combat-high": {
+              "amount": "5.9"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "distracting-throw": {
+            "amount": "100"
+          }
+        }
+      }
+
   - name: Heal Specter
     profession: Specter
     traits:
