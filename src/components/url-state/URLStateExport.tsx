@@ -60,7 +60,7 @@ const URLStateExport = () => {
         </IconButton>
       </Tooltip>
       <div id="non-cf-copy" style={{ display: 'none' }}>
-        <Tooltip content={t('Copy Settings to clipboard (non-cloudflare')}>
+        <Tooltip content={t('Copy Settings to clipboard (non-cloudflare)')}>
           <IconButton
             onClick={() => {
               setLoading(true);

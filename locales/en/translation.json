@@ -51,6 +51,7 @@
   "Copied long link to clipboard! (Link shortener failed.)": "Copied long link to clipboard! (Link shortener failed.)",
   "Copied long link to clipboard! (Link shortener requires cloudflare environment.)": "Copied long link to clipboard! (Link shortener requires cloudflare environment.)",
   "Copy Settings to clipboard": "Copy Settings to clipboard",
+  "Copy Settings to clipboard (non-cloudflare)": "Copy Settings to clipboard (non-cloudflare)",
   "Copy build": "Copy build",
   "Copy from selected character": "Copy from selected character",
   "Copy selected sigils to both slots": "Copy selected sigils to both slots",
