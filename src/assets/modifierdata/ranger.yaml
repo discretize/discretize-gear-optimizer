@@ -690,7 +690,15 @@
 
 - section: Untamed
   id: 72
-  note: Pet damage is not currently simulated.
+  note: >-
+    Pet damage is not currently simulated.
+
+
+    Natural Fortitude Unleashed Ambush lifesteal damage is not current simulated.
+
+
+    Natural Fortitude Unleashed Ambush lifesteal damage may not be shown in arcdps area stats or parsed arcdps logs.
+
   items:
 
     - id: natural-fortitude

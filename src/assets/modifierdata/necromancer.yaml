@@ -1,4 +1,7 @@
 - section: Skills
+  note: >-
+    Nightmare Weapon stacks on allies are affected by ally lifesteal damage/all damage modifiers like Soul
+    Barbs, Relic of Atrocity, Lead Attacks, and numerous revenant traits.
   items:
 
     - id: necro-summon-dps
@@ -860,10 +863,6 @@
   note: >-
     According to community testing, spirit cast attacks probably use normal damage calculation and can be
     treated as player skills, but spirit autoattacks are unaffected by player stats.
-
-
-    Nightmare Weapon stacks on allies are affected by ally lifesteal damage/all damage modifiers like Soul
-    Barbs, Relic of Atrocity, Lead Attacks, and numerous revenant traits.
   items:
 
     - id: boon-of-creation

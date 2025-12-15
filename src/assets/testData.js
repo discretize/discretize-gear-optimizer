@@ -95,6 +95,12 @@ const testModifiers = async () => {
       const sectionName = section.section;
       gentleAssert(sectionName, `err: empty section name`);
 
+      /*
+      if (section.note) {
+        console.log('***\n', sectionName, fileName, '\n', section.note, '\n***');
+      }
+      */
+
       let major_traits = null;
       let minor_traits = null;
       if (section.id) {
