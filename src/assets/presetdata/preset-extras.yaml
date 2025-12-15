@@ -2363,95 +2363,6 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Power Catalyst Scepter (Fractal)
-    profession: Catalyst
-    value:
-      {
-        "extras": {
-          "Runes": {
-            "flame-legion": {},
-            "scholar": {},
-            "dragonhunter": {},
-            "golemancer": {},
-            "deadeye": {},
-            "eagle": {},
-            "infiltration": {},
-            "ranger": {}
-          },
-          "Relics": {
-            "bloodstone-relic": {
-              "amount": "0.72"
-            }
-          },
-          "Sigil1": {
-            "force": {},
-            "accuracy": {},
-            "smoldering": {},
-            "bursting": {}
-          },
-          "Sigil2": {
-            "accuracy": {},
-            "smoldering": {},
-            "impact/night/slaying-both": {},
-            "bursting": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {},
-            "slaying-potion": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {},
-            "truffle-steak": {},
-            "fire-meat-chili": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
-  - name: Power Catalyst Scepter (Raid)
-    profession: Catalyst
-    value:
-      {
-        "extras": {
-          "Runes": {
-            "flame-legion": {},
-            "scholar": {},
-            "dragonhunter": {},
-            "golemancer": {},
-            "deadeye": {},
-            "eagle": {},
-            "infiltration": {},
-            "ranger": {}
-          },
-          "Relics": {
-            "bloodstone-relic": {
-              "amount": "0.72"
-            }
-          },
-          "Sigil1": {
-            "force": {},
-            "accuracy": {},
-            "bursting": {}
-          },
-          "Sigil2": {
-            "impact/night/slaying-only-3": {},
-            "smoldering": {},
-            "accuracy": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {},
-            "truffle-steak": {},
-            "fire-meat-chili": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
   - name: Power Catalyst Scepter Inferno (Fractal)
     profession: Catalyst
     value:
@@ -2530,7 +2441,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Power Quickness Catalyst Hammer (Raid)
+  - name: Power Catalyst Scepter PF (Fractal)
     profession: Catalyst
     value:
       {
@@ -2542,32 +2453,73 @@ list:
             "deadeye": {},
             "eagle": {},
             "infiltration": {},
-            "ranger": {},
-            "pack": {},
-            "fireworks": {},
-            "firebrand": {}
+            "ranger": {}
           },
-          "Relics": {},
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.7"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "accuracy": {},
+            "impact/night/slaying-both": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Catalyst Scepter PF (Raid)
+    profession: Catalyst
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.7"
+            }
+          },
           "Sigil1": {
             "force": {}
           },
           "Sigil2": {
             "impact/night/slaying-only-3": {},
-            "accuracy": {},
-            "concentration": {}
+            "accuracy": {}
           },
           "Enhancement": {
             "superior-sharpening-stone": {}
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
-            "spherified-cilantro-oyster-soup": {}
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
           }
         },
         "lifestealAmount": ""
       }
 
-  - name: Condi Quickness Catalyst P/D
+  # quickness/dps
+  - name: Condi Catalyst P/D
     profession: Catalyst
     value:
       {
@@ -2576,13 +2528,9 @@ list:
             "trapper": {},
             "nightmare": {},
             "tempest": {},
-            "lich": {},
             "balthazar": {},
-            "renegade": {},
-            "berserker": {},
-            "weaver": {},
-            "baelfire": {},
-            "flame-legion-2": {}
+            "krait": {},
+            "afflicted": {}
           },
           "Relics": {
             "fractal-relic": {
@@ -2606,13 +2554,15 @@ list:
           "Nourishment": {
             "salsa-topped-veggie-flatbread": {},
             "plate-of-kimchi-pancakes": {},
-            "cilantro-and-cured-meat-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "fishy-rice-bowl": {}
           }
         },
         "lifestealAmount": ""
       }
 
-  - name: Condi Quickness Catalyst P/W
+  # quickness/dps
+  - name: Condi Catalyst P/W
     profession: Catalyst
     value:
       {

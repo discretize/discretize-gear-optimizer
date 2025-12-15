@@ -1087,6 +1087,17 @@ list:
         weaponType: Dual wield
         outdated: true
 
+      - name: Quickness Condi Catalyst P/D Steamshrieker
+        id: condi-cat-quick-pd
+        specialization: Catalyst
+        boonType: Condi
+        priority: Condi Boon
+        distribution: Condi Catalyst P/D
+        traits: Quickness Condi Catalyst P/D
+        extras: Condi Catalyst P/D
+        weaponType: Dual wield
+        outdated: false
+
       - name: Quickness Power Catalyst Scepter Inferno
         id: power-cat-quick-inferno
         specialization: Catalyst
@@ -1101,67 +1112,67 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: Power Catalyst Scepter (Approx.)
-        id: power-cat-inferno
-        specialization: Catalyst
-        boonType: Power
-        priority: Berserker Only
-        distribution: Power Catalyst Scepter
-        traits: Power Catalyst Scepter
-        fractal:
-          extras: Power Catalyst Scepter (Fractal)
-        raid:
-          extras: Power Catalyst Scepter (Raid)
-        weaponType: Dual wield
-        outdated: false
-
-      - name: Quickness Power Catalyst Hammer (Approx.)
+      - name: Quickness Power Catalyst Scepter PF
         id: power-cat-quick
         specialization: Catalyst
         boonType: Power
-        priority: Power Quickness Catalyst 8.3%
-        distribution: Power Catalyst Hammer
-        traits: Power Quickness Catalyst Hammer
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power Quickness Catalyst Hammer (Raid)
-        weaponType: Two-handed
-        outdated: true
-
-      - name: Power Catalyst Hammer (Approx.)
-        id: power-cat
-        specialization: Catalyst
-        boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Catalyst Hammer
-        traits: Power Catalyst Hammer
+        distribution: Power Catalyst Scepter PF
+        traits: Quickness Power Catalyst Scepter PF
         fractal:
-          extras: Power (Fractal)
+          extras: Power Catalyst Scepter PF (Fractal)
         raid:
-          extras: Power (Raid)
-        weaponType: Two-handed
-        outdated: true
-
-      - name: Quickness Condi Catalyst P/D (Approx.)
-        id: condi-cat-quick-pd
-        specialization: Catalyst
-        boonType: Condi
-        priority: Condi Boon
-        distribution: Condi Quickness Catalyst P/D
-        traits: Condi Quickness Catalyst P/D
-        extras: Condi Quickness Catalyst P/D
+          extras: Power Catalyst Scepter PF (Raid)
         weaponType: Dual wield
         outdated: false
 
-      - name: Quickness Condi Catalyst P/W (Approx.)
+      - name: Quickness Condi Catalyst P/W
         id: condi-cat-quick-pw
         specialization: Catalyst
         boonType: Condi
         priority: Condi Boon
-        distribution: Condi Quickness Catalyst P/W
-        traits: Condi Quickness Catalyst P/W
-        extras: Condi Quickness Catalyst P/W
+        distribution: Condi Catalyst P/W
+        traits: Quickness Condi Catalyst P/W
+        extras: Condi Catalyst P/W
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Condi Catalyst P/D Steamshrieker
+        id: condi-cat-pd
+        specialization: Catalyst
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Catalyst P/D
+        traits: Condi Catalyst P/D
+        extras: Condi Catalyst P/D
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Power Catalyst Scepter Inferno
+        id: power-cat-inferno
+        specialization: Catalyst
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Catalyst Scepter Inferno
+        traits: Power Catalyst Scepter Inferno
+        fractal:
+          extras: Power Catalyst Scepter Inferno (Fractal)
+        raid:
+          extras: Power Catalyst Scepter Inferno (Raid)
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Power Catalyst Scepter PF
+        id: power-cat
+        specialization: Catalyst
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Catalyst Scepter PF
+        traits: Power Catalyst Scepter PF
+        fractal:
+          extras: Power Catalyst Scepter PF (Fractal)
+        raid:
+          extras: Power Catalyst Scepter PF (Raid)
         weaponType: Dual wield
         outdated: false
 

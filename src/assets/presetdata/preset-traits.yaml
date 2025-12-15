@@ -4925,7 +4925,7 @@ list:
         }
       }
 
-  - name: Power Catalyst Scepter
+  - name: Power Catalyst Scepter Inferno
     profession: Catalyst
     traits:
       {
@@ -4955,13 +4955,13 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "39"
+              "amount": "40"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "39"
+              "amount": "40"
             },
             "pyromancers-training": {},
             "persisting-flames": {
@@ -4979,14 +4979,14 @@ list:
               "amount": ""
             },
             "aeromancers-training": {},
-            "aeromancers-training-2": {
-              "amount": "10"
-            },
             "bolt-to-the-heart": {
               "amount": ""
             },
             "fresh-air": {
               "amount": ""
+            },
+            "aeromancers-training-2": {
+              "amount": "11"
             }
           },
           {
@@ -4994,14 +4994,35 @@ list:
               "amount": ""
             },
             "elemental-empowerment-10": {
-              "amount": ""
+              "amount": "94"
             },
             "empowering-auras": {
-              "amount": "5"
+              "amount": "4.86"
             },
             "spectacular-sphere": {},
             "empowered-empowerment-10": {
+              "amount": "94"
+            },
+            "elemental-empowerment-9": {
+              "amount": "3"
+            },
+            "elemental-empowerment-8": {
+              "amount": "1"
+            },
+            "elemental-empowerment-5": {
+              "amount": "2"
+            },
+            "elemental-empowerment-4": {
               "amount": ""
+            },
+            "empowered-empowerment-9": {
+              "amount": "3"
+            },
+            "empowered-empowerment-8": {
+              "amount": "1"
+            },
+            "empowered-empowerment-5": {
+              "amount": "2"
             }
           }
         ]
@@ -5010,7 +5031,13 @@ list:
       {
         "skills": {
           "ele-summon-dps": {
-            "amount": "1128"
+            "amount": "1016"
+          },
+          "signet-of-fire": {
+            "amount": "31"
+          },
+          "relentless-fire": {
+            "amount": "47"
           }
         }
       }
@@ -5123,7 +5150,124 @@ list:
         }
       }
 
-  - name: Power Catalyst Hammer
+  - name: Quickness Power Catalyst Scepter PF
+    profession: Catalyst
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "67"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1510
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2252,
+            2234,
+            2251
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "40"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "40"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            },
+            "aeromancers-training-2": {
+              "amount": "11"
+            }
+          },
+          {
+            "hardened-auras": {
+              "amount": ""
+            },
+            "elemental-empowerment-10": {
+              "amount": "94"
+            },
+            "empowering-auras": {
+              "amount": "4.86"
+            },
+            "spectacular-sphere": {},
+            "empowered-empowerment-10": {
+              "amount": "94"
+            },
+            "elemental-empowerment-9": {
+              "amount": "3"
+            },
+            "elemental-empowerment-8": {
+              "amount": "1"
+            },
+            "elemental-empowerment-5": {
+              "amount": "2"
+            },
+            "elemental-empowerment-4": {
+              "amount": ""
+            },
+            "empowered-empowerment-9": {
+              "amount": "3"
+            },
+            "empowered-empowerment-8": {
+              "amount": "1"
+            },
+            "empowered-empowerment-5": {
+              "amount": "2"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1385"
+          },
+          "relentless-fire": {
+            "amount": "46"
+          },
+          "signet-of-fire": {
+            "amount": ""
+          }
+        }
+      }
+
+  - name: Power Catalyst Scepter PF
     profession: Catalyst
     traits:
       {
@@ -5153,20 +5297,22 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "28"
+              "amount": "41"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "28"
+              "amount": "41"
             },
             "pyromancers-training": {},
             "persisting-flames": {
               "amount": ""
-            }
+            },
+            "inferno": {}
           },
           {
+            "zephyrs-speed": {},
             "ferocious-winds": {},
             "raging-storm": {
               "amount": ""
@@ -5175,30 +5321,50 @@ list:
               "amount": ""
             },
             "aeromancers-training": {},
-            "aeromancers-training-2": {
-              "amount": "18.6"
-            },
             "bolt-to-the-heart": {
               "amount": ""
             },
             "fresh-air": {
               "amount": ""
             },
-            "zephyrs-speed": {}
+            "aeromancers-training-2": {
+              "amount": "9"
+            }
           },
           {
             "hardened-auras": {
               "amount": ""
             },
             "elemental-empowerment-10": {
-              "amount": ""
+              "amount": "94"
             },
             "empowering-auras": {
-              "amount": "4.6"
+              "amount": "4.86"
             },
             "spectacular-sphere": {},
             "empowered-empowerment-10": {
+              "amount": "94"
+            },
+            "elemental-empowerment-9": {
+              "amount": "3"
+            },
+            "elemental-empowerment-8": {
+              "amount": "1"
+            },
+            "elemental-empowerment-5": {
+              "amount": "2"
+            },
+            "elemental-empowerment-4": {
               "amount": ""
+            },
+            "empowered-empowerment-9": {
+              "amount": "3"
+            },
+            "empowered-empowerment-8": {
+              "amount": "1"
+            },
+            "empowered-empowerment-5": {
+              "amount": "2"
             }
           }
         ]
@@ -5206,104 +5372,19 @@ list:
     skills:
       {
         "skills": {
-          "flame-wheel": {
-            "amount": "99"
+          "ele-summon-dps": {
+            "amount": "1010"
           },
-          "crescent-wind": {},
           "relentless-fire": {
-            "amount": "50.6"
+            "amount": "46"
+          },
+          "signet-of-fire": {
+            "amount": ""
           }
         }
       }
 
-  - name: Power Quickness Catalyst Hammer
-    profession: Catalyst
-    traits:
-      {
-        "showAll": false,
-        "selectedLines": [
-          "37",
-          "41",
-          "67"
-        ],
-        "selectedTraits": [
-          [
-            253,
-            265,
-            1511
-          ],
-          [
-            232,
-            1502,
-            226
-          ],
-          [
-            2252,
-            2234,
-            2251
-          ]
-        ],
-        "items": [
-          {
-            "elemental-enchantment": {},
-            "arcane-lightning": {
-              "amount": ""
-            },
-            "bountiful-power": {
-              "amount": ""
-            }
-          },
-          {
-            "ferocious-winds": {},
-            "raging-storm": {
-              "amount": ""
-            },
-            "stormsoul": {
-              "amount": ""
-            },
-            "aeromancers-training": {},
-            "aeromancers-training-2": {
-              "amount": "32.2"
-            },
-            "bolt-to-the-heart": {
-              "amount": ""
-            },
-            "fresh-air": {
-              "amount": ""
-            },
-            "zephyrs-speed": {}
-          },
-          {
-            "hardened-auras": {
-              "amount": ""
-            },
-            "elemental-empowerment-10": {
-              "amount": ""
-            },
-            "empowering-auras": {
-              "amount": "4.8"
-            },
-            "spectacular-sphere": {},
-            "empowered-empowerment-10": {
-              "amount": ""
-            }
-          }
-        ]
-      }
-    skills:
-      {
-        "skills": {
-          "flame-wheel": {
-            "amount": "94.4"
-          },
-          "crescent-wind": {},
-          "relentless-fire": {
-            "amount": "38.4"
-          }
-        }
-      }
-
-  - name: Condi Quickness Catalyst P/D
+  - name: Quickness Condi Catalyst P/D
     profession: Catalyst
     traits:
       {
@@ -5355,15 +5436,21 @@ list:
             "hardened-auras": {
               "amount": ""
             },
-            "elemental-empowerment-10": {
-              "amount": ""
-            },
             "empowering-auras": {
               "amount": ""
             },
             "spectacular-sphere": {},
             "empowered-empowerment-10": {
               "amount": ""
+            },
+            "elemental-empowerment-10": {
+              "amount": "97"
+            },
+            "elemental-empowerment-9": {
+              "amount": "2"
+            },
+            "elemental-empowerment-7": {
+              "amount": "1"
             }
           }
         ]
@@ -5371,7 +5458,9 @@ list:
     skills:
       {
         "skills": {
-          "signet-of-fire": {},
+          "signet-of-fire": {
+            "amount": "13"
+          },
           "signet-of-earth": {},
           "ele-summon-dps": {
             "amount": "1422"
@@ -5382,7 +5471,106 @@ list:
         }
       }
 
-  - name: Condi Quickness Catalyst P/W
+  - name: Condi Catalyst P/D
+    profession: Catalyst
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "67"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            294
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            2224,
+            2247,
+            2241
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "43"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            }
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "hardened-auras": {
+              "amount": ""
+            },
+            "empowering-auras": {
+              "amount": "5"
+            },
+            "spectacular-sphere": {},
+            "empowered-empowerment-10": {
+              "amount": "92"
+            },
+            "elemental-empowerment-10": {
+              "amount": "92"
+            },
+            "elemental-empowerment-9": {
+              "amount": "3"
+            },
+            "elemental-empowerment-8": {
+              "amount": "3"
+            },
+            "elemental-empowerment-7": {
+              "amount": "2"
+            },
+            "empowered-empowerment-9": {
+              "amount": "3"
+            },
+            "empowered-empowerment-8": {
+              "amount": "3"
+            },
+            "empowered-empowerment-7": {
+              "amount": "2"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-fire": {
+            "amount": "14"
+          },
+          "signet-of-earth": {},
+          "ele-summon-dps": {
+            "amount": "965"
+          },
+          "raging-ricochet": {
+            "amount": "69"
+          }
+        }
+      }
+
+  - name: Quickness Condi Catalyst P/W
     profession: Catalyst
     traits:
       {
@@ -5435,7 +5623,7 @@ list:
               "amount": ""
             },
             "elemental-empowerment-10": {
-              "amount": ""
+              "amount": "97"
             },
             "empowering-auras": {
               "amount": ""
@@ -5443,6 +5631,15 @@ list:
             "spectacular-sphere": {},
             "empowered-empowerment-10": {
               "amount": ""
+            },
+            "elemental-empowerment-9": {
+              "amount": "1"
+            },
+            "elemental-empowerment-3": {
+              "amount": "1"
+            },
+            "elemental-empowerment-5": {
+              "amount": "1"
             }
           }
         ]
@@ -5450,13 +5647,15 @@ list:
     skills:
       {
         "skills": {
-          "signet-of-fire": {},
           "signet-of-earth": {},
           "ele-summon-dps": {
             "amount": "1269"
           },
           "raging-ricochet": {
             "amount": "72.5"
+          },
+          "signet-of-fire": {
+            "amount": "12.6"
           }
         }
       }
