@@ -1129,6 +1129,17 @@ list:
         url: https://www.youtube.com/watch?v=KTEj3KhQ34c
         log: https://dps.report/BMF2-20251209-140418_golem
 
+  - name: Alacrity Condi Amalgam 3 Kit
+    profession: Amalgam
+    value:
+      {
+        "values2": { "Power": 3102, "Power2": 0, "Burning": 11.98, "Bleeding": 13.32, "Poisoned": 6.11, "Torment": 0, "Confusion": 2.71 }
+      }
+    credit:
+      - author: Toilet
+        url: https://www.youtube.com/watch?v=tu_oEfBb8fI
+        log: https://dps.report/WS8e-20251214-114850_golem
+
   - name: Power Chrono DT Spear
     profession: Chronomancer
     value:
