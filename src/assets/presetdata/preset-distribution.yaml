@@ -879,7 +879,7 @@ list:
     profession: Conduit
     value:
       {
-        "values2": { "Power": 4706, "Power2": 0, "Burning": 0, "Bleeding": 3.45, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3866, "Power2": 0, "Burning": 0, "Bleeding": 4.3, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Yurugani
