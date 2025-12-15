@@ -129,6 +129,18 @@ list:
         url: https://www.youtube.com/watch?v=0uJWLIKmN_c
         log: https://dps.report/Kan2-20230824-061419_golem
 
+  - name: Hybrid Paragon
+    profession: Paragon
+    value:
+      {
+        "values2": { "Power": 3138, "Power2": 0, "Burning": 0.41, "Bleeding": 22.56, "Poisoned": 0, "Torment": 4.02, "Confusion": 0 }
+      }
+    credit:
+      - author: Arzon
+        url: https://www.youtube.com/watch?v=Mz6yBWIcbtQ
+        log: https://gw2wingman.nevermindcreations.de/log/31aaf-20251215-034716_StdGolem_kill
+        # log: https://dps.report/RS7D-20251215-034716_golem
+
   - name: DH Radiance
     profession: Dragonhunter
     value:

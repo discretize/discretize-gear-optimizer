@@ -3240,6 +3240,94 @@ list:
         "skills": {}
       }
 
+  - name: Hybrid Paragon
+    profession: Paragon
+    traits:
+        {
+        "showAll": false,
+        "selectedLines": [
+          "4",
+          "36",
+          "74"
+        ],
+        "selectedTraits": [
+          [
+            1444,
+            1449,
+            1437
+          ],
+          [
+            1344,
+            1333,
+            1707
+          ],
+          [
+            2345,
+            2385,
+            2375
+          ]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength-crit": {},
+            "pinnacle-of-strength": {
+              "amount": ""
+            },
+            "berserkers-power": {
+              "amount": "3.6"
+            }
+          },
+          {
+            "furious-burst": {},
+            "wounding-precision": {},
+            "signet-mastery": {
+              "amount": "4.8"
+            },
+            "deep-strikes-fury": {
+              "amount": ""
+            },
+            "deep-strikes-bleeding": {},
+            "unsuspecting-foe-full": {},
+            "burst-precision": {
+              "amount": "???"
+            },
+            "blade-master": {},
+            "blade-master-2": {
+              "amount": "100"
+            },
+            "bloodlust": {},
+            "furious": {
+              "amount": ""
+            },
+            "bloodlust-on-crit": {
+              "amount": "3.2"
+            }
+          },
+          {
+            "inspiring-implements": {},
+            "unyielding-resolve": {
+              "amount": ""
+            },
+            "strengthening-stanzas-action": {
+              "amount": ""
+            },
+            "brisk-pacing-high": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-might": {},
+          "signet-of-fury": {
+            "amount": "70"
+          }
+        }
+      }
+
   - name: Heal Quickness Berserker
     profession: Berserker
     traits:

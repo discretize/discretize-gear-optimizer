@@ -1621,6 +1621,52 @@ list:
         }
       }
 
+  - name: Hybrid Paragon
+    profession: Paragon
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "krait": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Sigil1": {
+            "torment": {
+              "amount": ""
+            },
+            "earth": {
+              "amount": ""
+            },
+            "bursting": {}
+          },
+          "Sigil2": {
+            "torment": {
+              "amount": ""
+            },
+            "earth": {
+              "amount": ""
+            },
+            "bursting": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "spherified-cilantro-oyster-soup": {},
+            "cilantro-and-cured-meat-flatbread": {},
+            "plate-of-kimchi-pancakes": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Alacrity Power Tempest Bloodstone (Fractal)
     profession: Tempest
     value:

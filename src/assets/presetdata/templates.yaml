@@ -582,6 +582,17 @@ list:
   - class: Warrior
     builds:
 
+      - name: Hybrid Paragon
+        id: paragon-hybrid
+        specialization: Paragon
+        boonType: Condi
+        priority: Hybrid DPS
+        distribution: Hybrid Paragon
+        traits: Hybrid Paragon
+        extras: Hybrid Paragon
+        weaponType: Dual wield
+        outdated: false
+
       - name: Alacrity Power Bladesworn Signets (Approx.)
         id: bls-alac-signets
         specialization: Bladesworn
