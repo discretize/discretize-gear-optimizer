@@ -1329,12 +1329,12 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Power Conduit
+      - name: Power Conduit Thief
         id: conduit-power
         specialization: Conduit
         boonType: Power
         priority: Power DPS
-        distribution: Power Conduit S/S
+        distribution: Power Conduit S/S Thief
         traits: Power Conduit
         fractal:
           extras: Power (Fractal)
