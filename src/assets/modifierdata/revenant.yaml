@@ -1,6 +1,6 @@
 - section: Skills
   note: >-
-    Enchanted Daggers lifesteal damage may not be shown in arcdps area stats or parsed arcdps logs.
+    Enchanted Daggers/Form of the Assassin lifesteal damage may not be shown in arcdps area stats or parsed arcdps logs.
   items:
 
     - id: battle-scars
@@ -151,18 +151,18 @@
       text: Enchanted Daggers
       subText: or Form of the Assassin
       amountData:
-        label: '/10s'
+        label: 'dagger/s'
         default: 0
         defaultInput: ???
-        quantityEntered: 10
+        quantityEntered: 1
       modifiers:
         attributes:
-          Siphon Base Coefficient: 6168
-          Siphon Coefficient: 0.36
+          Siphon Base Coefficient: 1028
+          Siphon Coefficient: 0.06
       wvwModifiers:
         attributes:
-          Siphon Base Coefficient: 5148
-          Siphon Coefficient: 0.3
+          Siphon Base Coefficient: 858
+          Siphon Coefficient: 0.05
       gw2id: 26937
       temporaryBuff: true
 
