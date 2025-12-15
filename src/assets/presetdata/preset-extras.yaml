@@ -367,6 +367,7 @@ list:
 
   # just reduced lifesteal frequency
   - name: Bladesworn
+    profession: Bladesworn
     value:
       {
         "extras": {
@@ -405,6 +406,7 @@ list:
 
   # air-only approximation of air/hydro split
   - name: Power Berserker
+    profession: Berserker
     value:
       {
         "extras": {
@@ -710,6 +712,7 @@ list:
       }
 
   - name: Boon Power Chrono (Raid)
+    profession: Chronomancer
     value:
       {
         "extras": {
@@ -758,6 +761,7 @@ list:
       }
 
   - name: Boon Power Chrono (Fractal)
+    profession: Chronomancer
     value:
       {
         "extras": {
@@ -798,6 +802,7 @@ list:
       }
 
   - name: Power Chrono DT (Fractal)
+    profession: Chronomancer
     value:
       {
         "extras": {
@@ -838,6 +843,7 @@ list:
       }
 
   - name: Power Chrono DT (Raid)
+    profession: Chronomancer
     value:
       {
         "extras": {
@@ -878,6 +884,7 @@ list:
       }
 
   - name: Power Chrono IA (Fractal)
+    profession: Chronomancer
     value:
       {
         "extras": {
@@ -918,6 +925,7 @@ list:
       }
 
   - name: Power Chrono IA (Raid)
+    profession: Chronomancer
     value:
       {
         "extras": {
