@@ -748,6 +748,20 @@ list:
           priority: Heal (Raid)
         distribution: None
         traits: Heal Quickness Berserker
+        extras: Heal (concentration)
+        weaponType: Two-handed
+        outdated: false
+
+      - name: Heal Alacrity Paragon
+        id: heal-paragon
+        specialization: Paragon
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Alacrity Paragon
         extras: Heal
         weaponType: Two-handed
         outdated: false
