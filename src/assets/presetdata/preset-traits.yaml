@@ -9530,31 +9530,84 @@ list:
         "skills": {}
       }
 
-  - name: Heal Scourge
+  - name: Heal Alacrity Scourge
     profession: Scourge
     traits:
       {
         "showAll": false,
         "selectedLines": [
           "19",
-          "50",
+          "39",
           "60"
         ],
         "selectedTraits": [
           [
-            780,
+            788,
             789,
             778
           ],
           [
-            875,
-            892,
-            889
+            2013,
+            816,
+            801
           ],
           [
             2167,
             2123,
             2080
+          ]
+        ],
+        "items": [
+          {
+            "life-from-death": {}
+          },
+          {
+            "barbed-precision": {},
+            "furious-demise": {},
+            "target-the-weak-base": {},
+            "target-the-weak": {
+              "amount": ""
+            },
+            "lingering-curse": {}
+          },
+          {
+            "fell-beacon": {},
+            "sand-sage-active": {},
+            "blood-as-sand-active": {},
+            "demonic-lore": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {}
+      }
+
+  - name: Heal Quickness Ritualist
+    profession: Ritualist
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "19",
+          "50",
+          "76"
+        ],
+        "selectedTraits": [
+          [
+            788,
+            789,
+            778
+          ],
+          [
+            898,
+            892,
+            889
+          ],
+          [
+            2378,
+            2405,
+            2333
           ]
         ],
         "items": [
@@ -9569,10 +9622,13 @@ list:
             "death-perception": {}
           },
           {
-            "fell-beacon": {},
-            "sand-sage-active": {},
-            "blood-as-sand-active": {},
-            "demonic-lore": {}
+            "boon-of-creation": {},
+            "lingering-spirits-anguish": {
+              "amount": "100"
+            },
+            "lingering-spirits-preservation": {
+              "amount": "100"
+            }
           }
         ]
       }

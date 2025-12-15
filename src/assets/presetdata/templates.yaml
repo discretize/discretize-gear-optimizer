@@ -1847,6 +1847,20 @@ list:
         weaponType: Two-handed
         outdated: false
 
+      - name: Heal Quickness Ritualist
+        id: healrit
+        specialization: Ritualist
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Quickness Ritualist
+        extras: Heal
+        weaponType: Two-handed
+        outdated: false
+
       - name: Heal Alacrity Scourge
         id: healscourge
         specialization: Scourge
@@ -1856,9 +1870,9 @@ list:
         raid:
           priority: Heal (Raid)
         distribution: None
-        traits: Heal Scourge
+        traits: Heal Alacrity Scourge
         extras: Heal
-        weaponType: Dual wield
+        weaponType: Two-handed
         outdated: false
 
   - class: Thief
