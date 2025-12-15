@@ -196,6 +196,7 @@ export const runesDict = [
   'adventurer',
   'daredevil',
   'warrior',
+  'wurm',
 ];
 
 export const relicsDict = [

@@ -185,6 +185,17 @@
     #       Precision: [100, converted]
     #   gw2id: 24803
 
+    # 225 stat total
+
+    - id: wurm
+      text: Superior Rune of the Wurm
+      modifiers:
+        attributes:
+          Ferocity: [225, converted]
+          Vitality: [175, converted]
+      gw2id: 24821
+      temporaryBuff: false
+
     # 175 stat total
 
     - id: flame-legion
