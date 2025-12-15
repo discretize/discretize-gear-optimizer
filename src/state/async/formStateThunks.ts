@@ -140,10 +140,12 @@ export const exportFormState =
     t,
     onSuccess,
     onFailure,
+    cloudflare,
   }: {
     t: TFunction;
     onSuccess: (msg: string) => void;
     onFailure: (msg: string) => void;
+    cloudflare: boolean;
   }): AppThunk =>
   async (dispatch, getState) => {
     if (typeof window === 'undefined') return;
@@ -153,11 +155,11 @@ export const exportFormState =
       const exportData = modifyState(reduxState.optimizer);
       console.log(exportData);
 
-      let successMessage = import.meta.env.VITE_HAS_CF
+      let successMessage = cloudflare
         ? t('Copied link to clipboard!')
         : t('Copied long link to clipboard! (Link shortener requires cloudflare environment.)');
 
-      const urlPromise = import.meta.env.VITE_HAS_CF
+      const urlPromise = cloudflare
         ? getShortUrl(exportData).catch((e) => {
             // fall back to long URL on link shortner failure
             successMessage = t('Copied long link to clipboard! (Link shortener failed.)');

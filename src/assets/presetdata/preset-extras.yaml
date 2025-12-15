@@ -367,6 +367,7 @@ list:
 
   # just reduced lifesteal frequency
   - name: Bladesworn
+    profession: Bladesworn
     value:
       {
         "extras": {
@@ -405,6 +406,7 @@ list:
 
   # air-only approximation of air/hydro split
   - name: Power Berserker
+    profession: Berserker
     value:
       {
         "extras": {
@@ -618,7 +620,99 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power Boon (Raid, claw)
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "leadership": {}
+          },
+          "Relics": {
+            "claw-relic": {
+              "amount": "100"
+            },
+            "mistburn-relic": {}
+          },
+          "Sigil1": {
+            "force": {},
+            "accuracy": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {},
+            "holographic-super-cheese": {},
+            "potent-lucent-oil": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Boon (Fractal, claw)
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "leadership": {}
+          },
+          "Relics": {
+            "claw-relic": {
+              "amount": "100"
+            },
+            "mistburn-relic": {}
+          },
+          "Sigil1": {
+            "force": {},
+            "accuracy": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {},
+            "accuracy": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Boon Power Chrono (Raid)
+    profession: Chronomancer
     value:
       {
         "extras": {
@@ -667,6 +761,7 @@ list:
       }
 
   - name: Boon Power Chrono (Fractal)
+    profession: Chronomancer
     value:
       {
         "extras": {
@@ -707,6 +802,7 @@ list:
       }
 
   - name: Power Chrono DT (Fractal)
+    profession: Chronomancer
     value:
       {
         "extras": {
@@ -747,6 +843,7 @@ list:
       }
 
   - name: Power Chrono DT (Raid)
+    profession: Chronomancer
     value:
       {
         "extras": {
@@ -787,6 +884,7 @@ list:
       }
 
   - name: Power Chrono IA (Fractal)
+    profession: Chronomancer
     value:
       {
         "extras": {
@@ -827,6 +925,7 @@ list:
       }
 
   - name: Power Chrono IA (Raid)
+    profession: Chronomancer
     value:
       {
         "extras": {
@@ -1621,6 +1720,52 @@ list:
         }
       }
 
+  - name: Hybrid Paragon
+    profession: Paragon
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "krait": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Sigil1": {
+            "torment": {
+              "amount": ""
+            },
+            "earth": {
+              "amount": ""
+            },
+            "bursting": {}
+          },
+          "Sigil2": {
+            "torment": {
+              "amount": ""
+            },
+            "earth": {
+              "amount": ""
+            },
+            "bursting": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "spherified-cilantro-oyster-soup": {},
+            "cilantro-and-cured-meat-flatbread": {},
+            "plate-of-kimchi-pancakes": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Alacrity Power Tempest Bloodstone (Fractal)
     profession: Tempest
     value:
@@ -2307,6 +2452,84 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power Catalyst Scepter Inferno (Fractal)
+    profession: Catalyst
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "smoldering": {}
+          },
+          "Sigil2": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "smoldering": {},
+            "impact/night/slaying-both": {}
+          },
+          "Runes": {
+            "flame-legion": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.72"
+            }
+          },
+          "Nourishment": {
+            "fire-meat-chili": {},
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "spherified-cilantro-oyster-soup": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "slaying-potion": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Catalyst Scepter Inferno (Raid)
+    profession: Catalyst
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "smoldering": {}
+          },
+          "Sigil2": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "smoldering": {}
+          },
+          "Runes": {
+            "flame-legion": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.72"
+            }
+          },
+          "Nourishment": {
+            "fire-meat-chili": {},
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "spherified-cilantro-oyster-soup": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Quickness Catalyst Hammer (Raid)
     profession: Catalyst
     value:
@@ -2431,7 +2654,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Inferno Evoker SE Fox (Fractal)
+  - name: Fire SE Evoker Inferno (Fractal)
     profession: Evoker
     value:
       {
@@ -2446,11 +2669,13 @@ list:
             "smoldering": {}
           },
           "Runes": {
-            "flame-legion": {}
+            "flame-legion": {},
+            "scholar": {},
+            "dragonhunter": {}
           },
           "Relics": {
-            "bloodstone-relic": {
-              "amount": "0.78"
+            "fireworks-relic": {
+              "amount": "100"
             }
           },
           "Nourishment": {
@@ -2466,7 +2691,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Inferno Evoker SE Fox (Raid)
+  - name: Fire SE Evoker Inferno (Raid)
     profession: Evoker
     value:
       {
@@ -2483,8 +2708,8 @@ list:
             "flame-legion": {}
           },
           "Relics": {
-            "bloodstone-relic": {
-              "amount": "0.78"
+            "fireworks-relic": {
+              "amount": "100"
             }
           },
           "Nourishment": {
@@ -2499,7 +2724,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Evoker SE Fox
+  - name: Fire SE Evoker Condi
     profession: Evoker
     value:
       {
@@ -2537,7 +2762,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Trailblazer Evoker SE Fox
+  - name: Fire SE Evoker Trailblazer
     profession: Evoker
     value:
       {
@@ -2933,6 +3158,47 @@ list:
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Galeshot (Raid)
+    profession: Galeshot
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "claw-relic": {
+              "amount": "100"
+            },
+            "mistburn-relic": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "impact-only-3-hydro-galeshot": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
           }
         },
         "lifestealAmount": ""
@@ -4204,3 +4470,46 @@ list:
         "lifestealAmount": "2.6"
       }
 
+  - name: Condi Antiquary Spear Generosity
+    profession: Antiquary
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "smoldering": {},
+            "malice": {},
+            "bursting": {},
+            "earth": {
+              "amount": ""
+            },
+            "torment": {
+              "amount": ""
+            }
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
+          "Runes": {
+            "trapper": {},
+            "balthazar": {},
+            "nightmare": {},
+            "baelfire": {},
+            "afflicted": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Nourishment": {
+            "fishy-rice-bowl": {},
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {},
+            "master-tuning-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }

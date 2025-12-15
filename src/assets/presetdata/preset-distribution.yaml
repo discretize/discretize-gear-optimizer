@@ -129,6 +129,18 @@ list:
         url: https://www.youtube.com/watch?v=0uJWLIKmN_c
         log: https://dps.report/Kan2-20230824-061419_golem
 
+  - name: Hybrid Paragon
+    profession: Paragon
+    value:
+      {
+        "values2": { "Power": 3138, "Power2": 0, "Burning": 0.41, "Bleeding": 22.56, "Poisoned": 0, "Torment": 4.02, "Confusion": 0 }
+      }
+    credit:
+      - author: Arzon
+        url: https://www.youtube.com/watch?v=Mz6yBWIcbtQ
+        log: https://gw2wingman.nevermindcreations.de/log/31aaf-20251215-034716_StdGolem_kill
+        # log: https://dps.report/RS7D-20251215-034716_golem
+
   - name: DH Radiance
     profession: Dragonhunter
     value:
@@ -585,6 +597,17 @@ list:
         url: https://www.youtube.com/watch?v=0rp7658OKt8
         log: https://dps.report/jp4r-20250624-165901_golem
 
+  - name: Quickness Power Catalyst Scepter Inferno
+    profession: Catalyst
+    value:
+      {
+        "values2": { "Power": 3909, "Power2": 0, "Burning": 7.33, "Bleeding": 6.21, "Poisoned": 0.41, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'EDLR'
+        url: https://www.youtube.com/watch?v=mABV6MGwKaE
+        log: https://dps.report/6dTi-20251124-124151_golem
+
   - name: Power Catalyst Hammer
     profession: Catalyst
     value:
@@ -629,36 +652,53 @@ list:
         url: https://www.youtube.com/watch?v=d1PZfUiaIpQ
         log: https://dps.report/Y4GP-20250811-220229_golem
 
-  # use bloodstone-relic-prenerf-2 if resimulating
-  - name: Inferno Evoker SE Fox
+  - name: Fire SE Evoker Inferno
     profession: Evoker
     value:
       {
-        "values2": { "Power": 3758, "Power2": 0, "Burning": 21.38, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2883, "Power2": 0, "Burning": 16.04, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Kadenar
-        url: https://www.youtube.com/watch?v=plek_AW5608
-        log: https://dps.report/JrMs-20251114-144931_golem
+        url: https://www.youtube.com/watch?v=yKLioMzZm_I
+        log: https://dps.report/TCOY-20251213-151502_golem
 
-  # trailblazer but without the bleed (i.e. casting earth signet but it not doing anything)
-  # real build would be higher than this
-  - name: Condi Evoker SE Fox (Approx.)
+  # above log + burning rage + persisting flames
+  # add 0.1 conflagration/sec * 8 burning/sunspot
+  # add 0.1 flamewall/sec * 2 extra flamewall ticks * 2.5 burning
+  # add 0.1 flamewall/sec * 2 extra flamewall ticks * 0.1 coefficient * 690.5 strength
+  # 2883+.1*2*.1*690.5
+  # 16.04+.1*8+.1*2*2.5
+  - name: Fire SE Evoker Condi (Approx.)
     profession: Evoker
     value:
       {
-        "values2": { "Power": 3380, "Power2": 0, "Burning": 22.09, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2897, "Power2": 0, "Burning": 17.34, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=yKLioMzZm_I
+        log: https://dps.report/TCOY-20251213-151502_golem
 
-  # https://dps.report/Pa63-20251103-095923_golem
-  - name: Condi Trailblazer Evoker SE Fox
+  # above log + ~5.5x earth signet - 4x firestorm (6 is a guess, this is approximate anyway)
+  # subtract 0.49 firestorm ticks/sec * 0.5 coefficient * 690.5 strength
+  # subtract 0.49 firestorm ticks/sec * 0.5 coefficient * 2 burning/tick
+  # add 0.06 signet casts/sec * 36 bleed
+  # add 0.06 signet casts/sec * 30 bleed
+  # add 0.06 signet casts/sec * 0.5 coefficient * 690.5 strength
+  # 2897-0.49*0.5*690.5+0.06*0.5*690.5
+  # 17.34-.49*.5*2
+  # 0.06 * 66
+  - name: Fire SE Evoker Trailblazer (Approx.)
     profession: Evoker
     value:
       {
-        "values2": { "Power": 3380, "Power2": 0, "Burning": 22.09, "Bleeding": 3.82, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2749, "Power2": 0, "Burning": 16.85, "Bleeding": 3.96, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=yKLioMzZm_I
+        log: https://dps.report/TCOY-20251213-151502_golem
 
   - name: Power Evoker Hare PF
     profession: Evoker
@@ -962,6 +1002,18 @@ list:
       - author: '[CnD] Tipcat'
         url: https://www.youtube.com/watch?v=II1pfW01vMc
         log: https://dps.report/T27X-20230701-154750_golem
+
+  - name: Power Galeshot
+    profession: Galeshot
+    value:
+      {
+        "values2": { "Power": 3997, "Power2": 0, "Burning": 0, "Bleeding": 5.5, "Poisoned": 1.34, "Torment": 0, "Confusion": 0.45 }
+      }
+    credit:
+      - author: EDLR
+        url: https://www.youtube.com/watch?v=B6nX7mfxy_s
+        log: https://dps.report/HFtG-20251213-094351_golem
+
 
   - name: Power Holo PBM
     profession: Holosmith
@@ -1379,6 +1431,17 @@ list:
         url: https://www.youtube.com/watch?v=ZGC5WTTHmi4
         log: https://dps.report/Mu8J-20240821-222344_golem
 
+  - name: Power Ritualist
+    profession: Ritualist
+    value:
+      {
+        "values2": { "Power": 5693, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=iAsnh2kvV7o
+        log: https://dps.report/TlPB-20251213-105910_golem
+
   - name: Condi Deadeye A/D
     profession: Deadeye
     value:
@@ -1583,3 +1646,38 @@ list:
       - author: 'Iskarel'
         url: https://www.youtube.com/watch?v=ziK2tPRR0Vw
         log: https://dps.report/CVSb-20240512-132756_golem
+
+  - name: Alacrity Power Antiquary Spear
+    profession: Antiquary
+    value:
+      {
+        "values2": { "Power": 4467, "Power2": 0, "Burning": 10.24, "Bleeding": 4.28, "Poisoned": 4.95, "Torment": 2.41, "Confusion": 0 }
+      }
+    credit:
+      - author: '[LCs] Seisan'
+        url: https://www.youtube.com/watch?v=wSr8WlnZIKE
+        log: https://dps.report/dIE0-20251211-204328_golem
+
+  - name: Condi Antiquary Spear (Solo)
+    profession: Antiquary
+    value:
+      {
+        "values2": { "Power": 4449, "Power2": 0, "Burning": 11.26, "Bleeding": 8.56, "Poisoned": 12.78, "Torment": 2.81, "Confusion": 0 }
+      }
+    credit:
+      - author: '[LCs] Seisan'
+        url: https://www.youtube.com/watch?v=5IRgdbTrpzg
+        log: https://dps.report/3MAR-20251214-150318_golem
+
+
+  # add: 4 spider venom casts * 6 stacks * 3s poison * 4 allies in 71s = 4.06 poison coefficient
+  - name: Condi Antiquary Spear (Allies)
+    profession: Antiquary
+    value:
+      {
+        "values2": { "Power": 4449, "Power2": 0, "Burning": 11.26, "Bleeding": 8.56, "Poisoned": 16.84, "Torment": 2.81, "Confusion": 0 }
+      }
+    credit:
+      - author: '[LCs] Seisan'
+        url: https://www.youtube.com/watch?v=5IRgdbTrpzg
+        log: https://dps.report/3MAR-20251214-150318_golem

@@ -83,7 +83,13 @@ export type ExtraFilterMode =
   | 'Nourishment'
   | 'Enhancement';
 
-export type DisplayAttributes = ('Toughness' | 'Boon Duration' | 'Health' | 'Critical Chance')[];
+export type DisplayAttributes = (
+  | 'Toughness'
+  | 'Boon Duration'
+  | 'Health'
+  | 'Critical Chance'
+  | 'Condition Duration'
+)[];
 
 export const emptyFilteredLists = {
   Combinations: [],

@@ -244,7 +244,7 @@ const Navbar = () => {
               slotProps={{
                 paper: {
                   style: {
-                    maxHeight: 'calc(100vh - 340px)',
+                    maxHeight: 'max(calc(100vh - 440px), 40vh)',
                   },
                 },
               }}

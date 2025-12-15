@@ -189,7 +189,7 @@ const Traits = () => {
           })
         }
         {note ? (
-          <Box sx={{ maxWidth: '648px', p: 1 }}>
+          <Box sx={{ maxWidth: '648px', p: 1, whiteSpace: 'pre-line' }}>
             <Info icon={<WarningAmberIcon />}>
               {
                 // i18next-extract-mark-context-next-line {{traitNote}}
@@ -202,6 +202,9 @@ const Traits = () => {
     );
   });
 
+  return traitSections;
+
+  /*
   const classNote =
     profession && classModifiers[profession]?.find((section) => section.section === 'Skills')?.note;
 
@@ -220,6 +223,7 @@ const Traits = () => {
       {traitSections}
     </>
   );
+  */
 };
 
 export default Traits;

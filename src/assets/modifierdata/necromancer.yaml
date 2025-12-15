@@ -1,4 +1,7 @@
 - section: Skills
+  note: >-
+    Nightmare Weapon stacks on allies are affected by ally lifesteal damage/all damage modifiers like Soul
+    Barbs, Relic of Atrocity, Lead Attacks, and numerous revenant traits.
   items:
 
     - id: necro-summon-dps
@@ -97,8 +100,8 @@
         quantityEntered: 10
       modifiers:
         attributes:
-          Siphon Base Coefficient: 3008
-          Siphon Coefficient: 0.2
+          Siphon Base Coefficient: 2256
+          Siphon Coefficient: 0.15
       temporaryBuff: true
 
     - id: rise-shout
@@ -120,6 +123,7 @@
           Damage Reduction: [20%, mult]
       gw2id: 29958
 
+    # like life steal: unaffected by opponent armor, player weapon strength, vulnerability, etc.
     - id: painful-bond-tick
       text: Painful Bond
       subText: Painful Bond damage ticks
@@ -130,8 +134,53 @@
         quantityEntered: 10
       modifiers:
         attributes:
-          Siphon Base Coefficient: 200
-          Siphon Coefficient: 0.4
+          Flat DPS: 200
+        conversionAfterBuffs:
+          Flat DPS: {Power: 40%}
+      wvwModifiers:
+        attributes:
+          Flat DPS: 160
+        conversionAfterBuffs:
+          Flat DPS: {Power: 5%}
+      temporaryBuff: true
+
+    - id: nightmare-weapon
+      text: Nightmare Weapon
+      subText: self
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 1207
+          Siphon Coefficient: 0.05
+      wvwModifiers:
+        attributes:
+          Siphon Base Coefficient: 606
+          Siphon Coefficient: 0 # ...this is what the wiki says?
+      gw2id: 76739
+      temporaryBuff: true
+
+    # the same, except unaffected by soul barbs (these use the *ally's* siphon/all damage modifiers)
+    - id: nightmare-weapon-allies
+      text: Nightmare Weapon
+      subText: allies
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Flat DPS: 1207
+        conversionAfterBuffs:
+          Flat DPS: {Power: 5%}
+      wvwModifiers:
+        attributes:
+          Flat DPS: 606
+      gw2id: 76739
       temporaryBuff: true
 
 - section: Spite
@@ -812,7 +861,8 @@
 - section: Ritualist
   id: 76
   note: >-
-    According to community testing, spirit cast attacks probably use normal damage calculation and can be treated as player skills, but spirit autoattacks are unaffected by player stats.
+    According to community testing, spirit cast attacks probably use normal damage calculation and can be
+    treated as player skills, but spirit autoattacks are unaffected by player stats.
   items:
 
     - id: boon-of-creation

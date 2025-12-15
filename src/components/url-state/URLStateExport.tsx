@@ -49,7 +49,9 @@ const URLStateExport = () => {
         <IconButton
           onClick={() => {
             setLoading(true);
-            dispatch(exportFormState({ t, onSuccess, onFailure }));
+            dispatch(
+              exportFormState({ t, onSuccess, onFailure, cloudflare: import.meta.env.VITE_HAS_CF }),
+            );
           }}
           size="large"
           disabled={loading}
@@ -57,6 +59,21 @@ const URLStateExport = () => {
           <ShareIcon />
         </IconButton>
       </Tooltip>
+      <div id="non-cf-copy" style={{ display: 'none' }}>
+        <Tooltip content={t('Copy Settings to clipboard (non-cloudflare)')}>
+          <IconButton
+            onClick={() => {
+              setLoading(true);
+              dispatch(exportFormState({ t, onSuccess, onFailure, cloudflare: false }));
+            }}
+            size="large"
+            disabled={loading}
+            sx={{ transform: 'scale(0.8)' }}
+          >
+            <ShareIcon />
+          </IconButton>
+        </Tooltip>
+      </div>
       <URLStateSnackbar state={snackbarState} setState={setSnackbarState} />
     </>
   );

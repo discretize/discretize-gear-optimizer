@@ -582,6 +582,17 @@ list:
   - class: Warrior
     builds:
 
+      - name: Hybrid Paragon
+        id: paragon-hybrid
+        specialization: Paragon
+        boonType: Condi
+        priority: Hybrid DPS
+        distribution: Hybrid Paragon
+        traits: Hybrid Paragon
+        extras: Hybrid Paragon
+        weaponType: Dual wield
+        outdated: false
+
       - name: Alacrity Power Bladesworn Signets (Approx.)
         id: bls-alac-signets
         specialization: Bladesworn
@@ -800,6 +811,78 @@ list:
         weaponType: Dual wield
         outdated: false
 
+      - name: Quickness Fire SE Evoker Inferno
+        id: fire-se-evoker-inferno
+        specialization: Evoker
+        boonType: Power
+        priority: Berserker Only
+        distribution: Fire SE Evoker Inferno
+        traits: Quickness Fire SE Evoker Inferno
+        fractal:
+          extras: Fire SE Evoker Inferno (Fractal)
+        raid:
+          extras: Fire SE Evoker Inferno (Raid)
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Quickness Fire SE Evoker Condi (Approx.)
+        id: fire-se-evoker-condi-quick
+        specialization: Evoker
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Fire SE Evoker Condi (Approx.)
+        traits: Quickness Fire SE Evoker Condi
+        extras: Fire SE Evoker Condi
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Quickness Fire SE Evoker Trailblazer (Approx.)
+        id: fire-se-evoker-trailblazer-quick
+        specialization: Evoker
+        boonType: Condi
+        priority: Trailblazer/Dire
+        distribution: Fire SE Evoker Trailblazer (Approx.)
+        traits: Quickness Fire SE Evoker Trailblazer
+        extras: Fire SE Evoker Trailblazer
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Fire SE Evoker Inferno
+        id: fire-se-evoker-inferno-quickness
+        specialization: Evoker
+        boonType: Power
+        priority: Berserker Only
+        distribution: Fire SE Evoker Inferno
+        traits: Fire SE Evoker Inferno
+        fractal:
+          extras: Fire SE Evoker Inferno (Fractal)
+        raid:
+          extras: Fire SE Evoker Inferno (Raid)
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Fire SE Evoker Condi (Approx.)
+        id: fire-se-evoker-condi
+        specialization: Evoker
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Fire SE Evoker Condi (Approx.)
+        traits: Fire SE Evoker Condi
+        extras: Fire SE Evoker Condi
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Fire SE Evoker Trailblazer (Approx.)
+        id: fire-se-evoker-trailblazer
+        specialization: Evoker
+        boonType: Condi
+        priority: Trailblazer/Dire
+        distribution: Fire SE Evoker Trailblazer (Approx.)
+        traits: Fire SE Evoker Trailblazer
+        extras: Fire SE Evoker Trailblazer
+        weaponType: Dual wield
+        outdated: false
+
       - name: Alacrity Condi Tempest Pistol
         id: ctemp-alac
         specialization: Tempest
@@ -1004,6 +1087,20 @@ list:
         weaponType: Dual wield
         outdated: true
 
+      - name: Quickness Power Catalyst Scepter Inferno
+        id: power-cat-quick-inferno
+        specialization: Catalyst
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Quickness Power Catalyst Scepter Inferno
+        traits: Quickness Power Catalyst Scepter Inferno
+        fractal:
+          extras: Power Catalyst Scepter Inferno (Fractal)
+        raid:
+          extras: Power Catalyst Scepter Inferno (Raid)
+        weaponType: Dual wield
+        outdated: false
+
       - name: Power Catalyst Scepter (Approx.)
         id: power-cat-inferno
         specialization: Catalyst
@@ -1068,42 +1165,6 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: Inferno Evoker SE Fox
-        id: inferno-evoker-se-fox
-        specialization: Evoker
-        boonType: Power
-        priority: Berserker Only
-        distribution: Inferno Evoker SE Fox
-        traits: Inferno Evoker SE Fox
-        fractal:
-          extras: Inferno Evoker SE Fox (Fractal)
-        raid:
-          extras: Inferno Evoker SE Fox (Raid)
-        weaponType: Dual wield
-        outdated: true
-
-      - name: Condi Evoker SE Fox
-        id: condi-evoker-se-fox
-        specialization: Evoker
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Evoker SE Fox (Approx.)
-        traits: Condi Evoker SE Fox
-        extras: Condi Evoker SE Fox
-        weaponType: Dual wield
-        outdated: true
-
-      - name: Condi Trailblazer Evoker SE Fox
-        id: trailblazer-evoker-se-fox
-        specialization: Evoker
-        boonType: Condi
-        priority: Trailblazer/Dire
-        distribution: Condi Trailblazer Evoker SE Fox
-        traits: Condi Trailblazer Evoker SE Fox
-        extras: Condi Trailblazer Evoker SE Fox
-        weaponType: Dual wield
-        outdated: true
-
       - name: Heal Alacrity Tempest
         id: healtemp
         specialization: Tempest
@@ -1120,6 +1181,20 @@ list:
 
   - class: Ranger
     builds:
+
+      - name: Power Galeshot
+        id: galeshot-power
+        specialization: Galeshot
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Galeshot
+        traits: Power Galeshot
+        fractal:
+          extras: Power (Fractal, claw)
+        raid:
+          extras: Power Galeshot (Raid)
+        weaponType: Two-handed
+        outdated: false
 
       - name: Quickness Condi Untamed
         id: condi-quickness-untamed
@@ -1600,6 +1675,20 @@ list:
   - class: Necromancer
     builds:
 
+      - name: Power Ritualist
+        id: ritualist-power
+        specialization: Ritualist
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Ritualist
+        traits: Power Ritualist
+        fractal:
+          extras: Power (Fractal, claw)
+        raid:
+          extras: Power (Raid, claw)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Quickness Condi Harbinger
         id: qharb
         specialization: Harbinger
@@ -1724,6 +1813,31 @@ list:
 
   - class: Thief
     builds:
+
+      - name: Alacrity Power Antiquary Spear
+        id: antiq-alac-power-spear
+        specialization: Antiquary
+        boonType: Power
+        priority: Alacrity Power Antiquary 13%
+        distribution: Alacrity Power Antiquary Spear
+        traits: Alacrity Power Antiquary Spear
+        fractal:
+          extras: Power Boon (Fractal, claw)
+        raid:
+          extras: Power Boon (Raid, claw)
+        weaponType: Two-handed
+        outdated: false
+
+      - name: Condi Antiquary Spear
+        id: antiq-condi-spear
+        specialization: Antiquary
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Antiquary Spear (Allies)
+        traits: Condi Antiquary Spear
+        extras: Condi Antiquary Spear Generosity
+        weaponType: Two-handed
+        outdated: false
 
       - name: Alacrity Specter SC/D 57%
         id: specter-alac

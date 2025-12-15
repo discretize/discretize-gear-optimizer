@@ -95,6 +95,12 @@ const testModifiers = async () => {
       const sectionName = section.section;
       gentleAssert(sectionName, `err: empty section name`);
 
+      /*
+      if (section.note) {
+        console.log('***\n', sectionName, fileName, '\n', section.note, '\n***');
+      }
+      */
+
       let major_traits = null;
       let minor_traits = null;
       if (section.id) {
@@ -584,6 +590,19 @@ const testPresets = async () => {
 
   for (const [type, entries] of Object.entries(data)) {
     for (const entry of entries) {
+      if (['traits', 'extras', 'infusion'].includes(type)) {
+        if (
+          !(
+            entry.profession ||
+            entry.name.startsWith('Power (') ||
+            entry.name.startsWith('Power Boon (') ||
+            entry.name === 'Heal'
+          )
+        ) {
+          console.log(`❓ ${entry.name} ${type} preset has no profession!`);
+        }
+      }
+
       if (type === 'traits') {
         // entry.traits.items
         //   .flatMap(Object.keys)

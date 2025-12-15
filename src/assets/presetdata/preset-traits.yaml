@@ -3240,6 +3240,94 @@ list:
         "skills": {}
       }
 
+  - name: Hybrid Paragon
+    profession: Paragon
+    traits:
+        {
+        "showAll": false,
+        "selectedLines": [
+          "4",
+          "36",
+          "74"
+        ],
+        "selectedTraits": [
+          [
+            1444,
+            1449,
+            1437
+          ],
+          [
+            1344,
+            1333,
+            1707
+          ],
+          [
+            2345,
+            2385,
+            2375
+          ]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength-crit": {},
+            "pinnacle-of-strength": {
+              "amount": ""
+            },
+            "berserkers-power": {
+              "amount": "3.6"
+            }
+          },
+          {
+            "furious-burst": {},
+            "wounding-precision": {},
+            "signet-mastery": {
+              "amount": "4.8"
+            },
+            "deep-strikes-fury": {
+              "amount": ""
+            },
+            "deep-strikes-bleeding": {},
+            "unsuspecting-foe-full": {},
+            "burst-precision": {
+              "amount": "???"
+            },
+            "blade-master": {},
+            "blade-master-2": {
+              "amount": "100"
+            },
+            "bloodlust": {},
+            "furious": {
+              "amount": ""
+            },
+            "bloodlust-on-crit": {
+              "amount": "3.2"
+            }
+          },
+          {
+            "inspiring-implements": {},
+            "unyielding-resolve": {
+              "amount": ""
+            },
+            "strengthening-stanzas-action": {
+              "amount": ""
+            },
+            "brisk-pacing-high": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-might": {},
+          "signet-of-fury": {
+            "amount": "70"
+          }
+        }
+      }
+
   - name: Heal Quickness Berserker
     profession: Berserker
     traits:
@@ -4927,6 +5015,114 @@ list:
         }
       }
 
+  - name: Quickness Power Catalyst Scepter Inferno
+    profession: Catalyst
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "67"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1675
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2252,
+            2234,
+            2251
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "40"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "40"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            },
+            "aeromancers-training-2": {
+              "amount": "10"
+            }
+          },
+          {
+            "hardened-auras": {
+              "amount": ""
+            },
+            "elemental-empowerment-10": {
+              "amount": "94"
+            },
+            "empowering-auras": {
+              "amount": ""
+            },
+            "spectacular-sphere": {},
+            "empowered-empowerment-10": {
+              "amount": ""
+            },
+            "elemental-empowerment-9": {
+              "amount": "3"
+            },
+            "elemental-empowerment-8": {
+              "amount": "1"
+            },
+            "elemental-empowerment-5": {
+              "amount": "2"
+            },
+            "elemental-empowerment-4": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1301"
+          },
+          "signet-of-fire": {
+            "amount": "30"
+          },
+          "relentless-fire": {
+            "amount": "45"
+          }
+        }
+      }
+
   - name: Power Catalyst Hammer
     profession: Catalyst
     traits:
@@ -5265,7 +5461,7 @@ list:
         }
       }
 
-  - name: Inferno Evoker SE Fox
+  - name: Fire SE Evoker Inferno
     profession: Evoker
     traits:
       {
@@ -5341,12 +5537,99 @@ list:
       {
         "skills": {
           "ele-summon-dps": {
-            "amount": "1092"
+            "amount": "1037"
+          },
+          "signet-of-fire": {
+            "amount": "18"
           }
         }
       }
 
-  - name: Condi Evoker SE Fox
+  - name: Quickness Fire SE Evoker Inferno
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1675
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2391,
+            2380,
+            2437
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "100"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "100"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "enhanced-potency-fox": {
+              "amount": ""
+            },
+            "familiars-prowess-fox": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1037"
+          },
+          "signet-of-fire": {
+            "amount": "18"
+          }
+        }
+      }
+
+  - name: Fire SE Evoker Condi
     profession: Evoker
     traits:
       {
@@ -5422,12 +5705,99 @@ list:
       {
         "skills": {
           "ele-summon-dps": {
-            "amount": "1181"
+            "amount": "1037"
+          },
+          "signet-of-fire": {
+            "amount": "18"
           }
         }
       }
 
-  - name: Condi Trailblazer Evoker SE Fox
+  - name: Quickness Fire SE Evoker Condi
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2391,
+            2380,
+            2437
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "100"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "100"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "fiery-might": {},
+            "enhanced-potency-fox": {
+              "amount": ""
+            },
+            "familiars-prowess-fox": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1037"
+          },
+          "signet-of-fire": {
+            "amount": "18"
+          }
+        }
+      }
+
+  - name: Fire SE Evoker Trailblazer
     profession: Evoker
     traits:
       {
@@ -5491,7 +5861,78 @@ list:
       {
         "skills": {
           "ele-summon-dps": {
-            "amount": "1181"
+            "amount": "1037"
+          },
+          "signet-of-fire": {},
+          "signet-of-earth": {}
+        }
+      }
+
+  - name: Quickness Fire SE Evoker Trailblazer
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            1507,
+            275,
+            1508
+          ],
+          [
+            2391,
+            2380,
+            2437
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "100"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "100"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "fiery-might": {},
+            "enhanced-potency-fox": {
+              "amount": ""
+            },
+            "familiars-prowess-fox": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1037"
           },
           "signet-of-fire": {},
           "signet-of-earth": {}
@@ -6517,6 +6958,75 @@ list:
         "skills": {
           "pet-dps": {
             "amount": "1865"
+          }
+        }
+      }
+
+  - name: Power Galeshot
+    profession: Galeshot
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "8",
+          "30",
+          "78"
+        ],
+        "selectedTraits": [
+          [
+            986,
+            1001,
+            996
+          ],
+          [
+            1069,
+            1700,
+            1888
+          ],
+          [
+            2360,
+            2396,
+            2336
+          ]
+        ],
+        "items": [
+          {
+            "wolfsong": {
+              "amount": ""
+            },
+            "farsighted": {},
+            "predators-onslaught": {
+              "amount": ""
+            }
+          },
+          {
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
+            "striders-strength": {},
+            "sharpened-edges": {
+              "amount": "6"
+            }
+          },
+          {
+            "bird-of-prey": {
+              "amount": ""
+            },
+            "gale-force-wind-force": {
+              "amount": "1.6"
+            },
+            "gale-force": {
+              "amount": "85"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-the-wild": {},
+          "pet-dps": {
+            "amount": "1108"
           }
         }
       }
@@ -8977,6 +9487,171 @@ list:
         }
       }
 
+  - name: Power Ritualist (golem setup)
+    profession: Ritualist
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "53",
+          "50",
+          "76"
+        ],
+        "selectedTraits": [
+          [
+            914,
+            829,
+            853
+          ],
+          [
+            875,
+            894,
+            893
+          ],
+          [
+            2339,
+            2421,
+            2333
+          ]
+        ],
+        "items": [
+          {
+            "spiteful-talisman": {
+              "amount": ""
+            },
+            "awaken-the-pain": {
+              "amount": ""
+            },
+            "close-to-death": {
+              "amount": ""
+            }
+          },
+          {
+            "soul-barbs": {
+              "amount": ""
+            },
+            "vital-persistence": {},
+            "death-perception": {}
+          },
+          {
+            "boon-of-creation": {},
+            "lingering-spirits-anguish": {
+              "amount": "100"
+            },
+            "lingering-spirits-preservation": {
+              "amount": "100"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "soul-shards": {
+            "amount": "3.19"
+          },
+          "soul-shards-below": {
+            "amount": "3.19"
+          },
+          "painful-bond-tick": {
+            "amount": "9.39"
+          },
+          "necro-summon-dps": {
+            "amount": "1895"
+          },
+          "nightmare-weapon": {
+            "amount": "3.36"
+          },
+          "nightmare-weapon-allies": {
+            "amount": "7.65"
+          }
+        }
+      }
+
+  - name: Power Ritualist
+    profession: Ritualist
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "53",
+          "50",
+          "76"
+        ],
+        "selectedTraits": [
+          [
+            914,
+            829,
+            853
+          ],
+          [
+            875,
+            894,
+            893
+          ],
+          [
+            2339,
+            2421,
+            2333
+          ]
+        ],
+        "items": [
+          {
+            "spiteful-talisman": {
+              "amount": ""
+            },
+            "awaken-the-pain": {
+              "amount": ""
+            },
+            "close-to-death": {
+              "amount": ""
+            }
+          },
+          {
+            "soul-barbs": {
+              "amount": ""
+            },
+            "vital-persistence": {},
+            "death-perception": {}
+          },
+          {
+            "boon-of-creation": {},
+            "lingering-spirits-anguish": {
+              "amount": "100"
+            },
+            "lingering-spirits-preservation": {
+              "amount": "100"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "soul-shards": {
+            "amount": "3.19"
+          },
+          "soul-shards-below": {
+            "amount": "3.19"
+          },
+          "painful-bond-tick": {
+            "amount": "9.39"
+          },
+          "necro-summon-dps": {
+            "amount": "1445"
+          },
+          "nightmare-weapon": {
+            "amount": "3.36"
+          },
+          "nightmare-weapon-allies": {
+            "amount": "7.65"
+          },
+          "signet-of-spite": {
+            "amount": ""
+          }
+        }
+      }
+
   - name: Condi Deadeye A/D
     profession: Deadeye
     traits:
@@ -10177,6 +10852,160 @@ list:
     skills:
       {
         "skills": {}
+      }
+
+  - name: Alacrity Power Antiquary Spear
+    profession: Antiquary
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "35",
+          "77"
+        ],
+        "selectedTraits": [
+          [
+            1245,
+            1704,
+            1269
+          ],
+          [
+            1268,
+            1272,
+            1904
+          ],
+          [
+            2346,
+            2431,
+            2393
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": {},
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "keen-observer": {},
+            "keen-observer-scholar": {
+              "amount": ""
+            },
+            "twin-fangs-scholar": {
+              "amount": ""
+            },
+            "twin-fangs-flank": {},
+            "practiced-tolerance": {},
+            "ferocious-strikes": {
+              "amount": ""
+            },
+            "no-quarter": {
+              "amount": ""
+            },
+            "hidden-killer": {
+              "amount": "???"
+            }
+          },
+          {
+            "exhilarating-ephemera": {
+              "amount": ""
+            },
+            "combat-high": {
+              "amount": "???"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "assassins-signet": {
+            "amount": "75"
+          },
+          "assassins-signet-active": {
+            "amount": "28"
+          },
+          "distracting-throw": {
+            "amount": "100"
+          },
+          "vampiric-slash": {
+            "amount": "5.17"
+          }
+        }
+      }
+
+  - name: Condi Antiquary Spear
+    profession: Antiquary
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "44",
+          "77"
+        ],
+        "selectedTraits": [
+          [
+            1164,
+            1292,
+            1291
+          ],
+          [
+            1252,
+            1190,
+            1706
+          ],
+          [
+            2346,
+            2431,
+            2348
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": {},
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "preparedness": {},
+            "lead-attacks": {
+              "amount": "14"
+            },
+            "deadly-ambush": {}
+          },
+          {
+            "exhilarating-ephemera": {
+              "amount": ""
+            },
+            "combat-high": {
+              "amount": "5.9"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "distracting-throw": {
+            "amount": "100"
+          }
+        }
       }
 
   - name: Heal Specter

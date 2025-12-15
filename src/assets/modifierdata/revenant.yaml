@@ -1,4 +1,6 @@
 - section: Skills
+  note: >-
+    Enchanted Daggers lifesteal damage may not be shown in arcdps area stats or parsed arcdps logs.
   items:
 
     - id: battle-scars

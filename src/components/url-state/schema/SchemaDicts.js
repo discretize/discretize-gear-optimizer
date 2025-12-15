@@ -255,6 +255,7 @@ export const relicsDict = [
   'agony-relic',
   'bloodstone-relic-prenerf',
   'bloodstone-relic-prenerf-2',
+  'atrocity-relic',
 ];
 
 export const sigilDict = [
@@ -305,6 +306,8 @@ export const sigilDict = [
   'leeching-sigil',
   'geomancy-doom-alac-specter',
   'vision',
+  'impact-only-3-hydro-galeshot',
+  'impact-both-hydro-galeshot',
 ];
 
 export const enhancementDict = [

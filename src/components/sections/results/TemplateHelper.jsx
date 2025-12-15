@@ -15,6 +15,7 @@ const initial = {
   Confusion: 0,
 };
 
+const roundThree = (num) => Math.round(num * 1000) / 1000;
 const roundTwo = (num) => Math.round(num * 100) / 100;
 const roundZero = (num) => Math.round(num);
 
@@ -134,7 +135,7 @@ const TemplateHelper = ({ character }) => {
               if (!totalDamage) return;
 
               const dps = roundTwo((totalDamage ?? 0) / duration);
-              const hitsPerSecond = roundTwo(connectedHits / duration);
+              const hitsPerSecond = roundThree(connectedHits / duration);
 
               return [`${name} "Power" DPS (${hitsPerSecond} hit/sec)`, dps];
             })
@@ -169,12 +170,30 @@ const TemplateHelper = ({ character }) => {
           const minions = playerData.minions ?? [];
 
           const minionCounts = {
-            'Clone': { names: new Set(), minionHits: 0, minionCrits: 0, damage: 0 },
-            'Phantasm': { names: new Set(), minionHits: 0, minionCrits: 0, damage: 0 },
-            'Minion': { names: new Set(), minionHits: 0, minionCrits: 0, damage: 0 },
+            'Clone': {
+              names: new Set(),
+              minionHits: 0,
+              minionCrits: 0,
+              powerDamage: 0,
+              conditionDamage: 0,
+            },
+            'Phantasm': {
+              names: new Set(),
+              minionHits: 0,
+              minionCrits: 0,
+              powerDamage: 0,
+              conditionDamage: 0,
+            },
+            'Minion': {
+              names: new Set(),
+              minionHits: 0,
+              minionCrits: 0,
+              powerDamage: 0,
+              conditionDamage: 0,
+            },
           };
 
-          for (const { name, totalTargetDamage, targetDamageDist } of minions) {
+          for (const { name, targetDamageDist } of minions) {
             let type = 'Minion';
             if (name.includes('Clone')) type = 'Clone';
             if (name?.startsWith('Illusionary')) type = 'Phantasm';
@@ -190,7 +209,14 @@ const TemplateHelper = ({ character }) => {
               minionCounts[type].minionCrits += minionCrits ?? 0;
             }
 
-            minionCounts[type].damage += totalTargetDamage?.[0]?.[0] ?? 0;
+            for (const skill of targetDamageDist?.[0]?.[0] ?? []) {
+              const { indirectDamage, totalDamage } = skill;
+              if (indirectDamage) {
+                minionCounts[type].conditionDamage += totalDamage;
+              } else {
+                minionCounts[type].powerDamage += totalDamage;
+              }
+            }
           }
 
           const minionData = Object.entries(minionCounts)
@@ -215,17 +241,20 @@ const TemplateHelper = ({ character }) => {
           let splitDamageTotal = 0;
           let clonePhantasmDamageSum = 0;
           let minionDamageSum = 0;
+          let minionPowerDamageSum = 0; // value to subtract from power dps total to get player power dps
           const powerDPSPlayer = playerData.dpsTargets?.[0]?.[0]?.actorPowerDps;
           splitDamageTotal += powerDPSPlayer;
           const minionDamageData = Object.entries(minionCounts)
-            .filter(([_type, { damage }]) => damage)
-            .map(([type, { damage }]) => {
-              const dps = (damage ?? 0) / duration;
+            .filter(([_type, { powerDamage, conditionDamage }]) => powerDamage || conditionDamage)
+            .map(([type, { powerDamage, conditionDamage }]) => {
+              const dps = (powerDamage + conditionDamage) / duration;
+              const powerDps = powerDamage / duration;
               splitDamageTotal += dps;
               if (['Clone', 'Phantasm'].includes(type)) {
                 clonePhantasmDamageSum += dps;
               } else {
                 minionDamageSum += dps;
+                minionPowerDamageSum += powerDps;
               }
 
               return [`${type} DPS`, dps];
@@ -307,12 +336,24 @@ const TemplateHelper = ({ character }) => {
           });
 
           const buffStackDistribution = Object.entries(collectedData)
-            .map(([id, counts]) =>
-              Object.entries(counts)
-                .sort(([a], [b]) => a - b)
-                .map(([count, time]) => [`${count}x ${buffNames[id]}`, (100 * time) / durationMs]),
-            )
-            .filter((entries) => entries.length > 1)
+            .map(([id, counts]) => {
+              if (counts.length <= 2) return;
+
+              return [
+                ...Object.entries(counts)
+                  .sort(([a], [b]) => a - b)
+                  .map(([count, time]) => [
+                    `${count}x ${buffNames[id]}`,
+                    (100 * time) / durationMs,
+                  ]),
+                [
+                  'total average',
+                  Object.entries(counts).reduce((prev, [count, time]) => prev + count * time, 0) /
+                    durationMs,
+                ],
+              ];
+            })
+            .filter(Boolean)
             .flatMap((entries) => ['\n', ...entries]);
 
           const result = [
@@ -366,7 +407,9 @@ const TemplateHelper = ({ character }) => {
             .join('\n');
 
           const inputWithoutMinion = {
-            Power: roundTwo(powerDPSWithoutLifesteal - clonePhantasmDamageSum - minionDamageSum),
+            Power: roundTwo(
+              powerDPSWithoutLifesteal - clonePhantasmDamageSum - minionPowerDamageSum,
+            ),
             Power2: roundTwo(clonePhantasmDamageSum),
             ...conditionData,
           };
@@ -515,7 +558,7 @@ const TemplateHelper = ({ character }) => {
         </ButtonGroup>
       ) : undefined}
 
-      <pre style={{ margin: '1rem' }}>{urlResult}</pre>
+      <pre style={{ overflowY: 'auto', maxHeight: '800px', margin: '1rem' }}>{urlResult}</pre>
 
       <br />
 
