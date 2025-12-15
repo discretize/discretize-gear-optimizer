@@ -1176,6 +1176,20 @@ list:
         weaponType: Dual wield
         outdated: false
 
+      - name: Heal Quickness Catalyst
+        id: healcat
+        specialization: Catalyst
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Quickness Catalyst
+        extras: Heal
+        weaponType: Dual wield
+        outdated: false
+
       - name: Heal Alacrity Tempest
         id: healtemp
         specialization: Tempest
@@ -1185,10 +1199,24 @@ list:
         raid:
           priority: Heal (Raid)
         distribution: None
-        traits: Heal Tempest
+        traits: Heal Alacrity Tempest
         extras: Heal
         weaponType: Dual wield
-        outdated: true
+        outdated: false
+
+      - name: Heal Alacrity Evoker
+        id: healevoker
+        specialization: Evoker
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Alacrity Evoker
+        extras: Heal
+        weaponType: Dual wield
+        outdated: false
 
   - class: Ranger
     builds:

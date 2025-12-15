@@ -6563,31 +6563,31 @@ list:
         }
       }
 
-  - name: Heal Tempest
-    profession: Tempest
+  - name: Heal Quickness Catalyst
+    profession: Catalyst
     traits:
       {
         "showAll": false,
         "selectedLines": [
           "37",
           "17",
-          "48"
+          "67"
         ],
         "selectedTraits": [
           [
-            253,
+            1487,
             265,
             238
           ],
           [
-            363,
+            360,
             358,
             2028
           ],
           [
-            1962,
-            2015,
-            2033
+            2224,
+            2234,
+            2251
           ]
         ],
         "items": [
@@ -6605,6 +6605,69 @@ list:
             "flow-like-water": {
               "amount": ""
             },
+            "aquamancers-training": {},
+            "soothing-power": {}
+          },
+          {
+            "hardened-auras": {
+              "amount": ""
+            },
+            "empowering-auras": {
+              "amount": ""
+            },
+            "empowered-empowerment-10": {
+              "amount": ""
+            },
+            "elemental-empowerment-5": {
+              "amount": "???"
+            },
+            "spectacular-sphere": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {}
+      }
+
+  - name: Heal Alacrity Tempest
+    profession: Tempest
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "26",
+          "17",
+          "48"
+        ],
+        "selectedTraits": [
+          [
+            289,
+            281,
+            1508
+          ],
+          [
+            348,
+            358,
+            361
+          ],
+          [
+            1886,
+            2015,
+            1986
+          ]
+        ],
+        "items": [
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "piercing-shards": {},
+            "flow-like-water": {
+              "amount": ""
+            },
             "aquamancers-training": {}
           },
           {
@@ -6614,6 +6677,61 @@ list:
               "amount": ""
             },
             "gathered-focus-2": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {}
+      }
+
+  - name: Heal Alacrity Evoker
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "37",
+          "17",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            1487,
+            265,
+            238
+          ],
+          [
+            360,
+            358,
+            2028
+          ],
+          [
+            2415,
+            2380,
+            2436
+          ]
+        ],
+        "items": [
+          {
+            "elemental-enchantment": {},
+            "arcane-lightning": {
+              "amount": ""
+            },
+            "bountiful-power": {
+              "amount": ""
+            }
+          },
+          {
+            "piercing-shards": {},
+            "flow-like-water": {
+              "amount": ""
+            },
+            "aquamancers-training": {},
+            "soothing-power": {}
+          },
+          {
+            "fiery-might": {}
           }
         ]
       }
