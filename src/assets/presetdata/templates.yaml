@@ -1800,6 +1800,20 @@ list:
   - class: Thief
     builds:
 
+      - name: Alacrity Power Antiquary Spear
+        id: antiq-alac-power-spear
+        specialization: Antiquary
+        boonType: Power
+        priority: Alacrity Power Antiquary 13%
+        distribution: Alacrity Power Antiquary Spear
+        traits: Alacrity Power Antiquary Spear
+        fractal:
+          extras: Power Boon (Fractal, claw)
+        raid:
+          extras: Power Boon (Raid, claw)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Alacrity Specter SC/D 57%
         id: specter-alac
         specialization: Specter

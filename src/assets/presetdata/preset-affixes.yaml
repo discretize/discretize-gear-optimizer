@@ -434,3 +434,12 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "40"
       }
+
+  - name: Alacrity Power Antiquary 13%
+    value:
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": "13",
+        "minQuicknessDuration": "0"
+      }

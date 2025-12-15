@@ -10775,6 +10775,94 @@ list:
         "skills": {}
       }
 
+  - name: Alacrity Power Antiquary Spear
+    profession: Antiquary
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "35",
+          "77"
+        ],
+        "selectedTraits": [
+          [
+            1245,
+            1704,
+            1269
+          ],
+          [
+            1268,
+            1272,
+            1904
+          ],
+          [
+            2346,
+            2431,
+            2393
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": {},
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "keen-observer": {},
+            "keen-observer-scholar": {
+              "amount": ""
+            },
+            "twin-fangs-scholar": {
+              "amount": ""
+            },
+            "twin-fangs-flank": {},
+            "practiced-tolerance": {},
+            "ferocious-strikes": {
+              "amount": ""
+            },
+            "no-quarter": {
+              "amount": ""
+            },
+            "hidden-killer": {
+              "amount": "???"
+            }
+          },
+          {
+            "exhilarating-ephemera": {
+              "amount": ""
+            },
+            "combat-high": {
+              "amount": "???"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "assassins-signet": {
+            "amount": "75"
+          },
+          "assassins-signet-active": {
+            "amount": "28"
+          },
+          "distracting-throw": {
+            "amount": "100"
+          },
+          "vampiric-slash": {
+            "amount": "5.17"
+          }
+        }
+      }
+
   - name: Heal Specter
     profession: Specter
     traits:

@@ -1635,3 +1635,14 @@ list:
       - author: 'Iskarel'
         url: https://www.youtube.com/watch?v=ziK2tPRR0Vw
         log: https://dps.report/CVSb-20240512-132756_golem
+
+  - name: Alacrity Power Antiquary Spear
+    profession: Antiquary
+    value:
+      {
+        "values2": { "Power": 4467, "Power2": 0, "Burning": 10.24, "Bleeding": 4.28, "Poisoned": 4.95, "Torment": 2.41, "Confusion": 0 }
+      }
+    credit:
+      - author: '[LCs] Seisan'
+        url: https://www.youtube.com/watch?v=wSr8WlnZIKE
+        log: https://dps.report/dIE0-20251211-204328_golem

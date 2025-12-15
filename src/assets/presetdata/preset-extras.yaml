@@ -618,6 +618,97 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power Boon (Raid, claw)
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "leadership": {}
+          },
+          "Relics": {
+            "claw-relic": {
+              "amount": "100"
+            },
+            "mistburn-relic": {}
+          },
+          "Sigil1": {
+            "force": {},
+            "accuracy": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {},
+            "holographic-super-cheese": {},
+            "potent-lucent-oil": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Boon (Fractal, claw)
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "leadership": {}
+          },
+          "Relics": {
+            "claw-relic": {
+              "amount": "100"
+            },
+            "mistburn-relic": {}
+          },
+          "Sigil1": {
+            "force": {},
+            "accuracy": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {},
+            "accuracy": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Boon Power Chrono (Raid)
     value:
       {
@@ -4370,4 +4461,3 @@ list:
         },
         "lifestealAmount": "2.6"
       }
-
