@@ -9300,6 +9300,171 @@ list:
         }
       }
 
+  - name: Power Ritualist (golem setup)
+    profession: Ritualist
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "53",
+          "50",
+          "76"
+        ],
+        "selectedTraits": [
+          [
+            914,
+            829,
+            853
+          ],
+          [
+            875,
+            894,
+            893
+          ],
+          [
+            2339,
+            2421,
+            2333
+          ]
+        ],
+        "items": [
+          {
+            "spiteful-talisman": {
+              "amount": ""
+            },
+            "awaken-the-pain": {
+              "amount": ""
+            },
+            "close-to-death": {
+              "amount": ""
+            }
+          },
+          {
+            "soul-barbs": {
+              "amount": ""
+            },
+            "vital-persistence": {},
+            "death-perception": {}
+          },
+          {
+            "boon-of-creation": {},
+            "lingering-spirits-anguish": {
+              "amount": "100"
+            },
+            "lingering-spirits-preservation": {
+              "amount": "100"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "soul-shards": {
+            "amount": "3.19"
+          },
+          "soul-shards-below": {
+            "amount": "3.19"
+          },
+          "painful-bond-tick": {
+            "amount": "9.39"
+          },
+          "necro-summon-dps": {
+            "amount": "1895"
+          },
+          "nightmare-weapon": {
+            "amount": "3.36"
+          },
+          "nightmare-weapon-allies": {
+            "amount": "7.65"
+          }
+        }
+      }
+
+  - name: Power Ritualist
+    profession: Ritualist
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "53",
+          "50",
+          "76"
+        ],
+        "selectedTraits": [
+          [
+            914,
+            829,
+            853
+          ],
+          [
+            875,
+            894,
+            893
+          ],
+          [
+            2339,
+            2421,
+            2333
+          ]
+        ],
+        "items": [
+          {
+            "spiteful-talisman": {
+              "amount": ""
+            },
+            "awaken-the-pain": {
+              "amount": ""
+            },
+            "close-to-death": {
+              "amount": ""
+            }
+          },
+          {
+            "soul-barbs": {
+              "amount": ""
+            },
+            "vital-persistence": {},
+            "death-perception": {}
+          },
+          {
+            "boon-of-creation": {},
+            "lingering-spirits-anguish": {
+              "amount": "100"
+            },
+            "lingering-spirits-preservation": {
+              "amount": "100"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "soul-shards": {
+            "amount": "3.19"
+          },
+          "soul-shards-below": {
+            "amount": "3.19"
+          },
+          "painful-bond-tick": {
+            "amount": "9.39"
+          },
+          "necro-summon-dps": {
+            "amount": "1445"
+          },
+          "nightmare-weapon": {
+            "amount": "3.36"
+          },
+          "nightmare-weapon-allies": {
+            "amount": "7.65"
+          },
+          "signet-of-spite": {
+            "amount": ""
+          }
+        }
+      }
+
   - name: Condi Deadeye A/D
     profession: Deadeye
     traits:

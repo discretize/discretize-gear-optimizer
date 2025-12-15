@@ -1647,6 +1647,20 @@ list:
   - class: Necromancer
     builds:
 
+      - name: Power Ritualist
+        id: ritualist-power
+        specialization: Ritualist
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Ritualist
+        traits: Power Ritualist
+        fractal:
+          extras: Power (Fractal, claw)
+        raid:
+          extras: Power (Raid, claw)
+        weaponType: Two-handed
+        outdated: false
+
       - name: Quickness Condi Harbinger
         id: qharb
         specialization: Harbinger

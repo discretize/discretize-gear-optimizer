@@ -1409,6 +1409,17 @@ list:
         url: https://www.youtube.com/watch?v=ZGC5WTTHmi4
         log: https://dps.report/Mu8J-20240821-222344_golem
 
+  - name: Power Ritualist
+    profession: Ritualist
+    value:
+      {
+        "values2": { "Power": 5693, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=iAsnh2kvV7o
+        log: https://dps.report/TlPB-20251213-105910_golem
+
   - name: Condi Deadeye A/D
     profession: Deadeye
     value:
