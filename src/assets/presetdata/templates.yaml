@@ -1477,12 +1477,12 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Alacrity Condi Amalgam 3 Kit
+      - name: Alacrity Condi Amalgam 4 Kit
         id: amalgam-condi-alac
         specialization: Amalgam
         boonType: Condi
         priority: Condi DPS
-        distribution: Alacrity Condi Amalgam 3 Kit
+        distribution: Alacrity Condi Amalgam 4 Kit
         traits: Alacrity Condi Amalgam
         extras: Condi Amalgam Steamshrieker
         weaponType: Two-handed
