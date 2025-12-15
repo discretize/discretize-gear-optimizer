@@ -1340,6 +1340,20 @@ list:
         weaponType: Two-handed
         outdated: true
 
+      - name: Heal Quickness Untamed
+        id: healuntamed
+        specialization: Untamed
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Quickness Untamed
+        extras: Heal
+        weaponType: Two-handed
+        outdated: false
+
       - name: Heal Alacrity Druid
         id: druid
         specialization: Druid
@@ -1349,7 +1363,7 @@ list:
         raid:
           priority: Heal (Raid)
         distribution: None
-        traits: Heal Druid
+        traits: Heal Alacrity Druid
         extras: Heal
         weaponType: Two-handed
         outdated: false

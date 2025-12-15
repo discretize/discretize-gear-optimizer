@@ -7348,7 +7348,7 @@ list:
         }
       }
 
-  - name: Heal Druid
+  - name: Heal Alacrity Druid
     profession: Druid
     traits:
       {
@@ -7391,6 +7391,63 @@ list:
           },
           {
             "natural-mender": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {}
+      }
+
+  - name: Heal Quickness Untamed
+    profession: Untamed
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "8",
+          "25",
+          "72"
+        ],
+        "selectedTraits": [
+          [
+            986,
+            1070,
+            996
+          ],
+          [
+            978,
+            965,
+            1038
+          ],
+          [
+            2301,
+            2278,
+            2271
+          ]
+        ],
+        "items": [
+          {
+            "farsighted": {},
+            "predators-onslaught": {
+              "amount": ""
+            }
+          },
+          {
+            "bountiful-hunter": {
+              "amount": ""
+            },
+            "wellspring": {},
+            "lingering-magic": {}
+          },
+          {
+            "natural-fortitude": {},
+            "vow-of-the-untamed-you": {
+              "amount": ""
+            },
+            "ferocious-symbiosis": {
               "amount": ""
             }
           }
