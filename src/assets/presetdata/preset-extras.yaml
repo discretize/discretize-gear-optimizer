@@ -965,7 +965,7 @@ list:
         "lifestealAmount": ""
       }
 
-  # no item sigil represents use of water sigil
+  # no item sigil represents use of water/paralyzation/etc sigil
   - name: Heal
     value:
       {
@@ -976,7 +976,6 @@ list:
           },
           "Relics": {},
           "Sigil1": {
-            "concentration": {},
             "no-item-sigil": {}
           },
           "Sigil2": {
@@ -986,9 +985,11 @@ list:
             "bountiful-maintenance-oil": {}
           },
           "Nourishment": {
-            "fruit-salad-mint-garnish": {}
+            "fruit-salad-mint-garnish": {},
+            "mint-creme-brulee": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Alacrity Staff Mirage
