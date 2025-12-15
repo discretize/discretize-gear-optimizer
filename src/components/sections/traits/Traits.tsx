@@ -202,6 +202,9 @@ const Traits = () => {
     );
   });
 
+  return traitSections;
+
+  /*
   const classNote =
     profession && classModifiers[profession]?.find((section) => section.section === 'Skills')?.note;
 
@@ -220,6 +223,7 @@ const Traits = () => {
       {traitSections}
     </>
   );
+  */
 };
 
 export default Traits;
