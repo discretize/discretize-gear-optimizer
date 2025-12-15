@@ -1680,20 +1680,6 @@ list:
       #   weaponType: Dual wield
       #   outdated: true
 
-      - name: Heal Quickness Scrapper
-        id: healscrapper
-        specialization: Scrapper
-        boonType: Power
-        fractal:
-          priority: Heal (Fractal)
-        raid:
-          priority: Heal (Raid)
-        distribution: None
-        traits: Heal Scrapper
-        extras: Heal
-        weaponType: Dual wield
-        outdated: false
-
       - name: Power Engineer (Approx.)
         id: engy-core
         specialization: Engineer
@@ -1706,6 +1692,20 @@ list:
         raid:
           extras: Power (Raid, fireworks)
         weaponType: Two-handed
+        outdated: false
+
+      - name: Heal Quickness Scrapper
+        id: healscrapper
+        specialization: Scrapper
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Scrapper
+        extras: Heal
+        weaponType: Dual wield
         outdated: false
 
       - name: Heal Alacrity Mech
