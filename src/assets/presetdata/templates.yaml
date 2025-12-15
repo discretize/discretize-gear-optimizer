@@ -551,6 +551,20 @@ list:
         weaponType: Two-handed
         outdated: true
 
+      - name: Heal Quickness Firebrand
+        id: hb
+        specialization: Firebrand
+        boonType: Power
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
+        distribution: None
+        traits: Heal Quickness Firebrand
+        extras: Heal
+        weaponType: Two-handed
+        outdated: false
+
       - name: Heal Alacrity Willbender
         id: heal-willbender
         specialization: Willbender
@@ -561,21 +575,21 @@ list:
           priority: Heal (Raid)
         distribution: None
         traits: Heal Alacrity Willbender
-        extras: Heal
+        extras: Heal (concentration)
         weaponType: Two-handed
         outdated: false
 
-      - name: Heal Quickness Firebrand
-        id: hb
-        specialization: Firebrand
+      - name: Heal Alacrity Luminary
+        id: heal-luminary
+        specialization: Luminary
         boonType: Power
         fractal:
           priority: Heal (Fractal)
         raid:
           priority: Heal (Raid)
         distribution: None
-        traits: Healbrand
-        extras: Heal
+        traits: Heal Alacrity Luminary
+        extras: Heal (concentration)
         weaponType: Two-handed
         outdated: false
 
