@@ -3,6 +3,8 @@ import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material
 import type { Character } from '../../../state/optimizer/types/optimizerTypes';
 import { objectEntries } from '../../../utils/usefulFunctions';
 
+const roundTwo = (num: number) => Math.round(num * 100) / 100;
+
 const AffixesStats = ({ data, title }: { data: Character['gearStats']; title: string }) => {
   return (
     <>
@@ -16,7 +18,7 @@ const AffixesStats = ({ data, title }: { data: Character['gearStats']; title: st
                 <TableCell>
                   <Attribute name={attribute} style={{ fontSize: '20px', color: '#AAAAAA' }} />
                 </TableCell>
-                <TableCell align="right">{value}</TableCell>
+                <TableCell align="right">{roundTwo(value)}</TableCell>
               </TableRow>
             ))}
         </TableBody>
