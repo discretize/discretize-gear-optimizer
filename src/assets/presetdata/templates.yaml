@@ -1224,7 +1224,7 @@ list:
         raid:
           extras: Power Catalyst Scepter PF (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Heal Quickness Catalyst
         id: healcat
