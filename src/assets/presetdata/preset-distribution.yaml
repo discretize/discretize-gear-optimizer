@@ -530,7 +530,7 @@ list:
         log: https://dps.report/0kW0-20251120-143549_golem
 
   # use bloodstone-relic-prenerf-2 if resimulating
-  - name: Power Tempest Scepter Bloodstone
+  - name: Power Tempest Inferno
     profession: Tempest
     value:
       {

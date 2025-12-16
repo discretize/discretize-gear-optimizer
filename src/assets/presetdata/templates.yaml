@@ -989,13 +989,13 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Power Tempest Scepter Bloodstone
+      - name: Power Tempest Inferno
         id: ptemp-blood
         specialization: Tempest
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Tempest Scepter Bloodstone
-        traits: Power Tempest Scepter Bloodstone
+        distribution: Power Tempest Inferno
+        traits: Power Tempest Inferno
         fractal:
           extras: Power Tempest Bloodstone (Fractal)
         raid:
