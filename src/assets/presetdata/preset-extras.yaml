@@ -1796,7 +1796,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Alacrity Power Tempest Bloodstone (Fractal)
+  - name: Alacrity Fire Tempest Inferno (Fractal)
     profession: Tempest
     value:
       {
@@ -1813,6 +1813,9 @@ list:
             },
             "fireworks-relic": {
               "amount": "100"
+            },
+            "relic-of-nourys": {
+              "amount": "12.1"
             }
           },
           "Sigil1": {
@@ -1845,7 +1848,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Alacrity Power Tempest Bloodstone (Raid)
+  - name: Alacrity Fire Tempest Inferno (Raid)
     profession: Tempest
     value:
       {
@@ -1862,6 +1865,9 @@ list:
             },
             "fireworks-relic": {
               "amount": "100"
+            },
+            "relic-of-nourys": {
+              "amount": "12.1"
             }
           },
           "Sigil1": {

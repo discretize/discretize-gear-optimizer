@@ -922,6 +922,20 @@ list:
         weaponType: Dual wield
         outdated: false
 
+      - name: Alacrity Fire Tempest Inferno
+        id: ptemp-blood-alac
+        specialization: Tempest
+        boonType: Power
+        priority: Alacrity Fire Tempest Inferno 22%
+        distribution: Alacrity Fire Tempest Inferno
+        traits: Alacrity Fire Tempest Inferno
+        fractal:
+          extras: Alacrity Fire Tempest Inferno (Fractal)
+        raid:
+          extras: Alacrity Fire Tempest Inferno (Raid)
+        weaponType: Dual wield
+        outdated: false
+
       - name: Alacrity Power Tempest Sword
         id: ptemp-alac-sw
         specialization: Tempest
@@ -975,20 +989,6 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Alacrity Power Tempest Scepter Bloodstone
-        id: ptemp-blood-alac
-        specialization: Tempest
-        boonType: Power
-        priority: Alacrity Power Tempest Scepter Bloodstone 22%
-        distribution: Alacrity Power Tempest Scepter Bloodstone
-        traits: Alacrity Power Tempest Scepter Bloodstone
-        fractal:
-          extras: Alacrity Power Tempest Bloodstone (Fractal)
-        raid:
-          extras: Alacrity Power Tempest Bloodstone (Raid)
-        weaponType: Dual wield
-        outdated: false
-
       - name: Power Tempest Scepter Bloodstone
         id: ptemp-blood
         specialization: Tempest
@@ -1011,9 +1011,9 @@ list:
         distribution: '"Fire Wizard" (Approx.)'
         traits: '"Fire Wizard"'
         fractal:
-          extras: Alacrity Power Tempest Bloodstone (Fractal)
+          extras: Alacrity Fire Tempest Inferno (Fractal)
         raid:
-          extras: Alacrity Power Tempest Bloodstone (Raid)
+          extras: Alacrity Fire Tempest Inferno (Raid)
         weaponType: Dual wield
         outdated: false
 

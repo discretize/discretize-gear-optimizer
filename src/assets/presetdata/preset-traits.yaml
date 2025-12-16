@@ -4500,7 +4500,7 @@ list:
         }
       }
 
-  - name: Alacrity Power Tempest Scepter Bloodstone
+  - name: Alacrity Fire Tempest Inferno
     profession: Tempest
     traits:
       {
@@ -4530,13 +4530,13 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "97"
+              "amount": "100"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "97"
+              "amount": "100"
             },
             "pyromancers-training": {},
             "persisting-flames": {
@@ -4568,7 +4568,10 @@ list:
       {
         "skills": {
           "ele-summon-dps": {
-            "amount": "1220"
+            "amount": "1209"
+          },
+          "signet-of-fire": {
+            "amount": "15"
           }
         }
       }
@@ -4735,7 +4738,10 @@ list:
       {
         "skills": {
           "ele-summon-dps": {
-            "amount": "1220"
+            "amount": "1209"
+          },
+          "signet-of-fire": {
+            "amount": "15"
           }
         }
       }
