@@ -40,7 +40,10 @@ const useStyles = makeStyles()((theme: any) => ({
     minWidth: '2.2em',
   },
   attributesColumn: {
-    minWidth: '2.8em',
+    minWidth: '2.9em',
+  },
+  attributesColumnWide: {
+    minWidth: '3.2em',
   },
 }));
 
@@ -134,7 +137,11 @@ const ResultTableHeaderRow = ({
 
       {displayAttributes.map((attribute) => (
         <TableCell
-          className={cx(classes.tablehead, classes.attributesColumn)}
+          className={cx(
+            classes.tablehead,
+            classes.attributesColumn,
+            attribute === 'Health' && classes.attributesColumnWide,
+          )}
           align="center"
           padding="none"
           key={attribute}

@@ -104,7 +104,7 @@ const ResultTableRow = ({
           }}
         />
       </TableCell>
-      <TableCell scope="row">
+      <TableCell scope="row" sx={{ whiteSpace: 'nowrap' }}>
         {value?.toFixed(0)}
         {comparisonText ? (
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
