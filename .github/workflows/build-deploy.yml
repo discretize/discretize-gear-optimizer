@@ -64,6 +64,7 @@ jobs:
       - name: Remove pre-installed Rust
         run: rustup self uninstall -y
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
+        continue-on-error: true
       - name: Reinstall Rust
         run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
