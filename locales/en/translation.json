@@ -1089,6 +1089,7 @@
   "skillSubText_allies": "allies",
   "skillSubText_damage buff only": "damage buff only",
   "skillSubText_damage over time tick (approx.)": "damage over time tick (approx.)",
+  "skillSubText_damage reduction (tooltip is incorrect)": "damage reduction (tooltip is incorrect)",
   "skillSubText_damage reduction while active": "damage reduction while active",
   "skillSubText_damage reduction while earth active": "damage reduction while earth active",
   "skillSubText_draconic echo passive": "draconic echo passive",

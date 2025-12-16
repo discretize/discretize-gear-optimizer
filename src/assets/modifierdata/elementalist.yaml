@@ -30,6 +30,7 @@
 
     - id: signet-of-earth
       text: Signet of Earth
+      subText: damage reduction (tooltip is incorrect)
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
