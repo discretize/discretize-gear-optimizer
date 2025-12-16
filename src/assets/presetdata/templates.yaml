@@ -1630,7 +1630,7 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Power Holo ECSU
+      - name: Power Holo ECSU (Approx.)
         id: pholo-ecsu
         specialization: Holosmith
         boonType: Power
@@ -1642,7 +1642,7 @@ list:
         raid:
           extras: Power Holo (Raid)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Power Holo PBM
         id: pholo-pbm
