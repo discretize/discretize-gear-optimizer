@@ -5638,9 +5638,6 @@ list:
           },
           "relentless-fire": {
             "amount": "46"
-          },
-          "signet-of-fire": {
-            "amount": ""
           }
         }
       }

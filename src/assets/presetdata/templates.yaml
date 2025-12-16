@@ -1178,7 +1178,7 @@ list:
         specialization: Catalyst
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Catalyst Scepter PF
+        distribution: Quickness Power Catalyst Scepter PF
         traits: Quickness Power Catalyst Scepter PF
         fractal:
           extras: Power Catalyst Scepter PF (Fractal)
@@ -1224,7 +1224,7 @@ list:
         raid:
           extras: Power Catalyst Scepter PF (Raid)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Heal Quickness Catalyst
         id: healcat
