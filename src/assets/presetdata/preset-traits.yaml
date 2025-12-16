@@ -748,7 +748,7 @@ list:
         "skills": {}
       }
 
-  - name: Condi Chrono
+  - name: Condi Chrono Scepter
     profession: Chronomancer
     traits:
       {
@@ -862,6 +862,128 @@ list:
             "danger-time": {},
             "improved-alacrity": {},
             "chronophantasma": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
+        }
+      }
+
+  - name: Boon Condi Chrono Staff SC/D
+    profession: Chronomancer
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "24",
+          "45",
+          "40"
+        ],
+        "selectedTraits": [
+          [
+            691,
+            1690,
+            753
+          ],
+          [
+            670,
+            669,
+            1687
+          ],
+          [
+            1995,
+            1978,
+            0
+          ]
+        ],
+        "items": [
+          {
+            "compounding-power": {
+              "amount": "4.9"
+            }
+          },
+          {
+            "illusionary-membrane": {
+              "amount": ""
+            },
+            "chaotic-potency": {},
+            "chaotic-persistence": {
+              "amount": ""
+            },
+            "chaotic-potency-2": {
+              "amount": "50"
+            }
+          },
+          {
+            "danger-time": {},
+            "improved-alacrity": {},
+            "chronophantasma": {},
+            "flow-of-time": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
+        }
+      }
+
+  - name: Condi Chrono Staff SC/D
+    profession: Chronomancer
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "24",
+          "45",
+          "40"
+        ],
+        "selectedTraits": [
+          [
+            691,
+            1690,
+            753
+          ],
+          [
+            670,
+            669,
+            1687
+          ],
+          [
+            1995,
+            1978,
+            1890
+          ]
+        ],
+        "items": [
+          {
+            "compounding-power": {
+              "amount": "4.9"
+            }
+          },
+          {
+            "illusionary-membrane": {
+              "amount": ""
+            },
+            "chaotic-potency": {},
+            "chaotic-persistence": {
+              "amount": ""
+            },
+            "chaotic-potency-2": {
+              "amount": "50"
+            }
+          },
+          {
+            "danger-time": {},
+            "improved-alacrity": {},
+            "chronophantasma": {},
+            "flow-of-time": {}
           }
         ]
       }

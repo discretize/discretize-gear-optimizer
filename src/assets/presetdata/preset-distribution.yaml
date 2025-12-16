@@ -1242,7 +1242,7 @@ list:
         url: https://www.youtube.com/watch?v=FxyrdWkW0dU
         log: https://dps.report/IiDV-20250305-162949_golem
 
-  - name: Condi Chrono (Approx.)
+  - name: Condi Chrono Scepter (Approx.)
     profession: Chronomancer
     value:
       {
@@ -1264,6 +1264,28 @@ list:
       - author: '[Vs] Nico'
         url: https://www.youtube.com/watch?v=wvL3EvG7iZs
         log: https://dps.report/WItI-20220804-134453_golem
+
+  - name: Boon Condi Chrono Staff SC/D
+    profession: Chronomancer
+    value:
+      {
+        "values2": { "Power": 1788, "Power2": 463, "Burning": 1.8, "Bleeding": 1.08, "Poisoned": 1.16, "Torment": 21.04, "Confusion": 16.93 }
+      }
+    credit:
+      - author: Mastro
+        url: https://www.youtube.com/watch?v=mlo70yinQzc
+        log: https://dps.report/Qv1n-20250510-031308_golem
+
+  - name: Condi Chrono Staff SC/D
+    profession: Chronomancer
+    value:
+      {
+        "values2": { "Power": 1762, "Power2": 474, "Burning": 2.24, "Bleeding": 1.14, "Poisoned": 1.11, "Torment": 28.07, "Confusion": 17.22 }
+      }
+    credit:
+      - author: Mastro
+        url: https://www.youtube.com/watch?v=lPLC5WUdu08
+        log: https://dps.report/sWjp-20250506-041500_golem
 
   # https://optimizer.discretize.eu/?s=ReeYNhV3v1
   # Above link out-of-date but good basis

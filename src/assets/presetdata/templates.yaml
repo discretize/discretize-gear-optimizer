@@ -78,6 +78,28 @@ list:
         weaponType: Two-handed
         outdated: true
 
+      - name: Boon Condi Chrono Staff SC/D (Approx.)
+        id: condi-chrono-staff-scepter-boon
+        specialization: Chronomancer
+        boonType: Condi
+        priority: Condi Boon 0%
+        distribution: Boon Condi Chrono Staff SC/D
+        traits: Boon Condi Chrono Staff SC/D
+        extras: Condi Chrono Staff SC/D
+        weaponType: Two-handed
+        outdated: false
+
+      - name: Boon Condi Chrono Scepter
+        id: condi-chrono-stm
+        specialization: Chronomancer
+        boonType: Condi
+        priority: Condi Boon 0%
+        distribution: Boon Condi Chrono Scepter
+        traits: Boon Condi Chrono Scepter
+        extras: Boon Condi Chrono Scepter
+        weaponType: Dual wield
+        outdated: true
+
       - name: Boon Power Chrono DT Spear
         id: pchrono-boon-dt-spear
         specialization: Chronomancer
@@ -120,26 +142,26 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Boon Condi Chrono Scepter
-        id: condi-chrono-stm
+      - name: Condi Chrono Staff SC/D (Approx.)
+        id: condi-chrono-staff-scepter
         specialization: Chronomancer
         boonType: Condi
-        priority: Boon Condi Chrono Scepter 10%
-        distribution: Boon Condi Chrono Scepter
-        traits: Boon Condi Chrono Scepter
-        extras: Boon Condi Chrono Scepter
-        weaponType: Dual wield
-        outdated: true
+        priority: Condi Boon 0%
+        distribution: Condi Chrono Staff SC/D
+        traits: Condi Chrono Staff SC/D
+        extras: Condi Chrono Staff SC/D
+        weaponType: Two-handed
+        outdated: false
 
-      - name: Condi Chrono
-        id: condi-chrono
+      - name: Condi Chrono Scepter
+        id: condi-chrono-scepter
         specialization: Chronomancer
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Chrono (Approx.)
-        traits: Condi Chrono
-        extras: Condi Chrono (Approx.)
-        weaponType: Two-handed
+        distribution: Condi Chrono Scepter (Approx.)
+        traits: Condi Chrono Scepter
+        extras: Condi Chrono Scepter (Approx.)
+        weaponType: Dual wield
         outdated: true
 
       # - name: Alacrity Power Chrono GS
@@ -231,7 +253,7 @@ list:
         id: alacmirage
         specialization: Mirage
         boonType: Condi
-        priority: Condi Alacrity Mirage 0%
+        priority: Condi Boon 0%
         distribution: Alacrity Staff Mirage
         traits: Alacrity Staff Mirage
         extras: Alacrity Staff Mirage
@@ -242,7 +264,7 @@ list:
       #   id: alac-staxe-mirage
       #   specialization: Mirage
       #   boonType: Condi
-      #   priority: Condi Alacrity Mirage 0%
+      #   priority: Condi Boon 0%
       #   distribution: Alacrity Staff / Axe Mirage
       #   traits: Alacrity Staff / Axe Mirage
       #   extras: Alacrity Staff Mirage
