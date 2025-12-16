@@ -911,16 +911,16 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: Alacrity Condi Tempest Pistol
+      - name: Alacrity Condi Tempest Scepter
         id: ctemp-alac
         specialization: Tempest
         boonType: Condi
-        priority: Alacrity Condi Tempest 40%
-        distribution: Alacrity Condi Tempest Pistol
-        traits: Alacrity Condi Tempest Pistol
+        priority: Alacrity Condi Tempest 31%
+        distribution: Alacrity Condi Tempest Scepter
+        traits: Alacrity Condi Tempest Scepter
         extras: Condi Tempest
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Alacrity Power Tempest Sword
         id: ptemp-alac-sw

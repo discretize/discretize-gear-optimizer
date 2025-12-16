@@ -4285,7 +4285,7 @@ list:
         "skills": {}
       }
 
-  - name: Alacrity Condi Tempest Pistol
+  - name: Alacrity Condi Tempest Scepter
     profession: Tempest
     traits:
       {
@@ -4315,7 +4315,7 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "42"
+              "amount": "65"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -4349,8 +4349,13 @@ list:
     skills:
       {
         "skills": {
-          "signet-of-fire": {},
-          "signet-of-earth": {}
+          "signet-of-fire": {
+            "amount": "22"
+          },
+          "signet-of-earth": {},
+          "ele-summon-dps": {
+            "amount": "1101"
+          }
         }
       }
 

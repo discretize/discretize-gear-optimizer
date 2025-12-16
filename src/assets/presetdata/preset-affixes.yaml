@@ -383,13 +383,13 @@ list:
         "minQuicknessDuration": "0"
       }
 
-  - name: Alacrity Condi Tempest 40%
+  - name: Alacrity Condi Tempest 31%
     hidden: true
     value:
       {
         "affixes": ["Viper", "Ritualist", "Sinister"],
         "optimizeFor": "Damage",
-        "minBoonDuration": "40",
+        "minBoonDuration": "31",
         "minQuicknessDuration": "0"
       }
 
