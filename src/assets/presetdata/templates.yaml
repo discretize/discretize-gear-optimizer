@@ -1126,6 +1126,17 @@ list:
         weaponType: Dual wield
         outdated: false
 
+      - name: Quickness Condi Catalyst P/W
+        id: condi-cat-quick-pw
+        specialization: Catalyst
+        boonType: Condi
+        priority: Condi Boon
+        distribution: Condi Catalyst P/W
+        traits: Quickness Condi Catalyst P/W
+        extras: Condi Catalyst P/W
+        weaponType: Dual wield
+        outdated: false
+
       - name: Quickness Power Catalyst Scepter Inferno
         id: power-cat-quick-inferno
         specialization: Catalyst
@@ -1151,17 +1162,6 @@ list:
           extras: Power Catalyst Scepter PF (Fractal)
         raid:
           extras: Power Catalyst Scepter PF (Raid)
-        weaponType: Dual wield
-        outdated: false
-
-      - name: Quickness Condi Catalyst P/W
-        id: condi-cat-quick-pw
-        specialization: Catalyst
-        boonType: Condi
-        priority: Condi Boon
-        distribution: Condi Catalyst P/W
-        traits: Quickness Condi Catalyst P/W
-        extras: Condi Catalyst P/W
         weaponType: Dual wield
         outdated: false
 
