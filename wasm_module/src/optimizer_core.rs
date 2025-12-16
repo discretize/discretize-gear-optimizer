@@ -15,6 +15,8 @@ use std::cell::RefCell;
 use wasm_bindgen::JsValue;
 use web_sys::{console, DedicatedWorkerGlobalScope};
 
+// added comment
+
 /// Starts the optimization process. Calculates all possible combinations for the given chunk (subtree) of the affix tree.
 /// This process is independent of the other chunks.
 ///
