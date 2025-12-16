@@ -36,6 +36,15 @@
           Damage Reduction: [10%, unknown]
       gw2id: 5571
 
+    - id: signet-of-earth-bug
+      text: Signet of Earth
+      subText: 'bug: toughness from activation w/ trait'
+      modifiers:
+        attributes:
+          Toughness: [180, buff]
+      gw2id: 5571
+      temporaryBuff: true
+
     - id: woven-fire
       text: Woven Fire
       subText: woven fire / perfect weave

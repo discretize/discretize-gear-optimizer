@@ -1094,6 +1094,7 @@
   "skillSubText_Total Flat Summon Damage (no modifiers)": "Total Flat Summon Damage (no modifiers)",
   "skillSubText_Total Flat Turret Damage (no modifiers)": "Total Flat Turret Damage (no modifiers)",
   "skillSubText_allies": "allies",
+  "skillSubText_bug: toughness from activation w/ trait": "bug: toughness from activation w/ trait",
   "skillSubText_damage buff only": "damage buff only",
   "skillSubText_damage over time tick (approx.)": "damage over time tick (approx.)",
   "skillSubText_damage reduction (tooltip is incorrect)": "damage reduction (tooltip is incorrect)",
