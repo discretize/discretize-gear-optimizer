@@ -429,6 +429,15 @@ export const nourishmentDict = [
   'peppered-cured-meat-flatbread',
   'spherified-peppercorn-spiced-oyster-soup',
   'plate-of-peppered-clear-truffle-ravioli',
+  'sous-vide-steak-with-mint-parsley-sauce',
+  'plate-of-coq-au-vin-with-mint-garnish',
+  'mint-strawberry-cheesecake',
+  'plate-of-beef-carpaccio-with-mint-garnish',
+  'eggs-benedict-with-mint-parsley-sauce',
+  'plate-of-poultry-aspic-with-mint-garnish',
+  'mint-and-veggie-flatbread',
+  'mint-pear-cured-meat-flatbread',
+  'plate-of-clear-truffle-and-mint-ravioli',
 ];
 
 export const buffsDict = [

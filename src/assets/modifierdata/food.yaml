@@ -595,24 +595,6 @@
       gw2id: 91713
       temporaryBuff: false
 
-    - id: spherified-oyster-soup-with-mint-garnish
-      text: Spherified Oyster Soup with Mint Garnish
-      hasLifesteal: false
-      modifiers:
-        attributes:
-          Power: [45, converted]
-          Precision: [45, converted]
-          Toughness: [45, converted]
-          Vitality: [45, converted]
-          Concentration: [45, converted]
-          Condition Damage: [45, converted]
-          Expertise: [45, converted]
-          Ferocity: [45, converted]
-          Healing Power: [45, converted]
-          Outgoing Healing: 10%
-      gw2id: 91748
-      temporaryBuff: false
-
     - id: dragon's-revelry-starcake
       text: Flight of Sushi
       subText: / generic oyster soup
@@ -684,6 +666,113 @@
 
 - section: Hybrid Food
   items:
+
+    - id: spherified-oyster-soup-with-mint-garnish
+      text: Spherified Oyster Soup with Mint Garnish
+      hasLifesteal: false
+      modifiers:
+        attributes:
+          Power: [45, converted]
+          Precision: [45, converted]
+          Toughness: [45, converted]
+          Vitality: [45, converted]
+          Concentration: [45, converted]
+          Condition Damage: [45, converted]
+          Expertise: [45, converted]
+          Ferocity: [45, converted]
+          Healing Power: [45, converted]
+          Outgoing Healing: 10%
+      gw2id: 91748
+      temporaryBuff: false
+
+    - id: sous-vide-steak-with-mint-parsley-sauce
+      text: Sous-Vide Steak with Mint-Parsley Sauce
+      modifiers:
+        attributes:
+          Power: [100, converted]
+          Ferocity: [70, converted]
+          Outgoing Healing: 10%
+      gw2id: 91801
+      temporaryBuff: false
+
+    - id: plate-of-coq-au-vin-with-mint-garnish
+      text: Plate of Coq Au Vin with Mint Garnish
+      modifiers:
+        attributes:
+          Power: [100, converted]
+          Precision: [70, converted]
+          Outgoing Healing: 10%
+      gw2id: 91822
+      temporaryBuff: false
+
+    - id: mint-strawberry-cheesecake
+      text: Mint Strawberry Cheesecake
+      modifiers:
+        attributes:
+          Concentration: [100, converted]
+          Outgoing Healing: 10%
+      gw2id: 91834
+      temporaryBuff: false
+
+    - id: plate-of-beef-carpaccio-with-mint-garnish
+      text: Plate of Beef Carpaccio with Mint Garnish
+      modifiers:
+        attributes:
+          Concentration: [100, converted]
+          Power: [70, converted]
+          Outgoing Healing: 10%
+      gw2id: 91809
+      temporaryBuff: false
+
+    - id: eggs-benedict-with-mint-parsley-sauce
+      text: Eggs Benedict with Mint-Parsley Sauce
+      modifiers:
+        attributes:
+          Concentration: [100, converted]
+          Expertise: [70, converted]
+          Outgoing Healing: 10%
+      gw2id: 91758
+      temporaryBuff: false
+
+    - id: plate-of-poultry-aspic-with-mint-garnish
+      text: Plate of Poultry Aspic with Mint Garnish
+      modifiers:
+        attributes:
+          Concentration: [100, converted]
+          Toughness: [70, converted]
+          Outgoing Healing: 10%
+      gw2id: 91864
+      temporaryBuff: false
+
+    - id: mint-and-veggie-flatbread
+      text: Mint and Veggie Flatbread
+      modifiers:
+        attributes:
+          Expertise: [100, converted]
+          Condition Damage: [70, converted]
+          Outgoing Healing: 10%
+      gw2id: 91727
+      temporaryBuff: false
+
+    - id: mint-pear-cured-meat-flatbread
+      text: Mint-Pear Cured Meat Flatbread
+      modifiers:
+        attributes:
+          Condition Damage: [100, converted]
+          Expertise: [70, converted]
+          Outgoing Healing: 10%
+      gw2id: 91703
+      temporaryBuff: false
+
+    - id: plate-of-clear-truffle-and-mint-ravioli
+      text: Plate of Clear Truffle and Mint Ravioli
+      modifiers:
+        attributes:
+          Vitality: [100, converted]
+          Toughness: [70, converted]
+          Outgoing Healing: 10%
+      gw2id: 91797
+      temporaryBuff: false
 
     - id: passion-fruit-tapioca-pudding
       text: Bowl of Passion Fruit Tapioca Pudding
