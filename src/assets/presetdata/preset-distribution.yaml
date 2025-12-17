@@ -489,7 +489,7 @@ list:
     profession: Tempest
     value:
       {
-        "values2": { "Power": 2657, "Power2": 0, "Burning": 10.65, "Bleeding": 19.24, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2588, "Power2": 0, "Burning": 10.65, "Bleeding": 19.24, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[NA] Crone'
