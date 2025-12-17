@@ -1016,7 +1016,7 @@ export class OptimizerCore {
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    delete character.scenarios;
+    // delete character.scenarios;
 
     return character as CharacterWithResults;
   }
