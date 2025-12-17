@@ -79,6 +79,8 @@ export interface OptimizerCoreSettingsPerCalculation {
 
   shouldDisplayExtras: ShouldDisplayExtras;
   cachedFormState: CachedFormState;
+
+  includeScenarioDataInCharacters: boolean;
 }
 
 type GuaranteedBaseAttributes = Record<

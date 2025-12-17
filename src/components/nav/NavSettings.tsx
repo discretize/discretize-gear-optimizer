@@ -21,10 +21,12 @@ import { useAppDispatch } from '../../state/redux-hooks';
 import {
   changeHeuristics,
   changeHwThreads,
+  changeIncludeScenarioDataInCharacters,
   changeMulticore,
   getDefaultHwThreads,
   getHeuristics,
   getHwThreadsString,
+  getIncludeScenarioDataInCharacters,
   getMulticore,
   getSelectedTemplate,
   parseHwThreads,
@@ -84,9 +86,8 @@ export default function NavSettings({
   const hwThreadsString = useSelector(getHwThreadsString);
   const defaultHwThreads = useSelector(getDefaultHwThreads);
   const enableMulticore = useSelector(getMulticore);
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const enableHeuristics = useSelector(getHeuristics);
+  const includeScenarioDataInCharacters = useSelector(getIncludeScenarioDataInCharacters);
 
   const [open, setOpen] = React.useState(false);
 
@@ -223,6 +224,19 @@ export default function NavSettings({
             label={t('Enable heuristics')}
             sx={{ display: 'none' }}
             checked={enableHeuristics}
+          />
+
+          <FormControlLabel
+            control={
+              <Checkbox
+                onChange={(e) => {
+                  dispatch(changeIncludeScenarioDataInCharacters(e.target.checked));
+                }}
+              />
+            }
+            label={t('Include scenario data in internal character JSON')}
+            slotProps={{ typography: { variant: 'caption' } }}
+            checked={includeScenarioDataInCharacters}
           />
         </>
       )}

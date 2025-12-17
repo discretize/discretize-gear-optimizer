@@ -1014,9 +1014,11 @@ export class OptimizerCore {
       results.unbuffedAttributes = temp.scenarios[0].attributes;
     }
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    delete character.scenarios;
+    if (!settings.includeScenarioDataInCharacters) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      delete character.scenarios;
+    }
 
     return character as CharacterWithResults;
   }

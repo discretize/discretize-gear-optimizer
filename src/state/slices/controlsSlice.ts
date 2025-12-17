@@ -126,6 +126,7 @@ const initialState: {
   multicore: boolean;
   hwThreads: string;
   heuristics: boolean;
+  includeScenarioDataInCharacters: boolean;
   error: string;
 } = {
   list: [],
@@ -149,6 +150,7 @@ const initialState: {
   multicore: false,
   hwThreads: savedHwThreads,
   heuristics: false,
+  includeScenarioDataInCharacters: false,
   error: '',
 };
 
@@ -262,6 +264,9 @@ export const controlSlice = createSlice({
     changeHeuristics: (state, action: PayloadAction<boolean>) => {
       state.heuristics = action.payload;
     },
+    changeIncludeScenarioDataInCharacters: (state, action: PayloadAction<boolean>) => {
+      state.includeScenarioDataInCharacters = action.payload;
+    },
   },
 });
 
@@ -292,6 +297,8 @@ export const getJsHeuristicsTarget = (state: RootState) =>
   state.optimizer.control.jsHeuristicsTarget;
 export const getMulticore = (state: RootState) => state.optimizer.control.multicore;
 export const getHeuristics = (state: RootState) => state.optimizer.control.heuristics;
+export const getIncludeScenarioDataInCharacters = (state: RootState) =>
+  state.optimizer.control.includeScenarioDataInCharacters;
 
 export const defaultRustThreads = navigator.hardwareConcurrency || 4; // 4 seems to be a sensible default
 
@@ -346,6 +353,7 @@ export const {
   changeHwThreads,
   changeMulticore,
   changeHeuristics,
+  changeIncludeScenarioDataInCharacters,
 } = controlSlice.actions;
 
 export default controlSlice.reducer;

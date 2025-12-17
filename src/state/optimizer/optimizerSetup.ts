@@ -46,7 +46,7 @@ import {
 } from '../../utils/usefulFunctions';
 import { getAttackRate, getMovementUptime } from '../slices/boss';
 import { getBuffsModifiers } from '../slices/buffs';
-import { getProfession } from '../slices/controlsSlice';
+import { getIncludeScenarioDataInCharacters, getProfession } from '../slices/controlsSlice';
 import { getDistributionNew } from '../slices/distribution';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
 import { getExtrasCombinationsAndModifiers, getExtrasIds } from '../slices/extras';
@@ -189,6 +189,7 @@ export function createSettingsPerCalculation(
   const unmodifiedDistribution = getDistributionNew(reduxState);
   const attackRateText = getAttackRate(reduxState);
   const movementUptimeText = getMovementUptime(reduxState);
+  const includeScenarioDataInCharacters = getIncludeScenarioDataInCharacters(reduxState);
 
   const gameMode = getGameMode(reduxState);
   const isWvW = gameMode === 'wvw';
@@ -478,6 +479,7 @@ export function createSettingsPerCalculation(
     gameMode,
     affixes,
     jsHeuristicsData,
+    includeScenarioDataInCharacters,
   };
 
   return settings;
