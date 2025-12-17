@@ -1933,7 +1933,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Power Tempest Bloodstone (Fractal)
+  - name: Power Tempest Inferno (Fractal)
     profession: Tempest
     value:
       {
@@ -1949,8 +1949,8 @@ list:
             "ranger": {}
           },
           "Relics": {
-            "bloodstone-relic": {
-              "amount": "0.6"
+            "fireworks-relic": {
+              "amount": "100"
             }
           },
           "Sigil1": {
@@ -1979,7 +1979,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Power Tempest Bloodstone (Raid)
+  - name: Power Tempest Inferno (Raid)
     profession: Tempest
     value:
       {
@@ -1995,8 +1995,8 @@ list:
             "ranger": {}
           },
           "Relics": {
-            "bloodstone-relic": {
-              "amount": "0.6"
+            "fireworks-relic": {
+              "amount": "100"
             }
           },
           "Sigil1": {

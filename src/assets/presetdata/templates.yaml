@@ -1019,9 +1019,9 @@ list:
         distribution: Power Tempest Inferno
         traits: Power Tempest Inferno
         fractal:
-          extras: Power Tempest Bloodstone (Fractal)
+          extras: Power Tempest Inferno (Fractal)
         raid:
-          extras: Power Tempest Bloodstone (Raid)
+          extras: Power Tempest Inferno (Raid)
         weaponType: Dual wield
         outdated: false
 
@@ -1187,7 +1187,7 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: Condi Catalyst P/D Steamshrieker
+      - name: Condi Catalyst P/D Steamshrieker (Approx.)
         id: condi-cat-pd
         specialization: Catalyst
         boonType: Condi

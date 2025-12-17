@@ -613,6 +613,23 @@ const testPresets = async () => {
         Object.keys(entry.skills.skills).forEach((id) =>
           gentleAssert(allTraitIds.has(id), `${entry.name} has nonexistent skill id: ${id}`),
         );
+
+        const { traits, skills } = entry;
+
+        const strengthOfStone = 275;
+        if (traits.selectedTraits.some((arr) => arr.some((trait) => trait === strengthOfStone))) {
+          gentleAssert(
+            [undefined, '', '100'].includes(skills.skills['signet-of-fire']?.amount),
+            `${entry.name} traits has Strength of Stone but partial fire signet uptime`,
+          );
+        }
+
+        if (entry.name.includes('Inferno')) {
+          gentleAssert(
+            ![undefined, '', '100'].includes(skills.skills['signet-of-fire']?.amount),
+            `${entry.name} traits has Inferno in the name but 100% fire signet uptime`,
+          );
+        }
       }
       if (type === 'distribution') {
         if (
