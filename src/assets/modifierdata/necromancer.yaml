@@ -469,7 +469,7 @@
       text: Vital Persistence
       modifiers:
         attributes:
-          Vitality: [180, converted]
+          Vitality: [180, buff]
       gw2id: 861
       defaultEnabled: true
       temporaryBuff: false
