@@ -623,6 +623,13 @@ const testPresets = async () => {
             `${entry.name} traits has Strength of Stone but partial fire signet uptime`,
           );
         }
+
+        if (entry.name.includes('Inferno')) {
+          gentleAssert(
+            ![undefined, '', '100'].includes(skills.skills['signet-of-fire']?.amount),
+            `${entry.name} traits has Inferno in the name but 100% fire signet uptime`,
+          );
+        }
       }
       if (type === 'distribution') {
         if (
