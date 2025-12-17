@@ -644,7 +644,7 @@ list:
     profession: Catalyst
     value:
       {
-        "values2": { "Power": 2007, "Power2": 0, "Burning": 8.8, "Bleeding": 25.31, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1953, "Power2": 0, "Burning": 8.8, "Bleeding": 25.31, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Kadenar
