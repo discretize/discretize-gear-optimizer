@@ -448,3 +448,6 @@ export const setup = (
     : calculate(reduxState, threads);
 };
 export const next = () => generator.next();
+
+// called to test if the worker has been killed/unloaded
+export const heartbeat = () => true;

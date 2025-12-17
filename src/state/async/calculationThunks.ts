@@ -21,9 +21,23 @@ import { getParsedJsHeuristicsTarget } from '../slices/extras';
 
 let resume: (() => void) | undefined;
 
-const worker = new ComlinkWorker<typeof import('../optimizer/optimizer')>(
-  new URL('../optimizer/optimizer.ts', import.meta.url),
-);
+const createWorker = () =>
+  new ComlinkWorker<typeof import('../optimizer/optimizer')>(
+    new URL('../optimizer/optimizer.ts', import.meta.url),
+  );
+
+let worker = createWorker();
+
+// worker may not exist if page was navigated forward/back
+const makeSureWorkerExists = () =>
+  new Promise((resolve, reject) => {
+    const heartbeat: Promise<boolean> = worker.heartbeat();
+    heartbeat.then(resolve);
+    setTimeout(reject, 500);
+  }).catch(() => {
+    console.log('lost worker connection! creating new worker');
+    worker = createWorker();
+  });
 
 export const startCalc: AppThunk = async (dispatch, getState) => {
   const reduxState = getState();
@@ -54,6 +68,7 @@ export const startCalc: AppThunk = async (dispatch, getState) => {
     let elapsed = 0;
     let timer = performance.now();
 
+    await makeSureWorkerExists();
     await worker.setup(reduxState, jsHeuristicsEnabled, jsHeuristicsTarget, threads);
 
     let nextPromise = worker.next();
