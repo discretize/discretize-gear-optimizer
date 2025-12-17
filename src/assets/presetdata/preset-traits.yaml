@@ -4728,13 +4728,13 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "68"
+              "amount": "70"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "68"
+              "amount": "70"
             },
             "pyromancers-training": {},
             "persisting-flames": {
@@ -4766,7 +4766,7 @@ list:
             "gathered-focus": {},
             "hardy-conduit": {},
             "transcendent-tempest": {
-              "amount": "50"
+              "amount": "65"
             },
             "tempestuous-aria": {
               "amount": ""
@@ -4778,7 +4778,10 @@ list:
       {
         "skills": {
           "ele-summon-dps": {
-            "amount": "1278"
+            "amount": "1417"
+          },
+          "signet-of-fire": {
+            "amount": "20"
           }
         }
       }

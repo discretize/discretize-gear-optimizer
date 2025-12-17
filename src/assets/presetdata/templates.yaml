@@ -1019,9 +1019,9 @@ list:
         distribution: Power Tempest Inferno
         traits: Power Tempest Inferno
         fractal:
-          extras: Power Tempest Bloodstone (Fractal)
+          extras: Power Tempest Inferno (Fractal)
         raid:
-          extras: Power Tempest Bloodstone (Raid)
+          extras: Power Tempest Inferno (Raid)
         weaponType: Dual wield
         outdated: false
 
