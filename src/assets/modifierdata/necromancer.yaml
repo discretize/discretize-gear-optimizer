@@ -793,7 +793,7 @@
       minor: true
       modifiers:
         attributes:
-          Vitality: [240, converted]
+          Vitality: [240, buff]
       gw2id: 2186
       defaultEnabled: true
       temporaryBuff: false
