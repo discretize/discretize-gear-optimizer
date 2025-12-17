@@ -632,7 +632,7 @@ list:
     profession: Catalyst
     value:
       {
-        "values2": { "Power": 2463, "Power2": 0, "Burning": 8.61, "Bleeding": 23.3, "Poisoned": 0.15, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2397, "Power2": 0, "Burning": 8.61, "Bleeding": 23.3, "Poisoned": 0.15, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Maragon

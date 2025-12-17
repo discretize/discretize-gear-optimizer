@@ -5717,7 +5717,7 @@ list:
       {
         "skills": {
           "signet-of-fire": {
-            "amount": "13"
+            "amount": ""
           },
           "signet-of-earth": {},
           "ele-summon-dps": {
@@ -5816,7 +5816,7 @@ list:
       {
         "skills": {
           "signet-of-fire": {
-            "amount": "14"
+            "amount": ""
           },
           "signet-of-earth": {},
           "ele-summon-dps": {
