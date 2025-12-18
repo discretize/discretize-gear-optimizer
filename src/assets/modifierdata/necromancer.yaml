@@ -447,6 +447,17 @@
       defaultEnabled: true
       temporaryBuff: true
 
+    - id: last-rites
+      text: last-rites
+      subText: high health
+      minor: true
+      modifiers:
+        attributes:
+          Healing Power: [150, converted] # tested dec 2025 by nimon!
+      gw2id: 1931
+      defaultEnabled: true
+      temporaryBuff: false # or activeOutOfCombat if we give this amount data
+
 - section: Soul Reaping
   id: 50
   items:
