@@ -26,6 +26,7 @@ import type {
   OptimizerCoreSettings,
   Results,
   Scenario,
+  ScenarioAttributeSummary,
   ScenarioProcessed,
 } from './types/optimizerTypes';
 import { iteratePartitions } from './utils/combinatorics';
@@ -974,6 +975,29 @@ export class OptimizerCore {
         slope: withOne[`${key} DPS`] - withZero[`${key} DPS`],
         intercept: withZero[`${key} DPS`],
       };
+    }
+
+    if (character.scenarios.length > 1) {
+      const scenarioAttributeSummary: ScenarioAttributeSummary = {};
+      let hasData = false;
+
+      const attrs = ['Critical Chance', 'Condition Duration'] as const;
+      for (const attr of attrs) {
+        const map = new Map<number, number>();
+        scenarios.forEach((scenario) =>
+          map.set(
+            scenario.attributes[attr],
+            (map.get(scenario.attributes[attr]) ?? 0) + scenario.fraction,
+          ),
+        );
+        if (map.size > 1) {
+          scenarioAttributeSummary[attr] = [...map.entries()].sort((a, b) => a[0] - b[0]);
+          hasData = true;
+        }
+      }
+      if (hasData) {
+        results.scenarioAttributeSummary = scenarioAttributeSummary;
+      }
     }
 
     // out of combat hero panel simulation (overrides both baseAttributes and modifiers)

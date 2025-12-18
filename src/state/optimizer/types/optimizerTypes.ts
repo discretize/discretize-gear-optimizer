@@ -161,6 +161,8 @@ interface CoefficientHelperValue {
 }
 export type EffectiveDistributionKey = DistributionNameInternal | 'Other' | 'Siphon';
 type GainLossKey = 'Power' | 'Precision' | 'Ferocity' | 'Condition Damage' | 'Expertise';
+
+export type ScenarioAttributeSummary = Partial<Record<AttributeName, [number, number][]>>;
 export interface Results {
   value: number;
   indicators: Record<IndicatorName, number>;
@@ -170,6 +172,7 @@ export interface Results {
   damageBreakdown?: Partial<Record<EffectiveDistributionKey, number>>;
   coefficientHelper?: Partial<Record<DistributionNameInternal, CoefficientHelperValue>>;
   unbuffedAttributes?: Attributes;
+  scenarioAttributeSummary?: ScenarioAttributeSummary;
 }
 export interface CharacterUnprocessed {
   id?: string;

@@ -21,6 +21,7 @@ import OtherAttributes from './OtherAttributes';
 import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
 import ResultCharacter from './ResultCharacter';
+import ScenarioAttributeSummary from './ScenarioAttributeSummary';
 import SpecialDurations from './SpecialDurations';
 import TemplateHelperSections from './TemplateHelperSections';
 
@@ -89,6 +90,7 @@ const ResultDetails = () => {
           <MultiplierBreakdown character={character} />
         </Grid>
       </Grid>
+      <ScenarioAttributeSummary character={character} />
       <AppliedModifiers character={character} />
       <TemplateHelperSections character={character} />
     </ErrorBoundary>
