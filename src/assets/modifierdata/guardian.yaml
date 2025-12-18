@@ -9,7 +9,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Power: [180, buff]
+          Power: [180, buff] # tested dec 2025 by nimon!
       gw2id: 9093
       temporaryBuff: activeOutOfCombat
 
@@ -22,7 +22,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Power: [216, buff]
+          Power: [216, buff] # tested dec 2025 by nimon!
       gw2id: 9093
       temporaryBuff: activeOutOfCombat
 
@@ -45,7 +45,7 @@
       text: Signet of Mercy
       modifiers:
         attributes:
-          Concentration: [120, buff]
+          Concentration: [120, buff] # tested dec 2025 by nimon!
       gw2id: 9163
       temporaryBuff: false
 
@@ -54,7 +54,7 @@
       subText: traited
       modifiers:
         attributes:
-          Concentration: [150, buff]
+          Concentration: [150, buff] # tested dec 2025 by nimon!
       gw2id: 9163
       temporaryBuff: false
 
@@ -66,7 +66,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Condition Damage: [180, buff]
+          Condition Damage: [180, buff] # tested dec 2025 by nimon!
       gw2id: 9151
       temporaryBuff: activeOutOfCombat
 
@@ -79,7 +79,7 @@
       subText: traited
       modifiers:
         attributes:
-          Condition Damage: [216, buff]
+          Condition Damage: [216, buff] # tested dec 2025 by nimon!
       gw2id: 9151
       temporaryBuff: activeOutOfCombat
 
@@ -193,7 +193,7 @@
       subText: base
       modifiers:
         attributes:
-          Power: [120, buff] #confirmed by Cat
+          Power: [120, buff] # tested dec 2025 by nimon!
       gw2id: 653
       defaultEnabled: true
       temporaryBuff: false
@@ -207,7 +207,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Power: [120, converted] #confirmed by Cat
+          Power: [120, converted] # tested dec 2025 by nimon!
       gw2id: 653
       defaultEnabled: true
       temporaryBuff: true # assume the user is on a dual-wield set
@@ -239,7 +239,7 @@
       subText: base (+80 prec)
       modifiers:
         attributes:
-          Precision: [80, buff] # confirmed from bench hero panel
+          Precision: [80, buff] # tested dec 2025 by nimon!
       gw2id: 566
       defaultEnabled: true
       temporaryBuff: false
@@ -253,7 +253,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Power: [80, converted] # found by Cat
+          Power: [80, converted] # tested dec 2025 by nimon!
       gw2id: 566
       defaultEnabled: true
       temporaryBuff: activeOutOfCombat # assume the user is on a dual-wield set
@@ -289,7 +289,7 @@
       modifiers:
         attributes:
           Critical Chance: 10%
-          Ferocity: [150, buff]
+          Ferocity: [150, buff] # tested dec 2025 by nimon!
       gw2id: 568
       defaultEnabled: true
       temporaryBuff: true
@@ -329,7 +329,7 @@
       subText: with shield
       modifiers:
         attributes:
-          Toughness: [240, buff]
+          Toughness: [240, buff] # tested dec 2025 by nimon!
       gw2id: 580
       defaultEnabled: true
       temporaryBuff: activeOutOfCombat # assume the user is on a dual-wield set
@@ -359,10 +359,10 @@
       subText: base
       modifiers:
         attributes:
-          Concentration: [120, buff] # tested by Stephan
+          Concentration: [120, buff] # tested dec 2025 by nimon!
       wvwModifiers:
         attributes:
-          Concentration: [60, buff] # tested by Stephan
+          Concentration: [60, buff] # tested dec 2025 by nimon!
       gw2id: 557
       defaultEnabled: true
       temporaryBuff: false
@@ -371,12 +371,12 @@
       text: Force of Will
       modifiers:
         attributes:
-          Vitality: [300, converted] # tested by Stephan
+          Vitality: [300, converted] # tested dec 2025 by nimon!
         conversion:
           Outgoing Healing: {Vitality: 0.01%}
       wvwModifiers:
         attributes:
-          Vitality: [300, converted] # tested by Stephan
+          Vitality: [300, converted] # tested dec 2025 by nimon!
         conversion:
           Outgoing Healing: {Vitality: 0.005%}
       gw2id: 1682
@@ -470,7 +470,7 @@
       minor: true
       modifiers:
         attributes:
-          Vitality: [180, converted]
+          Vitality: [180, converted] # tested dec 2025 by nimon!
       gw2id: 1896
       defaultEnabled: true
       temporaryBuff: false
@@ -573,14 +573,14 @@
       minor: true
       modifiers:
         attributes:
-          Condition Damage: [250, converted]
-          Healing Power: [250, converted]
-          Vitality: [250, converted] # confirmed from bench hero panel
+          Condition Damage: [250, converted] # tested dec 2025 by nimon!
+          Healing Power: [250, converted] # tested dec 2025 by nimon!
+          Vitality: [250, converted] # tested dec 2025 by nimon!
       wvwModifiers:
         attributes:
-          Condition Damage: [150, converted]
-          Healing Power: [150, converted]
-          Vitality: [150, converted]
+          Condition Damage: [150, converted] # tested dec 2025 by nimon!
+          Healing Power: [150, converted] # tested dec 2025 by nimon!
+          Vitality: [150, converted] # tested dec 2025 by nimon!
       gw2id: 2148
       defaultEnabled: true
       temporaryBuff: true
@@ -593,7 +593,7 @@
       text: Searing Pact
       modifiers:
         attributes:
-          Condition Damage: [120, converted]
+          Condition Damage: [120, converted] # tested dec 2025 by nimon!
       gw2id: 2191
       defaultEnabled: true
       temporaryBuff: false
@@ -602,7 +602,7 @@
       text: Power for Power
       modifiers:
         attributes:
-          Power: [120, converted]
+          Power: [120, converted] # tested dec 2025 by nimon!
       gw2id: 2190
       defaultEnabled: true
       temporaryBuff: false
@@ -611,7 +611,7 @@
       text: Conceited Curate
       modifiers:
         attributes:
-          Vitality: [180, converted]
+          Vitality: [180, converted] # tested dec 2025 by nimon!
       gw2id: 2187
       defaultEnabled: true
       temporaryBuff: false
@@ -684,7 +684,7 @@
       minor: true
       modifiers:
         attributes:
-          Vitality: [180, converted]
+          Vitality: [180, converted] # tested dec 2025 by nimon!
       gw2id: 2394
       defaultEnabled: true
       temporaryBuff: false

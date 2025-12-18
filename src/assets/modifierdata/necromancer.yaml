@@ -528,12 +528,12 @@
           correlation: false
       modifiers:
         attributes:
-          Concentration: [225, converted]
-          Expertise: [225, converted]
+          Concentration: [225, converted] # tested dec 2025 by nimon!
+          Expertise: [225, converted] # tested dec 2025 by nimon!
       wvwModifiers:
         attributes:
-          Concentration: [150, converted]
-          Expertise: [150, converted]
+          Concentration: [150, converted] # tested dec 2025 by nimon!
+          Expertise: [150, converted] # tested dec 2025 by nimon!
       gw2id: 2121
       defaultEnabled: true
       temporaryBuff: true
@@ -855,7 +855,7 @@
       subText: power bonus only
       modifiers:
         attributes:
-          Power: [240, converted] # tested by Jezereal
+          Power: [240, converted] # tested dec 2025 by nimon!
       gw2id: 2218
       defaultEnabled: true
       temporaryBuff: false
