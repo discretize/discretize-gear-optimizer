@@ -59,6 +59,9 @@ const modifierDirectory = './src/assets/modifierdata/';
 const allTraitIds = new Set();
 const allExtrasIds = new Set();
 
+const allByAddOrMult = Object.fromEntries(allDamageModes.map((mode) => [mode, []]));
+const allByConvertedOrBuff = Object.fromEntries(allAttributePointModes.map((mode) => [mode, []]));
+
 const testModifiers = async () => {
   const specializationDataJSON = await fs.readFile('./src/utils/mapping/specializations.json');
   const specializationData = JSON.parse(specializationDataJSON.toString());
@@ -313,7 +316,7 @@ const testModifiers = async () => {
           }
 
           if (attributes) {
-            parseAttributes(attributes, id, amountData);
+            parseAttributes(attributes, id, amountData, fileIsExtra);
           }
 
           if (conversion) {
@@ -340,6 +343,19 @@ const testModifiers = async () => {
       }
     }
   }
+
+  /*
+  Object.entries(allByAddOrMult).forEach(([mode, entries]) => {
+    console.log();
+    console.log(`all damage modifiers with mode ${mode}:`);
+    [...new Set(entries)].forEach((entry) => console.log(entry));
+  });
+  Object.entries(allByConvertedOrBuff).forEach(([mode, entries]) => {
+    console.log();
+    console.log(`all attribute bonuses with mode ${mode}:`);
+    [...new Set(entries)].forEach((entry) => console.log(entry));
+  });
+  */
 };
 
 const testBlacklist = (amountData, key, id) => {
@@ -372,6 +388,8 @@ function parseDamage(damage, id, amountData) {
     const allPairsMut = [...allPairs];
     while (allPairsMut.length) {
       const [amount, mode] = allPairsMut.splice(0, 2);
+
+      allByAddOrMult[mode]?.push(` - ${key} in ${id}`);
 
       parsePercent(amount, key, id);
       gentleAssert(allDamageModes.includes(mode), `invalid val ${allPairs} for ${key} in ${id}`);
@@ -417,7 +435,7 @@ function parseDamage(damage, id, amountData) {
   }
 }
 
-function parseAttributes(attributes, id, amountData) {
+function parseAttributes(attributes, id, amountData, fileIsExtra) {
   for (const [key, allPairs] of Object.entries(attributes)) {
     if (allAttributePointKeys.includes(key)) {
       gentleAssert(
@@ -434,6 +452,10 @@ function parseAttributes(attributes, id, amountData) {
       const allPairsMut = [...allPairs];
       while (allPairsMut.length) {
         const [amount, mode] = allPairsMut.splice(0, 2);
+
+        if (!fileIsExtra) {
+          allByConvertedOrBuff[mode]?.push(` - ${key} in ${id}`);
+        }
 
         parseNumber(amount, key, id);
         gentleAssert(
