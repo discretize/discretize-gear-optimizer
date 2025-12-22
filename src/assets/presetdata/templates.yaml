@@ -27,7 +27,7 @@ list:
         traits: Condi Virtuoso Dueling
         extras: Condi Virtuoso Dueling
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       # - name: Condi Virtuoso (sharpening sorrow)
       #   id: cvirt-sorrow

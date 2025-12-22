@@ -1296,19 +1296,16 @@ list:
         url: https://www.youtube.com/watch?v=lPLC5WUdu08
         log: https://dps.report/sWjp-20250506-041500_golem
 
-  # https://optimizer.discretize.eu/?s=ReeYNhV3v1
-  # Above link out-of-date but good basis
-  # 2 expertise 4 malign 12 precise infusions
   - name: Condi Virtuoso Dueling
     profession: Virtuoso
     value:
       {
-        "values2": { "Power": 3200, "Power2": 930, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 8.98, "Confusion": 3.39 }
+        "values2": { "Power": 2997, "Power2": 894, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 8.87, "Confusion": 3.22 }
       }
     credit:
-      - author: 'REMagic'
-        url: https://www.youtube.com/watch?v=8GvA8WZTl0M
-        log: https://dps.report/YeGx-20231205-223957_golem
+      - author: Mastro
+        url: https://www.youtube.com/watch?v=DkeftWZAUhc
+        log: https://dps.report/Jnxp-20250211-205106_golem
 
   # https://optimizer.discretize.eu/?s=tC0aBKlpv1
   - name: Condi Virtuoso Chaos
