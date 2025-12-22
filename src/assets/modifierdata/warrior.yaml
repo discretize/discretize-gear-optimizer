@@ -334,22 +334,6 @@
       gw2id: 1372
       defaultEnabled: true
 
-    - id: merciless-hammer
-      text: Merciless Hammer
-      subText: 'against defiant foes'
-      amountData:
-        label: '% hammer/mace skills'
-        default: 30 # approximated from october hammer qspb log
-        quantityEntered: 30
-      modifiers:
-        damage:
-          Outgoing Strike Damage: [25%, mult]
-      wvwModifiers:
-        damage:
-          Outgoing Strike Damage: [20%, mult]
-      gw2id: 1367
-      defaultEnabled: true
-
     - id: hardened-armor
       text: Hardened Armor
       subText: 100% resolution
