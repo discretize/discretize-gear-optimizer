@@ -536,7 +536,7 @@ list:
         }
       }
 
-  - name: Alacrity Staff Mirage
+  - name: Alacrity Condi Mirage Staff
     profession: Mirage
     traits:
       {
@@ -558,24 +558,23 @@ list:
             1950
           ],
           [
-            2110,
+            2141,
             2174,
             2070
           ]
         ],
         "items": [
           {
-            "illusionary-defense": {
-              "amount": ""
-            },
             "illusionary-membrane": {
               "amount": ""
             },
             "chaotic-potency": {},
-            "chaotic-potency-2": {
+            "chaotic-persistence": {
               "amount": ""
             },
-            "chaotic-persistence": {}
+            "chaotic-potency-2": {
+              "amount": ""
+            }
           },
           {
             "fencers-finesse": {
@@ -585,16 +584,19 @@ list:
             "superiority-complex": {
               "amount": ""
             },
-            "sharper-images-clone": {
-              "amount": "2.75"
-            },
+            "phantasmal-fury": {},
             "sharper-images-phantasm": {
-              "amount": "0.32"
+              "amount": "0.54"
             },
-            "phantasmal-fury": {}
+            "sharper-images-clone": {
+              "amount": "2.39"
+            }
           },
           {
             "nomads-endurance": {
+              "amount": ""
+            },
+            "phantom-pain": {
               "amount": ""
             }
           }

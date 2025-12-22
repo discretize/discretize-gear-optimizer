@@ -1019,7 +1019,7 @@ list:
       }
 
 
-  - name: Alacrity Staff Mirage
+  - name: Alacrity Condi Mirage Staff
     profession: Mirage
     value:
       {
@@ -1035,21 +1035,30 @@ list:
             "leadership": {}
           },
           "Relics": {
-            "fractal-relic": {}
+            "fractal-relic": {
+              "amount": ""
+            }
           },
           "Sigil1": {
             "bursting": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Enhancement": {
             "toxic-maintenance-oil": {},
-            "master-tuning-crystal": {}
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
-            "salsa-topped-veggie-flatbread": {}
+            "salsa-topped-veggie-flatbread": {},
+            "meaty-asparagus-skewer": {},
+            "meaty-rice-bowl": {},
+            "spherified-cilantro-oyster-soup": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: DPS Mirage (Raid)

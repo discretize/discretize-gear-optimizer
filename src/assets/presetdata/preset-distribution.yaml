@@ -1207,16 +1207,21 @@ list:
         url: https://www.youtube.com/watch?v=Z8Ni8RZ458k
         log: https://dps.report/wbK9-20231111-134616_golem
 
-  - name: Alacrity Staff Mirage
+
+  # includes June 24, 2025: added 2s bleed, torment, confusion per chaos vortex (0.628)
+  - name: Alacrity Condi Mirage Staff
     profession: Mirage
     value:
       {
-        "values2": { "Power": 1162, "Power2": 175, "Burning": 0.01, "Bleeding": 9.75, "Poisoned": 0.2, "Torment": 12.12, "Confusion": 18.48 }
+        "values2": { "Power": 1337, "Power2": 285, "Burning": 0, "Bleeding": 10.228, "Poisoned": 0.67, "Torment": 16.108, "Confusion": 18.218 }
       }
+      # {
+      #   "values2": { "Power": 1337, "Power2": 285, "Burning": 0, "Bleeding": 9.6, "Poisoned": 0.67, "Torment": 15.48, "Confusion": 17.59 }
+      # }
     credit:
       - author: Mastro
-        url: https://www.youtube.com/watch?v=RLll5GGvRjs
-        log: https://dps.report/xC5s-20231003-215812_golem
+        url: https://www.youtube.com/watch?v=p2hDluJb7oc
+        log: https://dps.report/F2vf-20250422-202359_golem
 
   - name: Condi Mirage Staxe IH Oasis
     profession: Mirage

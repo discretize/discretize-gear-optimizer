@@ -259,16 +259,16 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Alacrity Staff Mirage
+      - name: Alacrity Condi Mirage Staff (Approx.)
         id: alacmirage
         specialization: Mirage
         boonType: Condi
         priority: Condi Boon 0%
-        distribution: Alacrity Staff Mirage
-        traits: Alacrity Staff Mirage
-        extras: Alacrity Staff Mirage
+        distribution: Alacrity Condi Mirage Staff
+        traits: Alacrity Condi Mirage Staff
+        extras: Alacrity Condi Mirage Staff
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Condi Mirage Staxe IH Oasis
         id: condi-staxe-mirage
