@@ -109,6 +109,7 @@
   "Help": "Help",
   "Highlight differing gear": "Highlight differing gear",
   "Include ": "Include ",
+  "Include scenario data in internal character JSON": "Include scenario data in internal character JSON",
   "Includes the current options on this page and the currently selected character. Does not include every result in the table.": "Includes the current options on this page and the currently selected character. Does not include every result in the table.",
   "Includes the current selected options on this page. Does not include every result in the table.": "Includes the current selected options on this page. Does not include every result in the table.",
   "Including all account bonuses": "Including all account bonuses",
