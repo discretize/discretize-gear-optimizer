@@ -64,12 +64,12 @@ list:
     profession: Spellbreaker
     value:
       {
-        "values2": { "Power": 2329, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3087, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Baseraver
-        url: https://www.youtube.com/watch?v=nmG8osqWv_s
-        log: https://dps.report/MloE-20240205-165918_golem
+      - author: Rumi
+        url: https://www.youtube.com/watch?v=1VLEuetvokg
+        log: https://dps.report/vdip-20250624-231442_golem
 
   # includes sigils
   - name: Condi Quickness Berserker Blademaster

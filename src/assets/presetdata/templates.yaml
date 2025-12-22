@@ -758,7 +758,7 @@ list:
         raid:
           extras: Power (Raid, claw)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Heal Quickness Berserker
         id: heal-berserker

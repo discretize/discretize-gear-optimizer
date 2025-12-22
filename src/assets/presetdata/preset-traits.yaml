@@ -3125,8 +3125,6 @@ list:
         }
       }
 
-  # Uses integer attacker's insight (which gives less accurate dps) so that
-  # gear may be calculated properly for crit cap
   - name: Power Spellbreaker Hammer
     profession: Spellbreaker
     traits:
@@ -3159,23 +3157,20 @@ list:
             "peak-performance": {},
             "forceful-greatsword": {},
             "great-fortitude": {},
+            "pinnacle-of-strength-crit": {},
             "pinnacle-of-strength": {
               "amount": ""
             },
-            "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "4"
+              "amount": "3.9"
             },
             "peak-performance-2": {
-              "amount": "30"
+              "amount": "32"
             }
           },
           {
             "cull-the-weak": {
               "amount": ""
-            },
-            "merciless-hammer": {
-              "amount": "40"
             },
             "hardened-armor": {},
             "stalwart-strength": {
@@ -3187,17 +3182,20 @@ list:
             "pure-strike-boonless": {
               "amount": ""
             },
+            "attackers-insight-2": {
+              "amount": "1"
+            },
             "attackers-insight-3": {
-              "amount": "5"
+              "amount": "1"
             },
             "attackers-insight-4": {
-              "amount": "15"
+              "amount": "3"
             },
             "attackers-insight-5": {
-              "amount": "80"
+              "amount": "95"
             },
             "magebane-tether": {
-              "amount": "74"
+              "amount": "82"
             },
             "sun-and-moon-style": {
               "amount": ""
@@ -3209,7 +3207,9 @@ list:
       {
         "skills": {
           "signet-of-might": {},
-          "signet-of-fury": {}
+          "signet-of-fury": {
+            "amount": ""
+          }
         }
       }
 
