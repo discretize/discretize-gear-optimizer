@@ -1218,16 +1218,16 @@ list:
         url: https://www.youtube.com/watch?v=RLll5GGvRjs
         log: https://dps.report/xC5s-20231003-215812_golem
 
-  - name: Condi Staff / Axe Mirage
+  - name: Condi Mirage Staxe IH Oasis
     profession: Mirage
     value:
       {
-        "values2": { "Power": 1717, "Power2": 468, "Burning": 0, "Bleeding": 9.27, "Poisoned": 0.57, "Torment": 28.87, "Confusion": 15.05 }
+        "values2": { "Power": 1781, "Power2": 450, "Burning": 1.72, "Bleeding": 4.28, "Poisoned": 0.61, "Torment": 26.42, "Confusion": 14.2 }
       }
     credit:
       - author: Mastro
-        url: https://www.youtube.com/watch?v=lGcntsRuwYI
-        log: https://dps.report/cn4L-20231201-133205_golem
+        url: https://www.youtube.com/watch?v=iVbHIren_Kw
+        log: https://dps.report/5eVE-20250827-031559_golem
 
   - name: Axe Mirage (Deception Torch)
     profession: Mirage

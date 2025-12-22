@@ -608,14 +608,14 @@ list:
         }
       }
 
-  - name: Condi Staff / Axe Mirage
+  - name: Condi Mirage Staxe IH Oasis
     profession: Mirage
     traits:
       {
         "showAll": false,
         "selectedLines": [
           "45",
-          "1",
+          "24",
           "59"
         ],
         "selectedTraits": [
@@ -625,49 +625,111 @@ list:
             1687
           ],
           [
-            700,
-            1889,
-            1950
+            691,
+            1690,
+            753
           ],
           [
-            2110,
+            2141,
             2098,
             2070
           ]
         ],
         "items": [
           {
-            "illusionary-defense": {
-              "amount": ""
-            },
             "illusionary-membrane": {
               "amount": ""
             },
             "chaotic-potency": {},
-            "chaotic-potency-2": {
+            "chaotic-persistence": {
               "amount": ""
             },
-            "chaotic-persistence": {}
+            "chaotic-potency-2": {
+              "amount": "50"
+            }
           },
           {
-            "fencers-finesse": {
+            "compounding-power": {
+              "amount": "4.8"
+            },
+            "Phantasmal Force": {
               "amount": ""
             },
-            "superiority-complex-base": {},
-            "superiority-complex": {
-              "amount": ""
-            },
-            "sharper-images-clone": {
-              "amount": "3.95"
-            },
-            "sharper-images-phantasm": {
-              "amount": "0.73"
-            },
-            "phantasmal-fury": {}
+            "malicious-sorcery": {}
           },
           {
             "nomads-endurance": {
               "amount": ""
+            },
+            "phantom-pain": {
+              "amount": "3.8"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
+        }
+      }
+
+  - name: Alacrity Condi Mirage Staxe IH Oasis
+    profession: Mirage
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "45",
+          "24",
+          "59"
+        ],
+        "selectedTraits": [
+          [
+            670,
+            669,
+            1687
+          ],
+          [
+            691,
+            1690,
+            753
+          ],
+          [
+            2141,
+            2174,
+            2070
+          ]
+        ],
+        "items": [
+          {
+            "illusionary-membrane": {
+              "amount": ""
+            },
+            "chaotic-potency": {},
+            "chaotic-persistence": {
+              "amount": ""
+            },
+            "chaotic-potency-2": {
+              "amount": "50"
+            }
+          },
+          {
+            "compounding-power": {
+              "amount": "4.8"
+            },
+            "Phantasmal Force": {
+              "amount": ""
+            },
+            "malicious-sorcery": {}
+          },
+          {
+            "nomads-endurance": {
+              "amount": ""
+            },
+            "phantom-pain": {
+              "amount": "3.8"
             }
           }
         ]

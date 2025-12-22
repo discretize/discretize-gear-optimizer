@@ -248,6 +248,16 @@ list:
       #   weaponType: Two-handed
       #   outdated: true
 
+      - name: Alacrity Condi Mirage Staxe IH Oasis
+        id: condi-staxe-mirage-alac
+        specialization: Mirage
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Mirage Staxe IH Oasis
+        traits: Alacrity Condi Mirage Staxe IH Oasis
+        extras: DPS Mirage (Raid)
+        weaponType: Two-handed
+        outdated: false
 
       - name: Alacrity Staff Mirage
         id: alacmirage
@@ -260,27 +270,16 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      # - name: Alacrity Staff / Axe Mirage
-      #   id: alac-staxe-mirage
-      #   specialization: Mirage
-      #   boonType: Condi
-      #   priority: Condi Boon 0%
-      #   distribution: Alacrity Staff / Axe Mirage
-      #   traits: Alacrity Staff / Axe Mirage
-      #   extras: Alacrity Staff Mirage
-      #   weaponType: Two-handed
-      #   outdated: true
-
-      - name: Condi Staff / Axe Mirage
+      - name: Condi Mirage Staxe IH Oasis
         id: condi-staxe-mirage
         specialization: Mirage
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Staff / Axe Mirage
-        traits: Condi Staff / Axe Mirage
+        distribution: Condi Mirage Staxe IH Oasis
+        traits: Condi Mirage Staxe IH Oasis
         extras: DPS Mirage (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Condi Axe Mirage
         id: axe-mirage-deception-torch

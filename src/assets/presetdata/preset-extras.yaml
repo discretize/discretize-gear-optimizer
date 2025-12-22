@@ -1072,15 +1072,20 @@ list:
             }
           },
           "Sigil1": {
-            "bursting": {}
+            "no-item-sigil": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Enhancement": {
-            "master-tuning-crystal": {}
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
-            "salsa-topped-veggie-flatbread": {}
+            "salsa-topped-veggie-flatbread": {},
+            "meaty-asparagus-skewer": {},
+            "meaty-rice-bowl": {}
           }
         },
         "lifestealAmount": ""
