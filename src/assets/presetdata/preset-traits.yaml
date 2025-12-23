@@ -9529,7 +9529,95 @@ list:
         }
       }
 
-  - name: Alacrity Condi Amalgam
+  - name: Alacrity Condi Amalgam 2 Kit
+    profession: Amalgam
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "6",
+          "38",
+          "75"
+        ],
+        "selectedTraits": [
+          [
+            1882,
+            482,
+            505
+          ],
+          [
+            1878,
+            2006,
+            433
+          ],
+          [
+            2395,
+            2383,
+            2387
+          ]
+        ],
+        "items": [
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {
+            "chemical-rounds": {},
+            "high-caliber": {
+              "amount": ""
+            },
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "thermal-vision-buff": {
+              "amount": ""
+            },
+            "no-scope": {},
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "4.4"
+            }
+          },
+          {
+            "hybrid-vigor": {},
+            "carbolic-composition": {},
+            "willing-host": {
+              "amount": "100"
+            },
+            "double-helix": {
+              "amount": "???"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "evolve": {
+            "amount": "26"
+          },
+          "titanic-strain": {
+            "amount": "26"
+          },
+          "plasmatic-state": {
+            "amount": "36"
+          }
+        }
+      }
+
+  - name: Alacrity Condi Amalgam 4 Kit
     profession: Amalgam
     traits:
       {

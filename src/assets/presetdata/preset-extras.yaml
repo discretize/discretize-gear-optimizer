@@ -3906,6 +3906,49 @@ list:
         "lifestealAmount": "3.4"
       }
 
+  - name: Condi Amalgam
+    profession: Amalgam
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "trapper": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "bursting": {},
+            "geomancy": {
+              "amount": ""
+            },
+            "earth": {
+              "amount": ""
+            },
+            "doom": {
+              "amount": ""
+            },
+            "torment": {
+              "amount": ""
+            }
+          },
+          "Enhancement": {
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {},
+            "truffle-risotto": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Amalgam Steamshrieker
     profession: Amalgam
     value:

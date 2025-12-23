@@ -1162,6 +1162,17 @@ list:
         url: https://www.youtube.com/watch?v=KTEj3KhQ34c
         log: https://dps.report/BMF2-20251209-140418_golem
 
+  - name: Alacrity Condi Amalgam 2 Kit
+    profession: Amalgam
+    value:
+      {
+        "values2": { "Power": 3030, "Power2": 0, "Burning": 11.78, "Bleeding": 13.6, "Poisoned": 7.38, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: beng / L3m0n
+        url: https://www.youtube.com/watch?v=6ee2rOfIyPU
+        log: https://dps.report/aUmU-20251215-143447_golem
+
   - name: Alacrity Condi Amalgam 4 Kit
     profession: Amalgam
     value:
