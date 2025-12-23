@@ -145,7 +145,7 @@
           Outgoing Healing: 10%
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [25%, add]
+          Outgoing Strike Damage: [10%, add]
         attributes:
           Outgoing Healing: 25%
       temporaryBuff: true
