@@ -1541,7 +1541,7 @@ list:
         url: https://www.youtube.com/watch?v=4Wh6CLpzCkM
         log: https://www.dps.report/smRL-20240319-204548_golem
 
-  - name: Condi Daredevil (No Allies)
+  - name: Condi Daredevil D/D (No Allies)
     profession: Daredevil
     value:
       {
@@ -1554,7 +1554,7 @@ list:
 
   # messed up log start from mesmer existing
   # scuffed approximation by multiplying with full duration / target combat duration
-  - name: Condi Daredevil
+  - name: Condi Daredevil D/D
     profession: Daredevil
     value:
       {

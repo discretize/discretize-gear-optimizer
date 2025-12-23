@@ -2057,14 +2057,14 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Condi Daredevil
+      - name: Condi Daredevil D/D
         id: cdd
         specialization: Daredevil
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Daredevil
-        traits: Condi Daredevil
-        extras: Condi Daredevil
+        distribution: Condi Daredevil D/D
+        traits: Condi Daredevil D/D
+        extras: Condi Daredevil D/D
         weaponType: Dual wield
         outdated: false
 
