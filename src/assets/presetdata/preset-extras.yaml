@@ -1561,7 +1561,9 @@ list:
           "Sigil1": {
             "bursting": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Runes": {
             "trapper": {},
             "nightmare": {},
@@ -1576,9 +1578,44 @@ list:
           },
           "Relics": {
             "fractal-relic": {
-              "amount": "0.48"
+              "amount": ""
             }
           },
+          "Nourishment": {
+            "fishy-rice-bowl": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Condi Willbender Warrior
+    profession: Willbender
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
+          },
+          "Relics": {},
           "Nourishment": {
             "fishy-rice-bowl": {},
             "cilantro-and-cured-meat-flatbread": {}

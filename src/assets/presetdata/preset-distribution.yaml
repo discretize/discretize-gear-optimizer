@@ -187,12 +187,23 @@ list:
     profession: Willbender
     value:
       {
-        "values2": { "Power": 2202, "Power2": 0, "Burning": 16.4, "Bleeding": 6.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2250, "Power2": 0, "Burning": 17.33, "Bleeding": 6.01, "Poisoned": 0, "Torment": 1.18, "Confusion": 0 }
       }
     credit:
-      - author: Incera
-        url: https://www.youtube.com/watch?v=KtWL4d7IEfU
-        log: https://dps.report/oXuq-20240705-200423_golem
+      - author: Mastro
+        url: https://www.youtube.com/watch?v=rgVQP_Csv-0
+        log: https://dps.report/5vTW-20250918-002656_golem
+
+  - name: Condi Willbender SC/P P/T
+    profession: Willbender
+    value:
+      {
+        "values2": { "Power": 2641, "Power2": 0, "Burning": 17.61, "Bleeding": 5.46, "Poisoned": 0, "Torment": 1.22, "Confusion": 0 }
+      }
+    credit:
+      - author: Sotym
+        url: https://www.youtube.com/watch?v=kLjHAtBuXVA
+        log: https://dps.report/RSLy-20250930-003329_golem
 
   - name: Condi Willbender Sword
     profession: Willbender

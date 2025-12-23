@@ -491,14 +491,25 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Condi Willbender P/T P/P (Approx.)
+      - name: Condi Willbender P/T P/P
         id: cwb-pistol
         specialization: Willbender
         boonType: Condi
-        priority: Hybrid DPS
+        priority: Condi DPS
         distribution: Condi Willbender P/T P/P
         traits: Condi Willbender
         extras: Condi Willbender
+        weaponType: Dual wield
+        outdated: false
+
+      - name: Condi Willbender SC/P P/T
+        id: cwb-scepter
+        specialization: Willbender
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Willbender SC/P P/T
+        traits: Condi Willbender
+        extras: Condi Willbender Warrior
         weaponType: Dual wield
         outdated: false
 
