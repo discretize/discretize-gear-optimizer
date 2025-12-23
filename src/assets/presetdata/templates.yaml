@@ -1378,16 +1378,16 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: Condi Druid
+      - name: Condi Druid LOYF
         id: condidruid
         specialization: Druid
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Druid
-        traits: Condi Druid
+        distribution: Condi Druid LOYF
+        traits: Condi Druid LOYF
         extras: Condi Druid
-        weaponType: Two-handed
-        outdated: true
+        weaponType: Dual wield
+        outdated: false
 
       - name: Heal Quickness Untamed
         id: healuntamed

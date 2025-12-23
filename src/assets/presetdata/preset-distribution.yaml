@@ -990,16 +990,16 @@ list:
   #       url: https://www.youtube.com/watch?v=70F-uEOb-Bg
   #       log: https://dps.report/Oq8d-20210609-135312_golem
 
-  - name: Condi Druid
+  - name: Condi Druid LOYF
     profession: Druid
     value:
       {
-        "values2": { "Power": 1594, "Power2": 0, "Burning": 4.33, "Bleeding": 30.01, "Poisoned": 15.04, "Torment": 0.05, "Confusion": 0 }
+        "values2": { "Power": 1806, "Power2": 0, "Burning": 5.52, "Bleeding": 27.98, "Poisoned": 16.76, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[CnD] Tipcat'
-        url: https://www.youtube.com/watch?v=II1pfW01vMc
-        log: https://dps.report/T27X-20230701-154750_golem
+      - author: '[LN] Toilet'
+        url: https://www.youtube.com/watch?v=x8RRJxO5B5w
+        log: https://dps.report/udV3-20250912-115101_golem
 
   - name: Power Galeshot
     profession: Galeshot

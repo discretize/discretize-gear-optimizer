@@ -7554,7 +7554,7 @@ list:
         }
       }
 
-  - name: Condi Druid
+  - name: Condi Druid LOYF
     profession: Druid
     traits:
       {
@@ -7568,7 +7568,7 @@ list:
           [
             1069,
             1846,
-            1888
+            1912
           ],
           [
             1099,
@@ -7586,8 +7586,15 @@ list:
             "hidden-barbs": {},
             "hunters-tactics": {},
             "vicious-quarry": {},
+            "striders-strength": {},
+            "striders-strength-sword": {
+              "amount": ""
+            },
+            "light-on-your-feet": {
+              "amount": "100"
+            },
             "sharpened-edges": {
-              "amount": "2.66"
+              "amount": "3"
             }
           },
           {
@@ -7597,15 +7604,15 @@ list:
             "ambidexterity-2": {
               "amount": "100"
             },
+            "survival-instincts-high": {},
+            "carnivore": {
+              "amount": "???"
+            },
             "poison-master": {}
           },
           {
-            "natural-mender": {
-              "amount": ""
-            },
-            "natural-balance": {
-              "amount": ""
-            }
+            "natural-mender": {},
+            "natural-balance": {}
           }
         ]
       }
@@ -7613,7 +7620,7 @@ list:
       {
         "skills": {
           "pet-dps": {
-            "amount": "1865"
+            "amount": "1457"
           }
         }
       }
