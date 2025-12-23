@@ -378,13 +378,13 @@ export function createSettingsPerCalculation(
   // e.g. berserker with no forced affixes -> [[Power, 1381],[Precision, 961],[Ferocity, 961]]
   let jsHeuristicsData: [GearAttributeName, number][][] | undefined;
   try {
-    jsHeuristicsData = affixes.map((forcedAffix) => {
+    jsHeuristicsData = affixes.map((affixToAssign) => {
       const statTotals: Partial<Record<GearAttributeName, number>> = {};
       affixesArray.forEach((possibleAffixes, slotindex) => {
-        if (!possibleAffixes.includes(forcedAffix) && possibleAffixes.length !== 1) {
+        if (!possibleAffixes.includes(affixToAssign) && possibleAffixes.length !== 1) {
           throw new Error();
         }
-        const affix = possibleAffixes.includes(forcedAffix) ? forcedAffix : possibleAffixes[0];
+        const affix = possibleAffixes.includes(affixToAssign) ? affixToAssign : possibleAffixes[0];
 
         const item = exotics?.[affix]?.[slotindex]
           ? slotData[slotindex].exo
