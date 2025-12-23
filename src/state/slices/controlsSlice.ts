@@ -145,7 +145,7 @@ const initialState: {
   status: WAITING,
   profession: '',
   selectedSpecialization: '',
-  jsHeuristicsEnabled: false,
+  jsHeuristicsEnabled: true,
   jsHeuristicsTarget: '',
   multicore: false,
   hwThreads: savedHwThreads,
