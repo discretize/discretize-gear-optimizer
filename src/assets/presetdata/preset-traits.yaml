@@ -11659,7 +11659,7 @@ list:
         "skills": {}
       }
 
-  - name: Alacrity Specter SC/D
+  - name: Alacrity Condi Specter SC/D
     profession: Specter
     traits:
       {
@@ -11678,12 +11678,12 @@ list:
           [
             1163,
             1277,
-            1187
+            1706
           ],
           [
-            2275,
-            2285,
-            2264
+            2284,
+            2290,
+            2289
           ]
         ],
         "items": [
@@ -11702,30 +11702,36 @@ list:
           {
             "preparedness": {},
             "lead-attacks": {
-              "amount": "13.3"
+              "amount": "10.5"
             },
             "deadly-ambush": {}
           },
           {
             "second-opinion-base": {},
-            "second-opinion-scepter": {
-              "amount": ""
-            },
             "dark-sentry": {},
-            "larcenous-torment": {},
             "strength-of-shadows-base": {},
             "strength-of-shadows-condis": {
               "amount": ""
+            },
+            "second-opinion-scepter": {
+              "amount": ""
+            },
+            "larcenous-torment": {
+              "amount": "???"
             }
           }
         ]
       }
     skills:
       {
-        "skills": {}
+        "skills": {
+          "thief-summon-dps": {
+            "amount": "967"
+          }
+        }
       }
 
-  - name: Alacrity Specter D/D
+  - name: Alacrity Condi Specter D/D
     profession: Specter
     traits:
       {
@@ -11768,7 +11774,7 @@ list:
           {
             "preparedness": {},
             "lead-attacks": {
-              "amount": "10.5"
+              "amount": "10.3"
             },
             "deadly-ambush": {}
           },
@@ -11785,7 +11791,11 @@ list:
       }
     skills:
       {
-        "skills": {}
+        "skills": {
+          "thief-summon-dps": {
+            "amount": "820"
+          }
+        }
       }
 
   - name: Alacrity Power Antiquary Spear

@@ -4502,7 +4502,7 @@ list:
         "lifestealAmount": "3.5"
       }
 
-  - name: Alacrity Specter
+  - name: Alacrity Condi Specter
     profession: Specter
     value:
       {
@@ -4547,7 +4547,7 @@ list:
           },
           "Relics": {
             "fractal-relic": {
-              "amount": "0.47"
+              "amount": "0.45"
             }
           },
           "Nourishment": {
@@ -4558,7 +4558,9 @@ list:
           },
           "Enhancement": {
             "toxic-maintenance-oil": {},
-            "magnanimous-tuning-crystal": {}
+            "magnanimous-tuning-crystal": {},
+            "toxic-focusing-crystal": {},
+            "master-tuning-crystal": {}
           }
         },
         "lifestealAmount": "2.6"

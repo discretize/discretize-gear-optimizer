@@ -1980,27 +1980,27 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Alacrity Specter SC/D 57%
+      - name: Alacrity Condi Specter SC/D (Approx.)
         id: specter-alac
         specialization: Specter
         boonType: Condi
-        priority: Condi Alacrity Specter 57%
-        distribution: Alacrity Specter SC/D (allies)
-        traits: Alacrity Specter SC/D
-        extras: Alacrity Specter
+        priority: Alacrity Condi Specter 32.8%
+        distribution: Alacrity Condi Specter SC/D (allies)
+        traits: Alacrity Condi Specter SC/D
+        extras: Alacrity Condi Specter
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
-      - name: Alacrity Specter D/D
+      - name: Alacrity Condi Specter D/D
         id: specter-alac-dd
         specialization: Specter
         boonType: Condi
-        priority: Condi Alacrity Specter 42%
-        distribution: Alacrity Specter D/D (allies)
-        traits: Alacrity Specter D/D
-        extras: Alacrity Specter
+        priority: Alacrity Condi Specter 32.8%
+        distribution: Alacrity Condi Specter D/D (allies)
+        traits: Alacrity Condi Specter D/D
+        extras: Alacrity Condi Specter
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Specter Spear
         id: specter-spear

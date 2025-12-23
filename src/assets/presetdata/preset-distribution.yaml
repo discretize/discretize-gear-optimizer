@@ -1657,28 +1657,30 @@ list:
         url: https://www.youtube.com/watch?v=xYsGEFE6jn0
         log: https://dps.report/pfgp-20220827-121511_golem
 
-  # 1.52 torment proc rate (from evtc tool on carrion spec, which has the same critchance)
-  - name: Alacrity Specter SC/D (allies)
+  # demons + skewer (102% torment duration)
+  # bugged log: has leeching venoms
+  # larcenous torment isn't in logs
+  - name: Alacrity Condi Specter SC/D (allies)
     profession: Specter
     value:
       {
-        "values2": { "Power": 1903, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 14.33, "Torment": 18.23, "Confusion": 0 }
+        "values2": { "Power": 2015, "Power2": 0, "Burning": 0, "Bleeding": 5.44, "Poisoned": 14.35, "Torment": 15.74, "Confusion": 0 }
       }
     credit:
       - author: 'Iskarel'
-        url: https://www.youtube.com/watch?v=m24fDZee1bc
-        log: https://dps.report/KKWN-20220902-160446_golem
+        url: https://www.youtube.com/watch?v=GXytKrWFJ40
+        log: https://dps.report/YFvl-20250830-112530_golem
 
-  - name: Alacrity Specter D/D (allies)
+  - name: Alacrity Condi Specter D/D (allies)
     profession: Specter
     value:
       {
-        "values2": { "Power": 2467, "Power2": 0, "Burning": 0, "Bleeding": 21.02, "Poisoned": 13.38, "Torment": 6.37, "Confusion": 0 }
+        "values2": { "Power": 1660, "Power2": 0, "Burning": 0, "Bleeding": 22.39, "Poisoned": 9.97, "Torment": 7.99, "Confusion": 0 }
       }
     credit:
-      - author: 'Iskarel'
-        url: https://www.youtube.com/watch?v=ziK2tPRR0Vw
-        log: https://dps.report/CVSb-20240512-132756_golem
+      - author: Iskarel
+        url: https://www.youtube.com/watch?v=CejAR-crRCw
+        log: https://dps.report/e3gK-20250830-145722_golem
 
   - name: Alacrity Power Antiquary Spear
     profession: Antiquary
