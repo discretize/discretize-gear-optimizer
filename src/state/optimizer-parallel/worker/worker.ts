@@ -120,10 +120,14 @@ async function start_heuristics(
     const allModifiers: AppliedModifier[] = objectEntries(extrasCombination)
       .filter(([_, id]) => id)
       .map(([type, id]) => {
-        if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);
+        if (!allExtrasModifiersById[id]) {
+          console.warn(`missing data for extras id: ${id}`);
+          return;
+        }
         const itemData = allExtrasModifiersById[id];
         return { id, ...itemData, amount: data[type][id]?.amount };
-      });
+      })
+      .filter(Boolean);
     if (allExtrasModifiersById?.[extrasCombination?.Nourishment]?.hasLifesteal) {
       allModifiers.push({ ...lifestealData, amount: lifestealAmount });
     }
