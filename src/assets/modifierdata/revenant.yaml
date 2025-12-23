@@ -331,6 +331,21 @@
       gw2id: 1793
       defaultEnabled: true
 
+    # - id: replenishing-despair
+    #   text: Replenishing Despair
+    #   amountData:
+    #     label: 'proc/s'
+    #     default: 0
+    #     defaultInput: ???
+    #     quantityEntered: 1
+    #   modifiers:
+    #     attributes:
+    #       Siphon Base Coefficient:
+    #       Siphon Coefficient:
+    #   gw2id: 1741
+    #   defaultEnabled: true
+    #   temporaryBuff: true
+
     - id: seething-malice
       text: Seething Malice
       minor: true
