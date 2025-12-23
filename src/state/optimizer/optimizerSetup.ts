@@ -373,8 +373,9 @@ export function createSettingsPerCalculation(
       }),
   );
 
-  // for heuristics
-  // like affixes, but each entry is an array of stats given by using that affix in every available slot
+  // data for heuristics: these are the "ends" of the search space (imagine vertices of an n-dimensional shape)
+  // like affixes, but each entry is an array of stats given by using that affix in every freely choosable slot
+  // (forced stats are forced; partially choosable slots disable this feature)
   // e.g. berserker with no forced affixes -> [[Power, 1381],[Precision, 961],[Ferocity, 961]]
   let jsHeuristicsData: [GearAttributeName, number][][] | undefined;
   try {
