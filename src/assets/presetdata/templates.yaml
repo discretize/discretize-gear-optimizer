@@ -1538,15 +1538,15 @@ list:
         id: pren
         specialization: Renegade
         boonType: Power
-        priority: Power Alacrity Renegade 37.5%
-        distribution: Alacrity Renegade
-        traits: Power Alac Ren
+        priority: Alacrity Power Renegade 37.4%
+        distribution: Alacrity Power Renegade
+        traits: Alacrity Power Renegade
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power Alac Ren (Raid)
+          extras: Alacrity Power Renegade (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Condi Renegade SB Invo
         id: cren-invo

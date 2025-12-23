@@ -3635,24 +3635,20 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Power Alac Ren (Raid)
+  - name: Alacrity Power Renegade (Raid)
     profession: Renegade
     value:
       {
         "extras": {
           "Runes": {
             "scholar": {},
-            "dragonhunter": {},
-            "golemancer": {},
-            "deadeye": {},
-            "eagle": {},
-            "infiltration": {},
-            "ranger": {},
-            "pack": {},
-            "fireworks": {},
-            "leadership": {}
+            "dragonhunter": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {
+              "amount": ""
+            }
+          },
           "Sigil1": {
             "force": {}
           },

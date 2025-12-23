@@ -293,13 +293,13 @@ list:
         "minQuicknessDuration": "92"
       }
 
-  - name: Power Alacrity Renegade 37.5%
+  - name: Alacrity Power Renegade 37.4%
     hidden: true
     value:
       {
-        "affixes": ["Berserker", "Assassin", "Diviner", "Dragon"],
+        "affixes": ["Berserker", "Diviner", "Dragon"],
         "optimizeFor": "Damage",
-        "minBoonDuration": "37.5",
+        "minBoonDuration": "37.4",
         "minQuicknessDuration": "0"
       }
 

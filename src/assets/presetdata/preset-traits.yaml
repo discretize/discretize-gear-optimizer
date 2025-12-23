@@ -7979,7 +7979,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Alac Ren
+  - name: Alacrity Power Renegade
     profession: Renegade
     traits:
       {
@@ -8049,7 +8049,11 @@ list:
       }
     skills:
       {
-        "skills": {}
+        "skills": {
+          "enchanted-daggers": {
+            "amount": "0.148"
+          }
+        }
       }
 
   - name: Alacrity Condi Ren SB Invo

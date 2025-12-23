@@ -765,16 +765,16 @@ list:
         url: https://www.youtube.com/watch?v=pJ3fipl1rNU
         log: https://dps.report/ezTN-20251223-120339_golem
 
-  - name: Alacrity Renegade
+  - name: Alacrity Power Renegade
     profession: Renegade
     value:
       {
-        "values2": { "Power": 3532, "Power2": 0, "Burning": 0.78, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3887, "Power2": 0, "Burning": 0.73, "Bleeding": 0, "Poisoned": 0, "Torment": 1.61, "Confusion": 0 }
       }
     credit:
-      - author: 'Umbra'
-        url: https://www.youtube.com/watch?v=s1OXN6HRLTo
-        log: https://dps.report/8LBy-20230515-192958_golem
+      - author: Shavy
+        url: https://www.youtube.com/watch?v=e3HyMQDFQnI
+        log: https://dps.report/3hSA-20250215-132703_golem
 
   - name: Alacrity Condi Renegade SB
     profession: Renegade
