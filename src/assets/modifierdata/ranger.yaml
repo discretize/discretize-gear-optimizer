@@ -472,7 +472,6 @@
 
 - section: Druid
   id: 5
-  note: Pet damage is not currently simulated.
   items:
 
     - id: natural-mender
@@ -694,14 +693,8 @@
 - section: Untamed
   id: 72
   note: >-
-    Pet damage is not currently simulated.
-
-
-    Natural Fortitude Unleashed Ambush lifesteal damage is not currently simulated.
-
-
-    Natural Fortitude Unleashed Ambush lifesteal damage may not be shown in arcdps area stats or parsed arcdps logs.
-
+    Natural Fortitude Unleashed Ambush lifesteal damage is not currently simulated. (It may be omitted in
+    arcdps area stats or parsed arcdps logs.)
   items:
 
     - id: natural-fortitude
@@ -761,7 +754,6 @@
 
 - section: Galeshot
   id: 78
-  note: Pet damage is not currently simulated.
   items:
 
     - id: bird-of-prey
