@@ -1323,7 +1323,7 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Quickness Condi Untamed (Approx.)
+      - name: Quickness Condi Untamed
         id: condi-quickness-untamed
         specialization: Untamed
         boonType: Condi

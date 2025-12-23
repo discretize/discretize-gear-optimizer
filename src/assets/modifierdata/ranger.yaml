@@ -504,6 +504,9 @@
   id: 55
   note: >-
     "Sic 'Em!" currently breaks air and hydromancy sigil simulation, and possibly some other effects.
+
+
+    Predator's Cunning lifesteal damage may be omitted in arcdps area stats or parsed arcdps logs.
   items:
 
     - id: furious-strength
@@ -693,12 +696,12 @@
 - section: Untamed
   id: 72
   note: >-
-    Natural Fortitude Unleashed Ambush lifesteal damage is not currently simulated. (It may be omitted in
-    arcdps area stats or parsed arcdps logs.)
+    Natural Fortitude Unleashed Ambush lifesteal damage may be omitted in arcdps area stats or parsed arcdps logs.
   items:
 
     - id: natural-fortitude
       text: Natural Fortitude
+      subText: base
       modifiers:
         attributes:
           Vitality: [240, buff]
@@ -706,6 +709,26 @@
       gw2id: 2286
       defaultEnabled: true
       temporaryBuff: false
+
+    - id: natural-fortitude-lifesteal
+      text: Natural Fortitude
+      amountData:
+        label: 'ambush/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 3517
+          Siphon Coefficient: 0.005
+      wvwModifiers:
+        attributes:
+          Siphon Base Coefficient: 1764
+          Siphon Coefficient: 0.005
+      minor: true
+      gw2id: 2286
+      defaultEnabled: true
+      temporaryBuff: true
 
     - id: vow-of-the-untamed-you
       text: Vow of the Untamed
