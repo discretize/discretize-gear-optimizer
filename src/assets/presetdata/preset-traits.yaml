@@ -9994,6 +9994,81 @@ list:
         }
       }
 
+  - name: Celestial Alacrity Scourge
+    profession: Scourge
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "39",
+          "19",
+          "60"
+        ],
+        "selectedTraits": [
+          [
+            1883,
+            816,
+            801
+          ],
+          [
+            788,
+            789,
+            778
+          ],
+          [
+            2167,
+            2123,
+            2080
+          ]
+        ],
+        "items": [
+          {
+            "barbed-precision": {},
+            "furious-demise": {},
+            "target-the-weak-base": {},
+            "target-the-weak": {
+              "amount": ""
+            },
+            "lingering-curse": {},
+            "barbed-precision-on-crit": {
+              "amount": "3.73"
+            }
+          },
+          {
+            "blood-bond": {
+              "amount": ""
+            },
+            "life-from-death": {},
+            "vampiric-presence": {
+              "amount": "???"
+            },
+            "vampiric-presence-shroud": {
+              "amount": "???"
+            },
+            "last-rites": {},
+            "vampiric": {
+              "amount": "???"
+            },
+            "overflowing-thirst-allies": {
+              "amount": "???"
+            },
+            "overflowing-thirst": {
+              "amount": "???"
+            }
+          },
+          {
+            "fell-beacon": {},
+            "demonic-lore": {},
+            "sand-sage-active": {},
+            "blood-as-sand-active": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {}
+      }
+
   - name: DPS Scourge
     profession: Scourge
     traits:

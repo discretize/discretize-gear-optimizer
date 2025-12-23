@@ -1427,6 +1427,17 @@ list:
         url: https://www.youtube.com/watch?v=mI7ky1a2-eQ
         log: https://dps.report/LzVj-20231003-151324_golem
 
+  - name: Celestial Alacrity Scourge
+    profession: Scourge
+    value:
+      {
+        "values2": { "Power": 2389, "Power2": 0, "Burning": 0.64, "Bleeding": 9.3, "Poisoned": 4.84, "Torment": 10.39, "Confusion": 0 }
+      }
+    credit:
+      - author: Sarulias
+        url: https://www.youtube.com/watch?v=rbMCHwksZkw
+        log: https://dps.report/xICN-20250628-071219_golem
+
   # "Reaper does approximately 29.28% of its damage outside of shroud" - https://discord.com/channels/380901000200060929/381160724409614356/828683461074092113
   # With YaaW this is closer to 33%
   # uses https://github.com/hobinjk/optimizer-scripts/blob/main/reaper.js for shroud power damage split

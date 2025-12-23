@@ -113,6 +113,16 @@ list:
         "minQuicknessDuration": "0"
       }
 
+  - name: Celestial
+    hidden: true
+    value:
+      {
+        "affixes": ["Celestial"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": "0",
+        "minQuicknessDuration": "0"
+      }
+
   - name: Trailblazer/Dire
     hidden: true
     value:
