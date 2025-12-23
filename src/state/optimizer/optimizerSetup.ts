@@ -381,7 +381,6 @@ export function createSettingsPerCalculation(
     if (affixesArray.filter((possibleAffixes) => possibleAffixes.length > 1).length < 2) {
       throw new Error('heuristics are unnecessary if gear is mostly or entirely fixed');
     }
-    console.log(affixesArray.filter((a) => a.length > 1));
     jsHeuristicsData = affixes.map((affixToAssign) => {
       const statTotals: Partial<Record<GearAttributeName, number>> = {};
       affixesArray.forEach((possibleAffixes, slotindex) => {
