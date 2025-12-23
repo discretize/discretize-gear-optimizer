@@ -7302,7 +7302,7 @@ list:
           {
             "natural-fortitude": {},
             "natural-fortitude-lifesteal": {
-              "amount": 1.7
+              "amount": "1.7"
             },
             "vow-of-the-untamed-you": {
               "amount": "80.5"
