@@ -263,14 +263,14 @@ list:
         "minQuicknessDuration": "44.7"
       }
 
-  - name: Condi Quickness Untamed 30%
+  - name: Quickness Condi Untamed 42%
     hidden: true
     value:
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
         "minBoonDuration": "0",
-        "minQuicknessDuration": "30"
+        "minQuicknessDuration": "42"
       }
 
   - name: Condi Boon Daredevil 62%

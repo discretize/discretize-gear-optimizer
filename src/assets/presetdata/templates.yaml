@@ -1288,12 +1288,12 @@ list:
         id: condi-quickness-untamed
         specialization: Untamed
         boonType: Condi
-        priority: Condi Quickness Untamed 30%
-        distribution: Condi Quickness Untamed
-        traits: Condi Quickness Untamed
-        extras: Condi Quickness Untamed
-        weaponType: Two-handed
-        outdated: true
+        priority: Quickness Condi Untamed 42%
+        distribution: Quickness Condi Untamed
+        traits: Quickness Condi Untamed
+        extras: Quickness Condi Untamed
+        weaponType: Dual wield
+        outdated: false
 
       - name: Quickness Power Untamed
         id: quickness-power-untamed
