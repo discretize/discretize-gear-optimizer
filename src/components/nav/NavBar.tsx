@@ -254,6 +254,7 @@ const Navbar = () => {
                   <MenuItem
                     key={elem.name}
                     onClick={(e) => handleTemplateSelect(popupState[index], elem.name, prof)}
+                    sx={elem.outdated ? { opacity: 0.5 } : {}}
                   >
                     <Profession
                       name={elem.specialization}
