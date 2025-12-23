@@ -83,7 +83,8 @@ export default function NavAccordion({ handleTemplateSelect }: NavAccordionProps
                   name={build.specialization}
                   text={
                     // i18next-extract-mark-context-next-line {{buildTemplateName}}
-                    t('buildTemplateName', { context: build.name })
+                    t('buildTemplateName', { context: build.name }) +
+                    (build.outdated ? t(' (Outdated)') : '')
                   }
                   disableLink
                 />

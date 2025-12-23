@@ -168,12 +168,11 @@ const Navbar = () => {
         </Box>
 
         <SwipeableDrawer
-          {...{
-            anchor: 'left',
-            open: drawerOpen,
-            onOpen: handleDrawerOpen,
-            onClose: handleDrawerClose,
-          }}
+          anchor="left"
+          open={drawerOpen}
+          onOpen={handleDrawerOpen}
+          onClose={handleDrawerClose}
+          slotProps={{ paper: { sx: { maxWidth: '90vw' } } }}
         >
           <div>
             <NavAccordion handleTemplateSelect={handleTemplateSelect} />
