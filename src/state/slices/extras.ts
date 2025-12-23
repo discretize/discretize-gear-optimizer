@@ -2,7 +2,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSelector, createSlice, original } from '@reduxjs/toolkit';
 import { allExtrasModifiersById } from '../../assets/modifierdata';
-import { mapValues, objectEntries, parseNumber } from '../../utils/usefulFunctions';
+import { mapValues, objectEntries, objectKeys, parseNumber } from '../../utils/usefulFunctions';
 import type { AppliedModifier } from '../optimizer/types/optimizerSetupTypes';
 import type { RootState } from '../store';
 import { changeAll, getJsHeuristicsTarget, setBuildTemplate } from './controlsSlice';
@@ -109,6 +109,7 @@ export const extrasSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
       if (action.payload?.form?.extras) {
+        let result: ExtrasSlice;
         // best effort conversion of old data from before multiple selection
         if (action.payload.form.extras.Runes) {
           const convertedExtras = mapValues(action.payload.form.extras, (data) => {
@@ -122,12 +123,23 @@ export const extrasSlice = createSlice({
               return Object.fromEntries(data.map((key) => [key, {}]));
             }
             return data;
-          });
+          }) as ExtrasSlice['extras'];
 
-          return { ...state, extras: convertedExtras };
+          result = { ...state, extras: convertedExtras };
+        } else {
+          result = { ...state, ...action.payload.form.extras };
         }
 
-        return { ...state, ...action.payload.form.extras };
+        // remove nonexistent options
+        for (const value of Object.values(result.extras)) {
+          for (const key of objectKeys(value)) {
+            if (!allExtrasModifiersById[key]) {
+              delete value[key];
+            }
+          }
+        }
+
+        return result;
       }
     });
 
