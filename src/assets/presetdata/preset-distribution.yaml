@@ -1530,16 +1530,16 @@ list:
         url: https://www.youtube.com/watch?v=mZ-c8Okn0k8
         log: https://dps.report/xLxn-20240627-154041_golem
 
-  - name: Power Staff Daredevil
+  - name: Power Daredevil Staff
     profession: Daredevil
     value:
       {
-        "values2": { "Power": 3401, "Power2": 0, "Burning": 0, "Bleeding": 0.65, "Poisoned": 3.3, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3424, "Power2": 0, "Burning": 0, "Bleeding": 0.67, "Poisoned": 3.25, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Left'
-        url: https://www.youtube.com/watch?v=4Wh6CLpzCkM
-        log: https://www.dps.report/smRL-20240319-204548_golem
+        url: https://www.youtube.com/watch?v=7xzW6wLSb7s
+        log: https://www.dps.report/7Qij-20250624-165156_golem
 
   - name: Condi Daredevil D/D (No Allies)
     profession: Daredevil

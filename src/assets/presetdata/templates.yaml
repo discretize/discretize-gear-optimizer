@@ -2046,12 +2046,12 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Boon Power Daredevil
+      - name: Boon Power Daredevil Staff
         id: boondd-power
         specialization: Daredevil
         boonType: Power
         priority: Power Boon Daredevil 99.7%
-        distribution: Power Staff Daredevil
+        distribution: Power Daredevil Staff
         traits: Power Boon Daredevil
         extras: Power Boon Daredevil
         weaponType: Two-handed
@@ -2073,14 +2073,14 @@ list:
         specialization: Daredevil
         boonType: Power
         priority: Power DPS
-        distribution: Power Staff Daredevil
-        traits: Power Staff Daredevil
+        distribution: Power Daredevil Staff
+        traits: Power Daredevil Staff
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power Staff Daredevil
+          extras: Power Daredevil Staff
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Quickness Condi Deadeye Spear
         id: quick-cded-spear

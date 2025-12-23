@@ -10844,7 +10844,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Staff Daredevil
+  - name: Power Daredevil Staff
     profession: Daredevil
     traits:
       {
@@ -10882,9 +10882,6 @@ list:
             "potent-poison": {},
             "executioner": {
               "amount": ""
-            },
-            "revealed-training-revealed": {
-              "amount": "6"
             }
           },
           {
@@ -10908,10 +10905,10 @@ list:
             "havoc-specialist": {
               "amount": ""
             },
+            "lotus-training": {},
             "bounding-dodger": {
-              "amount": "87.5"
-            },
-            "lotus-training": {}
+              "amount": "100"
+            }
           }
         ]
       }
@@ -10919,10 +10916,13 @@ list:
       {
         "skills": {
           "assassins-signet": {
-            "amount": "77.1"
+            "amount": "78"
           },
           "assassins-signet-active": {
-            "amount": "10.3"
+            "amount": "10"
+          },
+          "thief-summon-dps": {
+            "amount": "694"
           }
         }
       }

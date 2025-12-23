@@ -4219,7 +4219,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Power Staff Daredevil
+  - name: Power Daredevil Staff
     profession: Daredevil
     value:
       {
@@ -4234,8 +4234,8 @@ list:
             "ranger": {}
           },
           "Relics": {
-            "thief-relic": {
-              "amount": "4.86"
+            "eagle-relic": {
+              "amount": ""
             }
           },
           "Sigil1": {
