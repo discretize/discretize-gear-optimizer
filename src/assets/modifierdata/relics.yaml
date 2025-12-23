@@ -695,8 +695,8 @@
   items:
 
     - id: no-item-relic
-      text: No Item (doesn't give any stats)
-      subText: No Item (doesn't give any stats)
-      textOverride: No Item (doesn't give any stats)
+      text: No Item / Placeholder Item
+      subText: No Item / Placeholder Item
+      textOverride: No Item / Placeholder Item
       modifiers: {}
       # gw2id intentionally omitted
