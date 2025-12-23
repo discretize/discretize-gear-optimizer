@@ -889,7 +889,7 @@ list:
     profession: Untamed
     value:
       {
-        "values2": { "Power": 2181, "Power2": 0, "Burning": 3.52, "Bleeding": 21.39, "Poisoned": 12.66, "Torment": 0.01, "Confusion": 0 }
+        "values2": { "Power": 2181, "Power2": 0, "Burning": 3.52, "Bleeding": 21.39, "Poisoned": 12.66, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Chimera
