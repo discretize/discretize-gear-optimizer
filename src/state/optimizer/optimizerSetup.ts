@@ -378,11 +378,15 @@ export function createSettingsPerCalculation(
   // e.g. berserker with no forced affixes -> [[Power, 1381],[Precision, 961],[Ferocity, 961]]
   let jsHeuristicsData: [GearAttributeName, number][][] | undefined;
   try {
+    if (affixesArray.filter((possibleAffixes) => possibleAffixes.length > 1).length < 2) {
+      throw new Error('heuristics are unnecessary if gear is mostly or entirely fixed');
+    }
+    console.log(affixesArray.filter((a) => a.length > 1));
     jsHeuristicsData = affixes.map((affixToAssign) => {
       const statTotals: Partial<Record<GearAttributeName, number>> = {};
       affixesArray.forEach((possibleAffixes, slotindex) => {
         if (!possibleAffixes.includes(affixToAssign) && possibleAffixes.length !== 1) {
-          throw new Error();
+          throw new Error('heuristics would not match slot assignments');
         }
         const affix = possibleAffixes.includes(affixToAssign) ? affixToAssign : possibleAffixes[0];
 
