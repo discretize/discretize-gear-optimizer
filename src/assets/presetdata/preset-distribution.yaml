@@ -877,12 +877,12 @@ list:
     profession: Herald
     value:
       {
-        "values2": { "Power": 2331, "Power2": 0, "Burning": 5.18, "Bleeding": 7.01, "Poisoned": 5.29, "Torment": 16.95, "Confusion": 0 }
+        "values2": { "Power": 2194, "Power2": 0, "Burning": 4.95, "Bleeding": 6.53, "Poisoned": 4.55, "Torment": 15.83, "Confusion": 0 }
       }
     credit:
-      - author: Botinator
-        url: https://www.youtube.com/watch?v=PT0N2cvLPcQ
-        log: https://dps.report/azH7-20240601-133340_golem
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=4YgZYgLOJXc
+        log: https://dps.report/e0xk-20250216-203504_golem
 
   # force air force air
   - name: DPS Vindicator
