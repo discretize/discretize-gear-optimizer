@@ -1794,8 +1794,12 @@ list:
               "amount": ""
             }
           },
-          "Sigil1": {},
-          "Sigil2": {},
+          "Sigil1": {
+            "no-item-sigil": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Enhancement": {
             "master-tuning-crystal": {},
             "toxic-focusing-crystal": {}
@@ -1822,8 +1826,12 @@ list:
           "Relics": {
             "fractal-relic": {}
           },
-          "Sigil1": {},
-          "Sigil2": {},
+          "Sigil1": {
+            "no-item-sigil": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Enhancement": {
             "toxic-maintenance-oil": {},
             "master-tuning-crystal": {}
@@ -3292,7 +3300,9 @@ list:
             "bursting": {},
             "malice": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Runes": {
             "trapper": {},
             "nightmare": {},
@@ -3475,8 +3485,12 @@ list:
     value:
       {
         "extras": {
-          "Sigil1": {},
-          "Sigil2": {},
+          "Sigil1": {
+            "no-item-sigil": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Runes": {
             "trapper": {},
             "nightmare": {},
@@ -3511,8 +3525,12 @@ list:
     value:
       {
         "extras": {
-          "Sigil1": {},
-          "Sigil2": {},
+          "Sigil1": {
+            "no-item-sigil": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Runes": {
             "trapper": {},
             "nightmare": {},
@@ -3676,8 +3694,12 @@ list:
               "amount": ""
             }
           },
-          "Sigil1": {},
-          "Sigil2": {},
+          "Sigil1": {
+            "no-item-sigil": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Enhancement": {
             "master-tuning-crystal": {}
           },
@@ -3709,7 +3731,9 @@ list:
           "Sigil1": {
             "force": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Enhancement": {
             "slaying-potion": {}
           },
@@ -3806,7 +3830,9 @@ list:
           "Sigil1": {
             "force": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Enhancement": {
             "slaying-potion": {}
           },
@@ -3829,7 +3855,9 @@ list:
           "Sigil1": {
             "force": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Enhancement": {
             "superior-sharpening-stone": {},
             "potent-lucent-oil": {},
@@ -4070,8 +4098,12 @@ list:
           "Relics": {
             "fractal-relic": {}
           },
-          "Sigil1": {},
-          "Sigil2": {},
+          "Sigil1": {
+            "no-item-sigil": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           },
