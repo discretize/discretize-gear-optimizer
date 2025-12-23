@@ -3098,15 +3098,14 @@ list:
         "skills": {}
       }
 
-  # Tether uptime can be calculated from Damage Modifiers tab
-  - name: Power Spellbreaker GS
+  - name: Power Spellbreaker S/M D/A
     profession: Spellbreaker
     traits:
       {
         "showAll": false,
         "selectedLines": [
           "4",
-          "11",
+          "36",
           "61"
         ],
         "selectedTraits": [
@@ -3116,9 +3115,9 @@ list:
             1437
           ],
           [
-            1469,
-            1486,
-            0
+            1344,
+            1315,
+            1707
           ],
           [
             2107,
@@ -3131,52 +3130,62 @@ list:
             "peak-performance": {},
             "forceful-greatsword": {},
             "great-fortitude": {},
+            "pinnacle-of-strength-crit": {},
             "pinnacle-of-strength": {
               "amount": ""
             },
-            "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "4"
+              "amount": "3.7"
             },
             "peak-performance-2": {
-              "amount": "29.3"
+              "amount": "52"
             }
           },
           {
-            "leg-specialist": {
+            "furious-burst": {},
+            "wounding-precision": {},
+            "signet-mastery": {
+              "amount": "4.7"
+            },
+            "deep-strikes-fury": {
               "amount": ""
             },
-            "roaring-reveille": {},
-            "empowered": {
+            "deep-strikes-bleeding": {},
+            "unsuspecting-foe-full": {},
+            "burst-precision": {
+              "amount": "???"
+            },
+            "blade-master": {},
+            "blade-master-2": {
               "amount": ""
             },
-            "warriors-cunning": {
+            "bloodlust": {},
+            "furious": {
               "amount": ""
             },
-            "vigorous-shouts": {}
+            "bloodlust-on-crit": {
+              "amount": "3.2"
+            }
           },
           {
             "pure-strike-base": {},
             "pure-strike-boonless": {
               "amount": ""
             },
-            "attackers-insight-1": {
-              "amount": "20"
-            },
             "attackers-insight-2": {
-              "amount": "30"
+              "amount": "6"
             },
             "attackers-insight-3": {
-              "amount": "30"
+              "amount": "21"
             },
             "attackers-insight-4": {
-              "amount": "0"
+              "amount": "24"
             },
             "attackers-insight-5": {
-              "amount": "20"
+              "amount": "49"
             },
             "magebane-tether": {
-              "amount": "75.3"
+              "amount": "82"
             },
             "sun-and-moon-style": {
               "amount": ""
@@ -3188,7 +3197,9 @@ list:
       {
         "skills": {
           "signet-of-might": {},
-          "signet-of-fury": {}
+          "signet-of-fury": {
+            "amount": "21"
+          }
         }
       }
 

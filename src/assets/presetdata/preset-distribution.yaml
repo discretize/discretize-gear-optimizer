@@ -49,16 +49,16 @@ list:
         url: https://www.youtube.com/watch?v=HzFEwIXT5Nw
         log: https://dps.report/LLcD-20240203-030534_golem
 
-  - name: Power Spellbreaker GS
+  - name: Power Spellbreaker S/M D/A
     profession: Spellbreaker
     value:
       {
-        "values2": { "Power": 2909, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3351, "Power2": 0, "Burning": 0, "Bleeding": 9.31, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'DaniDomum'
-        url: https://www.youtube.com/watch?v=Y47L5J18cS8
-        log: https://dps.report/Be28-20221130-122045_golem
+      - author: Sotym
+        url: https://www.youtube.com/watch?v=wp_fDXvh99o
+        log: https://dps.report/QYqB-20250217-174213_golem
 
   - name: Power Spellbreaker Hammer
     profession: Spellbreaker

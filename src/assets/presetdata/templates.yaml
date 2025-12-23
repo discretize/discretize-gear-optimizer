@@ -731,19 +731,19 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Power Spellbreaker GS
-        id: spb-power-gs
+      - name: Power Spellbreaker S/M D/A (Approx.)
+        id: spb-power-arms
         specialization: Spellbreaker
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Spellbreaker GS
-        traits: Power Spellbreaker GS
+        distribution: Power Spellbreaker S/M D/A
+        traits: Power Spellbreaker S/M D/A
         fractal:
-          extras: Power (Fractal)
+          extras: Power (Fractal, claw)
         raid:
-          extras: Power (Raid)
-        weaponType: Two-handed
-        outdated: true
+          extras: Power (Raid, claw)
+        weaponType: Dual wield
+        outdated: false
 
       - name: Power Spellbreaker Hammer
         id: spb-power-hammer
