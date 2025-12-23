@@ -87,10 +87,13 @@ const TemplateHelper = ({ character }) => {
             return;
           }
 
+          const playerDataWithoutCloneBots = data.players.filter(
+            (player) => player.dpsTargets?.[0]?.[0]?.dps > 50,
+          );
+
           const playerData =
-            data.players.length > 1
-              ? data.players.find((player) => player.name === data.recordedBy)
-              : data.players[0];
+            playerDataWithoutCloneBots.find((player) => player.name === data.recordedBy) ??
+            playerDataWithoutCloneBots[0];
 
           if (!playerData) {
             setUrlResult('no player data!');
