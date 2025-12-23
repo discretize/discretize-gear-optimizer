@@ -143,6 +143,16 @@ list:
         "minQuicknessDuration": "0"
       }
 
+  - name: Power Alacrity Luminary 24%
+    hidden: true
+    value:
+      {
+        "affixes": ["Berserker", "Dragon", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": "24",
+        "minQuicknessDuration": "0"
+      }
+
   - name: Power Quickbrand 25%
     hidden: true
     value:

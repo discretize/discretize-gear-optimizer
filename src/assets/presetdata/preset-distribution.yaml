@@ -403,6 +403,18 @@ list:
         url: https://www.youtube.com/watch?v=pcwUTPtR6nY
         log: https://dps.report/1ymp-20251211-210829_golem
 
+  # Bers Bers Divi Bers Drag Bers Divi Divi Drag Bers Bers Drag Bers
+  - name: Alacrity Power Luminary LB/GS
+    profession: Luminary
+    value:
+      {
+        "values2": { "Power": 5021, "Power2": 0, "Burning": 1.22, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Chimera
+        url: https://www.youtube.com/watch?v=GRAyPUi6SPc
+        log: https://dps.report/b9Jm-20251215-195108_golem
+
   - name: Power Weaver (BTTH, small)
     profession: Weaver
     value:

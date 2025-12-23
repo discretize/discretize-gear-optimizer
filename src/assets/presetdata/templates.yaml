@@ -337,6 +337,20 @@ list:
         weaponType: Two-handed
         outdated: false
 
+      - name: Alacrity Power Luminary LB/GS
+        id: luminary-power-alac
+        specialization: Luminary
+        boonType: Power
+        priority: Power Alacrity Luminary 24%
+        distribution: Alacrity Power Luminary LB/GS
+        traits: Alacrity Power Luminary
+        fractal:
+          extras: Power (Fractal, claw)
+        raid:
+          extras: Power (Raid, claw)
+        weaponType: Two-handed
+        outdated: false
+
       # - name: Quickness Condi Firebrand 40%
       #   id: cqfb-firebrand-40
       #   specialization: Firebrand

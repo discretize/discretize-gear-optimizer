@@ -2697,6 +2697,88 @@ list:
         }
       }
 
+  - name: Alacrity Power Luminary
+    profession: Luminary
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "42",
+          "16",
+          "81"
+        ],
+        "selectedTraits": [
+          [
+            634,
+            653,
+            2017
+          ],
+          [
+            566,
+            565,
+            1683
+          ],
+          [
+            2329,
+            2330,
+            2328
+          ]
+        ],
+        "items": [
+          {
+            "fiery-wrath": {},
+            "symbolic-exposure": {},
+            "zealous-blade-base": {},
+            "zealous-blade-gs": {
+              "amount": ""
+            },
+            "kindled-zeal": {},
+            "symbolic-avenger": {}
+          },
+          {
+            "right-hand-strength": {},
+            "radiant-fire": {},
+            "retribution": {
+              "amount": ""
+            },
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {
+              "amount": ""
+            }
+          },
+          {
+            "lights-gift": {},
+            "empowered-armaments": {
+              "amount": ""
+            },
+            "empowered-armaments-bugged": {
+              "amount": ""
+            },
+            "radiant-armaments-hammer": {
+              "amount": "86.8"
+            },
+            "radiant-armaments-staff": {
+              "amount": "4.5"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "bane-signet": {
+            "amount": ""
+          },
+          "piercing-stance": {
+            "amount": "58"
+          },
+          "binding-blade": {
+            "amount": "4.6"
+          }
+        }
+      }
+
   - name: Power Berserker GS A/A
     profession: Berserker
     traits:
