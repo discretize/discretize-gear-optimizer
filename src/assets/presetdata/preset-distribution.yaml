@@ -884,16 +884,17 @@ list:
         url: https://www.youtube.com/watch?v=0DH0NXcqUrM
         log: https://dps.report/BWYo-20251211-175030_golem
 
-  - name: Condi Quickness Untamed
+  # bursting expertisefood
+  - name: Quickness Condi Untamed
     profession: Untamed
     value:
       {
-        "values2": { "Power": 2104, "Power2": 0, "Burning": 3.46, "Bleeding": 21.84, "Poisoned": 13.23, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2181, "Power2": 0, "Burning": 3.52, "Bleeding": 21.39, "Poisoned": 12.66, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Tiramichu
-        url: https://www.youtube.com/watch?v=svoHI_hOhds
-        log: https://dps.report/r4Vc-20231014-151702_golem
+      - author: Chimera
+        url: https://www.youtube.com/watch?v=UXvYfstA4-Q
+        log: https://dps.report/9Au7-20250425-170634_golem
 
   - name: Power Soulbeast
     profession: Soulbeast

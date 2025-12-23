@@ -7079,7 +7079,7 @@ list:
         "skills": {}
       }
 
-  - name: Condi Quickness Untamed
+  - name: Quickness Condi Untamed
     profession: Untamed
     traits:
       {
@@ -7112,7 +7112,7 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "4.66"
+              "amount": "3.38"
             }
           },
           {
@@ -7127,7 +7127,7 @@ list:
           {
             "natural-fortitude": {},
             "vow-of-the-untamed-you": {
-              "amount": "88.2"
+              "amount": "80.5"
             },
             "ferocious-symbiosis": {
               "amount": ""
@@ -7139,7 +7139,7 @@ list:
       {
         "skills": {
           "pet-dps": {
-            "amount": "3552"
+            "amount": "5009"
           }
         }
       }
