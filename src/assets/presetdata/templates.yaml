@@ -1049,13 +1049,13 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: '"Fire Wizard" (Approx.)'
+      - name: Fire-only Tempest (Approx.)
         id: ptemp-blood-fire-camp
         specialization: Tempest
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: '"Fire Wizard" (Approx.)'
-        traits: '"Fire Wizard"'
+        distribution: Fire-only Tempest (Approx.)
+        traits: Fire-only Tempest
         fractal:
           extras: Alacrity Fire Tempest Inferno (Fractal)
         raid:
@@ -1146,6 +1146,20 @@ list:
         extras: Condi Weaver Dagger
         weaponType: Dual wield
         outdated: true
+
+      - name: Fire-only Weaver
+        id: fire-only-weaver
+        specialization: Weaver
+        boonType: Power
+        priority: Berserker Only
+        distribution: Fire-only Weaver
+        traits: Fire-only Weaver
+        fractal:
+          extras: Fire-only Weaver Inferno (Fractal)
+        raid:
+          extras: Fire-only Weaver Inferno (Raid)
+        weaponType: Dual wield
+        outdated: false
 
       - name: Hybrid Weaver
         id: hwea

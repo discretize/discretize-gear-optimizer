@@ -564,7 +564,7 @@ list:
         log: https://dps.report/lpOL-20251006-093317_golem
 
   # currently exact copy of alacrity fire tempest (i.e. incorrectly ignoring transcendent tempest reduced overload cooldown)
-  - name: '"Fire Wizard" (Approx.)'
+  - name: Fire-only Tempest (Approx.)
     profession: Tempest
     value:
       {
@@ -753,6 +753,17 @@ list:
       - author: Kadenar
         url: https://www.youtube.com/watch?v=D5h7D_21srE
         log: https://dps.report/wPC7-20251210-105904_golem
+
+  - name: Fire-only Weaver
+    profession: Weaver
+    value:
+      {
+        "values2": { "Power": 2553, "Power2": 0, "Burning": 14.56, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=pJ3fipl1rNU
+        log: https://dps.report/ezTN-20251223-120339_golem
 
   - name: Alacrity Renegade
     profession: Renegade

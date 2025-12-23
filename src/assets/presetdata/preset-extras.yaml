@@ -2805,6 +2805,77 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Fire-only Weaver Inferno (Fractal)
+    profession: Weaver
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "impact/night/slaying-both": {}
+          },
+          "Sigil2": {
+            "smoldering": {}
+          },
+          "Runes": {
+            "flame-legion": {},
+            "scholar": {},
+            "dragonhunter": {}
+          },
+          "Relics": {
+            "fireworks-relic": {
+              "amount": "100"
+            }
+          },
+          "Nourishment": {
+            "fire-meat-chili": {},
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "slaying-potion": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Fire-only Weaver Inferno (Raid)
+    profession: Weaver
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "force": {}
+          },
+          "Sigil2": {
+            "smoldering": {}
+          },
+          "Runes": {
+            "flame-legion": {}
+          },
+          "Relics": {
+            "fireworks-relic": {
+              "amount": "100"
+            }
+          },
+          "Nourishment": {
+            "fire-meat-chili": {},
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+
   - name: Fire SE Evoker Condi
     profession: Evoker
     value:

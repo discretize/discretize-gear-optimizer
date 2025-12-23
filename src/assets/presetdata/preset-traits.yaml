@@ -4946,7 +4946,7 @@ list:
         }
       }
 
-  - name: '"Fire Wizard"'
+  - name: Fire-only Tempest
     profession: Tempest
     traits:
       {
@@ -6556,6 +6556,99 @@ list:
           },
           "signet-of-fire": {},
           "signet-of-earth": {}
+        }
+      }
+
+  - name: Fire-only Weaver
+    profession: Weaver
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "56"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1675
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2177,
+            2061,
+            2131
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "100"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "100"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "superior-elements": {
+              "amount": ""
+            },
+            "masters-fortitude": {},
+            "masters-fortitude-sword": {},
+            "weavers-prowess": {},
+            "swift-revenge": {
+              "amount": ""
+            },
+            "elemental-polyphony-fire": {
+              "amount": "100"
+            },
+            "elements-of-rage-base": {},
+            "elements-of-rage-buff": {
+              "amount": "7.7"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "972"
+          },
+          "signet-of-fire": {
+            "amount": "9"
+          }
         }
       }
 
