@@ -1,4 +1,7 @@
 - section: Skills
+  note: >-
+    Carrion Devourer, Murellow, and some spider pets have skills that mechanically function as though cast by
+    the player; do not include them in flat pet damage. Elite Insights logs will generally reflect this correctly.
   items:
 
     - id: pet-dps
