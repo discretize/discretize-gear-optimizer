@@ -672,14 +672,14 @@ list:
         specialization: Bladesworn
         boonType: Power
         priority: Power DPS
-        distribution: Power Alacrity Bladesworn
-        traits: Alacrity Bladesworn
+        distribution: Alacrity Power Bladesworn
+        traits: Alacrity Power Bladesworn
         fractal:
-          extras: Power (Fractal)
+          extras: Bladesworn (Fractal, placeholder relic)
         raid:
-          extras: Bladesworn
+          extras: Bladesworn (Raid, placeholder relic)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Power Bladesworn
         id: bls-dps
