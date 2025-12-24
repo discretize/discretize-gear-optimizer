@@ -3379,7 +3379,7 @@ list:
         }
       }
 
-  - name: Alacrity Bladesworn Signets
+  - name: Alacrity Power Bladesworn Signets
     profession: Bladesworn
     traits:
       {
@@ -3416,10 +3416,10 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "3.8"
+              "amount": "4"
             },
             "peak-performance-2": {
-              "amount": "9.3"
+              "amount": "3.7"
             }
           },
           {

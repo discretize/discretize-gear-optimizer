@@ -107,6 +107,18 @@ list:
         url: https://www.youtube.com/watch?v=Cg52M5WGU5o
         log: https://dps.report/RzZh-20231014-102529_golem
 
+  # 100% crit
+  - name: Alacrity Power Bladesworn Signets
+    profession: Bladesworn
+    value:
+      {
+        "values2": { "Power": 4003, "Power2": 0, "Burning": 0, "Bleeding": 5.95, "Poisoned": 0, "Torment": 1.52, "Confusion": 0 }
+      }
+    credit:
+      - author: Evo
+        url: https://www.youtube.com/watch?v=QWj7r5AAGrA
+        log: https://dps.report/Tm53-20250629-002028_golem
+
   - name: Power Alacrity Bladesworn
     profession: Bladesworn
     value:

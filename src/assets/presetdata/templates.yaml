@@ -653,17 +653,17 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: Alacrity Power Bladesworn Signets (Approx.)
+      - name: Alacrity Power Bladesworn Signets
         id: bls-alac-signets
         specialization: Bladesworn
         boonType: Power
         priority: Power DPS
-        distribution: 100% Power
-        traits: Alacrity Bladesworn Signets
+        distribution: Alacrity Power Bladesworn Signets
+        traits: Alacrity Power Bladesworn Signets
         fractal:
-          extras: Power (Fractal)
+          extras: Bladesworn (Fractal, placeholder relic)
         raid:
-          extras: Bladesworn
+          extras: Bladesworn (Raid, placeholder relic)
         weaponType: Dual wield
         outdated: false
 
