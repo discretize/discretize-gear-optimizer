@@ -273,16 +273,6 @@ list:
         "minQuicknessDuration": "42"
       }
 
-  - name: Condi Boon Daredevil 62%
-    hidden: true
-    value:
-      {
-        "affixes": ["Viper", "Sinister", "Ritualist"],
-        "optimizeFor": "Damage",
-        "minBoonDuration": "0",
-        "minQuicknessDuration": "92"
-      }
-
   - name: Alacrity Power Renegade 37.4%
     hidden: true
     value:

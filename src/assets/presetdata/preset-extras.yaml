@@ -4631,40 +4631,6 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Boon Daredevil
-    profession: Daredevil
-    value:
-      {
-        "extras": {
-          "Runes": {
-            "trapper": {},
-            "nightmare": {},
-            "tempest": {},
-            "lich": {},
-            "renegade": {},
-            "berserker": {},
-            "krait": {},
-            "mad-king": {},
-            "afflicted": {},
-            "thorns": {},
-            "firebrand": {}
-          },
-          "Relics": {},
-          "Sigil1": {
-            "concentration": {}
-          },
-          "Sigil2": {
-            "malice": {}
-          },
-          "Enhancement": {
-            "master-tuning-crystal": {}
-          },
-          "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
-          }
-        }
-      }
-
   - name: Condi Specter Spear
     profession: Specter
     value:

@@ -2098,17 +2098,6 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Boon Condi Daredevil (no log)
-        id: boondd-condi
-        specialization: Daredevil
-        boonType: Condi
-        priority: Condi Boon Daredevil 62%
-        distribution: None
-        traits: Condi Boon Daredevil
-        extras: Condi Boon Daredevil
-        weaponType: Dual wield
-        outdated: true
-
       - name: Boon Power Daredevil Staff
         id: boondd-power
         specialization: Daredevil
