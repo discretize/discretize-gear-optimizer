@@ -1348,19 +1348,19 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Power Untamed
+      - name: Power Untamed HA S/A
         id: power-untamed
         specialization: Untamed
         boonType: Power
         priority: Power DPS
-        distribution: 100% Power
+        distribution: Power Untamed HA S/A
         traits: Power Untamed
         fractal:
-          extras: Power (Fractal)
+          extras: Power Untamed (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power Untamed (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Power Soulbeast
         id: pslb

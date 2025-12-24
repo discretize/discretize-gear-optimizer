@@ -1141,6 +1141,17 @@ list:
         url: https://www.youtube.com/watch?v=CY44yXR14uk
         log: https://dps.report/kIwI-20250519-113617_golem
 
+  - name: Power Untamed HA S/A
+    profession: Untamed
+    value:
+      {
+        "values2": { "Power": 3481, "Power2": 0, "Burning": 0.81, "Bleeding": 0, "Poisoned": 1.88, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Trufla
+        url: https://www.youtube.com/watch?v=pJJetpiYq_g
+        log: https://dps.report/YH9W-20250508-132956_golem
+
   - name: Power Galeshot
     profession: Galeshot
     value:

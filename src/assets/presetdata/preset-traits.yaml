@@ -7488,8 +7488,8 @@ list:
             1888
           ],
           [
-            0,
-            1000,
+            986,
+            1001,
             996
           ],
           [
@@ -7504,7 +7504,7 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "2.75"
+              "amount": "3"
             },
             "striders-strength": {},
             "striders-strength-sword": {
@@ -7512,6 +7512,9 @@ list:
             }
           },
           {
+            "wolfsong": {
+              "amount": ""
+            },
             "farsighted": {},
             "predators-onslaught": {
               "amount": ""
@@ -7523,7 +7526,10 @@ list:
               "amount": "90"
             },
             "ferocious-symbiosis": {
-              "amount": ""
+              "amount": "4.9"
+            },
+            "natural-fortitude-lifesteal": {
+              "amount": "0.8"
             }
           }
         ]
@@ -7531,7 +7537,10 @@ list:
     skills:
       {
         "skills": {
-          "signet-of-the-wild": {}
+          "signet-of-the-wild": {},
+          "pet-dps": {
+            "amount": "3977"
+          }
         }
       }
 
