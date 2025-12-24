@@ -1470,6 +1470,17 @@ list:
         weaponType: Two-handed
         outdated: false
 
+      - name: Condition Conduit SOTM
+        id: conduit-condi-sotm
+        specialization: Conduit
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condition Conduit SOTM
+        traits: Condition Conduit SOTM
+        extras: Condition Conduit
+        weaponType: Two-handed
+        outdated: false
+
       - name: Power Conduit Thief
         id: conduit-power
         specialization: Conduit

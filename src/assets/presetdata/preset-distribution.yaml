@@ -1012,6 +1012,17 @@ list:
         url: https://www.youtube.com/watch?v=Lf2R-zkQjDI
         log: https://dps.report/Iac9-20251210-122341_golem
 
+  - name: Condition Conduit SOTM
+    profession: Conduit
+    value:
+      {
+        "values2": { "Power": 2463, "Power2": 0, "Burning": 7.81, "Bleeding": 7.7, "Poisoned": 5.66, "Torment": 26.34, "Confusion": 6.3 }
+      }
+    credit:
+      - author: Jul Nine
+        url: https://www.youtube.com/watch?v=Z6Mk_QZn1xA
+        log: https://dps.report/U5iP-20251218-232219_golem
+
   - name: Power Conduit S/S Thief
     profession: Conduit
     value:
