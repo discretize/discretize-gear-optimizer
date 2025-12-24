@@ -141,28 +141,27 @@ list:
         log: https://gw2wingman.nevermindcreations.de/log/31aaf-20251215-034716_StdGolem_kill
         # log: https://dps.report/RS7D-20251215-034716_golem
 
-  - name: DH Radiance
+  - name: Power Dragonhunter Radiance SP/GS
     profession: Dragonhunter
     value:
       {
-        "values2": { "Power": 4085, "Power2": 0, "Burning": 2.59, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: Shavy
-        url: https://www.youtube.com/watch?v=7-nqp2Ths3s
-        log: https://dps.report/GQ29-20230504-221813_golem
-
-  - name: DH Virtues
-    profession: Dragonhunter
-    value:
-      {
-        "values2": { "Power": 3967, "Power2": 0, "Burning": 2.8, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4069, "Power2": 0, "Burning": 1.49, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Derm
-        url: https://www.youtube.com/watch?v=S3qr1eATkAU
-        log: https://dps.report/nQ3s-20231011-073653_golem
+        url: https://www.youtube.com/watch?v=QL-0S1xLff8
+        log: https://dps.report/M9tp-20250627-000730_golem
 
+  - name: Power Dragonhunter Virtues SP/GS
+    profession: Dragonhunter
+    value:
+      {
+        "values2": { "Power": 4032, "Power2": 0, "Burning": 1.69, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Derm
+        url: https://www.youtube.com/watch?v=N7fnAgJhy94
+        log: https://dps.report/geOw-20250626-225051_golem
 
   # https://www.youtube.com/watch?v=G3CngDG-cMg
   # 12 boons

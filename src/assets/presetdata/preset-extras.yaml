@@ -1405,7 +1405,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: DH Virtues (Raid)
+  - name: Power Dragonhunter Radiance (Fractal)
     profession: Dragonhunter
     value:
       {
@@ -1423,7 +1423,85 @@ list:
             "thief-relic": {},
             "mistburn-relic": {},
             "dragonhunter-relic": {
-              "amount": "73.6"
+              "amount": "89"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        }
+      }
+
+  - name: Power Dragonhunter Radiance (Raid)
+    profession: Dragonhunter
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {},
+            "mistburn-relic": {},
+            "dragonhunter-relic": {
+              "amount": "89"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Dragonhunter Virtues (Raid)
+    profession: Dragonhunter
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {},
+            "mistburn-relic": {},
+            "dragonhunter-relic": {
+              "amount": "78"
             }
           },
           "Sigil1": {
@@ -1446,7 +1524,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: DH Virtues (Fractal)
+  - name: Power Dragonhunter Virtues (Fractal)
     profession: Dragonhunter
     value:
       {
@@ -1464,7 +1542,7 @@ list:
             "thief-relic": {},
             "mistburn-relic": {},
             "dragonhunter-relic": {
-              "amount": "73.6"
+              "amount": "78"
             }
           },
           "Sigil1": {

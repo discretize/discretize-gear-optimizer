@@ -127,14 +127,15 @@
     #   temporaryBuff: true
 
     # like life steal: unaffected by opponent armor, player weapon strength, vulnerability, etc.
+    # use EI buff uptime rather than EI hit count; it seems more accurate
     - id: binding-blade
       text: Binding Blade
-      subText: damage over time tick (approx.)
+      subText: damage over time effect
       amountData:
-        label: '/10s'
+        label: '% uptime'
         default: 0
         defaultInput: ???
-        quantityEntered: 10
+        quantityEntered: 100
       modifiers:
         attributes:
           Flat DPS: 160

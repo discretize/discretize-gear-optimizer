@@ -1435,7 +1435,7 @@ list:
         }
       }
 
-  - name: DH Radiance
+  - name: Power Dragonhunter Radiance
     profession: Dragonhunter
     traits:
       {
@@ -1495,7 +1495,7 @@ list:
               "amount": ""
             },
             "big-game-hunter": {
-              "amount": ""
+              "amount": "80"
             }
           }
         ]
@@ -1505,11 +1505,14 @@ list:
         "skills": {
           "bane-signet": {
             "amount": ""
+          },
+          "binding-blade": {
+            "amount": "47.5"
           }
         }
       }
 
-  - name: DH Virtues
+  - name: Power Dragonhunter Virtues
     profession: Dragonhunter
     traits:
       {
@@ -1549,7 +1552,7 @@ list:
             },
             "virtue-of-resolution": {},
             "inspiring-virtue": {
-              "amount": "67"
+              "amount": "79"
             },
             "power-of-the-virtuous": {}
           },
@@ -1572,7 +1575,7 @@ list:
               "amount": ""
             },
             "big-game-hunter": {
-              "amount": "89"
+              "amount": "91"
             }
           }
         ]
@@ -1582,6 +1585,9 @@ list:
         "skills": {
           "bane-signet": {
             "amount": ""
+          },
+          "binding-blade": {
+            "amount": "45.8"
           }
         }
       }
@@ -2692,7 +2698,7 @@ list:
             "amount": "60"
           },
           "binding-blade": {
-            "amount": "5.2"
+            "amount": "48.5"
           }
         }
       }
@@ -2774,7 +2780,7 @@ list:
             "amount": "58"
           },
           "binding-blade": {
-            "amount": "4.6"
+            "amount": "41.8"
           }
         }
       }

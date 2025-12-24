@@ -438,33 +438,33 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: Power DH Radiance
+      - name: Power Dragonhunter Radiance SP/GS
         id: dh-radiance
         specialization: Dragonhunter
         boonType: Power
         priority: Power DPS
-        distribution: DH Radiance
-        traits: DH Radiance
+        distribution: Power Dragonhunter Radiance SP/GS
+        traits: Power Dragonhunter Radiance
         fractal:
-          extras: Power (Fractal)
+          extras: Power Dragonhunter Radiance (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power Dragonhunter Radiance (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
-      - name: Power DH Virtues
+      - name: Power Dragonhunter Virtues SP/GS
         id: dh-virtues
         specialization: Dragonhunter
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: DH Virtues
-        traits: DH Virtues
+        distribution: Power Dragonhunter Virtues SP/GS
+        traits: Power Dragonhunter Virtues
         fractal:
-          extras: DH Virtues (Fractal)
+          extras: Power Dragonhunter Virtues (Fractal)
         raid:
-          extras: DH Virtues (Raid)
+          extras: Power Dragonhunter Virtues (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Alacrity Power Willbender
         id: pwb-alac
