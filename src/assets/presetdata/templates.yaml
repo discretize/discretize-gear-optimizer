@@ -1498,12 +1498,12 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      - name: Quickness Condi Herald SB M/A
+      - name: Quickness Condi Herald Spear M/A
         id: cherald-quick
         specialization: Herald
         boonType: Condi
         priority: Condi Quickness Herald 0%
-        distribution: Condi Quickness Herald SB M/A
+        distribution: Condi Quickness Herald Spear M/A
         traits: Condi Quickness Herald
         extras: Condi Quickness Herald
         weaponType: Two-handed

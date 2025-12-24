@@ -944,6 +944,17 @@ list:
         url: https://www.youtube.com/watch?v=DJtoo1abq9U
         log: https://dps.report/rW1Q-20221202-011416_golem
 
+  - name: Condi Quickness Herald Spear M/A
+    profession: Herald
+    value:
+      {
+        "values2": { "Power": 2074, "Power2": 0, "Burning": 4.31, "Bleeding": 3.57, "Poisoned": 5.91, "Torment": 19.13, "Confusion": 0 }
+      }
+    credit:
+      - author: '[CRS] Rainer'
+        url: https://www.youtube.com/watch?v=0_9xfLqznd0
+        log: https://dps.report/ErCv-20250216-134453_golem
+
   - name: Condi Quickness Herald SB M/A
     profession: Herald
     value:
