@@ -967,6 +967,17 @@ list:
         url: https://www.youtube.com/watch?v=0_9xfLqznd0
         log: https://dps.report/ErCv-20250216-134453_golem
 
+  - name: Condi Quickness Herald Spear
+    profession: Herald
+    value:
+      {
+        "values2": { "Power": 2370, "Power2": 0, "Burning": 2.59, "Bleeding": 3.33, "Poisoned": 5.13, "Torment": 20.63, "Confusion": 0 }
+      }
+    credit:
+      - author: Kartky
+        url: https://www.youtube.com/watch?v=97pLrywGOfQ
+        log: https://dps.report/DJD7-20250212-150821_golem
+
   - name: Condi Quickness Herald SB M/A
     profession: Herald
     value:

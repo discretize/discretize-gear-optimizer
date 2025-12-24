@@ -1509,6 +1509,17 @@ list:
         weaponType: Two-handed
         outdated: false
 
+      - name: Quickness Condi Herald Spear
+        id: cherald-quick-spearonly
+        specialization: Herald
+        boonType: Condi
+        priority: Condi Quickness Herald 0%
+        distribution: Condi Quickness Herald Spear
+        traits: Condi Quickness Herald
+        extras: Condi Quickness Herald
+        weaponType: Two-handed
+        outdated: false
+
       - name: Power Herald FP
         id: herald
         specialization: Herald
