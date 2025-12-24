@@ -1773,48 +1773,6 @@ list:
         weaponType: Two-handed
         outdated: false
 
-      # - name: Alacrity Power Mech (inaccurate)
-      #   id: mech-alac-power
-      #   specialization: Mechanist
-      #   boonType: Condi
-      #   priority: Power Alacrity Mechanist 55%
-      #   distribution: Power Alacrity Mechanist (inaccurate)
-      #   traits: Power Alacrity Mechanist (inaccurate)
-      #   fractal:
-      #     extras: Power Alacrity Mechanist (Fractal, inaccurate)
-      #   raid:
-      #     extras: Power Alacrity Mechanist (Raid, inaccurate)
-      #   weaponType: Dual wield
-      #   outdated: true
-
-      - name: Alacrity Power Mech Air
-        id: mech-alac-power
-        specialization: Mechanist
-        boonType: Condi
-        priority: Power Alacrity Mechanist 55%
-        distribution: No Simulation
-        traits: Power Alacrity Mechanist (inaccurate)
-        fractal:
-          extras: Power Alacrity Mechanist (Fractal, inaccurate)
-        raid:
-          extras: Power Alacrity Mechanist (Raid, air, inaccurate)
-        weaponType: Dual wield
-        outdated: true
-
-      - name: Alacrity Power Mech Conc
-        id: mech-alac-power-conc
-        specialization: Mechanist
-        boonType: Condi
-        priority: Power Alacrity Mechanist 55%
-        distribution: No Simulation
-        traits: Power Alacrity Mechanist (inaccurate)
-        fractal:
-          extras: Power Alacrity Mechanist (Fractal, inaccurate)
-        raid:
-          extras: Power Alacrity Mechanist (Raid, concentration, inaccurate)
-        weaponType: Dual wield
-        outdated: true
-
       # - name: Condi Mech J-Drive (Approx.)
       #   id: cmech-sig-mace
       #   specialization: Mechanist

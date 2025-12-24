@@ -173,16 +173,6 @@ list:
         "minQuicknessDuration": "28.78"
       }
 
-  - name: Power Alacrity Mechanist 55%
-    hidden: true
-    value:
-      {
-        "affixes": ["Berserker", "Diviner"],
-        "optimizeFor": "Damage",
-        "minBoonDuration": "55",
-        "minQuicknessDuration": "0"
-      }
-
   - name: Condi Quickness Herald 0%
     hidden: true
     value:

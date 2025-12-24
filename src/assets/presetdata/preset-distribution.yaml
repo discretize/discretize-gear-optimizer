@@ -15,14 +15,6 @@ list:
       }
     noCreditOkay: true
 
-  - name: No Simulation
-    hidden: true
-    value:
-      {
-        "values2": { "Power": 1, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    noCreditOkay: true
-
   # Uses air/hydro sigils, somewhat taken into consideration by giving air a
   # proc rate high enough to match air+hydro damage
   - name: Power Berserker GS A/A
