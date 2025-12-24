@@ -365,45 +365,6 @@ list:
         "lifestealAmount": ""
       }
 
-  # just reduced lifesteal frequency
-  - name: Bladesworn
-    profession: Bladesworn
-    value:
-      {
-        "extras": {
-          "Runes": {
-            "scholar": {},
-            "dragonhunter": {},
-            "golemancer": {},
-            "deadeye": {},
-            "eagle": {},
-            "infiltration": {},
-            "ranger": {}
-          },
-          "Relics": {
-            "thief-relic": {},
-            "mistburn-relic": {}
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "impact/night/slaying-only-3": {},
-            "accuracy": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {},
-            "furious-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {},
-            "curry-butternut-squash-soup": {}
-          }
-        },
-        "lifestealAmount": "3.1"
-      }
-
   - name: Bladesworn (Fractal, placeholder relic)
     profession: Bladesworn
     value:

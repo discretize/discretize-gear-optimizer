@@ -3398,7 +3398,7 @@ list:
           [
             1469,
             1486,
-            1667
+            0
           ],
           [
             2225,
@@ -3472,7 +3472,7 @@ list:
           [
             1469,
             1486,
-            1667
+            0
           ],
           [
             2225,
@@ -3521,7 +3521,7 @@ list:
         "skills": {}
       }
 
-  - name: DPS Bladesworn Tactics
+  - name: Power Bladesworn
     profession: Bladesworn
     traits:
       {
@@ -3561,7 +3561,7 @@ list:
               "amount": "4"
             },
             "peak-performance-2": {
-              "amount": "4.1"
+              "amount": "4.8"
             }
           },
           {
