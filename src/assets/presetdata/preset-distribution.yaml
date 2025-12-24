@@ -1107,6 +1107,17 @@ list:
         url: https://www.youtube.com/watch?v=x8RRJxO5B5w
         log: https://dps.report/udV3-20250912-115101_golem
 
+  - name: Quickness Power Untamed HA S/A
+    profession: Untamed
+    value:
+      {
+        "values2": { "Power": 3492, "Power2": 0, "Burning": 0, "Bleeding": 0.09, "Poisoned": 2.12, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Chimera
+        url: https://www.youtube.com/watch?v=CY44yXR14uk
+        log: https://dps.report/kIwI-20250519-113617_golem
+
   - name: Power Galeshot
     profession: Galeshot
     value:

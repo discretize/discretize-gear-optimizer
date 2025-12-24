@@ -3261,8 +3261,9 @@ list:
             "firebrand": {}
           },
           "Relics": {
-            "thief-relic": {},
-            "mistburn-relic": {}
+            "claw-relic": {
+              "amount": "100"
+            }
           },
           "Sigil1": {
             "force": {}

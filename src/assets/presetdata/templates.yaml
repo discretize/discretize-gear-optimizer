@@ -1334,19 +1334,19 @@ list:
         weaponType: Dual wield
         outdated: false
 
-      - name: Quickness Power Untamed
+      - name: Quickness Power Untamed HA S/A
         id: quickness-power-untamed
         specialization: Untamed
         boonType: Power
         priority: Power Quickness Untamed 40%
-        distribution: 100% Power
-        traits: Quickness Power Untamed
+        distribution: Quickness Power Untamed HA S/A
+        traits: Quickness Power Untamed HA S/A
         fractal:
           extras: Power (Fractal)
         raid:
           extras: Power Quickness Untamed (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Power Untamed
         id: power-untamed

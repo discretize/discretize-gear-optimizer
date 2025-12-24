@@ -7400,7 +7400,7 @@ list:
         }
       }
 
-  - name: Quickness Power Untamed
+  - name: Quickness Power Untamed HA S/A
     profession: Untamed
     traits:
       {
@@ -7424,7 +7424,7 @@ list:
           [
             2301,
             0,
-            2274
+            2271
           ]
         ],
         "items": [
@@ -7433,7 +7433,7 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "2.75"
+              "amount": "2.42"
             },
             "striders-strength": {},
             "striders-strength-sword": {
@@ -7450,10 +7450,13 @@ list:
           {
             "natural-fortitude": {},
             "vow-of-the-untamed-you": {
-              "amount": "90"
+              "amount": "91"
             },
             "ferocious-symbiosis": {
               "amount": ""
+            },
+            "natural-fortitude-lifesteal": {
+              "amount": "1.8"
             }
           }
         ]
@@ -7461,7 +7464,10 @@ list:
     skills:
       {
         "skills": {
-          "signet-of-the-wild": {}
+          "signet-of-the-wild": {},
+          "pet-dps": {
+            "amount": "6633"
+          }
         }
       }
 
