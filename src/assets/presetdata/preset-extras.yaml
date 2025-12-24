@@ -3520,7 +3520,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Ren
+  - name: Condi Renegade
     profession: Renegade
     value:
       {
@@ -3540,10 +3540,15 @@ list:
             "berserker": {},
             "renegade": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
-            "meaty-asparagus-skewer": {}
+            "meaty-asparagus-skewer": {},
+            "salsa-topped-veggie-flatbread": {}
           },
           "Enhancement": {
             "master-tuning-crystal": {},

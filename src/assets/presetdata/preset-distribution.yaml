@@ -787,6 +787,78 @@ list:
         url: https://www.youtube.com/watch?v=J_1pVfkTvHo
         log: https://dps.report/8VfB-20240706-155741_golem
 
+  - name: Condi Renegade Spear M/A (No Allies)
+    profession: Renegade
+    value:
+      {
+        "values2": { "Power": 2299, "Power2": 0, "Burning": 3.17, "Bleeding": 6.06, "Poisoned": 6.09, "Torment": 23.44, "Confusion": 0 }
+      }
+    credit:
+      - author: Jul Nine
+        url: https://www.youtube.com/watch?v=sBeD0k4ntgU
+        log: https://dps.report/BOMb-20250427-142254_golem
+
+  # add razorclaw casts to simulate allies
+  # 4 players * 4 stacks * 3s bleed * 5 cast/93s = 2.58 bleed
+  - name: Condi Renegade Spear M/A (Allies)
+    profession: Renegade
+    value:
+      {
+        "values2": { "Power": 2299, "Power2": 0, "Burning": 3.17, "Bleeding": 8.64, "Poisoned": 6.09, "Torment": 23.44, "Confusion": 0 }
+      }
+    credit:
+      - author: Jul Nine
+        url: https://www.youtube.com/watch?v=sBeD0k4ntgU
+        log: https://dps.report/BOMb-20250427-142254_golem
+
+  - name: Condi Renegade Spear Only (No Allies)
+    profession: Renegade
+    value:
+      {
+        "values2": { "Power": 3047, "Power2": 0, "Burning": 2.17, "Bleeding": 4.78, "Poisoned": 4.57, "Torment": 24.79, "Confusion": 0 }
+      }
+    credit:
+      - author: Jul Nine
+        url: https://www.youtube.com/watch?v=GjAxJJznZCI
+        log: https://dps.report/pSKu-20250424-235607_golem
+
+  # add razorclaw casts to simulate allies
+  # 4 players * 4 stacks * 3s bleed * 5 cast/92s = 2.6 bleed
+  - name: Condi Renegade Spear Only (Allies)
+    profession: Renegade
+    value:
+      {
+        "values2": { "Power": 3047, "Power2": 0, "Burning": 2.17, "Bleeding": 7.38, "Poisoned": 4.57, "Torment": 24.79, "Confusion": 0 }
+      }
+    credit:
+      - author: Jul Nine
+        url: https://www.youtube.com/watch?v=GjAxJJznZCI
+        log: https://dps.report/pSKu-20250424-235607_golem
+
+  - name: Alacrity Condi Renegade Spear M/A (No Allies)
+    profession: Renegade
+    value:
+      {
+        "values2": { "Power": 2182, "Power2": 0, "Burning": 3.03, "Bleeding": 6.02, "Poisoned": 5.55, "Torment": 23.62, "Confusion": 0 }
+      }
+    credit:
+      - author: Jul Nine
+        url: https://www.youtube.com/watch?v=6hCzxKcmoQ8
+        log: https://dps.report/aZsY-20241029-155240_golem
+
+  # add razorclaw casts to simulate allies
+  # 4 players * 4 stacks * 3s bleed * 6 cast/107s = 2.69 bleed
+  - name: Alacrity Condi Renegade Spear M/A (Allies)
+    profession: Renegade
+    value:
+      {
+        "values2": { "Power": 2182, "Power2": 0, "Burning": 3.03, "Bleeding": 8.71, "Poisoned": 5.55, "Torment": 23.62, "Confusion": 0 }
+      }
+    credit:
+      - author: Jul Nine
+        url: https://www.youtube.com/watch?v=6hCzxKcmoQ8
+        log: https://dps.report/aZsY-20241029-155240_golem
+
   - name: Condi Alac Invocation (no allies)
     profession: Renegade
     value:

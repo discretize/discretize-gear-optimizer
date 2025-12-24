@@ -8059,7 +8059,7 @@ list:
         }
       }
 
-  - name: Alacrity Condi Ren SB Invo
+  - name: Alacrity Condi Renegade Invo
     profession: Renegade
     traits:
       {
@@ -8121,7 +8121,7 @@ list:
         "skills": {}
       }
 
-  - name: Condi Renegade SB Invocation
+  - name: Condi Renegade Invo
     profession: Renegade
     traits:
       {

@@ -1523,13 +1523,24 @@ list:
         weaponType: Dual wield
         outdated: true
 
+      - name: Alacrity Condi Renegade Spear M/A
+        id: cren-alac-spear-mace
+        specialization: Renegade
+        boonType: Condi
+        priority: Alacrity Condi Renegade 42%
+        distribution: Alacrity Condi Renegade Spear M/A (Allies)
+        traits: Alacrity Condi Renegade Invo
+        extras: Alacrity Condi Renegade
+        weaponType: Two-handed
+        outdated: false
+
       - name: Alacrity Condi Renegade SB M/A
         id: cren-alac-invo
         specialization: Renegade
         boonType: Condi
         priority: Alacrity Condi Renegade 42%
         distribution: Alacrity Condi Renegade SB M/A
-        traits: Alacrity Condi Ren SB Invo
+        traits: Alacrity Condi Renegade Invo
         extras: Alacrity Condi Renegade
         weaponType: Two-handed
         outdated: true
@@ -1548,14 +1559,36 @@ list:
         weaponType: Two-handed
         outdated: false
 
+      - name: Condi Renegade Spear M/A
+        id: cren-spear-mace
+        specialization: Renegade
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Renegade Spear M/A (Allies)
+        traits: Condi Renegade Invo
+        extras: Condi Renegade
+        weaponType: Two-handed
+        outdated: false
+
+      - name: Condi Renegade Spear
+        id: cren-spear
+        specialization: Renegade
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Renegade Spear Only (Allies)
+        traits: Condi Renegade Invo
+        extras: Condi Renegade
+        weaponType: Two-handed
+        outdated: false
+
       - name: Condi Renegade SB Invo
         id: cren-invo
         specialization: Renegade
         boonType: Condi
         priority: Condi DPS
         distribution: Condi Renegade SB Invocation
-        traits: Condi Renegade SB Invocation
-        extras: Condi Ren
+        traits: Condi Renegade Invo
+        extras: Condi Renegade
         weaponType: Two-handed
         outdated: true
 
