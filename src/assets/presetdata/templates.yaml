@@ -1685,12 +1685,12 @@ list:
         id: cqscrap
         specialization: Scrapper
         boonType: Condi
-        priority: Condi Quickness Scrapper 28.7%
-        distribution: Quickness Condi Scrapper
+        priority: Condi DPS
+        distribution: Quickness Condi Scrapper Steamshrieker
         traits: Quickness Condi Scrapper
-        extras: Condi Quickness Scrapper
+        extras: Quickness Condi Scrapper
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Power Scrapper (Approx.)
         id: pscrap

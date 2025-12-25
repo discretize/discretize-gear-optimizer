@@ -3551,7 +3551,7 @@ list:
         }
       }
 
-  - name: Condi Quickness Scrapper
+  - name: Quickness Condi Scrapper
     profession: Scrapper
     value:
       {
@@ -3559,22 +3559,33 @@ list:
           "Runes": {
             "trapper": {},
             "nightmare": {},
-            "tempest": {},
-            "lich": {},
-            "balthazar": {},
-            "renegade": {},
-            "berserker": {},
-            "weaver": {},
-            "baelfire": {},
-            "flame-legion-2": {},
-            "firebrand": {}
+            "tempest": {}
           },
-          "Relics": {},
+          "Relics": {
+            "steamshrieker-relic": {
+              "amount": "5.3"
+            },
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
           "Sigil1": {
             "bursting": {}
           },
           "Sigil2": {
-            "malice": {}
+            "bursting": {},
+            "geomancy": {
+              "amount": ""
+            },
+            "earth": {
+              "amount": ""
+            },
+            "doom": {
+              "amount": ""
+            },
+            "torment": {
+              "amount": ""
+            }
           },
           "Enhancement": {
             "master-tuning-crystal": {},
@@ -3585,7 +3596,8 @@ list:
             "cilantro-and-cured-meat-flatbread": {},
             "spherified-cilantro-oyster-soup": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Alacrity Condi Renegade

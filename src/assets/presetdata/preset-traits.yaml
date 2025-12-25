@@ -9326,20 +9326,20 @@ list:
       {
         "showAll": false,
         "selectedLines": [
-          "38",
           "6",
+          "38",
           "43"
         ],
         "selectedTraits": [
           [
-            1878,
-            2006,
-            433
-          ],
-          [
             1882,
             482,
             505
+          ],
+          [
+            1878,
+            2006,
+            433
           ],
           [
             1917,
@@ -9348,24 +9348,6 @@ list:
           ]
         ],
         "items": [
-          {
-            "chemical-rounds": {},
-            "high-caliber": {},
-            "hematic-focus": {},
-            "thermal-vision": {},
-            "thermal-vision-buff": {},
-            "no-scope": {
-              "amount": ""
-            },
-            "serrated-steel": {},
-            "modified-ammunition": {
-              "amount": ""
-            },
-            "incendiary-powder": {},
-            "sharpshooter": {
-              "amount": "3.87"
-            }
-          },
           {
             "glass-cannon": {
               "amount": ""
@@ -9378,6 +9360,26 @@ list:
               "amount": ""
             },
             "big-boomer": {}
+          },
+          {
+            "chemical-rounds": {},
+            "high-caliber": {
+              "amount": ""
+            },
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "thermal-vision-buff": {
+              "amount": ""
+            },
+            "no-scope": {},
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "4.1"
+            }
           },
           {
             "object-in-motion": {
