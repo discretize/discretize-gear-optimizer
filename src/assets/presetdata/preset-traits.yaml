@@ -7988,7 +7988,10 @@ list:
             },
             "blood-fury": {},
             "heartpiercer": {},
-            "brutal-momentum": {},
+            "brutal-momentum-base": {},
+            "brutal-momentum": {
+              "amount": ""
+            },
             "lasting-legacy": {
               "amount": ""
             }
@@ -8054,7 +8057,10 @@ list:
             },
             "blood-fury": {},
             "heartpiercer": {},
-            "brutal-momentum": {},
+            "brutal-momentum-base": {},
+            "brutal-momentum": {
+              "amount": ""
+            },
             "lasting-legacy": {
               "amount": ""
             }
@@ -8116,7 +8122,10 @@ list:
             },
             "blood-fury": {},
             "heartpiercer": {},
-            "brutal-momentum": {},
+            "brutal-momentum-base": {},
+            "brutal-momentum": {
+              "amount": ""
+            },
             "lasting-legacy": {
               "amount": ""
             }
@@ -8398,7 +8407,10 @@ list:
             },
             "blood-fury": {},
             "heartpiercer": {},
-            "brutal-momentum": {},
+            "brutal-momentum-base": {},
+            "brutal-momentum": {
+              "amount": ""
+            },
             "lasting-legacy": {
               "amount": ""
             }

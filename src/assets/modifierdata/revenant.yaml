@@ -789,6 +789,17 @@
       gw2id: 2108
       defaultEnabled: true
 
+    - id: brutal-momentum-base
+      text: Brutal Momentum
+      subText: base
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 10%
+      gw2id: 2142
+      defaultEnabled: true
+      temporaryBuff: false
+
     - id: brutal-momentum
       text: Brutal Momentum
       subText: full endurance
@@ -801,7 +812,7 @@
           correlation: false
       modifiers:
         attributes:
-          Critical Chance: 33%
+          Critical Chance: 23%
       gw2id: 2142
       defaultEnabled: true
       temporaryBuff: activeOutOfCombat
