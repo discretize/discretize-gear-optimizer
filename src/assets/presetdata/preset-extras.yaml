@@ -4098,6 +4098,43 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Celestial Alacrity Scourge
+    profession: Scourge
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "trapper": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Sigil1": {
+            "bursting": {},
+            "demons": {},
+            "torment": {
+              "amount": "1.85"
+            }
+          },
+          "Sigil2": {
+            "bursting": {},
+            "demons": {},
+            "torment": {
+              "amount": "1.85"
+            }
+          },
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "spherified-oyster-soup-with-mint-garnish": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Reaper Spear
     profession: Reaper
     value:

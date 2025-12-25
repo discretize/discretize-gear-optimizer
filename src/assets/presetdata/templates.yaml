@@ -1945,6 +1945,17 @@ list:
         weaponType: Two-handed
         outdated: false
 
+      - name: Celestial Alacrity Scourge
+        id: scourge-cele
+        specialization: Scourge
+        boonType: Condi
+        priority: Celestial
+        distribution: Celestial Alacrity Scourge
+        traits: Celestial Alacrity Scourge
+        extras: Celestial Alacrity Scourge
+        weaponType: Dual wield
+        outdated: false
+
       - name: Heal Quickness Ritualist
         id: healrit
         specialization: Ritualist
