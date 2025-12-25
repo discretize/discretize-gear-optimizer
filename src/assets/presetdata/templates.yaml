@@ -2129,7 +2129,7 @@ list:
         traits: Quickness Condi Deadeye Spear
         extras: Quickness Condi Deadeye Spear
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Quickness Power Deadeye Spear
         id: quick-pded-spear
