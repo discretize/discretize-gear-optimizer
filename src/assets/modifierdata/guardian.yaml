@@ -224,7 +224,10 @@
 
     - id: symbolic-avenger
       text: Symbolic Avenger
-      subText: 5x
+      amountData:
+        label: 'stacks'
+        default: 5
+        quantityEntered: 5
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, add]
