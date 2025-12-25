@@ -1169,6 +1169,7 @@
   "traitNote_Enchanted Daggers/Form of the Assassin lifesteal damage may not be shown in arcdps area stats or parsed arcdps logs.": "Enchanted Daggers/Form of the Assassin lifesteal damage may not be shown in arcdps area stats or parsed arcdps logs.",
   "traitNote_Enter identical uptimes for \"regular\" Elemental Empowerment and Empowered Empowerment, if applicable.": "Enter identical uptimes for \"regular\" Elemental Empowerment and Empowered Empowerment, if applicable.",
   "traitNote_Farsighted currently breaks air and hydromancy sigil simulation, and possibly some other effects.": "Farsighted currently breaks air and hydromancy sigil simulation, and possibly some other effects.",
+  "traitNote_Fulgor's damage-over-time effect is not currently implemented.": "Fulgor's damage-over-time effect is not currently implemented.",
   "traitNote_Larcenous Torment lifesteal damage may be omitted in arcdps area stats or parsed arcdps logs.": "Larcenous Torment lifesteal damage may be omitted in arcdps area stats or parsed arcdps logs.",
   "traitNote_Leeching venoms siphons applied by allies use allies' power stats, so they are not implemented.": "Leeching venoms siphons applied by allies use allies' power stats, so they are not implemented.",
   "traitNote_Natural Fortitude Unleashed Ambush lifesteal damage may be omitted in arcdps area stats or parsed arcdps logs.": "Natural Fortitude Unleashed Ambush lifesteal damage may be omitted in arcdps area stats or parsed arcdps logs.",
