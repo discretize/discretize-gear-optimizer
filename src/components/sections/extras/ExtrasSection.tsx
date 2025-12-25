@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { TextDivider } from '@discretize/react-discretize-components';
 import InfoIcon from '@mui/icons-material/Info';
 import {
@@ -11,7 +12,7 @@ import {
   Typography,
 } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import type { PresetExtrasEntry } from '../../../assets/presetdata/metadata';
 import {
@@ -104,7 +105,7 @@ const ExtrasSection = () => {
                 variant="standard"
                 size="small"
                 placeholder={String(Math.min(jsHeuristicsDefault, combinationCount))}
-                label={t('Total to calculate')}
+                label={t('Number to fully calculate')}
                 slotProps={{
                   input: {
                     // used to always display the placeholder value instead of the label
@@ -127,7 +128,7 @@ const ExtrasSection = () => {
               <TextField
                 variant="standard"
                 size="small"
-                label={t('Total to calculate')}
+                label={t('Number to fully calculate')}
                 slotProps={{
                   input: {
                     // must match above to fix weird animation on switch
@@ -162,15 +163,22 @@ const ExtrasSection = () => {
 
             {jsHeuristicsEnabled && (
               <Info icon={<InfoIcon />}>
-                {t('Estimation may be incompatible with per-slot controls.')}{' '}
-                <Link
-                  href="https://github.com/discretize/discretize-gear-optimizer/discussions/805"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  {t('Click here')}
-                </Link>{' '}
-                {t('for more information.')}
+                <Trans>
+                  Per-slot gear will be fully calculated for the number of chosen combinations. The
+                  rest will be estimated (e.g. "80% berserker, 20% assassin"). Enter zero to see
+                  only estimates!
+                  <br />
+                  <br />
+                  Estimation may be incompatible with per-slot controls.{' '}
+                  <Link
+                    href="https://github.com/discretize/discretize-gear-optimizer/discussions/805"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Click here
+                  </Link>{' '}
+                  for more information.
+                </Trans>
               </Info>
             )}
           </Box>
