@@ -552,20 +552,6 @@ list:
         weaponType: Two-handed
         outdated: true
 
-      - name: Power Core Guardian
-        id: core-guard
-        specialization: Guardian
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Core Guardian
-        traits: Core Guardian
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid)
-        weaponType: Two-handed
-        outdated: true
-
       # - name: Condi Quickbrand Celestial 35%
       #   id: cqfb-cele-35
       #   specialization: Firebrand
@@ -1791,20 +1777,6 @@ list:
       #   extras: Condi Alac Mechanist (inaccurate)
       #   weaponType: Dual wield
       #   outdated: true
-
-      - name: Power Engineer (Approx.)
-        id: engy-core
-        specialization: Engineer
-        boonType: Power
-        priority: Power DPS
-        distribution: 100% Power
-        traits: Power Engineer
-        fractal:
-          extras: Power (Fractal, fireworks)
-        raid:
-          extras: Power (Raid, fireworks)
-        weaponType: Two-handed
-        outdated: false
 
       - name: Heal Quickness Scrapper
         id: healscrapper

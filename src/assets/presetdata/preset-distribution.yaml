@@ -167,16 +167,6 @@ list:
         url: https://www.youtube.com/watch?v=N7fnAgJhy94
         log: https://dps.report/geOw-20250626-225051_golem
 
-  # https://www.youtube.com/watch?v=G3CngDG-cMg
-  # 12 boons
-  - name: Core Guardian
-    profession: Guardian
-    value:
-      {
-        "values2": { "Power": 3340, "Power2": 0, "Burning": 1.1, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    noCreditOkay: true
-
   # (this is actually an old core guardian distribution iirc)
   - name: Power Quickbrand (approx.)
     profession: Firebrand
