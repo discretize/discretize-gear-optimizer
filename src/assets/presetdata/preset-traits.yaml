@@ -1848,7 +1848,9 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {
+              "amount": "4.6"
+            }
           },
           {
             "imbued-haste": {

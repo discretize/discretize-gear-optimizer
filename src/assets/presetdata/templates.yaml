@@ -421,11 +421,11 @@ list:
         specialization: Firebrand
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Firebrand A/T P/P
-        traits: Condi Firebrand Virtues
+        distribution: Condi Firebrand A/T P/P (Allies)
+        traits: Condi Firebrand Zeal
         extras: Condi Firebrand
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Firebrand A/T (Approx.)
         id: cfb-axe-only

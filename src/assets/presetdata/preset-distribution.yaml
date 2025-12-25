@@ -234,16 +234,16 @@ list:
         url: https://www.youtube.com/watch?v=j0oY6aNODvY
         log: https://dps.report/78wD-20250513-140024_golem
 
-  - name: Condi Firebrand A/T P/P
+  - name: Condi Firebrand A/T P/P (Allies)
     profession: Firebrand
     value:
       {
-        "values2": { "Power": 1784, "Power2": 0, "Burning": 14.49, "Bleeding": 12.08, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2095, "Power2": 0, "Burning": 15.97, "Bleeding": 12.33, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Iskarel
-        url: https://www.youtube.com/watch?v=9BT5TBoaWEk
-        log: https://dps.report/bXp7-20240321-001338_golem
+      - author: Florian
+        url: https://www.youtube.com/watch?v=fa2jYn9TXrk
+        log: https://dps.report/j2MM-20250507-004127_golem
 
   - name: Condi Firebrand A/T
     profession: Firebrand
@@ -255,17 +255,6 @@ list:
       - author: Iskarel
         url: https://www.youtube.com/watch?v=3K3fFUXvQKs
         log: https://dps.report/vPRV-20240706-013634_golem
-
-  - name: Condi Firebrand A/T P/P (No Allies)
-    profession: Firebrand
-    value:
-      {
-        "values2": { "Power": 1775, "Power2": 0, "Burning": 13.39, "Bleeding": 12.05, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: Iskarel
-        url: https://www.youtube.com/watch?v=9BT5TBoaWEk
-        log: https://dps.report/CdPR-20240321-151620_golem
 
   # - name: Condi Quickbrand (WT, Allies)
   #   profession: Firebrand
