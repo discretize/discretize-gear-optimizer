@@ -47,7 +47,6 @@ const initialState: {
   infusionOptions: [
     { type: '', count: '' },
     { type: '', count: '' },
-    { type: '', count: '' },
   ],
   helperData: {
     enabled: false,
@@ -90,9 +89,10 @@ export const infusionsSlice = createSlice({
       }
     },
     changeInfusionOptions: (state, action: PayloadAction<InfusionOptions>) => {
-      state.infusionOptions = state.infusionOptions.map(
-        (_, i) => action.payload[i] ?? { type: '', count: '' },
-      );
+      state.infusionOptions =
+        state.infusionOptions.length > action.payload.length
+          ? state.infusionOptions.map((_, i) => action.payload[i] ?? { type: '', count: '' })
+          : action.payload;
     },
     addInfusionOption: (state) => {
       state.infusionOptions.push({ type: '', count: '' });
@@ -149,9 +149,10 @@ export const infusionsSlice = createSlice({
       const { infusionsPreset } = action.payload;
 
       if (infusionsPreset) {
-        state.infusionOptions = state.infusionOptions.map(
-          (_, i) => infusionsPreset[i] ?? { type: '', count: '' },
-        );
+        state.infusionOptions =
+          state.infusionOptions.length > infusionsPreset.length
+            ? state.infusionOptions.map((_, i) => infusionsPreset[i] ?? { type: '', count: '' })
+            : infusionsPreset;
       }
     });
 
