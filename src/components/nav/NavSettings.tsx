@@ -21,11 +21,11 @@ import { useAppDispatch } from '../../state/redux-hooks';
 import {
   changeHeuristics,
   changeIncludeScenarioDataInCharacters,
-  changeMulticore,
+  changeRustMode,
   getDefaultHwThreads,
   getHeuristics,
   getIncludeScenarioDataInCharacters,
-  getMulticore,
+  getRustMode,
   getSelectedTemplate,
   parseHwThreads,
 } from '../../state/slices/controlsSlice';
@@ -70,7 +70,7 @@ export default function NavSettings() {
   const selectedTemplate = useSelector(getSelectedTemplate);
   const hwThreadsString = useSelector(getHwThreadsString);
   const defaultHwThreads = useSelector(getDefaultHwThreads);
-  const enableMulticore = useSelector(getMulticore);
+  const rustMode = useSelector(getRustMode);
   const enableHeuristics = useSelector(getHeuristics);
   const includeScenarioDataInCharacters = useSelector(getIncludeScenarioDataInCharacters);
 
@@ -182,7 +182,7 @@ export default function NavSettings() {
         control={
           <Checkbox
             onChange={(e) => {
-              if (!enableMulticore) {
+              if (!rustMode) {
                 dispatch(stopCalc);
               } else {
                 // workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
@@ -190,12 +190,12 @@ export default function NavSettings() {
               }
 
               const newMulticore = e.target.checked;
-              dispatch(changeMulticore(newMulticore));
+              dispatch(changeRustMode(newMulticore));
             }}
           />
         }
         label={t('Enable experimental Rust/WebAssembly mode')}
-        checked={enableMulticore}
+        checked={rustMode}
       />
       <FormControlLabel
         control={

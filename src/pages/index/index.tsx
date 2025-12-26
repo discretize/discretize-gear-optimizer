@@ -12,7 +12,7 @@ import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
 import Layout from '../../components/baseComponents/Layout';
 import URLStateImport from '../../components/url-state/URLStateImport';
 import { isFirefox } from '../../state/optimizer/utils/detectFirefox';
-import { getMulticore } from '../../state/slices/controlsSlice';
+import { getRustMode } from '../../state/slices/controlsSlice';
 import { getGameMode } from '../../state/slices/userSettings';
 
 console.log('Gear Optimizer version:', __COMMIT_HASH__);
@@ -22,7 +22,7 @@ const IndexPage = () => {
   const { i18n } = useTranslation();
   const { language } = i18n;
   const gameMode = useSelector(getGameMode);
-  const multicore = useSelector(getMulticore);
+  const rustMode = useSelector(getRustMode);
 
   const [alertOpen, setAlertOpen] = React.useState([true, true, true]);
 
@@ -94,7 +94,7 @@ const IndexPage = () => {
         ))}
         <Typography variant="h2" sx={{ paddingBottom: 2 }}>
           <Trans>Gear Optimizer</Trans>
-          {multicore && (
+          {rustMode && (
             <>
               {' '}
               <Chip label="BETA" color="error" sx={{ alignSelf: 'flex-end' }} />
@@ -102,7 +102,7 @@ const IndexPage = () => {
           )}
         </Typography>
 
-        {multicore && (
+        {rustMode && (
           <Alert severity="error" sx={{ marginBottom: 2 }}>
             <Typography variant="body2" sx={{ marginBottom: '16px' }}>
               You have selected the experimental Rust/WebAssembly mode. This mode is still in

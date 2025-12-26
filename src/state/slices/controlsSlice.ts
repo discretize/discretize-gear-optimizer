@@ -249,7 +249,7 @@ export const controlSlice = createSlice({
     changeJsHeuristicsTarget: (state, action: PayloadAction<string>) => {
       state.jsHeuristicsTarget = action.payload;
     },
-    changeMulticore: (state, action: PayloadAction<boolean>) => {
+    changeRustMode: (state, action: PayloadAction<boolean>) => {
       state.multicore = action.payload;
     },
     changeHeuristics: (state, action: PayloadAction<boolean>) => {
@@ -285,7 +285,7 @@ export const getJsHeuristicsEnabled = (state: RootState) =>
   state.optimizer.control.jsHeuristicsEnabled;
 export const getJsHeuristicsTarget = (state: RootState) =>
   state.optimizer.control.jsHeuristicsTarget;
-export const getMulticore = (state: RootState) => state.optimizer.control.multicore;
+export const getRustMode = (state: RootState) => state.optimizer.control.multicore;
 export const getHeuristics = (state: RootState) => state.optimizer.control.heuristics;
 export const getIncludeScenarioDataInCharacters = (state: RootState) =>
   state.optimizer.control.includeScenarioDataInCharacters;
@@ -299,8 +299,8 @@ export const defaultJsThreads = isFirefox
 export const parseHwThreads: ParseFunction<undefined> = (text) =>
   parseNumber(text, undefined, true);
 
-export const getDefaultHwThreads = createSelector(getMulticore, (multicore) =>
-  multicore ? defaultRustThreads : defaultJsThreads,
+export const getDefaultHwThreads = createSelector(getRustMode, (rustMode) =>
+  rustMode ? defaultRustThreads : defaultJsThreads,
 );
 export const getHwThreads = createSelector(
   getHwThreadsString,
@@ -336,7 +336,7 @@ export const {
   changeError,
   changeJsHeuristicsEnabled,
   changeJsHeuristicsTarget,
-  changeMulticore,
+  changeRustMode,
   changeHeuristics,
   changeIncludeScenarioDataInCharacters,
 } = controlSlice.actions;
