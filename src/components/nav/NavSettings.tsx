@@ -41,6 +41,7 @@ import {
   changeGameMode,
   getExpertMode,
   getGameMode,
+  useSaveUserSettingsOnChange,
 } from '../../state/slices/userSettings';
 import LanguageSelection from '../baseComponents/LanguageSelection';
 import Settings from '../baseComponents/Settings';
@@ -52,8 +53,6 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const SETTINGS_STORAGE_KEY = 'globalSettings';
-
 export const GAME_MODES = (t: TFunction) => [
   { value: 'fractals', label: t('Fractals') },
   { value: 'raids', label: t('Raids/Strikes') },
@@ -64,9 +63,6 @@ export default function NavSettings() {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const { classes } = useStyles();
-
-  const { i18n } = useTranslation();
-  const { language } = i18n;
 
   const expertMode = useSelector(getExpertMode);
   const gameMode = useSelector(getGameMode);
@@ -84,13 +80,7 @@ export default function NavSettings() {
     setOpen(false);
   };
 
-  // save user settings to localStorage
-  React.useEffect(() => {
-    const settings = JSON.stringify({ expertMode, gameMode, language });
-    console.log(`saving... ${settings}`);
-
-    localStorage.setItem(SETTINGS_STORAGE_KEY, settings);
-  }, [expertMode, gameMode, language]);
+  useSaveUserSettingsOnChange();
 
   const { error: hwThreadsError } = parseHwThreads(hwThreadsString);
 
