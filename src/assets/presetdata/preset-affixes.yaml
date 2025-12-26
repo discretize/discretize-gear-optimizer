@@ -8,6 +8,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "0"
       }
+    infusions: Power + Precision
 
   - name: Power DPS (no dragon)
     hidden: true
@@ -18,6 +19,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "0"
       }
+    infusions: Power + Precision
 
   - name: Condi DPS
     value:
@@ -27,6 +29,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "0"
       }
+    infusions: Condition Damage + Expertise
 
   - name: Condi DPS Rampager
     value:
@@ -36,6 +39,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "0"
       }
+    infusions: Condition Damage + Precision
 
   - name: Hybrid DPS
     value:
@@ -45,6 +49,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "0"
       }
+    infusions: Condition Damage + Expertise
 
   - name: Power Boon
     value:
@@ -54,6 +59,7 @@ list:
         "minBoonDuration": "84.5",
         "minQuicknessDuration": "0"
       }
+    infusions: Power + Precision # + Concentration
 
   - name: Condi Boon
     value:
@@ -63,6 +69,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "0"
       }
+    infusions: Condition Damage + Expertise # + Concentration
 
   - name: Condi Boon/Support
     value:
@@ -72,6 +79,7 @@ list:
         "minBoonDuration": "79",
         "minQuicknessDuration": "0"
       }
+    infusions: None
 
   - name: Heal (Raid)
     value:
@@ -81,6 +89,7 @@ list:
         "minBoonDuration": "100",
         "minQuicknessDuration": "0"
       }
+    infusions: Healing Power + Concentration
 
   - name: Heal (Fractal)
     value:
@@ -90,6 +99,7 @@ list:
         "minBoonDuration": "100",
         "minQuicknessDuration": "0"
       }
+    infusions: Healing Power + Concentration
 
   # -------------------------------------------------------------------------------------------- #
 
@@ -102,6 +112,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "0"
       }
+    infusions: Power + Precision
 
   - name: Trailblazer/Dire
     hidden: true
@@ -112,6 +123,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "0"
       }
+    infusions: Condition Damage + Expertise
 
   - name: Condi Barrier Specter
     hidden: true
@@ -122,6 +134,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "0"
       }
+    infusions: Condition Damage + Expertise
 
   - name: Power Alacrity Willbender 14%
     hidden: true
@@ -132,6 +145,7 @@ list:
         "minBoonDuration": "14",
         "minQuicknessDuration": "0"
       }
+    infusions: Power + Precision # + Concentration
 
   - name: Power Alacrity Luminary 24%
     hidden: true
@@ -142,6 +156,7 @@ list:
         "minBoonDuration": "24",
         "minQuicknessDuration": "0"
       }
+    infusions: Power + Precision # + Concentration
 
   - name: Power Quickbrand 25%
     hidden: true
@@ -152,6 +167,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "25"
       }
+    infusions: Power + Precision # + Concentration
 
   - name: Condi Quickness Herald 0%
     hidden: true
@@ -162,6 +178,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "0"
       }
+    infusions: Condition Damage + Expertise # + Concentration
 
   - name: Power Boon Daredevil 99.7%
     hidden: true
@@ -172,6 +189,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "99.7"
       }
+    infusions: Power + Precision # + Concentration
 
   - name: Condi Hybrid Firebrand 40%
     hidden: true
@@ -182,6 +200,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "40"
       }
+    infusions: Condition Damage + Expertise # + Concentration
 
   - name: Condi Hybrid Firebrand 78%
     hidden: true
@@ -192,6 +211,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "78"
       }
+    infusions: Condition Damage + Expertise # + Concentration
 
   - name: Condi Alacrity Scourge 28.8%
     hidden: true
@@ -202,6 +222,7 @@ list:
         "minBoonDuration": "28.8",
         "minQuicknessDuration": "0"
       }
+    infusions: Condition Damage + Expertise # + Concentration
 
   - name: Condi Quickness Harbinger 12.8%
     hidden: true
@@ -212,6 +233,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "12.8"
       }
+    infusions: Condition Damage + Expertise # + Concentration
 
   - name: Condi Boon 0%
     hidden: true
@@ -222,6 +244,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "0"
       }
+    infusions: Condition Damage + Expertise # + Concentration
 
   - name: Condi Quickness Berserker 44.7%
     hidden: true
@@ -232,6 +255,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "44.7"
       }
+    infusions: Condition Damage + Expertise # + Concentration
 
   - name: Quickness Condi Untamed 42%
     hidden: true
@@ -242,6 +266,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "42"
       }
+    infusions: Condition Damage + Expertise # + Concentration
 
   - name: Alacrity Power Renegade 37.4%
     hidden: true
@@ -252,6 +277,7 @@ list:
         "minBoonDuration": "37.4",
         "minQuicknessDuration": "0"
       }
+    infusions: Power + Precision # + Concentration
 
   - name: Alacrity Condi Renegade 42%
     hidden: true
@@ -262,6 +288,7 @@ list:
         "minBoonDuration": "42",
         "minQuicknessDuration": "0"
       }
+    infusions: Condition Damage + Expertise # + Concentration
 
   - name: Condi Quickbrand 40%
     hidden: true
@@ -272,6 +299,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "40"
       }
+    infusions: Condition Damage + Expertise # + Concentration
 
   - name: Alacrity Condi Specter 32.8%
     hidden: true
@@ -282,6 +310,7 @@ list:
         "minBoonDuration": "32.8",
         "minQuicknessDuration": "0"
       }
+    infusions: Condition Damage + Expertise # + Concentration
 
   - name: Condi Alacrity Willbender 14%
     hidden: true
@@ -292,6 +321,7 @@ list:
         "minBoonDuration": "14",
         "minQuicknessDuration": "0"
       }
+    infusions: Condition Damage + Expertise # + Concentration
 
   - name: Alacrity Power Tempest 34%
     hidden: true
@@ -302,6 +332,7 @@ list:
         "minBoonDuration": "34.4",
         "minQuicknessDuration": "0"
       }
+    infusions: Power + Precision # + Concentration
 
   - name: Alacrity Power Tempest 31%
     hidden: true
@@ -312,6 +343,7 @@ list:
         "minBoonDuration": "31.7",
         "minQuicknessDuration": "0"
       }
+    infusions: Power + Precision # + Concentration
 
   - name: Alacrity Fire Tempest Inferno 22%
     hidden: true
@@ -322,6 +354,7 @@ list:
         "minBoonDuration": "22",
         "minQuicknessDuration": "0"
       }
+    infusions: Power + Precision # + Concentration
 
   - name: Alacrity Condi Tempest 31%
     hidden: true
@@ -332,6 +365,7 @@ list:
         "minBoonDuration": "31",
         "minQuicknessDuration": "0"
       }
+    infusions: Condition Damage + Expertise # + Concentration
 
   - name: Condi Tempest
     hidden: true
@@ -342,6 +376,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "0"
       }
+    infusions: Condition Damage + Expertise
 
   - name: Heal Specter 88%
     hidden: true
@@ -352,6 +387,7 @@ list:
         "minBoonDuration": "88",
         "minQuicknessDuration": "0"
       }
+    infusions: Healing Power + Concentration
 
   - name: Power Quickness Untamed 40%
     hidden: true
@@ -362,6 +398,7 @@ list:
         "minBoonDuration": "0",
         "minQuicknessDuration": "40"
       }
+    infusions: Power + Precision # + Concentration
 
   - name: Alacrity Power Antiquary 13%
     value:
@@ -371,3 +408,4 @@ list:
         "minBoonDuration": "13",
         "minQuicknessDuration": "0"
       }
+    infusions: Power + Precision # + Concentration

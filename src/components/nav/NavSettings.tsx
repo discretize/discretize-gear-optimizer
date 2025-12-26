@@ -31,6 +31,10 @@ import {
   getSelectedTemplate,
   parseHwThreads,
 } from '../../state/slices/controlsSlice';
+import {
+  changeDefaultStatInfusions,
+  getDefaultStatInfusions,
+} from '../../state/slices/localUserSettings';
 import type { GameMode } from '../../state/slices/userSettings';
 import {
   changeExpertMode,
@@ -66,6 +70,7 @@ export default function NavSettings() {
 
   const expertMode = useSelector(getExpertMode);
   const gameMode = useSelector(getGameMode);
+  const defaultStatInfusions = useSelector(getDefaultStatInfusions);
   const selectedTemplate = useSelector(getSelectedTemplate);
   const hwThreadsString = useSelector(getHwThreadsString);
   const defaultHwThreads = useSelector(getDefaultHwThreads);
@@ -90,7 +95,7 @@ export default function NavSettings() {
   const { error: hwThreadsError } = parseHwThreads(hwThreadsString);
 
   return (
-    <Settings maxWidth={400}>
+    <Settings maxWidth={350}>
       <Typography variant="h6" sx={{ width: 300 }}>
         <Trans>Global Settings</Trans>
       </Typography>
@@ -114,7 +119,21 @@ export default function NavSettings() {
             color="primary"
           />
         }
-        label={t('Expert')}
+        label={t('Expert Mode')}
+      />
+
+      <FormControlLabel
+        control={
+          <Switch
+            checked={defaultStatInfusions === '18'}
+            onChange={(e) => {
+              dispatch(changeDefaultStatInfusions(e.target.checked ? '18' : ''));
+            }}
+            color="primary"
+          />
+        }
+        label={t('Default to 18 stat infusions in new tabs')}
+        slotProps={{ typography: { variant: 'caption' } }}
       />
 
       <Divider className={classes.divider} />
@@ -150,8 +169,8 @@ export default function NavSettings() {
       <Divider className={classes.divider} />
 
       <TextField
-        label={t('Threads')}
-        helperText={t('Number of threads to use for calculations')}
+        label={t('Calculation CPU Threads')}
+        helperText={t('Number of threads to run in parallel')}
         placeholder={String(defaultHwThreads)}
         size="small"
         value={hwThreadsString}

@@ -25,3 +25,19 @@ list:
     value:
       - { type: "Healing Power", count: "" }
       - { type: "Concentration", count: "" }
+
+  # -------------------------------------------------------------------------------------------- #
+
+  - name: Power + Precision + Concentration
+    hidden: true
+    value:
+      - { type: "Power", count: "" }
+      - { type: "Precision", count: "" }
+      - { type: "Concentration", count: "" }
+
+  - name: Condition Damage + Expertise + Concentration
+    hidden: true
+    value:
+      - { type: "Condition Damage", count: "" }
+      - { type: "Expertise", count: "" }
+      - { type: "Concentration", count: "" }

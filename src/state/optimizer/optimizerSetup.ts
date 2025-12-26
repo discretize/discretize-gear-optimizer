@@ -43,6 +43,7 @@ import {
   parseBoss,
   parseInfusionCount,
   parsePriority,
+  parseSpecificInfusionCount,
 } from '../../utils/usefulFunctions';
 import { getAttackRate, getMovementUptime } from '../slices/boss';
 import { getBuffsModifiers } from '../slices/buffs';
@@ -237,10 +238,12 @@ export function createSettingsPerCalculation(
     MAX_INFUSIONS,
   );
 
-  const infusionOptions = rawInfusionOptions.map(({ type, count }) => ({
-    type,
-    count: clamp(parseInfusionCount(count).value, 0, MAX_INFUSIONS),
-  }));
+  const infusionOptions = maxInfusions
+    ? rawInfusionOptions.map(({ type, count }) => ({
+        type,
+        count: clamp(parseSpecificInfusionCount(count).value, 0, MAX_INFUSIONS),
+      }))
+    : [];
 
   const totalSelectedInfusions = infusionOptions.reduce((prev, cur) => prev + cur.count, 0);
 
@@ -248,7 +251,7 @@ export function createSettingsPerCalculation(
   const infusionNoDuplicates = false;
 
   let infusionMode: OptimizerCoreSettings['infusionMode'] = 'None';
-  switch (rawInfusionOptions.length) {
+  switch (infusionOptions.length) {
     case 0:
       infusionMode = 'None';
       break;
