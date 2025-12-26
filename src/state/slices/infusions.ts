@@ -16,6 +16,7 @@ import {
 import type { AppliedModifier } from '../optimizer/types/optimizerSetupTypes';
 import type { RootState } from '../store';
 import { changeAll, setBuildTemplate } from './controlsSlice';
+import { loadedLocalUserSettings } from './localUserSettings';
 import { changeGameMode, loadedSettings } from './userSettings';
 
 const isFractal = loadedSettings.gameMode === 'fractals';
@@ -42,7 +43,7 @@ const initialState: {
   omnipotion: isFractal,
   mistAttunement: 0,
   ar: isFractal ? '162' : '',
-  maxInfusions: '',
+  maxInfusions: loadedLocalUserSettings.defaultStatInfusions,
   infusionOptions: [
     { type: '', count: '' },
     { type: '', count: '' },
