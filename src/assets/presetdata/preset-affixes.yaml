@@ -93,16 +93,6 @@ list:
 
   # -------------------------------------------------------------------------------------------- #
 
-  - name: Viper Only
-    hidden: true
-    value:
-      {
-        "affixes": ["Viper"],
-        "optimizeFor": "Damage",
-        "minBoonDuration": "0",
-        "minQuicknessDuration": "0"
-      }
-
   - name: Berserker Only
     hidden: true
     value:
@@ -163,16 +153,6 @@ list:
         "minQuicknessDuration": "25"
       }
 
-  - name: Condi Quickness Scrapper 28.7%
-    hidden: true
-    value:
-      {
-        "affixes": ["Viper", "Ritualist"],
-        "optimizeFor": "Damage",
-        "minBoonDuration": "0",
-        "minQuicknessDuration": "28.78"
-      }
-
   - name: Condi Quickness Herald 0%
     hidden: true
     value:
@@ -211,16 +191,6 @@ list:
         "optimizeFor": "Damage",
         "minBoonDuration": "0",
         "minQuicknessDuration": "78"
-      }
-
-  - name: Boon Condi Chrono Scepter 10%
-    hidden: true
-    value:
-      {
-        "affixes": ["Viper", "Ritualist"],
-        "optimizeFor": "Damage",
-        "minBoonDuration": "0",
-        "minQuicknessDuration": "10.3"
       }
 
   - name: Condi Alacrity Scourge 28.8%
