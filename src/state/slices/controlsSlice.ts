@@ -9,8 +9,8 @@ import type { Character } from '../optimizer/types/optimizerTypes';
 import { isFirefox } from '../optimizer/utils/detectFirefox';
 import type { OptimizerStatus } from '../optimizer/utils/status';
 import { RUNNING, RUNNING_HEURISTICS, WAITING } from '../optimizer/utils/status';
-import { reduxSideEffect } from '../redux-hooks';
 import type { RootState } from '../store';
+import { getHwThreadsString } from './localUserSettings';
 
 const roundThree = (num: number) => Math.round(num * 1000) / 1000;
 
@@ -100,10 +100,6 @@ export const emptyFilteredLists = {
   Enhancement: [],
 };
 
-const THREADS_SETTINGS_STORAGE_KEY = 'hwThreads-1';
-const savedHwThreads =
-  (typeof localStorage !== 'undefined' && localStorage.getItem(THREADS_SETTINGS_STORAGE_KEY)) || '';
-
 const initialState: {
   list: Character[];
   filteredLists: Record<ExtraFilterMode, Character[]>;
@@ -124,7 +120,6 @@ const initialState: {
   jsHeuristicsEnabled: boolean;
   jsHeuristicsTarget: string;
   multicore: boolean;
-  hwThreads: string;
   heuristics: boolean;
   includeScenarioDataInCharacters: boolean;
   error: string;
@@ -148,7 +143,6 @@ const initialState: {
   jsHeuristicsEnabled: true,
   jsHeuristicsTarget: '',
   multicore: false,
-  hwThreads: savedHwThreads,
   heuristics: false,
   includeScenarioDataInCharacters: false,
   error: '',
@@ -255,9 +249,6 @@ export const controlSlice = createSlice({
     changeJsHeuristicsTarget: (state, action: PayloadAction<string>) => {
       state.jsHeuristicsTarget = action.payload;
     },
-    changeHwThreads: (state, action: PayloadAction<string>) => {
-      state.hwThreads = action.payload;
-    },
     changeMulticore: (state, action: PayloadAction<boolean>) => {
       state.multicore = action.payload;
     },
@@ -272,7 +263,6 @@ export const controlSlice = createSlice({
 
 export const getProfession = (state: RootState) => state.optimizer.control.profession;
 export const getSelectedTemplate = (state: RootState) => state.optimizer.control.selectedTemplate;
-export const getHwThreadsString = (state: RootState) => state.optimizer.control.hwThreads;
 export const getProgress = (state: RootState) => state.optimizer.control.progress;
 export const getHeuristicsProgress = (state: RootState) =>
   state.optimizer.control.heuristicsProgress;
@@ -319,10 +309,6 @@ export const getHwThreads = createSelector(
     Math.max(parseHwThreads(hwThreadsString).value ?? defaultHwThreads, 1),
 );
 
-reduxSideEffect(getHwThreadsString, (hwThreads) =>
-  localStorage.setItem(THREADS_SETTINGS_STORAGE_KEY, hwThreads),
-);
-
 export const getPageTitle = createSelector(getStatus, getProgress, (status, progress) => {
   if (status === RUNNING) return `${progress}% - Discretize Gear Optimizer`;
   if (status === RUNNING_HEURISTICS) return `0% (${progress}%) - Discretize Gear Optimizer`;
@@ -350,7 +336,6 @@ export const {
   changeError,
   changeJsHeuristicsEnabled,
   changeJsHeuristicsTarget,
-  changeHwThreads,
   changeMulticore,
   changeHeuristics,
   changeIncludeScenarioDataInCharacters,
