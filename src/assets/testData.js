@@ -687,6 +687,10 @@ const testPresets = async () => {
           }
         });
       }
+      if (type === 'priority') {
+        const infusionsMatch = data.infusions.find((pre) => pre.name === entry.infusions);
+        gentleAssert(infusionsMatch, `err: ${entry.name}'s infusions is not found!`);
+      }
     }
   }
 

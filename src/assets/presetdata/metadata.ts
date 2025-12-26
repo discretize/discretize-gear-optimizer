@@ -51,6 +51,7 @@ export interface PresetBuffs {
 
 export type PresetAffixesEntry = Exclude<PresetEntry, 'profession'> & {
   value: Partial<PrioritiesSlice>;
+  infusions: string;
 };
 export interface PresetAffixes {
   'GraphQL ID': string;

@@ -7,10 +7,15 @@ import {
   mistAttunementData,
   omnipotionModifiers,
 } from '../../utils/gw2-data';
-import { parseAmount, parseAr, parseInfusionCount } from '../../utils/usefulFunctions';
+import {
+  parseAmount,
+  parseAr,
+  parseInfusionCount,
+  parseSpecificInfusionCount,
+} from '../../utils/usefulFunctions';
 import type { AppliedModifier } from '../optimizer/types/optimizerSetupTypes';
 import type { RootState } from '../store';
-import { changeAll } from './controlsSlice';
+import { changeAll, setBuildTemplate } from './controlsSlice';
 import { changeGameMode, loadedSettings } from './userSettings';
 
 const isFractal = loadedSettings.gameMode === 'fractals';
@@ -37,8 +42,9 @@ const initialState: {
   omnipotion: isFractal,
   mistAttunement: 0,
   ar: isFractal ? '162' : '',
-  maxInfusions: String(MAX_INFUSIONS),
+  maxInfusions: '',
   infusionOptions: [
+    { type: '', count: '' },
     { type: '', count: '' },
     { type: '', count: '' },
   ],
@@ -138,6 +144,16 @@ export const infusionsSlice = createSlice({
       }
     });
 
+    builder.addCase(setBuildTemplate, (state, action) => {
+      const { infusionsPreset } = action.payload;
+
+      if (infusionsPreset) {
+        state.infusionOptions = state.infusionOptions.map(
+          (_, i) => infusionsPreset[i] ?? { type: '', count: '' },
+        );
+      }
+    });
+
     builder.addCase(changeGameMode, (state, action) => {
       if (action.payload === 'fractals') {
         return { ...state, omnipotion: true, ar: '162', mistAttunement: 0 };
@@ -161,7 +177,7 @@ export const getValidInfusionOptions = createSelector(
     infusionOptions.filter(
       ({ type, count }, i) =>
         type &&
-        parseInfusionCount(count).value > 0 &&
+        parseSpecificInfusionCount(count).value > 0 &&
         // ignore duplicates
         infusionOptions.findIndex((entry) => entry.type === type) === i,
     ) as ValidInfusionOptions,
@@ -266,7 +282,7 @@ export const getHelperResult = createSelector(
     const statSlots = Math.min(
       infusionOptions
         .filter(({ type }) => type)
-        .reduce((prev, { count }) => prev + parseInfusionCount(count).value, 0),
+        .reduce((prev, { count }) => prev + parseSpecificInfusionCount(count).value, 0),
       maxInfusions,
     );
 

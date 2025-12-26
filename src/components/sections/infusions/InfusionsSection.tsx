@@ -2,12 +2,17 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import type { PresetInfusionsEntry } from '../../../assets/presetdata/metadata';
-import { changeInfusionOptions } from '../../../state/slices/infusions';
+import { changeInfusionOptions, changeMaxInfusions } from '../../../state/slices/infusions';
 import { getGameMode } from '../../../state/slices/userSettings';
 import data from '../../../utils/data';
-import Presets from '../../baseComponents/Presets';
+import Presets, { BasicPresets } from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Infusions from './Infusions';
+
+const infusionCountPresets = [
+  { name: '0x', value: '0' },
+  { name: '18x', value: '18' },
+];
 
 const InfusionsSection = () => {
   const { t } = useTranslation();
@@ -23,6 +28,11 @@ const InfusionsSection = () => {
     [dispatch],
   );
 
+  const onTemplateClickInfusionsCount = React.useCallback(
+    (value: string) => dispatch(changeMaxInfusions(value)),
+    [dispatch],
+  );
+
   const title = t('Infusions') + (isFractals ? ` ${t('+ AR')}` : '');
 
   return (
@@ -33,11 +43,14 @@ const InfusionsSection = () => {
         <Trans>Select types of stat infusions, and optionally limit the quantity allowed.</Trans>
       }
       extraInfo={
-        <Presets
-          data={infusionPresets}
-          handleClick={onTemplateClickInfusions}
-          presetCategory="infusion"
-        />
+        <>
+          <BasicPresets data={infusionCountPresets} handleClick={onTemplateClickInfusionsCount} />
+          <Presets
+            data={infusionPresets}
+            handleClick={onTemplateClickInfusions}
+            presetCategory="infusion"
+          />
+        </>
       }
     />
   );
