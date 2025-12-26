@@ -20,7 +20,12 @@ function getLocalStorageState(): object {
 
 const SETTINGS_STORAGE_KEY = 'globalSettings';
 
-const defaultState = { expertMode: true, gameMode: 'fractals', language: 'en' };
+const defaultState = {
+  expertMode: true,
+  gameMode: 'fractals',
+  language: 'en',
+  defaultStatInfusions: '',
+};
 // eslint-disable-next-line react-hooks/rules-of-hooks
 const gameModeParam = useQueryParam({ key: PARAMS.GAMEMODE });
 
@@ -32,6 +37,7 @@ export const loadedSettings = {
   expertMode: boolean;
   gameMode: GameMode;
   language: string;
+  defaultStatInfusions: string;
 };
 
 // append the gamemode to the query param if no query param is present
@@ -43,6 +49,7 @@ export const userSettingsSlice = createSlice({
   initialState: {
     expertMode: loadedSettings.expertMode,
     gameMode: loadedSettings.gameMode,
+    defaultStatInfusions: loadedSettings.defaultStatInfusions,
   },
 
   reducers: {
@@ -55,6 +62,9 @@ export const userSettingsSlice = createSlice({
     changeGameMode: (state, action: PayloadAction<GameMode>) => {
       state.gameMode = action.payload;
       setQueryParm({ key: PARAMS.GAMEMODE, value: action.payload });
+    },
+    changeDefaultStatInfusions: (state, action: PayloadAction<string>) => {
+      state.defaultStatInfusions = action.payload;
     },
   },
 
@@ -73,8 +83,14 @@ export const userSettingsSlice = createSlice({
 
 export const getExpertMode = (state: RootState) => state.optimizer.userSettings.expertMode;
 export const getGameMode = (state: RootState) => state.optimizer.userSettings.gameMode;
+export const getDefaultStatInfusions = (state: RootState) =>
+  state.optimizer.userSettings.defaultStatInfusions;
 
-export const { changeAllUserSettings, changeExpertMode, changeGameMode } =
-  userSettingsSlice.actions;
+export const {
+  changeAllUserSettings,
+  changeExpertMode,
+  changeGameMode,
+  changeDefaultStatInfusions,
+} = userSettingsSlice.actions;
 
 export default userSettingsSlice.reducer;

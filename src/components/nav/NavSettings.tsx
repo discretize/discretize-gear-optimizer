@@ -33,14 +33,17 @@ import {
 } from '../../state/slices/controlsSlice';
 import type { GameMode } from '../../state/slices/userSettings';
 import {
+  changeDefaultStatInfusions,
   changeExpertMode,
   changeGameMode,
+  getDefaultStatInfusions,
   getExpertMode,
   getGameMode,
 } from '../../state/slices/userSettings';
 import LanguageSelection from '../baseComponents/LanguageSelection';
 import Settings from '../baseComponents/Settings';
 import ReapplyTemplateDialog from './ReapplyTemplateDialog';
+import { parseInfusionCount } from '../../utils/usefulFunctions';
 
 const useStyles = makeStyles()((theme) => ({
   divider: {
@@ -66,6 +69,7 @@ export default function NavSettings() {
 
   const expertMode = useSelector(getExpertMode);
   const gameMode = useSelector(getGameMode);
+  const defaultStatInfusions = useSelector(getDefaultStatInfusions);
   const selectedTemplate = useSelector(getSelectedTemplate);
   const hwThreadsString = useSelector(getHwThreadsString);
   const defaultHwThreads = useSelector(getDefaultHwThreads);
@@ -81,16 +85,17 @@ export default function NavSettings() {
 
   // save user settings to localStorage
   React.useEffect(() => {
-    const settings = JSON.stringify({ expertMode, gameMode, language });
+    const settings = JSON.stringify({ expertMode, gameMode, language, defaultStatInfusions });
     console.log(`saving... ${settings}`);
 
     localStorage.setItem(SETTINGS_STORAGE_KEY, settings);
-  }, [expertMode, gameMode, language]);
+  }, [expertMode, gameMode, language, defaultStatInfusions]);
 
   const { error: hwThreadsError } = parseHwThreads(hwThreadsString);
+  const { error: defaultStatInfusionsError } = parseInfusionCount(defaultStatInfusions);
 
   return (
-    <Settings maxWidth={400}>
+    <Settings maxWidth={375}>
       <Typography variant="h6" sx={{ width: 300 }}>
         <Trans>Global Settings</Trans>
       </Typography>
@@ -114,7 +119,7 @@ export default function NavSettings() {
             color="primary"
           />
         }
-        label={t('Expert')}
+        label={t('Expert Mode')}
       />
 
       <Divider className={classes.divider} />
@@ -150,8 +155,29 @@ export default function NavSettings() {
       <Divider className={classes.divider} />
 
       <TextField
+        label={t('Default Stat Infusion Input')}
+        helperText={t('Stat infusion count to select when opening the optimizer in this browser')}
+        placeholder="0"
+        size="small"
+        value={defaultStatInfusions}
+        error={defaultStatInfusionsError}
+        onChange={(e) => dispatch(changeDefaultStatInfusions(e.target.value))}
+        slotProps={{
+          htmlInput: { inputMode: 'numeric', pattern: '[0-9]*' },
+          input: {
+            // used to always display the placeholder value instead of the label
+            // eslint-disable-next-line react/jsx-no-useless-fragment
+            startAdornment: <></>,
+          },
+        }}
+        sx={{ width: '100%' }}
+      />
+
+      <Divider className={classes.divider} />
+
+      <TextField
         label={t('Threads')}
-        helperText={t('Number of threads to use for calculations')}
+        helperText={t('Number of CPU cores to use for calculations')}
         placeholder={String(defaultHwThreads)}
         size="small"
         value={hwThreadsString}
@@ -165,6 +191,7 @@ export default function NavSettings() {
             startAdornment: <></>,
           },
         }}
+        sx={{ width: '100%' }}
       />
 
       <Divider className={classes.divider} />

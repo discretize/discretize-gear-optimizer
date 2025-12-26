@@ -42,7 +42,7 @@ const initialState: {
   omnipotion: isFractal,
   mistAttunement: 0,
   ar: isFractal ? '162' : '',
-  maxInfusions: '',
+  maxInfusions: loadedSettings.defaultStatInfusions,
   infusionOptions: [
     { type: '', count: '' },
     { type: '', count: '' },
