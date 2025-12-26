@@ -62,13 +62,21 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const amountInput = (
-  label: string,
-  id: string,
-  onChange: React.ComponentProps<typeof Input>['onChange'],
-  value: string,
-  className?: string,
-) => {
+const AmountInput = ({
+  label,
+  id,
+  onChange,
+  value,
+  className,
+  placeholder,
+}: {
+  label: string;
+  id: string;
+  onChange: React.ComponentProps<typeof Input>['onChange'];
+  value: string;
+  className?: string;
+  placeholder?: string;
+}) => {
   const { error } = parseInfusionCount(value);
   return (
     <FormControl className={className} variant="standard">
@@ -79,6 +87,14 @@ const amountInput = (
         onChange={onChange}
         autoComplete="off"
         error={error}
+        {...(placeholder
+          ? {
+              placeholder,
+              // used to always display the placeholder value instead of the label
+              // eslint-disable-next-line react/jsx-no-useless-fragment
+              startAdornment: <></>,
+            }
+          : {})}
       />
     </FormControl>
   );
@@ -161,12 +177,13 @@ const Infusions = () => {
         sx={{ justifyContent: 'flex-start', alignItems: 'center' }}
       >
         <Grid size={12}>
-          {amountInput(
-            '# Stat Infusions',
-            'max-infusions',
-            (e) => dispatch(changeMaxInfusions(e.target.value)),
-            maxInfusions,
-          )}
+          <AmountInput
+            label="# Stat Infusions"
+            id="max-infusions"
+            onChange={(e) => dispatch(changeMaxInfusions(e.target.value))}
+            value={maxInfusions}
+            placeholder="18"
+          />
         </Grid>
 
         {infusionOptions.map(({ type, count }, index) => (
@@ -204,13 +221,15 @@ const Infusions = () => {
               </Select>
             </FormControl>
 
-            {amountInput(
-              t('Max #'),
-              `infusion-option-${index}`,
-              (e) => dispatch(changeInfusionOptionCount({ index, count: e.target.value })),
-              count,
-              classes.formControl2,
-            )}
+            <AmountInput
+              label={t('Max #')}
+              id={`infusion-option-${index}`}
+              onChange={(e) =>
+                dispatch(changeInfusionOptionCount({ index, count: e.target.value }))
+              }
+              value={count}
+              className={classes.formControl2}
+            />
           </Grid>
         ))}
 

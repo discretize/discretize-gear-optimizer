@@ -10,7 +10,7 @@ import {
 import { parseAmount, parseAr, parseInfusionCount } from '../../utils/usefulFunctions';
 import type { AppliedModifier } from '../optimizer/types/optimizerSetupTypes';
 import type { RootState } from '../store';
-import { changeAll } from './controlsSlice';
+import { changeAll, setBuildTemplate } from './controlsSlice';
 import { changeGameMode, loadedSettings } from './userSettings';
 
 const isFractal = loadedSettings.gameMode === 'fractals';
@@ -37,8 +37,9 @@ const initialState: {
   omnipotion: isFractal,
   mistAttunement: 0,
   ar: isFractal ? '162' : '',
-  maxInfusions: String(MAX_INFUSIONS),
+  maxInfusions: '0',
   infusionOptions: [
+    { type: '', count: '' },
     { type: '', count: '' },
     { type: '', count: '' },
   ],
@@ -135,6 +136,16 @@ export const infusionsSlice = createSlice({
         action.payload.form.mistAttunement ??= 0;
 
         return { ...state, ...action.payload.form.infusions };
+      }
+    });
+
+    builder.addCase(setBuildTemplate, (state, action) => {
+      const { infusionPreset } = action.payload;
+
+      if (infusionPreset) {
+        state.infusionOptions = state.infusionOptions.map(
+          (_, i) => infusionPreset[i] ?? { type: '', count: '' },
+        );
       }
     });
 

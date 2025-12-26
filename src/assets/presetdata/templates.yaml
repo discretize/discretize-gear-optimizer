@@ -8,6 +8,7 @@ list:
         id: ptroub
         specialization: Troubadour
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Troubadour
         traits: Power Troubadour
@@ -22,6 +23,7 @@ list:
         id: cvirt
         specialization: Virtuoso
         boonType: Condi
+        infusions: Condition Damage + Precision
         priority: Condi DPS Rampager
         distribution: Condi Virtuoso Dueling
         traits: Condi Virtuoso Dueling
@@ -33,6 +35,7 @@ list:
       #   id: cvirt-sorrow
       #   specialization: Virtuoso
       #   boonType: Condi
+      #   infusions: Condition Damage + Precision
       #   priority: Condi DPS Rampager
       #   distribution: Condi Virtuoso (sharpening sorrow)
       #   traits: Condi Virtuoso (sharpening sorrow)
@@ -43,6 +46,7 @@ list:
         id: cvirt-chaos
         specialization: Virtuoso
         boonType: Condi
+        infusions: Condition Damage + Precision
         priority: Condi DPS Rampager
         distribution: Condi Virtuoso Chaos
         traits: Condi Virtuoso Chaos
@@ -54,6 +58,7 @@ list:
         id: pvirt-spear
         specialization: Virtuoso
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Virtuoso Spear
         traits: Power Virtuoso Spear
@@ -68,6 +73,7 @@ list:
         id: pvirt-gs
         specialization: Virtuoso
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Virtuoso GS
         traits: Power Virtuoso GS
@@ -82,6 +88,7 @@ list:
         id: condi-chrono-staff-scepter-boon
         specialization: Chronomancer
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Boon 0%
         distribution: Boon Condi Chrono Staff SC/D
         traits: Boon Condi Chrono Staff SC/D
@@ -93,6 +100,7 @@ list:
         id: condi-chrono-stm
         specialization: Chronomancer
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Boon 0%
         distribution: Boon Condi Chrono Scepter
         traits: Boon Condi Chrono Scepter
@@ -104,6 +112,7 @@ list:
         id: pchrono-boon-dt-spear
         specialization: Chronomancer
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Boon Power Chrono DT Spear
         traits: Boon Power Chrono DT Spear
@@ -118,6 +127,7 @@ list:
         id: pchrono-boon-ia-spear
         specialization: Chronomancer
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Boon Power Chrono IA Spear
         traits: Boon Power Chrono IA Spear
@@ -132,6 +142,7 @@ list:
         id: pchrono-boon-gs
         specialization: Chronomancer
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Boon Power Chrono GS
         traits: Boon Power Chrono GS
@@ -146,6 +157,7 @@ list:
         id: condi-chrono-staff-scepter
         specialization: Chronomancer
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Boon 0%
         distribution: Condi Chrono Staff SC/D
         traits: Condi Chrono Staff SC/D
@@ -157,6 +169,7 @@ list:
         id: condi-chrono-scepter
         specialization: Chronomancer
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Chrono Scepter (Approx.)
         traits: Condi Chrono Scepter
@@ -182,6 +195,7 @@ list:
         id: pchrono-dt-spear
         specialization: Chronomancer
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Chrono DT Spear
         traits: Power Chrono DT Spear
@@ -196,6 +210,7 @@ list:
         id: pchrono-ia-spear
         specialization: Chronomancer
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Chrono IA Spear
         traits: Power Chrono IA Spear
@@ -210,6 +225,7 @@ list:
         id: pchrono-ia-gs
         specialization: Chronomancer
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Chrono IA GS
         traits: Power Chrono IA GS
@@ -252,6 +268,7 @@ list:
         id: condi-staxe-mirage-alac
         specialization: Mirage
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Mirage Staxe IH Oasis
         traits: Alacrity Condi Mirage Staxe IH Oasis
@@ -263,6 +280,7 @@ list:
         id: alacmirage
         specialization: Mirage
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Boon 0%
         distribution: Alacrity Condi Mirage Staff
         traits: Alacrity Condi Mirage Staff
@@ -274,6 +292,7 @@ list:
         id: condi-staxe-mirage
         specialization: Mirage
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Mirage Staxe IH Oasis
         traits: Condi Mirage Staxe IH Oasis
@@ -285,6 +304,7 @@ list:
         id: axe-mirage-deception-torch
         specialization: Mirage
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Axe Mirage (Deception Torch)
         traits: Axe Mirage
@@ -296,6 +316,7 @@ list:
         id: mirage-power
         specialization: Mirage
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Mirage
         traits: Power Mirage
@@ -310,6 +331,7 @@ list:
         id: heal-boon-chrono
         specialization: Chronomancer
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -327,6 +349,7 @@ list:
         id: luminary-power
         specialization: Luminary
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Luminary SP/GS
         traits: Power Luminary
@@ -341,6 +364,7 @@ list:
         id: luminary-power-alac
         specialization: Luminary
         boonType: Power
+        infusions: Power + Precision
         priority: Power Alacrity Luminary 24%
         distribution: Alacrity Power Luminary LB/GS
         traits: Alacrity Power Luminary
@@ -377,6 +401,7 @@ list:
         id: firebrand-condi-quickness
         specialization: Firebrand
         boonType: Condi
+        infusions: Condition Damage + Expertise + Concentration
         priority: Condi Quickbrand 40%
         distribution: Quickness Condi Firebrand P/T P/P
         traits: Quickness Condi Firebrand P/T P/P
@@ -388,6 +413,7 @@ list:
         id: pqfb
         specialization: Firebrand
         boonType: Power
+        infusions: Power + Precision
         priority: Power Quickbrand 25%
         distribution: Power Quickbrand (approx.)
         traits: Power Quickbrand
@@ -420,6 +446,7 @@ list:
         id: cfb-geo
         specialization: Firebrand
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Firebrand A/T P/P (Allies)
         traits: Condi Firebrand Zeal
@@ -431,6 +458,7 @@ list:
         id: cfb-axe-only
         specialization: Firebrand
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Firebrand A/T
         traits: Condi Firebrand Zeal
@@ -442,6 +470,7 @@ list:
         id: dh-radiance
         specialization: Dragonhunter
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Dragonhunter Radiance SP/GS
         traits: Power Dragonhunter Radiance
@@ -456,6 +485,7 @@ list:
         id: dh-virtues
         specialization: Dragonhunter
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Dragonhunter Virtues SP/GS
         traits: Power Dragonhunter Virtues
@@ -470,6 +500,7 @@ list:
         id: pwb-alac
         specialization: Willbender
         boonType: Power
+        infusions: Power + Precision
         priority: Power Alacrity Willbender 14%
         distribution: Power Alacrity Willbender
         traits: Power Alacrity Willbender
@@ -484,6 +515,7 @@ list:
         id: cwb-alac
         specialization: Willbender
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Alacrity Willbender 14%
         distribution: Condi Alacrity Willbender
         traits: Condi Alacrity Willbender
@@ -495,6 +527,7 @@ list:
         id: cwb-pistol
         specialization: Willbender
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Willbender P/T P/P
         traits: Condi Willbender
@@ -506,6 +539,7 @@ list:
         id: cwb-scepter
         specialization: Willbender
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Willbender SC/P P/T
         traits: Condi Willbender
@@ -517,6 +551,7 @@ list:
         id: cwb-gs
         specialization: Willbender
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Hybrid DPS
         distribution: Condi Willbender GS
         traits: Condi Willbender
@@ -528,6 +563,7 @@ list:
         id: pwb-virtues
         specialization: Willbender
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Willbender Virtues
         traits: Power Willbender Virtues
@@ -542,6 +578,7 @@ list:
         id: pwb-radiance
         specialization: Willbender
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Willbender Radiance
         traits: Power Willbender Radiance
@@ -565,6 +602,7 @@ list:
         id: hycfb-virtues-leadership
         specialization: Firebrand
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Hybrid Firebrand 40%
         distribution: Hybrid FB Virtues
         traits: Hybrid FB Virtues
@@ -576,6 +614,7 @@ list:
         id: hycfb-honor
         specialization: Firebrand
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Hybrid Firebrand 78%
         distribution: Hybrid FB (Honor, Allies)
         traits: Hybrid FB Honor
@@ -587,6 +626,7 @@ list:
         id: hb
         specialization: Firebrand
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -601,6 +641,7 @@ list:
         id: heal-willbender
         specialization: Willbender
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -615,6 +656,7 @@ list:
         id: heal-luminary
         specialization: Luminary
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -632,6 +674,7 @@ list:
         id: paragon-hybrid
         specialization: Paragon
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Hybrid DPS
         distribution: Hybrid Paragon
         traits: Hybrid Paragon
@@ -643,6 +686,7 @@ list:
         id: bls-alac-signets
         specialization: Bladesworn
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Alacrity Power Bladesworn Signets
         traits: Alacrity Power Bladesworn Signets
@@ -657,6 +701,7 @@ list:
         id: bls-alac
         specialization: Bladesworn
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Alacrity Power Bladesworn
         traits: Alacrity Power Bladesworn
@@ -671,6 +716,7 @@ list:
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Bladesworn
         traits: Power Bladesworn
@@ -685,6 +731,7 @@ list:
         id: cbers
         specialization: Berserker
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Quickness Berserker 44.7%
         distribution: Condi Quickness Berserker Blademaster
         traits: Condi Quickness Berserker Blademaster
@@ -696,6 +743,7 @@ list:
         id: cbers-dps
         specialization: Berserker
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Berserker UF
         traits: Condi Berserker UF
@@ -707,6 +755,7 @@ list:
         id: cbers-dps-bl
         specialization: Berserker
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Berserker Blademaster
         traits: Condi Berserker Blademaster
@@ -718,6 +767,7 @@ list:
         id: pbers-quick
         specialization: Berserker
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Quickness Power Berserker GS A/A
         traits: Quickness Power Berserker GS A/A
@@ -732,6 +782,7 @@ list:
         id: pbers
         specialization: Berserker
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Berserker GS A/A
         traits: Power Berserker GS A/A
@@ -746,6 +797,7 @@ list:
         id: spb-power-arms
         specialization: Spellbreaker
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Spellbreaker S/M D/A
         traits: Power Spellbreaker S/M D/A
@@ -760,6 +812,7 @@ list:
         id: spb-power-hammer
         specialization: Spellbreaker
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Spellbreaker Hammer
         traits: Power Spellbreaker Hammer
@@ -774,6 +827,7 @@ list:
         id: heal-berserker
         specialization: Berserker
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -788,6 +842,7 @@ list:
         id: heal-paragon
         specialization: Paragon
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -805,6 +860,7 @@ list:
         id: evoker-hare-pf-quick
         specialization: Evoker
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Evoker Hare PF
         traits: Quickness Power Evoker Hare PF
@@ -819,6 +875,7 @@ list:
         id: evoker-hare-inferno-quick
         specialization: Evoker
         boonType: Power
+        infusions: Power + Precision
         priority: Berserker Only
         distribution: Power Evoker Hare Inferno
         traits: Quickness Power Evoker Hare Inferno
@@ -833,6 +890,7 @@ list:
         id: evoker-toad-alac
         specialization: Evoker
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Alacrity Power Evoker Toad
         traits: Alacrity Power Evoker Toad
@@ -847,6 +905,7 @@ list:
         id: evoker-hare-pf
         specialization: Evoker
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Evoker Hare PF
         traits: Power Evoker Hare PF
@@ -861,6 +920,7 @@ list:
         id: evoker-hare-inferno
         specialization: Evoker
         boonType: Power
+        infusions: Power + Precision
         priority: Berserker Only
         distribution: Power Evoker Hare Inferno
         traits: Power Evoker Hare Inferno
@@ -875,6 +935,7 @@ list:
         id: fire-se-evoker-inferno
         specialization: Evoker
         boonType: Power
+        infusions: Power + Precision
         priority: Berserker Only
         distribution: Fire SE Evoker Inferno
         traits: Quickness Fire SE Evoker Inferno
@@ -889,6 +950,7 @@ list:
         id: fire-se-evoker-condi-quick
         specialization: Evoker
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Fire SE Evoker Condi (Approx.)
         traits: Quickness Fire SE Evoker Condi
@@ -900,6 +962,7 @@ list:
         id: fire-se-evoker-trailblazer-quick
         specialization: Evoker
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Trailblazer/Dire
         distribution: Fire SE Evoker Trailblazer (Approx.)
         traits: Quickness Fire SE Evoker Trailblazer
@@ -911,6 +974,7 @@ list:
         id: fire-se-evoker-inferno-quickness
         specialization: Evoker
         boonType: Power
+        infusions: Power + Precision
         priority: Berserker Only
         distribution: Fire SE Evoker Inferno
         traits: Fire SE Evoker Inferno
@@ -925,6 +989,7 @@ list:
         id: fire-se-evoker-condi
         specialization: Evoker
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Fire SE Evoker Condi (Approx.)
         traits: Fire SE Evoker Condi
@@ -936,6 +1001,7 @@ list:
         id: fire-se-evoker-trailblazer
         specialization: Evoker
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Trailblazer/Dire
         distribution: Fire SE Evoker Trailblazer (Approx.)
         traits: Fire SE Evoker Trailblazer
@@ -947,6 +1013,7 @@ list:
         id: ctemp-alac
         specialization: Tempest
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Alacrity Condi Tempest 31%
         distribution: Alacrity Condi Tempest Scepter
         traits: Alacrity Condi Tempest Scepter
@@ -958,6 +1025,7 @@ list:
         id: ptemp-blood-alac
         specialization: Tempest
         boonType: Power
+        infusions: Power + Precision
         priority: Alacrity Fire Tempest Inferno 22%
         distribution: Alacrity Fire Tempest Inferno
         traits: Alacrity Fire Tempest Inferno
@@ -972,6 +1040,7 @@ list:
         id: ptemp-alac-sw
         specialization: Tempest
         boonType: Power
+        infusions: Power + Precision
         priority: Alacrity Power Tempest 34%
         distribution: Alacrity Power Tempest Sword
         traits: Alacrity Power Tempest Sword Fire
@@ -986,6 +1055,7 @@ list:
         id: ptemp-alac-ham
         specialization: Tempest
         boonType: Power
+        infusions: Power + Precision
         priority: Alacrity Power Tempest 31%
         distribution: Alacrity Power Tempest Hammer
         traits: Alacrity Power Tempest Hammer Fire
@@ -1000,6 +1070,7 @@ list:
         id: ctemp
         specialization: Tempest
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Tempest
         distribution: Condi Tempest Pistol
         traits: Condi Tempest Pistol
@@ -1011,6 +1082,7 @@ list:
         id: ptemp-blood
         specialization: Tempest
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Tempest Inferno
         traits: Power Tempest Inferno
@@ -1025,6 +1097,7 @@ list:
         id: ptemp-blood-fire-camp
         specialization: Tempest
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Fire-only Tempest (Approx.)
         traits: Fire-only Tempest
@@ -1039,6 +1112,7 @@ list:
         id: ptemp
         specialization: Tempest
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Tempest Scepter
         traits: Power Tempest Water
@@ -1053,6 +1127,7 @@ list:
         id: pwea
         specialization: Weaver
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Weaver (BTTH, small)
         fractal:
@@ -1068,6 +1143,7 @@ list:
         id: cwea-pi
         specialization: Weaver
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Weaver P/D
         traits: Condi Weaver P/D
@@ -1079,6 +1155,7 @@ list:
         id: cwea-staff
         specialization: Weaver
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Weaver Staff (Large)
         traits: Condi Weaver Staff
@@ -1090,6 +1167,7 @@ list:
         id: cwea-scepter
         specialization: Weaver
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Weaver Scepter
         traits: Condi Weaver Scepter
@@ -1101,6 +1179,7 @@ list:
         id: cwea-sw
         specialization: Weaver
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Weaver Sword
         traits: Condi Weaver Sword
@@ -1112,6 +1191,7 @@ list:
         id: cwea-dg
         specialization: Weaver
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Weaver (Dagger)
         traits: Condi Weaver Dagger
@@ -1123,6 +1203,7 @@ list:
         id: fire-only-weaver
         specialization: Weaver
         boonType: Power
+        infusions: Power + Precision
         priority: Berserker Only
         distribution: Fire-only Weaver
         traits: Fire-only Weaver
@@ -1137,6 +1218,7 @@ list:
         id: hwea
         specialization: Weaver
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Hybrid DPS
         distribution: Hybrid Weaver
         traits: Hybrid Weaver
@@ -1151,6 +1233,7 @@ list:
         id: condi-cat-quick-pd
         specialization: Catalyst
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Boon
         distribution: Condi Catalyst P/D
         traits: Quickness Condi Catalyst P/D
@@ -1162,6 +1245,7 @@ list:
         id: condi-cat-quick-pw
         specialization: Catalyst
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Boon
         distribution: Condi Catalyst P/W
         traits: Quickness Condi Catalyst P/W
@@ -1173,6 +1257,7 @@ list:
         id: power-cat-quick-inferno
         specialization: Catalyst
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Quickness Power Catalyst Scepter Inferno
         traits: Quickness Power Catalyst Scepter Inferno
@@ -1187,6 +1272,7 @@ list:
         id: power-cat-quick
         specialization: Catalyst
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Quickness Power Catalyst Scepter PF
         traits: Quickness Power Catalyst Scepter PF
@@ -1201,6 +1287,7 @@ list:
         id: condi-cat-pd
         specialization: Catalyst
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Catalyst P/D
         traits: Condi Catalyst P/D
@@ -1212,6 +1299,7 @@ list:
         id: power-cat-inferno
         specialization: Catalyst
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Catalyst Scepter Inferno
         traits: Power Catalyst Scepter Inferno
@@ -1226,6 +1314,7 @@ list:
         id: power-cat
         specialization: Catalyst
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Catalyst Scepter PF
         traits: Power Catalyst Scepter PF
@@ -1240,6 +1329,7 @@ list:
         id: healcat
         specialization: Catalyst
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -1254,6 +1344,7 @@ list:
         id: healtemp
         specialization: Tempest
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -1268,6 +1359,7 @@ list:
         id: healevoker
         specialization: Evoker
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -1285,6 +1377,7 @@ list:
         id: galeshot-power
         specialization: Galeshot
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Galeshot
         traits: Power Galeshot
@@ -1299,6 +1392,7 @@ list:
         id: condi-quickness-untamed
         specialization: Untamed
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Quickness Condi Untamed 42%
         distribution: Quickness Condi Untamed
         traits: Quickness Condi Untamed
@@ -1310,6 +1404,7 @@ list:
         id: quickness-power-untamed
         specialization: Untamed
         boonType: Power
+        infusions: Power + Precision
         priority: Power Quickness Untamed 40%
         distribution: Quickness Power Untamed HA S/A
         traits: Quickness Power Untamed HA S/A
@@ -1324,6 +1419,7 @@ list:
         id: power-untamed
         specialization: Untamed
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Untamed HA S/A
         traits: Power Untamed
@@ -1338,6 +1434,7 @@ list:
         id: pslb
         specialization: Soulbeast
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Soulbeast
         traits: Power Soulbeast
@@ -1352,6 +1449,7 @@ list:
         id: hslb
         specialization: Soulbeast
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Hybrid DPS
         distribution: Hybrid Slb A/T D/A
         traits: Hybrid Slb
@@ -1382,6 +1480,7 @@ list:
         id: cslb-ddsb
         specialization: Soulbeast
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Slb D/D SB
         traits: Condi Slb D/D SB
@@ -1393,6 +1492,7 @@ list:
         id: condidruid
         specialization: Druid
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Druid LOYF
         traits: Condi Druid LOYF
@@ -1404,6 +1504,7 @@ list:
         id: healuntamed
         specialization: Untamed
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -1418,6 +1519,7 @@ list:
         id: druid
         specialization: Druid
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -1435,6 +1537,7 @@ list:
         id: conduit-condi
         specialization: Conduit
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condition Conduit
         traits: Condition Conduit
@@ -1446,6 +1549,7 @@ list:
         id: conduit-condi-sotm
         specialization: Conduit
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condition Conduit SOTM
         traits: Condition Conduit SOTM
@@ -1457,6 +1561,7 @@ list:
         id: conduit-power
         specialization: Conduit
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Conduit S/S Thief
         traits: Power Conduit
@@ -1471,6 +1576,7 @@ list:
         id: herald-quick
         specialization: Herald
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Quickness Herald
         traits: Power Quickness Herald
@@ -1485,6 +1591,7 @@ list:
         id: cherald-quick
         specialization: Herald
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Quickness Herald 0%
         distribution: Condi Quickness Herald Spear M/A
         traits: Condi Quickness Herald
@@ -1496,6 +1603,7 @@ list:
         id: cherald-quick-spearonly
         specialization: Herald
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Quickness Herald 0%
         distribution: Condi Quickness Herald Spear
         traits: Condi Quickness Herald
@@ -1507,6 +1615,7 @@ list:
         id: herald
         specialization: Herald
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Herald FP
         traits: Power Herald FP
@@ -1521,6 +1630,7 @@ list:
         id: cren-alac-spear-mace
         specialization: Renegade
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Alacrity Condi Renegade 42%
         distribution: Alacrity Condi Renegade Spear M/A (Allies)
         traits: Alacrity Condi Renegade Invo
@@ -1532,6 +1642,7 @@ list:
         id: cren-alac-invo
         specialization: Renegade
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Alacrity Condi Renegade 42%
         distribution: Alacrity Condi Renegade SB M/A
         traits: Alacrity Condi Renegade Invo
@@ -1543,6 +1654,7 @@ list:
         id: pren
         specialization: Renegade
         boonType: Power
+        infusions: Power + Precision
         priority: Alacrity Power Renegade 37.4%
         distribution: Alacrity Power Renegade
         traits: Alacrity Power Renegade
@@ -1557,6 +1669,7 @@ list:
         id: cren-spear-mace
         specialization: Renegade
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Renegade Spear M/A (Allies)
         traits: Condi Renegade Invo
@@ -1568,6 +1681,7 @@ list:
         id: cren-spear
         specialization: Renegade
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Renegade Spear Only (Allies)
         traits: Condi Renegade Invo
@@ -1579,6 +1693,7 @@ list:
         id: cren-invo
         specialization: Renegade
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Renegade SB Invocation
         traits: Condi Renegade Invo
@@ -1590,6 +1705,7 @@ list:
         id: vindi
         specialization: Vindicator
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: DPS Vindicator
         traits: DPS Vindicator
@@ -1604,6 +1720,7 @@ list:
         id: healren
         specialization: Renegade
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -1618,6 +1735,7 @@ list:
         id: heal-herald
         specialization: Herald
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -1635,6 +1753,7 @@ list:
         id: amalgam-power-alac
         specialization: Amalgam
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Alacrity Power Amalgam
         traits: Alacrity Power Amalgam Silver Lining
@@ -1649,6 +1768,7 @@ list:
         id: amalgam-condi-alac
         specialization: Amalgam
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Alacrity Condi Amalgam 2 Kit
         traits: Alacrity Condi Amalgam 2 Kit
@@ -1660,6 +1780,7 @@ list:
         id: amalgam-condi-alac-steamshrieker
         specialization: Amalgam
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Alacrity Condi Amalgam 4 Kit
         traits: Alacrity Condi Amalgam 4 Kit
@@ -1671,6 +1792,7 @@ list:
         id: pqscrap
         specialization: Scrapper
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Scrapper
         traits: Quickness Power Scrapper
@@ -1685,6 +1807,7 @@ list:
         id: cqscrap
         specialization: Scrapper
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Quickness Condi Scrapper Steamshrieker
         traits: Quickness Condi Scrapper
@@ -1696,6 +1819,7 @@ list:
         id: pscrap
         specialization: Scrapper
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Scrapper
         traits: Power Scrapper
@@ -1710,6 +1834,7 @@ list:
         id: pholo-ecsu
         specialization: Holosmith
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Holo ECSU
         traits: Power Holo ECSU
@@ -1724,6 +1849,7 @@ list:
         id: pholo-pbm
         specialization: Holosmith
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Holo PBM
         traits: Power Holo PBM
@@ -1738,6 +1864,7 @@ list:
         id: cholo
         specialization: Holosmith
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Holo
         traits: Condi Holo
@@ -1782,6 +1909,7 @@ list:
         id: healscrapper
         specialization: Scrapper
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -1796,6 +1924,7 @@ list:
         id: healmech
         specialization: Mechanist
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -1810,6 +1939,7 @@ list:
         id: healamalgam
         specialization: Amalgam
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -1827,6 +1957,7 @@ list:
         id: ritualist-power
         specialization: Ritualist
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Ritualist
         traits: Power Ritualist
@@ -1841,6 +1972,7 @@ list:
         id: qharb
         specialization: Harbinger
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Quickness Harbinger 12.8%
         distribution: Quickness Condi Harbinger
         traits: Quickness Condi Harbinger
@@ -1852,6 +1984,7 @@ list:
         id: qharb-power
         specialization: Harbinger
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Quickness Power Harbinger
         traits: Quickness Power Harbinger
@@ -1866,6 +1999,7 @@ list:
         id: charb
         specialization: Harbinger
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: DPS Harbinger
         traits: DPS Harbinger
@@ -1877,6 +2011,7 @@ list:
         id: pharb
         specialization: Harbinger
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Harbinger
         traits: Power Harbinger
@@ -1891,6 +2026,7 @@ list:
         id: scourge-alac
         specialization: Scourge
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Alacrity Scourge 28.8%
         distribution: Condi Alacrity Scourge
         traits: Condi Alacrity Scourge
@@ -1902,6 +2038,7 @@ list:
         id: scourge
         specialization: Scourge
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Scourge
         traits: DPS Scourge
@@ -1913,6 +2050,7 @@ list:
         id: preaper
         specialization: Reaper
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Reaper
         traits: Power Reaper
@@ -1927,6 +2065,7 @@ list:
         id: creaper-spear
         specialization: Reaper
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Hybrid DPS
         distribution: Condi Reaper Spear
         traits: Condi Reaper Spear
@@ -1938,6 +2077,7 @@ list:
         id: creaper
         specialization: Reaper
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Hybrid DPS
         distribution: Condi Reaper Scepter
         traits: Condi Reaper Scepter
@@ -1949,6 +2089,7 @@ list:
         id: healrit
         specialization: Ritualist
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -1963,6 +2104,7 @@ list:
         id: healscourge
         specialization: Scourge
         boonType: Power
+        infusions: Healing Power + Concentration
         fractal:
           priority: Heal (Fractal)
         raid:
@@ -1980,6 +2122,7 @@ list:
         id: antiq-alac-power-spear
         specialization: Antiquary
         boonType: Power
+        infusions: Power + Precision
         priority: Alacrity Power Antiquary 13%
         distribution: Alacrity Power Antiquary Spear
         traits: Alacrity Power Antiquary Spear
@@ -1994,6 +2137,7 @@ list:
         id: antiq-condi-spear
         specialization: Antiquary
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Antiquary Spear (Allies)
         traits: Condi Antiquary Spear
@@ -2005,6 +2149,7 @@ list:
         id: specter-alac
         specialization: Specter
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Alacrity Condi Specter 32.8%
         distribution: Alacrity Condi Specter SC/D (allies)
         traits: Alacrity Condi Specter SC/D
@@ -2016,6 +2161,7 @@ list:
         id: specter-alac-dd
         specialization: Specter
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Alacrity Condi Specter 32.8%
         distribution: Alacrity Condi Specter D/D (allies)
         traits: Alacrity Condi Specter D/D
@@ -2027,6 +2173,7 @@ list:
         id: specter-spear
         specialization: Specter
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Specter Spear (Allies)
         traits: Condi Specter Spear
@@ -2038,6 +2185,7 @@ list:
         id: specter
         specialization: Specter
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Specter SC/D (Allies)
         traits: Condi Specter SC/D
@@ -2049,6 +2197,7 @@ list:
         id: specter-carrion
         specialization: Specter
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi Barrier Specter
         distribution: DPS Barrier Specter SC/D (Allies)
         traits: Condi Specter SC/D
@@ -2060,6 +2209,7 @@ list:
         id: boondd-power
         specialization: Daredevil
         boonType: Power
+        infusions: Power + Precision
         priority: Power Boon Daredevil 99.7%
         distribution: Power Daredevil Staff
         traits: Power Boon Daredevil
@@ -2071,6 +2221,7 @@ list:
         id: cdd
         specialization: Daredevil
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Daredevil D/D
         traits: Condi Daredevil D/D
@@ -2082,6 +2233,7 @@ list:
         id: staffdd
         specialization: Daredevil
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS
         distribution: Power Daredevil Staff
         traits: Power Daredevil Staff
@@ -2096,6 +2248,7 @@ list:
         id: quick-cded-spear
         specialization: Deadeye
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Quickness Condi Deadeye Spear
         traits: Quickness Condi Deadeye Spear
@@ -2107,6 +2260,7 @@ list:
         id: quick-pded-spear
         specialization: Deadeye
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Quickness Power Deadeye Spear
         traits: Quickness Power Deadeye Spear
@@ -2121,6 +2275,7 @@ list:
         id: cded
         specialization: Deadeye
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Deadeye A/D
         traits: Condi Deadeye A/D
@@ -2132,6 +2287,7 @@ list:
         id: pded-m7
         specialization: Deadeye
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Deadeye Rifle
         traits: Power Deadeye Rifle
@@ -2146,6 +2302,7 @@ list:
         id: pded-spear
         specialization: Deadeye
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Deadeye Spear
         traits: Power Deadeye Spear
@@ -2174,6 +2331,7 @@ list:
         id: rifleded-silent
         specialization: Deadeye
         boonType: Power
+        infusions: Power + Precision
         priority: Power DPS (no dragon)
         distribution: Power Deadeye Rifle Silent Scope
         traits: Power Deadeye Rifle Silent Scope
@@ -2188,6 +2346,7 @@ list:
         id: cthief-spear
         specialization: Thief
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Thief Spear
         traits: Condi Thief Spear
@@ -2199,6 +2358,7 @@ list:
         id: cthief-axe
         specialization: Thief
         boonType: Condi
+        infusions: Condition Damage + Expertise
         priority: Condi DPS
         distribution: Condi Thief A/D
         traits: Condi Thief A/D
@@ -2210,6 +2370,7 @@ list:
         id: heal-specter
         specialization: Specter
         boonType: Power
+        infusions: Healing Power + Concentration
         priority: Heal Specter 88%
         distribution: None
         traits: Heal Specter

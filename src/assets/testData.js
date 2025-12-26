@@ -565,7 +565,7 @@ const types = {
   infusions: 'preset-infusions',
 };
 
-const testTypes = ['boons', 'priority', 'distribution', 'traits', 'extras'];
+const testTypes = ['boons', 'infusions', 'priority', 'distribution', 'traits', 'extras'];
 
 const testPresets = async () => {
   // const files = (await fs.readdir(directory)).filter(
@@ -763,6 +763,7 @@ const testPresets = async () => {
           // id,
           specialization,
           // boons,
+          // infusions,
           // priority,
           // distribution,
           // traits,
@@ -837,6 +838,18 @@ const testPresets = async () => {
   //     }
   //   }
   // }
+
+  const byInfusions = Object.groupBy(
+    templates.list.flatMap((section) => section.builds),
+    (build) => build.infusions,
+  );
+  Object.entries(byInfusions).forEach(([infusions, builds]) => {
+    console.log();
+    console.log(`builds with infusions ${infusions} have priorities:`);
+    [...new Set(builds.map((build) => templateTransform(build, false).priority))].forEach(
+      (priority) => console.log(priority),
+    );
+  });
 };
 
 (async () => {

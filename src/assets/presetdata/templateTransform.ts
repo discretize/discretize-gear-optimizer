@@ -47,6 +47,7 @@ export function getBuildTemplateData({
 
   const {
     presetBuffs,
+    presetInfusions,
     presetDistribution,
     presetExtras,
     presetTraits,
@@ -58,6 +59,7 @@ export function getBuildTemplateData({
     specialization: build.specialization,
     profession,
     buffPreset: presetBuffs.list.find((pre) => pre.name === build.boons)?.value,
+    infusionPreset: presetInfusions.list.find((pre) => pre.name === build.infusions)?.value,
     selectedDistribution: build.distribution,
     distributionPreset: presetDistribution.list.find((pre) => pre.name === build.distribution)
       ?.value,

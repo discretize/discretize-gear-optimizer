@@ -16,6 +16,7 @@ interface TemplateEntryBase {
   id: string;
   specialization: ProfessionOrSpecializationName;
   boonType: 'Power' | 'Condi';
+  infusions: string;
   priority?: string;
   distribution?: string;
   traits?: string;
