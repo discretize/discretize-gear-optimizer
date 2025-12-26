@@ -9,6 +9,18 @@ export function firstUppercase(text: string | undefined | null): string {
   return text.split(' ').map(toUpper).join(' ').trim();
 }
 
+export function getLocalStorageObject(key: string): object {
+  try {
+    const stored = localStorage.getItem(key);
+    if (stored) {
+      return JSON.parse(stored) as object;
+    }
+  } catch {
+    return {};
+  }
+  return {};
+}
+
 /*
  * Parses a string to a number, treating non-parsable strings like empty inputs but indicating an
  * error so text boxes can display the error validation state
