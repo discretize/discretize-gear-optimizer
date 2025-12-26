@@ -20,12 +20,10 @@ import { stopCalculationParallel } from '../../state/optimizer-parallel/calculat
 import { useAppDispatch } from '../../state/redux-hooks';
 import {
   changeHeuristics,
-  changeHwThreads,
   changeIncludeScenarioDataInCharacters,
   changeMulticore,
   getDefaultHwThreads,
   getHeuristics,
-  getHwThreadsString,
   getIncludeScenarioDataInCharacters,
   getMulticore,
   getSelectedTemplate,
@@ -33,7 +31,9 @@ import {
 } from '../../state/slices/controlsSlice';
 import {
   changeDefaultStatInfusions,
+  changeHwThreads,
   getDefaultStatInfusions,
+  getHwThreadsString,
 } from '../../state/slices/localUserSettings';
 import type { GameMode } from '../../state/slices/userSettings';
 import {
