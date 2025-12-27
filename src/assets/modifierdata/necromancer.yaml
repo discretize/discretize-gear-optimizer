@@ -83,6 +83,21 @@
       gw2id: 55050
       temporaryBuff: true
 
+    - id: death-spiral
+      text: Death Spiral
+      subText: lifesteal
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: ???
+          Siphon Coefficient: ???
+      gw2id: 30860
+      temporaryBuff: true
+
     - id: soul-shards
       text: Soul Shards
       subText: Soul Shards
@@ -206,6 +221,21 @@
       gw2id: 914
       defaultEnabled: true
 
+    # includes the value of all 5 vampiric mark stacks
+    - id: malicious-swarm
+      text: Malicious Swarm
+      amountData:
+        label: '/10s'
+        default: 0.75 # 13.3 second interval seems reasonable with alacrity?
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Siphon Base Coefficient: 1235
+          Siphon Coefficient: 0.42
+      gw2id: ???
+      defaultEnabled: true
+      temporaryBuff: true
+
     - id: awaken-the-pain
       text: Awaken the Pain
       amountData:
@@ -215,10 +245,19 @@
       modifiers:
         attributes:
           Power: [250, buff]
-          Condition Damage: [-250, buff]
+      minor: true
       gw2id: 829
       defaultEnabled: true
       temporaryBuff: true
+
+    - id: spiteful-fortitude
+      text: Spiteful Fortitude
+      modifiers:
+        conversion:
+          Vitality: {Power: ???%}
+      gw2id: ???
+      defaultEnabled: true
+      temporaryBuff: false
 
     # - id: signets-of-suffering
     #   text: Signets of Suffering
@@ -237,6 +276,19 @@
     #       Siphon Coefficient: ???
     #   gw2id: 909
     #   defaultEnabled: true
+
+    - id: dread
+      text: Dread
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [???%, unknown]
+      gw2id: 919
+      defaultEnabled: true
 
     - id: close-to-death
       text: Close to Death
@@ -384,21 +436,6 @@
 - section: Blood Magic
   id: 19
   items:
-
-    # includes the value of all 5 vampiric mark stacks
-    - id: blood-bond
-      text: Blood Bond
-      amountData:
-        label: '/10s'
-        default: 0.75 # 13.3 second interval seems reasonable with alacrity?
-        quantityEntered: 10
-      modifiers:
-        attributes:
-          Siphon Base Coefficient: 1235
-          Siphon Coefficient: 0.42
-      gw2id: 1876
-      defaultEnabled: true
-      temporaryBuff: true
 
     - id: vampiric
       text: Vampiric

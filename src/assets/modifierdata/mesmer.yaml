@@ -327,7 +327,6 @@
 
 - section: Chronomancer
   id: 40
-  note: Be sure to change the power coefficient value below when adding or removing traits that change your rotation like improved alacrity.
   items:
 
     - id: flow-of-time
@@ -351,13 +350,13 @@
     - id: danger-time
       text: Danger Time
       amountData:
-        label: '% slow'
+        label: '% uptime'
         default: 100
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Critical Damage: [15%, unknown]
-          Outgoing Phantasm Critical Damage: [15%, unknown]
+          Outgoing Critical Damage: [???%, unknown]
+          Outgoing Phantasm Critical Damage: [???%, unknown]
           # the optimizer currently doesn't calculate clone power damage
       gw2id: 2009
       defaultEnabled: true

@@ -231,7 +231,17 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, add]
+      minor: true
       gw2id: 2017
+      defaultEnabled: true
+
+    - id: furious-focus
+      text: Furious Focus
+      subText: 100% fury
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [???%, unknown]
+      gw2id: 628
       defaultEnabled: true
 
 - section: Radiance
