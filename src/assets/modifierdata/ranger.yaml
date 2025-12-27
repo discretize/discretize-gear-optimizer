@@ -683,16 +683,6 @@
       defaultEnabled: false
       temporaryBuff: false
 
-    - id: honed-axes-merged
-      subText: merged, base
-      modifiers:
-        attributes:
-          Ferocity: [120, buff]
-      minor: true
-      gw2id: 1066
-      defaultEnabled: false
-      temporaryBuff: false
-
 - section: Untamed
   id: 72
   note: >-
