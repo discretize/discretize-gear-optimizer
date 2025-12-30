@@ -22,17 +22,20 @@ import type { FilterMode } from '../../../state/slices/controlsSlice';
 import {
   changeCompareByPercent,
   changeDisplayAttributes,
+  changeDisplayIndicators,
   changeFilterMode,
   changeHighlightDiffering,
   changeSavedHeader,
   changeTallTable,
   getCompareByPercent,
   getDisplayAttributes,
+  getDisplayIndicators,
   getFilterMode,
   getHighlightDiffering,
   getSavedHeader,
   getTallTable,
 } from '../../../state/slices/controlsSlice';
+import { indicatorAttributes } from '../../../utils/gw2-data';
 import Settings from '../../baseComponents/Settings';
 
 const useStyles = makeStyles()((theme) => ({
@@ -56,9 +59,10 @@ export default function ResultTableSettings() {
   const savedHeader = useSelector(getSavedHeader);
   const filterMode = useSelector(getFilterMode);
   const displayAttributes = useSelector(getDisplayAttributes);
+  const displayIndicators = useSelector(getDisplayIndicators);
 
   return (
-    <Settings maxWidth={360}>
+    <Settings maxWidth={380}>
       <Typography sx={{ fontWeight: 700 }}>
         <Trans>Result Display Settings:</Trans>
       </Typography>
@@ -129,6 +133,36 @@ export default function ResultTableSettings() {
             </>
           }
           classes={{ label: classes.comparisonLabel }}
+        />
+      </Box>
+
+      <Box>
+        <Autocomplete
+          multiple
+          disableCloseOnSelect
+          value={displayIndicators}
+          options={indicatorAttributes}
+          onChange={(event, value) => dispatch(changeDisplayIndicators(value))}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              variant="standard"
+              label={t('Show Additional Indicators')}
+              margin="dense"
+            />
+          )}
+          renderOption={(props, option, { selected }) => (
+            <li {...props} key={option}>
+              <Box sx={{ width: 28 }}>{selected && <CheckIcon sx={{ fontSize: '1rem' }} />}</Box>
+              {option}
+            </li>
+          )}
+          renderTags={(value, getTagProps) =>
+            value.map((option, index) => {
+              const { key, ...props } = getTagProps({ index });
+              return <Chip key={key} variant="outlined" label={option.slice(0, 4)} {...props} />;
+            })
+          }
         />
       </Box>
 

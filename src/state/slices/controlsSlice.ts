@@ -2,7 +2,11 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSelector, createSlice, original } from '@reduxjs/toolkit';
 import type { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
-import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
+import type {
+  IndicatorName,
+  ProfessionName,
+  ProfessionOrSpecializationName,
+} from '../../utils/gw2-data';
 import type { ParseFunction } from '../../utils/usefulFunctions';
 import { objectKeys, parseNumber } from '../../utils/usefulFunctions';
 import type { Character } from '../optimizer/types/optimizerTypes';
@@ -110,6 +114,7 @@ const initialState: {
   savedHeader: boolean;
   filterMode: FilterMode;
   displayAttributes: DisplayAttributes;
+  displayIndicators: IndicatorName[];
   progress: number;
   heuristicsProgress: number | undefined;
   selectedCharacter: Character | null;
@@ -133,6 +138,7 @@ const initialState: {
   savedHeader: false,
   filterMode: 'None',
   displayAttributes: [],
+  displayIndicators: [],
   progress: 0,
   heuristicsProgress: undefined,
   selectedCharacter: null,
@@ -225,6 +231,9 @@ export const controlSlice = createSlice({
     changeDisplayAttributes: (state, action: PayloadAction<DisplayAttributes>) => {
       state.displayAttributes = action.payload;
     },
+    changeDisplayIndicators: (state, action: PayloadAction<IndicatorName[]>) => {
+      state.displayIndicators = action.payload;
+    },
     changeTallTable: (state, action: PayloadAction<boolean>) => {
       state.tallTable = action.payload;
     },
@@ -277,6 +286,7 @@ export const getHighlightDiffering = (state: RootState) =>
   state.optimizer.control.highlightDiffering;
 export const getFilterMode = (state: RootState) => state.optimizer.control.filterMode;
 export const getDisplayAttributes = (state: RootState) => state.optimizer.control.displayAttributes;
+export const getDisplayIndicators = (state: RootState) => state.optimizer.control.displayIndicators;
 export const getTallTable = (state: RootState) => state.optimizer.control.tallTable;
 export const getSavedHeader = (state: RootState) => state.optimizer.control.savedHeader;
 export const getSelectedCharacter = (state: RootState) => state.optimizer.control.selectedCharacter;
@@ -326,6 +336,7 @@ export const {
   updateResults,
   changeFilterMode,
   changeDisplayAttributes,
+  changeDisplayIndicators,
   changeTallTable,
   changeSavedHeader,
   toggleSaved,

@@ -13,7 +13,7 @@ import type { DisplayAttributes } from '../../../../state/slices/controlsSlice';
 import { changeSelectedCharacter, toggleSaved } from '../../../../state/slices/controlsSlice';
 import type { ExtrasType } from '../../../../state/slices/extras';
 import { extrasTypes } from '../../../../state/slices/extras';
-import type { AffixName } from '../../../../utils/gw2-data';
+import type { AffixName, IndicatorName } from '../../../../utils/gw2-data';
 import { maxSlotsLength } from '../../../../utils/gw2-data';
 
 const roundTwo = (num: number) => Math.round(num * 100) / 100;
@@ -29,6 +29,8 @@ interface ResultTableRowProps {
   compareByPercent: boolean;
   displayExtras: Record<ExtrasType, boolean>;
   displayAttributes: DisplayAttributes;
+  displayIndicators: IndicatorName[];
+  rankBy: IndicatorName;
 }
 
 const ResultTableRow = ({
@@ -42,10 +44,12 @@ const ResultTableRow = ({
   compareByPercent,
   displayExtras,
   displayAttributes,
+  displayIndicators,
+  rankBy = 'Damage',
 }: ResultTableRowProps) => {
   const dispatch = useDispatch();
 
-  const { value } = character.results;
+  const value = character.attributes[rankBy] ?? 0;
   const comparisonValue = selectedValue ? value - selectedValue : 0;
 
   const comparisonText = comparisonValue
@@ -104,7 +108,7 @@ const ResultTableRow = ({
           }}
         />
       </TableCell>
-      <TableCell scope="row" sx={{ whiteSpace: 'nowrap' }}>
+      <TableCell scope="row" sx={{ whiteSpace: 'nowrap', paddingRight: '0.3em' }}>
         {value?.toFixed(0)}
         {comparisonText ? (
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
@@ -112,6 +116,17 @@ const ResultTableRow = ({
           </Typography>
         ) : null}
       </TableCell>
+
+      {displayIndicators
+        .filter((attribute) => rankBy !== attribute)
+        .map((attribute) => (
+          <TableCell key={attribute} align="left" padding="none">
+            <Typography variant="caption">
+              {(character.attributes[attribute] ?? 0).toFixed(0)}
+            </Typography>
+          </TableCell>
+        ))}
+
       {character.gearDescription ? (
         <TableCell align="center" padding="none" colSpan={maxSlotsLength}>
           <Typography
@@ -148,7 +163,7 @@ const ResultTableRow = ({
               .join('');
 
             return (
-              <TableCell align="center" padding="none">
+              <TableCell align="center" padding="none" sx={{ paddingBlock: '8px' }}>
                 <Typography
                   style={{
                     fontWeight: 300,
