@@ -1834,7 +1834,7 @@ list:
   - class: Necromancer
     builds:
 
-      - name: Power Ritualist
+      - name: Power Ritualist (Approx.)
         id: ritualist-power
         specialization: Ritualist
         boonType: Power
