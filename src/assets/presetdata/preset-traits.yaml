@@ -6934,6 +6934,82 @@ list:
         }
       }
 
+  - name: Condi Evoker
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            294
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            2391,
+            2342,
+            2335
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "55"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "100"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "fiery-might": {},
+            "enhanced-potency-fox": {
+              "amount": ""
+            },
+            "familiars-prowess-fox": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1037"
+          },
+          "signet-of-fire": {
+            "amount": ""
+          },
+          "signet-of-earth-bug": {},
+          "raging-ricochet": {
+            "amount": "87"
+          }
+        }
+      }
+
   - name: Heal Quickness Catalyst
     profession: Catalyst
     traits:

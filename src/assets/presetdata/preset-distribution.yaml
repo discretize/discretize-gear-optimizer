@@ -736,6 +736,17 @@ list:
         url: https://www.youtube.com/watch?v=D5h7D_21srE
         log: https://dps.report/wPC7-20251210-105904_golem
 
+  - name: Condi Evoker P/D
+    profession: Evoker
+    value:
+      {
+        "values2": { "Power": 2619, "Power2": 0, "Burning": 13.51, "Bleeding": 23.5, "Poisoned": 0, "Torment": 0.04, "Confusion": 0 }
+      }
+    credit:
+      - author: Limelight
+        url: https://www.youtube.com/watch?v=9GLMRMdZGOg
+        log: https://dps.report/sl1G-20251221-150039_golem
+
   - name: Fire-only Weaver
     profession: Weaver
     value:

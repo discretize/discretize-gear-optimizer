@@ -3156,6 +3156,48 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Condi Evoker
+    profession: Evoker
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "smoldering": {},
+            "agony": {}
+          },
+          "Sigil2": {
+            "bursting": {},
+            "malice": {},
+            "smoldering": {},
+            "agony": {}
+          },
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "balthazar": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {},
+            "salsa-topped-veggie-flatbread": {},
+            "fishy-rice-bowl": {},
+            "plate-of-kimchi-pancakes": {}
+          },
+          "Enhancement": {
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Quickness Condi Untamed
     profession: Untamed
     value:

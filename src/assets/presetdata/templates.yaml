@@ -843,6 +843,17 @@ list:
         weaponType: Dual wield
         outdated: false
 
+      - name: Condi Evoker P/D
+        id: evoker-condi-pd
+        specialization: Evoker
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Evoker P/D
+        traits: Condi Evoker
+        extras: Condi Evoker
+        weaponType: Dual wield
+        outdated: false
+
       - name: Power Evoker Hare PF
         id: evoker-hare-pf
         specialization: Evoker
