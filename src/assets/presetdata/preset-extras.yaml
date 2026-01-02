@@ -19,7 +19,8 @@ list:
             "mistburn-relic": {}
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -54,7 +55,8 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -90,7 +92,8 @@ list:
             "mistburn-relic": {}
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -125,7 +128,8 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -383,11 +387,11 @@ list:
             "no-item-relic": {}
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
-            "impact/night/slaying-both": {},
-            "accuracy": {}
+            "impact/night/slaying-both": {}
           },
           "Enhancement": {
             "slaying-potion": {}
@@ -545,7 +549,8 @@ list:
           },
           "Sigil1": {
             "force": {},
-            "accuracy": {}
+            "accuracy": {},
+            "concentration": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {},
@@ -634,7 +639,8 @@ list:
           },
           "Sigil1": {
             "force": {},
-            "accuracy": {}
+            "accuracy": {},
+            "concentration": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {},
@@ -725,7 +731,8 @@ list:
           },
           "Sigil1": {
             "force": {},
-            "accuracy": {}
+            "accuracy": {},
+            "concentration": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {},
@@ -816,11 +823,14 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {},
+            "concentration": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {},
             "accuracy": {},
+            "concentration": {}
           },
           "Enhancement": {
             "slaying-potion": {}
@@ -857,11 +867,11 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {},
           },
           "Sigil2": {
-            "impact/night/slaying-both": {},
-            "accuracy": {},
+            "impact/night/slaying-both": {}
           },
           "Enhancement": {
             "slaying-potion": {}
@@ -939,11 +949,11 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {},
           },
           "Sigil2": {
-            "impact/night/slaying-both": {},
-            "accuracy": {},
+            "impact/night/slaying-both": {}
           },
           "Enhancement": {
             "slaying-potion": {}
@@ -1154,7 +1164,8 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -1461,7 +1472,8 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -1580,7 +1592,8 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -1613,7 +1626,8 @@ list:
             "mistburn-relic": {}
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -2631,10 +2645,10 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
-            "accuracy": {},
             "impact/night/slaying-both": {}
           },
           "Enhancement": {
@@ -3018,7 +3032,8 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -3305,7 +3320,8 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -3786,7 +3802,8 @@ list:
             "mistburn-relic": {}
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
