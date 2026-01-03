@@ -49,11 +49,12 @@ export type AffixName =
   | 'BerserkerValkyrie'
   | 'RabidApothecary'
   | 'DireRabid'
+  | 'Captain'
   | 'Custom';
 
 export type AffixDataEntry =
   | {
-      type: 'triple' | 'quadruple';
+      type: 'triple' | 'quadruple' | 'tripleTrinketsOnly';
       category: string;
       bonuses: {
         major: GearAttributeName[];
@@ -510,6 +511,14 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
       jewelMinor: ['Toughness', 'Precision'],
     },
   },
+  Captain: {
+    type: 'tripleTrinketsOnly',
+    category: 'Power Survivability',
+    bonuses: {
+      major: ['Precision'],
+      minor: ['Power', 'Toughness'],
+    },
+  },
 };
 
 export const exoticStats = {
@@ -532,6 +541,10 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   SHOULDERS: {
     triple: {
@@ -551,6 +564,10 @@ export const exoticStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   CHEST: {
@@ -572,6 +589,10 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   GLOVES: {
     triple: {
@@ -591,6 +612,10 @@ export const exoticStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   LEGGINGS: {
@@ -612,6 +637,10 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   BOOTS: {
     triple: {
@@ -631,6 +660,10 @@ export const exoticStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   AMULET: {
@@ -652,6 +685,10 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   RING: {
     triple: {
@@ -671,6 +708,10 @@ export const exoticStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   ACCESSORY: {
@@ -692,6 +733,10 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   BACK_ITEM: {
     triple: {
@@ -711,6 +756,10 @@ export const exoticStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   ONEHANDED_WEAPON: {
@@ -732,6 +781,10 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   TWOHANDED_WEAPON: {
     triple: {
@@ -751,6 +804,10 @@ export const exoticStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
     },
   },
 };
@@ -775,6 +832,10 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   SHOULDERS: {
     triple: {
@@ -794,6 +855,10 @@ export const ascendedStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   CHEST: {
@@ -815,6 +880,10 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   GLOVES: {
     triple: {
@@ -834,6 +903,10 @@ export const ascendedStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   LEGGINGS: {
@@ -855,6 +928,10 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   BOOTS: {
     triple: {
@@ -874,6 +951,10 @@ export const ascendedStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   AMULET: {
@@ -895,6 +976,10 @@ export const ascendedStats = {
       jewelMajor: 32,
       jewelMinor: 18,
     },
+    tripleTrinketsOnly: {
+      major: 157,
+      minor: 108,
+    },
   },
   RING: {
     triple: {
@@ -914,6 +999,10 @@ export const ascendedStats = {
       minor: 85 - 18,
       jewelMajor: 32,
       jewelMinor: 18,
+    },
+    tripleTrinketsOnly: {
+      major: 126,
+      minor: 85,
     },
   },
   ACCESSORY: {
@@ -935,6 +1024,10 @@ export const ascendedStats = {
       jewelMajor: 32,
       jewelMinor: 18,
     },
+    tripleTrinketsOnly: {
+      major: 110,
+      minor: 74,
+    },
   },
   BACK_ITEM: {
     triple: {
@@ -954,6 +1047,10 @@ export const ascendedStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    tripleTrinketsOnly: {
+      major: 63,
+      minor: 40,
     },
   },
   ONEHANDED_WEAPON: {
@@ -975,6 +1072,10 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   TWOHANDED_WEAPON: {
     triple: {
@@ -994,6 +1095,10 @@ export const ascendedStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    tripleTrinketsOnly: {
+      major: 0,
+      minor: 0,
     },
   },
 };
