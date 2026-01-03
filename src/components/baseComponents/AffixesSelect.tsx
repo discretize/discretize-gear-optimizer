@@ -18,7 +18,20 @@ const createOptions = (array: (AffixName | null)[]) =>
       label: affix,
       category: Affix[affix].category,
     }));
-const order = ['Power DPS', 'Condi DPS', 'Support', 'Hybrid', 'Open World', 'Custom'];
+const order = [
+  'Hybrid',
+  'Power DPS',
+  'Power Boon',
+  'Power Survivability',
+  'Condi DPS',
+  'Condi Boon',
+  'Condi Survivability',
+  'Healing',
+  'Healing (Offensive)',
+  'Healing (Other)',
+  'Misc',
+  'Custom',
+];
 const affixOptions = createOptions(objectKeys(Affix))
   // eslint-disable-next-line id-length
   .sort((a, b) => {
