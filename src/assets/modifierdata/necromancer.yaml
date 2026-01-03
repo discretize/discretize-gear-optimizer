@@ -28,7 +28,7 @@
       amountData:
         label: '% of non-shroud'
         default: 0
-        defaultInput: 100
+        defaultInput: ???
         quantityEntered: 100
       modifiers:
         attributes:
