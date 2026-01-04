@@ -54,7 +54,7 @@ export type AffixName =
 
 export type AffixDataEntry =
   | {
-      type: 'triple' | 'quadruple' | 'tripleTrinketsOnly';
+      type: 'triple' | 'quadruple' | 'trinketsBackOnly';
       category: string;
       bonuses: {
         major: GearAttributeName[];
@@ -512,7 +512,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
     },
   },
   Captain: {
-    type: 'tripleTrinketsOnly',
+    type: 'trinketsBackOnly',
     category: 'Power Survivability',
     bonuses: {
       major: ['Precision'],
@@ -541,7 +541,7 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -565,7 +565,7 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -589,7 +589,7 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -613,7 +613,7 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -637,7 +637,7 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -661,7 +661,7 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -685,7 +685,7 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -709,7 +709,7 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -733,7 +733,7 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -757,7 +757,7 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -781,7 +781,7 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -805,7 +805,7 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -832,7 +832,7 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -856,7 +856,7 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -880,7 +880,7 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -904,7 +904,7 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -928,7 +928,7 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -952,7 +952,7 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -976,7 +976,7 @@ export const ascendedStats = {
       jewelMajor: 32,
       jewelMinor: 18,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 157,
       minor: 108,
     },
@@ -1000,7 +1000,7 @@ export const ascendedStats = {
       jewelMajor: 32,
       jewelMinor: 18,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 126,
       minor: 85,
     },
@@ -1024,7 +1024,7 @@ export const ascendedStats = {
       jewelMajor: 32,
       jewelMinor: 18,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 110,
       minor: 74,
     },
@@ -1048,7 +1048,7 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 63,
       minor: 40,
     },
@@ -1072,7 +1072,7 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
@@ -1096,7 +1096,7 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
-    tripleTrinketsOnly: {
+    trinketsBackOnly: {
       major: 0,
       minor: 0,
     },
