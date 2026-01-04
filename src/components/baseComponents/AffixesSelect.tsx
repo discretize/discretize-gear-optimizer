@@ -5,11 +5,16 @@ import Autocomplete from '@mui/material/Autocomplete';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
-import type { AffixName } from '../../utils/gw2-data';
+import type { AffixDataEntry, AffixName } from '../../utils/gw2-data';
 import { Affix } from '../../utils/gw2-data';
 import { objectKeys } from '../../utils/usefulFunctions';
 
 const mistBandId = 80793;
+
+const subLabels: Partial<Record<AffixDataEntry['type'], string>> = {
+  ascendedMismatchedTrinket: '(trinkets only)',
+  trinketsBackOnly: '(trinkets/back only)',
+};
 
 const createOptions = (array: (AffixName | null)[]) =>
   array
@@ -17,6 +22,7 @@ const createOptions = (array: (AffixName | null)[]) =>
     .map((affix) => ({
       label: affix,
       category: Affix[affix].category,
+      subLabel: subLabels[Affix[affix].type],
     }));
 const order = [
   'Hybrid',
@@ -126,30 +132,33 @@ const AffixesSelect = ({ name, multiple, onChange, value: selected }: AffixesSel
                 <CheckIcon sx={{ fontSize: '1rem' }} />
               )}
             </Box>
-            {option.label === 'Custom' || /[a-z][A-Z]/.test(option.label) ? (
-              <Item
-                id={mistBandId}
-                disableIcon
-                disableLink
-                text={
-                  // i18next-extract-mark-context-next-line {{affix}}
-                  t('affix', { context: option.label })
-                }
-                className={classes.text}
-              />
-            ) : (
-              <CreateItem
-                stat={option.label}
-                type="Ring"
-                disableLink
-                disableIcon
-                text={
-                  // i18next-extract-mark-context-next-line {{affix}}
-                  t('affix', { context: option.label })
-                }
-                className={classes.text}
-              />
-            )}
+            <span>
+              {option.label === 'Custom' || /[a-z][A-Z]/.test(option.label) ? (
+                <Item
+                  id={mistBandId}
+                  disableIcon
+                  disableLink
+                  text={
+                    // i18next-extract-mark-context-next-line {{affix}}
+                    t('affix', { context: option.label })
+                  }
+                  className={classes.text}
+                />
+              ) : (
+                <CreateItem
+                  stat={option.label}
+                  type="Ring"
+                  disableLink
+                  disableIcon
+                  text={
+                    // i18next-extract-mark-context-next-line {{affix}}
+                    t('affix', { context: option.label })
+                  }
+                  className={classes.text}
+                />
+              )}
+              {option.subLabel && <Typography variant="caption"> {option.subLabel}</Typography>}
+            </span>
           </li>
         )}
         renderTags={(value, getTagProps) =>
