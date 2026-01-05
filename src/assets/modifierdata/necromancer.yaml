@@ -1,7 +1,9 @@
 - section: Skills
   note: >-
-    Signet of Spite non-100% uptime (i.e. on any build that uses shroud rotation) is currently simulated poorly
-    (as a fractional affect both in and out of shroud).
+    Signet of Spite is automatically applied only to non-shroud damage; for its uptime, enter the percentage
+    of the *time when not in shroud* that it is active (i.e. 100%, if it's never cast). However, for Signet of
+    Vampirism uptime, enter the percentage of the *total combat time* that it is active (100 - percent of time
+    spent in shroud, if it's never cast).
 
 
     Nightmare Weapon stacks on allies are affected by ally lifesteal damage/all damage modifiers like Soul
@@ -21,21 +23,24 @@
           Flat DPS: 1
       temporaryBuff: true
 
-    # kind of inaccurate; shouldn't apply in shroud and shouldn't affect "alternative power"
+    # doesn't apply in shroud and thus shouldn't affect "alternative power"
+    # offsetting buff values do this
+    # users must enter percent-of-time-not-in-shroud rather than percent of combat time
     - id: signet-of-spite
       text: Signet of Spite
       subText: when not in shroud
       amountData:
         label: '% of non-shroud'
-        default: 0
-        defaultInput: ???
+        default: 100
         quantityEntered: 100
       modifiers:
         attributes:
           Power: [180, buff]
+          Alternative Power: [-180, buff]
       gw2id: 10622
       temporaryBuff: activeOutOfCombat
 
+    # users must enter percent of combat time
     - id: signet-of-vampirism
       text: Signet of Vampirism
       subText: passive
