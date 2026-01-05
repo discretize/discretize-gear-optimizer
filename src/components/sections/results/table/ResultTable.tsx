@@ -12,6 +12,7 @@ import type { Character } from '../../../../state/optimizer/types/optimizerTypes
 import {
   getCompareByPercent,
   getDisplayAttributes,
+  getDisplayIndicators,
   getFilterMode,
   getFilteredLists,
   getHighlightDiffering,
@@ -114,7 +115,7 @@ const StickyHeadTable = () => {
   const infusions = firstCharacter?.infusions;
   const rankBy = firstCharacter?.settings?.rankby;
 
-  const selectedValue = selectedCharacter?.results?.value;
+  const selectedValue = selectedCharacter?.attributes?.[rankBy];
 
   const shouldDisplay = (type: ExtrasType) => {
     // display extras in a column if any displayed character was run in multiselect mode
@@ -160,6 +161,7 @@ const StickyHeadTable = () => {
   );
 
   const displayAttributes = useSelector(getDisplayAttributes);
+  const displayIndicators = useSelector(getDisplayIndicators);
 
   return (
     <>
@@ -175,6 +177,7 @@ const StickyHeadTable = () => {
                 rankBy={rankBy}
                 displayExtras={displayExtras}
                 displayAttributes={displayAttributes}
+                displayIndicators={displayIndicators}
               />
             </TableHead>
             <TableBody
@@ -202,6 +205,8 @@ const StickyHeadTable = () => {
                     compareByPercent={compareByPercent}
                     displayExtras={displayExtras}
                     displayAttributes={displayAttributes}
+                    displayIndicators={displayIndicators}
+                    rankBy={rankBy}
                   />
                 );
               })}
@@ -229,6 +234,7 @@ const StickyHeadTable = () => {
                     rankBy={rankBy}
                     displayExtras={displayExtras}
                     displayAttributes={displayAttributes}
+                    displayIndicators={displayIndicators}
                   />
                 </TableHead>
                 <TableBody
@@ -249,6 +255,8 @@ const StickyHeadTable = () => {
                         compareByPercent={compareByPercent}
                         displayExtras={displayExtras}
                         displayAttributes={displayAttributes}
+                        displayIndicators={displayIndicators}
+                        rankBy={rankBy}
                       />
                     );
                   })}

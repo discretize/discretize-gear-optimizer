@@ -50,8 +50,11 @@ export function getBuildTemplateData({
     presetDistribution,
     presetExtras,
     presetTraits,
-    presetAffixes: prioritiesPresets,
+    presetInfusions,
+    presetAffixes,
   } = data;
+
+  const prioritiesPresetEntry = presetAffixes.list.find((pre) => pre.name === build.priority);
 
   return {
     build,
@@ -61,9 +64,12 @@ export function getBuildTemplateData({
     selectedDistribution: build.distribution,
     distributionPreset: presetDistribution.list.find((pre) => pre.name === build.distribution)
       ?.value,
-    prioritiesPreset: prioritiesPresets.list.find((pre) => pre.name === build.priority)?.value,
+    prioritiesPreset: prioritiesPresetEntry?.value,
     extrasPreset: presetExtras.list.find((pre) => pre.name === build.extras)?.value,
     traitsPreset: presetTraits.list.find((pre) => pre.name === build.traits)?.traits,
     skillsPreset: presetTraits.list.find((pre) => pre.name === build.traits)?.skills,
+    infusionsPreset: presetInfusions.list.find(
+      (pre) => pre.name === prioritiesPresetEntry?.infusions,
+    )?.value,
   };
 }

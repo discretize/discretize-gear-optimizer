@@ -94,3 +94,25 @@ function Presets<T extends PresetEntry>({
   );
 }
 export default Presets;
+
+interface BasicPresetsProps {
+  data: { name: string; value: string }[];
+  handleClick: (value: string) => void;
+}
+
+export function BasicPresets({ data = [], handleClick }: BasicPresetsProps) {
+  return (
+    <Box sx={{ marginTop: 1 }}>
+      {data.map((preset) => (
+        <Chip
+          id={preset.name}
+          key={preset.name}
+          label={preset.name}
+          variant="outlined"
+          onClick={() => handleClick(preset.value)}
+          sx={{ margin: 0.5 }}
+        />
+      ))}
+    </Box>
+  );
+}

@@ -19,7 +19,8 @@ list:
             "mistburn-relic": {}
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -54,7 +55,8 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -90,7 +92,8 @@ list:
             "mistburn-relic": {}
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -125,7 +128,8 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -365,8 +369,7 @@ list:
         "lifestealAmount": ""
       }
 
-  # just reduced lifesteal frequency
-  - name: Bladesworn
+  - name: Bladesworn (Fractal, placeholder relic)
     profession: Bladesworn
     value:
       {
@@ -381,8 +384,43 @@ list:
             "ranger": {}
           },
           "Relics": {
-            "thief-relic": {},
-            "mistburn-relic": {}
+            "no-item-relic": {}
+          },
+          "Sigil1": {
+            "force": {},
+            "accuracy": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": "3.8"
+      }
+
+  - name: Bladesworn (Raid, placeholder relic)
+    profession: Bladesworn
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "no-item-relic": {}
           },
           "Sigil1": {
             "force": {}
@@ -401,7 +439,7 @@ list:
             "curry-butternut-squash-soup": {}
           }
         },
-        "lifestealAmount": "3.1"
+        "lifestealAmount": "3.8"
       }
 
   # air-only approximation of air/hydro split
@@ -511,7 +549,8 @@ list:
           },
           "Sigil1": {
             "force": {},
-            "accuracy": {}
+            "accuracy": {},
+            "concentration": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {},
@@ -600,7 +639,8 @@ list:
           },
           "Sigil1": {
             "force": {},
-            "accuracy": {}
+            "accuracy": {},
+            "concentration": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {},
@@ -691,7 +731,8 @@ list:
           },
           "Sigil1": {
             "force": {},
-            "accuracy": {}
+            "accuracy": {},
+            "concentration": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {},
@@ -782,11 +823,14 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {},
+            "concentration": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {},
             "accuracy": {},
+            "concentration": {}
           },
           "Enhancement": {
             "slaying-potion": {}
@@ -823,11 +867,11 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {},
           },
           "Sigil2": {
-            "impact/night/slaying-both": {},
-            "accuracy": {},
+            "impact/night/slaying-both": {}
           },
           "Enhancement": {
             "slaying-potion": {}
@@ -905,11 +949,11 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {},
           },
           "Sigil2": {
-            "impact/night/slaying-both": {},
-            "accuracy": {},
+            "impact/night/slaying-both": {}
           },
           "Enhancement": {
             "slaying-potion": {}
@@ -1120,7 +1164,8 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -1405,7 +1450,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: DH Virtues (Raid)
+  - name: Power Dragonhunter Radiance (Fractal)
     profession: Dragonhunter
     value:
       {
@@ -1423,7 +1468,86 @@ list:
             "thief-relic": {},
             "mistburn-relic": {},
             "dragonhunter-relic": {
-              "amount": "73.6"
+              "amount": "89"
+            }
+          },
+          "Sigil1": {
+            "force": {},
+            "accuracy": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        }
+      }
+
+  - name: Power Dragonhunter Radiance (Raid)
+    profession: Dragonhunter
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {},
+            "mistburn-relic": {},
+            "dragonhunter-relic": {
+              "amount": "89"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Dragonhunter Virtues (Raid)
+    profession: Dragonhunter
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "thief-relic": {},
+            "mistburn-relic": {},
+            "dragonhunter-relic": {
+              "amount": "78"
             }
           },
           "Sigil1": {
@@ -1446,7 +1570,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: DH Virtues (Fractal)
+  - name: Power Dragonhunter Virtues (Fractal)
     profession: Dragonhunter
     value:
       {
@@ -1464,11 +1588,12 @@ list:
             "thief-relic": {},
             "mistburn-relic": {},
             "dragonhunter-relic": {
-              "amount": "73.6"
+              "amount": "78"
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -1501,7 +1626,8 @@ list:
             "mistburn-relic": {}
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -1794,8 +1920,12 @@ list:
               "amount": ""
             }
           },
-          "Sigil1": {},
-          "Sigil2": {},
+          "Sigil1": {
+            "no-item-sigil": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Enhancement": {
             "master-tuning-crystal": {},
             "toxic-focusing-crystal": {}
@@ -1822,8 +1952,12 @@ list:
           "Relics": {
             "fractal-relic": {}
           },
-          "Sigil1": {},
-          "Sigil2": {},
+          "Sigil1": {
+            "no-item-sigil": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Enhancement": {
             "toxic-maintenance-oil": {},
             "master-tuning-crystal": {}
@@ -2068,85 +2202,6 @@ list:
             "plate-of-coq-au-vin-with-salsa": {},
             "truffle-steak": {},
             "fire-meat-chili": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
-  - name: Alacrity Power Tempest (Fractal)
-    profession: Tempest
-    value:
-      {
-        "extras": {
-          "Runes": {
-            "scholar": {},
-            "dragonhunter": {},
-            "golemancer": {},
-            "deadeye": {},
-            "eagle": {},
-            "infiltration": {},
-            "ranger": {},
-            "pack": {},
-            "fireworks": {}
-          },
-          "Relics": {
-            "fireworks-relic": {
-              "amount": "100"
-            }
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "impact/night/slaying-both": {}
-          },
-          "Enhancement": {
-            "slaying-potion": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {},
-            "curry-butternut-squash-soup": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
-  - name: Alacrity Power Tempest (Raid)
-    profession: Tempest
-    value:
-      {
-        "extras": {
-          "Runes": {
-            "scholar": {},
-            "dragonhunter": {},
-            "golemancer": {},
-            "deadeye": {},
-            "eagle": {},
-            "infiltration": {},
-            "ranger": {},
-            "pack": {},
-            "fireworks": {}
-          },
-          "Relics": {
-            "fireworks-relic": {
-              "amount": "100"
-            }
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "impact/night/slaying-only-3": {},
-            "accuracy": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {},
-            "curry-butternut-squash-soup": {}
           }
         },
         "lifestealAmount": ""
@@ -2590,10 +2645,10 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
-            "accuracy": {},
             "impact/night/slaying-both": {}
           },
           "Enhancement": {
@@ -2805,6 +2860,77 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Fire-only Weaver Inferno (Fractal)
+    profession: Weaver
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "force": {},
+            "impact/night/slaying-both": {}
+          },
+          "Sigil2": {
+            "smoldering": {}
+          },
+          "Runes": {
+            "flame-legion": {},
+            "scholar": {},
+            "dragonhunter": {}
+          },
+          "Relics": {
+            "fireworks-relic": {
+              "amount": "100"
+            }
+          },
+          "Nourishment": {
+            "fire-meat-chili": {},
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "slaying-potion": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Fire-only Weaver Inferno (Raid)
+    profession: Weaver
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "force": {}
+          },
+          "Sigil2": {
+            "smoldering": {}
+          },
+          "Runes": {
+            "flame-legion": {}
+          },
+          "Relics": {
+            "fireworks-relic": {
+              "amount": "100"
+            }
+          },
+          "Nourishment": {
+            "fire-meat-chili": {},
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+
   - name: Fire SE Evoker Condi
     profession: Evoker
     value:
@@ -2906,7 +3032,8 @@ list:
             }
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -3044,6 +3171,48 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Condi Evoker
+    profession: Evoker
+    value:
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "malice": {},
+            "smoldering": {},
+            "agony": {}
+          },
+          "Sigil2": {
+            "bursting": {},
+            "malice": {},
+            "smoldering": {},
+            "agony": {}
+          },
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "balthazar": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {},
+            "salsa-topped-veggie-flatbread": {},
+            "fishy-rice-bowl": {},
+            "plate-of-kimchi-pancakes": {}
+          },
+          "Enhancement": {
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Quickness Condi Untamed
     profession: Untamed
     value:
@@ -3104,8 +3273,9 @@ list:
             "firebrand": {}
           },
           "Relics": {
-            "thief-relic": {},
-            "mistburn-relic": {}
+            "claw-relic": {
+              "amount": "100"
+            }
           },
           "Sigil1": {
             "force": {}
@@ -3125,6 +3295,81 @@ list:
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
             "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Untamed (Fractal)
+    profession: Untamed
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "dragonhunter-relic": {
+              "amount": "89"
+            }
+          },
+          "Sigil1": {
+            "force": {},
+            "accuracy": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Untamed (Raid)
+    profession: Untamed
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+          "Relics": {
+            "dragonhunter-relic": {
+              "amount": "89"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
           }
         },
         "lifestealAmount": ""
@@ -3221,7 +3466,9 @@ list:
             "bursting": {},
             "malice": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Runes": {
             "trapper": {},
             "nightmare": {},
@@ -3362,7 +3609,7 @@ list:
         }
       }
 
-  - name: Condi Quickness Scrapper
+  - name: Quickness Condi Scrapper
     profession: Scrapper
     value:
       {
@@ -3370,22 +3617,33 @@ list:
           "Runes": {
             "trapper": {},
             "nightmare": {},
-            "tempest": {},
-            "lich": {},
-            "balthazar": {},
-            "renegade": {},
-            "berserker": {},
-            "weaver": {},
-            "baelfire": {},
-            "flame-legion-2": {},
-            "firebrand": {}
+            "tempest": {}
           },
-          "Relics": {},
+          "Relics": {
+            "steamshrieker-relic": {
+              "amount": "5.3"
+            },
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
           "Sigil1": {
             "bursting": {}
           },
           "Sigil2": {
-            "malice": {}
+            "bursting": {},
+            "geomancy": {
+              "amount": ""
+            },
+            "earth": {
+              "amount": ""
+            },
+            "doom": {
+              "amount": ""
+            },
+            "torment": {
+              "amount": ""
+            }
           },
           "Enhancement": {
             "master-tuning-crystal": {},
@@ -3396,7 +3654,8 @@ list:
             "cilantro-and-cured-meat-flatbread": {},
             "spherified-cilantro-oyster-soup": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Alacrity Condi Renegade
@@ -3404,8 +3663,12 @@ list:
     value:
       {
         "extras": {
-          "Sigil1": {},
-          "Sigil2": {},
+          "Sigil1": {
+            "no-item-sigil": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Runes": {
             "trapper": {},
             "nightmare": {},
@@ -3435,13 +3698,17 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Ren
+  - name: Condi Renegade
     profession: Renegade
     value:
       {
         "extras": {
-          "Sigil1": {},
-          "Sigil2": {},
+          "Sigil1": {
+            "no-item-sigil": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Runes": {
             "trapper": {},
             "nightmare": {},
@@ -3451,10 +3718,15 @@ list:
             "berserker": {},
             "renegade": {}
           },
-          "Relics": {},
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
-            "meaty-asparagus-skewer": {}
+            "meaty-asparagus-skewer": {},
+            "salsa-topped-veggie-flatbread": {}
           },
           "Enhancement": {
             "master-tuning-crystal": {},
@@ -3530,7 +3802,8 @@ list:
             "mistburn-relic": {}
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-both": {}
@@ -3546,24 +3819,20 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Power Alac Ren (Raid)
+  - name: Alacrity Power Renegade (Raid)
     profession: Renegade
     value:
       {
         "extras": {
           "Runes": {
             "scholar": {},
-            "dragonhunter": {},
-            "golemancer": {},
-            "deadeye": {},
-            "eagle": {},
-            "infiltration": {},
-            "ranger": {},
-            "pack": {},
-            "fireworks": {},
-            "leadership": {}
+            "dragonhunter": {}
           },
-          "Relics": {},
+          "Relics": {
+            "thief-relic": {
+              "amount": ""
+            }
+          },
           "Sigil1": {
             "force": {}
           },
@@ -3605,17 +3874,22 @@ list:
               "amount": ""
             }
           },
-          "Sigil1": {},
-          "Sigil2": {},
+          "Sigil1": {
+            "no-item-sigil": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Enhancement": {
             "master-tuning-crystal": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
-            "salsa-topped-veggie-flatbread": {}
+            "salsa-topped-veggie-flatbread": {},
+            "meaty-asparagus-skewer": {}
           }
         },
-        "lifestealAmount": "3.6"
+        "lifestealAmount": ""
       }
 
   - name: DPS Vindicator (Fractal)
@@ -3638,7 +3912,9 @@ list:
           "Sigil1": {
             "force": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Enhancement": {
             "slaying-potion": {}
           },
@@ -3722,82 +3998,6 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Power Alacrity Mechanist (Fractal, inaccurate)
-    hidden: true
-    profession: Mechanist
-    value:
-      {
-        "extras": {
-          "Runes": {
-            "strength": {}
-          },
-          "Relics": {},
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {},
-          "Enhancement": {
-            "slaying-potion": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
-          }
-        },
-        "lifestealAmount": "0"
-      }
-
-  - name: Power Alacrity Mechanist (Raid, air, inaccurate)
-    profession: Mechanist
-    value:
-      {
-        "extras": {
-          "Runes": {
-            "strength": {}
-          },
-          "Relics": {},
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {},
-          "Enhancement": {
-            "superior-sharpening-stone": {},
-            "potent-lucent-oil": {},
-            "holographic-super-cheese": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
-          }
-        },
-        "lifestealAmount": "0"
-      }
-
-  - name: Power Alacrity Mechanist (Raid, concentration, inaccurate)
-    profession: Mechanist
-    value:
-      {
-        "extras": {
-          "Runes": {
-            "strength": {}
-          },
-          "Relics": {},
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "concentration": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {},
-            "potent-lucent-oil": {},
-            "holographic-super-cheese": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
-          }
-        },
-        "lifestealAmount": "0"
-      }
-
   - name: Condi Mechanist
     profession: Mechanist
     value:
@@ -3833,6 +4033,49 @@ list:
           }
         },
         "lifestealAmount": "3.4"
+      }
+
+  - name: Condi Amalgam
+    profession: Amalgam
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "trapper": {}
+          },
+          "Relics": {
+            "fractal-relic": {
+              "amount": ""
+            }
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "bursting": {},
+            "geomancy": {
+              "amount": ""
+            },
+            "earth": {
+              "amount": ""
+            },
+            "doom": {
+              "amount": ""
+            },
+            "torment": {
+              "amount": ""
+            }
+          },
+          "Enhancement": {
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {},
+            "truffle-risotto": {}
+          }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Amalgam Steamshrieker
@@ -3956,8 +4199,12 @@ list:
           "Relics": {
             "fractal-relic": {}
           },
-          "Sigil1": {},
-          "Sigil2": {},
+          "Sigil1": {
+            "no-item-sigil": {}
+          },
+          "Sigil2": {
+            "no-item-sigil": {}
+          },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           },
@@ -4374,40 +4621,6 @@ list:
           }
         },
         "lifestealAmount": ""
-      }
-
-  - name: Condi Boon Daredevil
-    profession: Daredevil
-    value:
-      {
-        "extras": {
-          "Runes": {
-            "trapper": {},
-            "nightmare": {},
-            "tempest": {},
-            "lich": {},
-            "renegade": {},
-            "berserker": {},
-            "krait": {},
-            "mad-king": {},
-            "afflicted": {},
-            "thorns": {},
-            "firebrand": {}
-          },
-          "Relics": {},
-          "Sigil1": {
-            "concentration": {}
-          },
-          "Sigil2": {
-            "malice": {}
-          },
-          "Enhancement": {
-            "master-tuning-crystal": {}
-          },
-          "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
-          }
-        }
       }
 
   - name: Condi Specter Spear

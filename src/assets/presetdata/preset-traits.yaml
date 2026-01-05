@@ -1435,7 +1435,7 @@ list:
         }
       }
 
-  - name: DH Radiance
+  - name: Power Dragonhunter Radiance
     profession: Dragonhunter
     traits:
       {
@@ -1495,7 +1495,7 @@ list:
               "amount": ""
             },
             "big-game-hunter": {
-              "amount": ""
+              "amount": "80"
             }
           }
         ]
@@ -1505,11 +1505,14 @@ list:
         "skills": {
           "bane-signet": {
             "amount": ""
+          },
+          "binding-blade": {
+            "amount": "47.5"
           }
         }
       }
 
-  - name: DH Virtues
+  - name: Power Dragonhunter Virtues
     profession: Dragonhunter
     traits:
       {
@@ -1549,7 +1552,7 @@ list:
             },
             "virtue-of-resolution": {},
             "inspiring-virtue": {
-              "amount": "67"
+              "amount": "79"
             },
             "power-of-the-virtuous": {}
           },
@@ -1572,7 +1575,7 @@ list:
               "amount": ""
             },
             "big-game-hunter": {
-              "amount": "89"
+              "amount": "91"
             }
           }
         ]
@@ -1582,81 +1585,9 @@ list:
         "skills": {
           "bane-signet": {
             "amount": ""
-          }
-        }
-      }
-
-  - name: Core Guardian
-    profession: Guardian
-    traits:
-      {
-        "showAll": false,
-        "selectedLines": [
-          "16",
-          "42",
-          "46"
-        ],
-        "selectedTraits": [
-          [
-            566,
-            565,
-            1683
-          ],
-          [
-            634,
-            653,
-            2017
-          ],
-          [
-            624,
-            603,
-            622
-          ]
-        ],
-        "items": [
-          {
-            "right-hand-strength": {},
-            "right-hand-strength-1h": {
-              "amount": ""
-            },
-            "radiant-fire": {},
-            "retribution": {
-              "amount": ""
-            },
-            "radiant-power": {},
-            "amplified-wrath": {},
-            "righteous-instincts": {}
           },
-          {
-            "fiery-wrath": {},
-            "symbolic-exposure": {},
-            "zealous-blade-base": {},
-            "zealous-blade-gs": {
-              "amount": ""
-            },
-            "kindled-zeal": {},
-            "symbolic-avenger": {}
-          },
-          {
-            "inspired-virtue": {
-              "amount": ""
-            },
-            "unscathed-contender": {
-              "amount": ""
-            },
-            "virtue-of-resolution": {},
-            "inspiring-virtue": {
-              "amount": "80"
-            },
-            "power-of-the-virtuous": {}
-          }
-        ]
-      }
-    skills:
-      {
-        "skills": {
-          "bane-signet": {
-            "amount": ""
+          "binding-blade": {
+            "amount": "45.8"
           }
         }
       }
@@ -1917,7 +1848,9 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {
+              "amount": "4.6"
+            }
           },
           {
             "imbued-haste": {
@@ -2692,7 +2625,7 @@ list:
             "amount": "60"
           },
           "binding-blade": {
-            "amount": "5.2"
+            "amount": "48.5"
           }
         }
       }
@@ -2774,7 +2707,7 @@ list:
             "amount": "58"
           },
           "binding-blade": {
-            "amount": "4.6"
+            "amount": "41.8"
           }
         }
       }
@@ -3373,7 +3306,7 @@ list:
         }
       }
 
-  - name: Alacrity Bladesworn Signets
+  - name: Alacrity Power Bladesworn Signets
     profession: Bladesworn
     traits:
       {
@@ -3392,7 +3325,7 @@ list:
           [
             1469,
             1486,
-            1667
+            0
           ],
           [
             2225,
@@ -3410,10 +3343,10 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "3.8"
+              "amount": "4"
             },
             "peak-performance-2": {
-              "amount": "9.3"
+              "amount": "3.7"
             }
           },
           {
@@ -3447,7 +3380,7 @@ list:
         }
       }
 
-  - name: Alacrity Bladesworn
+  - name: Alacrity Power Bladesworn
     profession: Bladesworn
     traits:
       {
@@ -3466,7 +3399,7 @@ list:
           [
             1469,
             1486,
-            1667
+            0
           ],
           [
             2225,
@@ -3484,7 +3417,7 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "3.9"
+              "amount": "4"
             }
           },
           {
@@ -3515,7 +3448,7 @@ list:
         "skills": {}
       }
 
-  - name: DPS Bladesworn Tactics
+  - name: Power Bladesworn
     profession: Bladesworn
     traits:
       {
@@ -3555,7 +3488,7 @@ list:
               "amount": "4"
             },
             "peak-performance-2": {
-              "amount": "4.1"
+              "amount": "4.8"
             }
           },
           {
@@ -4946,7 +4879,7 @@ list:
         }
       }
 
-  - name: '"Fire Wizard"'
+  - name: Fire-only Tempest
     profession: Tempest
     traits:
       {
@@ -5270,82 +5203,6 @@ list:
             "amount": "87"
           },
           "crescent-wind": {}
-        }
-      }
-
-  - name: Alacrity Power Tempest Arcane
-    profession: Tempest
-    traits:
-      {
-        "showAll": false,
-        "selectedLines": [
-          "37",
-          "41",
-          "48"
-        ],
-        "selectedTraits": [
-          [
-            253,
-            265,
-            1511
-          ],
-          [
-            232,
-            1502,
-            1503
-          ],
-          [
-            1886,
-            1891,
-            2033
-          ]
-        ],
-        "items": [
-          {
-            "elemental-enchantment": {},
-            "arcane-lightning": {
-              "amount": ""
-            },
-            "bountiful-power": {
-              "amount": ""
-            }
-          },
-          {
-            "ferocious-winds": {},
-            "raging-storm": {
-              "amount": ""
-            },
-            "stormsoul": {
-              "amount": ""
-            },
-            "aeromancers-training": {},
-            "aeromancers-training-2": {
-              "amount": "90"
-            },
-            "bolt-to-the-heart": {
-              "amount": ""
-            },
-            "fresh-air": {
-              "amount": "58"
-            },
-            "zephyrs-speed": {}
-          },
-          {
-            "gathered-focus": {},
-            "hardy-conduit": {},
-            "transcendent-tempest": {
-              "amount": "98"
-            },
-            "tempestuous-aria": {
-              "amount": ""
-            }
-          }
-        ]
-      }
-    skills:
-      {
-        "skills": {
-          "signet-of-fire": {}
         }
       }
 
@@ -6559,6 +6416,99 @@ list:
         }
       }
 
+  - name: Fire-only Weaver
+    profession: Weaver
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "56"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1675
+          ],
+          [
+            232,
+            1502,
+            226
+          ],
+          [
+            2177,
+            2061,
+            2131
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "100"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "100"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "zephyrs-speed": {},
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "superior-elements": {
+              "amount": ""
+            },
+            "masters-fortitude": {},
+            "masters-fortitude-sword": {},
+            "weavers-prowess": {},
+            "swift-revenge": {
+              "amount": ""
+            },
+            "elemental-polyphony-fire": {
+              "amount": "100"
+            },
+            "elements-of-rage-base": {},
+            "elements-of-rage-buff": {
+              "amount": "7.7"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "972"
+          },
+          "signet-of-fire": {
+            "amount": "9"
+          }
+        }
+      }
+
   - name: Power Evoker Hare PF
     profession: Evoker
     traits:
@@ -6984,6 +6934,82 @@ list:
         }
       }
 
+  - name: Condi Evoker
+    profession: Evoker
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "80"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            294
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            2391,
+            2342,
+            2335
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "55"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "100"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "inferno": {}
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "fiery-might": {},
+            "enhanced-potency-fox": {
+              "amount": ""
+            },
+            "familiars-prowess-fox": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "ele-summon-dps": {
+            "amount": "1037"
+          },
+          "signet-of-fire": {
+            "amount": ""
+          },
+          "signet-of-earth-bug": {},
+          "raging-ricochet": {
+            "amount": "87"
+          }
+        }
+      }
+
   - name: Heal Quickness Catalyst
     profession: Catalyst
     traits:
@@ -7208,6 +7234,9 @@ list:
           },
           {
             "natural-fortitude": {},
+            "natural-fortitude-lifesteal": {
+              "amount": "1.7"
+            },
             "vow-of-the-untamed-you": {
               "amount": "80.5"
             },
@@ -7298,7 +7327,7 @@ list:
         }
       }
 
-  - name: Quickness Power Untamed
+  - name: Quickness Power Untamed HA S/A
     profession: Untamed
     traits:
       {
@@ -7322,7 +7351,7 @@ list:
           [
             2301,
             0,
-            2274
+            2271
           ]
         ],
         "items": [
@@ -7331,7 +7360,7 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "2.75"
+              "amount": "2.42"
             },
             "striders-strength": {},
             "striders-strength-sword": {
@@ -7348,10 +7377,13 @@ list:
           {
             "natural-fortitude": {},
             "vow-of-the-untamed-you": {
-              "amount": "90"
+              "amount": "91"
             },
             "ferocious-symbiosis": {
               "amount": ""
+            },
+            "natural-fortitude-lifesteal": {
+              "amount": "1.8"
             }
           }
         ]
@@ -7359,7 +7391,10 @@ list:
     skills:
       {
         "skills": {
-          "signet-of-the-wild": {}
+          "signet-of-the-wild": {},
+          "pet-dps": {
+            "amount": "6633"
+          }
         }
       }
 
@@ -7380,8 +7415,8 @@ list:
             1888
           ],
           [
-            0,
-            1000,
+            986,
+            1001,
             996
           ],
           [
@@ -7396,7 +7431,7 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "2.75"
+              "amount": "3"
             },
             "striders-strength": {},
             "striders-strength-sword": {
@@ -7404,6 +7439,9 @@ list:
             }
           },
           {
+            "wolfsong": {
+              "amount": ""
+            },
             "farsighted": {},
             "predators-onslaught": {
               "amount": ""
@@ -7415,7 +7453,10 @@ list:
               "amount": "90"
             },
             "ferocious-symbiosis": {
-              "amount": ""
+              "amount": "4.9"
+            },
+            "natural-fortitude-lifesteal": {
+              "amount": "0.8"
             }
           }
         ]
@@ -7423,7 +7464,10 @@ list:
     skills:
       {
         "skills": {
-          "signet-of-the-wild": {}
+          "signet-of-the-wild": {},
+          "pet-dps": {
+            "amount": "3977"
+          }
         }
       }
 
@@ -7886,7 +7930,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Alac Ren
+  - name: Alacrity Power Renegade
     profession: Renegade
     traits:
       {
@@ -7947,7 +7991,10 @@ list:
             },
             "blood-fury": {},
             "heartpiercer": {},
-            "brutal-momentum": {},
+            "brutal-momentum-base": {},
+            "brutal-momentum": {
+              "amount": ""
+            },
             "lasting-legacy": {
               "amount": ""
             }
@@ -7956,10 +8003,14 @@ list:
       }
     skills:
       {
-        "skills": {}
+        "skills": {
+          "enchanted-daggers": {
+            "amount": "0.148"
+          }
+        }
       }
 
-  - name: Alacrity Condi Ren SB Invo
+  - name: Alacrity Condi Renegade Invo
     profession: Renegade
     traits:
       {
@@ -8009,7 +8060,10 @@ list:
             },
             "blood-fury": {},
             "heartpiercer": {},
-            "brutal-momentum": {},
+            "brutal-momentum-base": {},
+            "brutal-momentum": {
+              "amount": ""
+            },
             "lasting-legacy": {
               "amount": ""
             }
@@ -8021,7 +8075,7 @@ list:
         "skills": {}
       }
 
-  - name: Condi Renegade SB Invocation
+  - name: Condi Renegade Invo
     profession: Renegade
     traits:
       {
@@ -8071,7 +8125,10 @@ list:
             },
             "blood-fury": {},
             "heartpiercer": {},
-            "brutal-momentum": {},
+            "brutal-momentum-base": {},
+            "brutal-momentum": {
+              "amount": ""
+            },
             "lasting-legacy": {
               "amount": ""
             }
@@ -8306,7 +8363,7 @@ list:
       {
         "skills": {
           "burst-of-strength": {
-            "amount": "89.2"
+            "amount": "92"
           }
         }
       }
@@ -8353,7 +8410,10 @@ list:
             },
             "blood-fury": {},
             "heartpiercer": {},
-            "brutal-momentum": {},
+            "brutal-momentum-base": {},
+            "brutal-momentum": {
+              "amount": ""
+            },
             "lasting-legacy": {
               "amount": ""
             }
@@ -8557,6 +8617,69 @@ list:
           },
           "cosmic-wisdom-demon": {
             "amount": "41"
+          }
+        }
+      }
+
+  - name: Condition Conduit SOTM
+    profession: Conduit
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "14",
+          "3",
+          "79"
+        ],
+        "selectedTraits": [
+          [
+            1793,
+            1727,
+            1795
+          ],
+          [
+            1761,
+            1774,
+            1749
+          ],
+          [
+            2407,
+            2358,
+            2429
+          ]
+        ],
+        "items": [
+          {
+            "acolyte-of-torment": {},
+            "seething-malice": {},
+            "demonic-resistance": {},
+            "pact-of-pain": {},
+            "yearning-empowerment": {}
+          },
+          {
+            "rising-tide": {
+              "amount": ""
+            },
+            "ferocious-aggression": {
+              "amount": ""
+            },
+            "roiling-mists": {}
+          },
+          {
+            "bolstered-bonds-demon": {},
+            "bolstered-bonds-entity": {},
+            "numinous-gift-yearning-empowerment": {}
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "cosmic-wisdom-entity": {
+            "amount": "40"
+          },
+          "cosmic-wisdom-demon": {
+            "amount": "40"
           }
         }
       }
@@ -9281,20 +9404,20 @@ list:
       {
         "showAll": false,
         "selectedLines": [
-          "38",
           "6",
+          "38",
           "43"
         ],
         "selectedTraits": [
           [
-            1878,
-            2006,
-            433
-          ],
-          [
             1882,
             482,
             505
+          ],
+          [
+            1878,
+            2006,
+            433
           ],
           [
             1917,
@@ -9303,24 +9426,6 @@ list:
           ]
         ],
         "items": [
-          {
-            "chemical-rounds": {},
-            "high-caliber": {},
-            "hematic-focus": {},
-            "thermal-vision": {},
-            "thermal-vision-buff": {},
-            "no-scope": {
-              "amount": ""
-            },
-            "serrated-steel": {},
-            "modified-ammunition": {
-              "amount": ""
-            },
-            "incendiary-powder": {},
-            "sharpshooter": {
-              "amount": "3.87"
-            }
-          },
           {
             "glass-cannon": {
               "amount": ""
@@ -9333,6 +9438,26 @@ list:
               "amount": ""
             },
             "big-boomer": {}
+          },
+          {
+            "chemical-rounds": {},
+            "high-caliber": {
+              "amount": ""
+            },
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "thermal-vision-buff": {
+              "amount": ""
+            },
+            "no-scope": {},
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "4.1"
+            }
           },
           {
             "object-in-motion": {
@@ -9436,7 +9561,95 @@ list:
         }
       }
 
-  - name: Alacrity Condi Amalgam
+  - name: Alacrity Condi Amalgam 2 Kit
+    profession: Amalgam
+    traits:
+      {
+        "showAll": false,
+        "selectedLines": [
+          "6",
+          "38",
+          "75"
+        ],
+        "selectedTraits": [
+          [
+            1882,
+            482,
+            505
+          ],
+          [
+            1878,
+            2006,
+            433
+          ],
+          [
+            2395,
+            2383,
+            2387
+          ]
+        ],
+        "items": [
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {
+            "chemical-rounds": {},
+            "high-caliber": {
+              "amount": ""
+            },
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "thermal-vision-buff": {
+              "amount": ""
+            },
+            "no-scope": {},
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "4.4"
+            }
+          },
+          {
+            "hybrid-vigor": {},
+            "carbolic-composition": {},
+            "willing-host": {
+              "amount": "100"
+            },
+            "double-helix": {
+              "amount": "???"
+            }
+          }
+        ]
+      }
+    skills:
+      {
+        "skills": {
+          "evolve": {
+            "amount": "26"
+          },
+          "titanic-strain": {
+            "amount": "26"
+          },
+          "plasmatic-state": {
+            "amount": "36"
+          }
+        }
+      }
+
+  - name: Alacrity Condi Amalgam 4 Kit
     profession: Amalgam
     traits:
       {
@@ -9563,80 +9776,6 @@ list:
             "impact-savant": {},
             "kinetic-accelerators": {},
             "applied-force": {
-              "amount": ""
-            }
-          }
-        ]
-      }
-    skills:
-      {
-        "skills": {}
-      }
-
-  - name: Power Engineer
-    profession: Engineer
-    traits:
-      {
-        "showAll": false,
-        "selectedLines": [
-          "38",
-          "6",
-          "21"
-        ],
-        "selectedTraits": [
-          [
-            1914,
-            1923,
-            526
-          ],
-          [
-            1882,
-            482,
-            1947
-          ],
-          [
-            532,
-            1832,
-            1679
-          ]
-        ],
-        "items": [
-          {
-            "chemical-rounds": {},
-            "high-caliber": {},
-            "hematic-focus": {},
-            "thermal-vision": {},
-            "thermal-vision-buff": {},
-            "no-scope": {
-              "amount": ""
-            },
-            "serrated-steel": {},
-            "modified-ammunition": {
-              "amount": ""
-            },
-            "incendiary-powder": {},
-            "sharpshooter": {
-              "amount": "4"
-            }
-          },
-          {
-            "glass-cannon": {
-              "amount": ""
-            },
-            "explosive-temper": {
-              "amount": ""
-            },
-            "blast-shield": {},
-            "shaped-charge": {
-              "amount": ""
-            },
-            "big-boomer": {}
-          },
-          {
-            "takedown-round": {
-              "amount": "100"
-            },
-            "excessive-energy": {
               "amount": ""
             }
           }
@@ -10663,7 +10802,7 @@ list:
             "amount": "7.65"
           },
           "signet-of-spite": {
-            "amount": ""
+            "amount": "60"
           }
         }
       }
@@ -11122,71 +11261,6 @@ list:
             "preparedness": {},
             "lead-attacks": {
               "amount": "11.3"
-            },
-            "deadly-ambush": {}
-          },
-          {
-            "marauders-resilience": {},
-            "weakening-strikes": {},
-            "staff-master-base": {},
-            "staff-master-staff": {},
-            "havoc-specialist": {
-              "amount": ""
-            },
-            "bounding-dodger": {},
-            "lotus-training": {}
-          }
-        ]
-      }
-    skills:
-      {
-        "skills": {}
-      }
-
-  - name: Condi Boon Daredevil
-    profession: Daredevil
-    traits:
-      {
-        "showAll": false,
-        "selectedLines": [
-          "28",
-          "44",
-          "7"
-        ],
-        "selectedTraits": [
-          [
-            1164,
-            1292,
-            1167
-          ],
-          [
-            1159,
-            1277,
-            1158
-          ],
-          [
-            1933,
-            1893,
-            1833
-          ]
-        ],
-        "items": [
-          {
-            "dagger-training-base": {},
-            "deadly-ambition": {},
-            "revealed-training-base": {},
-            "exposed-weakness": {
-              "amount": ""
-            },
-            "potent-poison": {},
-            "executioner": {
-              "amount": ""
-            }
-          },
-          {
-            "preparedness": {},
-            "lead-attacks": {
-              "amount": ""
             },
             "deadly-ambush": {}
           },

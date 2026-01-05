@@ -336,7 +336,7 @@
 
 - section: Shadow Arts
   id: 20
-  note: Leeching venoms siphons applied by allies use allies' power stats.
+  note: Leeching venoms siphons applied by allies use allies' power stats, so they are not implemented.
   items:
 
     - id: leeching-venoms
@@ -632,6 +632,8 @@
 
 - section: Specter
   id: 71
+  note: >-
+    Larcenous Torment lifesteal damage may be omitted in arcdps area stats or parsed arcdps logs.
   items:
 
     - id: second-opinion-base

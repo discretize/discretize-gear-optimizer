@@ -678,6 +678,18 @@ const testPresets = async () => {
             gentleAssert(false, `err: the ${entry.name} ${type} entry is missing credit!`);
           }
         }
+
+        Object.entries(entry.value.values2).forEach(([key, value]) => {
+          if (value < 0) {
+            gentleAssert(false, `err: the ${entry.name} ${key} value is negative (${value})!`);
+          } else if (value !== 0 && value < 0.04) {
+            console.log(`❓ the ${entry.name} ${key} value is very small (${value})!`);
+          }
+        });
+      }
+      if (type === 'priority') {
+        const infusionsMatch = data.infusions.find((pre) => pre.name === entry.infusions);
+        gentleAssert(infusionsMatch, `err: ${entry.name}'s infusions is not found!`);
       }
     }
   }

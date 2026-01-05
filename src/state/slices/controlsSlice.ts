@@ -2,15 +2,19 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSelector, createSlice, original } from '@reduxjs/toolkit';
 import type { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
-import type { ProfessionName, ProfessionOrSpecializationName } from '../../utils/gw2-data';
+import type {
+  IndicatorName,
+  ProfessionName,
+  ProfessionOrSpecializationName,
+} from '../../utils/gw2-data';
 import type { ParseFunction } from '../../utils/usefulFunctions';
 import { objectKeys, parseNumber } from '../../utils/usefulFunctions';
 import type { Character } from '../optimizer/types/optimizerTypes';
 import { isFirefox } from '../optimizer/utils/detectFirefox';
 import type { OptimizerStatus } from '../optimizer/utils/status';
 import { RUNNING, RUNNING_HEURISTICS, WAITING } from '../optimizer/utils/status';
-import { reduxSideEffect } from '../redux-hooks';
 import type { RootState } from '../store';
+import { getHwThreadsString } from './localUserSettings';
 
 const roundThree = (num: number) => Math.round(num * 1000) / 1000;
 
@@ -100,10 +104,6 @@ export const emptyFilteredLists = {
   Enhancement: [],
 };
 
-const THREADS_SETTINGS_STORAGE_KEY = 'hwThreads-1';
-const savedHwThreads =
-  (typeof localStorage !== 'undefined' && localStorage.getItem(THREADS_SETTINGS_STORAGE_KEY)) || '';
-
 const initialState: {
   list: Character[];
   filteredLists: Record<ExtraFilterMode, Character[]>;
@@ -114,6 +114,7 @@ const initialState: {
   savedHeader: boolean;
   filterMode: FilterMode;
   displayAttributes: DisplayAttributes;
+  displayIndicators: IndicatorName[];
   progress: number;
   heuristicsProgress: number | undefined;
   selectedCharacter: Character | null;
@@ -124,7 +125,6 @@ const initialState: {
   jsHeuristicsEnabled: boolean;
   jsHeuristicsTarget: string;
   multicore: boolean;
-  hwThreads: string;
   heuristics: boolean;
   includeScenarioDataInCharacters: boolean;
   error: string;
@@ -138,6 +138,7 @@ const initialState: {
   savedHeader: false,
   filterMode: 'None',
   displayAttributes: [],
+  displayIndicators: [],
   progress: 0,
   heuristicsProgress: undefined,
   selectedCharacter: null,
@@ -145,10 +146,9 @@ const initialState: {
   status: WAITING,
   profession: '',
   selectedSpecialization: '',
-  jsHeuristicsEnabled: false,
+  jsHeuristicsEnabled: true,
   jsHeuristicsTarget: '',
   multicore: false,
-  hwThreads: savedHwThreads,
   heuristics: false,
   includeScenarioDataInCharacters: false,
   error: '',
@@ -231,6 +231,9 @@ export const controlSlice = createSlice({
     changeDisplayAttributes: (state, action: PayloadAction<DisplayAttributes>) => {
       state.displayAttributes = action.payload;
     },
+    changeDisplayIndicators: (state, action: PayloadAction<IndicatorName[]>) => {
+      state.displayIndicators = action.payload;
+    },
     changeTallTable: (state, action: PayloadAction<boolean>) => {
       state.tallTable = action.payload;
     },
@@ -255,10 +258,7 @@ export const controlSlice = createSlice({
     changeJsHeuristicsTarget: (state, action: PayloadAction<string>) => {
       state.jsHeuristicsTarget = action.payload;
     },
-    changeHwThreads: (state, action: PayloadAction<string>) => {
-      state.hwThreads = action.payload;
-    },
-    changeMulticore: (state, action: PayloadAction<boolean>) => {
+    changeRustMode: (state, action: PayloadAction<boolean>) => {
       state.multicore = action.payload;
     },
     changeHeuristics: (state, action: PayloadAction<boolean>) => {
@@ -272,7 +272,6 @@ export const controlSlice = createSlice({
 
 export const getProfession = (state: RootState) => state.optimizer.control.profession;
 export const getSelectedTemplate = (state: RootState) => state.optimizer.control.selectedTemplate;
-export const getHwThreadsString = (state: RootState) => state.optimizer.control.hwThreads;
 export const getProgress = (state: RootState) => state.optimizer.control.progress;
 export const getHeuristicsProgress = (state: RootState) =>
   state.optimizer.control.heuristicsProgress;
@@ -287,6 +286,7 @@ export const getHighlightDiffering = (state: RootState) =>
   state.optimizer.control.highlightDiffering;
 export const getFilterMode = (state: RootState) => state.optimizer.control.filterMode;
 export const getDisplayAttributes = (state: RootState) => state.optimizer.control.displayAttributes;
+export const getDisplayIndicators = (state: RootState) => state.optimizer.control.displayIndicators;
 export const getTallTable = (state: RootState) => state.optimizer.control.tallTable;
 export const getSavedHeader = (state: RootState) => state.optimizer.control.savedHeader;
 export const getSelectedCharacter = (state: RootState) => state.optimizer.control.selectedCharacter;
@@ -295,7 +295,7 @@ export const getJsHeuristicsEnabled = (state: RootState) =>
   state.optimizer.control.jsHeuristicsEnabled;
 export const getJsHeuristicsTarget = (state: RootState) =>
   state.optimizer.control.jsHeuristicsTarget;
-export const getMulticore = (state: RootState) => state.optimizer.control.multicore;
+export const getRustMode = (state: RootState) => state.optimizer.control.multicore;
 export const getHeuristics = (state: RootState) => state.optimizer.control.heuristics;
 export const getIncludeScenarioDataInCharacters = (state: RootState) =>
   state.optimizer.control.includeScenarioDataInCharacters;
@@ -309,18 +309,14 @@ export const defaultJsThreads = isFirefox
 export const parseHwThreads: ParseFunction<undefined> = (text) =>
   parseNumber(text, undefined, true);
 
-export const getDefaultHwThreads = createSelector(getMulticore, (multicore) =>
-  multicore ? defaultRustThreads : defaultJsThreads,
+export const getDefaultHwThreads = createSelector(getRustMode, (rustMode) =>
+  rustMode ? defaultRustThreads : defaultJsThreads,
 );
 export const getHwThreads = createSelector(
   getHwThreadsString,
   getDefaultHwThreads,
   (hwThreadsString, defaultHwThreads) =>
     Math.max(parseHwThreads(hwThreadsString).value ?? defaultHwThreads, 1),
-);
-
-reduxSideEffect(getHwThreadsString, (hwThreads) =>
-  localStorage.setItem(THREADS_SETTINGS_STORAGE_KEY, hwThreads),
 );
 
 export const getPageTitle = createSelector(getStatus, getProgress, (status, progress) => {
@@ -340,6 +336,7 @@ export const {
   updateResults,
   changeFilterMode,
   changeDisplayAttributes,
+  changeDisplayIndicators,
   changeTallTable,
   changeSavedHeader,
   toggleSaved,
@@ -350,8 +347,7 @@ export const {
   changeError,
   changeJsHeuristicsEnabled,
   changeJsHeuristicsTarget,
-  changeHwThreads,
-  changeMulticore,
+  changeRustMode,
   changeHeuristics,
   changeIncludeScenarioDataInCharacters,
 } = controlSlice.actions;

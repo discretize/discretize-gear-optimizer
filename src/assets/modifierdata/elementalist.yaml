@@ -1,4 +1,6 @@
 - section: Skills
+  note: >-
+    Fulgor's damage-over-time effect is not currently implemented.
   items:
 
     - id: ele-summon-dps

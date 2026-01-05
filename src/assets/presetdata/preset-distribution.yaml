@@ -15,14 +15,6 @@ list:
       }
     noCreditOkay: true
 
-  - name: No Simulation
-    hidden: true
-    value:
-      {
-        "values2": { "Power": 1, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    noCreditOkay: true
-
   # Uses air/hydro sigils, somewhat taken into consideration by giving air a
   # proc rate high enough to match air+hydro damage
   - name: Power Berserker GS A/A
@@ -107,27 +99,39 @@ list:
         url: https://www.youtube.com/watch?v=Cg52M5WGU5o
         log: https://dps.report/RzZh-20231014-102529_golem
 
-  - name: Power Alacrity Bladesworn
+  # 100% crit
+  - name: Alacrity Power Bladesworn Signets
     profession: Bladesworn
     value:
       {
-        "values2": { "Power": 3916, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4003, "Power2": 0, "Burning": 0, "Bleeding": 5.95, "Poisoned": 0, "Torment": 1.52, "Confusion": 0 }
       }
     credit:
       - author: Evo
-        url: https://www.youtube.com/watch?v=I7N_w15FL94
-        log: https://dps.report/Jigl-20230717-221233_golem
+        url: https://www.youtube.com/watch?v=QWj7r5AAGrA
+        log: https://dps.report/Tm53-20250629-002028_golem
 
-  - name: DPS Bladesworn Tactics
+  - name: Alacrity Power Bladesworn
     profession: Bladesworn
     value:
       {
-        "values2": { "Power": 4548, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4639, "Power2": 0, "Burning": 0, "Bleeding": 4.17, "Poisoned": 0, "Torment": 1.54, "Confusion": 0 }
       }
     credit:
       - author: Evo
-        url: https://www.youtube.com/watch?v=0uJWLIKmN_c
-        log: https://dps.report/Kan2-20230824-061419_golem
+        url: https://www.youtube.com/watch?v=ug3kze2ejdQ
+        log: https://dps.report/JvTL-20250827-204709_golem
+
+  - name: Power Bladesworn
+    profession: Bladesworn
+    value:
+      {
+        "values2": { "Power": 5468, "Power2": 0, "Burning": 0, "Bleeding": 3.6, "Poisoned": 0, "Torment": 1.6, "Confusion": 0 }
+      }
+    credit:
+      - author: Evo
+        url: https://www.youtube.com/watch?v=tsAiu-GGq3I
+        log: https://dps.report/3QR7-20250821-063721_golem
 
   - name: Hybrid Paragon
     profession: Paragon
@@ -141,38 +145,27 @@ list:
         log: https://gw2wingman.nevermindcreations.de/log/31aaf-20251215-034716_StdGolem_kill
         # log: https://dps.report/RS7D-20251215-034716_golem
 
-  - name: DH Radiance
+  - name: Power Dragonhunter Radiance SP/GS
     profession: Dragonhunter
     value:
       {
-        "values2": { "Power": 4085, "Power2": 0, "Burning": 2.59, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: Shavy
-        url: https://www.youtube.com/watch?v=7-nqp2Ths3s
-        log: https://dps.report/GQ29-20230504-221813_golem
-
-  - name: DH Virtues
-    profession: Dragonhunter
-    value:
-      {
-        "values2": { "Power": 3967, "Power2": 0, "Burning": 2.8, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4069, "Power2": 0, "Burning": 1.49, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Derm
-        url: https://www.youtube.com/watch?v=S3qr1eATkAU
-        log: https://dps.report/nQ3s-20231011-073653_golem
+        url: https://www.youtube.com/watch?v=QL-0S1xLff8
+        log: https://dps.report/M9tp-20250627-000730_golem
 
-
-  # https://www.youtube.com/watch?v=G3CngDG-cMg
-  # 12 boons
-  - name: Core Guardian
-    profession: Guardian
+  - name: Power Dragonhunter Virtues SP/GS
+    profession: Dragonhunter
     value:
       {
-        "values2": { "Power": 3340, "Power2": 0, "Burning": 1.1, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4032, "Power2": 0, "Burning": 1.69, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: Derm
+        url: https://www.youtube.com/watch?v=N7fnAgJhy94
+        log: https://dps.report/geOw-20250626-225051_golem
 
   # (this is actually an old core guardian distribution iirc)
   - name: Power Quickbrand (approx.)
@@ -241,16 +234,16 @@ list:
         url: https://www.youtube.com/watch?v=j0oY6aNODvY
         log: https://dps.report/78wD-20250513-140024_golem
 
-  - name: Condi Firebrand A/T P/P
+  - name: Condi Firebrand A/T P/P (Allies)
     profession: Firebrand
     value:
       {
-        "values2": { "Power": 1784, "Power2": 0, "Burning": 14.49, "Bleeding": 12.08, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2095, "Power2": 0, "Burning": 15.97, "Bleeding": 12.33, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Iskarel
-        url: https://www.youtube.com/watch?v=9BT5TBoaWEk
-        log: https://dps.report/bXp7-20240321-001338_golem
+      - author: Florian
+        url: https://www.youtube.com/watch?v=fa2jYn9TXrk
+        log: https://dps.report/j2MM-20250507-004127_golem
 
   - name: Condi Firebrand A/T
     profession: Firebrand
@@ -262,17 +255,6 @@ list:
       - author: Iskarel
         url: https://www.youtube.com/watch?v=3K3fFUXvQKs
         log: https://dps.report/vPRV-20240706-013634_golem
-
-  - name: Condi Firebrand A/T P/P (No Allies)
-    profession: Firebrand
-    value:
-      {
-        "values2": { "Power": 1775, "Power2": 0, "Burning": 13.39, "Bleeding": 12.05, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-    credit:
-      - author: Iskarel
-        url: https://www.youtube.com/watch?v=9BT5TBoaWEk
-        log: https://dps.report/CdPR-20240321-151620_golem
 
   # - name: Condi Quickbrand (WT, Allies)
   #   profession: Firebrand
@@ -564,7 +546,7 @@ list:
         log: https://dps.report/lpOL-20251006-093317_golem
 
   # currently exact copy of alacrity fire tempest (i.e. incorrectly ignoring transcendent tempest reduced overload cooldown)
-  - name: '"Fire Wizard" (Approx.)'
+  - name: Fire-only Tempest (Approx.)
     profession: Tempest
     value:
       {
@@ -754,18 +736,40 @@ list:
         url: https://www.youtube.com/watch?v=D5h7D_21srE
         log: https://dps.report/wPC7-20251210-105904_golem
 
-  - name: Alacrity Renegade
+  - name: Condi Evoker P/D
+    profession: Evoker
+    value:
+      {
+        "values2": { "Power": 2619, "Power2": 0, "Burning": 13.51, "Bleeding": 23.5, "Poisoned": 0, "Torment": 0.04, "Confusion": 0 }
+      }
+    credit:
+      - author: Limelight
+        url: https://www.youtube.com/watch?v=9GLMRMdZGOg
+        log: https://dps.report/sl1G-20251221-150039_golem
+
+  - name: Fire-only Weaver
+    profession: Weaver
+    value:
+      {
+        "values2": { "Power": 2553, "Power2": 0, "Burning": 14.56, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=pJ3fipl1rNU
+        log: https://dps.report/ezTN-20251223-120339_golem
+
+  - name: Alacrity Power Renegade
     profession: Renegade
     value:
       {
-        "values2": { "Power": 3532, "Power2": 0, "Burning": 0.78, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3887, "Power2": 0, "Burning": 0.73, "Bleeding": 0, "Poisoned": 0, "Torment": 1.61, "Confusion": 0 }
       }
     credit:
-      - author: 'Umbra'
-        url: https://www.youtube.com/watch?v=s1OXN6HRLTo
-        log: https://dps.report/8LBy-20230515-192958_golem
+      - author: Shavy
+        url: https://www.youtube.com/watch?v=e3HyMQDFQnI
+        log: https://dps.report/3hSA-20250215-132703_golem
 
-  - name: Alacrity Condi Renegade SB
+  - name: Alacrity Condi Renegade SB M/A
     profession: Renegade
     value:
       {
@@ -775,6 +779,78 @@ list:
       - author: Umbra
         url: https://www.youtube.com/watch?v=J_1pVfkTvHo
         log: https://dps.report/8VfB-20240706-155741_golem
+
+  - name: Condi Renegade Spear M/A (No Allies)
+    profession: Renegade
+    value:
+      {
+        "values2": { "Power": 2299, "Power2": 0, "Burning": 3.17, "Bleeding": 6.06, "Poisoned": 6.09, "Torment": 23.44, "Confusion": 0 }
+      }
+    credit:
+      - author: Jul Nine
+        url: https://www.youtube.com/watch?v=sBeD0k4ntgU
+        log: https://dps.report/BOMb-20250427-142254_golem
+
+  # add razorclaw casts to simulate allies
+  # 4 players * 4 stacks * 3s bleed * 5 cast/93s = 2.58 bleed
+  - name: Condi Renegade Spear M/A (Allies)
+    profession: Renegade
+    value:
+      {
+        "values2": { "Power": 2299, "Power2": 0, "Burning": 3.17, "Bleeding": 8.64, "Poisoned": 6.09, "Torment": 23.44, "Confusion": 0 }
+      }
+    credit:
+      - author: Jul Nine
+        url: https://www.youtube.com/watch?v=sBeD0k4ntgU
+        log: https://dps.report/BOMb-20250427-142254_golem
+
+  - name: Condi Renegade Spear Only (No Allies)
+    profession: Renegade
+    value:
+      {
+        "values2": { "Power": 3047, "Power2": 0, "Burning": 2.17, "Bleeding": 4.78, "Poisoned": 4.57, "Torment": 24.79, "Confusion": 0 }
+      }
+    credit:
+      - author: Jul Nine
+        url: https://www.youtube.com/watch?v=GjAxJJznZCI
+        log: https://dps.report/pSKu-20250424-235607_golem
+
+  # add razorclaw casts to simulate allies
+  # 4 players * 4 stacks * 3s bleed * 5 cast/92s = 2.6 bleed
+  - name: Condi Renegade Spear Only (Allies)
+    profession: Renegade
+    value:
+      {
+        "values2": { "Power": 3047, "Power2": 0, "Burning": 2.17, "Bleeding": 7.38, "Poisoned": 4.57, "Torment": 24.79, "Confusion": 0 }
+      }
+    credit:
+      - author: Jul Nine
+        url: https://www.youtube.com/watch?v=GjAxJJznZCI
+        log: https://dps.report/pSKu-20250424-235607_golem
+
+  - name: Alacrity Condi Renegade Spear M/A (No Allies)
+    profession: Renegade
+    value:
+      {
+        "values2": { "Power": 2182, "Power2": 0, "Burning": 3.03, "Bleeding": 6.02, "Poisoned": 5.55, "Torment": 23.62, "Confusion": 0 }
+      }
+    credit:
+      - author: Jul Nine
+        url: https://www.youtube.com/watch?v=6hCzxKcmoQ8
+        log: https://dps.report/aZsY-20241029-155240_golem
+
+  # add razorclaw casts to simulate allies
+  # 4 players * 4 stacks * 3s bleed * 6 cast/107s = 2.69 bleed
+  - name: Alacrity Condi Renegade Spear M/A (Allies)
+    profession: Renegade
+    value:
+      {
+        "values2": { "Power": 2182, "Power2": 0, "Burning": 3.03, "Bleeding": 8.71, "Poisoned": 5.55, "Torment": 23.62, "Confusion": 0 }
+      }
+    credit:
+      - author: Jul Nine
+        url: https://www.youtube.com/watch?v=6hCzxKcmoQ8
+        log: https://dps.report/aZsY-20241029-155240_golem
 
   - name: Condi Alac Invocation (no allies)
     profession: Renegade
@@ -862,16 +938,38 @@ list:
         url: https://www.youtube.com/watch?v=DJtoo1abq9U
         log: https://dps.report/rW1Q-20221202-011416_golem
 
+  - name: Condi Quickness Herald Spear M/A
+    profession: Herald
+    value:
+      {
+        "values2": { "Power": 2074, "Power2": 0, "Burning": 4.31, "Bleeding": 3.57, "Poisoned": 5.91, "Torment": 19.13, "Confusion": 0 }
+      }
+    credit:
+      - author: '[CRS] Rainer'
+        url: https://www.youtube.com/watch?v=0_9xfLqznd0
+        log: https://dps.report/ErCv-20250216-134453_golem
+
+  - name: Condi Quickness Herald Spear
+    profession: Herald
+    value:
+      {
+        "values2": { "Power": 2370, "Power2": 0, "Burning": 2.59, "Bleeding": 3.33, "Poisoned": 5.13, "Torment": 20.63, "Confusion": 0 }
+      }
+    credit:
+      - author: Kartky
+        url: https://www.youtube.com/watch?v=97pLrywGOfQ
+        log: https://dps.report/DJD7-20250212-150821_golem
+
   - name: Condi Quickness Herald SB M/A
     profession: Herald
     value:
       {
-        "values2": { "Power": 2331, "Power2": 0, "Burning": 5.18, "Bleeding": 7.01, "Poisoned": 5.29, "Torment": 16.95, "Confusion": 0 }
+        "values2": { "Power": 2194, "Power2": 0, "Burning": 4.95, "Bleeding": 6.53, "Poisoned": 4.55, "Torment": 15.83, "Confusion": 0 }
       }
     credit:
-      - author: Botinator
-        url: https://www.youtube.com/watch?v=PT0N2cvLPcQ
-        log: https://dps.report/azH7-20240601-133340_golem
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=4YgZYgLOJXc
+        log: https://dps.report/e0xk-20250216-203504_golem
 
   # force air force air
   - name: DPS Vindicator
@@ -895,6 +993,17 @@ list:
       - author: beng / L3m0n
         url: https://www.youtube.com/watch?v=Lf2R-zkQjDI
         log: https://dps.report/Iac9-20251210-122341_golem
+
+  - name: Condition Conduit SOTM
+    profession: Conduit
+    value:
+      {
+        "values2": { "Power": 2463, "Power2": 0, "Burning": 7.81, "Bleeding": 7.7, "Poisoned": 5.66, "Torment": 26.34, "Confusion": 6.3 }
+      }
+    credit:
+      - author: Jul Nine
+        url: https://www.youtube.com/watch?v=Z6Mk_QZn1xA
+        log: https://dps.report/U5iP-20251218-232219_golem
 
   - name: Power Conduit S/S Thief
     profession: Conduit
@@ -1025,6 +1134,28 @@ list:
         url: https://www.youtube.com/watch?v=x8RRJxO5B5w
         log: https://dps.report/udV3-20250912-115101_golem
 
+  - name: Quickness Power Untamed HA S/A
+    profession: Untamed
+    value:
+      {
+        "values2": { "Power": 3492, "Power2": 0, "Burning": 0, "Bleeding": 0.09, "Poisoned": 2.12, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Chimera
+        url: https://www.youtube.com/watch?v=CY44yXR14uk
+        log: https://dps.report/kIwI-20250519-113617_golem
+
+  - name: Power Untamed HA S/A
+    profession: Untamed
+    value:
+      {
+        "values2": { "Power": 3481, "Power2": 0, "Burning": 0.81, "Bleeding": 0, "Poisoned": 1.88, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Trufla
+        url: https://www.youtube.com/watch?v=pJJetpiYq_g
+        log: https://dps.report/YH9W-20250508-132956_golem
+
   - name: Power Galeshot
     profession: Galeshot
     value:
@@ -1128,16 +1259,16 @@ list:
         url: https://www.youtube.com/watch?v=D_rBzRClNFU
         log: https://dps.report/VMeG-20240703-153531_golem
 
-  - name: Quickness Condi Scrapper
+  - name: Quickness Condi Scrapper Steamshrieker
     profession: Scrapper
     value:
       {
-        "values2": { "Power": 1952, "Power2": 0, "Burning": 8.91, "Bleeding": 11.34, "Poisoned": 11.87, "Torment": 0, "Confusion": 4.66 }
+        "values2": { "Power": 2603, "Power2": 0, "Burning": 11.78, "Bleeding": 9.12, "Poisoned": 4.76, "Torment": 0, "Confusion": 2.76 }
       }
     credit:
-      - author: '[NA] Crone'
-        url: https://www.youtube.com/watch?v=CqJpumNHF4E
-        log: https://dps.report/eLRb-20230715-052530_golem
+      - author: 'mayo [cA]'
+        url: https://www.youtube.com/watch?v=Kihy8XZpRaw
+        log: https://dps.report/sFjF-20251014-124731_golem
 
   # dragon legs+back
   - name: Alacrity Power Amalgam
@@ -1150,6 +1281,17 @@ list:
       - author: '[NA] Crone'
         url: https://www.youtube.com/watch?v=KTEj3KhQ34c
         log: https://dps.report/BMF2-20251209-140418_golem
+
+  - name: Alacrity Condi Amalgam 2 Kit
+    profession: Amalgam
+    value:
+      {
+        "values2": { "Power": 3030, "Power2": 0, "Burning": 11.78, "Bleeding": 13.6, "Poisoned": 7.38, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: beng / L3m0n
+        url: https://www.youtube.com/watch?v=6ee2rOfIyPU
+        log: https://dps.report/aUmU-20251215-143447_golem
 
   - name: Alacrity Condi Amalgam 4 Kit
     profession: Amalgam

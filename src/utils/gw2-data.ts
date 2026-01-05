@@ -49,11 +49,12 @@ export type AffixName =
   | 'BerserkerValkyrie'
   | 'RabidApothecary'
   | 'DireRabid'
+  | 'Captain'
   | 'Custom';
 
 export type AffixDataEntry =
   | {
-      type: 'triple' | 'quadruple';
+      type: 'triple' | 'quadruple' | 'trinketsBackOnly';
       category: string;
       bonuses: {
         major: GearAttributeName[];
@@ -147,7 +148,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Harrier: {
     type: 'triple',
-    category: 'Support',
+    category: 'Healing',
     bonuses: {
       major: ['Power'],
       minor: ['Concentration', 'Healing Power'],
@@ -155,7 +156,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Commander: {
     type: 'quadruple',
-    category: 'Support',
+    category: 'Power Boon',
     bonuses: {
       major: ['Power', 'Precision'],
       minor: ['Toughness', 'Concentration'],
@@ -163,7 +164,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Minstrel: {
     type: 'quadruple',
-    category: 'Support',
+    category: 'Healing',
     bonuses: {
       major: ['Toughness', 'Healing Power'],
       minor: ['Vitality', 'Concentration'],
@@ -171,7 +172,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Magi: {
     type: 'triple',
-    category: 'Support',
+    category: 'Healing',
     bonuses: {
       major: ['Healing Power'],
       minor: ['Vitality', 'Precision'],
@@ -179,7 +180,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Marauder: {
     type: 'quadruple',
-    category: 'Open World',
+    category: 'Power Survivability',
     bonuses: {
       major: ['Power', 'Precision'],
       minor: ['Vitality', 'Ferocity'],
@@ -187,7 +188,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Demolisher: {
     type: 'quadruple',
-    category: 'Open World',
+    category: 'Power Survivability',
     bonuses: {
       major: ['Power', 'Precision'],
       minor: ['Toughness', 'Ferocity'],
@@ -195,7 +196,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Cleric: {
     type: 'triple',
-    category: 'Support',
+    category: 'Healing',
     bonuses: {
       major: ['Healing Power'],
       minor: ['Power', 'Toughness'],
@@ -203,7 +204,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Nomad: {
     type: 'triple',
-    category: 'Open World',
+    category: 'Healing (Other)',
     bonuses: {
       major: ['Toughness'],
       minor: ['Vitality', 'Healing Power'],
@@ -211,7 +212,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Zealot: {
     type: 'triple',
-    category: 'Hybrid',
+    category: 'Healing (Offensive)',
     bonuses: {
       major: ['Power'],
       minor: ['Precision', 'Healing Power'],
@@ -243,7 +244,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Seraph: {
     type: 'quadruple',
-    category: 'Hybrid',
+    category: 'Healing (Offensive)',
     bonuses: {
       major: ['Precision', 'Condition Damage'],
       minor: ['Healing Power', 'Concentration'],
@@ -251,7 +252,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Marshal: {
     type: 'quadruple',
-    category: 'Open World',
+    category: 'Healing (Offensive)',
     bonuses: {
       major: ['Power', 'Healing Power'],
       minor: ['Precision', 'Condition Damage'],
@@ -259,7 +260,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Giver: {
     type: 'triple',
-    category: 'Open World',
+    category: 'Healing',
     bonuses: {
       major: ['Toughness'],
       minor: ['Healing Power', 'Concentration'],
@@ -267,7 +268,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Knight: {
     type: 'triple',
-    category: 'Open World',
+    category: 'Power Survivability',
     bonuses: {
       major: ['Toughness'],
       minor: ['Power', 'Precision'],
@@ -275,7 +276,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Trailblazer: {
     type: 'quadruple',
-    category: 'Open World',
+    category: 'Condi Survivability',
     bonuses: {
       major: ['Toughness', 'Condition Damage'],
       minor: ['Vitality', 'Expertise'],
@@ -283,7 +284,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Plaguedoctor: {
     type: 'quadruple',
-    category: 'Open World',
+    category: 'Healing (Offensive)',
     bonuses: {
       major: ['Vitality', 'Condition Damage'],
       minor: ['Healing Power', 'Concentration'],
@@ -291,7 +292,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Carrion: {
     type: 'triple',
-    category: 'Open World',
+    category: 'Condi Survivability',
     bonuses: {
       major: ['Condition Damage'],
       minor: ['Power', 'Vitality'],
@@ -299,7 +300,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Rabid: {
     type: 'triple',
-    category: 'Open World',
+    category: 'Condi Survivability',
     bonuses: {
       major: ['Condition Damage'],
       minor: ['Toughness', 'Precision'],
@@ -307,7 +308,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Dire: {
     type: 'triple',
-    category: 'Open World',
+    category: 'Condi Survivability',
     bonuses: {
       major: ['Condition Damage'],
       minor: ['Toughness', 'Vitality'],
@@ -315,7 +316,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Vigilant: {
     type: 'quadruple',
-    category: 'Open World',
+    category: 'Misc',
     bonuses: {
       major: ['Power', 'Toughness'],
       minor: ['Concentration', 'Expertise'],
@@ -323,7 +324,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Valkyrie: {
     type: 'triple',
-    category: 'Open World',
+    category: 'Power Survivability',
     bonuses: {
       major: ['Power'],
       minor: ['Vitality', 'Ferocity'],
@@ -331,7 +332,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Cavalier: {
     type: 'triple',
-    category: 'Open World',
+    category: 'Power Survivability',
     bonuses: {
       major: ['Toughness'],
       minor: ['Power', 'Ferocity'],
@@ -386,7 +387,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Diviner: {
     type: 'quadruple',
-    category: 'Support',
+    category: 'Power Boon',
     bonuses: {
       major: ['Power', 'Concentration'],
       minor: ['Precision', 'Ferocity'],
@@ -394,7 +395,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Soldier: {
     type: 'triple',
-    category: 'Open World',
+    category: 'Power Survivability',
     bonuses: {
       major: ['Power'],
       minor: ['Toughness', 'Vitality'],
@@ -402,7 +403,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Sentinel: {
     type: 'triple',
-    category: 'Open World',
+    category: 'Power Survivability',
     bonuses: {
       major: ['Vitality'],
       minor: ['Power', 'Toughness'],
@@ -410,7 +411,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Wanderer: {
     type: 'quadruple',
-    category: 'Open World',
+    category: 'Power Boon',
     bonuses: {
       major: ['Power', 'Vitality'],
       minor: ['Toughness', 'Concentration'],
@@ -418,7 +419,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Apothecary: {
     type: 'triple',
-    category: 'Open World',
+    category: 'Healing',
     bonuses: {
       major: ['Healing Power'],
       minor: ['Condition Damage', 'Toughness'],
@@ -426,7 +427,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Shaman: {
     type: 'triple',
-    category: 'Open World',
+    category: 'Healing (Other)',
     bonuses: {
       major: ['Vitality'],
       minor: ['Condition Damage', 'Healing Power'],
@@ -434,7 +435,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Crusader: {
     type: 'quadruple',
-    category: 'Open World',
+    category: 'Healing (Other)',
     bonuses: {
       major: ['Power', 'Toughness'],
       minor: ['Ferocity', 'Healing Power'],
@@ -450,7 +451,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Settler: {
     type: 'triple',
-    category: 'Open World',
+    category: 'Healing (Other)',
     bonuses: {
       major: ['Toughness'],
       minor: ['Condition Damage', 'Healing Power'],
@@ -458,7 +459,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Bringer: {
     type: 'triple',
-    category: 'Open World',
+    category: 'Misc',
     bonuses: {
       major: ['Expertise'],
       minor: ['Precision', 'Vitality'],
@@ -466,7 +467,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   Ritualist: {
     type: 'quadruple',
-    category: 'Hybrid',
+    category: 'Condi Boon',
     bonuses: {
       major: ['Condition Damage', 'Vitality'],
       minor: ['Concentration', 'Expertise'],
@@ -482,7 +483,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   BerserkerValkyrie: {
     type: 'ascendedMismatchedTrinket',
-    category: 'Open World',
+    category: 'Misc',
     bonuses: {
       major: ['Power'],
       minor: ['Precision', 'Ferocity'],
@@ -492,7 +493,7 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   RabidApothecary: {
     type: 'ascendedMismatchedTrinket',
-    category: 'Open World',
+    category: 'Misc',
     bonuses: {
       major: ['Condition Damage'],
       minor: ['Toughness', 'Precision'],
@@ -502,12 +503,20 @@ export const Affix: Record<AffixName, AffixDataEntry> = {
   },
   DireRabid: {
     type: 'ascendedMismatchedTrinket',
-    category: 'Open World',
+    category: 'Misc',
     bonuses: {
       major: ['Condition Damage'],
       minor: ['Toughness', 'Vitality'],
       jewelMajor: ['Condition Damage'],
       jewelMinor: ['Toughness', 'Precision'],
+    },
+  },
+  Captain: {
+    type: 'trinketsBackOnly',
+    category: 'Power Survivability',
+    bonuses: {
+      major: ['Precision'],
+      minor: ['Power', 'Toughness'],
     },
   },
 };
@@ -532,6 +541,10 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   SHOULDERS: {
     triple: {
@@ -551,6 +564,10 @@ export const exoticStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   CHEST: {
@@ -572,6 +589,10 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   GLOVES: {
     triple: {
@@ -591,6 +612,10 @@ export const exoticStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   LEGGINGS: {
@@ -612,6 +637,10 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   BOOTS: {
     triple: {
@@ -631,6 +660,10 @@ export const exoticStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   AMULET: {
@@ -652,6 +685,10 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   RING: {
     triple: {
@@ -671,6 +708,10 @@ export const exoticStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   ACCESSORY: {
@@ -692,6 +733,10 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   BACK_ITEM: {
     triple: {
@@ -711,6 +756,10 @@ export const exoticStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   ONEHANDED_WEAPON: {
@@ -732,6 +781,10 @@ export const exoticStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   TWOHANDED_WEAPON: {
     triple: {
@@ -751,6 +804,10 @@ export const exoticStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
     },
   },
 };
@@ -775,6 +832,10 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   SHOULDERS: {
     triple: {
@@ -794,6 +855,10 @@ export const ascendedStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   CHEST: {
@@ -815,6 +880,10 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   GLOVES: {
     triple: {
@@ -834,6 +903,10 @@ export const ascendedStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   LEGGINGS: {
@@ -855,6 +928,10 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   BOOTS: {
     triple: {
@@ -874,6 +951,10 @@ export const ascendedStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
     },
   },
   AMULET: {
@@ -895,6 +976,10 @@ export const ascendedStats = {
       jewelMajor: 32,
       jewelMinor: 18,
     },
+    trinketsBackOnly: {
+      major: 157,
+      minor: 108,
+    },
   },
   RING: {
     triple: {
@@ -914,6 +999,10 @@ export const ascendedStats = {
       minor: 85 - 18,
       jewelMajor: 32,
       jewelMinor: 18,
+    },
+    trinketsBackOnly: {
+      major: 126,
+      minor: 85,
     },
   },
   ACCESSORY: {
@@ -935,6 +1024,10 @@ export const ascendedStats = {
       jewelMajor: 32,
       jewelMinor: 18,
     },
+    trinketsBackOnly: {
+      major: 110,
+      minor: 74,
+    },
   },
   BACK_ITEM: {
     triple: {
@@ -954,6 +1047,10 @@ export const ascendedStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    trinketsBackOnly: {
+      major: 63,
+      minor: 40,
     },
   },
   ONEHANDED_WEAPON: {
@@ -975,6 +1072,10 @@ export const ascendedStats = {
       jewelMajor: 0,
       jewelMinor: 0,
     },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
+    },
   },
   TWOHANDED_WEAPON: {
     triple: {
@@ -994,6 +1095,10 @@ export const ascendedStats = {
       minor: 0,
       jewelMajor: 0,
       jewelMinor: 0,
+    },
+    trinketsBackOnly: {
+      major: 0,
+      minor: 0,
     },
   },
 };

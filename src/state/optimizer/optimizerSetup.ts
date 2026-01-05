@@ -43,6 +43,7 @@ import {
   parseBoss,
   parseInfusionCount,
   parsePriority,
+  parseSpecificInfusionCount,
 } from '../../utils/usefulFunctions';
 import { getAttackRate, getMovementUptime } from '../slices/boss';
 import { getBuffsModifiers } from '../slices/buffs';
@@ -237,10 +238,12 @@ export function createSettingsPerCalculation(
     MAX_INFUSIONS,
   );
 
-  const infusionOptions = rawInfusionOptions.map(({ type, count }) => ({
-    type,
-    count: clamp(parseInfusionCount(count).value, 0, MAX_INFUSIONS),
-  }));
+  const infusionOptions = maxInfusions
+    ? rawInfusionOptions.map(({ type, count }) => ({
+        type,
+        count: clamp(parseSpecificInfusionCount(count).value, 0, MAX_INFUSIONS),
+      }))
+    : [];
 
   const totalSelectedInfusions = infusionOptions.reduce((prev, cur) => prev + cur.count, 0);
 
@@ -248,7 +251,7 @@ export function createSettingsPerCalculation(
   const infusionNoDuplicates = false;
 
   let infusionMode: OptimizerCoreSettings['infusionMode'] = 'None';
-  switch (rawInfusionOptions.length) {
+  switch (infusionOptions.length) {
     case 0:
       infusionMode = 'None';
       break;
@@ -373,18 +376,22 @@ export function createSettingsPerCalculation(
       }),
   );
 
-  // for heuristics
-  // like affixes, but each entry is an array of stats given by using that affix in every available slot
+  // data for heuristics: these are the "ends" of the search space (imagine vertices of an n-dimensional shape)
+  // like affixes, but each entry is an array of stats given by using that affix in every freely choosable slot
+  // (forced stats are forced; partially choosable slots disable this feature)
   // e.g. berserker with no forced affixes -> [[Power, 1381],[Precision, 961],[Ferocity, 961]]
   let jsHeuristicsData: [GearAttributeName, number][][] | undefined;
   try {
-    jsHeuristicsData = affixes.map((forcedAffix) => {
+    if (affixesArray.filter((possibleAffixes) => possibleAffixes.length > 1).length < 2) {
+      throw new Error('heuristics are unnecessary if gear is mostly or entirely fixed');
+    }
+    jsHeuristicsData = affixes.map((affixToAssign) => {
       const statTotals: Partial<Record<GearAttributeName, number>> = {};
       affixesArray.forEach((possibleAffixes, slotindex) => {
-        if (!possibleAffixes.includes(forcedAffix) && possibleAffixes.length !== 1) {
-          throw new Error();
+        if (!possibleAffixes.includes(affixToAssign) && possibleAffixes.length !== 1) {
+          throw new Error('heuristics would not match slot assignments');
         }
-        const affix = possibleAffixes.includes(forcedAffix) ? forcedAffix : possibleAffixes[0];
+        const affix = possibleAffixes.includes(affixToAssign) ? affixToAssign : possibleAffixes[0];
 
         const item = exotics?.[affix]?.[slotindex]
           ? slotData[slotindex].exo

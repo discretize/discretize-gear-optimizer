@@ -10,6 +10,7 @@ import { extraModifiersSlice } from './slices/extraModifiers';
 import { extrasSlice } from './slices/extras';
 import { forcedSlotsSlice } from './slices/forcedSlots';
 import { infusionsSlice } from './slices/infusions';
+import { localUserSettingsSlice } from './slices/localUserSettings';
 import { prioritiesSlice } from './slices/priorities';
 import { skillsSlice } from './slices/skills';
 import { traitsSlice } from './slices/traits';
@@ -19,6 +20,7 @@ const store = configureStore({
   reducer: {
     optimizer: combineReducers({
       userSettings: userSettingsSlice.reducer,
+      localUserSettings: localUserSettingsSlice.reducer,
       control: controlSlice.reducer,
       form: combineReducers({
         extras: extrasSlice.reducer,

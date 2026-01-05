@@ -9,6 +9,18 @@ export function firstUppercase(text: string | undefined | null): string {
   return text.split(' ').map(toUpper).join(' ').trim();
 }
 
+export function getLocalStorageObject(key: string): object {
+  try {
+    const stored = localStorage.getItem(key);
+    if (stored) {
+      return JSON.parse(stored) as object;
+    }
+  } catch {
+    return {};
+  }
+  return {};
+}
+
 /*
  * Parses a string to a number, treating non-parsable strings like empty inputs but indicating an
  * error so text boxes can display the error validation state
@@ -41,7 +53,8 @@ export type ParseFunction<Default> = (text: number | string | null | undefined) 
 
 export const parseAmount: ParseFunction<null> = (text) => parseNumber(text, null, false);
 export const parseAr: ParseFunction<number> = (text) => parseNumber(text, 0, true);
-export const parseInfusionCount: ParseFunction<number> = (text) =>
+export const parseInfusionCount: ParseFunction<number> = (text) => parseNumber(text, 0, true);
+export const parseSpecificInfusionCount: ParseFunction<number> = (text) =>
   parseNumber(text, MAX_INFUSIONS, true);
 export const parseDistribution: ParseFunction<number> = (text) => parseNumber(text, 0, false);
 export const parsePriority: ParseFunction<undefined> = (text) =>

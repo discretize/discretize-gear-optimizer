@@ -45,6 +45,12 @@ const useStyles = makeStyles()((theme: any) => ({
   attributesColumnWide: {
     minWidth: '3.2em',
   },
+  indicatorsColumn: {
+    minWidth: '3.1em',
+  },
+  indicatorsColumnWide: {
+    minWidth: '3.8em',
+  },
 }));
 
 interface ResultTableHeaderRowProps {
@@ -53,6 +59,7 @@ interface ResultTableHeaderRowProps {
   rankBy: IndicatorName;
   displayExtras: Record<ExtrasType, boolean>;
   displayAttributes: DisplayAttributes;
+  displayIndicators: IndicatorName[];
 }
 
 const ResultTableHeaderRow = ({
@@ -61,6 +68,7 @@ const ResultTableHeaderRow = ({
   rankBy = 'Damage',
   displayExtras,
   displayAttributes,
+  displayIndicators,
 }: ResultTableHeaderRowProps) => {
   const { t } = useTranslation();
   const { classes, cx } = useStyles();
@@ -90,11 +98,28 @@ const ResultTableHeaderRow = ({
           fontSize="1rem"
         />
       </TableCell>
-      <TableCell className={classes.tablehead}>
+      <TableCell className={classes.tablehead} sx={{ paddingRight: '0.3em' }}>
         {t('priorityGoal', {
           context: rankBy,
         })}
       </TableCell>
+
+      {displayIndicators
+        .filter((attribute) => rankBy !== attribute)
+        .map((attribute) => (
+          <TableCell
+            className={cx(
+              classes.tablehead,
+              classes.indicatorsColumn,
+              attribute !== 'Healing' && classes.indicatorsColumnWide,
+            )}
+            padding="none"
+            key={attribute}
+          >
+            {t('priorityGoal', { context: attribute }).slice(0, 4)}
+          </TableCell>
+        ))}
+
       {padCellArray(
         maxSlotsLength,
         allSlotData[weaponType].map((slot) => (

@@ -26,8 +26,8 @@ import {
   changeError,
   changeStatus,
   getError,
-  getMulticore,
   getProfession,
+  getRustMode,
   getStatus,
 } from '../../../state/slices/controlsSlice';
 import { getAffixes } from '../../../state/slices/priorities';
@@ -59,7 +59,7 @@ const ControlsBox = () => {
   const error = useSelector(getError);
   const affixes = useSelector(getAffixes);
   const profession = useSelector(getProfession);
-  const multicore = useSelector(getMulticore);
+  const rustMode = useSelector(getRustMode);
 
   const onStartCalculate = () => {
     if (affixes.length < 1) {
@@ -70,7 +70,7 @@ const ControlsBox = () => {
 
     console.log('Starting Calculation');
 
-    if (!multicore) {
+    if (!rustMode) {
       dispatch(changeError(''));
       dispatch(startCalc);
     } else {
@@ -79,7 +79,7 @@ const ControlsBox = () => {
   };
 
   const onResumeCalculate = () => {
-    if (!multicore) {
+    if (!rustMode) {
       dispatch(resumeCalc);
     } else {
       // not currently implemented: pause/resume in multicore rust mode
@@ -88,7 +88,7 @@ const ControlsBox = () => {
   };
 
   const onStopCalculate = () => {
-    if (!multicore) {
+    if (!rustMode) {
       dispatch(stopCalc);
     } else {
       // workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
@@ -149,7 +149,7 @@ const ControlsBox = () => {
         </Button>
       </Box>
       <Box sx={{ flexGrow: 1 }}>
-        {status === STOPPED && !multicore ? (
+        {status === STOPPED && !rustMode ? (
           <Button
             variant="outlined"
             color="primary"
