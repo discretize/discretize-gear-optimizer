@@ -826,6 +826,9 @@
     - id: implacable-foe
       text: Implacable Foe
       modifiers:
+        attributes:
+          Ferocity: [31, buff] # pseudo-conversion of alchemic vigor
+          # additional 24 via pseudo-conversion of vital persistence
         conversion:
           Ferocity: {Vitality: 13%}
       gw2id: 2192
@@ -835,6 +838,9 @@
     - id: twisted-medicine
       text: Twisted Medicine
       modifiers:
+        attributes:
+          Concentration: [31, buff] # pseudo-conversion of alchemic vigor
+          # additional 24 via pseudo-conversion of vital persistence
         conversion:
           Concentration: {Vitality: 13%}
       gw2id: 2220
@@ -844,6 +850,9 @@
     - id: dark-gunslinger
       text: Dark Gunslinger
       modifiers:
+        attributes:
+          Expertise: [31, buff] # pseudo-conversion of alchemic vigor
+          # additional 24 via pseudo-conversion of vital persistence
         conversion:
           Expertise: {Vitality: 13%}
       gw2id: 2209
