@@ -215,7 +215,7 @@
       text: Chemical Rounds
       modifiers:
         attributes:
-          Condition Damage: [120, buff]
+          Condition Damage: [120, converted]
       gw2id: 1878
       defaultEnabled: true
       temporaryBuff: false

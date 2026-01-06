@@ -10390,7 +10390,11 @@ list:
             },
             "alchemic-vigor": {},
             "implacable-foe": {},
+            "implacable-foe-alchemic-vigor": {},
+            "twisted-medicine": {},
+            "twisted-medicine-alchemic-vigor": {},
             "dark-gunslinger": {},
+            "dark-gunslinger-alchemic-vigor": {},
             "cascading-corruption": {},
             "doom-approaches": {},
             "blight": {
@@ -10445,7 +10449,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "2.89"
+              "amount": "2.96"
             }
           },
           {
@@ -10456,18 +10460,22 @@ list:
             "death-perception": {}
           },
           {
+            "wicked-corruption-base": {},
             "wicked-corruption": {
               "amount": ""
             },
             "septic-corruption": {
-              "amount": "21.6"
+              "amount": "21"
             },
             "alchemic-vigor": {},
             "implacable-foe": {},
+            "implacable-foe-alchemic-vigor": {},
+            "twisted-medicine": {},
+            "twisted-medicine-alchemic-vigor": {},
             "dark-gunslinger": {},
+            "dark-gunslinger-alchemic-vigor": {},
             "cascading-corruption": {},
             "doom-approaches": {},
-            "twisted-medicine": {},
             "blight": {
               "amount": ""
             }
@@ -10478,7 +10486,7 @@ list:
       {
         "skills": {
           "signet-of-spite": {
-            "amount": "14.2"
+            "amount": "14.5"
           }
         }
       }
@@ -10539,8 +10547,11 @@ list:
             },
             "alchemic-vigor": {},
             "implacable-foe": {},
+            "implacable-foe-alchemic-vigor": {},
             "twisted-medicine": {},
+            "twisted-medicine-alchemic-vigor": {},
             "dark-gunslinger": {},
+            "dark-gunslinger-alchemic-vigor": {},
             "cascading-corruption": {},
             "doom-approaches": {},
             "blight": {
@@ -10617,8 +10628,11 @@ list:
             },
             "alchemic-vigor": {},
             "implacable-foe": {},
+            "implacable-foe-alchemic-vigor": {},
             "twisted-medicine": {},
+            "twisted-medicine-alchemic-vigor": {},
             "dark-gunslinger": {},
+            "dark-gunslinger-alchemic-vigor": {},
             "cascading-corruption": {},
             "doom-approaches": {},
             "blight": {

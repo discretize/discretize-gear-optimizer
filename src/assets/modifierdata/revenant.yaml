@@ -591,12 +591,14 @@
       minor: true
       modifiers:
         attributes:
-          Healing Power: [120, converted] # tested by Leder
+          Healing Power: [120, buff]
+          Concentration: [8, buff] # pseudo-conversion of own healing power
         conversion:
           Concentration: {Healing Power: 7%}
       wvwModifiers:
         attributes:
-          Healing Power: [120, converted]
+          Healing Power: [120, buff]
+          Concentration: [5, buff] # pseudo-conversion of own healing power
         conversion:
           Concentration: {Healing Power: 4%}
       gw2id: 1821

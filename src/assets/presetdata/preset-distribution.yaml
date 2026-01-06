@@ -1286,7 +1286,7 @@ list:
     profession: Amalgam
     value:
       {
-        "values2": { "Power": 3030, "Power2": 0, "Burning": 11.78, "Bleeding": 13.6, "Poisoned": 7.38, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3024, "Power2": 0, "Burning": 11.77, "Bleeding": 13.59, "Poisoned": 7.38, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: beng / L3m0n
@@ -1297,7 +1297,7 @@ list:
     profession: Amalgam
     value:
       {
-        "values2": { "Power": 3102, "Power2": 0, "Burning": 11.98, "Bleeding": 13.32, "Poisoned": 6.11, "Torment": 0, "Confusion": 2.71 }
+        "values2": { "Power": 3102, "Power2": 0, "Burning": 11.96, "Bleeding": 13.3, "Poisoned": 6.11, "Torment": 0, "Confusion": 2.71 }
       }
     credit:
       - author: '[LN] Toilet'
@@ -1600,18 +1600,18 @@ list:
     profession: Harbinger
     value:
       {
-        "values2": { "Power": 2252, "Power2": 0, "Burning": 1.93, "Bleeding": 9.28, "Poisoned": 6.08, "Torment": 17.58, "Confusion": 0.64 }
+        "values2": { "Power": 2497, "Power2": 0, "Burning": 1.94, "Bleeding": 8.17, "Poisoned": 6.15, "Torment": 18.37, "Confusion": 0.63 }
       }
     credit:
       - author: 'Sarulias'
-        url: https://www.youtube.com/watch?v=hGy1hhhvhhc
-        log: https://dps.report/9GSF-20231002-152522_golem
+        url: https://www.youtube.com/watch?v=ER3qccGutd0
+        log: https://dps.report/IZRW-20240206-201123_golem
 
   - name: Quickness Power Harbinger
     profession: Harbinger
     value:
       {
-        "values2": { "Power": 1656, "Power2": 1965, "Burning": 0.55, "Bleeding": 0.55, "Poisoned": 0.55, "Torment": 10.11, "Confusion": 0.55 }
+        "values2": { "Power": 1696, "Power2": 1938, "Burning": 0.55, "Bleeding": 0.55, "Poisoned": 0.55, "Torment": 10.11, "Confusion": 0.55 }
       }
     credit:
       - author: 'Sarulias'
@@ -1623,7 +1623,7 @@ list:
     profession: Harbinger
     value:
       {
-        "values2": { "Power": 1756, "Power2": 2122, "Burning": 0.67, "Bleeding": 0.67, "Poisoned": 1.48, "Torment": 9.89, "Confusion": 0.66 }
+        "values2": { "Power": 1778, "Power2": 2149, "Burning": 0.67, "Bleeding": 0.68, "Poisoned": 1.51, "Torment": 9.99, "Confusion": 0.67 }
       }
     credit:
       - author: 'Sarulias'
