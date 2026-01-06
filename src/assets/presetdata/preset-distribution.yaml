@@ -1286,7 +1286,7 @@ list:
     profession: Amalgam
     value:
       {
-        "values2": { "Power": 3030, "Power2": 0, "Burning": 11.78, "Bleeding": 13.6, "Poisoned": 7.38, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3024, "Power2": 0, "Burning": 11.77, "Bleeding": 13.59, "Poisoned": 7.38, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: beng / L3m0n
@@ -1297,7 +1297,7 @@ list:
     profession: Amalgam
     value:
       {
-        "values2": { "Power": 3102, "Power2": 0, "Burning": 11.98, "Bleeding": 13.32, "Poisoned": 6.11, "Torment": 0, "Confusion": 2.71 }
+        "values2": { "Power": 3102, "Power2": 0, "Burning": 11.96, "Bleeding": 13.3, "Poisoned": 6.11, "Torment": 0, "Confusion": 2.71 }
       }
     credit:
       - author: '[LN] Toilet'
