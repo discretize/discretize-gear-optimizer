@@ -1611,7 +1611,7 @@ list:
     profession: Harbinger
     value:
       {
-        "values2": { "Power": 1656, "Power2": 1965, "Burning": 0.55, "Bleeding": 0.55, "Poisoned": 0.55, "Torment": 10.11, "Confusion": 0.55 }
+        "values2": { "Power": 1696, "Power2": 1938, "Burning": 0.55, "Bleeding": 0.55, "Poisoned": 0.55, "Torment": 10.11, "Confusion": 0.55 }
       }
     credit:
       - author: 'Sarulias'
