@@ -253,6 +253,10 @@
 - section: Curses
   id: 39
   note: >-
+    Some stat bonuses, like Furious Demise precision, are not affected by generic conversion effects like
+    Toxic Focusing Crystal, but traits may be overridden by the game code to convert them.
+
+
     The durations of transferred self conditions (plague sending, dagger 4, staff 4) aren't simulated correctly.
   items:
 
@@ -742,6 +746,9 @@
 
 - section: Harbinger
   id: 64
+  note: >-
+    Some stat bonuses, like Alchemic Vigor, are not affected by generic conversion effects like Magnanimous
+    Tuning Crystal or Reinforced Armor, but traits may be overridden by the game code to convert them.
   items:
 
     - id: blight
@@ -832,38 +839,92 @@
 
     - id: implacable-foe
       text: Implacable Foe
+      subText: base conversion
       modifiers:
-        attributes:
-          Ferocity: [31, buff] # pseudo-conversion of alchemic vigor
-          # additional 24 via pseudo-conversion of vital persistence
         conversion:
           Ferocity: {Vitality: 13%}
       gw2id: 2192
       defaultEnabled: true
       temporaryBuff: false
 
-    - id: twisted-medicine
-      text: Twisted Medicine
+    - id: implacable-foe-alchemic-vigor
+      text: Implacable Foe
+      subText: conversion of Alchemic Vigor
       modifiers:
         attributes:
-          Concentration: [31, buff] # pseudo-conversion of alchemic vigor
-          # additional 24 via pseudo-conversion of vital persistence
+          Ferocity: [31, buff] # pseudo-conversion of alchemic vigor (minor in this line)
+      gw2id: 2192
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: implacable-foe-vital-persistence
+      text: Implacable Foe
+      subText: conversion of Vital Persistance
+      modifiers:
+        attributes:
+          Ferocity: [24, buff] # pseudo-conversion of vital persistence
+      gw2id: 2192
+      defaultEnabled: false
+      temporaryBuff: false
+
+    - id: twisted-medicine
+      text: Twisted Medicine
+      subText: base conversion
+      modifiers:
         conversion:
           Concentration: {Vitality: 13%}
       gw2id: 2220
       defaultEnabled: true
       temporaryBuff: false
 
-    - id: dark-gunslinger
-      text: Dark Gunslinger
+    - id: twisted-medicine-alchemic-vigor
+      text: Twisted Medicine
+      subText: conversion of Alchemic Vigor
       modifiers:
         attributes:
-          Expertise: [31, buff] # pseudo-conversion of alchemic vigor
-          # additional 24 via pseudo-conversion of vital persistence
+          Concentration: [31, buff] # pseudo-conversion of alchemic vigor (minor in this line)
+      gw2id: 2220
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: twisted-medicine-vital-persistence
+      text: Twisted Medicine
+      subText: conversion of Vital Persistance
+      modifiers:
+        attributes:
+          Concentration: [24, buff] # pseudo-conversion of vital persistence
+      gw2id: 2220
+      defaultEnabled: false
+      temporaryBuff: false
+
+    - id: dark-gunslinger
+      text: Dark Gunslinger
+      subText: base conversion
+      modifiers:
         conversion:
           Expertise: {Vitality: 13%}
       gw2id: 2209
       defaultEnabled: true
+      temporaryBuff: false
+
+    - id: dark-gunslinger-alchemic-vigor
+      text: Dark Gunslinger
+      subText: conversion of Alchemic Vigor
+      modifiers:
+        attributes:
+          Expertise: [31, buff] # pseudo-conversion of alchemic vigor (minor in this line)
+      gw2id: 2209
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: dark-gunslinger-vital-persistence
+      text: Dark Gunslinger
+      subText: conversion of Vital Persistance
+      modifiers:
+        attributes:
+          Expertise: [24, buff] # pseudo-conversion of vital persistence
+      gw2id: 2209
+      defaultEnabled: false
       temporaryBuff: false
 
     - id: cascading-corruption
