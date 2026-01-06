@@ -1882,7 +1882,7 @@ list:
         traits: DPS Harbinger
         extras: DPS Harbinger
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Harbinger
         id: pharb
