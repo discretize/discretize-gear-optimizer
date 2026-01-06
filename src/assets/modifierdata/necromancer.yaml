@@ -24,9 +24,9 @@
     # kind of inaccurate; shouldn't apply in shroud and shouldn't affect "alternative power"
     - id: signet-of-spite
       text: Signet of Spite
-      subText: when not in shroud
+      subText: approximate
       amountData:
-        label: '% of non-shroud'
+        label: '% uptime'
         default: 0
         defaultInput: ???
         quantityEntered: 100
