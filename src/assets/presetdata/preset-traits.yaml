@@ -10449,7 +10449,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "2.89"
+              "amount": "2.96"
             }
           },
           {
@@ -10460,11 +10460,12 @@ list:
             "death-perception": {}
           },
           {
+            "wicked-corruption-base": {},
             "wicked-corruption": {
               "amount": ""
             },
             "septic-corruption": {
-              "amount": "21.6"
+              "amount": "21"
             },
             "alchemic-vigor": {},
             "implacable-foe": {},
@@ -10485,7 +10486,7 @@ list:
       {
         "skills": {
           "signet-of-spite": {
-            "amount": "14.2"
+            "amount": "14.5"
           }
         }
       }
