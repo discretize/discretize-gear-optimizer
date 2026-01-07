@@ -1,0 +1,100 @@
+name: 'Deploy: Cloudflare PR Preview (Dependabot)'
+
+# for security reasons, this workflow is only run when manually adding a
+# "deploy dependabot pr" label to a dependabot PR; malicious dependency updates
+# can steal deployment secrets.
+# see https://securitylab.github.com/resources/github-actions-preventing-pwn-requests/
+# see https://github.com/dependabot/dependabot-core/issues/3253#issuecomment-852541544
+
+on:
+  # pull_request_target permits secrets access; does not check out merge commit by default
+  pull_request_target:
+    types: [labeled]
+
+env:
+  PAGES_PROJECT_NAME: optimizer
+  NODE_VERSION: 20
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+      pull-requests: write
+
+    if: >
+      ${{ github.actor == 'dependabot[bot]' }} &&
+      contains(github.event.pull_request.labels.*.name, 'deploy dependabot pr')
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        # check out the merge commit with secrets access!
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Set up PNPM
+        uses: pnpm/action-setup@v4
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Cache Rust Output
+        id: rust-output-cache
+        uses: actions/cache@v5
+        with:
+          path: |
+            wasm_module/pkg
+            wasm_module/target
+          key: rust-output-${{ env.NODE_VERSION }}-${{ hashFiles('wasm_module', '**/pnpm-lock.yaml') }}
+          restore-keys: rust-output-
+      - name: Cache Rust Dependencies
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: wasm_module
+        if: steps.rust-output-cache.outputs.cache-hit != 'true'
+
+        # fixes error[E0463]: can't find crate for `core`
+        # reason: unknown. see: https://stackoverflow.com/a/77852953
+      - name: Remove pre-installed Rust
+        run: rustup self uninstall -y
+        if: steps.rust-output-cache.outputs.cache-hit != 'true'
+      - name: Reinstall Rust
+        run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+        if: steps.rust-output-cache.outputs.cache-hit != 'true'
+
+      - name: Compile Rust
+        run: pnpm wasm
+        if: steps.rust-output-cache.outputs.cache-hit != 'true'
+
+      - name: Build Cloudflare
+        run: pnpm build-cf
+
+      - name: Deploy preview to Cloudflare
+        uses: cloudflare/wrangler-action@v3
+        id: wrangler-action
+        with:
+          apiToken: ${{ secrets.CI_CF_PAGES }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=${{ env.PAGES_PROJECT_NAME }} --branch=${{ github.head_ref || github.ref_name }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          message: |
+            Deployed build to Cloudflare!
+
+            |                         |   |
+            | ----------------------- | - |
+            | **Last commit:**        | ${{ github.event.pull_request.head.sha || github.event.workflow_run.head_sha || github.sha }} |
+            | **Preview URL**:        | ${{ steps.wrangler-action.outputs.deployment-url }} |
+            | **Branch Preview URL**: | ${{ steps.wrangler-action.outputs.pages-deployment-alias-url }} |
+          comment-tag: deployment
+          mode: upsert
