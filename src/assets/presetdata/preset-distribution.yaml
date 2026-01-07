@@ -1005,7 +1005,7 @@ list:
         url: https://www.youtube.com/watch?v=Z6Mk_QZn1xA
         log: https://dps.report/U5iP-20251218-232219_golem
 
-  - name: Power Conduit S/S Thief
+  - name: Power Conduit S/S PW Thief
     profession: Conduit
     value:
       {

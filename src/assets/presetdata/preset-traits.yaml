@@ -8684,7 +8684,7 @@ list:
         }
       }
 
-  - name: Power Conduit
+  - name: Power Conduit PW
     profession: Conduit
     traits:
       {
