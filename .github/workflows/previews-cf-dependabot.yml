@@ -35,7 +35,7 @@ jobs:
         uses: actions/checkout@v6
         # check out the merge commit with secrets access!
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
 
       - name: Set up PNPM
         uses: pnpm/action-setup@v4
