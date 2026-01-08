@@ -6,8 +6,6 @@ name: 'Deploy: Cloudflare PR Preview (Dependabot)'
 # see https://securitylab.github.com/resources/github-actions-preventing-pwn-requests/
 # see https://github.com/dependabot/dependabot-core/issues/3253#issuecomment-852541544
 
-permissions: {}
-
 on:
   # pull_request_target permits secrets access; does not check out merge commit by default
   pull_request_target:
