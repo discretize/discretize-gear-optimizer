@@ -1,6 +1,9 @@
 - section: Skills
   note: >-
     Enchanted Daggers/Form of the Assassin lifesteal damage may not be shown in arcdps area stats or parsed arcdps logs.
+
+
+    Enter your total Cosmic Wisdom uptime in two input boxes, regardless of active legend; Bolstered Bonds gives attributes based on *equipped* legends.
   items:
 
     - id: battle-scars
@@ -184,7 +187,7 @@
 
     - id: cosmic-wisdom-assassin
       text: Cosmic Wisdom
-      subText: Bolstered Bonds with Assassin
+      subText: with Assassin equipped
       amountData:
         label: '% uptime'
         default: 0
@@ -207,7 +210,7 @@
 
     - id: cosmic-wisdom-centaur
       text: Cosmic Wisdom
-      subText: Bolstered Bonds with Centaur
+      subText: with Centaur equipped
       amountData:
         label: '% uptime'
         default: 0
@@ -230,7 +233,7 @@
 
     - id: cosmic-wisdom-demon
       text: Cosmic Wisdom
-      subText: Bolstered Bonds with Demon
+      subText: with Demon equipped
       amountData:
         label: '% uptime'
         default: 0
@@ -253,7 +256,7 @@
 
     - id: cosmic-wisdom-dwarf
       text: Cosmic Wisdom
-      subText: Bolstered Bonds with Dwarf
+      subText: with Dwarf equipped
       amountData:
         label: '% uptime'
         default: 0
@@ -276,7 +279,7 @@
 
     - id: cosmic-wisdom-entity
       text: Cosmic Wisdom
-      subText: Bolstered Bonds with Entity
+      subText: with Entity equipped
       amountData:
         label: '% uptime'
         default: 0
@@ -905,7 +908,7 @@
 
     - id: bolstered-bonds-assassin
       text: Bolstered Bonds
-      subText: with Assassin
+      subText: with Assassin equipped
       minor: true
       modifiers:
         attributes:
@@ -917,7 +920,7 @@
 
     - id: bolstered-bonds-centaur
       text: Bolstered Bonds
-      subText: with Centaur
+      subText: with Centaur equipped
       minor: true
       modifiers:
         attributes:
@@ -929,7 +932,7 @@
 
     - id: bolstered-bonds-demon
       text: Bolstered Bonds
-      subText: with Demon
+      subText: with Demon equipped
       minor: true
       modifiers:
         attributes:
@@ -941,7 +944,7 @@
 
     - id: bolstered-bonds-dwarf
       text: Bolstered Bonds
-      subText: with Dwarf
+      subText: with Dwarf equipped
       minor: true
       modifiers:
         attributes:
@@ -953,7 +956,7 @@
 
     - id: bolstered-bonds-entity
       text: Bolstered Bonds
-      subText: with Entity
+      subText: with Entity equipped
       minor: true
       modifiers:
         attributes:
