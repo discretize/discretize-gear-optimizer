@@ -3219,19 +3219,21 @@ list:
       {
         "extras": {
           "Sigil1": {
-            "malice": {}
+            "malice": {},
+            "earth": {},
+            "bursting": {},
+            "agony": {}
           },
           "Sigil2": {
+            "malice": {},
             "earth": {},
-            "bursting": {}
+            "bursting": {},
+            "agony": {}
           },
           "Runes": {
             "trapper": {},
             "nightmare": {},
             "tempest": {},
-            "lich": {},
-            "renegade": {},
-            "berserker": {},
             "krait": {},
             "mad-king": {},
             "afflicted": {},
