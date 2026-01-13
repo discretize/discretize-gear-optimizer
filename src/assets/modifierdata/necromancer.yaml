@@ -246,7 +246,7 @@
         attributes:
           Power: [250, buff]
       minor: true
-      gw2id: 829
+      gw2id: 915
       defaultEnabled: true
       temporaryBuff: true
 

@@ -195,14 +195,14 @@
     - id: serrated-steel-base
       text: Serrated Steel
       subText: base
+      minor: true
       modifiers:
         attributes:
           Bleeding Duration: 33%
       wvwModifiers:
         attributes:
           Bleeding Duration: 15%
-      minor: true
-      gw2id: 516
+      gw2id: 515
       defaultEnabled: true
       temporaryBuff: false
 
@@ -221,7 +221,7 @@
       wvwModifiers:
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 33%}
-      gw2id: 516
+      gw2id: 515
       defaultEnabled: false
       temporaryBuff: true
 
@@ -312,7 +312,7 @@
         damage:
           Outgoing Strike Damage: [1.5%, mult]
       minor: true
-      gw2id: 526
+      gw2id: 516
       defaultEnabled: true
 
     - id: heavy-metal-75-50
@@ -383,7 +383,7 @@
       modifiers:
         calculationTweaks:
           sharpshooterBleedingDamage: true
-      gw2id: 515
+      gw2id: 526
       defaultEnabled: true
 
     - id: incendiary-powder

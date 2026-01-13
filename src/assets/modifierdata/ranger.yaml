@@ -452,7 +452,7 @@
       modifiers:
         attributes:
           Ferocity: [120, buff]
-      gw2id: 1066
+      gw2id: 970
       defaultEnabled: true
       temporaryBuff: false
 
@@ -466,7 +466,7 @@
       modifiers:
         attributes:
           Ferocity: [120, buff]
-      gw2id: 1066
+      gw2id: 970
       defaultEnabled: true
       temporaryBuff: activeOutOfCombat # sometimes...
 
