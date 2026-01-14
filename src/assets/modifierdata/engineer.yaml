@@ -329,10 +329,10 @@
             group: '75-50'
       modifiers:
         attributes:
-          Critical Chance: ???%
+          Critical Chance: 5%
         damage:
-          Outgoing Critical Damage: [???%, unknown]
-      gw2id: ???
+          Outgoing Critical Damage: [5%, unknown]
+      gw2id: 510
       defaultEnabled: true
       temporaryBuff: true
 
@@ -350,10 +350,10 @@
             group: '50-25'
       modifiers:
         attributes:
-          Critical Chance: ???%
+          Critical Chance: 10%
         damage:
-          Outgoing Critical Damage: [???%, unknown]
-      gw2id: ???
+          Outgoing Critical Damage: [10%, unknown]
+      gw2id: 510
       defaultEnabled: true
       temporaryBuff: true
 
@@ -371,10 +371,10 @@
             group: '25-0'
       modifiers:
         attributes:
-          Critical Chance: ???%
+          Critical Chance: 15%
         damage:
-          Outgoing Critical Damage: [???%, unknown]
-      gw2id: ???
+          Outgoing Critical Damage: [15%, unknown]
+      gw2id: 510
       defaultEnabled: true
       temporaryBuff: true
 
@@ -491,7 +491,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [???%, unknown]
+          Outgoing Strike Damage: [15%, unknown]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [10%, unknown]
       gw2id: 1856
       defaultEnabled: true
 

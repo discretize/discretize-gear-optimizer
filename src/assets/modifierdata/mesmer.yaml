@@ -355,8 +355,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Critical Damage: [???%, unknown]
-          Outgoing Phantasm Critical Damage: [???%, unknown]
+          Outgoing Critical Damage: [10%, unknown]
           # the optimizer currently doesn't calculate clone power damage
       gw2id: 2009
       defaultEnabled: true

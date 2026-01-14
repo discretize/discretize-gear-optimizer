@@ -232,7 +232,7 @@
         attributes:
           Siphon Base Coefficient: 1235
           Siphon Coefficient: 0.42
-      gw2id: ???
+      gw2id: 916
       defaultEnabled: true
       temporaryBuff: true
 
@@ -254,8 +254,8 @@
       text: Spiteful Fortitude
       modifiers:
         conversion:
-          Vitality: {Power: ???%}
-      gw2id: ???
+          Vitality: {Power: 10%}
+      gw2id: 829
       defaultEnabled: true
       temporaryBuff: false
 
@@ -286,7 +286,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [???%, unknown]
+          Outgoing Strike Damage: [20%, unknown]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [15%, unknown]
       gw2id: 919
       defaultEnabled: true
 
