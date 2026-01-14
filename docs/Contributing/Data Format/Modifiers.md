@@ -222,7 +222,8 @@ This section contains flags that trigger arbitrary code paths in the simulation 
 
 **Keys:**
 
-- `infernoBurningDamage: true` enables the Inferno trait's alternative power-scaling burning damage calculation. 
+- `infernoBurningDamage: true` enables the Inferno trait's alternative power-scaling burning damage calculation.
+- `sharpshooterBleedingDamage: true` enables the Sharpshooter trait's alternative power-scaling bleeding damage calculation. 
 
 # Amount Section
 

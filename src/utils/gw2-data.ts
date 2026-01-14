@@ -1617,6 +1617,10 @@ export const conditionData = {
     baseDamage: 22,
     factor: 0.06,
   },
+  BleedingSharpshooter: {
+    baseDamage: 131,
+    factor: 0.04,
+  },
   Poison: {
     baseDamage: 33.5,
     factor: 0.06,
@@ -1650,6 +1654,10 @@ export const conditionDataWvW = {
   Bleeding: {
     baseDamage: 22,
     factor: 0.06,
+  },
+  BleedingSharpshooter: {
+    baseDamage: 131,
+    factor: 0.04,
   },
   Poison: {
     baseDamage: 33.5,

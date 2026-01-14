@@ -275,7 +275,7 @@ export type ConversionAfterBuffsModifers = Partial<
   Record<ConversionAfterBuffsDestinationKey, ConversionAfterBuffsValue>
 >;
 
-export const allCalculationTweaks = ['infernoBurningDamage'] as const;
+export const allCalculationTweaks = ['infernoBurningDamage', 'sharpshooterBleedingDamage'] as const;
 export type CalculationTweak = (typeof allCalculationTweaks)[number];
 
 export type CalculationTweaks = Partial<Record<CalculationTweak, boolean | number | string>>;
