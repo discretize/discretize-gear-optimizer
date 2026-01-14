@@ -323,8 +323,7 @@
       subText: 75%-50%
       amountData:
         label: '% uptime'
-        default: 0
-        defaultInput: 25
+        default: 25
         quantityEntered: 100
         advancedUptimeSimulation:
           correlation:
@@ -344,8 +343,7 @@
       subText: 50%-25%
       amountData:
         label: '% uptime'
-        default: 0
-        defaultInput: 25
+        default: 25
         quantityEntered: 100
         advancedUptimeSimulation:
           correlation:
@@ -365,8 +363,7 @@
       subText: 25%-0%
       amountData:
         label: '% uptime'
-        default: 0
-        defaultInput: 25
+        default: 25
         quantityEntered: 100
         advancedUptimeSimulation:
           correlation:
