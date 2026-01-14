@@ -8800,12 +8800,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": "???"
+            },
+            "heavy-metal-50-25": {
+              "amount": "???"
+            },
+            "heavy-metal-25-0": {
+              "amount": "???"
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.77"
             }
           },
@@ -8871,12 +8881,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": "???"
+            },
+            "heavy-metal-50-25": {
+              "amount": "???"
+            },
+            "heavy-metal-25-0": {
+              "amount": "???"
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.41"
             }
           },
@@ -8942,12 +8962,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": "???"
+            },
+            "heavy-metal-50-25": {
+              "amount": "???"
+            },
+            "heavy-metal-25-0": {
+              "amount": "???"
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.52"
             }
           },
@@ -9013,12 +9043,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": "???"
+            },
+            "heavy-metal-50-25": {
+              "amount": "???"
+            },
+            "heavy-metal-25-0": {
+              "amount": "???"
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "???"
             }
           },
@@ -9080,12 +9120,22 @@ list:
             "thermal-vision": {},
             "thermal-vision-buff": {},
             "no-scope": {},
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": "???"
+            },
+            "heavy-metal-50-25": {
+              "amount": "???"
+            },
+            "heavy-metal-25-0": {
+              "amount": "???"
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "3.24"
             }
           },
@@ -9149,12 +9199,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": "???"
+            },
+            "heavy-metal-50-25": {
+              "amount": "???"
+            },
+            "heavy-metal-25-0": {
+              "amount": "???"
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.01"
             }
           },
@@ -9216,12 +9276,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": "???"
+            },
+            "heavy-metal-50-25": {
+              "amount": "???"
+            },
+            "heavy-metal-25-0": {
+              "amount": "???"
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4"
             }
           },
@@ -9283,12 +9353,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": "???"
+            },
+            "heavy-metal-50-25": {
+              "amount": "???"
+            },
+            "heavy-metal-25-0": {
+              "amount": "???"
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.2"
             }
           },
@@ -9359,12 +9439,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": "???"
+            },
+            "heavy-metal-50-25": {
+              "amount": "???"
+            },
+            "heavy-metal-25-0": {
+              "amount": "???"
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.2"
             }
           },
@@ -9450,12 +9540,22 @@ list:
               "amount": ""
             },
             "no-scope": {},
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": "???"
+            },
+            "heavy-metal-50-25": {
+              "amount": "???"
+            },
+            "heavy-metal-25-0": {
+              "amount": "???"
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.1"
             }
           },
@@ -9528,12 +9628,22 @@ list:
               "amount": ""
             },
             "no-scope": {},
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": "???"
+            },
+            "heavy-metal-50-25": {
+              "amount": "???"
+            },
+            "heavy-metal-25-0": {
+              "amount": "???"
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "3.9"
             }
           },
@@ -9613,12 +9723,22 @@ list:
               "amount": ""
             },
             "no-scope": {},
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": "???"
+            },
+            "heavy-metal-50-25": {
+              "amount": "???"
+            },
+            "heavy-metal-25-0": {
+              "amount": "???"
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.4"
             }
           },
@@ -9701,12 +9821,22 @@ list:
               "amount": ""
             },
             "no-scope": {},
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": "???"
+            },
+            "heavy-metal-50-25": {
+              "amount": "???"
+            },
+            "heavy-metal-25-0": {
+              "amount": "???"
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.4"
             }
           },
