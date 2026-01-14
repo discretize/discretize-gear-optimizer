@@ -355,7 +355,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Critical Damage: [10%, unknown]
+          Outgoing Critical Damage: [10%, mult]
           # the optimizer currently doesn't calculate clone power damage
       gw2id: 2009
       defaultEnabled: true

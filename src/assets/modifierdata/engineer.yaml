@@ -334,7 +334,7 @@
         attributes:
           Critical Chance: 5%
         damage:
-          Outgoing Critical Damage: [5%, unknown]
+          Outgoing Critical Damage: [5%, mult]
       gw2id: 510
       defaultEnabled: true
       temporaryBuff: true
@@ -355,7 +355,7 @@
         attributes:
           Critical Chance: 10%
         damage:
-          Outgoing Critical Damage: [10%, unknown]
+          Outgoing Critical Damage: [10%, mult]
       gw2id: 510
       defaultEnabled: true
       temporaryBuff: true
@@ -376,7 +376,7 @@
         attributes:
           Critical Chance: 15%
         damage:
-          Outgoing Critical Damage: [15%, unknown]
+          Outgoing Critical Damage: [15%, mult]
       gw2id: 510
       defaultEnabled: true
       temporaryBuff: true
@@ -494,10 +494,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, add]
       gw2id: 1856
       defaultEnabled: true
 

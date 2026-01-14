@@ -572,10 +572,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [20%, unknown]
+          Outgoing Strike Damage: [20%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, add]
       gw2id: 1511
       defaultEnabled: true
 

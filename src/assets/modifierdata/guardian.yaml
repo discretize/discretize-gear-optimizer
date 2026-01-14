@@ -240,7 +240,7 @@
       subText: 100% fury
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, add]
       gw2id: 2017
       defaultEnabled: true
 

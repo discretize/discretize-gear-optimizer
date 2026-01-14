@@ -93,8 +93,8 @@
         quantityEntered: 10
       modifiers:
         attributes:
-          Siphon Base Coefficient: ???
-          Siphon Coefficient: ???
+          Siphon Base Coefficient: 3516.64 # 12 + 0.5476 * level^2
+          Siphon Coefficient: 0.01
       gw2id: 30860
       temporaryBuff: true
 
@@ -286,10 +286,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [20%, unknown]
+          Outgoing Strike Damage: [20%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, add]
       gw2id: 919
       defaultEnabled: true
 
