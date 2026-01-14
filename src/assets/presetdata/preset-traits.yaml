@@ -1484,7 +1484,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "defenders-dogma": {},
@@ -1564,7 +1565,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "defenders-dogma": {},
@@ -1641,7 +1643,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "imbued-haste": {
@@ -1850,7 +1853,8 @@ list:
             "kindled-zeal": {},
             "symbolic-avenger": {
               "amount": "4.6"
-            }
+            },
+            "furious-focus": {}
           },
           {
             "imbued-haste": {
@@ -2306,7 +2310,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "power-for-power": {},
@@ -2380,7 +2385,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "power-for-power": {},
@@ -2526,7 +2532,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "power-for-power": {},
@@ -2584,7 +2591,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "right-hand-strength": {},
@@ -2666,7 +2674,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "right-hand-strength": {},
