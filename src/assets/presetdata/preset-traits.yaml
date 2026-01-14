@@ -10177,8 +10177,15 @@ list:
             "spiteful-talisman": {
               "amount": ""
             },
+            "malicious-swarm": {
+              "amount": ""
+            },
             "awaken-the-pain": {
               "amount": ""
+            },
+            "spiteful-fortitude": {},
+            "dread": {
+              "amount": "???"
             },
             "close-to-death": {
               "amount": ""
@@ -10659,8 +10666,15 @@ list:
             "spiteful-talisman": {
               "amount": ""
             },
+            "malicious-swarm": {
+              "amount": ""
+            },
             "awaken-the-pain": {
               "amount": ""
+            },
+            "spiteful-fortitude": {},
+            "dread": {
+              "amount": "???"
             },
             "close-to-death": {
               "amount": ""
@@ -10740,8 +10754,15 @@ list:
             "spiteful-talisman": {
               "amount": ""
             },
+            "malicious-swarm": {
+              "amount": ""
+            },
             "awaken-the-pain": {
               "amount": ""
+            },
+            "spiteful-fortitude": {},
+            "dread": {
+              "amount": "???"
             },
             "close-to-death": {
               "amount": ""
@@ -10824,8 +10845,15 @@ list:
             "spiteful-talisman": {
               "amount": ""
             },
+            "malicious-swarm": {
+              "amount": ""
+            },
             "awaken-the-pain": {
               "amount": ""
+            },
+            "spiteful-fortitude": {},
+            "dread": {
+              "amount": "???"
             },
             "close-to-death": {
               "amount": ""
@@ -10905,8 +10933,15 @@ list:
             "spiteful-talisman": {
               "amount": ""
             },
+            "malicious-swarm": {
+              "amount": ""
+            },
             "awaken-the-pain": {
               "amount": ""
+            },
+            "spiteful-fortitude": {},
+            "dread": {
+              "amount": "???"
             },
             "close-to-death": {
               "amount": ""
