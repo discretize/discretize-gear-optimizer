@@ -281,7 +281,7 @@
       text: Illusionary Inspiration
       modifiers:
         attributes:
-          Outgoing Healing: 15%
+          Outgoing Healing: 5%
       gw2id: 1866
       defaultEnabled: true
       temporaryBuff: false
