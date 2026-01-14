@@ -324,7 +324,7 @@
       amountData:
         label: '% uptime'
         default: 0
-        defaultInput: ???
+        defaultInput: 25
         quantityEntered: 100
         advancedUptimeSimulation:
           correlation:
@@ -345,7 +345,7 @@
       amountData:
         label: '% uptime'
         default: 0
-        defaultInput: ???
+        defaultInput: 25
         quantityEntered: 100
         advancedUptimeSimulation:
           correlation:
@@ -366,7 +366,7 @@
       amountData:
         label: '% uptime'
         default: 0
-        defaultInput: ???
+        defaultInput: 25
         quantityEntered: 100
         advancedUptimeSimulation:
           correlation:
