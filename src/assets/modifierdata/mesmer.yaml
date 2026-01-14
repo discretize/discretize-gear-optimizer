@@ -38,7 +38,7 @@
           Outgoing Condition Damage: [10%, add]
       wvwModifiers:
         attributes:
-          Outgoing Healing: 10%
+          Outgoing Healing: 5%
         damage:
           Outgoing Strike Damage: [5%, add]
           Outgoing Condition Damage: [5%, add]

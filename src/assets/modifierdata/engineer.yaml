@@ -138,6 +138,9 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 1882
       defaultEnabled: true
 
@@ -245,6 +248,9 @@
       modifiers:
         attributes:
           Critical Chance: 15%
+      wvwModifiers:
+        attributes:
+          Critical Chance: 10%
       gw2id: 1914
       defaultEnabled: true
       temporaryBuff: true
@@ -257,7 +263,7 @@
           Critical Chance: 15%
       wvwModifiers:
         attributes:
-          Critical Chance: 10%
+          Critical Chance: 5%
       minor: true
       gw2id: 536
       defaultEnabled: true
@@ -307,10 +313,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Outgoing Strike Damage: [2%, mult]
-      wvwModifiers:
-        damage:
-          Outgoing Strike Damage: [1.5%, mult]
+          Outgoing Strike Damage: [1%, mult]
       minor: true
       gw2id: 516
       defaultEnabled: true
@@ -511,6 +514,9 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [5%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [3%, mult]
       gw2id: 1860
       defaultEnabled: true
 
@@ -544,7 +550,7 @@
           Power: [750, buff]
       wvwModifiers:
         attributes:
-          Power: [375, buff]
+          Power: [250, buff]
       gw2id: 1849
       defaultEnabled: true
       temporaryBuff: true

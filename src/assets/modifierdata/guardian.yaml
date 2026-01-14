@@ -711,10 +711,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, add] # https://discord.com/channels/380901000200060929/380903704808652801/1433364198204899340
-      wvwModifiers:
-        damage:
-          Outgoing Strike Damage: [10%, add]
+          Outgoing Strike Damage: [10%, add] # https://discord.com/channels/380901000200060929/380903704808652801/1433364198204899340
       gw2id: 2419
       defaultEnabled: true
 
@@ -759,6 +756,9 @@
       modifiers:
         attributes:
           Outgoing Healing: 15%
+      wvwModifiers:
+        attributes:
+          Outgoing Healing: 10%
       gw2id: 2435
       defaultEnabled: false
       temporaryBuff: true

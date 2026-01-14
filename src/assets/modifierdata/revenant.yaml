@@ -245,7 +245,7 @@
             group: true
       modifiers:
         attributes:
-          Condition Damage: [150, buff]
+          Condition Damage: [75, buff]
           Expertise: [150, buff]
       wvwModifiers:
         attributes:

@@ -57,6 +57,9 @@
       modifiers:
         damage:
           Damage Reduction: [10%, mult]
+      wvwModifiers:
+        damage:
+          Damage Reduction: [5%, mult]
       type: Skill
       gw2id: 77333
 
