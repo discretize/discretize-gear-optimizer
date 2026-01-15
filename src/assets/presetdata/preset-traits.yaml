@@ -440,7 +440,7 @@ list:
           ],
           [
             1987,
-            1978,
+            1913,
             0
           ]
         ],
@@ -456,8 +456,10 @@ list:
             "illusionary-inspiration": {}
           },
           {
-            "danger-time": {},
-            "improved-alacrity": {},
+            "flow-of-time": {},
+            "danger-time": {
+              "amount": ""
+            },
             "chronophantasma": {}
           }
         ]
@@ -466,7 +468,6 @@ list:
       {
         "skills": {}
       }
-
 
   - name: Axe Mirage
     profession: Mirage

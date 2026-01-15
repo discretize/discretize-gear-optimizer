@@ -318,7 +318,7 @@ list:
         traits: Heal Chrono
         extras: Heal
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
   - class: Guardian
     builds:
