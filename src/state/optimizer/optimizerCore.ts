@@ -799,7 +799,7 @@ export class OptimizerCore {
         case 'Bleeding':
           attributes['Bleeding Damage Tick'] = this.settings.calculationTweaks
             .sharpshooterBleedingDamage
-            ? conditionDamageTick(data.BleedingSharpshooter, cdmg, mult)
+            ? conditionDamageTick(data.BleedingSharpshooter, attributes['Power'], mult)
             : conditionDamageTick(data.Bleeding, cdmg, mult);
           break;
         case 'Poison':
