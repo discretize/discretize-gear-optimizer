@@ -32,7 +32,26 @@ const IndexPage = () => {
       <br />
       <br />
       All VoE elite specialization modifiers are now implemented, with new code to simulate
-      fluctuating player stats! Game data is updated for the <b>Jan 13, 2026 balance patch</b>.
+      fluctuating player stats! Game data is updated for the{' '}
+      <Link
+        href="https://wiki.guildwars2.com/wiki/Game_updates/2026-01-13"
+        target="_blank"
+        rel="noopener"
+      >
+        Jan 13, 2026 balance patch
+      </Link>
+      .
+      {/* <br />
+      <br />
+      <i>Jan 13 patch:</i>
+      <ul>
+        <li>
+          <i>Modifiers: outdated</i>
+        </li>
+        <li>
+          <i>Templates: outdated</i>
+        </li>
+      </ul> */}
     </Trans>,
     <Trans>
       Report gear optimizer issues and suggest improvements in the Discretize{' '}
