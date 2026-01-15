@@ -628,14 +628,14 @@ list:
   - class: Warrior
     builds:
 
-      - name: Hybrid Paragon
+      - name: Hybrid Paragon S/S
         id: paragon-hybrid
         specialization: Paragon
         boonType: Condi
         priority: Hybrid DPS
-        distribution: Hybrid Paragon
-        traits: Hybrid Paragon
-        extras: Hybrid Paragon
+        distribution: Hybrid Paragon S/S
+        traits: Hybrid Paragon S/S
+        extras: Hybrid Paragon S/S
         weaponType: Dual wield
         outdated: false
 
