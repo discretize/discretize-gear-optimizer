@@ -885,7 +885,8 @@ export function createSettingsPerCombination(
   // disable it if any condition coefficients are the result of a conversion or if conditions scale in unusual ways
   const disableCondiResultCache: OptimizerCoreSettings['disableCondiResultCache'] =
     Object.values(extraRelevantConditions).some(Boolean) ||
-    !!allCalculationTweaks.infernoBurningDamage;
+    !!allCalculationTweaks.infernoBurningDamage ||
+    !!allCalculationTweaks.sharpshooterBleedingDamage;
 
   const settings: OptimizerCoreSettingsPerCombination = {
     baseAttributes: scenarios[0].baseAttributes, // not used internally after scenarios update, but copied from scenarios[0] and used for rust mode

@@ -440,7 +440,7 @@ list:
           ],
           [
             1987,
-            1978,
+            1913,
             0
           ]
         ],
@@ -456,8 +456,10 @@ list:
             "illusionary-inspiration": {}
           },
           {
-            "danger-time": {},
-            "improved-alacrity": {},
+            "flow-of-time": {},
+            "danger-time": {
+              "amount": ""
+            },
             "chronophantasma": {}
           }
         ]
@@ -466,7 +468,6 @@ list:
       {
         "skills": {}
       }
-
 
   - name: Axe Mirage
     profession: Mirage
@@ -1484,7 +1485,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "defenders-dogma": {},
@@ -1564,7 +1566,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "defenders-dogma": {},
@@ -1641,7 +1644,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "imbued-haste": {
@@ -1850,7 +1854,8 @@ list:
             "kindled-zeal": {},
             "symbolic-avenger": {
               "amount": "4.6"
-            }
+            },
+            "furious-focus": {}
           },
           {
             "imbued-haste": {
@@ -2306,7 +2311,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "power-for-power": {},
@@ -2380,7 +2386,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "power-for-power": {},
@@ -2526,7 +2533,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "power-for-power": {},
@@ -2584,7 +2592,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "right-hand-strength": {},
@@ -2666,7 +2675,8 @@ list:
               "amount": ""
             },
             "kindled-zeal": {},
-            "symbolic-avenger": {}
+            "symbolic-avenger": {},
+            "furious-focus": {}
           },
           {
             "right-hand-strength": {},
@@ -3519,7 +3529,7 @@ list:
         "skills": {}
       }
 
-  - name: Hybrid Paragon
+  - name: Hybrid Paragon S/S
     profession: Paragon
     traits:
         {
@@ -7312,8 +7322,7 @@ list:
             "archetype-ferocious": {},
             "pack-alpha-merged": {},
             "loud-whistle-merged": {},
-            "pets-prowess-merged": {},
-            "honed-axes-merged": {}
+            "pets-prowess-merged": {}
           }
         ]
       }
@@ -7593,8 +7602,7 @@ list:
             "archetype-deadly": {},
             "pack-alpha-merged": {},
             "loud-whistle-merged": {},
-            "pets-prowess-merged": {},
-            "honed-axes-merged": {}
+            "pets-prowess-merged": {}
           }
         ]
       }
@@ -7663,8 +7671,7 @@ list:
             "archetype-deadly": {},
             "pack-alpha-merged": {},
             "loud-whistle-merged": {},
-            "pets-prowess-merged": {},
-            "honed-axes-merged": {}
+            "pets-prowess-merged": {}
           }
         ]
       }
@@ -8777,7 +8784,7 @@ list:
           [
             1914,
             1923,
-            526
+            510
           ],
           [
             1882,
@@ -8800,12 +8807,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": ""
+            },
+            "heavy-metal-50-25": {
+              "amount": ""
+            },
+            "heavy-metal-25-0": {
+              "amount": ""
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.77"
             }
           },
@@ -8848,7 +8865,7 @@ list:
           [
             1914,
             1923,
-            526
+            510
           ],
           [
             1882,
@@ -8871,12 +8888,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": ""
+            },
+            "heavy-metal-50-25": {
+              "amount": ""
+            },
+            "heavy-metal-25-0": {
+              "amount": ""
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.41"
             }
           },
@@ -8942,12 +8969,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": ""
+            },
+            "heavy-metal-50-25": {
+              "amount": ""
+            },
+            "heavy-metal-25-0": {
+              "amount": ""
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.52"
             }
           },
@@ -9013,12 +9050,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": ""
+            },
+            "heavy-metal-50-25": {
+              "amount": ""
+            },
+            "heavy-metal-25-0": {
+              "amount": ""
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "???"
             }
           },
@@ -9080,12 +9127,22 @@ list:
             "thermal-vision": {},
             "thermal-vision-buff": {},
             "no-scope": {},
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": ""
+            },
+            "heavy-metal-50-25": {
+              "amount": ""
+            },
+            "heavy-metal-25-0": {
+              "amount": ""
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "3.24"
             }
           },
@@ -9149,12 +9206,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": ""
+            },
+            "heavy-metal-50-25": {
+              "amount": ""
+            },
+            "heavy-metal-25-0": {
+              "amount": ""
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.01"
             }
           },
@@ -9216,12 +9283,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": ""
+            },
+            "heavy-metal-50-25": {
+              "amount": ""
+            },
+            "heavy-metal-25-0": {
+              "amount": ""
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4"
             }
           },
@@ -9260,7 +9337,7 @@ list:
           [
             1914,
             1923,
-            526
+            510
           ],
           [
             1882,
@@ -9283,12 +9360,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": ""
+            },
+            "heavy-metal-50-25": {
+              "amount": ""
+            },
+            "heavy-metal-25-0": {
+              "amount": ""
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.2"
             }
           },
@@ -9336,7 +9423,7 @@ list:
           [
             1914,
             1923,
-            526
+            510
           ],
           [
             1882,
@@ -9359,12 +9446,22 @@ list:
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": ""
+            },
+            "heavy-metal-50-25": {
+              "amount": ""
+            },
+            "heavy-metal-25-0": {
+              "amount": ""
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.2"
             }
           },
@@ -9450,12 +9547,22 @@ list:
               "amount": ""
             },
             "no-scope": {},
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": ""
+            },
+            "heavy-metal-50-25": {
+              "amount": ""
+            },
+            "heavy-metal-25-0": {
+              "amount": ""
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.1"
             }
           },
@@ -9495,7 +9602,7 @@ list:
           [
             1914,
             1923,
-            526
+            510
           ],
           [
             2395,
@@ -9528,12 +9635,22 @@ list:
               "amount": ""
             },
             "no-scope": {},
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": ""
+            },
+            "heavy-metal-50-25": {
+              "amount": ""
+            },
+            "heavy-metal-25-0": {
+              "amount": ""
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "3.9"
             }
           },
@@ -9613,12 +9730,22 @@ list:
               "amount": ""
             },
             "no-scope": {},
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": ""
+            },
+            "heavy-metal-50-25": {
+              "amount": ""
+            },
+            "heavy-metal-25-0": {
+              "amount": ""
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.4"
             }
           },
@@ -9701,12 +9828,22 @@ list:
               "amount": ""
             },
             "no-scope": {},
-            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
+            "heavy-metal-75-50": {
+              "amount": ""
+            },
+            "heavy-metal-50-25": {
+              "amount": ""
+            },
+            "heavy-metal-25-0": {
+              "amount": ""
+            },
+            "sharpshooter": {},
             "incendiary-powder": {},
-            "sharpshooter": {
+            "serrated-steel-base": {},
+            "serrated-steel": {
               "amount": "4.4"
             }
           },
@@ -10041,8 +10178,15 @@ list:
             "spiteful-talisman": {
               "amount": ""
             },
+            "malicious-swarm": {
+              "amount": ""
+            },
             "awaken-the-pain": {
               "amount": ""
+            },
+            "spiteful-fortitude": {},
+            "dread": {
+              "amount": "???"
             },
             "close-to-death": {
               "amount": ""
@@ -10523,8 +10667,15 @@ list:
             "spiteful-talisman": {
               "amount": ""
             },
+            "malicious-swarm": {
+              "amount": ""
+            },
             "awaken-the-pain": {
               "amount": ""
+            },
+            "spiteful-fortitude": {},
+            "dread": {
+              "amount": "???"
             },
             "close-to-death": {
               "amount": ""
@@ -10604,8 +10755,15 @@ list:
             "spiteful-talisman": {
               "amount": ""
             },
+            "malicious-swarm": {
+              "amount": ""
+            },
             "awaken-the-pain": {
               "amount": ""
+            },
+            "spiteful-fortitude": {},
+            "dread": {
+              "amount": "???"
             },
             "close-to-death": {
               "amount": ""
@@ -10688,8 +10846,15 @@ list:
             "spiteful-talisman": {
               "amount": ""
             },
+            "malicious-swarm": {
+              "amount": ""
+            },
             "awaken-the-pain": {
               "amount": ""
+            },
+            "spiteful-fortitude": {},
+            "dread": {
+              "amount": "???"
             },
             "close-to-death": {
               "amount": ""
@@ -10769,8 +10934,15 @@ list:
             "spiteful-talisman": {
               "amount": ""
             },
+            "malicious-swarm": {
+              "amount": ""
+            },
             "awaken-the-pain": {
               "amount": ""
+            },
+            "spiteful-fortitude": {},
+            "dread": {
+              "amount": "???"
             },
             "close-to-death": {
               "amount": ""

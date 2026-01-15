@@ -138,6 +138,9 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 1882
       defaultEnabled: true
 
@@ -192,8 +195,22 @@
   id: 38
   items:
 
-    - id: sharpshooter
-      text: Sharpshooter
+    - id: serrated-steel-base
+      text: Serrated Steel
+      subText: base
+      minor: true
+      modifiers:
+        attributes:
+          Bleeding Duration: 33%
+      wvwModifiers:
+        attributes:
+          Bleeding Duration: 15%
+      gw2id: 515
+      defaultEnabled: true
+      temporaryBuff: false
+
+    - id: serrated-steel
+      text: Serrated Steel
       subText: per hit (including non critical)
       minor: true
       amountData:
@@ -231,6 +248,9 @@
       modifiers:
         attributes:
           Critical Chance: 15%
+      wvwModifiers:
+        attributes:
+          Critical Chance: 10%
       gw2id: 1914
       defaultEnabled: true
       temporaryBuff: true
@@ -243,7 +263,7 @@
           Critical Chance: 15%
       wvwModifiers:
         attributes:
-          Critical Chance: 10%
+          Critical Chance: 5%
       minor: true
       gw2id: 536
       defaultEnabled: true
@@ -285,19 +305,6 @@
       defaultEnabled: true
       temporaryBuff: true
 
-    - id: serrated-steel
-      text: Serrated Steel
-      modifiers:
-        attributes:
-          Bleeding Duration: 33%
-      wvwModifiers:
-        attributes:
-          Bleeding Duration: 15%
-      minor: true
-      gw2id: 516
-      defaultEnabled: true
-      temporaryBuff: false
-
     - id: modified-ammunition
       text: Modified Ammunition
       amountData:
@@ -306,10 +313,76 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Outgoing Strike Damage: [2%, mult]
-      wvwModifiers:
+          Outgoing Strike Damage: [1%, mult]
+      minor: true
+      gw2id: 516
+      defaultEnabled: true
+
+    - id: heavy-metal-75-50
+      text: Heavy Metal
+      subText: 75%-50%
+      amountData:
+        label: '% uptime'
+        default: 25
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: heavy-metal
+            group: '75-50'
+      modifiers:
+        attributes:
+          Critical Chance: 5%
         damage:
-          Outgoing Strike Damage: [1.5%, mult]
+          Outgoing Critical Damage: [5%, mult]
+      gw2id: 510
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: heavy-metal-50-25
+      text: Heavy Metal
+      subText: 50%-25%
+      amountData:
+        label: '% uptime'
+        default: 25
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: heavy-metal
+            group: '50-25'
+      modifiers:
+        attributes:
+          Critical Chance: 10%
+        damage:
+          Outgoing Critical Damage: [10%, mult]
+      gw2id: 510
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: heavy-metal-25-0
+      text: Heavy Metal
+      subText: 25%-0%
+      amountData:
+        label: '% uptime'
+        default: 25
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: heavy-metal
+            group: '25-0'
+      modifiers:
+        attributes:
+          Critical Chance: 15%
+        damage:
+          Outgoing Critical Damage: [15%, mult]
+      gw2id: 510
+      defaultEnabled: true
+      temporaryBuff: true
+
+    - id: sharpshooter
+      text: Sharpshooter
+      modifiers:
+        calculationTweaks:
+          sharpshooterBleedingDamage: true
       gw2id: 526
       defaultEnabled: true
 
@@ -409,6 +482,22 @@
       gw2id: 1936
       defaultEnabled: true
 
+    - id: kinetic-battery
+      text: Kinetic Battery
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [15%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add]
+      gw2id: 1856
+      defaultEnabled: true
+
 - section: Scrapper
   id: 43
   items:
@@ -422,6 +511,9 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [5%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [3%, mult]
       gw2id: 1860
       defaultEnabled: true
 
@@ -455,7 +547,7 @@
           Power: [750, buff]
       wvwModifiers:
         attributes:
-          Power: [375, buff]
+          Power: [250, buff]
       gw2id: 1849
       defaultEnabled: true
       temporaryBuff: true

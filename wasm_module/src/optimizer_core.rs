@@ -578,7 +578,21 @@ pub fn calc_condi(
             Condition::Bleeding => {
                 attributes.set_a(
                     Attribute::BleedingDamageTick,
-                    condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false),
+                    if combination
+                        .calculationTweaks
+                        .sharpshooterBleedingDamage
+                        .is_some_and(|x| x)
+                    {
+                        condition_damage_tick(
+                            condition,
+                            attributes.get_a(Attribute::Power),
+                            mult,
+                            settings.is_wvw(),
+                            true,
+                        )
+                    } else {
+                        condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false)
+                    },
                 );
             }
             Condition::Poison => {

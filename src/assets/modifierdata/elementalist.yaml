@@ -566,12 +566,16 @@
     - id: bountiful-power
       text: Bountiful Power
       amountData:
-        label: 'boons'
-        default: 10
-        quantityEntered: 1
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [2%, mult]
+          Outgoing Strike Damage: [20%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [15%, add]
       gw2id: 1511
       defaultEnabled: true
 

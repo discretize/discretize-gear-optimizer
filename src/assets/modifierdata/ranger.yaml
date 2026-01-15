@@ -452,7 +452,7 @@
       modifiers:
         attributes:
           Ferocity: [120, buff]
-      gw2id: 1066
+      gw2id: 970
       defaultEnabled: true
       temporaryBuff: false
 
@@ -466,7 +466,7 @@
       modifiers:
         attributes:
           Ferocity: [120, buff]
-      gw2id: 1066
+      gw2id: 970
       defaultEnabled: true
       temporaryBuff: activeOutOfCombat # sometimes...
 
@@ -680,16 +680,6 @@
           Ferocity: [150, buff]
       minor: true
       gw2id: 1065
-      defaultEnabled: false
-      temporaryBuff: false
-
-    - id: honed-axes-merged
-      subText: merged, base
-      modifiers:
-        attributes:
-          Ferocity: [120, buff]
-      minor: true
-      gw2id: 1066
       defaultEnabled: false
       temporaryBuff: false
 

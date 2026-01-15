@@ -47,4 +47,5 @@ impl Modifiers {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct CalculationTweaks {
     pub infernoBurningDamage: Option<bool>,
+    pub sharpshooterBleedingDamage: Option<bool>,
 }
