@@ -10,6 +10,7 @@ on:
   # pull_request_target permits secrets access; does not check out merge commit by default
   pull_request_target:
     types: [labeled]
+    branches: [dependabot/**]
 
 env:
   PAGES_PROJECT_NAME: optimizer
@@ -23,9 +24,7 @@ jobs:
       deployments: write
       pull-requests: write
 
-    if: >
-      github.actor == 'dependabot[bot]' &&
-      contains(github.event.pull_request.labels.*.name, 'deploy dependabot pr')
+    if: contains(github.event.pull_request.labels.*.name, 'deploy dependabot pr')
     timeout-minutes: 15
 
     steps:
