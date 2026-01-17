@@ -24,7 +24,7 @@ jobs:
       pull-requests: write
 
     if: >
-      ${{ github.actor == 'dependabot[bot]' }} &&
+      github.actor == 'dependabot[bot]' &&
       contains(github.event.pull_request.labels.*.name, 'deploy dependabot pr')
     timeout-minutes: 15
 
