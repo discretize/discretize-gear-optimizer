@@ -29,11 +29,6 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-
       - name: Checkout
         uses: actions/checkout@v6
         # check out the merge commit with secrets access!
