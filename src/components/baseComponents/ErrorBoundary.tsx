@@ -1,7 +1,7 @@
 import { Card, CardContent, Typography } from '@mui/material';
 import React from 'react';
 import type { FallbackProps } from 'react-error-boundary';
-import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary';
+import { getErrorMessage, ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary';
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;
@@ -22,8 +22,8 @@ export default function ErrorBoundary({
             <Typography>
               {`Rendering error caught in ${location}! Please report this to the developers on GitHub or Discord.`}
             </Typography>
-            <pre>{error.message}</pre>
-            <pre>{error.stack}</pre>
+            <pre>{getErrorMessage(error)}</pre>
+            {error instanceof Error && error.stack ? <pre>{error.stack}</pre> : false}
           </CardContent>
         </Card>
       );
