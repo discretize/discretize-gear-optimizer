@@ -7336,7 +7336,7 @@ list:
         }
       }
 
-  - name: Quickness Power Untamed HA S/A
+  - name: Quickness Power Untamed HA S/A NM
     profession: Untamed
     traits:
       {

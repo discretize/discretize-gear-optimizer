@@ -1134,7 +1134,7 @@ list:
         url: https://www.youtube.com/watch?v=x8RRJxO5B5w
         log: https://dps.report/udV3-20250912-115101_golem
 
-  - name: Quickness Power Untamed HA S/A
+  - name: Quickness Power Untamed HA S/A NM
     profession: Untamed
     value:
       {
