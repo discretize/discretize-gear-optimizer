@@ -660,8 +660,8 @@
           Ferocity: {Ferocity: 3%}
           Healing Power: {Healing Power: 3%}
       gw2id: 105402
-      displayIds: [105402, 98924]
-      priceIds: [105402, 98924]
+      displayIds: [105402, 107101]
+      priceIds: [105402, 98924, 107101]
       temporaryBuff: false
 
 - section: Hybrid Food
