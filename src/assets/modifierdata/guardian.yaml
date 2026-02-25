@@ -176,7 +176,7 @@
       text: Fiery Wrath
       modifiers:
         damage:
-          Outgoing Strike Damage: [7%, mult]
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 634
       defaultEnabled: true
 
@@ -230,7 +230,7 @@
         quantityEntered: 5
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, add]
+          Outgoing Strike Damage: [5%, add]
       minor: true
       gw2id: 649
       defaultEnabled: true
@@ -241,6 +241,9 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [7%, add]
       gw2id: 2017
       defaultEnabled: true
 
