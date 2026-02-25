@@ -914,6 +914,10 @@
         attributes:
           Power: [150, buff]
           Ferocity: [150, buff]
+      wvwModifiers:
+        attributes:
+          Power: [75, buff]
+          Ferocity: [75, buff]
       gw2id: 2331
       defaultEnabled: false
       temporaryBuff: false
@@ -926,6 +930,10 @@
         attributes:
           Healing Power: [150, buff]
           Concentration: [150, buff]
+      wvwModifiers:
+        attributes:
+          Healing Power: [75, buff]
+          Concentration: [75, buff]
       gw2id: 2331
       defaultEnabled: false
       temporaryBuff: false
@@ -938,6 +946,10 @@
         attributes:
           Condition Damage: [150, buff]
           Expertise: [150, buff]
+      wvwModifiers:
+        attributes:
+          Condition Damage: [75, buff]
+          Expertise: [75, buff]
       gw2id: 2331
       defaultEnabled: false
       temporaryBuff: false
@@ -950,6 +962,10 @@
         attributes:
           Toughness: [150, buff]
           Vitality: [150, buff]
+      wvwModifiers:
+        attributes:
+          Toughness: [75, buff]
+          Vitality: [75, buff]
       gw2id: 2331
       defaultEnabled: false
       temporaryBuff: false
@@ -969,6 +985,17 @@
           Expertise: [75, buff]
           Ferocity: [75, buff]
           Healing Power: [75, buff]
+      wvwModifiers:
+        attributes:
+          Power: [50, buff]
+          Precision: [50, buff]
+          Toughness: [50, buff]
+          Vitality: [50, buff]
+          Concentration: [50, buff]
+          Condition Damage: [50, buff]
+          Expertise: [50, buff]
+          Ferocity: [50, buff]
+          Healing Power: [50, buff]
       gw2id: 2331
       defaultEnabled: false
       temporaryBuff: false
