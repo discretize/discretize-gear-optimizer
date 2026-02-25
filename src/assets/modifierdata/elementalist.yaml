@@ -127,8 +127,8 @@
           Outgoing Condition Damage: [10%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [15%, add]
-          Outgoing Condition Damage: [15%, add]
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
       gw2id: 62965
 
     - id: raging-ricochet
@@ -1084,8 +1084,8 @@
           Outgoing Condition Damage: [2%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [2%, add] # per Crone
-          Outgoing Condition Damage: [2%, add]
+          Outgoing Strike Damage: [1%, add] # per Crone
+          Outgoing Condition Damage: [1%, add]
       gw2id: 2247
       defaultEnabled: true
 
