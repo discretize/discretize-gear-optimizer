@@ -1416,6 +1416,9 @@
       modifiers:
         attributes:
           Condition Damage: [5, buff]
+      wvwModifiers:
+        attributes:
+          Condition Damage: [10, buff]
       gw2id: 2382
       defaultEnabled: false
       temporaryBuff: true
@@ -1427,6 +1430,9 @@
       modifiers:
         attributes:
           Critical Chance: 15%
+      wvwModifiers:
+        attributes:
+          Critical Chance: 10%
       gw2id: 2382
       defaultEnabled: false
       temporaryBuff: true
