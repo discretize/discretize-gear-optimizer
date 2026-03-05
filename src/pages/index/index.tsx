@@ -12,7 +12,7 @@ import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
 import Layout from '../../components/baseComponents/Layout';
 import URLStateImport from '../../components/url-state/URLStateImport';
 import { isFirefox } from '../../state/optimizer/utils/detectFirefox';
-import { getRustMode } from '../../state/slices/controlsSlice';
+import { defaultRustThreads, getRustMode } from '../../state/slices/controlsSlice';
 import { getGameMode } from '../../state/slices/userSettings';
 
 console.log('Gear Optimizer version:', __COMMIT_HASH__);
@@ -23,8 +23,6 @@ const IndexPage = () => {
   const { language } = i18n;
   const gameMode = useSelector(getGameMode);
   const rustMode = useSelector(getRustMode);
-
-  const [alertOpen, setAlertOpen] = React.useState([true, true, true]);
 
   const ALERTS = [
     <Trans>
@@ -75,9 +73,25 @@ const IndexPage = () => {
       !
     </Trans>,
     ...(isFirefox
-      ? [<Trans>Note: Some large calculations may take longer in Firefox.</Trans>]
+      ? [
+          defaultRustThreads > 8 ? (
+            <>
+              <b>
+                <Trans>Note: Some large calculations may take longer in Firefox.</Trans>
+              </b>{' '}
+              <Trans>
+                This system has many CPU cores and is likely to show a noticable improvement from
+                switching browsers.
+              </Trans>
+            </>
+          ) : (
+            <Trans>Note: Some large calculations may take longer in Firefox.</Trans>
+          ),
+        ]
       : []),
   ];
+
+  const [alertOpen, setAlertOpen] = React.useState(ALERTS.map(() => true));
 
   return (
     <APILanguageProvider value={language as 'de' | 'en' | 'es' | 'fr' | 'zh'}>
