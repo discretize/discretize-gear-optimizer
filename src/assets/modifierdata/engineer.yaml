@@ -137,7 +137,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [7%, mult]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [5%, mult]
