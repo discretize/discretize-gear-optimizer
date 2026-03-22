@@ -168,6 +168,22 @@
           Damage Reduction: [33%, mult]
       gw2id: 77321
 
+    - id: daring-advance
+      text: Daring Advance
+      subText: undocumented effect
+      amountData:
+        label: "% uptime"
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [15%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [10%, mult]
+      gw2id: 76687
+
 - section: Zeal
   id: 42
   items:
@@ -693,7 +709,7 @@
 - section: Luminary
   id: 81
   note: >-
-    According to community testing, Empowered Armaments currently produces an undocumented 3% damage buff when the player has Luminary's Blessing.
+    According to community testing, Empowered Armaments currently produces an undocumented 3% damage buff when the player has Luminary's Blessing and Daring Advance currently has the damage multiplier from Magebane Tether.
   items:
 
     - id: lights-gift
