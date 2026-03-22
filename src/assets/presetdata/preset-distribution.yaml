@@ -137,7 +137,7 @@ list:
     profession: Paragon
     value:
       {
-        "values2": { "Power": 3138, "Power2": 0, "Burning": 0.41, "Bleeding": 22.56, "Poisoned": 0, "Torment": 4.02, "Confusion": 0 }
+        "values2": { "Power": 3045, "Power2": 0, "Burning": 0.37, "Bleeding": 21.6, "Poisoned": 0, "Torment": 3.78, "Confusion": 0 }
       }
     credit:
       - author: Arzon

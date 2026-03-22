@@ -924,12 +924,12 @@
       subText: 7-10 motivation
       modifiers:
         damage:
-          Outgoing Strike Damage: [25%, add]
-          Outgoing Condition Damage: [25%, add]
-      wvwModifiers:
-        damage:
           Outgoing Strike Damage: [30%, add]
           Outgoing Condition Damage: [30%, add]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [20%, add]
+          Outgoing Condition Damage: [20%, add]
       gw2id: 2375
       defaultEnabled: false
 
@@ -942,8 +942,8 @@
           Outgoing Condition Damage: [20%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [15%, add]
-          Outgoing Condition Damage: [15%, add]
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
       gw2id: 2375
       defaultEnabled: false
 
@@ -956,7 +956,7 @@
           Outgoing Condition Damage: [10%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [7.5%, add]
-          Outgoing Condition Damage: [7.5%, add]
+          Outgoing Strike Damage: [5%, add]
+          Outgoing Condition Damage: [5%, add]
       gw2id: 2375
       defaultEnabled: false
