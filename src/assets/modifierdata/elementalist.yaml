@@ -777,7 +777,8 @@
 
 - section: Catalyst
   id: 67
-  note: Enter identical uptimes for "regular" Elemental Empowerment and Empowered Empowerment, if applicable.
+  note: Enter identical uptimes for "regular" Elemental Empowerment and Empowered Empowerment, if
+    applicable.
   items:
 
     - id: hardened-auras

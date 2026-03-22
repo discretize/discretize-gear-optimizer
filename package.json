@@ -119,6 +119,7 @@
     "vite-plugin-comlink": "^5.3.0",
     "vite-plugin-wasm": "^3.5.0",
     "wasm-pack": "^0.14.0",
-    "wrangler": "^4.75.0"
+    "wrangler": "^4.75.0",
+    "yaml": "^2.8.3"
   }
 }

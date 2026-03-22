@@ -1,7 +1,8 @@
 - section: Skills
   note: >-
-    Carrion Devourer, Murellow, and some spider pets have skills that mechanically function as though cast by
-    the player; do not include them in flat pet damage. Elite Insights logs will generally reflect this correctly.
+    Carrion Devourer, Murellow, and some spider pets have skills that mechanically function as
+    though cast by the player; do not include them in flat pet damage. Elite Insights logs will
+    generally reflect this correctly.
   items:
 
     - id: pet-dps
@@ -503,7 +504,8 @@
 - section: Soulbeast
   id: 55
   note: >-
-    "Sic 'Em!" currently breaks air and hydromancy sigil simulation, and possibly some other effects.
+    "Sic 'Em!" currently breaks air and hydromancy sigil simulation, and possibly some other
+    effects.
 
 
     Predator's Cunning lifesteal damage may be omitted in arcdps area stats or parsed arcdps logs.
@@ -686,7 +688,8 @@
 - section: Untamed
   id: 72
   note: >-
-    Natural Fortitude Unleashed Ambush lifesteal damage may be omitted in arcdps area stats or parsed arcdps logs.
+    Natural Fortitude Unleashed Ambush lifesteal damage may be omitted in arcdps area stats or
+    parsed arcdps logs.
   items:
 
     - id: natural-fortitude

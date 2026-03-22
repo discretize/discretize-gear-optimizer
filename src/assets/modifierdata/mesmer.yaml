@@ -211,7 +211,8 @@
 
 - section: Chaos
   id: 45
-  note: Non-100% Chaotic Potency with-staff values combined with Toxic Maintenance Oil/Enhanced Lucent Oil result in inconsistent boon duration between weapon sets, which will be averaged.
+  note: Non-100% Chaotic Potency with-staff values combined with Toxic Maintenance Oil/Enhanced Lucent
+    Oil result in inconsistent boon duration between weapon sets, which will be averaged.
   items:
 
     - id: illusionary-membrane
@@ -441,9 +442,10 @@
 - section: Virtuoso
   id: 66
   note: >-
-    With Jagged Mind and Master of Fragmentation, Bladesong Harmony should scale based off of "player critical
-    chance plus 25%." The optimizer doesn't support this, but it can be entered as if Bladesong Harmony hits
-    are always critical, which will be true with ≥75% player critical chance.
+    With Jagged Mind and Master of Fragmentation, Bladesong Harmony should scale based off of
+    "player critical chance plus 25%." The optimizer doesn't support this, but it can be entered as
+    if Bladesong Harmony hits are always critical, which will be true with ≥75% player critical
+    chance.
   items:
 
     - id: mental-focus

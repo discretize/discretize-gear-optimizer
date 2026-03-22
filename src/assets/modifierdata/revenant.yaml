@@ -1,9 +1,11 @@
 - section: Skills
   note: >-
-    Enchanted Daggers/Form of the Assassin lifesteal damage may not be shown in arcdps area stats or parsed arcdps logs.
+    Enchanted Daggers/Form of the Assassin lifesteal damage may not be shown in arcdps area stats or
+    parsed arcdps logs.
 
 
-    Enter your total Cosmic Wisdom uptime in two input boxes, regardless of active legend; Bolstered Bonds gives attributes based on *equipped* legends.
+    Enter your total Cosmic Wisdom uptime in two input boxes, regardless of active legend; Bolstered
+    Bonds gives attributes based on *equipped* legends.
   items:
 
     - id: battle-scars
@@ -69,7 +71,7 @@
         conversion:
           Condition Damage: {Condition Damage: 10%} # increases condition damage attribute rather than outgoing condition damage
       wvwModifiers:
-         conversion:
+        conversion:
           Condition Damage: {Condition Damage: 5%} # increases condition damage attribute rather than outgoing condition damage
       gw2id: 27014
       temporaryBuff: true

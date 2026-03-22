@@ -1,11 +1,11 @@
 - section: Skills
   note: >-
-    Signet of Spite non-100% uptime (i.e. on any build that uses shroud rotation) is currently simulated poorly
-    (as a fractional affect both in and out of shroud).
+    Signet of Spite non-100% uptime (i.e. on any build that uses shroud rotation) is currently
+    simulated poorly (as a fractional affect both in and out of shroud).
 
 
-    Nightmare Weapon stacks on allies are affected by ally lifesteal damage/all damage modifiers like Soul
-    Barbs, Relic of Atrocity, Lead Attacks, and numerous revenant traits.
+    Nightmare Weapon stacks on allies are affected by ally lifesteal damage/all damage modifiers
+    like Soul Barbs, Relic of Atrocity, Lead Attacks, and numerous revenant traits.
   items:
 
     - id: necro-summon-dps
@@ -308,11 +308,12 @@
 - section: Curses
   id: 39
   note: >-
-    Some stat bonuses, like Furious Demise precision, are not affected by generic conversion effects like
-    Toxic Focusing Crystal, but traits may be overridden by the game code to convert them.
+    Some stat bonuses, like Furious Demise precision, are not affected by generic conversion effects
+    like Toxic Focusing Crystal, but traits may be overridden by the game code to convert them.
 
 
-    The durations of transferred self conditions (plague sending, dagger 4, staff 4) aren't simulated correctly.
+    The durations of transferred self conditions (plague sending, dagger 4, staff 4) aren't
+    simulated correctly.
   items:
 
     - id: barbed-precision
@@ -549,7 +550,8 @@
 
 - section: Scourge
   id: 60
-  note: Be sure to change the condition coefficient values below when adding or removing traits without checkboxes that implement their full effects like demonic lore.
+  note: Be sure to change the condition coefficient values below when adding or removing traits
+    without checkboxes that implement their full effects like demonic lore.
   items:
 
     - id: fell-beacon
@@ -787,8 +789,9 @@
 - section: Harbinger
   id: 64
   note: >-
-    Some stat bonuses, like Alchemic Vigor, are not affected by generic conversion effects like Magnanimous
-    Tuning Crystal or Reinforced Armor, but traits may be overridden by the game code to convert them.
+    Some stat bonuses, like Alchemic Vigor, are not affected by generic conversion effects like
+    Magnanimous Tuning Crystal or Reinforced Armor, but traits may be overridden by the game code to
+    convert them.
   items:
 
     - id: blight
@@ -989,8 +992,8 @@
 - section: Ritualist
   id: 76
   note: >-
-    According to community testing, spirit cast attacks probably use normal damage calculation and can be
-    treated as player skills, but spirit autoattacks are unaffected by player stats.
+    According to community testing, spirit cast attacks probably use normal damage calculation and
+    can be treated as player skills, but spirit autoattacks are unaffected by player stats.
   items:
 
     - id: boon-of-creation

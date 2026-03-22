@@ -581,7 +581,8 @@
 
 - section: Firebrand
   id: 62
-  note: Be sure to change the burning coefficient value below when adding or removing traits without checkboxes like legendary lore.
+  note: Be sure to change the burning coefficient value below when adding or removing traits without
+    checkboxes like legendary lore.
   items:
 
     - id: imbued-haste
@@ -693,7 +694,8 @@
 - section: Luminary
   id: 81
   note: >-
-    According to community testing, Empowered Armaments currently produces an undocumented 3% damage buff when the player has Luminary's Blessing.
+    According to community testing, Empowered Armaments currently produces an undocumented 3% damage
+    buff when the player has Luminary's Blessing.
   items:
 
     - id: lights-gift
