@@ -131,6 +131,9 @@
         quantityEntered: 1
       modifiers:
         damage:
+          Outgoing Strike Damage: [3.75%, add]
+      wvwModifiers:
+        damage:
           Outgoing Strike Damage: [5.25%, add]
       gw2id: 1437
       defaultEnabled: true
@@ -371,7 +374,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [3%, mult]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, mult]
@@ -552,7 +555,7 @@
       modifiers:
         conversion:
           Ferocity: {Precision: 12%}
-          Condition Damage: {Power: 15%}
+          Condition Damage: {Power: 12%}
       wvwModifiers:
         conversion:
           Ferocity: {Precision: 5%}
@@ -571,7 +574,7 @@
       modifiers:
         conversion:
           Ferocity: {Precision: 12%}
-          Condition Damage: {Power: 15%}
+          Condition Damage: {Power: 12%}
       wvwModifiers:
         conversion:
           Ferocity: {Precision: 5%}
@@ -591,10 +594,10 @@
       modifiers:
         attributes:
           Power: [300, buff]
-          Condition Damage: [300, buff]
+          Condition Damage: [150, buff]
       wvwModifiers:
         attributes:
-          Power: [150, buff]
+          Power: [300, buff]
           Condition Damage: [300, buff]
       gw2id: 2046
       defaultEnabled: true
@@ -608,7 +611,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, mult]
+          Outgoing Strike Damage: [10%, mult]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, mult]
@@ -636,7 +639,7 @@
       subText: base
       modifiers:
         damage:
-          Outgoing Critical Damage: [7.5%, mult]
+          Outgoing Critical Damage: [5%, mult]
       wvwModifiers:
         damage:
           Outgoing Critical Damage: [7%, mult]
@@ -652,8 +655,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          # increases base version to 15%: 1.15/1.075 = 1.06976744186. see GitHub PR #612.
-          Outgoing Critical Damage: [6.976744186%, mult]
+          # increases base version to 10%: 1.10/1.05 = 1.04761904762. see GitHub PR #612.
+          Outgoing Critical Damage: [4.761904762%, mult]
       wvwModifiers:
         damage:
           # increases base version to 14%: 1.14/1.07 = 1.06542056075. see GitHub PR #612.
@@ -881,7 +884,7 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [15%, add]
-          Outgoing Condition Damage: [15%, add]
+          Outgoing Condition Damage: [10%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, add]
@@ -925,7 +928,7 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [30%, add]
-          Outgoing Condition Damage: [30%, add]
+          Outgoing Condition Damage: [25%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [20%, add]
@@ -939,7 +942,7 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [20%, add]
-          Outgoing Condition Damage: [20%, add]
+          Outgoing Condition Damage: [15%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, add]
@@ -953,7 +956,7 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, add]
-          Outgoing Condition Damage: [10%, add]
+          Outgoing Condition Damage: [5%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [5%, add]
