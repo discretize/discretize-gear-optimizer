@@ -1,6 +1,4 @@
 - section: Skills
-  note: >-
-    Fulgor's damage-over-time effect is not currently implemented.
   items:
 
     - id: ele-summon-dps
@@ -142,6 +140,30 @@
         damage:
           Outgoing Condition Damage: [5%, add]
       gw2id: 71828
+
+    # like life steal: unaffected by opponent armor, player weapon strength, vulnerability, etc.
+    # use EI buff uptime rather than EI hit count; it seems more accurate
+    - id: fulgor-ticks
+      text: Fulgor
+      subText: damage over time effect
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Flat DPS: 200
+        conversionAfterBuffs:
+          Flat DPS: {Power: 40%}
+      wvwModifiers:
+        attributes:
+          Power Coefficient: 0.4
+          Flat DPS: 160
+        conversionAfterBuffs:
+          Flat DPS: {Power: 15%}
+      gw2id: 73091
+      temporaryBuff: true
 
     - id: grinding-stones
       text: Grinding Stones

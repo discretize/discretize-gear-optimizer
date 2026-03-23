@@ -100,6 +100,8 @@ const TemplateHelper = ({ character }) => {
             return;
           }
 
+          const targetData = data.targets[0];
+
           const end = data.phases?.[0]?.end ?? 0;
           const start = data.phases?.[0]?.start ?? 0;
           const durationMs = end - start;
@@ -267,7 +269,13 @@ const TemplateHelper = ({ character }) => {
            * buff stack distribution
            */
 
-          const allPersonalBuffIds = Object.values(data.personalBuffs ?? {}).flat();
+          const buffIds = Object.values(data.personalBuffs ?? {}).flat();
+
+          const fulgor = 73125;
+
+          if (targetData.buffs.some(({ id }) => id === fulgor)) {
+            buffIds.push(fulgor);
+          }
 
           const fortissimoBuffs = [
             77297, // Lute Playing
@@ -279,23 +287,22 @@ const TemplateHelper = ({ character }) => {
           const buffNames = {
             fortissimo: 'Fortissimo instruments',
             ...Object.fromEntries(
-              allPersonalBuffIds.map((id) => [
-                id,
-                `${data.buffMap[`b${id}`]?.name ?? 'unknown'} (${id})`,
-              ]),
+              buffIds.map((id) => [id, `${data.buffMap[`b${id}`]?.name ?? 'unknown'} (${id})`]),
             ),
           };
 
           let currentTime = 0;
-          const currentState = Object.fromEntries(allPersonalBuffIds.map((id) => [id, 0]));
+          const currentState = Object.fromEntries(buffIds.map((id) => [id, 0]));
           const collectedData = {
             'fortissimo': {},
-            ...Object.fromEntries(allPersonalBuffIds.map((id) => [id, {}])),
+            ...Object.fromEntries(buffIds.map((id) => [id, {}])),
           };
 
-          const allStateChanges = allPersonalBuffIds
+          const allStateChanges = buffIds
             .map((id) => {
-              const states = playerData.buffUptimes?.find((buff) => buff.id === id)?.states;
+              const states =
+                playerData.buffUptimes?.find((buff) => buff.id === id)?.states ||
+                targetData.buffs?.find((buff) => buff.id === id)?.states;
 
               if (!states?.length || !states.length) return;
 
@@ -320,7 +327,7 @@ const TemplateHelper = ({ character }) => {
             const elapsed = time - currentTime;
 
             if (elapsed) {
-              allPersonalBuffIds.forEach((id) => {
+              buffIds.forEach((id) => {
                 const count = currentState[id];
                 collectedData[id][count] ??= 0;
                 collectedData[id][count] += elapsed;
