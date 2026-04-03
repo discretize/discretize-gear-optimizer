@@ -5,3 +5,4 @@ allowBuilds:
   unrs-resolver: true
   wasm-pack: true
   workerd: true
+strictDepBuilds: true
