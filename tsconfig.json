@@ -1,29 +1,22 @@
 {
   "compilerOptions": {
-    // Target latest version of ECMAScript.
-    "target": "ESNext",
-    // Search under node_modules for non-relative imports.
     "moduleResolution": "bundler",
-    // Process & infer types from .js files.
-    "allowJs": true,
-    // Don't emit; allow Vite to transform files.
+    "verbatimModuleSyntax": true,
     "noEmit": true,
-    // Enable strictest settings like strictNullChecks & noImplicitAny.
-    "strict": true,
-    // Import non-ES modules as default imports.
-    "esModuleInterop": true,
-    // Do not create bindings, rollup does that.
-    "declaration": false,
-    // Ensure that Babel can safely transpile files in the TypeScript project
-    "isolatedModules": true,
-    // Other configuration
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "ESNext",
-    "resolveJsonModule": true,
     "jsx": "react-jsx",
+
+    "lib": ["dom", "esnext"],
+    "skipLibCheck": true,
+
+    "allowJs": true,    
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+
+    "strict": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "exclude": ["node_modules"]
