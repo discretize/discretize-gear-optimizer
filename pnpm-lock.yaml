@@ -200,8 +200,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       typia:
-        specifier: ^11.0.3
-        version: 11.0.3(@types/node@25.5.2)(typescript@5.9.3)
+        specifier: ^12.0.2
+        version: 12.0.2(@types/node@25.5.2)(typescript@5.9.3)
       vite:
         specifier: ^7.3.1
         version: 7.3.1(@types/node@25.5.2)(tsx@4.21.0)(yaml@2.8.3)
@@ -1372,9 +1372,6 @@ packages:
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
 
-  '@samchon/openapi@6.0.1':
-    resolution: {integrity: sha512-+nkznmCf/6YavoVkvWg60YoC0UbXY/oK9uMZReyrFcIcXecf+YoWmOLUg+TlgHi+h+6DPgRy6zRkZfiRd3uRnA==}
-
   '@sindresorhus/base62@1.0.0':
     resolution: {integrity: sha512-TeheYy0ILzBEI/CO55CP6zJCSdSWeRtGnHy8U8dWSUH4I68iqTsy7HkMktR4xakThc9jotkPQUXT4ITdbV7cHA==}
     engines: {node: '>=18'}
@@ -1505,6 +1502,18 @@ packages:
   '@typescript-eslint/visitor-keys@8.58.0':
     resolution: {integrity: sha512-XJ9UD9+bbDo4a4epraTwG3TsNPeiB9aShrUneAVXy8q4LuwowN+qu89/6ByLMINqvIMeI9H9hOHQtg/ijrYXzQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@typia/core@12.0.2':
+    resolution: {integrity: sha512-FUrH0dVOx+hPn8TD+ROQYiMlt7Ztx21AfqRozrI2gE3+DlPOP5o9eC8Lu6SRRqc9eWl4/STTpzKFLXPrGZJmuQ==}
+
+  '@typia/interface@12.0.2':
+    resolution: {integrity: sha512-PmUG624f6BSpNAJV0Gf0hwMSF29VSl8neArvxa+sPSq33ETGJZYrVhzqO67+n2LZCdzYmEdFbpNlr3jnyAl2aA==}
+
+  '@typia/transform@12.0.2':
+    resolution: {integrity: sha512-vv5pLNY6e2Zyg5doqPv1vo+mTfovO8TAPt6bDfz1OCsgaWR/LjFfMB0ziAoCPP2ePF4WWuGUe+z9o9wdlXmegA==}
+
+  '@typia/utils@12.0.2':
+    resolution: {integrity: sha512-LeiMdZbGnIXTwmJIYoW9ROmkbFRKQCFHNapodP23qx97ojIfF8FdFIez4or6JUnNEFTXKTKD4ITtHA/gpuE6sw==}
 
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
@@ -3495,8 +3504,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typia@11.0.3:
-    resolution: {integrity: sha512-L7x7WzOCpFyNCauWl6VYJVEG9EHZi5EPNBRzxTO1luaLCd6WEDf+xrJNT+hMZ8U+0X7hCsR1EUpi29LdHhvCvA==}
+  typia@12.0.2:
+    resolution: {integrity: sha512-0RBUxrar8Hztee6gSdBPR1scDBJAPp3k0ut4C3H6ri8+D6nVnGmWvsrnl5fOxHdLDtCC/gxZ4rhp2ivf0jom+g==}
     hasBin: true
     peerDependencies:
       typescript: '>=4.8.0 <5.10.0'
@@ -4697,8 +4706,6 @@ snapshots:
 
   '@rtsao/scc@1.1.0': {}
 
-  '@samchon/openapi@6.0.1': {}
-
   '@sindresorhus/base62@1.0.0': {}
 
   '@sindresorhus/is@7.2.0': {}
@@ -4857,6 +4864,23 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 8.58.0
       eslint-visitor-keys: 5.0.1
+
+  '@typia/core@12.0.2':
+    dependencies:
+      '@typia/interface': 12.0.2
+      '@typia/utils': 12.0.2
+
+  '@typia/interface@12.0.2': {}
+
+  '@typia/transform@12.0.2':
+    dependencies:
+      '@typia/core': 12.0.2
+      '@typia/interface': 12.0.2
+      '@typia/utils': 12.0.2
+
+  '@typia/utils@12.0.2':
+    dependencies:
+      '@typia/interface': 12.0.2
 
   '@ungap/structured-clone@1.3.0': {}
 
@@ -7131,10 +7155,13 @@ snapshots:
 
   typescript@5.9.3: {}
 
-  typia@11.0.3(@types/node@25.5.2)(typescript@5.9.3):
+  typia@12.0.2(@types/node@25.5.2)(typescript@5.9.3):
     dependencies:
-      '@samchon/openapi': 6.0.1
       '@standard-schema/spec': 1.1.0
+      '@typia/core': 12.0.2
+      '@typia/interface': 12.0.2
+      '@typia/transform': 12.0.2
+      '@typia/utils': 12.0.2
       commander: 10.0.1
       comment-json: 4.6.2
       inquirer: 8.2.7(@types/node@25.5.2)
