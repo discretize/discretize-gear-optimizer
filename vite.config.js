@@ -34,7 +34,7 @@ export default defineConfig({
     port: 3000,
   },
   build: {
-    rollupOptions: {
+    rolldownOptions: {
       input: {
         // main: resolve(__dirname, 'src/pages/index/index.html'),
         main: resolve(__dirname, 'index.html'),

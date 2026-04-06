@@ -1,3 +1,5 @@
+/// <reference types="@cloudflare/workers-types" />
+
 /* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-lonely-if */

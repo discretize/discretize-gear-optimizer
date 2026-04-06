@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     // Target latest version of ECMAScript.
-    "target": "es2020",
+    "target": "ESNext",
     // Search under node_modules for non-relative imports.
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     // Process & infer types from .js files.
     "allowJs": true,
-    // Don't emit; allow Babel to transform files.
+    // Don't emit; allow Vite to transform files.
     "noEmit": true,
     // Enable strictest settings like strictNullChecks & noImplicitAny.
     "strict": true,
@@ -19,14 +19,12 @@
     // Other configuration
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "es2020",
+    "module": "ESNext",
     "resolveJsonModule": true,
     "jsx": "react-jsx",
-    "plugins": [{ "name": "typescript-plugin-css-modules" }],
-    "types": ["@cloudflare/workers-types"]
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
-  "exclude": ["node_modules/**/*"]
+  "exclude": ["node_modules"]
 }
