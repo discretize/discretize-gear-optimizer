@@ -129,18 +129,6 @@
           Outgoing Condition Damage: [10%, add]
       gw2id: 62965
 
-    - id: raging-ricochet
-      text: Raging Ricochet
-      amountData:
-        label: '% uptime'
-        default: 0
-        defaultInput: ???
-        quantityEntered: 100
-      modifiers:
-        damage:
-          Outgoing Condition Damage: [5%, add]
-      gw2id: 71828
-
     # like life steal: unaffected by opponent armor, player weapon strength, vulnerability, etc.
     # use EI buff uptime rather than EI hit count; it seems more accurate
     - id: fulgor-ticks
@@ -313,6 +301,9 @@
       minor: true
       modifiers:
         damage:
+          Outgoing Strike Damage: [7%, mult]
+      wvwModifiers:
+        damage:
           Outgoing Strike Damage: [10%, mult]
       gw2id: 319
       defaultEnabled: true
@@ -381,6 +372,9 @@
         default: 100
         quantityEntered: 100
       modifiers:
+        damage:
+          Outgoing Strike Damage: [7%, mult]
+      wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, mult]
       gw2id: 1502
@@ -479,6 +473,15 @@
       gw2id: 280
       defaultEnabled: true
 
+    - id: stone-heart
+      text: Stone Heart
+      subText: damage reduction while active
+      modifiers:
+        damage:
+          Damage Reduction: [0%, mult] # todo: unknown
+      gw2id: 1674
+      defaultEnabled: false
+
 - section: Water
   id: 17
   items:
@@ -488,7 +491,7 @@
       subText: base
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [7%, mult]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [5%, mult]
@@ -503,7 +506,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [7%, mult]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [5%, mult]
@@ -637,7 +640,7 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [25%, add]
-          Outgoing Condition Damage: [25%, add]
+          Outgoing Condition Damage: [20%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, add]
@@ -708,13 +711,9 @@
       text: Weaver's Prowess
       subText: 100% uptime
       modifiers:
-        damage:
-          Outgoing Condition Damage: [5%, add]
         attributes:
           Condition Duration: 20%
       wvwModifiers:
-        damage:
-          Outgoing Condition Damage: [10%, add]
         attributes:
           Condition Duration: 7%
       gw2id: 2180
@@ -729,7 +728,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, add]
+          Outgoing Strike Damage: [7%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, add]
@@ -788,7 +787,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Condition Damage: [7%, add]
+          Outgoing Condition Damage: [5%, add]
           Outgoing Strike Damage: [7%, add] # untested; please confirm!
       wvwModifiers:
         damage:
@@ -1103,8 +1102,8 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Outgoing Strike Damage: [2%, add] # per Crone
-          Outgoing Condition Damage: [2%, add]
+          Outgoing Strike Damage: [1%, add] # per Crone
+          Outgoing Condition Damage: [1%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [1%, add] # per Crone
@@ -1469,7 +1468,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Condition Damage: [15%, add]
+          Outgoing Condition Damage: [10%, add]
       wvwModifiers:
         damage:
           Outgoing Condition Damage: [20%, add]
@@ -1485,7 +1484,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, add]
+          Outgoing Strike Damage: [10%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [20%, add]

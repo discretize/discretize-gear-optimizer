@@ -240,7 +240,7 @@
       subText: 100% fury
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, add]
+          Outgoing Strike Damage: [7%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, add]
@@ -413,6 +413,9 @@
       minor: true
       modifiers:
         damage:
+          Outgoing Strike Damage: [0.5%, mult]
+      wvwModifiers:
+        damage:
           Outgoing Strike Damage: [1%, mult]
       gw2id: 621
       defaultEnabled: true
@@ -426,6 +429,9 @@
         quantityEntered: 100
       modifiers:
         damage:
+          Outgoing Strike Damage: [5%, mult]
+      wvwModifiers:
+        damage:
           Outgoing Strike Damage: [7%, mult]
       gw2id: 624
       defaultEnabled: true
@@ -438,6 +444,9 @@
         default: 100
         quantityEntered: 100
       modifiers:
+        damage:
+          Outgoing Strike Damage: [5%, add]
+      wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, add]
       gw2id: 624
@@ -495,6 +504,9 @@
     - id: zealots-aggression
       text: Zealot's Aggression
       modifiers:
+        damage:
+          Outgoing Strike Damage: [7%, mult]
+      wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, mult]
       gw2id: 1835
@@ -572,7 +584,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [25%, mult]
+          Outgoing Strike Damage: [20%, mult]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [15%, mult]
@@ -661,8 +673,8 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Outgoing Strike Damage: [3%, add] # as per Cat
-          Outgoing Condition Damage: [2%, add] # ???
+          Outgoing Strike Damage: [2%, add] # as per Cat
+          Outgoing Condition Damage: [1%, add] # ???
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [2%, add] # as per Cat
