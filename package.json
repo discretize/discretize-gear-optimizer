@@ -59,7 +59,7 @@
     "@mui/icons-material": "^7.3.9",
     "@mui/material": "^7.3.9",
     "@reduxjs/toolkit": "^2.11.2",
-    "axios": "^1.14.0",
+    "axios": "^1.15.0",
     "comlink": "^4.4.2",
     "i18next": "^26.0.3",
     "js-yaml": "^4.1.1",
