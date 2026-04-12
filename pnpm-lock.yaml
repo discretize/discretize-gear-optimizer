@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  axios@0.26.1: ^0.31.0
+  axios@0.26.1: ^1.15.0
   tar@6.2.1: ^7.5.7
 
 importers:
@@ -1696,9 +1696,6 @@ packages:
     resolution: {integrity: sha512-byD6KPdvo72y/wj2T/4zGEvvlis+PsZsn/yPS3pEO+sFpcrqRpX/TJCxvVaEsNeMrfQbCr7w163YqoD9IYwHXw==}
     engines: {node: '>=4'}
 
-  axios@0.31.0:
-    resolution: {integrity: sha512-HGIUj/P74co3rSLBV9SHz9LMgCmrXFEtkfMcC5r6bS5j3dBHUcAje2tS4fmU6WM20kuhvUX04XE58594dpgi1g==}
-
   axios@1.15.0:
     resolution: {integrity: sha512-wWyJDlAatxk30ZJer+GeCWS209sA42X+N5jU2jy6oHTp7ufw8uzUTVFBX9+wTfAlhiJXGS0Bq7X6efruWjuK9Q==}
 
@@ -3047,9 +3044,6 @@ packages:
 
   proxy-compare@3.0.1:
     resolution: {integrity: sha512-V9plBAt3qjMlS1+nC8771KNf6oJ12gExvaxnNzN/9yVRLdTv/lc+oJlnSzrdYDAvBfTStPCoiaCOTmTs0adv7Q==}
-
-  proxy-from-env@1.1.0:
-    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
 
   proxy-from-env@2.1.0:
     resolution: {integrity: sha512-cJ+oHTW1VAEa8cJslgmUZrc+sjRKgAKl3Zyse6+PV38hZe/V6Z14TbCuXcan9F9ghlz4QrFr2c92TNF82UkYHA==}
@@ -5085,14 +5079,6 @@ snapshots:
 
   axe-core@4.11.2: {}
 
-  axios@0.31.0:
-    dependencies:
-      follow-redirects: 1.15.11
-      form-data: 4.0.5
-      proxy-from-env: 1.1.0
-    transitivePeerDependencies:
-      - debug
-
   axios@1.15.0:
     dependencies:
       follow-redirects: 1.15.11
@@ -5133,7 +5119,7 @@ snapshots:
 
   binary-install@1.1.2:
     dependencies:
-      axios: 0.31.0
+      axios: 1.15.0
       rimraf: 3.0.2
       tar: 7.5.13
     transitivePeerDependencies:
@@ -6633,8 +6619,6 @@ snapshots:
       react-is: 16.13.1
 
   proxy-compare@3.0.1: {}
-
-  proxy-from-env@1.1.0: {}
 
   proxy-from-env@2.1.0: {}
 
