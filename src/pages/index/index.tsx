@@ -39,9 +39,9 @@ const IndexPage = () => {
         Feb 24, 2026 balance patch
       </Link>
       .
-      {/* <br />
       <br />
-      <i>Jan 13 patch:</i>
+      <br />
+      <i>April 14 patch:</i>
       <ul>
         <li>
           <i>Modifiers: outdated</i>
@@ -49,7 +49,7 @@ const IndexPage = () => {
         <li>
           <i>Templates: outdated</i>
         </li>
-      </ul> */}
+      </ul>
     </Trans>,
     <Trans>
       Report gear optimizer issues and suggest improvements in the Discretize{' '}
