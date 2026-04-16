@@ -34,7 +34,7 @@ jobs:
           ref: ${{ github.event.pull_request.merge_commit_sha }}
 
       - name: Set up PNPM
-        uses: pnpm/action-setup@v5
+        uses: pnpm/action-setup@v6
       - name: Set up Node
         uses: actions/setup-node@v6
         with:
