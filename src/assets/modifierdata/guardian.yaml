@@ -240,7 +240,7 @@
       subText: 100% fury
       modifiers:
         damage:
-          Outgoing Strike Damage: [7%, add]
+          Outgoing Strike Damage: [10%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, add]
@@ -505,9 +505,6 @@
       text: Zealot's Aggression
       modifiers:
         damage:
-          Outgoing Strike Damage: [7%, mult]
-      wvwModifiers:
-        damage:
           Outgoing Strike Damage: [10%, mult]
       gw2id: 1835
       defaultEnabled: true
@@ -569,7 +566,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [20%, mult]
+          Outgoing Strike Damage: [25%, mult]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [15%, mult]
@@ -673,7 +670,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Outgoing Strike Damage: [2%, add] # as per Cat
+          Outgoing Strike Damage: [3%, add] # as per Cat
           Outgoing Condition Damage: [1%, add] # ???
       wvwModifiers:
         damage:
@@ -705,9 +702,6 @@
 
 - section: Luminary
   id: 81
-  note: >-
-    According to community testing, Empowered Armaments currently produces an undocumented 3% damage
-    buff when the player has Luminary's Blessing.
   items:
 
     - id: lights-gift
@@ -729,19 +723,6 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [10%, add] # https://discord.com/channels/380901000200060929/380903704808652801/1433364198204899340
-      gw2id: 2419
-      defaultEnabled: true
-
-    - id: empowered-armaments-bugged
-      text: Empowered Armaments
-      subText: undocumented effect
-      amountData:
-        label: "% Luminary's Blessing"
-        default: 100
-        quantityEntered: 100
-      modifiers:
-        damage:
-          Outgoing Strike Damage: [3%, add]
       gw2id: 2419
       defaultEnabled: true
 

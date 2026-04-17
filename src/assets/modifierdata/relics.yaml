@@ -535,7 +535,7 @@
         quantityEntered: 10
       modifiers:
         attributes:
-          Burning Coefficient: 4
+          Burning Coefficient: 5
       wvwModifiers:
         attributes:
           Burning Coefficient: 4

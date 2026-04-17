@@ -471,7 +471,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, mult] # tested by Snappy Joe
+          Outgoing Strike Damage: [5%, mult] # tested by Snappy Joe
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, mult]

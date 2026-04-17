@@ -622,6 +622,7 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [5%, add]
+          Outgoing Condition Damage: [5%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, add]

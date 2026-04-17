@@ -827,9 +827,6 @@
       subText: base
       modifiers:
         damage:
-          Outgoing Critical Damage: [12.5%, unknown]
-      wvwModifiers:
-        damage:
           Outgoing Critical Damage: [10%, unknown]
       gw2id: 2188
       defaultEnabled: true
@@ -1041,7 +1038,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [7%, add]
+          Outgoing Strike Damage: [5%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, add]

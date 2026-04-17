@@ -2250,9 +2250,6 @@ list:
             "lights-gift": {},
             "empowered-armaments": {
               "amount": ""
-            },
-            "empowered-armaments-bugged": {
-              "amount": ""
             }
           }
         ]
@@ -2612,9 +2609,6 @@ list:
             "empowered-armaments": {
               "amount": ""
             },
-            "empowered-armaments-bugged": {
-              "amount": "90"
-            },
             "radiant-armaments-hammer": {
               "amount": "86"
             },
@@ -2693,9 +2687,6 @@ list:
           {
             "lights-gift": {},
             "empowered-armaments": {
-              "amount": ""
-            },
-            "empowered-armaments-bugged": {
               "amount": ""
             },
             "radiant-armaments-hammer": {
