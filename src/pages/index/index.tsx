@@ -39,6 +39,12 @@ const IndexPage = () => {
         April 14, 2026 balance patch
       </Link>
       .
+      <br />
+      <br />
+      <i>
+        Note: every build template have been unconditionally marked as outdated to speed up getting
+        this patch released, but some are actually accurate. This may be fixed in the future.
+      </i>
       {/* <br />
       <br />
       <i>April 14 patch:</i>
