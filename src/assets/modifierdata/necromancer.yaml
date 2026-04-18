@@ -217,6 +217,9 @@
         quantityEntered: 100
       modifiers:
         damage:
+          Outgoing Strike Damage: [5%, mult]
+      wvwModifiers:
+        damage:
           Outgoing Strike Damage: [10%, mult]
       gw2id: 914
       defaultEnabled: true
@@ -543,6 +546,11 @@
         attributes:
           Critical Chance: 15%
         damage:
+          Outgoing Alternative Critical Damage: [10%, unknown]
+      wvwModifiers:
+        attributes:
+          Critical Chance: 15%
+        damage:
           Outgoing Alternative Critical Damage: [15%, unknown]
       gw2id: 893
       defaultEnabled: true
@@ -747,6 +755,9 @@
         quantityEntered: 100
       modifiers:
         damage:
+          Outgoing Strike Damage: [12%, mult]
+      wvwModifiers:
+        damage:
           Outgoing Strike Damage: [10%, mult]
       gw2id: 1969
       defaultEnabled: true
@@ -763,17 +774,16 @@
 
     - id: cold-shoulder
       text: Cold Shoulder
-      amountData:
-        label: '% chill'
-        default: 100
-        quantityEntered: 100
+      subText: 100% chill
       minor: true
       modifiers:
         damage:
           Outgoing Strike Damage: [15%, mult]
+          Damage Reduction: [0%, mult] # todo: unknown
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, mult]
+          Damage Reduction: [0%, mult] # todo: unknown
       gw2id: 2018
       defaultEnabled: true
 
@@ -816,9 +826,6 @@
       text: Wicked Corruption
       subText: base
       modifiers:
-        damage:
-          Outgoing Critical Damage: [12.5%, unknown]
-      wvwModifiers:
         damage:
           Outgoing Critical Damage: [10%, unknown]
       gw2id: 2188
@@ -945,6 +952,9 @@
       subText: base conversion
       modifiers:
         conversion:
+          Expertise: {Vitality: 10%}
+      wvwModifiers:
+        conversion:
           Expertise: {Vitality: 13%}
       gw2id: 2209
       defaultEnabled: true
@@ -955,6 +965,9 @@
       subText: conversion of Alchemic Vigor
       modifiers:
         attributes:
+          Expertise: [24, buff] # pseudo-conversion of alchemic vigor (minor in this line)
+      wvwModifiers:
+        attributes:
           Expertise: [31, buff] # pseudo-conversion of alchemic vigor (minor in this line)
       gw2id: 2209
       defaultEnabled: true
@@ -964,6 +977,9 @@
       text: Dark Gunslinger
       subText: conversion of Vital Persistance
       modifiers:
+        attributes:
+          Expertise: [18, buff] # pseudo-conversion of vital persistence
+      wvwModifiers:
         attributes:
           Expertise: [24, buff] # pseudo-conversion of vital persistence
       gw2id: 2209
@@ -984,7 +1000,10 @@
       text: Doom Approaches
       modifiers:
         attributes:
-          Condition Damage: [240, converted] # tested by Jezereal
+          Condition Damage: [180, converted] # tested by Jezereal
+      wvwModifiers:
+        attributes:
+          Condition Damage: [240, converted]
       gw2id: 2203
       defaultEnabled: true
       temporaryBuff: false
@@ -1019,7 +1038,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [7%, add]
+          Outgoing Strike Damage: [5%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, add]

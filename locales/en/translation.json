@@ -282,7 +282,6 @@
   "affix_Zealot": "Zealot",
   "affix_female": "female",
   "affix_male": "male",
-  "amountLabel_% Luminary's Blessing": "% Luminary's Blessing",
   "amountLabel_% above 50": "% above 50",
   "amountLabel_% above 80": "% above 80",
   "amountLabel_% aegis": "% aegis",
@@ -291,7 +290,6 @@
   "amountLabel_% below 50/disabled": "% below 50/disabled",
   "amountLabel_% berserk": "% berserk",
   "amountLabel_% boonless": "% boonless",
-  "amountLabel_% chill": "% chill",
   "amountLabel_% disabled/exposed": "% disabled/exposed",
   "amountLabel_% dual wielding": "% dual wielding",
   "amountLabel_% evolved": "% evolved",
@@ -1163,7 +1161,6 @@
   "total": "total",
   "traitNote": "traitNote",
   "traitNote_\"Sic 'Em!\" currently breaks air and hydromancy sigil simulation, and possibly some other effects.\n\nPredator's Cunning lifesteal damage may be omitted in arcdps area stats or parsed arcdps logs.": "\"Sic 'Em!\" currently breaks air and hydromancy sigil simulation, and possibly some other effects.\n\nPredator's Cunning lifesteal damage may be omitted in arcdps area stats or parsed arcdps logs.",
-  "traitNote_According to community testing, Empowered Armaments currently produces an undocumented 3% damage buff when the player has Luminary's Blessing.": "According to community testing, Empowered Armaments currently produces an undocumented 3% damage buff when the player has Luminary's Blessing.",
   "traitNote_According to community testing, spirit cast attacks probably use normal damage calculation and can be treated as player skills, but spirit autoattacks are unaffected by player stats.": "According to community testing, spirit cast attacks probably use normal damage calculation and can be treated as player skills, but spirit autoattacks are unaffected by player stats.",
   "traitNote_Be sure to change the burning coefficient value below when adding or removing traits without checkboxes like legendary lore.": "Be sure to change the burning coefficient value below when adding or removing traits without checkboxes like legendary lore.",
   "traitNote_Be sure to change the condition coefficient values below when adding or removing traits without checkboxes that implement their full effects like demonic lore.": "Be sure to change the condition coefficient values below when adding or removing traits without checkboxes that implement their full effects like demonic lore.",
@@ -1191,6 +1188,7 @@
   "traitSubText_100%": "100%",
   "traitSubText_100% alacrity": "100% alacrity",
   "traitSubText_100% burning enemy": "100% burning enemy",
+  "traitSubText_100% chill": "100% chill",
   "traitSubText_100% flanking (check both)": "100% flanking (check both)",
   "traitSubText_100% flanking/defiant": "100% flanking/defiant",
   "traitSubText_100% fury": "100% fury",
@@ -1303,7 +1301,6 @@
   "traitSubText_staff": "staff",
   "traitSubText_torment only": "torment only",
   "traitSubText_toughness from carapace": "toughness from carapace",
-  "traitSubText_undocumented effect": "undocumented effect",
   "traitSubText_virtuoso": "virtuoso",
   "traitSubText_virtuoso (bugged version)": "virtuoso (bugged version)",
   "traitSubText_when pet unleashed": "when pet unleashed",
@@ -1334,5 +1331,5 @@
   "traitSubText_with staff": "with staff",
   "traitSubText_with sword": "with sword",
   "traitSubText_with torch/dagger": "with torch/dagger",
-  "🎉 Visions of Eternity has been released! 🎉<br/><br/>All VoE elite specialization modifiers are now implemented, with new code to simulate fluctuating player stats! Game data is updated for the <5>Feb 24, 2026 balance patch</5>.<br/><br/><i>April 14 patch:</i><10><0><i>Modifiers: outdated</i></0><1><i>Templates: outdated</i></1></10>": "🎉 Visions of Eternity has been released! 🎉<br/><br/>All VoE elite specialization modifiers are now implemented, with new code to simulate fluctuating player stats! Game data is updated for the <5>Feb 24, 2026 balance patch</5>.<br/><br/><i>April 14 patch:</i><10><0><i>Modifiers: outdated</i></0><1><i>Templates: outdated</i></1></10>"
+  "🎉 Visions of Eternity has been released! 🎉<br/><br/>All VoE elite specialization modifiers are now implemented, with new code to simulate fluctuating player stats! Game data is updated for the <5>April 14, 2026 balance patch</5>.<br/><br/><i>Note: every build template have been unconditionally marked as outdated to speed up getting this patch released, but some are actually accurate. This may be fixed in the future.</i>": "🎉 Visions of Eternity has been released! 🎉<br/><br/>All VoE elite specialization modifiers are now implemented, with new code to simulate fluctuating player stats! Game data is updated for the <5>April 14, 2026 balance patch</5>.<br/><br/><i>Note: every build template have been unconditionally marked as outdated to speed up getting this patch released, but some are actually accurate. This may be fixed in the future.</i>"
 }

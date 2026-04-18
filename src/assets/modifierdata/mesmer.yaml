@@ -268,8 +268,12 @@
       modifiers:
         attributes:
           Concentration: [250, converted]
-          Expertise: [250, converted]
+          Expertise: [100, converted]
           # converted: https://discord.com/channels/380901000200060929/875327743334707251/911570311177207818
+      wvwModifiers:
+        attributes:
+          Concentration: [250, converted]
+          Expertise: [250, converted]
       gw2id: 1865
       defaultEnabled: true
       temporaryBuff: true
@@ -298,6 +302,10 @@
         default: 5
         quantityEntered: 5
       modifiers:
+        damage:
+          Outgoing Strike Damage: [5%, add]
+          Outgoing Condition Damage: [5%, add]
+      wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, add]
           Outgoing Condition Damage: [10%, add]
@@ -356,8 +364,11 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Critical Damage: [10%, mult]
+          Outgoing Critical Damage: [5%, mult]
           # the optimizer currently doesn't calculate clone power damage
+      wvwModifiers:
+        damage:
+          Outgoing Critical Damage: [10%, mult]
       gw2id: 2009
       defaultEnabled: true
 
@@ -376,7 +387,7 @@
       text: Chronophantasma
       modifiers:
         damage:
-          Outgoing Phantasm Damage: [115%, mult]
+          Outgoing Phantasm Damage: [105%, mult]
       wvwModifiers:
         damage:
           Outgoing Phantasm Damage: [50%, mult]
@@ -394,6 +405,10 @@
         default: 100
         quantityEntered: 100
       modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [5%, add]
+      wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, add]
           Outgoing Condition Damage: [10%, add]
@@ -456,7 +471,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, mult] # tested by Snappy Joe
+          Outgoing Strike Damage: [5%, mult] # tested by Snappy Joe
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, mult]
@@ -509,6 +524,10 @@
         default: 100
         quantityEntered: 100
       modifiers:
+        damage:
+          Outgoing Strike Damage: [5%, add]
+          Outgoing Condition Damage: [10%, add]
+      wvwModifiers:
         damage:
           Outgoing Strike Damage: [5%, add]
           Outgoing Condition Damage: [5%, add]

@@ -16,7 +16,7 @@ list:
         raid:
           extras: Power (Raid, claw)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Condi Virtuoso Dueling
         id: cvirt
@@ -27,7 +27,7 @@ list:
         traits: Condi Virtuoso Dueling
         extras: Condi Virtuoso Dueling
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       # - name: Condi Virtuoso (sharpening sorrow)
       #   id: cvirt-sorrow
@@ -257,7 +257,7 @@ list:
         traits: Alacrity Condi Mirage Staxe IH Oasis
         extras: DPS Mirage (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Alacrity Condi Mirage Staff (Approx.)
         id: alacmirage
@@ -268,7 +268,7 @@ list:
         traits: Alacrity Condi Mirage Staff
         extras: Alacrity Condi Mirage Staff
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Condi Mirage Staxe IH Oasis
         id: condi-staxe-mirage
@@ -279,7 +279,7 @@ list:
         traits: Condi Mirage Staxe IH Oasis
         extras: DPS Mirage (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Condi Axe Mirage
         id: axe-mirage-deception-torch
@@ -318,7 +318,7 @@ list:
         traits: Heal Chrono
         extras: Heal
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
   - class: Guardian
     builds:
@@ -382,7 +382,7 @@ list:
         traits: Quickness Condi Firebrand P/T P/P
         extras: Quickness Condi Firebrand
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Quickness Power Firebrand
         id: pqfb
@@ -500,7 +500,7 @@ list:
         traits: Condi Willbender
         extras: Condi Willbender
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Willbender SC/P P/T
         id: cwb-scepter
@@ -511,7 +511,7 @@ list:
         traits: Condi Willbender
         extras: Condi Willbender Warrior
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Willbender GS
         id: cwb-gs
@@ -595,7 +595,7 @@ list:
         traits: Heal Quickness Firebrand
         extras: Heal
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Heal Alacrity Willbender
         id: heal-willbender
@@ -609,7 +609,7 @@ list:
         traits: Heal Alacrity Willbender
         extras: Heal (concentration)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Heal Alacrity Luminary
         id: heal-luminary
@@ -623,7 +623,7 @@ list:
         traits: Heal Alacrity Luminary
         extras: Heal (concentration)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
   - class: Warrior
     builds:
@@ -637,7 +637,7 @@ list:
         traits: Hybrid Paragon S/S
         extras: Hybrid Paragon S/S
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Alacrity Power Bladesworn Signets
         id: bls-alac-signets
@@ -782,7 +782,7 @@ list:
         traits: Heal Quickness Berserker
         extras: Heal (concentration)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Heal Alacrity Paragon
         id: heal-paragon
@@ -796,7 +796,7 @@ list:
         traits: Heal Alacrity Paragon
         extras: Heal
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
   - class: Elementalist
     builds:
@@ -813,7 +813,7 @@ list:
         raid:
           extras: Power Evoker PF (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Quickness Power Evoker Hare Inferno
         id: evoker-hare-inferno-quick
@@ -827,7 +827,7 @@ list:
         raid:
           extras: Power Evoker Hare Inferno (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Alacrity Power Evoker Toad
         id: evoker-toad-alac
@@ -841,7 +841,7 @@ list:
         raid:
           extras: Power Evoker PF (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Evoker P/D
         id: evoker-condi-pd
@@ -852,7 +852,7 @@ list:
         traits: Condi Evoker
         extras: Condi Evoker
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Evoker Hare PF
         id: evoker-hare-pf
@@ -866,7 +866,7 @@ list:
         raid:
           extras: Power Evoker PF (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Evoker Hare Inferno
         id: evoker-hare-inferno
@@ -880,7 +880,7 @@ list:
         raid:
           extras: Power Evoker Hare Inferno (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Quickness Fire SE Evoker Inferno
         id: fire-se-evoker-inferno
@@ -894,7 +894,7 @@ list:
         raid:
           extras: Fire SE Evoker Inferno (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Quickness Fire SE Evoker Condi (Approx.)
         id: fire-se-evoker-condi-quick
@@ -905,7 +905,7 @@ list:
         traits: Quickness Fire SE Evoker Condi
         extras: Fire SE Evoker Condi
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Quickness Fire SE Evoker Trailblazer (Approx.)
         id: fire-se-evoker-trailblazer-quick
@@ -916,7 +916,7 @@ list:
         traits: Quickness Fire SE Evoker Trailblazer
         extras: Fire SE Evoker Trailblazer
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Fire SE Evoker Inferno
         id: fire-se-evoker-inferno-quickness
@@ -930,7 +930,7 @@ list:
         raid:
           extras: Fire SE Evoker Inferno (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Fire SE Evoker Condi (Approx.)
         id: fire-se-evoker-condi
@@ -941,7 +941,7 @@ list:
         traits: Fire SE Evoker Condi
         extras: Fire SE Evoker Condi
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Fire SE Evoker Trailblazer (Approx.)
         id: fire-se-evoker-trailblazer
@@ -952,7 +952,7 @@ list:
         traits: Fire SE Evoker Trailblazer
         extras: Fire SE Evoker Trailblazer
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Alacrity Condi Tempest Scepter
         id: ctemp-alac
@@ -963,7 +963,7 @@ list:
         traits: Alacrity Condi Tempest Scepter
         extras: Condi Tempest
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Alacrity Fire Tempest Inferno
         id: ptemp-blood-alac
@@ -977,7 +977,7 @@ list:
         raid:
           extras: Alacrity Fire Tempest Inferno (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Alacrity Power Tempest Sword
         id: ptemp-alac-sw
@@ -991,7 +991,7 @@ list:
         raid:
           extras: Power Boon (Raid, fireworks)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Alacrity Power Tempest Hammer
         id: ptemp-alac-ham
@@ -1030,7 +1030,7 @@ list:
         raid:
           extras: Power Tempest Inferno (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Fire-only Tempest (Approx.)
         id: ptemp-blood-fire-camp
@@ -1044,7 +1044,7 @@ list:
         raid:
           extras: Alacrity Fire Tempest Inferno (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Tempest Scepter
         id: ptemp
@@ -1073,7 +1073,7 @@ list:
           traits: Power Weaver Raid
           extras: Power Weaver (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Weaver P/D
         id: cwea-pi
@@ -1084,7 +1084,7 @@ list:
         traits: Condi Weaver P/D
         extras: Condi Weaver
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Weaver Staff
         id: cwea-staff
@@ -1106,7 +1106,7 @@ list:
         traits: Condi Weaver Scepter
         extras: Condi Weaver Scepter
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Weaver Sword
         id: cwea-sw
@@ -1142,7 +1142,7 @@ list:
         raid:
           extras: Fire-only Weaver Inferno (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Hybrid Weaver
         id: hwea
@@ -1167,7 +1167,7 @@ list:
         traits: Quickness Condi Catalyst P/D
         extras: Condi Catalyst P/D
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Quickness Condi Catalyst P/W
         id: condi-cat-quick-pw
@@ -1178,7 +1178,7 @@ list:
         traits: Quickness Condi Catalyst P/W
         extras: Condi Catalyst P/W
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Quickness Power Catalyst Scepter Inferno
         id: power-cat-quick-inferno
@@ -1192,7 +1192,7 @@ list:
         raid:
           extras: Power Catalyst Scepter Inferno (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Quickness Power Catalyst Scepter PF
         id: power-cat-quick
@@ -1206,7 +1206,7 @@ list:
         raid:
           extras: Power Catalyst Scepter PF (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Catalyst P/D Steamshrieker (Approx.)
         id: condi-cat-pd
@@ -1217,7 +1217,7 @@ list:
         traits: Condi Catalyst P/D
         extras: Condi Catalyst P/D
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Catalyst Scepter Inferno
         id: power-cat-inferno
@@ -1231,7 +1231,7 @@ list:
         raid:
           extras: Power Catalyst Scepter Inferno (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Catalyst Scepter PF
         id: power-cat
@@ -1245,7 +1245,7 @@ list:
         raid:
           extras: Power Catalyst Scepter PF (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Heal Quickness Catalyst
         id: healcat
@@ -1259,7 +1259,7 @@ list:
         traits: Heal Quickness Catalyst
         extras: Heal
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Heal Alacrity Tempest
         id: healtemp
@@ -1273,7 +1273,7 @@ list:
         traits: Heal Alacrity Tempest
         extras: Heal
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Heal Alacrity Evoker
         id: healevoker
@@ -1287,7 +1287,7 @@ list:
         traits: Heal Alacrity Evoker
         extras: Heal
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
   - class: Ranger
     builds:
@@ -1304,7 +1304,7 @@ list:
         raid:
           extras: Power Galeshot (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Quickness Condi Untamed
         id: condi-quickness-untamed
@@ -1315,7 +1315,7 @@ list:
         traits: Quickness Condi Untamed
         extras: Quickness Condi Untamed
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Quickness Power Untamed HA S/A NM
         id: quickness-power-untamed
@@ -1329,7 +1329,7 @@ list:
         raid:
           extras: Power Quickness Untamed (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Power Untamed HA S/A
         id: power-untamed
@@ -1343,7 +1343,7 @@ list:
         raid:
           extras: Power Untamed (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Power Soulbeast
         id: pslb
@@ -1398,7 +1398,7 @@ list:
         traits: Condi Slb D/D SB
         extras: Condi Slb
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Druid LOYF
         id: condidruid
@@ -1409,7 +1409,7 @@ list:
         traits: Condi Druid LOYF
         extras: Condi Druid
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Heal Quickness Untamed
         id: healuntamed
@@ -1423,7 +1423,7 @@ list:
         traits: Heal Quickness Untamed
         extras: Heal
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Heal Alacrity Druid
         id: druid
@@ -1437,7 +1437,7 @@ list:
         traits: Heal Alacrity Druid
         extras: Heal
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
   - class: Revenant
     builds:
@@ -1490,7 +1490,7 @@ list:
         raid:
           extras: Power Quickness Herald (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Quickness Condi Herald Spear M/A
         id: cherald-quick
@@ -1501,7 +1501,7 @@ list:
         traits: Condi Quickness Herald
         extras: Condi Quickness Herald
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Quickness Condi Herald Spear
         id: cherald-quick-spearonly
@@ -1512,7 +1512,7 @@ list:
         traits: Condi Quickness Herald
         extras: Condi Quickness Herald
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Power Herald FP
         id: herald
@@ -1537,7 +1537,7 @@ list:
         traits: Alacrity Condi Renegade Invo
         extras: Alacrity Condi Renegade
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Alacrity Condi Renegade SB M/A
         id: cren-alac-invo
@@ -1562,7 +1562,7 @@ list:
         raid:
           extras: Alacrity Power Renegade (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Condi Renegade Spear M/A
         id: cren-spear-mace
@@ -1573,7 +1573,7 @@ list:
         traits: Condi Renegade Invo
         extras: Condi Renegade
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Condi Renegade Spear
         id: cren-spear
@@ -1584,7 +1584,7 @@ list:
         traits: Condi Renegade Invo
         extras: Condi Renegade
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Condi Renegade SB Invo
         id: cren-invo
@@ -1623,7 +1623,7 @@ list:
         traits: Heal Ren
         extras: Heal
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Heal Quickness Herald
         id: heal-herald
@@ -1637,7 +1637,7 @@ list:
         traits: Heal Herald
         extras: Heal
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
   - class: Engineer
     builds:
@@ -1654,7 +1654,7 @@ list:
         raid:
           extras: Power (Raid, bloodstone 0.6)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Alacrity Condi Amalgam 2 Kit
         id: amalgam-condi-alac
@@ -1665,7 +1665,7 @@ list:
         traits: Alacrity Condi Amalgam 2 Kit
         extras: Condi Amalgam
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Alacrity Condi Amalgam 4 Kit
         id: amalgam-condi-alac-steamshrieker
@@ -1676,7 +1676,7 @@ list:
         traits: Alacrity Condi Amalgam 4 Kit
         extras: Condi Amalgam Steamshrieker
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Quickness Power Scrapper (Approx.)
         id: pqscrap
@@ -1690,7 +1690,7 @@ list:
         raid:
           extras: Power (Raid, fireworks)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Quickness Condi Scrapper
         id: cqscrap
@@ -1701,7 +1701,7 @@ list:
         traits: Quickness Condi Scrapper
         extras: Quickness Condi Scrapper
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Power Scrapper (Approx.)
         id: pscrap
@@ -1715,7 +1715,7 @@ list:
         raid:
           extras: Power (Raid, fireworks)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Power Holo ECSU (Approx.)
         id: pholo-ecsu
@@ -1729,7 +1729,7 @@ list:
         raid:
           extras: Power Holo (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Holo PBM (Approx.)
         id: pholo-pbm
@@ -1754,7 +1754,7 @@ list:
         traits: Condi Holo
         extras: Condi Holo
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       # - name: Condi Mech J-Drive (Approx.)
       #   id: cmech-sig-mace
@@ -1801,7 +1801,7 @@ list:
         traits: Heal Quickness Scrapper
         extras: Heal
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Heal Alacrity Mechanist
         id: healmech
@@ -1815,7 +1815,7 @@ list:
         traits: Heal Alacrity Mechanist
         extras: Heal
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Heal Alacrity Amalgam
         id: healamalgam
@@ -1829,7 +1829,7 @@ list:
         traits: Heal Alacrity Amalgam
         extras: Heal
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
   - class: Necromancer
     builds:
@@ -1857,7 +1857,7 @@ list:
         traits: Quickness Condi Harbinger
         extras: Quickness Condi Harbinger
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Quickness Power Harbinger
         id: qharb-power
@@ -1907,7 +1907,7 @@ list:
         traits: Condi Alacrity Scourge
         extras: DPS Scourge
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Scourge
         id: scourge
@@ -1918,7 +1918,7 @@ list:
         traits: DPS Scourge
         extras: DPS Scourge
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Reaper
         id: preaper
@@ -1968,7 +1968,7 @@ list:
         traits: Heal Quickness Ritualist
         extras: Heal
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Heal Alacrity Scourge
         id: healscourge
@@ -1982,7 +1982,7 @@ list:
         traits: Heal Alacrity Scourge
         extras: Heal
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
   - class: Thief
     builds:
@@ -2021,7 +2021,7 @@ list:
         traits: Alacrity Condi Specter SC/D
         extras: Alacrity Condi Specter
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Alacrity Condi Specter D/D
         id: specter-alac-dd
@@ -2032,7 +2032,7 @@ list:
         traits: Alacrity Condi Specter D/D
         extras: Alacrity Condi Specter
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Specter Spear
         id: specter-spear
@@ -2087,7 +2087,7 @@ list:
         traits: Condi Daredevil D/D
         extras: Condi Daredevil D/D
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Daredevil Staff
         id: staffdd
@@ -2101,7 +2101,7 @@ list:
         raid:
           extras: Power Daredevil Staff
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Quickness Condi Deadeye Spear
         id: quick-cded-spear
@@ -2137,7 +2137,7 @@ list:
         traits: Condi Deadeye A/D
         extras: Condi Deadeye A/D
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Deadeye Rifle
         id: pded-m7
@@ -2151,7 +2151,7 @@ list:
         raid:
           extras: Power Deadeye (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Power Deadeye Spear
         id: pded-spear
@@ -2215,7 +2215,7 @@ list:
         traits: Condi Thief A/D
         extras: Condi Thief A/D
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Heal Alacrity Specter
         id: heal-specter
@@ -2226,4 +2226,4 @@ list:
         traits: Heal Specter
         extras: Heal
         weaponType: Dual wield
-        outdated: false
+        outdated: true
