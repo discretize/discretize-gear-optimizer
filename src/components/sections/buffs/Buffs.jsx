@@ -74,7 +74,7 @@ const Buffs = () => {
       {buffModifiers.map((section) => (
         <Grid key={section.section} size={{ xs: 12, sm: 6, md: 4 }}>
           <FormControl component="fieldset" className={classes.formControl}>
-            <FormLabel component="legend">
+            <FormLabel component="legend" sx={{ whiteSpace: 'pre' }}>
               {
                 // i18next-extract-mark-context-next-line {{buffSection}}
                 t('buffSection', { context: section.section })
@@ -82,7 +82,16 @@ const Buffs = () => {
             </FormLabel>
             <FormGroup>
               {section.items.map((buff) => {
-                const { type, componentNameProp, text, id, gw2id, subText, amountData } = buff;
+                const {
+                  type,
+                  componentNameProp,
+                  textOverride,
+                  text,
+                  id,
+                  gw2id,
+                  subText,
+                  amountData,
+                } = buff;
 
                 const Component = components[type];
                 const name =
@@ -110,7 +119,13 @@ const Buffs = () => {
                     </>
                   ) : (
                     <>
-                      <Component id={gw2id} name={name} disableLink className={classes.boon} />
+                      <Component
+                        id={gw2id}
+                        name={name}
+                        text={textOverride}
+                        disableLink
+                        className={classes.boon}
+                      />
                       {subText && (
                         <Typography variant="caption" className={classes.tinyNote}>
                           {' '}
