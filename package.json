@@ -46,7 +46,7 @@
     "disable-hooks": "git config --unset core.hooksPath"
   },
   "resolutions": {
-    "axios@0.26.1": "^1.15.0",
+    "axios@0.26.1": "^1.15.1",
     "tar@6.2.1": "^7.5.7"
   },
   "dependencies": {
@@ -59,7 +59,7 @@
     "@mui/icons-material": "^7.3.9",
     "@mui/material": "^7.3.9",
     "@reduxjs/toolkit": "^2.11.2",
-    "axios": "^1.15.0",
+    "axios": "^1.15.1",
     "comlink": "^4.4.2",
     "i18next": "^26.0.5",
     "js-yaml": "^4.1.1",

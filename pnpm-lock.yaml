@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  axios@0.26.1: ^1.15.0
+  axios@0.26.1: ^1.15.1
   tar@6.2.1: ^7.5.7
 
 importers:
@@ -40,8 +40,8 @@ importers:
         specifier: ^2.11.2
         version: 2.11.2(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.5)(redux@5.0.1))(react@19.2.5)
       axios:
-        specifier: ^1.15.0
-        version: 1.15.0
+        specifier: ^1.15.1
+        version: 1.15.1
       comlink:
         specifier: ^4.4.2
         version: 4.4.2
@@ -1702,8 +1702,8 @@ packages:
     resolution: {integrity: sha512-byD6KPdvo72y/wj2T/4zGEvvlis+PsZsn/yPS3pEO+sFpcrqRpX/TJCxvVaEsNeMrfQbCr7w163YqoD9IYwHXw==}
     engines: {node: '>=4'}
 
-  axios@1.15.0:
-    resolution: {integrity: sha512-wWyJDlAatxk30ZJer+GeCWS209sA42X+N5jU2jy6oHTp7ufw8uzUTVFBX9+wTfAlhiJXGS0Bq7X6efruWjuK9Q==}
+  axios@1.15.1:
+    resolution: {integrity: sha512-WOG+Jj8ZOvR0a3rAn+Tuf1UQJRxw5venr6DgdbJzngJE3qG7X0kL83CZGpdHMxEm+ZK3seAbvFsw4FfOfP9vxg==}
 
   axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
@@ -5099,7 +5099,7 @@ snapshots:
 
   axe-core@4.11.2: {}
 
-  axios@1.15.0:
+  axios@1.15.1:
     dependencies:
       follow-redirects: 1.15.11
       form-data: 4.0.5
@@ -5139,7 +5139,7 @@ snapshots:
 
   binary-install@1.1.2:
     dependencies:
-      axios: 1.15.0
+      axios: 1.15.1
       rimraf: 3.0.2
       tar: 7.5.13
     transitivePeerDependencies:
