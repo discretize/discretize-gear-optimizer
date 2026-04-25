@@ -98,6 +98,57 @@
       gw2id: 681
       defaultEnabled: true
 
+    - id: power-block-damage
+      text: Power Block
+      subText: damage
+      amountData:
+        label: '/10s'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          NonCrit Power Coefficient: 1035.75
+      gw2id: 1688
+      temporaryBuff: true
+      defaultEnabled: true
+
+    - id: power-block-modifier-severance
+      text: Power Block
+      subText: modifier (during severance)
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: severance
+            group: true
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [25%, add]
+      gw2id: 1688
+      defaultEnabled: true
+
+    - id: power-block-modifier-no-severance
+      text: Power Block
+      subText: modifier (not during severance)
+      amountData:
+        label: '% uptime'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
+        advancedUptimeSimulation:
+          correlation:
+            category: severance
+            group: false
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [25%, add]
+      gw2id: 1688
+      defaultEnabled: true
+
 - section: Dueling
   id: 1
   items:
