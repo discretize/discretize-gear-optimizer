@@ -17,7 +17,7 @@ jobs:
       - name: Check that secrets exist
         id: check-secret-step
         run: |
-          if [ "${{ secrets.CI_CF_PAGES }}" != '' ]; then
+          if [ "${{ secrets.CLOUDFLARE_API_TOKEN_1 }}" != '' ]; then
             echo "exists=true" >> $GITHUB_OUTPUT;
           else
             echo "exists=false" >> $GITHUB_OUTPUT;
@@ -78,8 +78,8 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         id: wrangler-action
         with:
-          apiToken: ${{ secrets.CI_CF_PAGES }}
-          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_1 }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID_1 }}
           command: pages deploy dist --project-name=${{ env.PAGES_PROJECT_NAME }} --branch=${{ github.head_ref || github.ref_name }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
