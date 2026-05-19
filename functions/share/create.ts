@@ -1,3 +1,5 @@
+/// <reference types="@cloudflare/workers-types" />
+
 /* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-lonely-if */
@@ -82,6 +84,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       },
     );
   } catch (e) {
+    console.error(e);
     return new Response(
       JSON.stringify({
         'Status': 500,

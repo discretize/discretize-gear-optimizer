@@ -5,7 +5,7 @@ on:
 
 env:
   PAGES_PROJECT_NAME: optimizer
-  NODE_VERSION: 20
+  NODE_VERSION: lts/*
 
 jobs:
   # see https://github.com/orgs/community/discussions/26726, https://stackoverflow.com/a/70249520
@@ -17,7 +17,7 @@ jobs:
       - name: Check that secrets exist
         id: check-secret-step
         run: |
-          if [ "${{ secrets.CI_CF_PAGES }}" != '' ]; then
+          if [ "${{ secrets.CLOUDFLARE_API_TOKEN_1 }}" != '' ]; then
             echo "exists=true" >> $GITHUB_OUTPUT;
           else
             echo "exists=false" >> $GITHUB_OUTPUT;
@@ -44,7 +44,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Set up PNPM
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
       - name: Set up Node
         uses: actions/setup-node@v6
         with:
@@ -78,8 +78,8 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         id: wrangler-action
         with:
-          apiToken: ${{ secrets.CI_CF_PAGES }}
-          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_1 }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID_1 }}
           command: pages deploy dist --project-name=${{ env.PAGES_PROJECT_NAME }} --branch=${{ github.head_ref || github.ref_name }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 

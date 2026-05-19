@@ -1,5 +1,5 @@
 use crate::data::{affix::Affix, combination::Combination, settings::Settings};
-use rand::Rng;
+use rand::RngExt;
 use serde_json::Value;
 use wasm_bindgen::JsValue;
 use web_sys::console;

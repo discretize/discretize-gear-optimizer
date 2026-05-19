@@ -2250,9 +2250,6 @@ list:
             "lights-gift": {},
             "empowered-armaments": {
               "amount": ""
-            },
-            "empowered-armaments-bugged": {
-              "amount": ""
             }
           }
         ]
@@ -2612,9 +2609,6 @@ list:
             "empowered-armaments": {
               "amount": ""
             },
-            "empowered-armaments-bugged": {
-              "amount": "90"
-            },
             "radiant-armaments-hammer": {
               "amount": "86"
             },
@@ -2693,9 +2687,6 @@ list:
           {
             "lights-gift": {},
             "empowered-armaments": {
-              "amount": ""
-            },
-            "empowered-armaments-bugged": {
               "amount": ""
             },
             "radiant-armaments-hammer": {
@@ -4017,9 +4008,6 @@ list:
             "amount": "21.8"
           },
           "signet-of-fire": {},
-          "raging-ricochet": {
-            "amount": "75"
-          },
           "signet-of-earth": {}
         }
       }
@@ -5752,9 +5740,6 @@ list:
           "signet-of-earth": {},
           "ele-summon-dps": {
             "amount": "1422"
-          },
-          "raging-ricochet": {
-            "amount": "68"
           }
         }
       }
@@ -5851,9 +5836,6 @@ list:
           "signet-of-earth": {},
           "ele-summon-dps": {
             "amount": "965"
-          },
-          "raging-ricochet": {
-            "amount": "69"
           }
         }
       }
@@ -5938,9 +5920,6 @@ list:
           "signet-of-earth": {},
           "ele-summon-dps": {
             "amount": "1269"
-          },
-          "raging-ricochet": {
-            "amount": "72.5"
           },
           "signet-of-fire": {
             "amount": ""
@@ -7013,10 +6992,7 @@ list:
           "signet-of-fire": {
             "amount": ""
           },
-          "signet-of-earth-bug": {},
-          "raging-ricochet": {
-            "amount": "87"
-          }
+          "signet-of-earth-bug": {}
         }
       }
 
@@ -10204,9 +10180,7 @@ list:
               "amount": ""
             },
             "decimate-defenses-25x": {},
-            "cold-shoulder": {
-              "amount": ""
-            },
+            "cold-shoulder": {},
             "reapers-onslaught": {}
           }
         ]
@@ -10268,9 +10242,7 @@ list:
               "amount": ""
             },
             "decimate-defenses-25x": {},
-            "cold-shoulder": {
-              "amount": ""
-            },
+            "cold-shoulder": {},
             "reapers-onslaught": {}
           }
         ]
@@ -10339,9 +10311,7 @@ list:
               "amount": ""
             },
             "decimate-defenses-25x": {},
-            "cold-shoulder": {
-              "amount": ""
-            },
+            "cold-shoulder": {},
             "reapers-onslaught": {}
           }
         ]

@@ -32,16 +32,22 @@ const IndexPage = () => {
       All VoE elite specialization modifiers are now implemented, with new code to simulate
       fluctuating player stats! Game data is updated for the{' '}
       <Link
-        href="https://wiki.guildwars2.com/wiki/Game_updates/2026-02-24"
+        href="https://wiki.guildwars2.com/wiki/Game_updates/2026-04-14"
         target="_blank"
         rel="noopener"
       >
-        Feb 24, 2026 balance patch
+        April 14, 2026 balance patch
       </Link>
       .
+      <br />
+      <br />
+      <i>
+        Note: every build template have been unconditionally marked as outdated to speed up getting
+        this patch released, but some are actually accurate. This may be fixed in the future.
+      </i>
       {/* <br />
       <br />
-      <i>Jan 13 patch:</i>
+      <i>April 14 patch:</i>
       <ul>
         <li>
           <i>Modifiers: outdated</i>

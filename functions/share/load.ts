@@ -1,3 +1,5 @@
+/// <reference types="@cloudflare/workers-types" />
+
 /* eslint-disable import/prefer-default-export */
 import { PARAMS } from '../../src/utils/queryParam';
 

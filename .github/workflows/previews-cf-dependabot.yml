@@ -13,7 +13,7 @@ on:
 
 env:
   PAGES_PROJECT_NAME: optimizer
-  NODE_VERSION: 20
+  NODE_VERSION: lts/*
 
 jobs:
   deployment:
@@ -34,7 +34,7 @@ jobs:
           ref: ${{ github.event.pull_request.merge_commit_sha }}
 
       - name: Set up PNPM
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
       - name: Set up Node
         uses: actions/setup-node@v6
         with:
@@ -69,8 +69,8 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         id: wrangler-action
         with:
-          apiToken: ${{ secrets.CI_CF_PAGES }}
-          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_1 }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID_1 }}
           command: pages deploy dist --project-name=${{ env.PAGES_PROJECT_NAME }} --branch=${{ github.head_ref || github.ref_name }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
