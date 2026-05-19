@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from 'axios';
 import type { TFunction } from 'i18next';
 import JsonUrl from 'json-url';
@@ -156,7 +155,6 @@ export const exportFormState =
       const exportData = modifyState(reduxState.optimizer);
       console.log(exportData);
 
-      /*
       let successMessage = cloudflare
         ? t('Copied link to clipboard!')
         : t('Copied long link to clipboard! (Link shortener requires cloudflare environment.)');
@@ -168,11 +166,6 @@ export const exportFormState =
             return getLongUrl(exportData, onFailure, t);
           })
         : getLongUrl(exportData, onFailure, t);
-      */
-
-      const successMessage =
-        'Copied long link to clipboard! (Short links are temporarily disabled.)';
-      const urlPromise = getLongUrl(exportData, onFailure, t);
 
       // iOS browsers and desktop Safari require the use of the async clipboard API, calling
       // navigator.clipboard.write synchronously and passing it a Promise
