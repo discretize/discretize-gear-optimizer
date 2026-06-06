@@ -75,7 +75,7 @@ jobs:
         run: pnpm build-cf
 
       - name: Deploy preview to Cloudflare
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         id: wrangler-action
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_1 }}
