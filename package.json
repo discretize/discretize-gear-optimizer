@@ -10,8 +10,8 @@
     "lint": "eslint --ignore-path .gitignore ."
   },
   "devDependencies": {
-    "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.5",
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
     "browser-sync": "^3.0.4",
     "cssnano": "^7.1.9",
     "del": "^6.1.1",
@@ -28,10 +28,10 @@
     "gulp-replace": "^1.1.4",
     "gulp-sass": "^6.0.1",
     "gulp-uglify": "^3.0.2",
-    "js-yaml": "^4.1.1",
-    "postcss": "^8.5.14",
+    "js-yaml": "^4.2.0",
+    "postcss": "^8.5.15",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "sass": "^1.99.0"
+    "sass": "^1.100.0"
   },
   "engines": {
     "npm": "please-use-pnpm",
