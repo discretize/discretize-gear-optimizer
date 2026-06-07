@@ -141,3 +141,151 @@
           Outgoing Strike Damage: [13.2577%, mult]
           Outgoing Phantasm Damage: [13.2577%, mult]
       type: Text
+
+- section: Pre-fight Stacks
+  items:
+
+    - id: bloodlust-buff
+      text: Superior Sigil of Bloodlust
+      textOverride: Bloodlust
+      componentNameProp: Bloodlust
+      amountData:
+        label: 'x'
+        default: 25
+        quantityEntered: 25
+      modifiers:
+        attributes:
+          Power: [250, converted]
+      gw2id: 24575
+      type: Item
+      temporaryBuff: true
+
+    - id: cruelty-buff
+      text: Superior Sigil of Cruelty
+      textOverride: Cruelty
+      amountData:
+        label: 'x'
+        default: 25
+        quantityEntered: 25
+      modifiers:
+        attributes:
+          Ferocity: [250, converted]
+      gw2id: 67341
+      type: Item
+      temporaryBuff: true
+
+    - id: perception-buff
+      text: Superior Sigil of Perception
+      textOverride: Perception
+      amountData:
+        label: 'x'
+        default: 25
+        quantityEntered: 25
+        disableBlacklist: true
+      modifiers:
+        attributes:
+          Precision: [250, converted]
+      gw2id: 24580
+      type: Item
+      temporaryBuff: true
+
+    - id: corruption-buff
+      text: Superior Sigil of Corruption
+      textOverride: Corruption
+      amountData:
+        label: 'x'
+        default: 25
+        quantityEntered: 25
+      modifiers:
+        attributes:
+          Condition Damage: [250, converted]
+      gw2id: 24578
+      type: Item
+      temporaryBuff: true
+
+- section: ' '
+  items:
+
+    - id: life-buff
+      text: Superior Sigil of Life
+      textOverride: Life
+      amountData:
+        label: 'x'
+        default: 25
+        quantityEntered: 25
+      modifiers:
+        attributes:
+          Healing Power: [250, converted]
+      gw2id: 24582
+      type: Item
+      temporaryBuff: true
+
+    - id: bounty-buff
+      text: Superior Sigil of Bounty
+      textOverride: Bounty
+      amountData:
+        label: 'x'
+        default: 25
+        quantityEntered: 25
+        disableBlacklist: true
+      modifiers:
+        attributes:
+          Concentration: [225, converted]
+      gw2id: 81045
+      type: Item
+      temporaryBuff: true
+
+    - id: benevolence-buff
+      text: Superior Sigil of Benevolence
+      textOverride: Benevolence
+      amountData:
+        label: 'x'
+        default: 25
+        quantityEntered: 25
+      modifiers:
+        attributes:
+          Outgoing Healing: 12.5%
+      gw2id: 24584
+      type: Item
+      temporaryBuff: true
+
+    - id: momentum-buff
+      text: Superior Sigil of Momentum
+      textOverride: Momentum
+      amountData:
+        label: 'x'
+        default: 25
+        quantityEntered: 25
+        disableBlacklist: true
+      modifiers:
+        attributes:
+          Toughness: [125, converted]
+      gw2id: 49457
+      type: Item
+      temporaryBuff: true
+
+- section: ' '
+  items:
+
+    - id: stars-buff
+      text: Superior Sigil of the Stars
+      textOverride: Stars
+      amountData:
+        label: 'x'
+        default: 25
+        quantityEntered: 25
+        disableBlacklist: true
+      modifiers:
+        attributes:
+          Power: [50, converted]
+          Precision: [50, converted]
+          Toughness: [50, converted]
+          Vitality: [50, converted]
+          Concentration: [50, converted]
+          Condition Damage: [50, converted]
+          Expertise: [50, converted]
+          Ferocity: [50, converted]
+          Healing Power: [50, converted]
+      gw2id: 86170
+      type: Item
+      temporaryBuff: true
