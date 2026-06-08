@@ -2,7 +2,7 @@ import { APILanguageProvider, Item } from '@discretize/gw2-ui-new';
 import AddIcon from '@mui/icons-material/Add';
 import ClearIcon from '@mui/icons-material/Clear';
 import CloseIcon from '@mui/icons-material/Close';
-import DeleteIcon from '@mui/icons-material/DeleteOutline';
+import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import {
   Box,
   Button,
@@ -267,9 +267,9 @@ export default function ExtraSelection(props) {
         scroll="paper"
         aria-labelledby="scroll-dialog-title"
         aria-describedby="scroll-dialog-description"
-        TransitionComponent={Fade}
         maxWidth="md"
-        PaperProps={{ elevation: 4 }}
+        slots={{ transition: Fade }}
+        slotProps={{ paper: { elevation: 4 } }}
       >
         <DialogTitle id="scroll-dialog-title" display="flex">
           <Typography component="span" sx={{ flexGrow: 1, alignSelf: 'center' }}>

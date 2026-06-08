@@ -168,7 +168,7 @@ const InfusionHelper = () => {
     <Accordion
       expanded={enabled}
       onChange={handleEnabledChange}
-      TransitionProps={{ unmountOnExit: true }}
+      slotProps={{ transition: { unmountOnExit: true } }}
     >
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Typography>

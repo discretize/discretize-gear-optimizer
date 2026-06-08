@@ -161,7 +161,7 @@ const AffixesSelect = ({ name, multiple, onChange, value: selected }: AffixesSel
             </span>
           </li>
         )}
-        renderTags={(value, getTagProps) =>
+        renderValue={(value, getItemProps) =>
           value.map((option, index) => (
             <Chip
               variant="outlined"
@@ -169,7 +169,7 @@ const AffixesSelect = ({ name, multiple, onChange, value: selected }: AffixesSel
                 // i18next-extract-mark-context-next-line {{affix}}
                 t('affix', { context: option.label })
               }
-              {...getTagProps({ index })}
+              {...getItemProps({ index })}
               key={option.label}
             />
           ))
@@ -233,19 +233,6 @@ const AffixesSelect = ({ name, multiple, onChange, value: selected }: AffixesSel
           )}
         </li>
       )}
-      renderTags={(value, getTagProps) =>
-        value.map((option, index) => (
-          <Chip
-            variant="outlined"
-            label={
-              // i18next-extract-mark-context-next-line {{affix}}
-              t('affix', { context: option.label })
-            }
-            {...getTagProps({ index })}
-            key={option.label}
-          />
-        ))
-      }
     />
   );
 };

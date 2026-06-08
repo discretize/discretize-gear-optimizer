@@ -15,7 +15,7 @@ const ScenarioAttributeSummary = ({ character }: { character: Character }) => {
           <DataSaverOnIcon color="info" fontSize="small" sx={{ marginRight: '0.5ch' }} />
           <Trans>Key Scenario Attributes</Trans>
         </Typography>
-        <Grid container spacing={2} mb={2}>
+        <Grid container spacing={2} sx={{ mb: 2 }}>
           {Object.entries(character.results.scenarioAttributeSummary).map(
             ([attribute, entries]) => (
               <Grid size={{ xs: 12, sm: 8, md: 4 }}>
