@@ -114,12 +114,12 @@ export default function ScenarioInfo() {
         open={open}
         onClose={handleClose}
         scroll="paper"
-        TransitionComponent={Fade}
         fullWidth
         maxWidth="sm"
-        PaperProps={{ elevation: 4 }}
+        slots={{ transition: Fade }}
+        slotProps={{ paper: { elevation: 4 } }}
       >
-        <DialogTitle display="flex" alignItems="center">
+        <DialogTitle sx={{ display: 'flex', alignItems: 'center' }}>
           <InfoIcon sx={{ mr: 1 }} />
           <Typography component="span" sx={{ flexGrow: 1, alignSelf: 'center' }}>
             Advanced Uptime Scenario Info
@@ -129,7 +129,7 @@ export default function ScenarioInfo() {
           </IconButton>
         </DialogTitle>
         <DialogContent>
-          <Typography variant="body2" mb={2}>
+          <Typography variant="body2" sx={{ mb: 2 }}>
             A percentage uptime has been entered for at least one modifier that uses advanced uptime
             simulation. This is enabled for modifers that can result in a character being impacted
             by the critical chance/condition duration cap only some of the time, and will decrease

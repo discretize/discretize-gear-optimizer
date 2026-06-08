@@ -157,9 +157,9 @@ export default function ResultTableSettings() {
               {option}
             </li>
           )}
-          renderTags={(value, getTagProps) =>
+          renderValue={(value, getItemProps) =>
             value.map((option, index) => {
-              const { key, ...props } = getTagProps({ index });
+              const { key, ...props } = getItemProps({ index });
               return <Chip key={key} variant="outlined" label={option.slice(0, 4)} {...props} />;
             })
           }
@@ -190,9 +190,9 @@ export default function ResultTableSettings() {
               <Attribute name={option} disableLink />
             </li>
           )}
-          renderTags={(value, getTagProps) =>
+          renderValue={(value, getItemProps) =>
             value.map((option, index) => {
-              const { key, ...props } = getTagProps({ index });
+              const { key, ...props } = getItemProps({ index });
               return (
                 <Chip
                   key={key}

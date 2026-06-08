@@ -89,8 +89,9 @@ export const AmountInputAuto = ({
           label={label}
           variant="standard"
           slotProps={{
+            ...params.slotProps,
             input: {
-              ...params.InputProps,
+              ...params.slotProps.input,
               endAdornment: (
                 <InputAdornment disablePointerEvents position="end" disableTypography>
                   <Typography sx={{ fontSize: '0.9rem', color: '#b1b1b5' }}>{endLabel}</Typography>

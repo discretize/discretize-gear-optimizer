@@ -265,11 +265,13 @@ export default createTheme(theme, {
     },
     MuiAutocomplete: {
       defaultProps: {
-        PaperComponent: ({ children }: { children: React.ReactNode }) => (
-          <Paper elevation={3} sx={{ background: theme.palette.background.paper }}>
-            {children}
-          </Paper>
-        ),
+        slots: {
+          paper: ({ children }: { children: React.ReactNode }) => (
+            <Paper elevation={3} sx={{ background: theme.palette.background.paper }}>
+              {children}
+            </Paper>
+          ),
+        },
       },
     },
   },

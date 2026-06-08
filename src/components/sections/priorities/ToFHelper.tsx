@@ -39,7 +39,7 @@ export function ToFHelper() {
 
   return (
     <Grid size={12}>
-      <Accordion TransitionProps={{ unmountOnExit: true }}>
+      <Accordion slotProps={{ transition: { unmountOnExit: true } }}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography>
             <Trans>Temple of Febe 10% Phase Helper</Trans>
