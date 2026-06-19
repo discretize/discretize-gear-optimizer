@@ -412,24 +412,24 @@ list:
     profession: Weaver
     value:
       {
-        "values2": { "Power": 4050, "Power2": 0, "Burning": 5.85, "Bleeding": 3.54, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4013, "Power2": 0, "Burning": 5.87, "Bleeding": 3.55, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'jkerkhoven'
-        url: https://www.youtube.com/watch?v=UXJ8fLNkfYg
-        log: https://dps.report/WIHR-20250828-114002_golem
+        url: https://www.youtube.com/watch?v=--lsDK7NHgE
+        log: https://dps.report/TNDD-20260415-003554_golem
 
   # sini helm
   - name: Condi Weaver P/D
     profession: Weaver
     value:
       {
-        "values2": { "Power": 2023, "Power2": 0, "Burning": 8.98, "Bleeding": 32.66, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2063, "Power2": 0, "Burning": 8.94, "Bleeding": 33.85, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Ryan'
-        url: https://www.youtube.com/watch?v=bWWgTNm3N5g
-        log: https://dps.report/EB64-20250703-065308_golem
+        url: https://www.youtube.com/watch?v=Ot5xuT0Xcyg
+        log: https://dps.report/26i4-20260418-202046_golem
 
   # no jade bot
   - name: Condi Weaver Sword
@@ -472,12 +472,12 @@ list:
     profession: Weaver
     value:
       {
-        "values2": { "Power": 2770, "Power2": 0, "Burning": 12.86, "Bleeding": 16.76, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2802, "Power2": 0, "Burning": 12.98, "Bleeding": 16.84, "Poisoned": 0, "Torment": 0.04, "Confusion": 0 }
       }
     credit:
       - author: Ryan
-        url: https://www.youtube.com/watch?v=6q4FtT66xwI
-        log: https://dps.report/0ix2-20250630-030645_golem
+        url: https://www.youtube.com/watch?v=odkCQjns1HU
+        log: https://dps.report/FtzK-20260416-203228_golem
 
   - name: Hybrid Weaver
     profession: Weaver
@@ -494,23 +494,34 @@ list:
     profession: Tempest
     value:
       {
-        "values2": { "Power": 2588, "Power2": 0, "Burning": 10.65, "Bleeding": 19.24, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2400, "Power2": 0, "Burning": 11.49, "Bleeding": 17.14, "Poisoned": 0, "Torment": 0.05, "Confusion": 0 }
       }
     credit:
       - author: '[NA] Crone'
-        url: https://www.youtube.com/watch?v=eLmkhHcuwxI
-        log: https://dps.report/Pl75-20250221-180332_golem
+        url: https://www.youtube.com/watch?v=ID-UFSX2zKw
+        log: https://dps.report/DLQz-20260426-122231_golem
+
+  - name: Alacrity Fire Tempest Condi
+    profession: Tempest
+    value:
+      {
+        "values2": { "Power": 2754, "Power2": 0, "Burning": 15.3, "Bleeding": 0.58, "Poisoned": 0, "Torment": 0.03, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Kadenar'
+        url: https://www.youtube.com/watch?v=RIFOm4KSkRY
+        log: https://dps.report/idzi-20260504-143508_golem
 
   - name: Condi Tempest Pistol
     profession: Tempest
     value:
       {
-        "values2": { "Power": 2616, "Power2": 0, "Burning": 11.04, "Bleeding": 25.97, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2206, "Power2": 0, "Burning": 10.1, "Bleeding": 26.82, "Poisoned": 0, "Torment": 0.05, "Confusion": 0 }
       }
     credit:
       - author: '[NA] Crone'
-        url: https://www.youtube.com/watch?v=oU5R2TqrRGo
-        log: https://dps.report/c6Pe-20240320-004729_golem
+        url: https://www.youtube.com/watch?v=_lFQeVzF1o4
+        log: https://dps.report/B38a-20260414-224425_golem
 
   - name: Condi Tempest Hammer
     profession: Tempest
@@ -538,12 +549,12 @@ list:
     profession: Tempest
     value:
       {
-        "values2": { "Power": 3685, "Power2": 0, "Burning": 10.5, "Bleeding": 4.37, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3656, "Power2": 0, "Burning": 10.33, "Bleeding": 3.93, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Kadenar
-        url: https://www.youtube.com/watch?v=1CnW1G_AB4c
-        log: https://dps.report/lpOL-20251006-093317_golem
+        url: https://www.youtube.com/watch?v=_YU4PyjNYOo
+        log: https://dps.report/j7LY-20260414-172451_golem
 
   # currently exact copy of alacrity fire tempest (i.e. incorrectly ignoring transcendent tempest reduced overload cooldown)
   - name: Fire-only Tempest (Approx.)
@@ -558,23 +569,23 @@ list:
     profession: Tempest
     value:
       {
-        "values2": { "Power": 5121, "Power2": 0, "Burning": 3.21, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4549, "Power2": 0, "Burning": 3.86, "Bleeding": 3.1, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[NA] Crone'
-        url: https://www.youtube.com/watch?v=I5H5GZm-56E
-        log: https://dps.report/qZCK-20240717-155857_golem
+        url: https://www.youtube.com/watch?v=uyCFtPEndMU
+        log: https://dps.report/aDHa-20260417-044805_golem
 
   - name: Alacrity Power Tempest Sword
     profession: Tempest
     value:
       {
-        "values2": { "Power": 4294, "Power2": 0, "Burning": 3.73, "Bleeding": 3.45, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4186, "Power2": 0, "Burning": 3.59, "Bleeding": 3.3, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Black'
-        url: https://www.youtube.com/watch?v=oa6wuN7jqec
-        log: https://dps.report/G5ap-20250211-205455_golem
+        url: https://www.youtube.com/watch?v=QWBSK1rk1JM
+        log: https://dps.report/4oEj-20260420-081807_golem
 
   - name: Alacrity Power Tempest Hammer
     profession: Tempest
@@ -591,12 +602,12 @@ list:
     profession: Catalyst
     value:
       {
-        "values2": { "Power": 3687, "Power2": 0, "Burning": 7.14, "Bleeding": 5.71, "Poisoned": 0.5, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3629, "Power2": 0, "Burning": 7.19, "Bleeding": 6.2, "Poisoned": 0.43, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Kadenar'
-        url: https://www.youtube.com/watch?v=R2qNMa03c4s
-        log: https://dps.report/xxvM-20251119-100627_golem
+        url: https://www.youtube.com/watch?v=1qiTvpzolpg
+        log: https://dps.report/Kgu5-20260504-153710_golem
 
   - name: Quickness Power Catalyst Scepter Inferno
     profession: Catalyst
@@ -613,47 +624,46 @@ list:
     profession: Catalyst
     value:
       {
-        "values2": { "Power": 3852, "Power2": 0, "Burning": 6.37, "Bleeding": 6.07, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3813, "Power2": 0, "Burning": 6.2, "Bleeding": 5.62, "Poisoned": 0.14, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: EDLR
-        url: https://www.youtube.com/watch?v=Gzah5Y9dVGY
-        log: https://dps.report/ZPUi-20251119-114928_golem
+        url: https://www.youtube.com/watch?v=t5nW5ZXOLEY
+        log: https://dps.report/63Dx-20260416-134815_golem
 
   - name: Power Catalyst Scepter PF
     profession: Catalyst
     value:
       {
-        "values2": { "Power": 3772, "Power2": 0, "Burning": 6.43, "Bleeding": 5.59, "Poisoned": 0.09, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3769, "Power2": 0, "Burning": 6.25, "Bleeding": 6.05, "Poisoned": 0.06, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Kadenar
-        url: https://www.youtube.com/watch?v=MlxhpGR0dwI
-        log: https://dps.report/KglF-20251119-115538_golem
+        url: https://www.youtube.com/watch?v=BFGepGmiC_M
+        log: https://dps.report/aAgi-20260414-165732_golem
 
   # quickness log, distribution works for both
   - name: Condi Catalyst P/D
     profession: Catalyst
     value:
       {
-        "values2": { "Power": 2397, "Power2": 0, "Burning": 8.61, "Bleeding": 23.3, "Poisoned": 0.15, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2380, "Power2": 0, "Burning": 8.33, "Bleeding": 23.09, "Poisoned": 0.15, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Maragon
-        url: https://www.youtube.com/watch?v=8vYl6GI5yNc
-        log: https://dps.report/5hQt-20250717-212648_golem
+        url: https://www.youtube.com/watch?v=NQorza2BJZg
+        log: https://dps.report/wJsO-20260416-231016_golem
 
-  # quickness log, distribution works for both
-  - name: Condi Catalyst P/W
+  - name: Condi Quickness Catalyst P/W
     profession: Catalyst
     value:
       {
-        "values2": { "Power": 1953, "Power2": 0, "Burning": 8.8, "Bleeding": 25.31, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1989, "Power2": 0, "Burning": 9.03, "Bleeding": 24.59, "Poisoned": 0.02, "Torment": 0.05, "Confusion": 0 }
       }
     credit:
       - author: Kadenar
-        url: https://www.youtube.com/watch?v=d1PZfUiaIpQ
-        log: https://dps.report/Y4GP-20250811-220229_golem
+        url: https://www.youtube.com/watch?v=gLFJNOtU4yg
+        log: https://dps.report/CO8r-20260504-165413_golem
 
   - name: Fire SE Evoker Inferno
     profession: Evoker

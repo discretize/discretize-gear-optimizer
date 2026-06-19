@@ -958,12 +958,23 @@ list:
         id: ctemp-alac
         specialization: Tempest
         boonType: Condi
-        priority: Alacrity Condi Tempest 31%
+        priority: Alacrity Condi Tempest 40%
         distribution: Alacrity Condi Tempest Scepter
         traits: Alacrity Condi Tempest Scepter
         extras: Condi Tempest
         weaponType: Dual wield
-        outdated: true
+        outdated: false
+
+      - name: Alacrity Fire Tempest Condi
+        id: ctemp-alac-fire
+        specialization: Tempest
+        boonType: Condi
+        priority: Alacrity Condi Tempest 22%
+        distribution: Alacrity Fire Tempest Condi
+        traits: Alacrity Fire Tempest Condi
+        extras: Condi Tempest
+        weaponType: Dual wield
+        outdated: false
 
       - name: Alacrity Fire Tempest Inferno
         id: ptemp-blood-alac
@@ -983,7 +994,7 @@ list:
         id: ptemp-alac-sw
         specialization: Tempest
         boonType: Power
-        priority: Alacrity Power Tempest 34%
+        priority: Alacrity Power Tempest 40%
         distribution: Alacrity Power Tempest Sword
         traits: Alacrity Power Tempest Sword Fire
         fractal:
@@ -991,7 +1002,7 @@ list:
         raid:
           extras: Power Boon (Raid, fireworks)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Alacrity Power Tempest Hammer
         id: ptemp-alac-ham
@@ -1016,7 +1027,7 @@ list:
         traits: Condi Tempest Pistol
         extras: Condi Tempest
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Power Tempest Inferno
         id: ptemp-blood
@@ -1030,7 +1041,7 @@ list:
         raid:
           extras: Power Tempest Inferno (Raid)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Fire-only Tempest (Approx.)
         id: ptemp-blood-fire-camp
@@ -1052,13 +1063,13 @@ list:
         boonType: Power
         priority: Power DPS (no dragon)
         distribution: Power Tempest Scepter
-        traits: Power Tempest Water
+        traits: Power Tempest Fire
         fractal:
-          extras: Power (Fractal)
+          extras: Power (Fractal, fireworks)
         raid:
-          extras: Power (Raid)
+          extras: Power (Raid, fireworks)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Power Weaver Sword
         id: pwea
@@ -1073,7 +1084,7 @@ list:
           traits: Power Weaver Raid
           extras: Power Weaver (Raid)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Weaver P/D
         id: cwea-pi
@@ -1084,7 +1095,7 @@ list:
         traits: Condi Weaver P/D
         extras: Condi Weaver
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Weaver Staff
         id: cwea-staff
@@ -1106,7 +1117,7 @@ list:
         traits: Condi Weaver Scepter
         extras: Condi Weaver Scepter
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Weaver Sword
         id: cwea-sw
@@ -1162,23 +1173,23 @@ list:
         id: condi-cat-quick-pd
         specialization: Catalyst
         boonType: Condi
-        priority: Condi Boon
+        priority: Condition Quickness Catalyst 22.6%
         distribution: Condi Catalyst P/D
         traits: Quickness Condi Catalyst P/D
         extras: Condi Catalyst P/D
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Quickness Condi Catalyst P/W
         id: condi-cat-quick-pw
         specialization: Catalyst
         boonType: Condi
-        priority: Condi Boon
-        distribution: Condi Catalyst P/W
+        priority: Condition Quickness Catalyst 22.6%
+        distribution: Condi Quickness Catalyst P/W
         traits: Quickness Condi Catalyst P/W
         extras: Condi Catalyst P/W
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Quickness Power Catalyst Scepter Inferno
         id: power-cat-quick-inferno
@@ -1198,15 +1209,15 @@ list:
         id: power-cat-quick
         specialization: Catalyst
         boonType: Power
-        priority: Power DPS (no dragon)
+        priority: Power Quickness Catalyst 34%
         distribution: Quickness Power Catalyst Scepter PF
         traits: Quickness Power Catalyst Scepter PF
         fractal:
-          extras: Power Catalyst Scepter PF (Fractal)
+          extras: Power Quickness Catalyst Scepter PF (Fractal)
         raid:
-          extras: Power Catalyst Scepter PF (Raid)
+          extras: Power Quickness Catalyst Scepter PF (Raid)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Catalyst P/D Steamshrieker (Approx.)
         id: condi-cat-pd
@@ -1231,7 +1242,7 @@ list:
         raid:
           extras: Power Catalyst Scepter Inferno (Raid)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Power Catalyst Scepter PF
         id: power-cat
@@ -1245,7 +1256,7 @@ list:
         raid:
           extras: Power Catalyst Scepter PF (Raid)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Heal Quickness Catalyst
         id: healcat

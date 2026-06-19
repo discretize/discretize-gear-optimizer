@@ -2527,12 +2527,12 @@ list:
             }
           },
           "Sigil1": {
-            "bursting": {}
+            "smoldering": {},
+            "bursting": {},
+            "malice": {},
           },
           "Sigil2": {
-            "smoldering": {},
-            "earth": {},
-            "malice": {}
+             "earth": {},
           },
           "Enhancement": {
             "master-tuning-crystal": {},
@@ -2702,6 +2702,89 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power Quickness Catalyst Scepter PF (Fractal)
+    profession: Catalyst
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "fireworks": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.7"
+            }
+          },
+          "Sigil1": {
+            "force": {},
+            "accuracy": {},
+            "concentration": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {},
+            "accuracy": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Quickness Catalyst Scepter PF (Raid)
+    profession: Catalyst
+    value:
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "fireworks": {}
+          },
+          "Relics": {
+            "bloodstone-relic": {
+              "amount": "0.7"
+            }
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   # quickness/dps
   - name: Condi Catalyst P/D
     profession: Catalyst
@@ -2756,13 +2839,9 @@ list:
             "trapper": {},
             "nightmare": {},
             "tempest": {},
-            "lich": {},
             "balthazar": {},
-            "renegade": {},
-            "berserker": {},
-            "weaver": {},
-            "baelfire": {},
-            "flame-legion-2": {}
+            "krait": {},
+            "afflicted": {}
           },
           "Relics": {
             "fractal-relic": {
@@ -2784,7 +2863,8 @@ list:
           "Nourishment": {
             "salsa-topped-veggie-flatbread": {},
             "plate-of-kimchi-pancakes": {},
-            "cilantro-and-cured-meat-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+             "fishy-rice-bowl": {}
           }
         },
         "lifestealAmount": ""

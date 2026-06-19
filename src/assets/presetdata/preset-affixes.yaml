@@ -323,13 +323,13 @@ list:
       }
     infusions: Condition Damage + Expertise # + Concentration
 
-  - name: Alacrity Power Tempest 34%
+  - name: Alacrity Power Tempest 40%
     hidden: true
     value:
       {
         "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
-        "minBoonDuration": "34.4",
+        "minBoonDuration": "40",
         "minQuicknessDuration": "0"
       }
     infusions: Power + Precision # + Concentration
@@ -356,13 +356,24 @@ list:
       }
     infusions: Power + Precision # + Concentration
 
-  - name: Alacrity Condi Tempest 31%
+  - name: Alacrity Condi Tempest 22%
     hidden: true
     value:
       {
         "affixes": ["Viper", "Ritualist", "Sinister"],
         "optimizeFor": "Damage",
-        "minBoonDuration": "31",
+        "minBoonDuration": "22",
+        "minQuicknessDuration": "0"
+      }
+    infusions: Condition Damage + Expertise # + Concentration
+
+  - name: Alacrity Condi Tempest 40%
+    hidden: true
+    value:
+      {
+        "affixes": ["Viper", "Ritualist", "Sinister"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": "40",
         "minQuicknessDuration": "0"
       }
     infusions: Condition Damage + Expertise # + Concentration
@@ -377,6 +388,28 @@ list:
         "minQuicknessDuration": "0"
       }
     infusions: Condition Damage + Expertise
+
+  - name: Power Quickness Catalyst 34%
+    hidden: true
+    value:
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": "0",
+        "minQuicknessDuration": "34"
+      }
+    infusions: Power + Precision # + Concentration
+
+  - name: Condition Quickness Catalyst 22.6%
+    hidden: true
+    value:
+      {
+        "affixes": ["Viper", "Sinister", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": "0",
+        "minQuicknessDuration": "22.6"
+      }
+    infusions: Condition Damage + Expertise # + Concentration
 
   - name: Heal Specter 88%
     hidden: true
