@@ -6171,10 +6171,10 @@ list:
       {
         "skills": {
           "ele-summon-dps": {
-            "amount": "1037"
+            "amount": "1236"
           },
           "signet-of-fire": {
-            "amount": "18"
+            "amount": "15.3"
           }
         }
       }
@@ -6255,10 +6255,10 @@ list:
       {
         "skills": {
           "ele-summon-dps": {
-            "amount": "1037"
+            "amount": "1193"
           },
           "signet-of-fire": {
-            "amount": "18"
+            "amount": "12.9"
           }
         }
       }
@@ -6528,13 +6528,13 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "38"
+              "amount": "39.9"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "38"
+              "amount": "39.9"
             },
             "pyromancers-training": {},
             "persisting-flames": {
@@ -6553,7 +6553,7 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "27"
+              "amount": "25.7"
             },
             "bolt-to-the-heart": {
               "amount": ""
@@ -6872,13 +6872,13 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "38"
+              "amount": "39.3"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "38"
+              "amount": "39.3"
             },
             "pyromancers-training": {},
             "persisting-flames": {
@@ -6897,7 +6897,7 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "9"
+              "amount": "10.6"
             },
             "bolt-to-the-heart": {
               "amount": ""
@@ -6953,7 +6953,7 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "55"
+              "amount": "58.3"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -6987,7 +6987,7 @@ list:
       {
         "skills": {
           "ele-summon-dps": {
-            "amount": "1037"
+            "amount": "1212"
           },
           "signet-of-fire": {
             "amount": ""
