@@ -2929,6 +2929,7 @@ list:
         },
         "lifestealAmount": ""
       }
+ 
   - name: Quickness Fire SE Evoker Condi
     profession: Evoker
     value:

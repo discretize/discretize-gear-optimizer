@@ -896,12 +896,12 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Quickness Fire SE Evoker Condi (Approx.)
+      - name: Quickness Fire SE Evoker Condi
         id: fire-se-evoker-condi-quick
         specialization: Evoker
         boonType: Condi
         priority: Condi Quickness SE Evoker 40%
-        distribution: Quickness Fire SE Evoker Condi (Approx.)
+        distribution: Quickness Fire SE Evoker Condi
         traits: Quickness Fire SE Evoker Condi
         extras: Quickness Fire SE Evoker Condi
         weaponType: Dual wield
@@ -932,12 +932,12 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Fire SE Evoker Condi (Approx.)
+      - name: Fire SE Evoker Condi
         id: fire-se-evoker-condi
         specialization: Evoker
         boonType: Condi
         priority: Condi DPS
-        distribution: Fire SE Evoker Condi (Approx.)
+        distribution: Fire SE Evoker Condi
         traits: Fire SE Evoker Condi
         extras: Fire SE Evoker Condi
         weaponType: Dual wield

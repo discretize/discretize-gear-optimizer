@@ -672,7 +672,7 @@ list:
   # add 0.1 flamewall/sec * 2 extra flamewall ticks * 0.1 coefficient * 690.5 strength
   # 2883+.1*2*.1*690.5
   # 16.04+.1*8+.1*2*2.5
-  - name: Fire SE Evoker Condi (Approx.)
+  - name: Fire SE Evoker Condi
     profession: Evoker
     value:
       {
@@ -683,7 +683,7 @@ list:
         url: https://www.youtube.com/watch?v=O_oAtMZSIP8
         log: https://dps.report/zPEa-20260421-193615_golem
 
-  - name: Quickness Fire SE Evoker Condi (Approx.)
+  - name: Quickness Fire SE Evoker Condi
     profession: Evoker
     value:
       {
