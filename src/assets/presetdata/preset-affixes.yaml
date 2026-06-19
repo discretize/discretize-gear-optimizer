@@ -409,3 +409,14 @@ list:
         "minQuicknessDuration": "0"
       }
     infusions: Power + Precision # + Concentration
+
+  - name: Condi Quickness SE Evoker 40%
+    hidden: true
+    value:
+      {
+        "affixes": ["Viper", "Ritualist", "Sinister"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": "0",
+        "minQuicknessDuration": "40"
+      }
+    infusions: Condition Damage + Expertise # + Concentration

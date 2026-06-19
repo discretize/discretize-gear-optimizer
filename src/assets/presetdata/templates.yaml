@@ -841,7 +841,7 @@ list:
         raid:
           extras: Power Evoker PF (Raid)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Evoker P/D
         id: evoker-condi-pd
@@ -852,7 +852,7 @@ list:
         traits: Condi Evoker
         extras: Condi Evoker
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Power Evoker Hare PF
         id: evoker-hare-pf
@@ -866,7 +866,7 @@ list:
         raid:
           extras: Power Evoker PF (Raid)
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Power Evoker Hare Inferno
         id: evoker-hare-inferno
@@ -896,16 +896,16 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Quickness Fire SE Evoker Condi (Approx.)
+      - name: Quickness Fire SE Evoker Condi
         id: fire-se-evoker-condi-quick
         specialization: Evoker
         boonType: Condi
-        priority: Condi DPS
-        distribution: Fire SE Evoker Condi (Approx.)
+        priority: Condi Quickness SE Evoker 40%
+        distribution: Quickness Fire SE Evoker Condi
         traits: Quickness Fire SE Evoker Condi
-        extras: Fire SE Evoker Condi
+        extras: Quickness Fire SE Evoker Condi
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Quickness Fire SE Evoker Trailblazer (Approx.)
         id: fire-se-evoker-trailblazer-quick
@@ -932,16 +932,16 @@ list:
         weaponType: Dual wield
         outdated: true
 
-      - name: Fire SE Evoker Condi (Approx.)
+      - name: Fire SE Evoker Condi
         id: fire-se-evoker-condi
         specialization: Evoker
         boonType: Condi
         priority: Condi DPS
-        distribution: Fire SE Evoker Condi (Approx.)
+        distribution: Fire SE Evoker Condi
         traits: Fire SE Evoker Condi
         extras: Fire SE Evoker Condi
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Fire SE Evoker Trailblazer (Approx.)
         id: fire-se-evoker-trailblazer
