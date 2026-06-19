@@ -45,6 +45,10 @@
     "enable-hooks": "husky",
     "disable-hooks": "git config --unset core.hooksPath"
   },
+  "exports": {
+    "./gw2-data": "./src/utils/gw2-data.ts",
+    "./presetdata/metadata": "./src/assets/presetdata/metadata.ts"
+  },
   "dependencies": {
     "@discretize/gw2-ui-new": "^3.6.1",
     "@discretize/object-compression": "^1.0.3",
