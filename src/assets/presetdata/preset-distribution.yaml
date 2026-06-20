@@ -687,7 +687,7 @@ list:
     profession: Evoker
     value:
       {
-        "values2": { "Power": 3005, "Power2": 0, "Burning": 18.81, "Bleeding": 0, "Poisoned": 0, "Torment": 0.03, "Confusion": 0 }
+        "values2": { "Power": 3005, "Power2": 0, "Burning": 18.81, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Kadenar
@@ -751,7 +751,7 @@ list:
     profession: Evoker
     value:
       {
-        "values2": { "Power": 2689, "Power2": 0, "Burning": 13.42, "Bleeding": 22.61, "Poisoned": 0, "Torment": 0.03, "Confusion": 0 }
+        "values2": { "Power": 2689, "Power2": 0, "Burning": 13.42, "Bleeding": 22.61, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Limelight
