@@ -4791,7 +4791,7 @@ list:
           }
         }
       }
-  
+
   - name: Alacrity Fire Tempest Condi
     profession: Tempest
     traits:
@@ -5040,7 +5040,7 @@ list:
           }
         }
       }
-  
+
   - name: Power Tempest Fire
     profession: Tempest
     traits:

@@ -703,7 +703,7 @@ list:
       - author: Kadenar
         url: https://www.youtube.com/watch?v=CReb1PpXxm8
         log: https://dps.report/2aDW-20260421-233936_golem
-        
+
   # above log + ~5.5x earth signet - 4x firestorm (6 is a guess, this is approximate anyway)
   # subtract 0.49 firestorm ticks/sec * 0.5 coefficient * 690.5 strength
   # subtract 0.49 firestorm ticks/sec * 0.5 coefficient * 2 burning/tick

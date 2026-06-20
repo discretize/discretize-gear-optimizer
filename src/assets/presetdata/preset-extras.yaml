@@ -3009,7 +3009,7 @@ list:
         },
         "lifestealAmount": ""
       }
- 
+
   - name: Quickness Fire SE Evoker Condi
     profession: Evoker
     value:
@@ -3049,7 +3049,7 @@ list:
         },
         "lifestealAmount": ""
       }
-  
+
   - name: Fire SE Evoker Condi
     profession: Evoker
     value:
