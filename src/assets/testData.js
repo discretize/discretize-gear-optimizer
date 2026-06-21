@@ -6,6 +6,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 import { templateTransform } from './presetdata/templateTransform';
+import { SPECIALIZATIONS } from '../utils/gw2-data';
 
 import {
   buffsDict,
@@ -778,7 +779,11 @@ const testPresets = async () => {
           const match = data[type].find((pre) => pre.name === item[type]);
           gentleAssert(match, `err: ${name}'s ${type} is not found! (mode: ${mode})`);
           if (match) match.used = true;
-          const profIsFine = !match.profession || match?.profession === specialization;
+          const profIsFine =
+            !match.profession ||
+            match?.profession === specialization ||
+            SPECIALIZATIONS[match?.profession]?.includes(specialization);
+
           if (!profIsFine)
             console.log(`❓ ${name}'s ${type}'s profession is wrong! (mode: ${mode})`);
 
