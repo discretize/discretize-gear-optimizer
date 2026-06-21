@@ -335,7 +335,7 @@ list:
         raid:
           extras: Power (Raid, claw)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Alacrity Power Luminary LB/GS
         id: luminary-power-alac
@@ -384,6 +384,17 @@ list:
         weaponType: Dual wield
         outdated: true
 
+      - name: Quickness Condi Firebrand A/T P/P
+        id: firebrand-condi-quickness-axe
+        specialization: Firebrand
+        boonType: Condi
+        priority: Condi Quickbrand 40%
+        distribution: Quickness Condi Firebrand A/T P/P
+        traits: Quickness Condi Firebrand P/T P/P
+        extras: Quickness Condi Firebrand
+        weaponType: Dual wield
+        outdated: false
+
       - name: Quickness Power Firebrand
         id: pqfb
         specialization: Firebrand
@@ -425,7 +436,7 @@ list:
         traits: Condi Firebrand Zeal
         extras: Condi Firebrand
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Firebrand A/T
         id: cfb-axe-only
@@ -450,7 +461,7 @@ list:
         raid:
           extras: Power Dragonhunter Radiance (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Power Dragonhunter Virtues SP/GS
         id: dh-virtues
@@ -474,22 +485,22 @@ list:
         distribution: Power Alacrity Willbender
         traits: Power Alacrity Willbender
         fractal:
-          extras: Power Willbender Virtues (Fractal)
+          extras: Power Alacrity Willbender Warrior (Fractal)
         raid:
-          extras: Power Alacrity Willbender (Raid)
+          extras: Power Alacrity Willbender Warrior (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Alacrity Condi Willbender
         id: cwb-alac
         specialization: Willbender
         boonType: Condi
-        priority: Condi Alacrity Willbender 14%
+        priority: Condi Alacrity Willbender 40%
         distribution: Condi Alacrity Willbender
         traits: Condi Alacrity Willbender
         extras: Condi Alacrity Willbender
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Willbender P/T P/P
         id: cwb-pistol
@@ -500,7 +511,7 @@ list:
         traits: Condi Willbender
         extras: Condi Willbender
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Willbender SC/P P/T
         id: cwb-scepter
@@ -511,7 +522,7 @@ list:
         traits: Condi Willbender
         extras: Condi Willbender Warrior
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Willbender GS
         id: cwb-gs
@@ -536,7 +547,7 @@ list:
         raid:
           extras: Power (Raid, furious)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Power Willbender Radiance
         id: pwb-radiance
@@ -890,9 +901,9 @@ list:
         distribution: Fire SE Evoker Inferno
         traits: Quickness Fire SE Evoker Inferno
         fractal:
-          extras: Fire SE Evoker Inferno (Fractal)
+          extras: Fire-only ele (Fractal)
         raid:
-          extras: Fire SE Evoker Inferno (Raid)
+          extras: Fire-only ele (Raid)
         weaponType: Dual wield
         outdated: true
 
@@ -926,9 +937,9 @@ list:
         distribution: Fire SE Evoker Inferno
         traits: Fire SE Evoker Inferno
         fractal:
-          extras: Fire SE Evoker Inferno (Fractal)
+          extras: Fire-only ele (Fractal)
         raid:
-          extras: Fire SE Evoker Inferno (Raid)
+          extras: Fire-only ele (Raid)
         weaponType: Dual wield
         outdated: true
 
@@ -1149,9 +1160,9 @@ list:
         distribution: Fire-only Weaver
         traits: Fire-only Weaver
         fractal:
-          extras: Fire-only Weaver Inferno (Fractal)
+          extras: Fire-only ele (Fractal)
         raid:
-          extras: Fire-only Weaver Inferno (Raid)
+          extras: Fire-only ele (Raid)
         weaponType: Dual wield
         outdated: true
 

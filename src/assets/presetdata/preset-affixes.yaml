@@ -296,10 +296,10 @@ list:
       {
         "affixes": ["Viper", "Ritualist", "Sinister"],
         "optimizeFor": "Damage",
-        "minBoonDuration": "0",
-        "minQuicknessDuration": "40"
+        "minQuicknessDuration": "40",
+        "minBoonDuration": "0"
       }
-    infusions: Condition Damage + Expertise # + Concentration
+    infusions: Condition Damage + Expertise
 
   - name: Alacrity Condi Specter 32.8%
     hidden: true
@@ -312,16 +312,16 @@ list:
       }
     infusions: Condition Damage + Expertise # + Concentration
 
-  - name: Condi Alacrity Willbender 14%
+  - name: Condi Alacrity Willbender 40%
     hidden: true
     value:
       {
-        "affixes": ["Viper", "Grieving", "Celestial"],
+        "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": "14",
+        "minBoonDuration": "40",
         "minQuicknessDuration": "0"
       }
-    infusions: Condition Damage + Expertise # + Concentration
+    infusions: Condition Damage + Expertise
 
   - name: Alacrity Power Tempest 40%
     hidden: true

@@ -1679,6 +1679,60 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power Alacrity Willbender Warrior (Raid)
+    profession: Willbender
+    value:
+      {
+        "extras":
+          {
+            "Runes":
+              {
+                "scholar": {},
+                "dragonhunter": {},
+                "golemancer": {},
+                "deadeye": {},
+                "eagle": {},
+                "infiltration": {},
+                "ranger": {},
+                "pack": {},
+                "leadership": {}
+              },
+            "Relics": {},
+            "Sigil1": {"force": {}},
+            "Sigil2": {"accuracy": {}},
+            "Enhancement": {"furious-sharpening-stone": {}, "superior-sharpening-stone": {}},
+            "Nourishment": {"cilantro-lime-sous-vide-steak": {}, "spherified-cilantro-oyster-soup": {}}
+          },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Alacrity Willbender Warrior (Fractal)
+    profession: Willbender
+    value:
+      {
+        "extras":
+          {
+            "Runes":
+              {
+                "scholar": {},
+                "dragonhunter": {},
+                "golemancer": {},
+                "deadeye": {},
+                "eagle": {},
+                "infiltration": {},
+                "ranger": {},
+                "pack": {},
+                "leadership": {}
+              },
+            "Relics": {},
+            "Sigil1": {"force": {}},
+            "Sigil2": {"accuracy": {}},
+            "Enhancement": {"furious-sharpening-stone": {}, "superior-sharpening-stone": {}, "slaying-potion": {}},
+            "Nourishment": {"cilantro-lime-sous-vide-steak": {}, "spherified-cilantro-oyster-soup": {}}
+          },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Willbender
     profession: Willbender
     value:
@@ -1757,37 +1811,20 @@ list:
     profession: Willbender
     value:
       {
-        "extras": {
-          "Sigil1": {
-            "bursting": {}
+        "extras":
+          {
+            "Sigil1": {"bursting": {}},
+            "Sigil2": {"geomancy-torment-cwb-alac": {}, "smoldering": {}},
+            "Runes": {"trapper": {}, "nightmare": {}, "balthazar": {}, "leadership": {}},
+            "Relics": {"fractal-relic": {}},
+            "Nourishment":
+              {
+                "fishy-rice-bowl": {},
+                "cilantro-and-cured-meat-flatbread": {},
+                "spherified-cilantro-oyster-soup": {}
+              },
+            "Enhancement": {"toxic-maintenance-oil": {}, "toxic-focusing-crystal": {}, "magnanimous-tuning-crystal": {}}
           },
-          "Sigil2": {
-            "geomancy-torment-cwb-alac": {}
-          },
-          "Runes": {
-            "trapper": {},
-            "nightmare": {},
-            "tempest": {},
-            "lich": {},
-            "balthazar": {},
-            "renegade": {},
-            "berserker": {},
-            "weaver": {},
-            "baelfire": {},
-            "flame-legion-2": {},
-            "leadership": {}
-          },
-          "Relics": {},
-          "Nourishment": {
-            "fishy-rice-bowl": {},
-            "cilantro-and-cured-meat-flatbread": {},
-            "spherified-cilantro-oyster-soup": {}
-          },
-          "Enhancement": {
-            "toxic-maintenance-oil": {},
-            "toxic-focusing-crystal": {}
-          }
-        },
         "lifestealAmount": ""
       }
 
@@ -2870,143 +2907,43 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Fire SE Evoker Inferno (Fractal)
-    profession: Evoker
+  - name: Fire-only ele (Fractal)
     value:
       {
-        "extras": {
-          "Sigil1": {
-            "bursting": {},
-            "malice": {},
-            "force": {},
-            "impact/night/slaying-both": {}
+        "extras":
+          {
+            "Sigil1": {"bursting": {}, "malice": {}, "force": {}, "impact/night/slaying-both": {}},
+            "Sigil2": {"smoldering": {}},
+            "Runes": {"flame-legion": {}, "scholar": {}, "dragonhunter": {}},
+            "Relics": {"fireworks-relic": {"amount": "100"}},
+            "Nourishment":
+              {
+                "fire-meat-chili": {},
+                "cilantro-lime-sous-vide-steak": {},
+                "plate-of-coq-au-vin-with-salsa": {}
+              },
+            "Enhancement": {"superior-sharpening-stone": {}, "slaying-potion": {}}
           },
-          "Sigil2": {
-            "smoldering": {}
-          },
-          "Runes": {
-            "flame-legion": {},
-            "scholar": {},
-            "dragonhunter": {}
-          },
-          "Relics": {
-            "fireworks-relic": {
-              "amount": "100"
-            }
-          },
-          "Nourishment": {
-            "fire-meat-chili": {},
-            "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {},
-            "slaying-potion": {}
-          }
-        },
         "lifestealAmount": ""
       }
 
-  - name: Fire SE Evoker Inferno (Raid)
-    profession: Evoker
+  - name: Fire-only ele (Raid)
     value:
       {
-        "extras": {
-          "Sigil1": {
-            "bursting": {},
-            "malice": {},
-            "force": {}
+        "extras":
+          {
+            "Sigil1": {"bursting": {}, "malice": {}, "force": {}},
+            "Sigil2": {"smoldering": {}},
+            "Runes": {"flame-legion": {}},
+            "Relics": {"fireworks-relic": {"amount": "100"}},
+            "Nourishment":
+              {
+                "fire-meat-chili": {},
+                "cilantro-lime-sous-vide-steak": {},
+                "plate-of-coq-au-vin-with-salsa": {}
+              },
+            "Enhancement": {"superior-sharpening-stone": {}}
           },
-          "Sigil2": {
-            "smoldering": {}
-          },
-          "Runes": {
-            "flame-legion": {}
-          },
-          "Relics": {
-            "fireworks-relic": {
-              "amount": "100"
-            }
-          },
-          "Nourishment": {
-            "fire-meat-chili": {},
-            "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
-  - name: Fire-only Weaver Inferno (Fractal)
-    profession: Weaver
-    value:
-      {
-        "extras": {
-          "Sigil1": {
-            "bursting": {},
-            "malice": {},
-            "force": {},
-            "impact/night/slaying-both": {}
-          },
-          "Sigil2": {
-            "smoldering": {}
-          },
-          "Runes": {
-            "flame-legion": {},
-            "scholar": {},
-            "dragonhunter": {}
-          },
-          "Relics": {
-            "fireworks-relic": {
-              "amount": "100"
-            }
-          },
-          "Nourishment": {
-            "fire-meat-chili": {},
-            "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {},
-            "slaying-potion": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
-  - name: Fire-only Weaver Inferno (Raid)
-    profession: Weaver
-    value:
-      {
-        "extras": {
-          "Sigil1": {
-            "bursting": {},
-            "malice": {},
-            "force": {}
-          },
-          "Sigil2": {
-            "smoldering": {}
-          },
-          "Runes": {
-            "flame-legion": {}
-          },
-          "Relics": {
-            "fireworks-relic": {
-              "amount": "100"
-            }
-          },
-          "Nourishment": {
-            "fire-meat-chili": {},
-            "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          }
-        },
         "lifestealAmount": ""
       }
 
