@@ -2908,6 +2908,7 @@ list:
       }
 
   - name: Fire-only ele (Fractal)
+    profession: Elementalist
     value:
       {
         "extras":
@@ -2928,6 +2929,7 @@ list:
       }
 
   - name: Fire-only ele (Raid)
+    profession: Elementalist
     value:
       {
         "extras":
