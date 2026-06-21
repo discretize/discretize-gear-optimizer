@@ -2907,7 +2907,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Fire only ele (Fractal)
+  - name: Fire-only ele (Fractal)
     value:
       {
         "extras":
@@ -2927,7 +2927,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Fire only ele (Raid)
+  - name: Fire-only ele (Raid)
     value:
       {
         "extras":
