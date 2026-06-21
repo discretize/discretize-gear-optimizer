@@ -1679,7 +1679,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Power Alacrity Willbender Warrior
+  - name: Power Alacrity Willbender Warrior (Raid)
     profession: Willbender
     value:
       {
@@ -1701,6 +1701,33 @@ list:
             "Sigil1": {"force": {}},
             "Sigil2": {"accuracy": {}},
             "Enhancement": {"furious-sharpening-stone": {}, "superior-sharpening-stone": {}},
+            "Nourishment": {"cilantro-lime-sous-vide-steak": {}, "spherified-cilantro-oyster-soup": {}}
+          },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Alacrity Willbender Warrior (Fractal)
+    profession: Willbender
+    value:
+      {
+        "extras":
+          {
+            "Runes":
+              {
+                "scholar": {},
+                "dragonhunter": {},
+                "golemancer": {},
+                "deadeye": {},
+                "eagle": {},
+                "infiltration": {},
+                "ranger": {},
+                "pack": {},
+                "leadership": {}
+              },
+            "Relics": {},
+            "Sigil1": {"force": {}},
+            "Sigil2": {"accuracy": {}},
+            "Enhancement": {"furious-sharpening-stone": {}, "superior-sharpening-stone": {}, "slaying-potion": {}},
             "Nourishment": {"cilantro-lime-sous-vide-steak": {}, "spherified-cilantro-oyster-soup": {}}
           },
         "lifestealAmount": ""

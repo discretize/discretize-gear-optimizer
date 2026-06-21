@@ -484,7 +484,10 @@ list:
         priority: Power Alacrity Willbender 14%
         distribution: Power Alacrity Willbender
         traits: Power Alacrity Willbender
-        extras: Power Alacrity Willbender Warrior
+        fractal:
+          extras: Power Alacrity Willbender Warrior (Fractal)
+        raid:
+          extras: Power Alacrity Willbender Warrior (Raid)
         weaponType: Two-handed
         outdated: false
 
