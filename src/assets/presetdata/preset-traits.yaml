@@ -1441,78 +1441,39 @@ list:
     traits:
       {
         "showAll": false,
-        "selectedLines": [
-          "16",
-          "42",
-          "27"
-        ],
-        "selectedTraits": [
+        "selectedLines": ["16", "42", "27"],
+        "selectedTraits": [[574, 565, 1683], [634, 653, 2017], [0, 1835, 1955]],
+        "items":
           [
-            574,
-            565,
-            1683
-          ],
-          [
-            634,
-            653,
-            2017
-          ],
-          [
-            0,
-            1835,
-            1955
+            {
+                "right-hand-strength": {},
+                "right-hand-strength-1h": {"amount": ""},
+                "radiant-fire": {},
+                "retribution": {"amount": ""},
+                "radiant-power": {},
+                "amplified-wrath": {},
+                "righteous-instincts": {}
+              },
+            {
+                "fiery-wrath": {},
+                "symbolic-exposure": {},
+                "zealous-blade-base": {},
+                "zealous-blade-gs": {"amount": ""},
+                "kindled-zeal": {},
+                "symbolic-avenger": {},
+                "furious-focus": {}
+              },
+            {
+                "defenders-dogma": {},
+                "zealots-aggression": {},
+                "pure-of-sight": {},
+                "heavy-light-defiant": {},
+                "heavy-light-defiant-disabled": {"amount": ""},
+                "big-game-hunter": {"amount": "79.92"}
+              }
           ]
-        ],
-        "items": [
-          {
-            "right-hand-strength": {},
-            "right-hand-strength-1h": {
-              "amount": ""
-            },
-            "radiant-fire": {},
-            "retribution": {
-              "amount": ""
-            },
-            "radiant-power": {},
-            "amplified-wrath": {},
-            "righteous-instincts": {}
-          },
-          {
-            "fiery-wrath": {},
-            "symbolic-exposure": {},
-            "zealous-blade-base": {},
-            "zealous-blade-gs": {
-              "amount": ""
-            },
-            "kindled-zeal": {},
-            "symbolic-avenger": {},
-            "furious-focus": {}
-          },
-          {
-            "defenders-dogma": {},
-            "zealots-aggression": {},
-            "pure-of-sight": {},
-            "heavy-light-defiant": {},
-            "heavy-light-defiant-disabled": {
-              "amount": ""
-            },
-            "big-game-hunter": {
-              "amount": "80"
-            }
-          }
-        ]
       }
-    skills:
-      {
-        "skills": {
-          "bane-signet": {
-            "amount": ""
-          },
-          "binding-blade": {
-            "amount": "47.5"
-          }
-        }
-      }
+    skills: {"skills": {"bane-signet": {"amount": ""}, "binding-blade": {"amount": "46.7"}}}
 
   - name: Power Dragonhunter Virtues
     profession: Dragonhunter
@@ -1668,210 +1629,92 @@ list:
     traits:
       {
         "showAll": false,
-        "selectedLines": [
-          "16",
-          "46",
-          "65"
-        ],
-        "selectedTraits": [
+        "selectedLines": ["16", "46", "65"],
+        "selectedTraits": [[566, 567, 1686], [617, 603, 622], [2191, 2197, 2201]],
+        "items":
           [
-            566,
-            567,
-            1686
-          ],
-          [
-            617,
-            603,
-            622
-          ],
-          [
-            2191,
-            2197,
-            2201
+            {
+                "right-hand-strength": {},
+                "right-hand-strength-1h": {"amount": "100"},
+                "radiant-fire": {},
+                "retribution": {"amount": ""},
+                "radiant-power": {},
+                "amplified-wrath": {},
+                "righteous-instincts": {}
+              },
+            {
+                "inspired-virtue": {"amount": ""},
+                "unscathed-contender": {"amount": ""},
+                "virtue-of-resolution": {},
+                "inspiring-virtue": {"amount": ""},
+                "power-of-the-virtuous": {}
+              },
+            {"searing-pact": {}, "lethal-tempo": {"amount": ""}, "tyrants-momentum": {"amount": ""}}
           ]
-        ],
-        "items": [
-          {
-            "right-hand-strength": {},
-            "right-hand-strength-1h": {
-              "amount": "100"
-            },
-            "radiant-fire": {},
-            "retribution": {
-              "amount": ""
-            },
-            "radiant-power": {},
-            "amplified-wrath": {},
-            "righteous-instincts": {}
-          },
-          {
-            "inspired-virtue": {
-              "amount": ""
-            },
-            "unscathed-contender": {
-              "amount": ""
-            },
-            "virtue-of-resolution": {},
-            "inspiring-virtue": {
-              "amount": "100"
-            },
-            "power-of-the-virtuous": {}
-          },
-          {
-            "searing-pact": {},
-            "lethal-tempo": {
-              "amount": ""
-            },
-            "tyrants-momentum": {
-              "amount": ""
-            }
-          }
-        ]
       }
-    skills:
-      {
-        "skills": {
-          "signet-of-wrath": {
-            "amount": ""
-          }
-        }
-      }
+    skills: {"skills": {"signet-of-wrath": {"amount": ""}}}
 
   - name: Quickness Condi Firebrand P/T P/P
     profession: Firebrand
     traits:
       {
         "showAll": false,
-        "selectedLines": [
-          "16",
-          "46",
-          "62"
-        ],
-        "selectedTraits": [
+        "selectedLines": ["16", "46", "62"],
+        "selectedTraits": [[566, 567, 1686], [624, 610, 622], [2101, 2063, 2179]],
+        "items":
           [
-            566,
-            567,
-            1686
-          ],
-          [
-            617,
-            610,
-            622
-          ],
-          [
-            2101,
-            2063,
-            2179
+            {
+                "right-hand-strength": {},
+                "right-hand-strength-1h": {"amount": "100"},
+                "radiant-fire": {},
+                "retribution": {"amount": ""},
+                "radiant-power": {},
+                "amplified-wrath": {},
+                "righteous-instincts": {}
+              },
+            {
+                "inspired-virtue": {"amount": ""},
+                "unscathed-contender": {"amount": ""},
+                "virtue-of-resolution": {},
+                "inspiring-virtue": {"amount": ""},
+                "power-of-the-virtuous": {}
+              },
+            {"imbued-haste": {"amount": ""}}
           ]
-        ],
-        "items": [
-          {
-            "right-hand-strength": {},
-            "right-hand-strength-1h": {
-              "amount": "100"
-            },
-            "radiant-fire": {},
-            "retribution": {
-              "amount": ""
-            },
-            "radiant-power": {},
-            "amplified-wrath": {},
-            "righteous-instincts": {}
-          },
-          {
-            "inspired-virtue": {
-              "amount": ""
-            },
-            "unscathed-contender": {
-              "amount": ""
-            },
-            "virtue-of-resolution": {},
-            "inspiring-virtue": {
-              "amount": ""
-            },
-            "power-of-the-virtuous": {}
-          },
-          {
-            "imbued-haste": {
-              "amount": ""
-            }
-          }
-        ]
       }
-    skills:
-      {
-        "skills": {}
-      }
+    skills: {"skills": {"signet-of-wrath": {"amount": ""}}}
 
   - name: Condi Firebrand Zeal
     profession: Firebrand
     traits:
       {
         "showAll": false,
-        "selectedLines": [
-          "16",
-          "42",
-          "62"
-        ],
-        "selectedTraits": [
+        "selectedLines": ["16", "42", "62"],
+        "selectedTraits": [[566, 567, 1686], [634, 1556, 2017], [2075, 2063, 2179]],
+        "items":
           [
-            566,
-            567,
-            1686
-          ],
-          [
-            634,
-            1556,
-            2017
-          ],
-          [
-            2075,
-            2063,
-            2179
+            {
+                "right-hand-strength": {},
+                "right-hand-strength-1h": {"amount": "100"},
+                "radiant-fire": {},
+                "retribution": {"amount": ""},
+                "radiant-power": {},
+                "amplified-wrath": {},
+                "righteous-instincts": {}
+              },
+            {
+                "fiery-wrath": {},
+                "symbolic-exposure": {},
+                "zealous-blade-base": {},
+                "zealous-blade-gs": {"amount": ""},
+                "kindled-zeal": {},
+                "symbolic-avenger": {"amount": "4.84"},
+                "furious-focus": {}
+              },
+            {"imbued-haste": {"amount": ""}}
           ]
-        ],
-        "items": [
-          {
-            "right-hand-strength": {},
-            "right-hand-strength-1h": {
-              "amount": "100"
-            },
-            "radiant-fire": {},
-            "retribution": {
-              "amount": ""
-            },
-            "radiant-power": {},
-            "amplified-wrath": {},
-            "righteous-instincts": {}
-          },
-          {
-            "fiery-wrath": {},
-            "symbolic-exposure": {},
-            "zealous-blade-base": {},
-            "zealous-blade-gs": {
-              "amount": ""
-            },
-            "kindled-zeal": {},
-            "symbolic-avenger": {
-              "amount": "4.6"
-            },
-            "furious-focus": {}
-          },
-          {
-            "imbued-haste": {
-              "amount": ""
-            }
-          }
-        ]
       }
-    skills:
-      {
-        "skills": {
-          "signet-of-wrath": {
-            "amount": ""
-          }
-        }
-      }
+    skills: {"skills": {"signet-of-wrath": {"amount": ""}}}
 
   - name: Condi Firebrand Virtues
     profession: Firebrand
@@ -2336,301 +2179,140 @@ list:
     traits:
       {
         "showAll": false,
-        "selectedLines": [
-          "46",
-          "42",
-          "65"
-        ],
-        "selectedTraits": [
+        "selectedLines": ["46", "42", "65"],
+        "selectedTraits": [[624, 603, 622], [634, 653, 2017], [2190, 2197, 2201]],
+        "items":
           [
-            624,
-            603,
-            622
-          ],
-          [
-            634,
-            653,
-            2017
-          ],
-          [
-            2190,
-            2197,
-            2201
+            {
+                "inspired-virtue": {"amount": ""},
+                "virtue-of-resolution": {},
+                "inspiring-virtue": {"amount": ""},
+                "power-of-the-virtuous": {},
+                "unscathed-contender-health": {"amount": ""},
+                "unscathed-contender": {"amount": ""}
+              },
+            {
+                "fiery-wrath": {},
+                "symbolic-exposure": {},
+                "zealous-blade-base": {},
+                "zealous-blade-gs": {"amount": ""},
+                "kindled-zeal": {},
+                "symbolic-avenger": {},
+                "furious-focus": {}
+              },
+            {"power-for-power": {}, "lethal-tempo": {"amount": ""}, "tyrants-momentum": {"amount": ""}}
           ]
-        ],
-        "items": [
-          {
-            "inspired-virtue": {
-              "amount": ""
-            },
-            "virtue-of-resolution": {},
-            "inspiring-virtue": {
-              "amount": "79"
-            },
-            "power-of-the-virtuous": {},
-            "unscathed-contender-health": {
-              "amount": ""
-            },
-            "unscathed-contender": {
-              "amount": ""
-            }
-          },
-          {
-            "fiery-wrath": {},
-            "symbolic-exposure": {},
-            "zealous-blade-base": {},
-            "zealous-blade-gs": {
-              "amount": ""
-            },
-            "kindled-zeal": {},
-            "symbolic-avenger": {},
-            "furious-focus": {}
-          },
-          {
-            "power-for-power": {},
-            "lethal-tempo": {
-              "amount": ""
-            },
-            "tyrants-momentum": {
-              "amount": ""
-            }
-          }
-        ]
       }
-    skills:
-      {
-        "skills": {
-          "bane-signet": {
-            "amount": ""
-          }
-        }
-      }
+    skills: {"skills": {"bane-signet": {"amount": ""}, "binding-blade": {"amount": "44.6"}}}
 
   - name: Condi Alacrity Willbender
     profession: Willbender
     traits:
       {
         "showAll": false,
-        "selectedLines": [
-          "16",
-          "46",
-          "65"
-        ],
-        "selectedTraits": [
+        "selectedLines": ["16", "46", "65"],
+        "selectedTraits": [[566, 567, 1686], [617, 603, 554], [2191, 2197, 2195]],
+        "items":
           [
-            566,
-            567,
-            1686
-          ],
-          [
-            617,
-            603,
-            554
-          ],
-          [
-            2191,
-            2197,
-            2195
+            {
+                "right-hand-strength": {},
+                "right-hand-strength-1h": {"amount": "100"},
+                "radiant-fire": {},
+                "retribution": {"amount": ""},
+                "radiant-power": {},
+                "amplified-wrath": {},
+                "righteous-instincts": {}
+              },
+            {
+                "inspired-virtue": {"amount": ""},
+                "unscathed-contender": {"amount": ""},
+                "virtue-of-resolution": {},
+                "inspiring-virtue": {"amount": "83.51"},
+                "power-of-the-virtuous": {}
+              },
+            {
+                "searing-pact": {},
+                "power-for-power": {},
+                "lethal-tempo": {"amount": ""},
+                "tyrants-momentum": {"amount": ""}
+              }
           ]
-        ],
-        "items": [
-          {
-            "right-hand-strength": {},
-            "right-hand-strength-1h": {
-              "amount": "100"
-            },
-            "radiant-fire": {},
-            "retribution": {
-              "amount": ""
-            },
-            "radiant-power": {},
-            "amplified-wrath": {},
-            "righteous-instincts": {}
-          },
-          {
-            "inspired-virtue": {
-              "amount": ""
-            },
-            "unscathed-contender": {
-              "amount": ""
-            },
-            "virtue-of-resolution": {},
-            "inspiring-virtue": {
-              "amount": ""
-            },
-            "power-of-the-virtuous": {}
-          },
-          {
-            "searing-pact": {},
-            "power-for-power": {},
-            "lethal-tempo": {
-              "amount": ""
-            },
-            "tyrants-momentum": {
-              "amount": ""
-            }
-          }
-        ]
       }
-    skills:
-      {
-        "skills": {
-          "signet-of-wrath": {
-            "amount": ""
-          }
-        }
-      }
+    skills: {"skills": {"signet-of-wrath": {"amount": ""}}}
 
   - name: Power Alacrity Willbender
     profession: Willbender
     traits:
       {
         "showAll": false,
-        "selectedLines": [
-          "46",
-          "42",
-          "65"
-        ],
-        "selectedTraits": [
+        "selectedLines": ["46", "42", "65"],
+        "selectedTraits": [[624, 603, 554], [634, 653, 2017], [2190, 2210, 2195]],
+        "items":
           [
-            624,
-            603,
-            554
-          ],
-          [
-            634,
-            653,
-            2017
-          ],
-          [
-            2190,
-            2197,
-            2195
+            {
+                "inspired-virtue": {"amount": ""},
+                "unscathed-contender-health": {"amount": ""},
+                "unscathed-contender": {"amount": ""},
+                "virtue-of-resolution": {},
+                "inspiring-virtue": {"amount": ""},
+                "power-of-the-virtuous": {}
+              },
+            {
+                "fiery-wrath": {},
+                "symbolic-exposure": {},
+                "zealous-blade-base": {},
+                "zealous-blade-gs": {"amount": ""},
+                "kindled-zeal": {},
+                "symbolic-avenger": {},
+                "furious-focus": {}
+              },
+            {"power-for-power": {}, "lethal-tempo": {"amount": ""}, "tyrants-momentum": {"amount": ""}}
           ]
-        ],
-        "items": [
-          {
-            "inspired-virtue": {
-              "amount": ""
-            },
-            "unscathed-contender": {
-              "amount": ""
-            },
-            "virtue-of-resolution": {},
-            "inspiring-virtue": {
-              "amount": ""
-            },
-            "power-of-the-virtuous": {}
-          },
-          {
-            "fiery-wrath": {},
-            "symbolic-exposure": {},
-            "zealous-blade-base": {},
-            "zealous-blade-gs": {
-              "amount": ""
-            },
-            "kindled-zeal": {},
-            "symbolic-avenger": {},
-            "furious-focus": {}
-          },
-          {
-            "power-for-power": {},
-            "lethal-tempo": {
-              "amount": ""
-            },
-            "tyrants-momentum": {
-              "amount": ""
-            }
-          }
-        ]
       }
-    skills:
-      {
-        "skills": {
-          "bane-signet": {
-            "amount": ""
-          }
-        }
-      }
+    skills: {"skills": {"bane-signet": {"amount": ""}, "binding-blade": {"amount": "55.5"}}}
 
   - name: Power Luminary
     profession: Luminary
     traits:
       {
         "showAll": false,
-        "selectedLines": [
-          "42",
-          "16",
-          "81"
-        ],
-        "selectedTraits": [
+        "selectedLines": ["42", "16", "81"],
+        "selectedTraits": [[634, 653, 2017], [566, 565, 1683], [2329, 2419, 2328]],
+        "items":
           [
-            634,
-            653,
-            2017
-          ],
-          [
-            566,
-            565,
-            1683
-          ],
-          [
-            2329,
-            2419,
-            2328
+            {
+                "fiery-wrath": {},
+                "symbolic-exposure": {},
+                "zealous-blade-base": {},
+                "zealous-blade-gs": {"amount": ""},
+                "kindled-zeal": {},
+                "symbolic-avenger": {},
+                "furious-focus": {}
+              },
+            {
+                "right-hand-strength": {},
+                "radiant-fire": {},
+                "retribution": {"amount": ""},
+                "radiant-power": {},
+                "amplified-wrath": {},
+                "righteous-instincts": {"amount": ""}
+              },
+            {
+                "lights-gift": {},
+                "empowered-armaments": {"amount": ""},
+                "radiant-armaments-hammer": {"amount": "85.6"},
+                "radiant-armaments-staff": {"amount": "3.77"}
+              }
           ]
-        ],
-        "items": [
-          {
-            "fiery-wrath": {},
-            "symbolic-exposure": {},
-            "zealous-blade-base": {},
-            "zealous-blade-gs": {
-              "amount": ""
-            },
-            "kindled-zeal": {},
-            "symbolic-avenger": {},
-            "furious-focus": {}
-          },
-          {
-            "right-hand-strength": {},
-            "radiant-fire": {},
-            "retribution": {
-              "amount": ""
-            },
-            "radiant-power": {},
-            "amplified-wrath": {},
-            "righteous-instincts": {
-              "amount": ""
-            }
-          },
-          {
-            "lights-gift": {},
-            "empowered-armaments": {
-              "amount": ""
-            },
-            "radiant-armaments-hammer": {
-              "amount": "86"
-            },
-            "radiant-armaments-staff": {
-              "amount": "4.5"
-            }
-          }
-        ]
       }
     skills:
       {
-        "skills": {
-          "bane-signet": {
-            "amount": ""
-          },
-          "piercing-stance": {
-            "amount": "60"
-          },
-          "binding-blade": {
-            "amount": "48.5"
+        "skills":
+          {
+            "bane-signet": {"amount": ""},
+            "piercing-stance": {"amount": "58.25"},
+            "binding-blade": {"amount": "42.0"}
           }
-        }
       }
 
   - name: Alacrity Power Luminary

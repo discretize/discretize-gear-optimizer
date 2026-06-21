@@ -149,12 +149,12 @@ list:
     profession: Dragonhunter
     value:
       {
-        "values2": { "Power": 4069, "Power2": 0, "Burning": 1.49, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3959, "Power2": 0, "Burning": 1.53, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Derm
-        url: https://www.youtube.com/watch?v=QL-0S1xLff8
-        log: https://dps.report/M9tp-20250627-000730_golem
+        url: https://www.youtube.com/watch?v=0drJ3WOpTLM
+        log: https://dps.report/so5x-20260418-005724_golem
 
   - name: Power Dragonhunter Virtues SP/GS
     profession: Dragonhunter
@@ -180,23 +180,23 @@ list:
     profession: Willbender
     value:
       {
-        "values2": { "Power": 2250, "Power2": 0, "Burning": 17.33, "Bleeding": 6.01, "Poisoned": 0, "Torment": 1.18, "Confusion": 0 }
+        "values2": { "Power": 2191, "Power2": 0, "Burning": 15.64, "Bleeding": 6.3, "Poisoned": 0, "Torment": 1.37, "Confusion": 0 }
       }
     credit:
       - author: Mastro
-        url: https://www.youtube.com/watch?v=rgVQP_Csv-0
-        log: https://dps.report/5vTW-20250918-002656_golem
+        url: https://www.youtube.com/watch?v=V5EE-avWJ4g
+        log: https://dps.report/txt6-20260416-200945_golem
 
   - name: Condi Willbender SC/P P/T
     profession: Willbender
     value:
       {
-        "values2": { "Power": 2641, "Power2": 0, "Burning": 17.61, "Bleeding": 5.46, "Poisoned": 0, "Torment": 1.22, "Confusion": 0 }
+        "values2": { "Power": 2588, "Power2": 0, "Burning": 16.2, "Bleeding": 5.62, "Poisoned": 0, "Torment": 1.14, "Confusion": 0 }
       }
     credit:
-      - author: Sotym
-        url: https://www.youtube.com/watch?v=kLjHAtBuXVA
-        log: https://dps.report/RSLy-20250930-003329_golem
+      - author: Lyco
+        url: https://www.youtube.com/watch?v=kH5282Lwmrw
+        log: https://dps.report/gkj1-20260501-134125_golem
 
   - name: Condi Willbender Sword
     profession: Willbender
@@ -241,9 +241,9 @@ list:
         "values2": { "Power": 2095, "Power2": 0, "Burning": 15.97, "Bleeding": 12.33, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Florian
-        url: https://www.youtube.com/watch?v=fa2jYn9TXrk
-        log: https://dps.report/j2MM-20250507-004127_golem
+      - author: Chimera
+        url: https://www.youtube.com/watch?v=D1U4EvqNkiw
+        log: https://dps.report/hs0X-20260613-132856_golem
 
   - name: Condi Firebrand A/T
     profession: Firebrand
@@ -355,24 +355,24 @@ list:
     profession: Willbender
     value:
       {
-        "values2": { "Power": 4387, "Power2": 0, "Burning": 5.59, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4514, "Power2": 0, "Burning": 4.65, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Andy
-        url: https://www.youtube.com/watch?v=282m_ydQUdY
-        log: https://dps.report/Ixw2-20230502-200305_golem
+      - author: Chimera
+        url: https://www.youtube.com/watch?v=SQTfkFLTZcI
+        log: https://dps.report/Ph2l-20260416-225356_golem
 
   # 12 boons, celefood toxiccrystal, 14%
   - name: Condi Alacrity Willbender
     profession: Willbender
     value:
       {
-        "values2": { "Power": 2711, "Power2": 0, "Burning": 9.8, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2197, "Power2": 0, "Burning": 11.75, "Bleeding": 7.44, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=cu8N1ZDKmzU
-        log: https://dps.report/rEUF-20220329-113027_golem
+      - author: Chimera
+        url: https://www.youtube.com/watch?v=5CSKbomxWE8
+        log: https://dps.report/RisE-20260503-150249_golem
 
   # https://www.youtube.com/watch?v=uPQfoQ0sUYU
   # https://www.youtube.com/watch?v=uPQfoQ0sUYU
@@ -381,20 +381,23 @@ list:
     profession: Willbender
     value:
       {
-        "values2": { "Power": 3506, "Power2": 0, "Burning": 2.49, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4206, "Power2": 0, "Burning": 2.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: Chimera
+        log: https://dps.report/8wkf-20260414-194515_golem
+        url: https://www.youtube.com/watch?v=yrouhR5gMac
 
   - name: Power Luminary SP/GS
     profession: Luminary
     value:
       {
-        "values2": { "Power": 5313, "Power2": 0, "Burning": 0.22, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4738, "Power2": 0, "Burning": 0.21, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Derm
-        url: https://www.youtube.com/watch?v=pcwUTPtR6nY
-        log: https://dps.report/1ymp-20251211-210829_golem
+      - author: Kadenar
+        url: https://www.youtube.com/watch?v=11iOIl41p7A
+        log: https://dps.report/tA3V-20260604-173032_golem
 
   # Bers Bers Divi Bers Drag Bers Divi Divi Drag Bers Bers Drag Bers
   - name: Alacrity Power Luminary LB/GS
@@ -1903,3 +1906,14 @@ list:
       - author: '[LCs] Seisan'
         url: https://www.youtube.com/watch?v=5IRgdbTrpzg
         log: https://dps.report/3MAR-20251214-150318_golem
+
+  - name: Quickness Condi Firebrand A/T P/P
+    profession: Guardian
+    value:
+      {
+        "values2": { "Power": 2094, "Power2": 0, "Burning": 13.87, "Bleeding": 8.54, "Poisoned": 0, "Torment": 0.21, "Confusion": 0 }
+      }
+    credit:
+      - author: Chimera
+        log: https://dps.report/qhoR-20260509-162737_golem
+        url: https://www.youtube.com/watch?v=Vu6cmxLg8MI
