@@ -1908,7 +1908,7 @@ list:
         log: https://dps.report/3MAR-20251214-150318_golem
 
   - name: Quickness Condi Firebrand A/T P/P
-    profession: Guardian
+    profession: Firebrand
     value:
       {
         "values2": { "Power": 2094, "Power2": 0, "Burning": 13.87, "Bleeding": 8.54, "Poisoned": 0, "Torment": 0.21, "Confusion": 0 }

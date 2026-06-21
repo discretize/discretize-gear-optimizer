@@ -898,9 +898,9 @@ list:
         distribution: Fire SE Evoker Inferno
         traits: Quickness Fire SE Evoker Inferno
         fractal:
-          extras: Fire SE Evoker Inferno (Fractal)
+          extras: Fire only ele (Fractal)
         raid:
-          extras: Fire SE Evoker Inferno (Raid)
+          extras: Fire only ele (Raid)
         weaponType: Dual wield
         outdated: true
 
@@ -934,9 +934,9 @@ list:
         distribution: Fire SE Evoker Inferno
         traits: Fire SE Evoker Inferno
         fractal:
-          extras: Fire SE Evoker Inferno (Fractal)
+          extras: Fire only ele (Fractal)
         raid:
-          extras: Fire SE Evoker Inferno (Raid)
+          extras: Fire only ele (Raid)
         weaponType: Dual wield
         outdated: true
 
@@ -1157,9 +1157,9 @@ list:
         distribution: Fire-only Weaver
         traits: Fire-only Weaver
         fractal:
-          extras: Fire-only Weaver Inferno (Fractal)
+          extras: Fire only ele (Fractal)
         raid:
-          extras: Fire-only Weaver Inferno (Raid)
+          extras: Fire only ele (Raid)
         weaponType: Dual wield
         outdated: true
 
