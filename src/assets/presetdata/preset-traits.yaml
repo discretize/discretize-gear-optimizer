@@ -7024,139 +7024,63 @@ list:
     traits:
       {
         "showAll": false,
-        "selectedLines": [
-          "30",
-          "33",
-          "72"
-        ],
-        "selectedTraits": [
+        "selectedLines": ["30", "33", "72"],
+        "selectedTraits": [[1069, 1846, 1064], [1099, 1101, 1701], [2301, 0, 2271]],
+        "items":
           [
-            1069,
-            1846,
-            1064
-          ],
-          [
-            1099,
-            1101,
-            1701
-          ],
-          [
-            2301,
-            0,
-            2271
+            {
+                "hidden-barbs": {},
+                "hunters-tactics": {},
+                "vicious-quarry": {},
+                "sharpened-edges": {"amount": "3.38"}
+              },
+            {
+                "oakheart-salve": {},
+                "arachnophobia": {},
+                "ambidexterity": {},
+                "ambidexterity-2": {"amount": "100"},
+                "poison-master": {}
+              },
+            {
+                "natural-fortitude": {},
+                "natural-fortitude-lifesteal": {"amount": "1.7"},
+                "vow-of-the-untamed-you": {"amount": "79.41"},
+                "ferocious-symbiosis": {"amount": ""}
+              }
           ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {},
-            "sharpened-edges": {
-              "amount": "3.38"
-            }
-          },
-          {
-            "oakheart-salve": {},
-            "arachnophobia": {},
-            "ambidexterity": {},
-            "ambidexterity-2": {
-              "amount": "100"
-            },
-            "poison-master": {}
-          },
-          {
-            "natural-fortitude": {},
-            "natural-fortitude-lifesteal": {
-              "amount": "1.7"
-            },
-            "vow-of-the-untamed-you": {
-              "amount": "80.5"
-            },
-            "ferocious-symbiosis": {
-              "amount": ""
-            }
-          }
-        ]
       }
-    skills:
-      {
-        "skills": {
-          "pet-dps": {
-            "amount": "5009"
-          }
-        }
-      }
+    skills: {"skills": {"pet-dps": {"amount": "4793"}}}
 
   - name: Power Soulbeast
     profession: Soulbeast
     traits:
       {
         "showAll": false,
-        "selectedLines": [
-          "30",
-          "32",
-          "55"
-        ],
-        "selectedTraits": [
+        "selectedLines": ["30", "32", "55"],
+        "selectedTraits": [[1069, 1700, 1888], [1606, 970, 1066], [2071, 2085, 2143]],
+        "items":
           [
-            1069,
-            1700,
-            1888
-          ],
-          [
-            1606,
-            970,
-            1066
-          ],
-          [
-            2071,
-            2161,
-            2143
+            {
+                "hidden-barbs": {},
+                "hunters-tactics": {},
+                "vicious-quarry": {},
+                "sharpened-edges": {"amount": "2.12"},
+                "striders-strength": {},
+                "striders-strength-sword": {"amount": ""}
+              },
+            {"honed-axes": {}, "honed-axes-axe": {"amount": ""}},
+            {
+                "furious-strength": {"amount": ""},
+                "twice-as-vicious": {"amount": ""},
+                "oppressive-superiority": {},
+                "archetype-ferocious": {},
+                "pack-alpha-merged": {},
+                "loud-whistle-merged": {},
+                "pets-prowess-merged": {}
+              }
           ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {},
-            "sharpened-edges": {
-              "amount": "2.12"
-            },
-            "striders-strength": {},
-            "striders-strength-sword": {
-              "amount": ""
-            }
-          },
-          {
-            "honed-axes": {},
-            "honed-axes-axe": {
-              "amount": ""
-            }
-          },
-          {
-            "furious-strength": {
-              "amount": ""
-            },
-            "twice-as-vicious": {
-              "amount": ""
-            },
-            "oppressive-superiority": {},
-            "archetype-ferocious": {},
-            "pack-alpha-merged": {},
-            "loud-whistle-merged": {},
-            "pets-prowess-merged": {}
-          }
-        ]
       }
-    skills:
-      {
-        "skills": {
-          "signet-of-the-wild": {},
-          "one-wolf-pack-sic-em": {
-            "amount": "0.1"
-          }
-        }
-      }
+    skills: {"skills": {"signet-of-the-wild": {}, "one-wolf-pack-sic-em": {"amount": "0.1"}}}
 
   - name: Quickness Power Untamed HA S/A NM
     profession: Untamed
@@ -7234,141 +7158,63 @@ list:
     traits:
       {
         "showAll": false,
-        "selectedLines": [
-          "30",
-          "8",
-          "72"
-        ],
-        "selectedTraits": [
+        "selectedLines": ["30", "32", "72"],
+        "selectedTraits": [[1069, 1700, 1888], [1606, 970, 1945], [2301, 2263, 2274]],
+        "items":
           [
-            1069,
-            1700,
-            1888
-          ],
-          [
-            986,
-            1001,
-            996
-          ],
-          [
-            2301,
-            0,
-            2274
+            {
+                "hidden-barbs": {},
+                "hunters-tactics": {},
+                "vicious-quarry": {},
+                "sharpened-edges": {"amount": "3"},
+                "striders-strength": {},
+                "striders-strength-sword": {"amount": ""}
+              },
+            {"honed-axes": {}, "honed-axes-axe": {"amount": ""}},
+            {
+                "natural-fortitude": {},
+                "vow-of-the-untamed-you": {"amount": "91.82"},
+                "ferocious-symbiosis": {"amount": "4.9"},
+                "natural-fortitude-lifesteal": {"amount": "0.8"}
+              }
           ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {},
-            "sharpened-edges": {
-              "amount": "3"
-            },
-            "striders-strength": {},
-            "striders-strength-sword": {
-              "amount": ""
-            }
-          },
-          {
-            "wolfsong": {
-              "amount": ""
-            },
-            "farsighted": {},
-            "predators-onslaught": {
-              "amount": ""
-            }
-          },
-          {
-            "natural-fortitude": {},
-            "vow-of-the-untamed-you": {
-              "amount": "90"
-            },
-            "ferocious-symbiosis": {
-              "amount": "4.9"
-            },
-            "natural-fortitude-lifesteal": {
-              "amount": "0.8"
-            }
-          }
-        ]
       }
-    skills:
-      {
-        "skills": {
-          "signet-of-the-wild": {},
-          "pet-dps": {
-            "amount": "3977"
-          }
-        }
-      }
+    skills: {"skills": {"signet-of-the-wild": {}, "pet-dps": {"amount": "10986"}}}
 
   - name: Condi Slb D/D SB
     profession: Soulbeast
     traits:
       {
         "showAll": false,
-        "selectedLines": [
-          "30",
-          "33",
-          "55"
-        ],
-        "selectedTraits": [
+        "selectedLines": ["30", "33", "55"],
+        "selectedTraits": [[1069, 1846, 1912], [1099, 1101, 1701], [2071, 2161, 2128]],
+        "items":
           [
-            1069,
-            1846,
-            1912
-          ],
-          [
-            1099,
-            1101,
-            1701
-          ],
-          [
-            2071,
-            2161,
-            2128
+            {
+                "hidden-barbs": {},
+                "hunters-tactics": {},
+                "vicious-quarry": {},
+                "light-on-your-feet": {"amount": "91.38"},
+                "sharpened-edges": {"amount": "3.06"}
+              },
+            {
+                "oakheart-salve": {},
+                "arachnophobia": {},
+                "ambidexterity": {},
+                "ambidexterity-2": {"amount": "50"},
+                "poison-master": {}
+              },
+            {
+                "furious-strength": {"amount": ""},
+                "twice-as-vicious": {"amount": "93.23"},
+                "oppressive-superiority": {},
+                "archetype-deadly": {}
+              }
           ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {},
-            "sharpened-edges": {
-              "amount": "3.06"
-            }
-          },
-          {
-            "oakheart-salve": {},
-            "arachnophobia": {},
-            "ambidexterity": {},
-            "ambidexterity-2": {
-              "amount": "50"
-            },
-            "poison-master": {}
-          },
-          {
-            "furious-strength": {
-              "amount": ""
-            },
-            "twice-as-vicious": {
-              "amount": "84.4"
-            },
-            "oppressive-superiority": {},
-            "archetype-deadly": {}
-          }
-        ]
       }
     skills:
       {
-        "skills": {
-          "one-wolf-pack-no-sic-em-sharpened": {
-            "amount": "0.14"
-          },
-          "vulture-stance": {
-            "amount": "1.68"
-          }
-        }
+        "skills": {"one-wolf-pack-no-sic-em-sharpened": {"amount": "0.17"}, "vulture-stance": {"amount": "1.68"}}
       }
 
   - name: Hybrid Slb OS
@@ -7514,140 +7360,58 @@ list:
     traits:
       {
         "showAll": false,
-        "selectedLines": [
-          "30",
-          "33",
-          "5"
-        ],
-        "selectedTraits": [
+        "selectedLines": ["30", "33", "5"],
+        "selectedTraits": [[1069, 1846, 1912], [1099, 1101, 1701], [1935, 2056, 2055]],
+        "items":
           [
-            1069,
-            1846,
-            1912
-          ],
-          [
-            1099,
-            1101,
-            1701
-          ],
-          [
-            1935,
-            2056,
-            2055
+            {
+                "hidden-barbs": {},
+                "hunters-tactics": {},
+                "vicious-quarry": {},
+                "striders-strength": {},
+                "striders-strength-sword": {"amount": ""},
+                "light-on-your-feet": {"amount": "100"},
+                "sharpened-edges": {"amount": "3"}
+              },
+            {
+                "oakheart-salve": {},
+                "arachnophobia": {},
+                "ambidexterity": {},
+                "ambidexterity-2": {"amount": "100"},
+                "survival-instincts-high": {},
+                "carnivore": {"amount": "???"},
+                "poison-master": {}
+              },
+            {"natural-mender": {}, "natural-balance": {}}
           ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {},
-            "striders-strength": {},
-            "striders-strength-sword": {
-              "amount": ""
-            },
-            "light-on-your-feet": {
-              "amount": "100"
-            },
-            "sharpened-edges": {
-              "amount": "3"
-            }
-          },
-          {
-            "oakheart-salve": {},
-            "arachnophobia": {},
-            "ambidexterity": {},
-            "ambidexterity-2": {
-              "amount": "100"
-            },
-            "survival-instincts-high": {},
-            "carnivore": {
-              "amount": "???"
-            },
-            "poison-master": {}
-          },
-          {
-            "natural-mender": {},
-            "natural-balance": {}
-          }
-        ]
       }
-    skills:
-      {
-        "skills": {
-          "pet-dps": {
-            "amount": "1457"
-          }
-        }
-      }
+    skills: {"skills": {"pet-dps": {"amount": "1446"}}}
 
   - name: Power Galeshot
     profession: Galeshot
     traits:
       {
         "showAll": false,
-        "selectedLines": [
-          "8",
-          "30",
-          "78"
-        ],
-        "selectedTraits": [
+        "selectedLines": ["8", "30", "78"],
+        "selectedTraits": [[986, 1001, 996], [1069, 1700, 1888], [2360, 2396, 2336]],
+        "items":
           [
-            986,
-            1001,
-            996
-          ],
-          [
-            1069,
-            1700,
-            1888
-          ],
-          [
-            2360,
-            2396,
-            2336
+            {"wolfsong": {"amount": ""}, "farsighted": {}, "predators-onslaught": {"amount": ""}},
+            {
+                "hidden-barbs": {},
+                "hunters-tactics": {},
+                "vicious-quarry": {},
+                "striders-strength": {},
+                "sharpened-edges": {"amount": "6"}
+              },
+            {
+                "bird-of-prey": {"amount": ""},
+                "gale-force-wind-force": {"amount": "1.59"},
+                "gale-force": {"amount": "86.54"}
+              }
           ]
-        ],
-        "items": [
-          {
-            "wolfsong": {
-              "amount": ""
-            },
-            "farsighted": {},
-            "predators-onslaught": {
-              "amount": ""
-            }
-          },
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {},
-            "striders-strength": {},
-            "sharpened-edges": {
-              "amount": "6"
-            }
-          },
-          {
-            "bird-of-prey": {
-              "amount": ""
-            },
-            "gale-force-wind-force": {
-              "amount": "1.6"
-            },
-            "gale-force": {
-              "amount": "85"
-            }
-          }
-        ]
       }
-    skills:
-      {
-        "skills": {
-          "signet-of-the-wild": {},
-          "pet-dps": {
-            "amount": "1108"
-          }
-        }
-      }
+    skills: {"skills": {"signet-of-the-wild": {}, "pet-dps": {"amount": "1142"}}}
 
   - name: Heal Alacrity Druid
     profession: Druid

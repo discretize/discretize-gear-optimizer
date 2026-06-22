@@ -1045,23 +1045,23 @@ list:
     profession: Untamed
     value:
       {
-        "values2": { "Power": 2181, "Power2": 0, "Burning": 3.52, "Bleeding": 21.39, "Poisoned": 12.66, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2156, "Power2": 0, "Burning": 3.95, "Bleeding": 19.25, "Poisoned": 12.66, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Chimera
-        url: https://www.youtube.com/watch?v=UXvYfstA4-Q
-        log: https://dps.report/9Au7-20250425-170634_golem
+        url: https://www.youtube.com/watch?v=mJDLeT-TEYw
+        log: https://dps.report/19d1-20260414-205010_golem
 
   - name: Power Soulbeast
     profession: Soulbeast
     value:
       {
-        "values2": { "Power": 3480, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0.39, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3614, "Power2": 0, "Burning": 0, "Bleeding": 1.57, "Poisoned": 0.48, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[InS] Laoshi'
-        url: https://www.youtube.com/watch?v=3YsQTHBCGEo
-        log: https://dps.report/KXbi-20231003-200539_golem
+      - author: "DingoUndSo"
+        url: https://www.youtube.com/watch?v=fH9eotFn7v4
+        log: https://dps.report/uIbg-20260415-225033_golem
 
   # https://www.youtube.com/watch?v=-bipnEirEGA
   # https://dps.report/JBAr-20210620-110933_golem
@@ -1105,12 +1105,12 @@ list:
     profession: Soulbeast
     value:
       {
-        "values2": { "Power": 1729, "Power2": 0, "Burning": 0, "Bleeding": 23.59, "Poisoned": 12.53, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1770, "Power2": 0, "Burning": 0.11, "Bleeding": 18.74, "Poisoned": 16.94, "Torment": 0.17, "Confusion": 0 }
       }
     credit:
       - author: Pip
-        url: https://www.youtube.com/watch?v=nAJhBrLKLvE
-        log: https://dps.report/4Iwe-20231003-183528_golem
+        url: https://www.youtube.com/watch?v=vVg2UaZAFLs
+        log: https://dps.report/pltF-20260414-175142_golem
 
   # - name: Hybrid Slb OS (A/T D/A)
   #   profession: Soulbeast
@@ -1151,12 +1151,12 @@ list:
     profession: Druid
     value:
       {
-        "values2": { "Power": 1806, "Power2": 0, "Burning": 5.52, "Bleeding": 27.98, "Poisoned": 16.76, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1873, "Power2": 0, "Burning": 5.5, "Bleeding": 26.69, "Poisoned": 16.66, "Torment": 0.01, "Confusion": 0 }
       }
     credit:
-      - author: '[LN] Toilet'
-        url: https://www.youtube.com/watch?v=x8RRJxO5B5w
-        log: https://dps.report/udV3-20250912-115101_golem
+      - author: Trufla
+        url: https://www.youtube.com/watch?v=1LzciIUuctQ
+        log: https://dps.report/qzQD-20260418-172502_golem
 
   - name: Quickness Power Untamed HA S/A NM
     profession: Untamed
@@ -1173,23 +1173,23 @@ list:
     profession: Untamed
     value:
       {
-        "values2": { "Power": 3481, "Power2": 0, "Burning": 0.81, "Bleeding": 0, "Poisoned": 1.88, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3481, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 2.81, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Trufla
-        url: https://www.youtube.com/watch?v=pJJetpiYq_g
-        log: https://dps.report/YH9W-20250508-132956_golem
+        url: https://www.youtube.com/watch?v=WSq2wVfhnrQ
+        log: https://dps.report/ZIQz-20260501-143444_golem
 
   - name: Power Galeshot
     profession: Galeshot
     value:
       {
-        "values2": { "Power": 3997, "Power2": 0, "Burning": 0, "Bleeding": 5.5, "Poisoned": 1.34, "Torment": 0, "Confusion": 0.45 }
+        "values2": { "Power": 4097, "Power2": 0, "Burning": 0, "Bleeding": 6.29, "Poisoned": 1.42, "Torment": 0, "Confusion": 0.54 }
       }
     credit:
-      - author: EDLR
-        url: https://www.youtube.com/watch?v=B6nX7mfxy_s
-        log: https://dps.report/HFtG-20251213-094351_golem
+      - author: Trufla
+        url: https://www.youtube.com/watch?v=Fe5nyzF9WMo
+        log: https://dps.report/w2Ie-20260420-170700_golem
 
 
   - name: Power Holo PBM
