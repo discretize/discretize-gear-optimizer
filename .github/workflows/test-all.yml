@@ -52,17 +52,19 @@ jobs:
         run: pnpm wasm
         if: steps.rust-output-cache.outputs.cache-hit != 'true'
 
-      - name: Test modifier and preset data
-        run: pnpm testData
+      - parallel:
 
-      - name: Validate modifier and preset data types
-        run: pnpm validateDataTypes
+        - name: Test modifier and preset data
+          run: pnpm testData
 
-      - name: Lint with ESLint
-        run: pnpm eslint
+        - name: Validate modifier and preset data types
+          run: pnpm validateDataTypes
 
-      - name: Format with prettier
-        run: pnpm prettierCheck
+        - name: Lint with ESLint
+          run: pnpm eslint
 
-      - name: Typecheck with tsc
-        run: pnpm typeCheck
+        - name: Format with prettier
+          run: pnpm prettierCheck
+
+        - name: Typecheck with tsc
+          run: pnpm typeCheck
