@@ -1326,7 +1326,7 @@ list:
         raid:
           extras: Power Galeshot (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Quickness Condi Untamed
         id: condi-quickness-untamed
@@ -1337,7 +1337,7 @@ list:
         traits: Quickness Condi Untamed
         extras: Quickness Condi Untamed
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Quickness Power Untamed HA S/A NM
         id: quickness-power-untamed
@@ -1365,7 +1365,7 @@ list:
         raid:
           extras: Power Untamed (Raid)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Power Soulbeast
         id: pslb
@@ -1379,7 +1379,7 @@ list:
         raid:
           extras: Power (Raid, fireworks)
         weaponType: Two-handed
-        outdated: true
+        outdated: false
 
       - name: Hybrid Soulbeast A/T D/A (Approx.)
         id: hslb
@@ -1420,7 +1420,7 @@ list:
         traits: Condi Slb D/D SB
         extras: Condi Slb
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Condi Druid LOYF
         id: condidruid
@@ -1431,7 +1431,7 @@ list:
         traits: Condi Druid LOYF
         extras: Condi Druid
         weaponType: Dual wield
-        outdated: true
+        outdated: false
 
       - name: Heal Quickness Untamed
         id: healuntamed
