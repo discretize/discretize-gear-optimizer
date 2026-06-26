@@ -24,7 +24,6 @@
     "build-cf": "VITE_HAS_CF=true vite build",
     "serve-cf": "VITE_HAS_CF=true wrangler pages dev --kv SHORT_LINKS -- pnpm serve",
     "build-gh": "vite build --base /discretize-gear-optimizer/",
-    "build-all": "concurrently -g -c auto \"pnpm:build-cf --outDir dist-cf\" \"pnpm:build-gh --outDir dist-gh\"",
     "prettier": "prettier --write .",
     "prettierCheck": "prettier --check .",
     "eslint": "eslint --ignore-path .gitignore --max-warnings 0 \"**/*.{js,jsx,ts,tsx}\" --cache",

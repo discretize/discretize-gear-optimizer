@@ -45,11 +45,15 @@ jobs:
         env:
           PATH: /home/discretize/.cargo/bin/:/usr/local/bin:/usr/bin:/bin
 
-      - name: Build
-        run: pnpm build-all
+      - parallel:
+        - name: Build for Cloudflare
+          run: pnpm build-cf --outDir dist-cf
+        - name: Build for Github Pages
+          run: pnpm build-gh --outDir dist-gh
 
       - name: Deploy to Cloudflare
         uses: cloudflare/wrangler-action@v4
+        background: true
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_1 }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID_1 }}
