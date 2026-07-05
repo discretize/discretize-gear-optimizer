@@ -1375,9 +1375,9 @@ list:
         distribution: Power Soulbeast
         traits: Power Soulbeast
         fractal:
-          extras: Power (Fractal, fireworks)
+          extras: Power (Fractal, claw)
         raid:
-          extras: Power (Raid, fireworks)
+          extras: Power (Fractal, claw)
         weaponType: Two-handed
         outdated: false
 
