@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-await-in-loop */
-import yaml from 'js-yaml';
+import * as yaml from 'js-yaml';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
