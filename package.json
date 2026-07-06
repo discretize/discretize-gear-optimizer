@@ -121,5 +121,8 @@
     "wasm-pack": "^0.15.0",
     "wrangler": "^4.107.0",
     "yaml": "^2.9.0"
+  },
+  "resolutions": {
+    "eslint-plugin-jsdoc": "63.0.10"
   }
 }
