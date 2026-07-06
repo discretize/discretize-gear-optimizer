@@ -1889,8 +1889,7 @@ export const SPECIALIZATIONS = {
 export const PROFESSIONS = objectKeys(SPECIALIZATIONS);
 
 export type ProfessionOrSpecializationName =
-  | keyof typeof SPECIALIZATIONS
-  | (typeof SPECIALIZATIONS)[keyof typeof SPECIALIZATIONS][number];
+  keyof typeof SPECIALIZATIONS | (typeof SPECIALIZATIONS)[keyof typeof SPECIALIZATIONS][number];
 
 // referenced in discretize.eu-rewrite
 export const GEAR_SLOTS = [

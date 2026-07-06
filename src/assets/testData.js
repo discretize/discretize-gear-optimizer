@@ -614,15 +614,13 @@ const testPresets = async () => {
   for (const [type, entries] of Object.entries(data)) {
     for (const entry of entries) {
       if (['traits', 'extras', 'infusion'].includes(type)) {
-        if (
-          !(
-            entry.profession ||
-            entry.name.startsWith('Power (') ||
-            entry.name.startsWith('Power Boon (') ||
-            entry.name === 'Heal' ||
-            entry.name.startsWith('Heal (')
-          )
-        ) {
+        if (!(
+          entry.profession ||
+          entry.name.startsWith('Power (') ||
+          entry.name.startsWith('Power Boon (') ||
+          entry.name === 'Heal' ||
+          entry.name.startsWith('Heal (')
+        )) {
           console.log(`❓ ${entry.name} ${type} preset has no profession!`);
         }
       }
