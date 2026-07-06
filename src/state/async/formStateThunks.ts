@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { TFunction } from 'i18next';
 import JsonUrl from 'json-url';
-import pako from 'pako';
+import * as pako from 'pako';
 import { PARAMS } from '../../utils/queryParam';
 import type { AppThunk } from '../redux-hooks';
 // import { changeBuildPage } from '../slices/buildPage';
@@ -207,7 +207,7 @@ export const importFormState =
     await new Promise(requestAnimationFrame);
     try {
       if (binaryData) {
-        const decompressed = pako.inflate(binaryData, { to: 'string' });
+        const decompressed = pako.inflate(binaryData, { toText: true });
         const importData = JSON.parse(decompressed);
         console.log(importData);
 
