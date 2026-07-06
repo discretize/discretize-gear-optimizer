@@ -105,7 +105,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.5",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-jsdoc": "^63.0.11",
+    "eslint-plugin-jsdoc": "^63.0.12",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
@@ -121,8 +121,5 @@
     "wasm-pack": "^0.15.0",
     "wrangler": "^4.107.0",
     "yaml": "^2.9.0"
-  },
-  "resolutions": {
-    "eslint-plugin-jsdoc": "63.0.10"
   }
 }
