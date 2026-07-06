@@ -71,28 +71,13 @@ const logAttributeDiff = (newCharacter: Character | null, oldCharacter: Characte
 };
 
 export type FilterMode =
-  | 'None'
-  | 'Combinations'
-  | 'Sigils'
-  | 'Runes'
-  | 'Relics'
-  | 'Nourishment'
-  | 'Enhancement';
+  'None' | 'Combinations' | 'Sigils' | 'Runes' | 'Relics' | 'Nourishment' | 'Enhancement';
 
 export type ExtraFilterMode =
-  | 'Combinations'
-  | 'Sigils'
-  | 'Runes'
-  | 'Relics'
-  | 'Nourishment'
-  | 'Enhancement';
+  'Combinations' | 'Sigils' | 'Runes' | 'Relics' | 'Nourishment' | 'Enhancement';
 
 export type DisplayAttributes = (
-  | 'Toughness'
-  | 'Boon Duration'
-  | 'Health'
-  | 'Critical Chance'
-  | 'Condition Duration'
+  'Toughness' | 'Boon Duration' | 'Health' | 'Critical Chance' | 'Condition Duration'
 )[];
 
 export const emptyFilteredLists = {

@@ -43,21 +43,9 @@ export interface AppliedModifier {
 // src/components/sections/distribution/DamageDistribution.jsx
 // (unsure how that would best be done)
 export type DistributionNameUI =
-  | 'Power'
-  | 'Power2'
-  | 'Burning'
-  | 'Bleeding'
-  | 'Poisoned'
-  | 'Torment'
-  | 'Confusion';
+  'Power' | 'Power2' | 'Burning' | 'Bleeding' | 'Poisoned' | 'Torment' | 'Confusion';
 export type DistributionNameInternal =
-  | 'Power'
-  | 'Power2'
-  | 'Burning'
-  | 'Bleeding'
-  | 'Poison'
-  | 'Torment'
-  | 'Confusion';
+  'Power' | 'Power2' | 'Burning' | 'Bleeding' | 'Poison' | 'Torment' | 'Confusion';
 
 interface MultiplierBreakdown {
   mult: number;
