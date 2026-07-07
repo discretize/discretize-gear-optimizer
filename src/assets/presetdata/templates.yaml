@@ -1377,7 +1377,7 @@ list:
         fractal:
           extras: Power (Fractal, claw)
         raid:
-          extras: Power (Fractal, claw)
+          extras: Power (Raid, claw)
         weaponType: Two-handed
         outdated: false
 
