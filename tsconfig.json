@@ -15,9 +15,7 @@
     "strict": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
-    
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "forceConsistentCasingInFileNames": true
   },
   "exclude": ["node_modules"]
 }
