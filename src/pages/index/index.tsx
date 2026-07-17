@@ -41,13 +41,7 @@ const IndexPage = () => {
       .
       <br />
       <br />
-      <i>
-        Note: every build template have been unconditionally marked as outdated to speed up getting
-        this patch released, but some are actually accurate. This may be fixed in the future.
-      </i>
-      {/* <br />
-      <br />
-      <i>April 14 patch:</i>
+      <i>July 15 patch:</i>
       <ul>
         <li>
           <i>Modifiers: outdated</i>
@@ -55,7 +49,7 @@ const IndexPage = () => {
         <li>
           <i>Templates: outdated</i>
         </li>
-      </ul> */}
+      </ul>
     </Trans>,
     <Trans>
       Report gear optimizer issues and suggest improvements in the Discretize{' '}
