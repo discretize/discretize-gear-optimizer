@@ -1611,7 +1611,7 @@ export const conditionData = {
   },
   BurningInferno: {
     baseDamage: 131,
-    factor: 0.075,
+    factor: 0.0825,
   },
   Bleeding: {
     baseDamage: 22,

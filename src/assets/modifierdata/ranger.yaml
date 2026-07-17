@@ -502,13 +502,11 @@
           Outgoing Condition Damage: [5%, add]
         attributes:
           Condition Duration: 10%
-          Concentration: [300, converted]
       wvwModifiers:
         damage:
           Outgoing Condition Damage: [10%, add]
         attributes:
           Condition Duration: 10%
-          Concentration: [300, converted]
       gw2id: 2056
       defaultEnabled: true
       temporaryBuff: true
@@ -531,7 +529,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, add]
+          Outgoing Strike Damage: [15%, add]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [7%, add]
@@ -747,7 +745,7 @@
           Outgoing Strike Damage: [25%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [15%, add]
+          Outgoing Strike Damage: [10%, add]
       minor: true
       gw2id: 2269
       defaultEnabled: true
@@ -760,7 +758,7 @@
           Damage Reduction: [25%, unknown]
       wvwModifiers:
         damage:
-          Damage Reduction: [15%, unknown]
+          Damage Reduction: [10%, unknown]
       minor: true
       gw2id: 2269
       defaultEnabled: false

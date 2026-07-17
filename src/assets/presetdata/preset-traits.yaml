@@ -36,7 +36,8 @@ list:
             "egotism": {
               "amount": ""
             },
-            "vicious-expression": {
+            "vicious-expression-base": {},
+            "vicious-expression-boonless": {
               "amount": ""
             },
             "empowered-illusions": {}
@@ -107,7 +108,8 @@ list:
             "egotism": {
               "amount": ""
             },
-            "vicious-expression": {
+            "vicious-expression-base": {},
+            "vicious-expression-boonless": {
               "amount": ""
             },
             "empowered-illusions": {}
@@ -176,7 +178,8 @@ list:
             "egotism": {
               "amount": ""
             },
-            "vicious-expression": {
+            "vicious-expression-base": {},
+            "vicious-expression-boonless": {
               "amount": ""
             },
             "empowered-illusions": {}
@@ -244,7 +247,8 @@ list:
             "egotism": {
               "amount": ""
             },
-            "vicious-expression": {
+            "vicious-expression-base": {},
+            "vicious-expression-boonless": {
               "amount": ""
             },
             "empowered-illusions": {}
@@ -315,7 +319,8 @@ list:
             "egotism": {
               "amount": ""
             },
-            "vicious-expression": {
+            "vicious-expression-base": {},
+            "vicious-expression-boonless": {
               "amount": ""
             },
             "empowered-illusions": {}
@@ -384,7 +389,8 @@ list:
             "egotism": {
               "amount": ""
             },
-            "vicious-expression": {
+            "vicious-expression-base": {},
+            "vicious-expression-boonless": {
               "amount": ""
             },
             "empowered-illusions": {}
@@ -449,7 +455,6 @@ list:
             "illusionary-membrane": {
               "amount": ""
             },
-            "chaotic-potency": {},
             "chaotic-persistence": {}
           },
           {
@@ -504,7 +509,6 @@ list:
             "illusionary-membrane": {
               "amount": ""
             },
-            "chaotic-potency": {},
             "chaotic-persistence": {}
           },
           {
@@ -569,11 +573,7 @@ list:
             "illusionary-membrane": {
               "amount": ""
             },
-            "chaotic-potency": {},
             "chaotic-persistence": {
-              "amount": ""
-            },
-            "chaotic-potency-2": {
               "amount": ""
             }
           },
@@ -643,12 +643,8 @@ list:
             "illusionary-membrane": {
               "amount": ""
             },
-            "chaotic-potency": {},
             "chaotic-persistence": {
               "amount": ""
-            },
-            "chaotic-potency-2": {
-              "amount": "50"
             }
           },
           {
@@ -710,12 +706,8 @@ list:
             "illusionary-membrane": {
               "amount": ""
             },
-            "chaotic-potency": {},
             "chaotic-persistence": {
               "amount": ""
-            },
-            "chaotic-potency-2": {
-              "amount": "50"
             }
           },
           {
@@ -781,7 +773,8 @@ list:
             "egotism": {
               "amount": ""
             },
-            "vicious-expression": {
+            "vicious-expression-base": {},
+            "vicious-expression-boonless": {
               "amount": ""
             }
           },
@@ -845,11 +838,7 @@ list:
             "illusionary-membrane": {
               "amount": "82"
             },
-            "chaotic-potency": {},
-            "chaotic-persistence": {},
-            "chaotic-potency-2": {
-              "amount": "50"
-            }
+            "chaotic-persistence": {}
           },
           {
             "compounding-power": {
@@ -975,12 +964,8 @@ list:
             "illusionary-membrane": {
               "amount": ""
             },
-            "chaotic-potency": {},
             "chaotic-persistence": {
               "amount": ""
-            },
-            "chaotic-potency-2": {
-              "amount": "50"
             }
           },
           {
@@ -1036,12 +1021,8 @@ list:
             "illusionary-membrane": {
               "amount": ""
             },
-            "chaotic-potency": {},
             "chaotic-persistence": {
               "amount": ""
-            },
-            "chaotic-potency-2": {
-              "amount": "50"
             }
           },
           {
@@ -1180,7 +1161,6 @@ list:
             "illusionary-membrane": {
               "amount": ""
             },
-            "chaotic-potency": {},
             "chaotic-persistence": {}
           },
           {
@@ -1243,7 +1223,8 @@ list:
             "egotism": {
               "amount": ""
             },
-            "vicious-expression": {
+            "vicious-expression-base": {},
+            "vicious-expression-boonless": {
               "amount": ""
             },
             "empowered-illusions": {}
@@ -1315,7 +1296,8 @@ list:
             "egotism": {
               "amount": ""
             },
-            "vicious-expression": {
+            "vicious-expression-base": {},
+            "vicious-expression-boonless": {
               "amount": ""
             }
           },
@@ -1387,7 +1369,8 @@ list:
             "egotism": {
               "amount": ""
             },
-            "vicious-expression": {
+            "vicious-expression-base": {},
+            "vicious-expression-boonless": {
               "amount": ""
             }
           },
@@ -3491,19 +3474,16 @@ list:
           },
           {
             "superior-elements": {},
-            "masters-fortitude": {},
-            "masters-fortitude-sword": {},
-            "weavers-prowess": {},
-            "swift-revenge": {
-              "amount": ""
-            },
+            "elemental-refreshment": {},
             "elemental-polyphony-fire": {
               "amount": "76"
             },
             "elemental-polyphony-air": {
               "amount": "74"
             },
-            "elements-of-rage-base": {},
+            "elemental-polyphony-earth": {
+              "amount": "???"
+            },
             "elements-of-rage-buff": {
               "amount": ""
             }
@@ -3580,19 +3560,16 @@ list:
           },
           {
             "superior-elements": {},
-            "masters-fortitude": {},
-            "masters-fortitude-sword": {},
-            "weavers-prowess": {},
-            "swift-revenge": {
-              "amount": ""
-            },
+            "elemental-refreshment": {},
             "elemental-polyphony-fire": {
               "amount": "73.12"
             },
             "elemental-polyphony-air": {
               "amount": "59.17"
             },
-            "elements-of-rage-base": {},
+            "elemental-polyphony-earth": {
+              "amount": "???"
+            },
             "elements-of-rage-buff": {
               "amount": ""
             }
@@ -3661,22 +3638,19 @@ list:
           },
           {
             "superior-elements": {},
-            "masters-fortitude": {},
-            "masters-fortitude-sword": {},
-            "weavers-prowess": {},
-            "swift-revenge": {
-              "amount": ""
-            },
+            "elemental-refreshment": {},
             "elemental-polyphony-fire": {
               "amount": "63.24"
             },
-            "elements-of-rage-base": {},
             "elements-of-rage-buff": {
               "amount": ""
             },
             "elemental-polyphony-air": {
               "amount": "7.64"
-            }
+            },
+            "elemental-polyphony-earth": {
+              "amount": "???"
+            },
           }
         ]
       }
@@ -3744,19 +3718,16 @@ list:
           },
           {
             "superior-elements": {},
-            "masters-fortitude": {},
-            "masters-fortitude-sword": {},
-            "weavers-prowess": {},
-            "swift-revenge": {
-              "amount": ""
-            },
+            "elemental-refreshment": {},
             "elemental-polyphony-fire": {
               "amount": "83"
             },
             "elemental-polyphony-air": {
               "amount": "29"
             },
-            "elements-of-rage-base": {},
+            "elemental-polyphony-earth": {
+              "amount": "???"
+            },
             "elements-of-rage-buff": {
               "amount": "80"
             }
@@ -3822,19 +3793,16 @@ list:
           },
           {
             "superior-elements": {},
-            "masters-fortitude": {},
-            "masters-fortitude-sword": {},
-            "weavers-prowess": {},
-            "swift-revenge": {
-              "amount": ""
-            },
+            "elemental-refreshment": {},
             "elemental-polyphony-fire": {
               "amount": "83"
             },
             "elemental-polyphony-air": {
               "amount": "29"
             },
-            "elements-of-rage-base": {},
+            "elemental-polyphony-earth": {
+              "amount": "???"
+            },
             "elements-of-rage-buff": {
               "amount": "80"
             }
@@ -3900,19 +3868,16 @@ list:
           },
           {
             "superior-elements": {},
-            "masters-fortitude": {},
-            "masters-fortitude-sword": {},
-            "weavers-prowess": {},
-            "swift-revenge": {
-              "amount": ""
-            },
+            "elemental-refreshment": {},
             "elemental-polyphony-fire": {
               "amount": "80.6"
             },
             "elemental-polyphony-air": {
               "amount": "10.8"
             },
-            "elements-of-rage-base": {},
+            "elemental-polyphony-earth": {
+              "amount": "???"
+            },
             "elements-of-rage-buff": {
               "amount": "92"
             }
@@ -3981,19 +3946,16 @@ list:
           },
           {
             "superior-elements": {},
-            "masters-fortitude": {},
-            "masters-fortitude-sword": {},
-            "weavers-prowess": {},
-            "swift-revenge": {
-              "amount": ""
-            },
+            "elemental-refreshment": {},
             "elemental-polyphony-fire": {
               "amount": "93.23"
             },
             "elemental-polyphony-air": {
               "amount": "7.54"
             },
-            "elements-of-rage-base": {},
+            "elemental-polyphony-earth": {
+              "amount": "???"
+            },
             "elements-of-rage-buff": {
               "amount": "84.17"
             }
@@ -4079,19 +4041,16 @@ list:
           },
           {
             "superior-elements": {},
-            "masters-fortitude": {},
-            "masters-fortitude-sword": {},
-            "weavers-prowess": {},
-            "swift-revenge": {
-              "amount": ""
-            },
+            "elemental-refreshment": {},
             "elemental-polyphony-fire": {
               "amount": "65.8"
             },
             "elemental-polyphony-air": {
               "amount": "63.1"
             },
-            "elements-of-rage-base": {},
+            "elemental-polyphony-earth": {
+              "amount": "???"
+            },
             "elements-of-rage-buff": {
               "amount": ""
             }
@@ -6316,16 +6275,9 @@ list:
             "superior-elements": {
               "amount": ""
             },
-            "masters-fortitude": {},
-            "masters-fortitude-sword": {},
-            "weavers-prowess": {},
-            "swift-revenge": {
-              "amount": ""
-            },
             "elemental-polyphony-fire": {
               "amount": "100"
             },
-            "elements-of-rage-base": {},
             "elements-of-rage-buff": {
               "amount": "7.7"
             }
@@ -9761,7 +9713,8 @@ list:
         ],
         "items": [
           {
-            "spiteful-talisman": {
+            "spiteful-talisman-base": {},
+            "spiteful-talisman-boonless": {
               "amount": ""
             },
             "malicious-swarm": {
@@ -10119,8 +10072,9 @@ list:
             "twisted-medicine-alchemic-vigor": {},
             "dark-gunslinger": {},
             "dark-gunslinger-alchemic-vigor": {},
-            "cascading-corruption": {},
-            "doom-approaches": {},
+            "cascading-corruption": {
+              "amount": "???"
+            },
             "blight": {
               "amount": ""
             }
@@ -10198,8 +10152,9 @@ list:
             "twisted-medicine-alchemic-vigor": {},
             "dark-gunslinger": {},
             "dark-gunslinger-alchemic-vigor": {},
-            "cascading-corruption": {},
-            "doom-approaches": {},
+            "cascading-corruption": {
+              "amount": "???"
+            },
             "blight": {
               "amount": ""
             }
@@ -10244,7 +10199,8 @@ list:
         ],
         "items": [
           {
-            "spiteful-talisman": {
+            "spiteful-talisman-base": {},
+            "spiteful-talisman-boonless": {
               "amount": ""
             },
             "malicious-swarm": {
@@ -10283,8 +10239,9 @@ list:
             "twisted-medicine-alchemic-vigor": {},
             "dark-gunslinger": {},
             "dark-gunslinger-alchemic-vigor": {},
-            "cascading-corruption": {},
-            "doom-approaches": {},
+            "cascading-corruption": {
+              "amount": "???"
+            },
             "blight": {
               "amount": ""
             }
@@ -10332,7 +10289,8 @@ list:
         ],
         "items": [
           {
-            "spiteful-talisman": {
+            "spiteful-talisman-base": {},
+            "spiteful-talisman-boonless": {
               "amount": ""
             },
             "malicious-swarm": {
@@ -10371,8 +10329,9 @@ list:
             "twisted-medicine-alchemic-vigor": {},
             "dark-gunslinger": {},
             "dark-gunslinger-alchemic-vigor": {},
-            "cascading-corruption": {},
-            "doom-approaches": {},
+            "cascading-corruption": {
+              "amount": "???"
+            },
             "blight": {
               "amount": ""
             }
@@ -10423,7 +10382,8 @@ list:
         ],
         "items": [
           {
-            "spiteful-talisman": {
+            "spiteful-talisman-base": {},
+            "spiteful-talisman-boonless": {
               "amount": ""
             },
             "malicious-swarm": {
@@ -10511,7 +10471,8 @@ list:
         ],
         "items": [
           {
-            "spiteful-talisman": {
+            "spiteful-talisman-base": {},
+            "spiteful-talisman-boonless": {
               "amount": ""
             },
             "malicious-swarm": {
@@ -10622,7 +10583,6 @@ list:
           },
           {
             "silent-scope-base": {},
-            "silent-scope-rifle": {},
             "premeditation-base": {},
             "premeditation": {
               "amount": ""
@@ -10686,7 +10646,6 @@ list:
           },
           {
             "silent-scope-base": {},
-            "silent-scope-rifle": {},
             "premeditation-base": {},
             "premeditation": {
               "amount": ""
@@ -11109,7 +11068,6 @@ list:
           },
           {
             "silent-scope-base": {},
-            "silent-scope-rifle": {},
             "premeditation-base": {},
             "premeditation": {
               "amount": ""
@@ -11189,7 +11147,6 @@ list:
           },
           {
             "silent-scope-base": {},
-            "silent-scope-rifle": {},
             "premeditation-base": {},
             "premeditation": {
               "amount": ""
@@ -11269,7 +11226,6 @@ list:
           },
           {
             "silent-scope-base": {},
-            "silent-scope-rifle": {},
             "premeditation-base": {},
             "premeditation": {
               "amount": ""
@@ -11350,7 +11306,6 @@ list:
           },
           {
             "silent-scope-base": {},
-            "silent-scope-rifle": {},
             "premeditation-base": {},
             "premeditation": {
               "amount": ""
@@ -11430,7 +11385,6 @@ list:
           },
           {
             "silent-scope-base": {},
-            "silent-scope-rifle": {},
             "premeditation-base": {},
             "premeditation": {
               "amount": ""

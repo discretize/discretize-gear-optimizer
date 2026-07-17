@@ -837,6 +837,7 @@
       modifiers:
         damage:
           Outgoing Strike Damage: [1%, add] # tested by ReMagic
+          Outgoing Condition Damage: [1%, add]
       gw2id: 2302
       defaultEnabled: true
 

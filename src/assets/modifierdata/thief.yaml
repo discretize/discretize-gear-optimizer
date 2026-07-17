@@ -556,22 +556,6 @@
       defaultEnabled: true
       temporaryBuff: false
 
-    - id: silent-scope-rifle
-      text: Silent Scope
-      subText: with rifle
-      amountData:
-        label: '% uptime'
-        default: 100
-        quantityEntered: 100
-        advancedUptimeSimulation:
-          correlation: false
-      modifiers:
-        attributes:
-          Precision: [120, converted]
-      gw2id: 2118
-      defaultEnabled: true
-      temporaryBuff: activeOutOfCombat # sometimes...
-
     - id: premeditation-base
       text: Premeditation
       subText: base
