@@ -44,7 +44,7 @@ const IndexPage = () => {
       <i>July 15 patch:</i>
       <ul>
         <li>
-          <i>Modifiers: outdated</i>
+          <i>Modifiers: up to date</i>
         </li>
         <li>
           <i>Templates: outdated</i>
