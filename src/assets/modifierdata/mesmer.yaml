@@ -90,11 +90,11 @@
       subText: base
       modifiers:
         damage:
-          Outgoing Strike Damage: [10%, mult] # maybe?
+          Outgoing Strike Damage: [10%, mult]
           Outgoing Phantasm Damage: [10%, unknown]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [7%, mult] # maybe?
+          Outgoing Strike Damage: [7%, mult]
           Outgoing Phantasm Damage: [7%, unknown]
       gw2id: 681
       defaultEnabled: true
@@ -107,11 +107,11 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [4.545454545%, unknown] # 1.15/1.10 — unconfirmed
+          Outgoing Strike Damage: [4.545454545%, mult] # 1.15/1.10
           Outgoing Phantasm Damage: [4.545454545%, unknown]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [7.476635514%, unknown] # 1.15/1.07 — unconfirmed
+          Outgoing Strike Damage: [7.476635514%, mult] # 1.15/1.07
           Outgoing Phantasm Damage: [7.476635514%, unknown]
       gw2id: 681
       defaultEnabled: true

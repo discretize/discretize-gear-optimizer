@@ -780,11 +780,11 @@
       modifiers:
         damage:
           Outgoing Bleeding Damage: [25%, mult]
-          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, mult]
       wvwModifiers:
         damage:
           Outgoing Bleeding Damage: [25%, mult]
-          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 2092
       defaultEnabled: true
 
