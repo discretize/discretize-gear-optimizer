@@ -209,7 +209,19 @@
   id: 53
   items:
 
-    - id: spiteful-talisman
+    - id: spiteful-talisman-base
+      text: Spiteful Talisman
+      subText: base
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [3%, mult]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [7%, mult]
+      gw2id: 914
+      defaultEnabled: true
+
+    - id: spiteful-talisman-boonless
       text: Spiteful Talisman
       amountData:
         label: '% boonless'
@@ -217,10 +229,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [1.941747573%, mult] # 1.05/1.03
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [4.672897196%, mult] # 1.12/1.07
       gw2id: 914
       defaultEnabled: true
 
@@ -755,7 +767,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [12%, mult]
+          Outgoing Strike Damage: [15%, mult]
       wvwModifiers:
         damage:
           Outgoing Strike Damage: [10%, mult]
@@ -988,25 +1000,17 @@
 
     - id: cascading-corruption
       text: Cascading Corruption
-      subText: power bonus only
+      amountData:
+        label: '% meltdown'
+        default: 0
+        defaultInput: ???
+        quantityEntered: 100
       modifiers:
-        attributes:
-          Power: [240, converted] # tested dec 2025 by nimon!
+        damage:
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
       gw2id: 2218
       defaultEnabled: true
-      temporaryBuff: false
-
-    - id: doom-approaches
-      text: Doom Approaches
-      modifiers:
-        attributes:
-          Condition Damage: [180, converted] # tested by Jezereal
-      wvwModifiers:
-        attributes:
-          Condition Damage: [240, converted]
-      gw2id: 2203
-      defaultEnabled: true
-      temporaryBuff: false
 
 - section: Ritualist
   id: 76

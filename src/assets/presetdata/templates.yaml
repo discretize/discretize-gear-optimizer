@@ -489,7 +489,7 @@ list:
         raid:
           extras: Power Alacrity Willbender Warrior (Raid)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Alacrity Condi Willbender
         id: cwb-alac
@@ -547,7 +547,7 @@ list:
         raid:
           extras: Power (Raid, furious)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Power Willbender Radiance
         id: pwb-radiance
@@ -1013,7 +1013,7 @@ list:
         raid:
           extras: Power Boon (Raid, fireworks)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Alacrity Power Tempest Hammer
         id: ptemp-alac-ham
@@ -1080,7 +1080,7 @@ list:
         raid:
           extras: Power (Raid, fireworks)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Power Weaver Sword
         id: pwea
@@ -1095,7 +1095,7 @@ list:
           traits: Power Weaver Raid
           extras: Power Weaver (Raid)
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Weaver P/D
         id: cwea-pi
@@ -1106,7 +1106,7 @@ list:
         traits: Condi Weaver P/D
         extras: Condi Weaver
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Weaver Staff
         id: cwea-staff
@@ -1128,7 +1128,7 @@ list:
         traits: Condi Weaver Scepter
         extras: Condi Weaver Scepter
         weaponType: Dual wield
-        outdated: false
+        outdated: true
 
       - name: Condi Weaver Sword
         id: cwea-sw
@@ -1379,7 +1379,7 @@ list:
         raid:
           extras: Power (Raid, claw)
         weaponType: Two-handed
-        outdated: false
+        outdated: true
 
       - name: Hybrid Soulbeast A/T D/A (Approx.)
         id: hslb

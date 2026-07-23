@@ -200,7 +200,7 @@ impl Condition {
                     if is_wvw {
                         0.06
                     } else {
-                        0.1
+                        0.0825
                     }
                 } else {
                     0.155

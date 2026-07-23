@@ -679,7 +679,7 @@
           correlation: false
       modifiers:
         attributes:
-          Critical Chance: 15%
+          Critical Chance: 20%
       wvwModifiers:
         attributes:
           Critical Chance: 15%
@@ -687,53 +687,15 @@
       defaultEnabled: true
       temporaryBuff: true
 
-    - id: masters-fortitude
-      text: Master's Fortitude
-      subText: base
-      modifiers:
-        conversion:
-          Vitality: {Power: 5%, Condition Damage: 5%}
-      gw2id: 2115
-      defaultEnabled: true
-      temporaryBuff: false
-
-    - id: masters-fortitude-sword
-      text: Master's Fortitude
-      subText: with sword
+    - id: elemental-refreshment
+      text: Elemental Refreshment
+      minor: true
       modifiers:
         attributes:
-          Vitality: [120, converted]
-      gw2id: 2115
-      defaultEnabled: true
-      temporaryBuff: false # since you only have one weapon set
-
-    - id: weavers-prowess
-      text: Weaver's Prowess
-      subText: 100% uptime
-      modifiers:
-        attributes:
-          Condition Duration: 20%
-      wvwModifiers:
-        attributes:
-          Condition Duration: 7%
-      gw2id: 2180
+          Vitality: [180, converted]
+      gw2id: 2077
       defaultEnabled: true
       temporaryBuff: true
-
-    - id: swift-revenge
-      text: Swift Revenge
-      amountData:
-        label: '% swiftness'
-        default: 100
-        quantityEntered: 100
-      modifiers:
-        damage:
-          Outgoing Strike Damage: [7%, add]
-      wvwModifiers:
-        damage:
-          Outgoing Strike Damage: [10%, add]
-      gw2id: 2061
-      defaultEnabled: true
 
     - id: elemental-polyphony-fire
       text: Elemental Polyphony
@@ -767,17 +729,24 @@
           Ferocity: [120, buff]
       gw2id: 2081
       defaultEnabled: true
-      temporaryBuff: true # assume the user is in fire attunement, not air
+      temporaryBuff: true # assume the user is in fire attunement, not air or earth
 
-    - id: elements-of-rage-base
-      text: Elements of Rage
-      subText: base
+    - id: elemental-polyphony-earth
+      text: Elemental Polyphony
+      minor: true
+      amountData:
+        label: '% earth attunement'
+        default: 50
+        quantityEntered: 100
       modifiers:
-        conversion:
-          Precision: {Vitality: 13%}
-      gw2id: 2131
+        attributes:
+          Condition Damage: [200, buff]
+      wvwModifiers:
+        attributes:
+          Condition Damage: [120, buff]
+      gw2id: 2081
       defaultEnabled: true
-      temporaryBuff: false
+      temporaryBuff: true # assume the user is in fire attunement, not air or earth
 
     - id: elements-of-rage-buff
       text: Elements of Rage
@@ -787,8 +756,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Condition Damage: [5%, add]
-          Outgoing Strike Damage: [7%, add] # untested; please confirm!
+          Outgoing Condition Damage: [10%, add]
+          Outgoing Strike Damage: [15%, add]
       wvwModifiers:
         damage:
           Outgoing Condition Damage: [5%, add]
@@ -1487,7 +1456,7 @@
           Outgoing Strike Damage: [10%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [20%, add]
+          Outgoing Strike Damage: [12%, add]
       gw2id: 2342
       defaultEnabled: false
 
@@ -1521,6 +1490,6 @@
           Outgoing Strike Damage: [5%, add]
       wvwModifiers:
         damage:
-          Outgoing Strike Damage: [7%, add]
+          Outgoing Strike Damage: [5%, add]
       gw2id: 2351
       defaultEnabled: false

@@ -85,7 +85,21 @@
       gw2id: 713
       defaultEnabled: true
 
-    - id: vicious-expression
+    - id: vicious-expression-base
+      text: Vicious Expression
+      subText: base
+      modifiers:
+        damage:
+          Outgoing Strike Damage: [10%, mult]
+          Outgoing Phantasm Damage: [10%, unknown]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [7%, mult]
+          Outgoing Phantasm Damage: [7%, unknown]
+      gw2id: 681
+      defaultEnabled: true
+
+    - id: vicious-expression-boonless
       text: Vicious Expression
       amountData:
         label: '% boonless'
@@ -93,8 +107,12 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [15%, mult]
-          Outgoing Phantasm Damage: [15%, unknown]
+          Outgoing Strike Damage: [4.545454545%, mult] # 1.15/1.10
+          Outgoing Phantasm Damage: [4.545454545%, unknown]
+      wvwModifiers:
+        damage:
+          Outgoing Strike Damage: [7.476635514%, mult] # 1.15/1.07
+          Outgoing Phantasm Damage: [7.476635514%, unknown]
       gw2id: 681
       defaultEnabled: true
 
@@ -230,31 +248,6 @@
           Outgoing Condition Damage: [10%, add]
       gw2id: 667
       defaultEnabled: true
-
-    - id: chaotic-potency
-      text: Chaotic Potency
-      subText: base
-      modifiers:
-        attributes:
-          Condition Damage: [120, buff]
-      gw2id: 669
-      defaultEnabled: true
-      temporaryBuff: false
-
-    # causes scaled boon duration with toxic oil
-    - id: chaotic-potency-2
-      text: Chaotic Potency
-      subText: with staff
-      amountData:
-        label: '% uptime'
-        default: 100
-        quantityEntered: 100
-      modifiers:
-        attributes:
-          Condition Damage: [120, converted] # tested by marcus
-      gw2id: 669
-      defaultEnabled: false
-      temporaryBuff: activeOutOfCombat # sometimes...
 
     - id: chaotic-persistence
       text: Chaotic Persistence
