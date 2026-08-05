@@ -28,10 +28,10 @@
     "gulp-replace": "^1.1.4",
     "gulp-sass": "^6.0.1",
     "gulp-uglify": "^3.0.2",
-    "js-yaml": "^4.3.0",
-    "postcss": "^8.5.18",
+    "js-yaml": "^4.3.1",
+    "postcss": "^8.5.25",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "sass": "^1.101.0"
+    "sass": "^1.102.0"
   },
   "engines": {
     "npm": "please-use-pnpm",
