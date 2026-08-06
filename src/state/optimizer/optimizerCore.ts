@@ -984,7 +984,12 @@ export class OptimizerCore {
       const scenarioAttributeSummary: ScenarioAttributeSummary = {};
       let hasData = false;
 
-      const attrs = ['Critical Chance', 'Condition Duration'] as const;
+      const attrs = [
+        'Critical Chance',
+        'Condition Duration',
+        'Effective Power',
+        'Phantasm Effective Power',
+      ] as const;
       for (const attr of attrs) {
         const map = new Map<number, number>();
         scenarios.forEach((scenario) =>
