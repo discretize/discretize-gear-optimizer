@@ -115,8 +115,8 @@ importers:
         specifier: ^7.29.8
         version: 7.29.8
       '@cloudflare/workers-types':
-        specifier: ^5.20260804.1
-        version: 5.20260804.1
+        specifier: ^5.20260807.2
+        version: 5.20260807.2
       '@total-typescript/ts-reset':
         specifier: ^0.6.1
         version: 0.6.1
@@ -212,7 +212,7 @@ importers:
         version: 0.15.0
       wrangler:
         specifier: ^4.120.0
-        version: 4.120.0(@cloudflare/workers-types@5.20260804.1)
+        version: 4.120.0(@cloudflare/workers-types@5.20260807.2)
       yaml:
         specifier: ^2.9.0
         version: 2.9.0
@@ -440,8 +440,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@cloudflare/workers-types@5.20260804.1':
-    resolution: {integrity: sha512-B1dwxpN6e5RZXZkE5zpZj+ooNeNZ1mwavLIyHDYe10ojhlGTwDfe8sAl7R1mMXc1cyIsbr+jKVdvmMEyVcdTdg==}
+  '@cloudflare/workers-types@5.20260807.2':
+    resolution: {integrity: sha512-CgNzYla8toIY85fvi3ujo/vw9vI0OQdl0+wnekOx6O77WFly71n4WNArjzctWopn+t6S+1BfbxCrVg/uERuhKg==}
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -3993,7 +3993,7 @@ snapshots:
   '@cloudflare/workerd-windows-64@1.20260801.1':
     optional: true
 
-  '@cloudflare/workers-types@5.20260804.1': {}
+  '@cloudflare/workers-types@5.20260807.2': {}
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
@@ -7272,7 +7272,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20260801.1
       '@cloudflare/workerd-windows-64': 1.20260801.1
 
-  wrangler@4.120.0(@cloudflare/workers-types@5.20260804.1):
+  wrangler@4.120.0(@cloudflare/workers-types@5.20260807.2):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.1(unenv@2.0.0-rc.24)(workerd@1.20260801.1)
@@ -7283,7 +7283,7 @@ snapshots:
       unenv: 2.0.0-rc.24
       workerd: 1.20260801.1
     optionalDependencies:
-      '@cloudflare/workers-types': 5.20260804.1
+      '@cloudflare/workers-types': 5.20260807.2
       fsevents: 2.3.3
     transitivePeerDependencies:
       - bufferutil
