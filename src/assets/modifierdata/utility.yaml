@@ -217,7 +217,7 @@
   items:
 
     - id: snow-diamond-ornament
-      text: Snow Diamond Ornament / Decade Enhancement Station
+      text: Snow Diamond Ornament / Decade Enhancement Station / Leviathan Tempering Oil
       subText: (untested)
       modifiers:
         conversion:
@@ -231,8 +231,8 @@
           Ferocity: {Ferocity: 3%}
           Healing Power: {Healing Power: 3%}
       gw2id: 106880
-      displayIds: [106880, 98893]
-      priceIds: [106880, 98893]
+      displayIds: [106880, 98893, 109863]
+      priceIds: [106880, 98893, 109863]
       temporaryBuff: false
 
 - section: Writs
