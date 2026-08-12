@@ -4,7 +4,7 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import { comlink } from 'vite-plugin-comlink';
 import wasm from 'vite-plugin-wasm';
-import yamlImporter from './plugins/YAMLImporter';
+import yamlImporter from './plugins/YAMLImporter.js';
 
 const getCommitHash = () => {
   try {
@@ -36,9 +36,9 @@ export default defineConfig({
   build: {
     rolldownOptions: {
       input: {
-        // main: resolve(__dirname, 'src/pages/index/index.html'),
-        main: resolve(__dirname, 'index.html'),
-        build: resolve(__dirname, 'build/index.html'),
+        // main: resolve(import.meta.dirname, 'src/pages/index/index.html'),
+        main: resolve(import.meta.dirname, 'index.html'),
+        build: resolve(import.meta.dirname, 'build/index.html'),
       },
     },
     target: 'es2020',

@@ -84,11 +84,7 @@
 
     // typescript:
     "react/jsx-filename-extension": ["warn", { "extensions": [".jsx", ".tsx"] }],
-    "import/extensions": [
-      "warn",
-      "ignorePackages",
-      { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }
-    ],
+    "import/extensions": [ "off" ],
     // Being explicit about types is sometimes good
     "@typescript-eslint/no-inferrable-types": "off",
     // We want to enable these eventually
