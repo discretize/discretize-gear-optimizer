@@ -232,7 +232,7 @@
           Healing Power: {Healing Power: 3%}
       gw2id: 106880
       displayIds: [106880, 98893, 109863]
-      priceIds: [106880, 98893, 109863]
+      priceIds: [106880, 98893, 109863, 108839]
       temporaryBuff: false
 
 - section: Writs
