@@ -67,7 +67,9 @@
         defaultInput: ???
         quantityEntered: 100
         advancedUptimeSimulation:
-          correlation: false
+          correlation:
+            category: severance
+            group: true
       modifiers:
         attributes:
           Precision: [250, buff] # tested unconverted by Snappy Joe
