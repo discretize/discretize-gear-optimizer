@@ -470,4 +470,13 @@ export const buffsDict = [
   'reinforced-armor',
   'frost-aura',
   'luminarys-blessing',
+  'bloodlust-buff',
+  'cruelty-buff',
+  'perception-buff',
+  'corruption-buff',
+  'life-buff',
+  'bounty-buff',
+  'benevolence-buff',
+  'momentum-buff',
+  'stars-buff',
 ];
