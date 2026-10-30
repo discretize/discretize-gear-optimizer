@@ -61,7 +61,11 @@ interface AmountInputAutoProps {
   handleAmountChange: React.ComponentProps<typeof Autocomplete>['onInputChange'];
   value?: string;
   maxWidth?: number;
-  autoCompleteProps: WithRequired<Partial<React.ComponentProps<typeof Autocomplete>>, 'options'>;
+  autoCompleteProps: WithRequired<
+    Partial<React.ComponentProps<typeof Autocomplete<string, false, true, true>>>,
+    'options'
+  >;
+
   parseFn?: ParseFunction<unknown>;
 }
 
