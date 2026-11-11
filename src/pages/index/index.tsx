@@ -41,13 +41,13 @@ const IndexPage = () => {
       .
       <br />
       <br />
-      <i>July 15 patch:</i>
+      <i>Nov 10 patch:</i>
       <ul>
         <li>
-          <i>Modifiers: up to date</i>
+          <i>Modifiers: outdated</i>
         </li>
         <li>
-          <i>Templates: up to date</i>
+          <i>Templates: outdated</i>
         </li>
       </ul>
     </Trans>,
